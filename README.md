@@ -3,7 +3,7 @@ A Stellaris mod based on the Human Domestication Guide universe created by Glitc
 
 Instructions:  
 Copy contents of \mod into your Stellaris mod directory  
-Typically this is located at C:\Users\{username}\Documents\Paradox Interactive\Stellaris\mod  
+Typically this is located at C:\Users\\{username}\Documents\Paradox Interactive\Stellaris\mod  
 Enable mod "Domestication" in your Stellaris launcher  
 Enjoy!  
 
@@ -19,7 +19,7 @@ Domesticators get a +10 base bonus and +10% production bonus to consumer goods t
 
 In addition, I have included my takes on the Affini Empire and Terran Accord civilizations.  Neither of these in-game representations should be considered canon.  
 To use these civs, copy the contents of \custom_civs\user_empire_designs.txt into your user_empire_designs.txt file.  
-This file is typically located at C:\Users\{username}\Documents\Paradox Interactive\Stellaris\user_empire_designs.txt  
+This file is typically located at C:\Users\\{username}\Documents\Paradox Interactive\Stellaris\user_empire_designs.txt  
 
 
 I welcome any and all feedback and criticism from users as I strive to balance canon with game balance and the inherent limitations of Stellaris.  

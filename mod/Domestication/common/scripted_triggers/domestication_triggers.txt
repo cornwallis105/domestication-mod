@@ -1,0 +1,6 @@
+
+is_domesticator = {
+	OR = {
+		has_valid_civic = civic_domesticators
+	}
+}

@@ -1,0 +1,34 @@
+﻿l_english:
+
+ job_floret:0 "Floret"
+ job_floret_plural:0 "Florets"
+ job_floret_desc:0 "These domesticated sophonts live their lives in xenodrug-induced bliss, providing comfort and amusement to their owners."
+ job_floret_effect_desc:0 "£job_floret£ $job_floret_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and decrease £crime£ §Y$PLANET_CRIME_TITLE$§!"
+ mod_job_floret_add:0 "$job_floret$ Jobs"
+ mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
+ mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
+ 
+ civic_domesticators:0 "Domesticators"
+ civic_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
+ civic_tooltip_domesticators_effects:0 "Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$."
+ 
+ name_list_PLANT5:0 "Plantoid (Affini)"
+
+ mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
+ 
+ gov_domesticator_empire:0 "Verdant Empire"
+ gov_domesticator_empire_desc:0 "This hereditary monarchy is dedicated to the pacification and domestication of the lesser sophonts of the galaxy."
+ gov_domesticator_dictatorship:0 "Benevolent Protectorship"
+ gov_domesticator_dictatorship_desc:0 "This autocratic government is built on the benevolent domestication of xeno species by the firm vines of its Protector."
+ gov_domesticator_oligarchy:0 "Guardian Committee"
+ gov_domesticator_oligarchy_desc:0 "This oligarchic government is ruled over by a committee of those best suited to execute its mission of relieving the younger species of the galaxy of their political and personal responsibilities."
+ gov_domesticator_democracy:0 "Domestication Assembly"
+ gov_domesticator_democracy_desc:0 "This government is founded on the principles of direct democracy and an eternal charge to enlighten and domesticate the weary and suffering masses of the universe."
+ 
+ 
+ 
+ RT_SUMMERKING:0 "Summerking"
+ RT_SUMMERQUEEN:0 "Summerqueen"
+ RT_PROTECTOR:0 "Protector"
+ RT_HIGH_GARDENER:0 "High Gardener"
+ RT_HIGH_ADMIRAL:0 "High Admiral"

@@ -80,7 +80,7 @@
 	}
 	secondary_species={
 		class="ART"
-		portrait="art18"
+		portrait="bee"
 		name="Beeple"
 		plural="Beeples"
 		adjective="Beeple"

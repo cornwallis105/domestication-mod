@@ -4,6 +4,7 @@ A Stellaris mod based on the Human Domestication Guide universe created by Glitc
 Instructions:  
 Copy contents of \mod into your Stellaris mod directory  
 Typically this is located at C:\Users\\{username}\Documents\Paradox Interactive\Stellaris\mod  
+Replace the path= line in Domestication.mod with the path to the mod  
 Enable mod "Domestication" in your Stellaris launcher  
 Enjoy!  
 

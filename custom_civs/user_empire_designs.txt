@@ -95,7 +95,7 @@
 	name="Affini Compact"
 	adjective="Affini"
 	authority="auth_oligarchic"
-	government="gov_military_junta"
+	government="gov_domesticator_oligarchy"
 	planet_name="Affinius"
 	planet_class="pc_tropical"
 	system_name="Affin"

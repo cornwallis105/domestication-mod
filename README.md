@@ -18,7 +18,7 @@ Additional floret job slots are provided by higher-level planet capital building
 The bonus florets from Interstellar Franchising replace the normal bonus clerk jobs from this tradition.  
 Domesticators get a +10 base bonus and +10% production bonus to consumer goods to balance out the increased consumer goods upkeep from the Chemical Bliss living standard.  
 
-In addition, I have included my takes on the Affini Empire and Terran Accord civilizations.  Neither of these in-game representations should be considered canon.  
+In addition, I have included my takes on the Affini Compact and Terran Accord civilizations.  Neither of these in-game representations should be considered canon.  
 To use these civs, copy the contents of \custom_civs\user_empire_designs.txt into your user_empire_designs.txt file.  
 This file is typically located at C:\Users\\{username}\Documents\Paradox Interactive\Stellaris\user_empire_designs.txt  
 
@@ -27,8 +27,7 @@ I welcome any and all feedback and criticism from users as I strive to balance c
 
 To-do list:  
 
-Affini empire emblem  
-Bee sprites for Beeple  
+Affini Compact emblem  
 Domestication Wars - Create protectorate with Affini main species  
 Pop trait for Haustoric Implant to be automatically added to floret pops  
 Add happiness malus to planets with low/no florets?  
@@ -36,5 +35,7 @@ Domesticating leviathans
 Leader traits to represent a floret - small bonus and malus so this doesn't get too OP  
 Events!  
 
+Done list:  
+Bee sprites for Beeple - Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄]  
 
-Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄] 
+

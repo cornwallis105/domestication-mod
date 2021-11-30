@@ -35,3 +35,6 @@ Add happiness malus to planets with low/no florets?
 Domesticating leviathans  
 Leader traits to represent a floret - small bonus and malus so this doesn't get too OP  
 Events!  
+
+
+Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄] 

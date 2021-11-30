@@ -1,0 +1,15 @@
+portraits = {
+	bee = {
+        entity = "portrait_arthropoid_18_entity"
+        clothes_selector = "no_texture"
+        hair_selector = "no_texture"
+        greeting_sound = "cute_arthopoid_greetings"
+        character_textures = {
+                "gfx/models/portraits/bee/bee_01.dds"
+                "gfx/models/portraits/bee/bee_02.dds"
+                "gfx/models/portraits/bee/bee_03.dds"
+                "gfx/models/portraits/bee/bee_04.dds"
+                "gfx/models/portraits/bee/bee_05.dds"
+        }
+	}
+}

@@ -1,5 +1,5 @@
 # domestication-mod
-A Stellaris mod based on the Human Domestication Guide universe created by Glitchy Robo
+A Stellaris mod based on the Human Domestication Guide universe created by GlitchyRobo  
 
 Instructions:  
 Copy contents of \mod into your Stellaris mod directory  

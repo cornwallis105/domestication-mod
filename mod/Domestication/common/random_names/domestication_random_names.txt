@@ -1,0 +1,180 @@
+war_name_parts_list = {
+	key = "domestication_war_names"
+	parts = {
+		"Domestication_Campaign" = 1
+		"Pacification_Campaign" = 1
+		"Pacification_Program" = 2
+	}
+}
+
+# Subjugation - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = no
+				NOT = { has_government = gov_megacorporation }
+				NOT = { has_valid_civic = civic_domesticators }
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <subjugation_war_names>"
+}
+
+# Subjugation - Attacker Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = yes
+				NOT = { has_valid_civic = civic_domesticators }
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <subjugation_war_names>"
+}
+
+# Subjugation - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = no
+				NOT = { has_valid_civic = civic_domesticators }
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <subjugation_war_names>"
+}
+
+### DOMESTICATION WARS
+
+# Domestication - No Federations
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = no
+				NOT = { has_government = gov_megacorporation }
+				has_valid_civic = civic_domesticators
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <domestication_war_names>"
+}
+
+# Domestication - Attacker Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = yes
+				has_valid_civic = civic_domesticators
+			}
+			defender = {
+				has_federation = no
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <domestication_war_names>"
+}
+
+# Domestication - Defender Federation
+war_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 999
+			OR = {
+				using_war_goal = {
+					type = wg_subjugation
+					owner = attacker
+				}
+				using_war_goal = {
+					type = wg_megacorp_subjugate
+					owner = attacker
+				}
+			}
+			attacker = {
+				has_federation = no
+				has_valid_civic = civic_domesticators
+			}
+			defender = {
+				has_federation = yes
+			}
+		}
+	}
+	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"
+}

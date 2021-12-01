@@ -1,10 +1,4 @@
 
-
-
-###################
-# Specialist Jobs
-###################
-
 floret = {
 	category = worker
 	condition_string = WORKER_JOB_TRIGGER

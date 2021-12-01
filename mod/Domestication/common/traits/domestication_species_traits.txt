@@ -1,0 +1,15 @@
+trait_haustoric_implant = {
+	icon = "gfx/interface/icons/traits/trait_plantoid_budding.dds"
+	initial = no
+	modification = no
+	randomized = no
+
+	cost = 1
+	potential_crossbreeding_chance = 0.0
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+	modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		species_empire_size_mult = -0.05
+		pop_growth_speed = -0.75
+	}
+}

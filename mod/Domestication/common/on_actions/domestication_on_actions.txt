@@ -1,0 +1,10 @@
+# this = country
+on_monthly_pulse_country = {
+	events = {
+		tutorial.1337 #Artifact tutorial
+		cara.333 # ai checks if it can/wants to play with the caravaneers
+		clones.3 #Clone Army Origin pop creation
+		action.325 #Eminent Diplomats tradition
+		domestication.1 # Haustoric Implant pop modification
+	}
+}

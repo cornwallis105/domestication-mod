@@ -1,6 +1,30 @@
 
 is_domesticator = {
+	has_valid_civic = civic_domesticators
+}
+
+is_pop_domesticable = {
+	owner = { is_domesticator = yes }
+	has_citizenship_type = { type = citizenship_limited }
+	has_living_standard = { type = living_standard_chemical_bliss }
+}
+
+has_very_high_living_standard_type = {
+	OR = {												 
+		has_living_standard = { type = living_standard_utopian }
+		AND = {
+			has_living_standard = { type = living_standard_chemical_bliss }
+			NAND = {
+				owner = { is_domesticator = yes }
+				has_citizenship_type = { type = citizenship_limited }
+			}
+		}
+	}
+}
+
+has_high_living_standard_type = {
 	OR = {
-		has_valid_civic = civic_domesticators
+		has_living_standard = { type = living_standard_good }
+		is_pop_domesticable = yes
 	}
 }

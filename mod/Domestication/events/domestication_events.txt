@@ -8,8 +8,8 @@
 
 namespace = domestication
 
-## Add Haustoric Implant trait to floret pops
-country event = {
+## Add Haustoric Implant trait to floret pops - triggered on monthly pulse
+country_event = {
 	id = domestication.1
 	is_triggered_only = yes
 	hide_window = yes
@@ -37,6 +37,7 @@ country event = {
 				species = this
 				add_trait = trait_haustoric_implant
 				add_traits_at_start_of_list = yes
+				
 				effect = {
 					set_citizenship_type = {
 						country = root

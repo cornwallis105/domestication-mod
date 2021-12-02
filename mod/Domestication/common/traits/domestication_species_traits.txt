@@ -3,13 +3,15 @@ trait_haustoric_implant = {
 	initial = no
 	modification = no
 	randomized = no
+	
+	sorting_priority = 5
 
 	cost = 1
 	potential_crossbreeding_chance = 0.0
 	allowed_archetypes = { BIOLOGICAL LITHOID }
+	custom_tooltip = TRAIT_HAUSTORIC_IMPLANT_EFFECT
 	modifier = {
 		planet_jobs_unity_produces_mult = 0.05
 		species_empire_size_mult = -0.05
-		pop_growth_speed = -0.75
 	}
 }

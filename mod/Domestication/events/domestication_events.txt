@@ -16,6 +16,7 @@ country_event = {
 	
 	trigger = {
 		is_domesticator = yes
+		has_technology = tech_haustoric_implant
 		any_owned_planet = {
 			exists = owner
 			num_assigned_jobs = { 
@@ -68,4 +69,29 @@ country_event = {
 			}
 		}
 	}
+}
+
+## Inform player about Haustoric Implant
+country_event = {
+	id = domestication.2
+	title = domestication.2.name
+	desc =  domestication.2.desc
+	picture = GFX_evt_society_research
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	hide_window = no
+	
+	trigger = {
+		is_domesticator = yes
+		has_technology = tech_haustoric_implant
+	}
+	
+	option = {
+		name = domestication.2.a
+		trigger = {
+			always = yes
+		}
+	}
+
 }

@@ -6,25 +6,67 @@ is_domesticator = {
 is_pop_domesticable = {
 	owner = { is_domesticator = yes }
 	has_citizenship_type = { type = citizenship_limited }
-	has_living_standard = { type = living_standard_chemical_bliss }
 }
 
-has_very_high_living_standard_type = {
-	OR = {												 
-		has_living_standard = { type = living_standard_utopian }
-		AND = {
-			has_living_standard = { type = living_standard_chemical_bliss }
-			NAND = {
-				owner = { is_domesticator = yes }
-				has_citizenship_type = { type = citizenship_limited }
+#has_very_high_living_standard_type = {
+#	OR = {												 
+#		has_living_standard = { type = living_standard_utopian }
+#		AND = {
+#			has_living_standard = { type = living_standard_chemical_bliss }
+#			NAND = {
+#				owner = { is_domesticator = yes }
+#				has_citizenship_type = { type = citizenship_limited }
+#			}
+#		}
+#	}
+#}
+
+#has_high_living_standard_type = {
+#	OR = {
+#		has_living_standard = { type = living_standard_good }
+#		is_pop_domesticable = yes
+#	}
+#}
+
+complex_specialist_job_check_trigger = {
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			NOT = { has_trait = trait_mechanical }
+			AND = {
+				owner = { has_technology = tech_droid_workers }
+				owner = { NOT = { has_policy_flag = ai_outlawed } }
 			}
 		}
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 }
 
-has_high_living_standard_type = {
-	OR = {
-		has_living_standard = { type = living_standard_good }
-		is_pop_domesticable = yes
+soldier_job_check_trigger = {
+	custom_tooltip = SOLDIER_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		is_being_purged = no
+		is_being_assimilated = no
+		NOT = {
+			has_military_service_type = {
+				type = military_service_none
+			}
+		}
+		NOT = { has_trait = trait_haustoric_implant }
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		NAND = {
+			has_citizenship_type = { type = citizenship_slavery }
+			OR = {
+				has_slavery_type = { type = slavery_livestock }
+				has_slavery_type = { type = slavery_matrix }
+			}
+		}
+		if = {
+			limit = {
+				divinity_right_to_work_job_check_trigger_exempt = no
+			}
+			divinity_right_to_work_job_check_trigger_worker = yes
+		}
 	}
 }

@@ -1,0 +1,97 @@
+############################
+#
+# Domestication Events
+#
+# Written by Colleen Arkadija
+#
+############################
+
+namespace = domestication
+
+## Add Haustoric Implant trait to floret pops - triggered on monthly pulse
+country_event = {
+	id = domestication.1
+	is_triggered_only = yes
+	hide_window = yes
+	
+	trigger = {
+		is_domesticator = yes
+		has_technology = tech_haustoric_implant
+		any_owned_planet = {
+			exists = owner
+			num_assigned_jobs = { 
+				job = floret
+				value >= 1
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				has_job = floret
+				NOT = {
+					pop_has_trait = trait_haustoric_implant
+				}
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_haustoric_implant
+				add_traits_at_start_of_list = yes
+				
+				effect = {
+					set_citizenship_type = {
+						country = root
+						type = citizenship_limited
+						cooldown = no
+					}
+					set_living_standard = {
+						country = root
+						type = living_standard_chemical_bliss
+						cooldown = no
+					}
+					set_military_service_type = {
+						country = root
+						type = military_service_none
+						cooldown = no
+					}
+					set_population_controls = {
+						country = root
+						type = yes
+						cooldown = no
+					}
+					set_colonization_controls = {
+						country = root
+						type = yes
+						cooldown = no
+					}
+				}
+			}
+		}
+	}
+}
+
+## Inform player about Haustoric Implant
+country_event = {
+	id = domestication.2
+	title = domestication.2.name
+	desc =  domestication.2.desc
+	picture = GFX_evt_society_research
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	hide_window = no
+	
+	trigger = {
+		is_domesticator = yes
+		has_technology = tech_haustoric_implant
+	}
+	
+	option = {
+		name = domestication.2.a
+		trigger = {
+			always = yes
+		}
+	}
+
+}

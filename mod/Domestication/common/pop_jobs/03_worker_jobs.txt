@@ -16,6 +16,10 @@ clerk = {
 	}
 
 	possible_precalc = can_fill_worker_job
+	
+	possible = {
+		NOT = { has_trait = trait_haustoric_implant }
+	}
 
 	planet_modifier = {
 		planet_amenities_add = 2
@@ -121,10 +125,8 @@ clerk = {
 			can_take_servant_job = yes
 		}
 		modifier = {
-			factor = 0.05
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			factor = 0.01
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -164,6 +166,7 @@ technician = {
 		owner = {
 			is_gestalt = no
 		}
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 
 	resources = {
@@ -310,9 +313,7 @@ technician = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -341,6 +342,7 @@ miner = {
 		owner = {
 			is_gestalt = no
 		}
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 
 	resources = {
@@ -464,9 +466,7 @@ miner = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -493,6 +493,7 @@ crystal_miner = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_gestalt = no }
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 
 	resources = {
@@ -592,9 +593,7 @@ crystal_miner = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -618,6 +617,10 @@ gas_extractor = {
 	}
 
 	possible_precalc = can_fill_worker_job
+	
+	possible = {
+		NOT = { has_trait = trait_haustoric_implant }
+	}
 
 	resources = {
 		category = planet_miners
@@ -716,9 +719,7 @@ gas_extractor = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -742,6 +743,10 @@ mote_harvester = {
 	}
 
 	possible_precalc = can_fill_worker_job
+	
+	possible = {
+		NOT = { has_trait = trait_haustoric_implant }
+	}
 
 	resources = {
 		category = planet_miners
@@ -840,9 +845,7 @@ mote_harvester = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -871,6 +874,7 @@ farmer = {
 		owner = {
 			is_gestalt = no
 		}
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 
 	resources = {
@@ -1060,9 +1064,7 @@ farmer = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -1228,9 +1230,7 @@ soldier = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -1255,6 +1255,10 @@ preacher = {
 	}
 
 	possible_precalc = can_fill_worker_job
+	
+	possible = {
+		NOT = { has_trait = trait_haustoric_implant }
+	}
 
 	resources = {
 		category = planet_priests
@@ -1392,9 +1396,7 @@ preacher = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -1515,6 +1517,10 @@ scrap_miner = {
 	}
 
 	possible_precalc = can_fill_worker_job
+	
+	possible = {
+		NOT = { has_trait = trait_haustoric_implant }
+	}
 
 	resources = {
 		category = planet_miners
@@ -1626,9 +1632,7 @@ scrap_miner = {
 		
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
@@ -1658,6 +1662,7 @@ angler = {
 			is_gestalt = no
 			is_anglers_empire = yes
 		}
+		NOT = { has_trait = trait_haustoric_implant }
 	}
 
 	resources = {
@@ -1723,9 +1728,7 @@ angler = {
 		}
 		modifier = {
 			factor = 0.4
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5

@@ -1,10 +1,4 @@
 
-
-
-###################
-# Specialist Jobs
-###################
-
 floret = {
 	category = worker
 	condition_string = WORKER_JOB_TRIGGER
@@ -23,7 +17,6 @@ floret = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_domesticator = yes }
-		has_living_standard = { type = living_standard_chemical_bliss }
 		has_citizenship_type = { type = citizenship_limited }
 	}
 
@@ -81,7 +74,7 @@ floret = {
 	
 	triggered_planet_modifier = {
 		potential = {
-			owner = { has_technology = tech_subdermal_stimulation }
+			has_trait = trait_haustoric_implant
 		}
 		modifier = {
 			planet_amenities_add = 1
@@ -93,6 +86,10 @@ floret = {
 		
 		modifier = {
 			factor = 0.25
+			always = yes
+		}
+		modifier = {
+			factor = 0.25
 			has_trait = trait_repugnant
 		}
 		modifier = {
@@ -100,10 +97,8 @@ floret = {
 			has_trait = trait_charismatic
 		}
 		modifier = {
-			factor = 0.25
-			owner = { is_domesticator = yes }
-			has_living_standard = { type = living_standard_chemical_bliss }
-			has_citizenship_type = { type = citizenship_limited }
+			factor = 10
+			has_trait = trait_haustoric_implant
 		}
 	}
 }

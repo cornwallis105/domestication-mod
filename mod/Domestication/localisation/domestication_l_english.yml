@@ -8,6 +8,10 @@
  mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
  mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
  
+ trait_haustoric_implant:0 "Haustoric Implant"
+ trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
+ TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAvailable species rights are restricted"
+ 
  civic_domesticators:0 "Domesticators"
  civic_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
  civic_tooltip_domesticators_effects:0 "Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$."
@@ -25,10 +29,22 @@
  gov_domesticator_democracy:0 "Domestication Assembly"
  gov_domesticator_democracy_desc:0 "This government is founded on the principles of direct democracy and an eternal charge to enlighten and domesticate the weary and suffering masses of the universe."
  
- 
- 
  RT_SUMMERKING:0 "Summerking"
  RT_SUMMERQUEEN:0 "Summerqueen"
  RT_PROTECTOR:0 "Protector"
  RT_HIGH_GARDENER:0 "High Gardener"
  RT_HIGH_ADMIRAL:0 "High Admiral"
+ 
+ SPECIES_BLISS_HAUSTORIC_IMPLANT:0 "Every floret is entitled to a robust xenodrug regimen."
+ SPECIES_CITIZEN_HAUSTORIC_IMPLANT:0 "Florets are not afforded political rights within our empire."
+ SPECIES_MILITARY_HAUSTORIC_IMPLANT:0 "Florets must be kept safe at all costs. Subjecting them to military service would be unconscionable."
+ SPECIES_STERILE_HAUSTORIC_IMPLANT:0 "The Haustoric Implant invariably renders florets sterile."
+ SPECIES_COLONIZE_HAUSTORIC_IMPLANT:0 "Florets cannot be allowed to venture into the dangerous galaxy unaccompanied by their owners."
+ DOMESTICATOR_POP_CONTROLS_NOT_ALLOWED:0 "Cannot enable population controls for non-implanted florets."
+ 
+ tech_haustoric_implant:0 "Haustoric Implants"
+ tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they're so much cuter when they can't even think."
+ 
+ domestication.2.name:0 "Haustoric Implants"
+ domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
+ domestication.2.a:0 "Wonderful!"

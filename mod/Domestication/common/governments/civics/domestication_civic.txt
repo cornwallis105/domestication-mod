@@ -29,6 +29,7 @@
 
 civic_domesticators = {
 	description = "civic_tooltip_domesticators_effects"
+	modification = no # Can't be added/removed after game start
 	potential = {
 		ethics = {
 			OR = {
@@ -48,12 +49,102 @@ civic_domesticators = {
 		}
 	}
 	modifier = {
-		country_consumer_goods_produces_mult = 0.1
-		country_base_consumer_goods_produces_add = 10
+		country_consumer_goods_produces_mult = 0.05
 		job_floret_per_pop = 0.125
 	}
 	random_weight = {
-		base = 1
+		base = 0
 	}
 	ai_playable = { always = no }
+}
+
+## Modified old civics:
+
+civic_slaver_guilds = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_authoritarian
+				value = ethic_authoritarian
+				value = ethic_fanatic_authoritarian
+			}
+		}
+		civics = { NOR = { 
+						value = civic_pleasure_seekers
+						value = civic_domesticators
+				} 
+		}
+	}
+	random_weight = { base = 5 }
+	modifier = {
+		planet_jobs_slave_produces_mult = 0.10
+		country_pop_enslaved_mult = 0.35
+	}
+}
+
+civic_warrior_culture = {
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		ethics = {
+			OR = {
+				text = civic_tooltip_militarist
+				value = ethic_militarist
+				value = ethic_fanatic_militarist
+			}
+		}
+		civics = {
+			NOR = {
+				value = civic_pleasure_seekers
+				value = civic_domesticators
+			}
+		}
+	}
+	random_weight = { base = 5 }
+	description = "civic_tooltip_warrior_culture_effects"
+	modifier = {
+		army_damage_mult = 0.20
+	}
+}
+
+civic_shared_burden = {
+	playable = { host_has_dlc = "Megacorp" }
+	ai_playable = { host_has_dlc = "Megacorp" }
+	potential = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		authority = { NOT = { value = auth_corporate } }
+	}
+	possible = {
+		ethics = {
+			value = ethic_fanatic_egalitarian
+			NOR = {
+				text = civic_tooltip_not_xenophobe
+				value = ethic_xenophobe
+				value = ethic_fanatic_xenophobe
+			}
+		}
+		civics = {
+			NOR = { 
+				value = civic_technocracy 
+				value = civic_pleasure_seekers
+				value = civic_domesticators
+			}
+
+		}
+	}
+	modifier = {
+		planet_stability_add = 5
+		pop_demotion_time_mult = -0.45
+	}
+	random_weight = {
+		base = 1 # Should be fairly rare
+	}
+
+	description = civic_tooltip_shared_burden_effects
 }

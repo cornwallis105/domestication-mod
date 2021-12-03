@@ -26,16 +26,17 @@ This file is typically located at C:\Users\\{username}\Documents\Paradox Interac
 I welcome any and all feedback and criticism from users as I strive to balance canon with game balance and the inherent limitations of Stellaris.  
 
 To-do list:  
-
-Affini Compact emblem  
-Domestication Wars - Create protectorate with Affini main species  
-Pop trait for Haustoric Implant to be automatically added to floret pops  
+Affini Compact emblem.  
+Domestication Wars - Create protectorate with Affini main species.  
 Add happiness malus to planets with low/no florets?  
-Domesticating leviathans  
-Leader traits to represent a floret - small bonus and malus so this doesn't get too OP  
+Domesticating leviathans.  
+Leader traits to represent a floret - small bonus and malus so this doesn't get too OP.  
 Events!  
+Domestication events for various xenos found during exploration.  
+Universe Ascension Project.  
 
 Done list:  
 Bee sprites for Beeple - Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄]  
+Pop trait for Haustoric Implant to be automatically added to floret pops.  
 
 

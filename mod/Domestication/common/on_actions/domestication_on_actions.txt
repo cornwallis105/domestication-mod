@@ -8,3 +8,21 @@ on_monthly_pulse_country = {
 		domestication.1 # Haustoric Implant pop modification
 	}
 }
+
+on_tech_increased = {
+	events = {
+		tutorial.6
+		tutorial.64
+		tutorial.73
+		anomaly.1193
+		action.56
+		apoc.300
+		distar.12000
+		distar.1085
+		distar.10903
+		ancrel.4008
+		aquatics.190 #Dragon Material Study
+		aquatics.250 #Dragon Communications Study
+		domestication.2
+	}
+}

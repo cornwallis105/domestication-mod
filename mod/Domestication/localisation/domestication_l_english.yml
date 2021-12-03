@@ -17,6 +17,8 @@
  civic_tooltip_domesticators_effects:0 "Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$."
  
  name_list_PLANT5:0 "Plantoid (Affini)"
+ 
+ FLAG_CATEGORY_hdg:0 "HDG"
 
  mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
  

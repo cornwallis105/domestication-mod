@@ -68,7 +68,7 @@
 	ship_prefix=""
 	species={
 		class="PLANT"
-		portrait="pla14"
+		portrait="fun1"
 		name="Affini"
 		plural="Affini"
 		adjective="Affini"
@@ -121,7 +121,7 @@
 	ruler={
 		gender=indeterminable
 		name="Rizta Irminsul, 5th Bloom"
-		portrait="pla14"
+		portrait="fun1"
 		texture=0
 		hair=0
 		clothes=0

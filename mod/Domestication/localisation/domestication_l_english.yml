@@ -50,3 +50,7 @@
  domestication.2.name:0 "Haustoric Implants"
  domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
  domestication.2.a:0 "Wonderful!"
+ 
+ domesticated_empire_1: "[domesticated_regime.GetAdjective] Protectorate"
+ domesticated_empire_2: "[domesticated_regime.GetAdjective] Administration"
+ domesticated_empire_3: "[domesticated_regime.GetAdjective] Commonwealth"

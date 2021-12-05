@@ -1,0 +1,4 @@
+﻿l_default:
+ format.domestic.1: "[This.GetSpeciesName] <domesticators>"
+ format.domesticated.1: "[This.GetSpeciesName] <domesticated1>"
+ format.domesticated.2: "<domesticated2> of [This.Capital.GetName]"

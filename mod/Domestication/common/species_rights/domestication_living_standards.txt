@@ -21,6 +21,9 @@ living_standard_chemical_bliss = {
 			}
 		}
 		planet_jobs_produces_mult = -0.6
+		pop_cat_ruler_political_power = 0
+		pop_cat_specialist_political_power = 0
+		pop_cat_worker_political_power = 0
 		custom_tooltip = living_standard_chemical_bliss_happiness_tooltip
 	}
 	
@@ -177,6 +180,7 @@ living_standard_utopian = {
 				OR = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
+					has_valid_civic = civic_domesticators
 				}
 			}
 		}

@@ -130,7 +130,7 @@ tech_haustoric_implant = {
 	tier = 2
 	category = { biology }
 	prerequisites = { "tech_genome_mapping" }
-	weight = @tier2weight2
+	weight = @tier2weight1
 	is_rare = yes
 
 	# unlocks Chemical Bliss living standard
@@ -144,7 +144,7 @@ tech_haustoric_implant = {
 	}
 
 	weight_modifier = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 1.25
 			NOR = {

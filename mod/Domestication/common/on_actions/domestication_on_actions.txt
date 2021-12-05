@@ -26,3 +26,14 @@ on_tech_increased = {
 		domestication.2
 	}
 }
+
+# This = subject
+# From = subject's overlord
+on_becoming_subject = {
+	events = {
+		action.214 # Join Overlord's Federation if laws permit
+		crisis.5020 # Menace Objective - Vassalise Empires
+		emperor.80 # New vassal joins Imperium
+		domestication.3 # change gov't to match domesticator overlord
+	}
+}

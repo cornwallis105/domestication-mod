@@ -1,7 +1,7 @@
 "Terran Accord"
 ={
 	key="Terran Accord"
-	ship_prefix="TAS"
+	ship_prefix="TCNS"
 	species={
 		class="HUM"
 		portrait="human"

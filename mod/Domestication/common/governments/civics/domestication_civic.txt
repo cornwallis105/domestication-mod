@@ -29,7 +29,7 @@
 
 civic_domesticators = {
 	description = "civic_tooltip_domesticators_effects"
-	modification = no # Can't be added/removed after game start
+	#modification = no # Can't be added/removed after game start
 	potential = {
 		ethics = {
 			OR = {

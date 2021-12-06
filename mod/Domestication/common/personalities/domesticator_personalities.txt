@@ -114,7 +114,7 @@ honorbound_warriors = {
 		weight = 50
 		modifier = {
 			factor = 0.5
-			has_valid_civic = "civic_domesticators"
+			is_domesticator_or_protectorate = yes
 		}
 	}
 }
@@ -175,7 +175,7 @@ fanatic_befrienders = {
 				has_trait = "trait_solitary"
 				has_trait = "trait_venerable"
 			}
-			has_valid_civic = civic_domesticators
+			is_domesticator_or_protectorate = yes
 		}
 		
 	}

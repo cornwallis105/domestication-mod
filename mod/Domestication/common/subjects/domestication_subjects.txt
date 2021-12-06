@@ -69,7 +69,7 @@ vassal = {
 		if = {
 			limit = {
 				from = { 
-					has_valid_civic = civic_domesticators 
+					is_domesticator = yes
 				} 
 			}
 			set_subject_of = {
@@ -224,7 +224,7 @@ protectorate = {
 		if = {
 			limit = {
 				from = { 
-					has_valid_civic = civic_domesticators 
+					is_domesticator = yes
 				} 
 			}
 			set_subject_of = {
@@ -354,7 +354,7 @@ domesticated_protectorate = {
 	potential = {
 		from = { 
 			is_country_type = default 
-			has_valid_civic = civic_domesticators
+			is_domesticator = yes
 		}
 		has_been_declared_crisis = no
 	}
@@ -384,7 +384,7 @@ domesticated_protectorate = {
 		if = {
 			limit = {
 				from = { 
-					NOT = { has_valid_civic = civic_domesticators } 
+					is_domesticator = no
 				}
 			}
 			set_subject_of = {

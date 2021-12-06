@@ -16,7 +16,7 @@ living_standard_chemical_bliss = {
 		potential = {
 			NAND = {
 				exists = owner
-				owner = { is_domesticator = yes }
+				owner = { is_domesticator_or_protectorate = yes }
 				has_trait = trait_haustoric_implant
 			}
 		}
@@ -32,7 +32,7 @@ living_standard_chemical_bliss = {
 			OR = {
 				has_technology = tech_subdermal_stimulation
 				has_technology = tech_haustoric_implant
-				## is_domesticator = yes ## Enables Chemical Bliss at game start for Domesticators
+				## is_domesticator_or_protectorate = yes ## Enables Chemical Bliss at game start for Domesticators
 			} 
 		}
 		NOT = { has_trait = trait_hive_mind }
@@ -180,7 +180,7 @@ living_standard_utopian = {
 				OR = {
 					has_ethic = ethic_egalitarian
 					has_ethic = ethic_fanatic_egalitarian
-					has_valid_civic = civic_domesticators
+					is_domesticator_or_protectorate = yes
 				}
 			}
 		}

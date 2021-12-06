@@ -155,7 +155,7 @@ building_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 1
@@ -253,7 +253,7 @@ building_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_valid_civic = civic_domesticators }
+			is_domesticator_or_protectorate = ues
 		}
 		text = job_floret_effect_desc
 	}
@@ -406,7 +406,7 @@ building_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 1
@@ -526,7 +526,7 @@ building_major_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_valid_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}
@@ -685,7 +685,7 @@ building_system_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 2
@@ -805,7 +805,7 @@ building_system_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_valid_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}
@@ -939,7 +939,7 @@ building_hab_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 1
@@ -1010,7 +1010,7 @@ building_hab_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_valid_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}
@@ -1226,7 +1226,7 @@ building_hab_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 2
@@ -1332,7 +1332,7 @@ building_hab_major_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_valid_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}
@@ -1478,7 +1478,7 @@ building_imperial_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			job_floret_add = 3
@@ -1599,7 +1599,7 @@ building_imperial_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_civic = civic_domesticators }
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}
@@ -1648,7 +1648,7 @@ building_commercial_zone = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator = no
+				is_domesticator_or_protectorate = no
 			}
 		}
 		modifier = {
@@ -1686,7 +1686,7 @@ building_commercial_zone = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator = yes
+				is_domesticator_or_protectorate = yes
 			}
 		}
 		modifier = {
@@ -1698,7 +1698,7 @@ building_commercial_zone = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator = yes
+				is_domesticator_or_protectorate = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -1783,7 +1783,7 @@ building_commercial_megaplex = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator = no
+				is_domesticator_or_protectorate = no
 			}
 		}
 		modifier = {
@@ -1815,7 +1815,7 @@ building_commercial_megaplex = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator = yes
+				is_domesticator_or_protectorate = yes
 			}
 		}
 		modifier = {
@@ -1828,7 +1828,7 @@ building_commercial_megaplex = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator = yes
+				is_domesticator_or_protectorate = yes
 			}
 		}
 		text = job_floret_effect_desc

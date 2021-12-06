@@ -19,7 +19,7 @@ population_control_yes = {
 		from = {
 			NAND = { 
 				has_policy_flag = population_controls_not_allowed 
-				is_domesticator = no
+				is_domesticator_or_protectorate = no
 			}
 		}
 		if = {

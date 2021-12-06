@@ -65,7 +65,7 @@ citizenship_full = {
 		custom_tooltip = {
 			fail_text = domesticated_species_no_citizenship	
 			from = {
-				is_domesticator = no
+				is_domesticator_or_protectorate = no
 			}
 			NOT = { is_same_species = from }
 		}

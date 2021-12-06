@@ -73,11 +73,13 @@ civic_slaver_guilds = {
 				value = ethic_fanatic_authoritarian
 			}
 		}
-		civics = { NOR = { 
-						value = civic_pleasure_seekers
-						value = civic_domesticators
-				} 
+		civics = { 
+			NOR = { 
+				value = civic_pleasure_seekers
+				value = civic_domesticators
+			} 
 		}
+		is_domesticator_or_protectorate = no
 	}
 	random_weight = { base = 5 }
 	modifier = {
@@ -105,6 +107,7 @@ civic_warrior_culture = {
 				value = civic_domesticators
 			}
 		}
+		is_domesticator_or_protectorate = no
 	}
 	random_weight = { base = 5 }
 	description = "civic_tooltip_warrior_culture_effects"
@@ -135,8 +138,8 @@ civic_shared_burden = {
 				value = civic_pleasure_seekers
 				value = civic_domesticators
 			}
-
 		}
+		is_domesticator_or_protectorate = no
 	}
 	modifier = {
 		planet_stability_add = 5

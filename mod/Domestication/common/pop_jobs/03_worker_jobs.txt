@@ -317,7 +317,7 @@ technician = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -470,7 +470,7 @@ miner = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -597,7 +597,7 @@ crystal_miner = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -723,7 +723,7 @@ gas_extractor = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -849,7 +849,7 @@ mote_harvester = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -1068,7 +1068,7 @@ farmer = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -1234,7 +1234,7 @@ soldier = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -1400,7 +1400,7 @@ preacher = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -1636,7 +1636,7 @@ scrap_miner = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
@@ -1732,7 +1732,7 @@ angler = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator = yes }
+			owner = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}

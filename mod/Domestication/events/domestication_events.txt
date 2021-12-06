@@ -15,7 +15,7 @@ country_event = {
 	hide_window = yes
 	
 	trigger = {
-		is_domesticator = yes
+		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
 		any_owned_planet = {
 			exists = owner
@@ -83,7 +83,7 @@ country_event = {
 	hide_window = no
 	
 	trigger = {
-		is_domesticator = yes
+		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
 	}
 	
@@ -106,7 +106,7 @@ country_event = {
 
 	trigger = {
 		from = {
-			has_valid_civic = civic_domesticators
+			is_domesticator = yes
 		}
 		this = {
 			NOT = { has_country_flag = flag_domesticated_protectorate }
@@ -114,6 +114,8 @@ country_event = {
 	}
 
 	immediate = {
+		set_country_flag = flag_domesticated_protectorate
+	
 		from = {
 			save_event_target_as = domesticator_overlord
 			species = {
@@ -137,14 +139,15 @@ country_event = {
 		
 		change_government = {
 		#	authority = auth_oligarchic
-			civics = { civic = civic_domesticators civic = random }
+			civics = random
 		#	#cooldown = no (default: yes)
-		#	#remove_invalid_civics = yes (default: no)
+			remove_invalid_civics = yes
 		}
-		set_name = random
-		change_dominant_species = { species = event_target:overlord_species }
 		
 		#force_add_civic = civic_domesticators
+		
+		set_name = random
+		change_dominant_species = { species = event_target:overlord_species }
 		
 		set_graphical_culture = event_target:domesticator_overlord
 		set_city_graphical_culture = event_target:domesticator_overlord
@@ -246,7 +249,7 @@ country_event = {
 			}
 		}
 		
-		set_country_flag = flag_domesticated_protectorate
+		
 	}
 }
 
@@ -623,5 +626,22 @@ planet_event = {
 				}
 			}
 		}
+	}
+}
+
+## Remove flag_domesticated_protectorate from country if no longer a subject
+country_event = {
+	id = domestication.6
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = flag_domesticated_protectorate
+	}
+
+	immediate = {
+		remove_country_flag = flag_domesticated_protectorate
+		
 	}
 }

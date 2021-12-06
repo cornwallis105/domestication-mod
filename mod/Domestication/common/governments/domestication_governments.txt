@@ -36,7 +36,7 @@ gov_domesticator_empire = {
 
 	possible = {
 		has_authority = auth_imperial
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -53,7 +53,7 @@ gov_domesticator_dictatorship = {
 
 	possible = {
 		has_authority = auth_dictatorial
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -70,7 +70,7 @@ gov_domesticator_oligarchy = {
 
 	possible = {
 		has_authority = auth_oligarchic
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -87,7 +87,7 @@ gov_domesticator_democracy = {
 
 	possible = {
 		has_authority = auth_democratic
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {

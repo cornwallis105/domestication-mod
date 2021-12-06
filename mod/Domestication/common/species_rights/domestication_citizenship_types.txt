@@ -58,9 +58,16 @@ citizenship_full = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_CITIZEN_HAUSTORIC_IMPLANT
-			not = {
+			NOT = {
 				has_trait = trait_haustoric_implant
 			}
+		}
+		custom_tooltip = {
+			fail_text = domesticated_species_no_citizenship	
+			from = {
+				is_domesticator = no
+			}
+			NOT = { is_same_species = from }
 		}
 	}
 	ai_will_do = {

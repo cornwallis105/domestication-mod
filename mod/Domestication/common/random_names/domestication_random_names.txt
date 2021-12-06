@@ -134,7 +134,7 @@ war_name_format = {
 			attacker = {
 				has_federation = no
 				NOT = { has_government = gov_megacorporation }
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = no
@@ -162,7 +162,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = yes
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = no
@@ -190,7 +190,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = no
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = yes
@@ -221,7 +221,7 @@ war_name_format = {
 			attacker = {
 				has_federation = no
 				NOT = { has_government = gov_megacorporation }
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = no
@@ -249,7 +249,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = yes
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = no
@@ -277,7 +277,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = no
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = yes

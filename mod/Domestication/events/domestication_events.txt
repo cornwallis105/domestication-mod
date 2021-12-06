@@ -151,102 +151,108 @@ country_event = {
 		
 		change_country_flag = random
 		
-	}
-}
-
-planet_event = {
-	id = domestication.5
-	hide_window = yes
-
-	is_triggered_only = yes
-	
-	trigger = {
-		# if less than 2 affini pops on planet
-		count_owned_pop = {
+		## Add leaders
+		while = {
+			count = 4
+			create_leader = {
+				class = scientist
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 1
+			create_leader = {
+				class = admiral
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 2
+			create_leader = {
+				class = governor
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		
+		assign_leader = last_created_leader
+		
+		## Remove old leaders
+		every_owned_leader = {
 			limit = {
-				is_same_species = from.owner_species
+				NOT = { is_same_species = this.owner_species }
 			}
-			count < 2
-		}
-	}
-	
-	# this/root = planet
-	# from = affini compact
-	
-	immediate = {
-		#this.country.overlord = {
-		#	save_event_target_as = overlord_empire
-		#}
-		
-		from = {
-			owner_species = {
-				save_event_target_as = overlord_species
+			kill_leader = {
+				fire = yes
 			}
 		}
 		
-		from = {
-			random_owned_planet = {
-				limit = {
-					count_owned_pop = {
-						limit = {
-							is_same_species = event_target:overlord_species
-							can_live_on_planet = root
-							OR = {
-								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
-							}
-							
-						}
-						count > 2
-					}
-				}
-				save_event_target_as = overlord_planet
-				while = {
-					count = 2
-					random_owned_pop = {
-						limit = {
-							is_same_species = event_target:overlord_species
-							can_live_on_planet = root
-							OR = {
-								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
-							}
-						}
-						resettle_pop = {
-							pop = this
-							planet = root
-						}
-					}
-				}
-				
-				root = {
-					while = {
-						count = 2
-						random_owned_pop = {
-							limit = {
-								NOT = { is_same_species = event_target:overlord_species }
-								can_live_on_planet = event_target:overlord_planet
-							}
-							resettle_pop = {
-								pop = this
-								planet = event_target:overlord_planet
-							}
-						}
-					}
+		## Destroy all military fleets
+		every_owned_ship = {
+			limit = {
+				is_civilian = no
+				NOT = { is_ship_class = shipclass_starbase }
+			}
+			delete_ship = this
+		}
+		
+		## hardcoded values to represent scrap from scuttling the fleet
+		
+		add_resource = { minerals = 500 }
+		add_resource = { alloys = 1000 }
+		
+		event_target:domesticator_overlord = {
+			add_resource = { minerals = 500 }
+			add_resource = { alloys = 1000 }
+		}
+		
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+		
+		## Outlaw Slavery and purges
+		set_policy = {
+			policy = slavery
+			option = slavery_not_allowed
+			cooldown = yes
+		}
+		set_policy = {
+			policy = purge
+			option = purge_not_allowed
+			cooldown = yes
+		}
+
+		## Set citizenship rights for non-affini in country
+		every_owned_species = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+				OR = {
+					has_citizenship_type = { country = root type = citizenship_full }
+					has_citizenship_type = { country = root type = citizenship_slavery }
 				}
 			}
+			set_citizenship_type = {
+				country = root
+				type = citizenship_limited
+				cooldown = yes
+			}
 		}
+		
+		set_country_flag = flag_domesticated_protectorate
 	}
 }
 
-## Government changes for new Domesticated Protectorate
+## Delete old subject and replace with new country
 ## this/root = subject, from = overlord
+## Not currently used, but I'm keeping this in case I need to switch to this implementation
 country_event = {
 	id = domestication.4
 	hide_window = yes
@@ -292,7 +298,6 @@ country_event = {
 				authority = auth_oligarchic
 				ethos = { ethic = ethic_fanatic_xenophile ethic = ethic_militarist }
 				effect = { 
-					log_error = "Starting country effects"
 					copy_ethos_and_authority = fromfrom
 					save_event_target_as = new_domesticated_protectorate
 					
@@ -307,7 +312,6 @@ country_event = {
 					}
 					#establish_contact = { who = event_target:domesticator_overlord }
 					establish_communications_no_message = event_target:domesticator_overlord
-					log_error = "Comms established"
 				}
 			}
 		}
@@ -523,12 +527,101 @@ country_event = {
 		## set civics to match
 		
 		last_created_country = {
-			log_error = "About to vassalize"
 			set_subject_of = { 
 				who = event_target:domesticator_overlord 
 				subject_type = vassal 
 			}
-			log_error = "Vassalized"
+		}
+	}
+}
+
+planet_event = {
+	id = domestication.5
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		# if less than 2 affini pops on planet
+		count_owned_pop = {
+			limit = {
+				is_same_species = from.owner_species
+			}
+			count < 2
+		}
+	}
+	
+	# this/root = planet
+	# from = affini compact
+	
+	immediate = {
+		#this.country.overlord = {
+		#	save_event_target_as = overlord_empire
+		#}
+		
+		from = {
+			owner_species = {
+				save_event_target_as = overlord_species
+			}
+		}
+		
+		from = {
+			random_owned_planet = {
+				limit = {
+					count_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+							
+						}
+						count > 2
+					}
+				}
+				save_event_target_as = overlord_planet
+				while = {
+					count = 2
+					random_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+						}
+						resettle_pop = {
+							pop = this
+							planet = root
+						}
+					}
+				}
+				
+				root = {
+					while = {
+						count = 2
+						random_owned_pop = {
+							limit = {
+								NOT = { is_same_species = event_target:overlord_species }
+								can_live_on_planet = event_target:overlord_planet
+							}
+							resettle_pop = {
+								pop = this
+								planet = event_target:overlord_planet
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

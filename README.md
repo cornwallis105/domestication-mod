@@ -29,9 +29,9 @@ Countries subjugated by a Domesticator have some unique effects
 - Citizenship rights and policies within the subject will be somewhat restricted, and most pops will be switched over to Residency citizenship.  
 
 Other features:
-- Beeple species portrait. - Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄]  
+- Custom icon art by Miss_Praxis.  Ser work is seriously amazing.  
 - 2 Affini Compact flag symbols. - Art credit to GlitchyRobo  
-- Technology art for Haustoric Implant credit to Miss_Praxis
+- Beeple species portrait. - Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄]  
 
 In addition, I have included my takes on the Affini Compact and Terran Accord civilizations.  Neither of these in-game representations should be considered canon.  
 - To use these civs, copy the contents of \custom_civs\user_empire_designs.txt into your user_empire_designs.txt file.  

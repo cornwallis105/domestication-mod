@@ -249,6 +249,10 @@ country_event = {
 			}
 		}
 		
+		add_modifier = {
+			modifier = "protectorate_floret_jobs"
+			days = -1
+		}
 		
 	}
 }
@@ -642,6 +646,6 @@ country_event = {
 
 	immediate = {
 		remove_country_flag = flag_domesticated_protectorate
-		
+		remove_modifier = protectorate_floret_jobs
 	}
 }

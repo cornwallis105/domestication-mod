@@ -15,6 +15,17 @@ is_pop_domesticable = {
 	has_citizenship_type = { type = citizenship_limited }
 }
 
+is_lonely_floret = {
+	has_trait = trait_haustoric_implant
+	from = { is_domesticator_or_protectorate = no }
+	from = {
+		NOR = {
+			is_country_type = fallen_empire
+			is_country_type = awakened_fallen_empire
+		}
+	}
+}
+
 #has_very_high_living_standard_type = {
 #	OR = {												 
 #		has_living_standard = { type = living_standard_utopian }

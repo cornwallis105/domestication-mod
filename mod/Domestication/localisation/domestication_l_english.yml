@@ -11,6 +11,7 @@
  trait_haustoric_implant:0 "Haustoric Implant"
  trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
  TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAvailable species rights are restricted"
+ TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
  
  civic_domesticators:0 "Domesticators"
  civic_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
@@ -37,7 +38,7 @@
  RT_SUMMERQUEEN:0 "Summerqueen"
  RT_PROTECTOR:0 "Protector"
  RT_HIGH_GARDENER:0 "High Gardener"
- RT_HIGH_ADMIRAL:0 "High Admiral"
+ RT_HIGH_ADMIRAL:0 "High Gardener"
  
  SPECIES_BLISS_HAUSTORIC_IMPLANT:0 "Every floret is entitled to a robust xenodrug regimen."
  SPECIES_CITIZEN_HAUSTORIC_IMPLANT:0 "Florets are not afforded political rights within our empire."

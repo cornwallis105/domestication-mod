@@ -64,10 +64,12 @@ citizenship_full = {
 		}
 		custom_tooltip = {
 			fail_text = domesticated_species_no_citizenship	
-			from = {
-				is_domesticator_or_protectorate = no
+			OR = {
+				from = {
+					is_domesticator_or_protectorate = no
+				}
+				is_same_species = from 
 			}
-			NOT = { is_same_species = from }
 		}
 	}
 	ai_will_do = {

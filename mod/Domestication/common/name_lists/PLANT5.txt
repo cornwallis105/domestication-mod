@@ -357,7 +357,7 @@ PLANT5 = {
 				"Liliops, 2nd Bloom" "Linnaeus, 8th Bloom" "Livus, 4th Bloom" "Lizem, 2nd Bloom" "Lucis, 2nd Bloom" "Lumex, 2nd Bloom" 
 				"Macra, 2nd Bloom" "Macronyx, 6th Bloom" "Magnoli, 3rd Bloom" "Maxima, 1st Bloom" "Mexus, 10th Bloom" "Mirifica, 3rd Bloom" "Mirius, 3rd Bloom" "Mol, 5th Bloom"
 				"Naevosa, 6th Bloom" "Narva, 2nd Bloom" "Nemus, 2nd Bloom" "Neso, 5th Bloom" "Nive, 4th Bloom" 
-				"Perityl, 4th Bloom" "Petus, 5th Bloom" "Pinnate, 4th Bloom" "Prakus, 3rd Bloom" "Praxel, 10th Bloom" "Pretek, 2nd Bloom" "Pruina, 2nd Bloom" "Quist, 1st Bloom"
+				"Perityl, 4th Bloom" "Petus, 5th Bloom" "Prakus, 3rd Bloom" "Praxel, 10th Bloom" "Pretek, 2nd Bloom" "Pruina, 2nd Bloom" "Quist, 1st Bloom"
 				"Radix, 2nd Bloom" "Rophyte, 31st Bloom" "Rosea, 2nd Bloom" "Rotex, 3rd Bloom" "Rupe, 5th Bloom" 
 				"Sallor, 3rd Bloom" "Somb, 3rd Bloom" "Spinosa, 3rd Bloom" "Stirpis, 4th Bloom" 
 				"Tabulare, 5th Bloom" "Telek, 3rd Bloom" "Tes, 1st Bloom" "Thele, 6th Bloom" "Thrix, 3rd Bloom" "Torreya, 7th Bloom" "Tyli, 2nd Bloom"

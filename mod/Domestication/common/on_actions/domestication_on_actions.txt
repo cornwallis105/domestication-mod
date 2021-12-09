@@ -1,28 +1,12 @@
 # this = country
 on_monthly_pulse_country = {
 	events = {
-		tutorial.1337 #Artifact tutorial
-		cara.333 # ai checks if it can/wants to play with the caravaneers
-		clones.3 #Clone Army Origin pop creation
-		action.325 #Eminent Diplomats tradition
 		domestication.1 # Haustoric Implant pop modification
 	}
 }
 
 on_tech_increased = {
 	events = {
-		tutorial.6
-		tutorial.64
-		tutorial.73
-		anomaly.1193
-		action.56
-		apoc.300
-		distar.12000
-		distar.1085
-		distar.10903
-		ancrel.4008
-		aquatics.190 #Dragon Material Study
-		aquatics.250 #Dragon Communications Study
 		domestication.2
 	}
 }
@@ -31,9 +15,12 @@ on_tech_increased = {
 # From = subject's overlord
 on_becoming_subject = {
 	events = {
-		action.214 # Join Overlord's Federation if laws permit
-		crisis.5020 # Menace Objective - Vassalise Empires
-		emperor.80 # New vassal joins Imperium
 		domestication.3 # change gov't to match domesticator overlord
+	}
+}
+
+on_leader_level_up = {
+	events = {
+		domestication_leader.1 #gatekeeper for floret add events
 	}
 }

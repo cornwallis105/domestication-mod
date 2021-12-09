@@ -68,3 +68,6 @@
  02_DEMAND_DOMEST_REFUSE:0 "We would never surrender our freedom to the likes of you!"
  03_DEMAND_DOMEST_REFUSE:0 "Free [Root.GetSpeciesNamePlural] will never be slaves to [From.GetSpeciesNamePluralInsult]!"
  04_DEMAND_DOMEST_REFUSE:0 "We would sooner reduce [Root.Capital.GetName] to ashes than accept your shackles!"
+ 
+ leader_trait_beeple_gov:0 "Floret - Syncretic"
+ leader_trait_beeple_gov_desc:2 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."

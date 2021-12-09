@@ -52,6 +52,7 @@ empire_name_parts_list = {
 		"Colonies" = 1
 		"Territories" = 1
 		"Provinces" = 1
+		"Community" = 5
 	}
 }
 

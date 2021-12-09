@@ -1,372 +1,39 @@
-generate_start_pops = {
-	if = {
-		limit = {
-			owner = {
-				OR = {
-					has_origin = origin_syncretic_evolution
-					has_origin = origin_necrophage
-					has_valid_civic = civic_machine_servitor
-					has_valid_civic = civic_machine_assimilator
-				}
-			}
-		}
-
-		if = { limit = { last_created_species = { is_species_class = MACHINE } }
-			modify_species = {
-				species = last_created_species
-				add_trait = trait_machine_unit
-				add_traits_at_start_of_list = yes
-			}
-			last_created_species = { save_event_target_as = last_created_species }
-		}
-
-		if = {
-			limit = {
-				owner = {
-					OR = {
-						has_origin = origin_syncretic_evolution
-						has_origin = origin_necrophage
-					}
-				}
-			}
-
-			last_created_species = {
-				set_species_flag = syncretic_species@root.owner
-				if = {
-					limit = {
-						prev.owner = {
-							AND = {
-								has_origin = origin_syncretic_evolution
-								NOT = { has_valid_civic = civic_domesticators }
-							}
-						}
-					}
-					set_citizenship_type = {
-						country = root.owner
-						type = citizenship_slavery
-					}
-				}
-				else_if = {
-					limit = {
-						prev.owner = {
-							AND = {
-								has_origin = origin_syncretic_evolution
-								has_valid_civic = civic_domesticators
-							}
-						}
-					}
-					set_citizenship_type = {
-						country = root.owner
-						type = citizenship_limited
-					}
-					set_living_standard = {
-						country = root.owner
-						type = living_standard_chemical_bliss
-					}
-					set_military_service_type = {
-						country = root.owner
-						type = military_service_none
-					}
-					set_colonization_controls = { 
-						country = root.owner
-						type = no 
-					}
-				}
-			}
-			if = {
-				limit = {
-					owner = {
-						has_origin = origin_necrophage
-						OR = {
-							has_valid_civic = civic_fanatic_purifiers
-							has_valid_civic = civic_hive_devouring_swarm
-							is_gestalt = yes
-						}
-					}
-				}
-				while = {
-					count = 6
-					create_pop = {
-						species = last_created_species
-						ethos = random
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					owner = {
-						has_origin = origin_necrophage
-						is_gestalt = yes
-					}
-				}
-				while = {
-					count = 9
-					create_pop = {
-						species = last_created_species
-						ethos = random
-					}
-				}
-			}
-			else = {
-				while = {
-					count = 12
-					create_pop = {
-						species = last_created_species
-						ethos = random
-					}
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				owner = { has_valid_civic = civic_machine_servitor }
-			}
-			last_created_species = {
-				if = {
-					limit = {
-						ROOT = { is_planet_class = pc_shattered_ring_habitable }
-					}
-					modify_species = {
-						species = this
-						ideal_planet_class = home_planet
-					}
-				}
-				set_citizenship_type = {
-					country = root.owner
-					type = citizenship_limited
-				}
-				set_living_standard = {
-					country = root.owner
-					type = living_standard_organic_trophy
-				}
-			}
-			while = {
-				count = 5
-				create_pop = {
-					species = last_created_species
-					ethos = random
-				}
-				last_created_pop = {
-					clear_ethos = yes
-				}
-			}
-		}
-
-		if = {
-			limit = {
-				owner = { has_valid_civic = civic_machine_assimilator }
-			}
-			last_created_species = {
-				if = {
-					limit = {
-						ROOT = { is_planet_class = pc_shattered_ring_habitable }
-					}
-					modify_species = {
-						species = this
-						ideal_planet_class = home_planet
-					}
-				}
-				set_citizenship_type = {
-					country = root.owner
-					type = citizenship_full_machine
-				}
-				set_living_standard = {
-					country = root.owner
-					type = living_standard_hive_mind
-				}
-			}
-			while = {
-				count = 10
-				create_pop = {
-					species = last_created_species
-					ethos = random
-				}
-				last_created_pop = {
-					clear_ethos = yes
-				}
-			}
-		}
-	}
-
-	if = {
-		limit = { owner = { has_origin = origin_mechanists } }
-		owner = { create_built_robot_species = yes }
-		while = {
-			count = 8
-			create_pop = {
-				species = last_created_species
-			}
-		}
-
-		add_building = building_robot_assembly_plant
-		add_district_and_planet_size_if_needed_effect = {
-			district = district_generator
-		}
-		while = {
-			limit = { num_pops < 27 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = {
-			owner = {
-				has_origin = origin_necrophage
-				NOR = { #purges them instead
-					has_civic = civic_fanatic_purifiers
-					has_civic = civic_hive_devouring_swarm
-				}
-			}
-		}
-		if = {
-			limit = {
-				owner = { has_valid_civic = civic_agrarian_idyll } # Needs an extra building slot
-			}
-			add_district_and_planet_size_if_needed_effect = {
-				district = district_city
-			}
-		}
-
-		add_building = building_necrophage_elevation_chamber
-	}
-	if = {
-		limit = {
-			owner = {
-				has_origin = origin_necrophage
-				has_valid_civic = civic_hive_devouring_swarm #purges them instead
-				is_lithoid_empire = no
-			}
-		}
-		add_building = building_spawning_pool
-	}
-	if = {
-		limit = {
-			owner = {
-				has_origin = origin_necrophage
-				has_valid_civic = civic_hive_devouring_swarm
-				is_lithoid_empire = yes
-			}
-		}
-		add_district_and_planet_size_if_needed_effect = { district = district_mining }
-	}
-	if = {
-		limit = {
-			owner = {
-				has_origin = origin_clone_army
-			}
-		}
-		add_building = building_clone_army_clone_vat
-		add_building = building_clone_army_clone_vat
-		planet_event = { id = clones.10 days = 1095 random = 730 }
-	}
-	if = {
-		limit = { owner = { is_hive_empire = yes } }
-		while = {
-			limit = { num_pops < 33 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = { owner = { has_valid_civic = civic_machine_servitor } }
-		while = {
-			limit = { num_pops < 33 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = { owner = { is_machine_empire = yes } }
-		while = {
-			limit = { num_pops < 29 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = { owner = { is_megacorp = yes } }
-		while = {
-			limit = { num_pops < 28 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = {
-			owner = {
-				is_regular_empire = yes
-			}
-		}
-		while = {
-			limit = { num_pops < 28 }
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = { #homicidal necrophages lose 1/4 of their necrophytes to fleeing
-			owner = {
-				has_origin = origin_necrophage
-				is_homicidal = yes
-			}
-		}
-		while = {
-			count = 2
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-	if = {
-		limit = {
-			owner = { has_origin = origin_default }
-		}
-		while = {
-			count = 4
-			create_pop = {
-				species = owner_main_species
-				ethos = random
-			}
-		}
-	}
-}
-
 add_random_leader_floret_trait = {
+	log_error = "started scripted effect"
+	save_event_target_as = new_owner
 	if = { #Is a science ship commander
 		limit = {
 			leader_class = scientist
-			NOR = {
-				is_researching_area = society
-				is_researching_area = engineering
-				is_researching_area = physics
-			}
 		}
 		while = {
 			limit = {
 				NOR = { # Don't have leader gain normal trait and floret trait at same level
 					has_leader_flag = has_gained_trait # timed flag added with random trait gain
-					has_leader_flag = has_gained_floret 
+					has_leader_flag = has_gained_floret
 				}
 			}
 			random_list = {
-				
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_sci }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_sci
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_sci days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
-		#owner = { country_event = { id = leader.21} }
+		owner = { country_event = { id = domestication_leader.2 } }
 	}
 	if = {
 		limit = {
@@ -376,14 +43,31 @@ add_random_leader_floret_trait = {
 			limit = {
 				NOR = { # Don't have leader gain normal trait and floret trait at same level
 					has_leader_flag = has_gained_trait # timed flag added with random trait gain
-					has_leader_flag = has_gained_floret 
+					has_leader_flag = has_gained_floret
 				}
 			}
 			random_list = {
-				
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_adm }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_adm
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_adm days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
-		#owner = { country_event = { id = leader.22} }
+		owner = { country_event = { id = domestication_leader.2 } }
 	}
 	if = {
 		limit = {
@@ -393,7 +77,7 @@ add_random_leader_floret_trait = {
 			limit = {
 				NOR = { # Don't have leader gain normal trait and floret trait at same level
 					has_leader_flag = has_gained_trait # timed flag added with random trait gain
-					has_leader_flag = has_gained_floret 
+					has_leader_flag = has_gained_floret
 				}
 			}
 			random_list = {
@@ -401,40 +85,42 @@ add_random_leader_floret_trait = {
 					if = {
 						limit = {
 							NOT = { has_trait = leader_trait_cutie_gov }
-							owner = { 
-								is_domesticator_or_protectorate = yes
-								any_owned_pop = {
-									has_job = floret
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
 								}
 							}
 						}
 						add_trait = leader_trait_cutie_gov
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
-						save_event_target_as = new_owner
-						owner = { country_event = { id = domestication_leader.2 } }
 					}
 				}
-				#5 = {
-				#	if = {
-				#		limit = {
-				#			NOT = { has_trait = leader_trait_beeple_gov }
-				#			owner = { 
-				#				AND = {
-				#					is_domesticator_or_protectorate = yes
-				#					has_origin = origin_syncretic_evolution
-				#				}
-				#			}
-				#		}
-				#		add_trait = leader_trait_beeple_gov
-				#		set_timed_leader_flag = { flag = gained_leader_trait_beeple_gov days = 7 }
-				#		set_timed_leader_flag = { flag = has_gained_floret days = 7 }
-				#		##owner = { country_event = { id = domestication_leader.3} }
-				#	}
-				#}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_beeple_gov }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									has_origin = origin_syncretic_evolution
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_beeple_gov
+						set_timed_leader_flag = { flag = gained_leader_trait_beeple_gov days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
-		
+		owner = { country_event = { id = domestication_leader.2 } }
 	}
 	if = {
 		limit = {
@@ -444,14 +130,31 @@ add_random_leader_floret_trait = {
 			limit = {
 				NOR = { # Don't have leader gain normal trait and floret trait at same level
 					has_leader_flag = has_gained_trait # timed flag added with random trait gain
-					has_leader_flag = has_gained_floret 
+					has_leader_flag = has_gained_floret
 				}
 			}
 			random_list = {
-				
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_gen }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_gen
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
-		#owner = { country_event = { id = leader.24} }
+		owner = { country_event = { id = domestication_leader.2 } }
 	}
 	if = {
 		limit = {
@@ -461,11 +164,11 @@ add_random_leader_floret_trait = {
 			limit = {
 				NOR = { # Don't have leader gain normal trait and floret trait at same level
 					has_leader_flag = has_gained_trait # timed flag added with random trait gain
-					has_leader_flag = has_gained_floret 
+					has_leader_flag = has_gained_floret
 				}
 			}
 			random_list = {
-				
+				5 = {}
 			}
 		}
 		#owner = { country_event = { id = leader.25} }

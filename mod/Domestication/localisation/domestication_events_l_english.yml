@@ -3,12 +3,16 @@
  domestication.2.name:0 "Haustoric Implants"
  domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
  domestication.2.a:0 "Wonderful!"
- 
+
  domestication.2.name:0 "Haustoric Implants"
  domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
  domestication.2.a:0 "Wonderful!"
- 
- domestication_leader.3.name:0 "A Cute New Floret"
- domestication_leader.3.desc:0 "Governor [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
+
+ domestication_leader.3.name:0 "New Floret Domesticated"
+ domestication_leader.new_cutie_sci:0 "Scientist [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
+ domestication_leader.new_cutie_adm:0 "Admiral [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
+ domestication_leader.new_cutie_gov:0 "Governor [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
+ domestication_leader.new_beeple_gov:0 "Governor [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName]. Our species evolved alongside the floret's, and the knowledge of that shared history will be useful in governance."
+ domestication_leader.new_cutie_gen:0 "General [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
  domestication_leader.3.a:0 "What a cutie!"
- 
+ domestication_leader.3.fallback:0 "This is fallback text which means this event did not fire correctly."

@@ -155,7 +155,9 @@ building_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 1
@@ -253,7 +255,9 @@ building_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = ues
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -406,7 +410,9 @@ building_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 1
@@ -522,11 +528,13 @@ building_major_capital = {
 	triggered_desc = {
 		text = job_enforcer_effect_desc
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -681,11 +689,13 @@ building_system_capital = {
 			job_administrator_add = 2
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 2
@@ -805,7 +815,9 @@ building_system_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -935,11 +947,13 @@ building_hab_capital = {
 		job_maintenance_drone_add = 2
 		planet_amenities_add = 3
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 1
@@ -1006,11 +1020,13 @@ building_hab_capital = {
 		}
 		text = job_synapse_drone_effect_desc
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -1222,11 +1238,13 @@ building_hab_major_capital = {
 			planet_jobs_productive_produces_mult = 0.1
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 2
@@ -1328,11 +1346,13 @@ building_hab_major_capital = {
 		}
 		text = job_synapse_drone_effect_desc
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -1474,11 +1494,13 @@ building_imperial_capital = {
 			job_administrator_add = 3
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		modifier = {
 			job_floret_add = 3
@@ -1595,11 +1617,13 @@ building_imperial_capital = {
 	triggered_desc = {
 		text = job_enforcer_effect_desc
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			is_domesticator_or_protectorate = yes
+			owner = {
+				is_domesticator_or_protectorate = yes
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -1643,7 +1667,7 @@ building_commercial_zone = {
 	planet_modifier = {
 		job_clerk_add = 1
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -1681,7 +1705,7 @@ building_commercial_zone = {
 		}
 		text = job_merchant_effect_desc
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -1778,7 +1802,7 @@ building_commercial_megaplex = {
 		job_clerk_add = 2
 		job_merchant_add = 1
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -1810,7 +1834,7 @@ building_commercial_megaplex = {
 	triggered_desc = {
 		text = job_merchant_effect_desc
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -1850,7 +1874,7 @@ building_commercial_megaplex = {
 			always = yes
 		}
 	}
-	
+
 	ai_resource_production = {
 		energy = 6
 		trigger = {

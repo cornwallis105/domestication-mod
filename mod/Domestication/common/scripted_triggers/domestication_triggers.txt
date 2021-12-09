@@ -4,9 +4,22 @@ is_domesticator = {
 }
 
 is_domesticator_or_protectorate = {
-	OR = {
-		has_valid_civic = civic_domesticators
-		has_country_flag = flag_domesticated_protectorate
+	if = {
+		limit = {
+			exists = owner
+		}
+		owner = {
+			OR = {
+				has_valid_civic = civic_domesticators
+				has_country_flag = flag_domesticated_protectorate
+			}
+		}
+	}
+	else = {
+		OR = {
+			has_valid_civic = civic_domesticators
+			has_country_flag = flag_domesticated_protectorate
+		}
 	}
 }
 
@@ -27,7 +40,7 @@ is_lonely_floret = {
 }
 
 #has_very_high_living_standard_type = {
-#	OR = {												 
+#	OR = {
 #		has_living_standard = { type = living_standard_utopian }
 #		AND = {
 #			has_living_standard = { type = living_standard_chemical_bliss }

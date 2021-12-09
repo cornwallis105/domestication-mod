@@ -10,24 +10,25 @@
  mod_job_floret_add:0 "$job_floret$ Jobs"
  mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
  mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
- 
+ protectorate_floret_jobs:0 "Floret Jobs"
+
  trait_haustoric_implant:0 "Haustoric Implant"
  trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
  TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAvailable species rights are restricted"
  TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
- 
+
  civic_domesticators:0 "Domesticators"
  civic_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
  civic_tooltip_domesticators_effects:0 "Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$."
- 
+
  name_list_PLANT5:0 "Plantoid (Affini)"
  PLANT_hand:2 "vine"
  PLANT_hand_plural:1 "vines"
- 
+
  FLAG_CATEGORY_hdg:0 "HDG"
 
  mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
- 
+
  gov_domesticator_empire:0 "Verdant Empire"
  gov_domesticator_empire_desc:0 "This hereditary monarchy is dedicated to the pacification and domestication of the lesser sophonts of the galaxy."
  gov_domesticator_dictatorship:0 "Benevolent Protectorship"
@@ -36,13 +37,13 @@
  gov_domesticator_oligarchy_desc:0 "This oligarchic government is ruled over by a committee of those best suited to execute its mission of relieving the younger species of the galaxy of their political and personal responsibilities."
  gov_domesticator_democracy:0 "Domestication Assembly"
  gov_domesticator_democracy_desc:0 "This government is founded on the principles of direct democracy and an eternal charge to enlighten and domesticate the weary and suffering masses of the universe."
- 
+
  RT_SUMMERKING:0 "Summerking"
  RT_SUMMERQUEEN:0 "Summerqueen"
  RT_PROTECTOR:0 "Protector"
  RT_HIGH_GARDENER:0 "High Gardener"
  RT_HIGH_ADMIRAL:0 "High Gardener"
- 
+
  SPECIES_BLISS_HAUSTORIC_IMPLANT:0 "Every floret is entitled to a robust xenodrug regimen."
  SPECIES_CITIZEN_HAUSTORIC_IMPLANT:0 "Florets are not afforded political rights within our empire."
  SPECIES_MILITARY_HAUSTORIC_IMPLANT:0 "Florets must be kept safe at all costs. Subjecting them to military service would be unconscionable."
@@ -50,12 +51,12 @@
  SPECIES_COLONIZE_HAUSTORIC_IMPLANT:0 "Florets cannot be allowed to venture into the dangerous galaxy unaccompanied by their owners."
  DOMESTICATOR_POP_CONTROLS_NOT_ALLOWED:0 "Cannot enable population controls for non-implanted florets."
  domesticated_species_no_citizenship:0 "This species has had its political rights restricted for its own safety."
- 
+
  tech_haustoric_implant:0 "Haustoric Implants"
  tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they're so much cuter when they can't even think."
- 
+
  SUBJECT_domesticated_protectorate:0 "Doemsticated Protectorate"
- 
+
  01_DEMAND_DOMEST_PROPOSE:0 "The §Y[From.GetName]§! hereby demands your immediate surrender and compliance with the [Root.GetSpeciesAdj] Domestication Program. Please do not fight us, we would hate to see harm come to any sophont."
  01_DEMAND_DOMEST_SELECT:0 "Let me see if I understand this correctly... you want to domesticate the [Root.GetName]?"
  02_DEMAND_DOMEST_SELECT:0 "I don't even know what to say to that..."
@@ -67,7 +68,7 @@
  02_DEMAND_DOMEST_REFUSE:0 "We would never surrender our freedom to the likes of you!"
  03_DEMAND_DOMEST_REFUSE:0 "Free [Root.GetSpeciesNamePlural] will never be slaves to [From.GetSpeciesNamePluralInsult]!"
  04_DEMAND_DOMEST_REFUSE:0 "We would sooner reduce [Root.Capital.GetName] to ashes than accept your shackles!"
- 
+
  leader_trait_beeple_gov:0 "Floret - Syncretic"
  leader_trait_beeple_gov_desc:0 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
  leader_trait_cutie_gov:0 "Floret - Cutie"

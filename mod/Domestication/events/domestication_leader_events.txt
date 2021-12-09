@@ -12,20 +12,34 @@ country_event = {
 	id = domestication_leader.1
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
-		this = {
-			is_domesticator_or_protectorate = yes
+		AND = {
+			root = {
+				is_domesticator_or_protectorate = yes
+			}
+			# Do not add floret if leader already has 2
+			#from = {
+			#	AND = {
+			#		is_variable_set = floret_count
+			#		check_variable = {
+			#			which = floret_count
+			#			value < 2
+			#		}
+			#	}
+			#}
 		}
 	}
 
 	immediate = {
 		random_owned_leader = {
-			limit = { leader_class = governor }
+			limit = {
+				leader_class = governor
+			}
 			save_event_target_as = guvna
 		}
-	
-	
+		log_error = "event triggered: [guvna.GetName]"
+		#from = {
 		event_target:guvna = {
 			if = {
 				limit = {
@@ -137,7 +151,6 @@ country_event = {
 							factor = 5
 							has_level > 4
 						}
-						log_error = "Level up, guv!"
 						add_random_leader_floret_trait = yes
 						set_leader_flag = has_gained_level_floret
 					}
@@ -206,24 +219,56 @@ country_event = {
 
 	hide_window = yes
 	is_triggered_only = yes
-	
+
 	trigger = {
 		always = yes
 	}
 
 	immediate = {
+		log_error = "event 2"
 		event_target:new_owner = {
 			if = {
 				limit = { has_leader_flag = gained_leader_trait_cutie_gov }
-				
-				add_trait = leader_trait_cutie_gov
-				#save_event_target_as = new_owner
-				
-				set_variable = {
-					which = mistress_id
-					value = owner.floret_index
+
+				## Up to 2 florets - for the moment
+
+				if = {
+					limit = {
+							NOT = { is_variable_set = floret_count }
+					}
+					set_variable = {
+						which = floret_count
+						value = 0
+					}
 				}
-				
+				if = {
+					limit = {
+						check_variable = {
+							which = floret_count
+							value = 0
+						}
+					}
+					set_variable = {
+						which = affini_id_1
+						value = owner.floret_index
+					}
+					change_variable = {
+						which = floret_count
+						value = 1
+					}
+				}
+				else = {
+					set_variable = {
+						which = affini_id_2
+						value = owner.floret_index
+					}
+					change_variable = {
+						which = floret_count
+						value = 1
+					}
+				}
+
+
 				## generate new leader of species matching biological pop in empire
 				owner = {
 					random_owned_pop = {
@@ -232,19 +277,55 @@ country_event = {
 						}
 						save_event_target_as = floret_species
 					}
+					event_target:floret_species = {
+
+					}
 					create_leader = {
 						name = random
 						species = event_target:floret_species
 						class = floretleader
+						leader_age_min = 20
+						leader_age_max = 40
 						skill = 1
 					}
-					last_created_leader = {
-						set_variable = {
-							which = floret_id
-							value = owner.floret_index
+					if = {
+						limit = {
+							event_target:new_owner = {
+								check_variable = {
+									which = floret_count
+									value = 1
+								}
+							}
 						}
-						this = {
-							save_event_target_as = new_floret
+						last_created_leader = {
+							set_name = "[this.GetName], 1st Floret"
+							set_variable = {
+								which = floret_id
+								value = owner.floret_index
+							}
+							set_variable = {
+								which = floret_number
+								value = 1
+							}
+							this = {
+								save_event_target_as = new_floret
+							}
+						}
+					}
+					else = {
+						last_created_leader = {
+							set_name = "[this.GetName], 2nd Floret"
+							set_variable = {
+								which = floret_id
+								value = owner.floret_index
+							}
+							set_variable = {
+								which = floret_number
+								value = 2
+							}
+							this = {
+								save_event_target_as = new_floret
+							}
 						}
 					}
 					change_variable = {
@@ -261,13 +342,28 @@ country_event = {
 country_event = {
 	id = domestication_leader.3
 	title = domestication_leader.3.name
-	desc = domestication_leader.3.desc
-	
+	desc = {
+		trigger = {
+			hidden:event_target:new_owner = {
+				switch = {
+					trigger = has_leader_flag
+					gained_leader_trait_cutie_sci = { text = domestication_leader.new_cutie_sci }
+					gained_leader_trait_cutie_adm = { text = domestication_leader.new_cutie_adm }
+					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
+					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
+					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
+					default = { text = "domestication_leader.3.fallback" }
+				}
+			}
+		}
+	}
+
 	location = event_target:current_location
-	picture = GFX_evt_society_research
+	picture = GFX_evt_acquire_asset
 	is_triggered_only = yes
 
 	immediate = {
+		log_error = "event 3"
 		fromfrom = {
 			if = {
 				limit = {
@@ -297,4 +393,3 @@ country_event = {
 		}
 	}
 }
-

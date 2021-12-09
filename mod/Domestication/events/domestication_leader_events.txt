@@ -1,3 +1,11 @@
+############################
+#
+# Domestication Leader Events
+#
+# Written by Colleen Arkadija
+#
+############################
+
 namespace = domestication_leader
 
 country_event = {
@@ -12,7 +20,13 @@ country_event = {
 	}
 
 	immediate = {
-		from = {
+		random_owned_leader = {
+			limit = { leader_class = governor }
+			save_event_target_as = guvna
+		}
+	
+	
+		event_target:guvna = {
 			if = {
 				limit = {
 					leader_class = scientist
@@ -109,7 +123,7 @@ country_event = {
 					#exists = planet
 				}
 				random_list = {
-					80 = { }
+					#80 = { }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -123,6 +137,7 @@ country_event = {
 							factor = 5
 							has_level > 4
 						}
+						log_error = "Level up, guv!"
 						add_random_leader_floret_trait = yes
 						set_leader_flag = has_gained_level_floret
 					}
@@ -184,3 +199,102 @@ country_event = {
 		}
 	}
 }
+
+## Create "Cutie" floret for governor
+country_event = {
+	id = domestication_leader.2
+
+	hide_window = yes
+	is_triggered_only = yes
+	
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			if = {
+				limit = { has_leader_flag = gained_leader_trait_cutie_gov }
+				
+				add_trait = leader_trait_cutie_gov
+				#save_event_target_as = new_owner
+				
+				set_variable = {
+					which = mistress_id
+					value = owner.floret_index
+				}
+				
+				## generate new leader of species matching biological pop in empire
+				owner = {
+					random_owned_pop = {
+						limit = {
+							has_job = floret
+						}
+						save_event_target_as = floret_species
+					}
+					create_leader = {
+						name = random
+						species = event_target:floret_species
+						class = floretleader
+						skill = 1
+					}
+					last_created_leader = {
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						this = {
+							save_event_target_as = new_floret
+						}
+					}
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
+					country_event = { id = domestication_leader.3 }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = domestication_leader.3
+	title = domestication_leader.3.name
+	desc = domestication_leader.3.desc
+	
+	location = event_target:current_location
+	picture = GFX_evt_society_research
+	is_triggered_only = yes
+
+	immediate = {
+		fromfrom = {
+			if = {
+				limit = {
+					exists = planet
+				}
+				planet = {
+					save_event_target_as = current_location
+				}
+			}
+			if = {
+				limit = {
+					exists = fleet
+				}
+				fleet = {
+					random_owned_ship = {
+						save_event_target_as = current_location
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.3.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+

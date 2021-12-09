@@ -374,7 +374,10 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOT = { has_leader_flag = has_gained_floret }
+				NOR = { # Don't have leader gain normal trait and floret trait at same level
+					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret 
+				}
 			}
 			random_list = {
 				
@@ -388,28 +391,50 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOT = { has_leader_flag = has_gained_floret }
+				NOR = { # Don't have leader gain normal trait and floret trait at same level
+					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret 
+				}
 			}
 			random_list = {
 				5 = {
 					if = {
 						limit = {
-							NOT = { has_trait = leader_trait_beeple_gov }
+							NOT = { has_trait = leader_trait_cutie_gov }
 							owner = { 
-								AND = {
-									is_domesticator_or_protectorate = yes
-									has_origin = origin_syncretic_evolution
+								is_domesticator_or_protectorate = yes
+								any_owned_pop = {
+									has_job = floret
 								}
 							}
 						}
-						add_trait = leader_trait_beeple_gov
-						set_timed_leader_flag = { flag = gained_leader_trait_beeple_gov days = 7 }
+						add_trait = leader_trait_cutie_gov
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+						save_event_target_as = new_owner
+						owner = { country_event = { id = domestication_leader.2 } }
 					}
 				}
+				#5 = {
+				#	if = {
+				#		limit = {
+				#			NOT = { has_trait = leader_trait_beeple_gov }
+				#			owner = { 
+				#				AND = {
+				#					is_domesticator_or_protectorate = yes
+				#					has_origin = origin_syncretic_evolution
+				#				}
+				#			}
+				#		}
+				#		add_trait = leader_trait_beeple_gov
+				#		set_timed_leader_flag = { flag = gained_leader_trait_beeple_gov days = 7 }
+				#		set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+				#		##owner = { country_event = { id = domestication_leader.3} }
+				#	}
+				#}
 			}
 		}
-		#owner = { country_event = { id = leader.23} }
+		
 	}
 	if = {
 		limit = {
@@ -417,7 +442,10 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOT = { has_leader_flag = has_gained_trait }
+				NOR = { # Don't have leader gain normal trait and floret trait at same level
+					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret 
+				}
 			}
 			random_list = {
 				
@@ -431,7 +459,10 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOT = { has_leader_flag = has_gained_trait }
+				NOR = { # Don't have leader gain normal trait and floret trait at same level
+					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret 
+				}
 			}
 			random_list = {
 				

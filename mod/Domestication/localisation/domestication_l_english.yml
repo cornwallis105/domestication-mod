@@ -1,5 +1,8 @@
 ﻿l_english:
 
+ floretleader:0 "Floret"
+ FLORETLEADERS:0 "Florets"
+
  job_floret:0 "Floret"
  job_floret_plural:0 "Florets"
  job_floret_desc:0 "These domesticated sophonts live their lives in xenodrug-induced bliss, providing comfort and amusement to their owners."
@@ -51,10 +54,6 @@
  tech_haustoric_implant:0 "Haustoric Implants"
  tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they're so much cuter when they can't even think."
  
- domestication.2.name:0 "Haustoric Implants"
- domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
- domestication.2.a:0 "Wonderful!"
- 
  SUBJECT_domesticated_protectorate:0 "Doemsticated Protectorate"
  
  01_DEMAND_DOMEST_PROPOSE:0 "The §Y[From.GetName]§! hereby demands your immediate surrender and compliance with the [Root.GetSpeciesAdj] Domestication Program. Please do not fight us, we would hate to see harm come to any sophont."
@@ -70,4 +69,12 @@
  04_DEMAND_DOMEST_REFUSE:0 "We would sooner reduce [Root.Capital.GetName] to ashes than accept your shackles!"
  
  leader_trait_beeple_gov:0 "Floret - Syncretic"
- leader_trait_beeple_gov_desc:2 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
+ leader_trait_beeple_gov_desc:0 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
+ leader_trait_cutie_gov:0 "Floret - Cutie"
+ leader_trait_cutie_gov_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_sci:0 "Floret - Cutie"
+ leader_trait_cutie_sci_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_adm:0 "Floret - Cutie"
+ leader_trait_cutie_adm_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_gen:0 "Floret - Cutie"
+ leader_trait_cutie_gen_desc:0 "This leader has a placeholder floret that is just cute as a button."

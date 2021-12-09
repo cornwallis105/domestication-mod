@@ -649,3 +649,21 @@ country_event = {
 		remove_modifier = protectorate_floret_jobs
 	}
 }
+
+country_event = {
+	id = domestication.7
+	hide_window = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	immediate = {
+		set_variable = {
+			which = floret_index
+			value = 0
+		}
+	}
+}

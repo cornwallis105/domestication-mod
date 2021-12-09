@@ -522,7 +522,7 @@ district_rw_city = {
 		trigger = {
 			exists = owner
 			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			ois_domesticator_or_protectorate = yes
+			is_domesticator_or_protectorate = yes
 		}
 		text = job_floret_effect_desc
 	}

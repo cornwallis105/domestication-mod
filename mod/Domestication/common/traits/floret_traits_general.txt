@@ -23,26 +23,3 @@ leader_trait_beeple_gov = {
 		}
 	}
 }
-
-leader_trait_cutie_gov = {
-	cost = 1
-	modification = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_beeple.dds"
-	modifier = {
-		planet_jobs_food_produces_mult = 0.05
-		pop_growth_speed = 0.02
-		planet_pop_assembly_organic_mult = 0.02
-		species_leader_exp_gain = -0.05
-		leaders_upkeep_mult = 0.1
-		
-	}
-	leader_trait = { governor }
-	leader_class = { governor }
-	opposites = {  } ## add all other floret traits here, unless we allow multiple
-
-	leader_potential_add = {
-		from = { 
-			is_domesticator_or_protectorate = yes
-		}
-	}
-}

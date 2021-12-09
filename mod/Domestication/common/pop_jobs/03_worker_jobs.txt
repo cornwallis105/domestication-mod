@@ -1663,8 +1663,10 @@ scrap_miner = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
+			AND = {
+				owner = { is_domesticator_or_protectorate = yes }
+				has_citizenship_type = { type = citizenship_full }
+			}
 		}
 	}
 }

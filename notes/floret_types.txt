@@ -1,0 +1,99 @@
+Ideas for floret types:
+
+Scientist:
+  AI: + research speed, + survey speed. Gained form certain events.
+  Easily Distracted: + anomaly detection chance. Gained from level up.
+  Scientist: 3 types, one for each research type, gives bonus in that type. Gained from espionage asset.
+  Academic: General research spped bonus. Gained from espionage asset.
+
+Admiral:
+  Enemy admiral: larger that normal + damage, + fire rate. Gained from victory in space combat where enemy admiral is "killed"
+  Junior Officer: smaller + fire rate bonus. Gained from espionage asset.
+  Hyperdrive engineer: + FTL chance, - FTL damage. Gained from victory in space combat whre >= 1 ships "destroyed"
+  Veteran: + evasion, Gained from espionage asset.
+
+Governor:
+  Bureaucrat: + admin capactity from bureaucrats. Gained by level up
+  Pop Icon: + amenities. Gained by level up.
+  Chef: - pop food upkeep. Gained by level up.
+  Captured criminal: - crime. Gained from events pertaining to crime reduction.
+  Economist: - Consumer goods upkeep. Gained from espionage asset.
+  Newscaster: + stability. Gained from espionage asset.
+
+General:
+  Captured soldier: + damage, - collateral damage from knowledge of enemy tactics. Gained from victory in ground combat.
+  Captured general: Similar to captured soldier, but with larger bonuses. Gained from ground combat victory, but much smaller odds.
+  Captured supply officer: - army upkeep. Gained from victory in ground combat.
+  Newscaster: + morale damage. Gained from espionage asset.
+  Veteran: - collateral damage. Gained from espionage asset.
+
+Envoy:
+  Defected spy: Gained from espionage event "extract operative"
+  Cotyledon: Gained from first contact
+  Extracted asset:
+    Clerk:
+    Economist: Assign to Governor - Economist
+    Bureaucrat: Assign to Governor - Bureaucrat
+    Junior Officer: Assign to Admiral - Junior Officer
+    Scientist: Assign to Scientist - Scientist
+    Newscaster: Assign to Governor or General - Newscaster
+    Pop Icon: Assign to Governor - Pop icon
+    Agitator: Assign to Envoy, assists with espionage?
+    Veteran:
+    Academic: Assign to Scientist - Academic
+    Attache: Assign to Envoy for bonus?
+    Laborer:
+    Criminal Underling: Assign to Governor - Criminal
+    Arms Smuggler: Assign to Governor - Criminal
+    Hacker: Assign to Envoy, + decryption?
+
+
+Available leader modifiers:
+  All:
+  - Leader lifespan
+  - Leader exp gain
+  - Leader level cap
+  - Leader upkeep
+
+  Governor:
+  - Food/Minerals/Energy from jobs
+  - Alloys/Consumer Goods from jobs
+  - Honestly, just about anything from jobs
+  - Mods to building cost, construction speed
+  - Admin Capacity from bureaucrats
+  - Blocker removal
+  - Pop upkeep
+  - Stability
+  - Crime
+
+  Scientist:
+  - Archaeology excavation speed
+  - Archaeological skill bonus
+  - Anomaly research speed
+  - Anomaly discover chance
+  - Survey speed
+  - Research speed (general or specific field)
+  - Improved chance for dangerous or rare tech
+
+  Admiral:
+  - Fire rate
+  - Sublight speed
+  - Weapons range
+  - Hull/armor regen
+  - Ship upkeep
+  - Evasion
+  - Sensor range
+  - Hypderlane detection
+  - Emergency FTL damage risk
+  - Combat disengagement chance
+  - Weapons damage
+
+  General:
+  - Army upkeep
+  - Army damage
+  - Collateral damage
+  - Army morale
+  - Army morale damage
+
+  Envoy:
+  - No bonuses available, but could be some really fun event chains

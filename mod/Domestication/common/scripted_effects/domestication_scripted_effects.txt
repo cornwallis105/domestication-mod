@@ -33,7 +33,7 @@ add_random_leader_floret_trait = {
 				}
 			}
 		}
-		owner = { country_event = { id = domestication_leader.2 } }
+		owner = { country_event = { id = domestication_leader.3 } }
 	}
 	if = {
 		limit = {
@@ -67,7 +67,7 @@ add_random_leader_floret_trait = {
 				}
 			}
 		}
-		owner = { country_event = { id = domestication_leader.2 } }
+		owner = { country_event = { id = domestication_leader.3 } }
 	}
 	if = {
 		limit = {
@@ -120,7 +120,7 @@ add_random_leader_floret_trait = {
 				}
 			}
 		}
-		owner = { country_event = { id = domestication_leader.2 } }
+		owner = { country_event = { id = domestication_leader.3 } }
 	}
 	if = {
 		limit = {
@@ -154,7 +154,7 @@ add_random_leader_floret_trait = {
 				}
 			}
 		}
-		owner = { country_event = { id = domestication_leader.2 } }
+		owner = { country_event = { id = domestication_leader.3 } }
 	}
 	if = {
 		limit = {

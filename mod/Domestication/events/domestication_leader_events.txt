@@ -32,7 +32,14 @@ country_event = {
 	}
 
 	immediate = {
-		from = {
+		random_owned_leader = {
+			limit = {
+				leader_class = governor
+			}
+			save_event_target_as = guvna
+		}
+		event_target:guvna = {
+		#from = {
 			if = {
 				limit = {
 					leader_class = scientist
@@ -175,6 +182,34 @@ country_event = {
 	}
 
 	immediate = {
+
+	}
+}
+
+country_event = {
+	id = domestication_leader.3
+	title = domestication_leader.3.name
+	desc = {
+		trigger = {
+			hidden:event_target:new_owner = {
+				switch = {
+					trigger = has_leader_flag
+					gained_leader_trait_cutie_sci = { text = domestication_leader.new_cutie_sci }
+					gained_leader_trait_cutie_adm = { text = domestication_leader.new_cutie_adm }
+					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
+					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
+					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
+					default = { text = "domestication_leader.3.fallback" }
+				}
+			}
+		}
+	}
+
+	location = event_target:current_location
+	picture = GFX_evt_acquire_asset
+	is_triggered_only = yes
+
+	immediate = {
 		event_target:new_owner = {
 			## Up to 2 florets - for the moment
 
@@ -280,36 +315,9 @@ country_event = {
 					which = floret_index
 					value = 1
 				}
-				country_event = { id = domestication_leader.3 }
+				#country_event = { id = domestication_leader.3 }
 			}
 		}
-	}
-}
-
-country_event = {
-	id = domestication_leader.3
-	title = domestication_leader.3.name
-	desc = {
-		trigger = {
-			hidden:event_target:new_owner = {
-				switch = {
-					trigger = has_leader_flag
-					gained_leader_trait_cutie_sci = { text = domestication_leader.new_cutie_sci }
-					gained_leader_trait_cutie_adm = { text = domestication_leader.new_cutie_adm }
-					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
-					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
-					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
-					default = { text = "domestication_leader.3.fallback" }
-				}
-			}
-		}
-	}
-
-	location = event_target:current_location
-	picture = GFX_evt_acquire_asset
-	is_triggered_only = yes
-
-	immediate = {
 		fromfrom = {
 			if = {
 				limit = {

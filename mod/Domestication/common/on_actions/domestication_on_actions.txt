@@ -1,28 +1,38 @@
 # this = country
 on_monthly_pulse_country = {
 	events = {
-		tutorial.1337 #Artifact tutorial
-		cara.333 # ai checks if it can/wants to play with the caravaneers
-		clones.3 #Clone Army Origin pop creation
-		action.325 #Eminent Diplomats tradition
 		domestication.1 # Haustoric Implant pop modification
 	}
 }
 
 on_tech_increased = {
 	events = {
-		tutorial.6
-		tutorial.64
-		tutorial.73
-		anomaly.1193
-		action.56
-		apoc.300
-		distar.12000
-		distar.1085
-		distar.10903
-		ancrel.4008
-		aquatics.190 #Dragon Material Study
-		aquatics.250 #Dragon Communications Study
 		domestication.2
+	}
+}
+
+# This = subject
+# From = subject's overlord
+on_becoming_subject = {
+	events = {
+		domestication.3 # change gov't to match domesticator overlord
+	}
+}
+
+on_leader_level_up = {
+	events = {
+		domestication_leader.1 # gatekeeper for floret add events
+	}
+}
+
+on_game_start_country = {
+	events = {
+		domestication.7 # initializes floret count for country
+	}
+}
+
+on_game_start = {
+	events = {
+		domestication_start_of_game.1
 	}
 }

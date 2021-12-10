@@ -73,10 +73,11 @@ civic_slaver_guilds = {
 				value = ethic_fanatic_authoritarian
 			}
 		}
-		civics = { NOR = { 
-						value = civic_pleasure_seekers
-						value = civic_domesticators
-				} 
+		civics = { 
+			NOR = { 
+				value = civic_pleasure_seekers
+				value = civic_domesticators
+			} 
 		}
 	}
 	random_weight = { base = 5 }
@@ -135,7 +136,6 @@ civic_shared_burden = {
 				value = civic_pleasure_seekers
 				value = civic_domesticators
 			}
-
 		}
 	}
 	modifier = {

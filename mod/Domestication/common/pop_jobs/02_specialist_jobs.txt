@@ -997,9 +997,8 @@ entertainer = {
 	
 	triggered_planet_modifier = {
 		potential = {
-			OR = {
-				has_trait = trait_haustoric_implant
-			}
+			owner = { is_domesticator_or_protectorate = yes }
+			has_trait = trait_haustoric_implant
 		}
 		modifier = {
 			planet_amenities_add = 2

@@ -1,0 +1,33 @@
+############################
+#
+# Domestication Events
+#
+# Written by Colleen Arkadija
+#
+############################
+
+namespace = domestication_start_of_game
+
+event = {
+	id = domestication_start_of_game.1
+	hide_window = yes
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		create_country = {
+			name = "Floret Country"
+			type = floret_repo
+			auto_delete = no
+			flag = random
+		}
+		last_created_country = {
+			save_global_event_target_as = floret_country
+		}
+	}
+}

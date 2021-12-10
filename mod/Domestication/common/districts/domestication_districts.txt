@@ -126,19 +126,27 @@ district_city = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			NOT = { owner = { has_valid_civic = civic_domesticators } }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = no
+				}
+			}
 		}
 		modifier = {
 			job_clerk_add = 1
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		modifier = {
 			job_floret_add = 1
@@ -152,12 +160,16 @@ district_city = {
 		}
 		text = job_clerk_effect_desc
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -269,8 +281,12 @@ district_arcology_housing = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			NOT = { owner = { has_valid_civic = civic_domesticators } }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = no
+				}
+			}
 		}
 		modifier = {
 			job_clerk_add = 3
@@ -294,26 +310,32 @@ district_arcology_housing = {
 		}
 		text = job_maintenance_drone_effect_desc
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		modifier = {
 			job_floret_add = 3
 		}
 	}
-	
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
-		}
-		text = job_floret_effect_desc
-	}
+
+	#triggered_desc = {
+	#	trigger = {
+	#		exists = owner
+	#		owner = {
+	#				has_active_tradition = tr_prosperity_interstellar_franchising
+	#				is_domesticator_or_protectorate = yes
+	#		}
+	#	}
+	#	text = job_floret_effect_desc
+	#}
 }
 
 district_hab_housing = {
@@ -359,23 +381,31 @@ district_hab_housing = {
 		}
 		text = job_maintenance_drone_effect_desc
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		modifier = {
 			job_floret_add = 1
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		text = job_floret_effect_desc
 	}
@@ -481,8 +511,12 @@ district_rw_city = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			NOT = { owner = { has_valid_civic = civic_domesticators } }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = no
+				}
+			}
 		}
 		modifier = {
 			job_clerk_add = 3
@@ -506,23 +540,31 @@ district_rw_city = {
 		}
 		text = job_clerk_effect_desc
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		modifier = {
 			job_floret_add = 3
 		}
 	}
-	
+
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_active_tradition = tr_prosperity_interstellar_franchising }
-			owner = { has_valid_civic = civic_domesticators }
+			owner = {
+				AND = {
+					has_active_tradition = tr_prosperity_interstellar_franchising
+					is_domesticator_or_protectorate = yes
+				}
+			}
 		}
 		text = job_floret_effect_desc
 	}

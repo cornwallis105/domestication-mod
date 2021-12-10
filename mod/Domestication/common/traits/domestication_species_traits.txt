@@ -1,5 +1,5 @@
 trait_haustoric_implant = {
-	icon = "gfx/interface/icons/traits/trait_plantoid_budding.dds"
+	#icon = "gfx/interface/icons/traits/trait_plantoid_budding.dds"
 	initial = no
 	modification = no
 	randomized = no
@@ -13,5 +13,14 @@ trait_haustoric_implant = {
 	modifier = {
 		planet_jobs_unity_produces_mult = 0.05
 		species_empire_size_mult = -0.05
+	}
+	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP
+	triggered_pop_modifier = { 
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = no }
+		}
+		pop_happiness = -0.6
+		planet_jobs_unity_produces_mult = -0.6
 	}
 }

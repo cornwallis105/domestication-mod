@@ -1,0 +1,3 @@
+protectorate_floret_jobs = {
+	job_floret_per_pop = 0.125
+}

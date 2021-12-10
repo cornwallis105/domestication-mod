@@ -1,0 +1,341 @@
+############################
+#
+# Domestication Leader Events
+#
+# Written by Colleen Arkadija
+#
+############################
+
+namespace = domestication_leader
+
+country_event = {
+	id = domestication_leader.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		AND = {
+			root = {
+				is_domesticator_or_protectorate = yes
+			}
+			# Do not add floret if leader already has 2
+			from = {
+				AND = {
+					is_variable_set = floret_count
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		from = {
+			if = {
+				limit = {
+					leader_class = scientist
+					NOT = {	has_leader_flag = has_gained_level_floret	}
+				}
+				random_list = {
+					90 = { }
+					10 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_floret_trait = yes
+						set_leader_flag = has_gained_level_floret
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = admiral
+					NOT = { has_leader_flag = has_gained_level_floret }
+				}
+				random_list = {
+					90 = { }
+					10 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_floret_trait = yes
+						set_leader_flag = has_gained_level_floret
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = governor
+					NOT = { has_leader_flag = has_gained_level_floret }
+					#exists = planet
+				}
+				random_list = {
+					#80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_floret_trait = yes
+						set_leader_flag = has_gained_level_floret
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = general
+					NOT = { has_leader_flag = has_gained_level_floret }
+				}
+				random_list = {
+					80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_floret_trait = yes
+						set_leader_flag = has_gained_level_floret
+					}
+				}
+			}
+			if = {
+				limit = {
+					leader_class = ruler
+					NOT = { has_leader_flag = has_gained_level_floret }
+				}
+				random_list = {
+					80 = { }
+					20 = {
+						modifier = {
+							factor = 1.5
+							has_level = 3
+						}
+						modifier = {
+							factor = 2.5
+							has_level = 4
+						}
+						modifier = {
+							factor = 5
+							has_level > 4
+						}
+						add_random_leader_floret_trait = yes
+						set_leader_flag = has_gained_level_floret
+					}
+				}
+			}
+		}
+	}
+}
+
+## Create "Cutie" floret for governor
+country_event = {
+	id = domestication_leader.2
+
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+
+			if = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				set_variable = {
+					which = affini_id_1
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+
+
+			## generate new leader of species matching biological pop in empire
+			owner = {
+				random_owned_pop = {
+					limit = {
+						has_job = floret
+					}
+					save_event_target_as = floret_species
+				}
+				event_target:floret_species = {
+
+				}
+				event_target:floret_country = {
+					create_leader = {
+						name = random
+						species = event_target:floret_species
+						class = governor
+						leader_age_min = 20
+						leader_age_max = 40
+						skill = 1
+					}
+				}
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					last_created_leader = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+						this = {
+							save_event_target_as = new_floret
+						}
+					}
+				}
+				else = {
+					last_created_leader = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+						this = {
+							save_event_target_as = new_floret
+						}
+					}
+				}
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
+				country_event = { id = domestication_leader.3 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = domestication_leader.3
+	title = domestication_leader.3.name
+	desc = {
+		trigger = {
+			hidden:event_target:new_owner = {
+				switch = {
+					trigger = has_leader_flag
+					gained_leader_trait_cutie_sci = { text = domestication_leader.new_cutie_sci }
+					gained_leader_trait_cutie_adm = { text = domestication_leader.new_cutie_adm }
+					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
+					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
+					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
+					default = { text = "domestication_leader.3.fallback" }
+				}
+			}
+		}
+	}
+
+	location = event_target:current_location
+	picture = GFX_evt_acquire_asset
+	is_triggered_only = yes
+
+	immediate = {
+		fromfrom = {
+			if = {
+				limit = {
+					exists = planet
+				}
+				planet = {
+					save_event_target_as = current_location
+				}
+			}
+			if = {
+				limit = {
+					exists = fleet
+				}
+				fleet = {
+					random_owned_ship = {
+						save_event_target_as = current_location
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.3.a
+		trigger = {
+			always = yes
+		}
+	}
+}

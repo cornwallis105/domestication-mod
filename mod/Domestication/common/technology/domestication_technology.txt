@@ -15,7 +15,7 @@ tech_subdermal_stimulation = {
 
 	potential = {
 		NOT = { has_ethic = ethic_gestalt_consciousness	}
-		is_domesticator = no
+		is_domesticator_or_protectorate = no
 	}
 
 	weight_modifier = {
@@ -130,7 +130,7 @@ tech_haustoric_implant = {
 	tier = 2
 	category = { biology }
 	prerequisites = { "tech_genome_mapping" }
-	weight = @tier2weight2
+	weight = @tier2weight1
 	is_rare = yes
 
 	# unlocks Chemical Bliss living standard
@@ -140,11 +140,11 @@ tech_haustoric_implant = {
 	}
 
 	potential = {
-		is_domesticator = yes
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight_modifier = {
-		factor = 0.5
+		factor = 0.75
 		modifier = {
 			factor = 1.25
 			NOR = {
@@ -154,7 +154,7 @@ tech_haustoric_implant = {
 		}
 		modifier = {
 			factor = 1.1
-			is_domesticator = yes
+			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
 			factor = @ap_technological_ascendancy_rare_tech

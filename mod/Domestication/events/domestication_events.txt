@@ -13,19 +13,19 @@ country_event = {
 	id = domestication.1
 	is_triggered_only = yes
 	hide_window = yes
-	
+
 	trigger = {
-		is_domesticator = yes
+		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
 		any_owned_planet = {
 			exists = owner
-			num_assigned_jobs = { 
+			num_assigned_jobs = {
 				job = floret
 				value >= 1
 			}
 		}
 	}
-	
+
 	immediate = {
 		every_owned_pop = {
 			limit = {
@@ -38,7 +38,7 @@ country_event = {
 				species = this
 				add_trait = trait_haustoric_implant
 				add_traits_at_start_of_list = yes
-				
+
 				effect = {
 					set_citizenship_type = {
 						country = root
@@ -78,20 +78,606 @@ country_event = {
 	desc =  domestication.2.desc
 	picture = GFX_evt_society_research
 	fire_only_once = yes
-	
+
 	is_triggered_only = yes
 	hide_window = no
-	
+
 	trigger = {
-		is_domesticator = yes
+		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
 	}
-	
+
 	option = {
 		name = domestication.2.a
 		trigger = {
 			always = yes
 		}
 	}
+}
 
+## Creation of a Domesticated Protectorate
+## mass population swaps between subject and overlord
+## this/root = subject, from = overlord
+country_event = {
+	id = domestication.3
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_domesticator = yes
+		}
+		this = {
+			NOT = { has_country_flag = flag_domesticated_protectorate }
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticated_protectorate
+
+		from = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		every_owned_planet = {
+			limit = { always = yes }
+			planet_event = {
+				id = domestication.5
+				scopes = { from = event_target:domesticator_overlord }
+			}
+		}
+
+
+		copy_ethos_and_authority = from
+
+		change_government = {
+			civics = random
+			remove_invalid_civics = yes
+		}
+		while = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_warrior_culture
+					has_valid_civic = civic_shared_burden
+				}
+			}
+			change_government = {
+				civics = random
+				remove_invalid_civics = yes
+			}
+		}
+
+		#force_add_civic = civic_domesticators
+
+		set_name = random
+		change_dominant_species = { species = event_target:overlord_species }
+
+		set_graphical_culture = event_target:domesticator_overlord
+		set_city_graphical_culture = event_target:domesticator_overlord
+
+		change_country_flag = random
+		randomize_flag_symbol = ornate
+
+		## Add leaders
+		while = {
+			count = 4
+			create_leader = {
+				class = scientist
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 1
+			create_leader = {
+				class = admiral
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 2
+			create_leader = {
+				class = governor
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+
+		assign_leader = last_created_leader
+
+		## Remove old leaders
+		every_owned_leader = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			kill_leader = {
+				fire = yes
+			}
+		}
+
+		## Destroy all military fleets
+		every_owned_ship = {
+			limit = {
+				is_civilian = no
+				NOT = { is_ship_class = shipclass_starbase }
+			}
+			delete_ship = this
+		}
+
+		## hardcoded values to represent scrap from scuttling the fleet
+
+		add_resource = { minerals = 500 }
+		add_resource = { alloys = 1000 }
+
+		event_target:domesticator_overlord = {
+			add_resource = { minerals = 500 }
+			add_resource = { alloys = 1000 }
+		}
+
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+
+		## Outlaw Slavery and purges
+		set_policy = {
+			policy = slavery
+			option = slavery_not_allowed
+			cooldown = yes
+		}
+		set_policy = {
+			policy = purge
+			option = purge_not_allowed
+			cooldown = yes
+		}
+
+		## Set citizenship rights for non-affini in country
+		every_owned_species = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+				OR = {
+					has_citizenship_type = { country = root type = citizenship_full }
+					has_citizenship_type = { country = root type = citizenship_slavery }
+				}
+			}
+			set_citizenship_type = {
+				country = root
+				type = citizenship_limited
+				cooldown = yes
+			}
+		}
+
+		add_modifier = {
+			modifier = "protectorate_floret_jobs"
+			days = -1
+		}
+
+		# initialize floret index
+		country_event = {	id = domestication.7 }
+	}
+}
+
+## Delete old subject and replace with new country
+## this/root = subject, from = overlord
+## Not currently used, but I'm keeping this in case I need to switch to this implementation
+country_event = {
+	id = domestication.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			has_valid_civic = civic_domesticators
+		}
+		this = {
+			NOT = { has_country_flag = flag_domesticated_protectorate }
+		}
+	}
+
+	immediate = {
+		from = {
+			save_event_target_as = domesticator_overlord
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					any_country = {
+
+					}
+				}
+			}
+			create_country = {
+				name = format.domesticated.1
+				species = event_target:domesticator_overlord
+				ignore_initial_colony_error = yes
+				type = default
+				name_list = PLANT5
+				civics = {
+					civic = civic_domesticators
+					civic = random
+				}
+				flag = random
+				authority = auth_oligarchic
+				ethos = { ethic = ethic_fanatic_xenophile ethic = ethic_militarist }
+				effect = {
+					copy_ethos_and_authority = fromfrom
+					save_event_target_as = new_domesticated_protectorate
+
+					copy_techs_from = {
+						target = event_target:domesticator_overlord
+						except = {
+							# Horizon Signal
+							tech_akx_worm_1
+							tech_akx_worm_2
+							tech_akx_worm_3
+						}
+					}
+					#establish_contact = { who = event_target:domesticator_overlord }
+					establish_communications_no_message = event_target:domesticator_overlord
+				}
+			}
+		}
+
+
+
+		every_system = {
+			limit = {
+				exists = owner
+				is_owned_by = event_target:domesticated_regime
+			}
+			starbase = {
+				set_owner = event_target:new_domesticated_protectorate
+			}
+			every_system_planet = {
+				limit = {
+					AND = {
+						exists = owner
+						owner = {
+							is_same_value = event_target:domesticated_regime
+						}
+					}
+					NOR = {
+						has_orbital_bombardment = yes
+						has_ground_combat = yes
+						is_planet_class = "pc_broken"
+					}
+				}
+				set_owner = event_target:new_domesticated_protectorate
+				remove_all_armies = yes
+				validate_planet_buildings_and_districts = yes
+			}
+		}
+
+		ordered_owned_planet = {
+			limit = {
+				exists = owner
+				is_owned_by = event_target:new_domesticated_protectorate
+			}
+			position = 0
+			order_by = trigger:num_pops
+			set_capital = yes
+		}
+
+		##Destroy old country
+		event_target:domesticated_regime = {
+			every_owned_pop = { #In case any pops are left behind
+				kill_pop = yes
+			}
+			destroy_country = yes
+		}
+
+
+
+
+		#So we don't get "orphaned" pops with no job categories in case of non-Ketling system owners
+		#every_system = {
+		#	limit = {
+		#		OR = {
+		#			NOT = { exists = owner }
+		#			AND = {
+		#				exists = owner
+		#				NOT = {
+		#					owner = { is_same_value = event_target:ratling_country }
+		#				}
+		#			}
+		#		}
+		#	}
+		#	every_system_planet = {
+		#		limit = {
+		#			has_planet_flag = ratling_planet
+		#			any_owned_pop = {
+		#				is_same_species = event_target:ratling_species
+		#				NOT = { exists = owner }
+		#			}
+		#		}
+		#		every_owned_pop = {
+		#			limit = {
+		#				is_same_species = event_target:ratling_species
+		#				NOT = { exists = owner }
+		#			}
+		#			kill_pop = yes
+		#		}
+		#	}
+		#}
+
+		#Create a Capital
+		#IF = { #If the old capital belongs to Ratlings, use it
+		#	limit = {
+		#		exists = event_target:ratling_capital
+		#		event_target:ratling_capital = {
+		#			exists = owner
+		#			owner = {
+		#				is_same_value = event_target:ratling_country
+		#			}
+		#		}
+		#	}
+		#	event_target:ratling_capital = {
+		#		set_capital = yes
+		#	}
+		#}
+		#ELSE = { #Otherwise, make a new Capital
+			random_system = {
+				limit = {
+
+				}
+				random_system_planet = {
+					limit = {
+						#has_planet_flag = ratling_planet
+						exists = owner
+						owner = {
+							is_same_value = event_target:new_domesticated_protectorate
+						}
+						planet_size > 12
+						NOT = { is_planet_class = "pc_broken" }
+					}
+					#save_global_event_target_as = ratling_capital
+					set_capital = yes
+				}
+			}
+		#}
+
+
+
+		event_target:new_domesticated_protectorate = {
+
+			##Add resources
+			add_resource = { minerals = 7000 }
+			add_resource = { energy = 7000 }
+			add_resource = { food = 3000 }
+			add_resource = { consumer_goods = 3000 }
+			add_resource = { alloys = 2000 }
+			add_resource = { influence = 1000 }
+			add_resource = { unity = 27000 }
+
+			event_target:new_domesticated_protectorate = {
+				##Create Mining Stations
+				every_planet_within_border = {
+					limit = {
+						has_deposit_for = shipclass_mining_station
+					}
+					create_mining_station = { owner = event_target:new_domesticated_protectorate }
+				}
+				create_fleet = {
+					effect = {
+						set_owner = event_target:new_domesticated_protectorate
+						create_ship = {
+							name = random
+							random_existing_design = constructor
+							graphical_culture = "reptilian_01"
+						}
+						set_location = {
+							target = event_target:new_domesticated_protectorate
+							distance = 10
+							angle = random
+						}
+					}
+				}
+				create_fleet = {
+					effect = {
+						set_owner = event_target:new_domesticated_protectorate
+						create_ship = {
+							name = random
+							random_existing_design = science
+							graphical_culture = "reptilian_01"
+						}
+						set_location = {
+							target = event_target:new_domesticated_protectorate
+							distance = 10
+							angle = random
+						}
+					}
+				}
+			}
+
+			##Add leaders
+			while = {
+				count = 4
+				create_leader = {
+					class = scientist
+					species = event_target:new_domesticated_protectorate
+					name = random
+					skill = 3
+				}
+			}
+			while = {
+				count = 1
+				create_leader = {
+					class = admiral
+					species = event_target:new_domesticated_protectorate
+					name = random
+					skill = 3
+				}
+			}
+			create_leader = {
+				class = governor
+				species = event_target:new_domesticated_protectorate
+				name = random
+				skill = 3
+			}
+
+
+
+			set_country_flag = flag_domesticated_protectorate
+		}
+
+		## set primary species
+		#change_dominant_species = {
+		#	species = from
+		#}
+		## Set ethics to match
+
+		## set civics to match
+
+		last_created_country = {
+			set_subject_of = {
+				who = event_target:domesticator_overlord
+				subject_type = vassal
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = domestication.5
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		# if less than 2 affini pops on planet
+		count_owned_pop = {
+			limit = {
+				is_same_species = from.owner_species
+			}
+			count < 2
+		}
+	}
+
+	# this/root = planet
+	# from = affini compact
+
+	immediate = {
+		#this.country.overlord = {
+		#	save_event_target_as = overlord_empire
+		#}
+
+		from = {
+			owner_species = {
+				save_event_target_as = overlord_species
+			}
+		}
+
+		from = {
+			random_owned_planet = {
+				limit = {
+					count_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+
+						}
+						count > 2
+					}
+				}
+				save_event_target_as = overlord_planet
+				while = {
+					count = 2
+					random_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+						}
+						resettle_pop = {
+							pop = this
+							planet = root
+						}
+					}
+				}
+
+				root = {
+					while = {
+						count = 2
+						random_owned_pop = {
+							limit = {
+								NOT = { is_same_species = event_target:overlord_species }
+								can_live_on_planet = event_target:overlord_planet
+							}
+							resettle_pop = {
+								pop = this
+								planet = event_target:overlord_planet
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+## Remove flag_domesticated_protectorate from country if no longer a subject
+country_event = {
+	id = domestication.6
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = flag_domesticated_protectorate
+	}
+
+	immediate = {
+		remove_country_flag = flag_domesticated_protectorate
+		remove_modifier = protectorate_floret_jobs
+	}
+}
+
+country_event = {
+	id = domestication.7
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	immediate = {
+		set_variable = {
+			which = floret_index
+			value = 0
+		}
+	}
 }

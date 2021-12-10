@@ -1,3 +1,112 @@
+# Domesticators
+empire_name_parts_list = {
+	key = "domesticators"
+	parts = {
+		"Compact" = 10
+	}
+}
+
+# Domesticators
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 0
+			OR = {
+				has_government = "gov_domesticator_empire"
+				has_government = "gov_domesticator_dictatorship"
+				has_government = "gov_domesticator_oligarchy"
+				has_government = "gov_domesticator_democracy"
+			}
+		}
+	}
+	format = "format.domestic.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <domesticators>"
+	# Affini Compact
+}
+
+# Domesticated Protectorates
+empire_name_parts_list = {
+	key = "domesticated_desc"
+	parts = {
+		"United" = 1
+		"Loyal" = 1
+		"Tranquil" = 1
+		"Harmonious" = 1
+		"Serene" = 1
+	}
+}
+
+empire_name_parts_list = {
+	key = "domesticated1"
+	parts = {
+		"Protectorate" = 25
+		"Administration" = 1
+		"Polity" = 1
+		"Coalition" = 1
+		"Commonwealth" = 1
+		"Mandate" = 1
+		"Concordat" = 1
+		"Cooperative" = 1
+		"Colonies" = 1
+		"Territories" = 1
+		"Provinces" = 1
+		"Community" = 5
+	}
+}
+
+empire_name_parts_list = {
+	key = "domesticated2"
+	parts = {
+		"Protectorate" = 25
+		"Administration" = 0
+		"Commonwealth" = 0
+		"Concordat" = 0
+	}
+}
+
+# Domesticated Protectorates
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 1000
+			OR = {
+				has_government = "gov_domesticator_empire"
+				has_government = "gov_domesticator_dictatorship"
+				has_government = "gov_domesticator_oligarchy"
+				has_government = "gov_domesticator_democracy"
+			}
+		}
+	}
+	format = "format.domesticated.1"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "[This.GetSpeciesName] <domesticated1>"
+	# Terran Protectorate
+}
+
+empire_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 0
+			OR = {
+				has_government = "gov_domesticator_empire"
+				has_government = "gov_domesticator_dictatorship"
+				has_government = "gov_domesticator_oligarchy"
+				has_government = "gov_domesticator_democracy"
+			}
+		}
+	}
+	format = "format.domesticated.2"
+	noun = "[This.GetSpeciesName]"
+	prefix_format = "<domesticated2> of [This.Capital.GetName]"
+	# Protectorate of Sol
+}
+
+
+
 war_name_parts_list = {
 	key = "domestication_war_names"
 	parts = {
@@ -26,7 +135,7 @@ war_name_format = {
 			attacker = {
 				has_federation = no
 				NOT = { has_government = gov_megacorporation }
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = no
@@ -54,7 +163,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = yes
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = no
@@ -82,7 +191,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = no
-				NOT = { has_valid_civic = civic_domesticators }
+				is_domesticator = no
 			}
 			defender = {
 				has_federation = yes
@@ -113,7 +222,7 @@ war_name_format = {
 			attacker = {
 				has_federation = no
 				NOT = { has_government = gov_megacorporation }
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = no
@@ -141,7 +250,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = yes
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = no
@@ -169,7 +278,7 @@ war_name_format = {
 			}
 			attacker = {
 				has_federation = no
-				has_valid_civic = civic_domesticators
+				is_domesticator = yes
 			}
 			defender = {
 				has_federation = yes

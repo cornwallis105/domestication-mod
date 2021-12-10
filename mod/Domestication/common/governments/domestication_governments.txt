@@ -32,10 +32,11 @@ gov_domesticator_empire = {
 
 	use_regnal_names = yes
 	dynastic_last_names = yes
+	should_force_rename = yes
 
 	possible = {
 		has_authority = auth_imperial
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -47,10 +48,12 @@ gov_domesticator_empire = {
 gov_domesticator_dictatorship = {
 	## Protector
 	ruler_title = RT_PROTECTOR
+	
+	should_force_rename = yes
 
 	possible = {
 		has_authority = auth_dictatorial
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -62,10 +65,12 @@ gov_domesticator_dictatorship = {
 gov_domesticator_oligarchy = {
 	## High Gardener
 	ruler_title = RT_HIGH_GARDENER
+	
+	should_force_rename = yes
 
 	possible = {
 		has_authority = auth_oligarchic
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {
@@ -77,10 +82,12 @@ gov_domesticator_oligarchy = {
 gov_domesticator_democracy = {
 	## High Admiral
 	ruler_title = RT_HIGH_ADMIRAL
+	
+	should_force_rename = yes
 
 	possible = {
 		has_authority = auth_democratic
-		has_valid_civic = civic_domesticators
+		is_domesticator_or_protectorate = yes
 	}
 
 	weight = {

@@ -1,7 +1,7 @@
 "Terran Accord"
 ={
 	key="Terran Accord"
-	ship_prefix="TAS"
+	ship_prefix="TCNS"
 	species={
 		class="HUM"
 		portrait="human"
@@ -74,7 +74,7 @@
 		adjective="Affini"
 		name_list="PLANT5"
 		gender=indeterminable
-		trait="trait_enduring"
+		trait="trait_plantoid_phototrophic"
 		trait="trait_plantoid_budding"
 		trait="trait_solitary"
 	}
@@ -82,7 +82,7 @@
 		class="ART"
 		portrait="bee"
 		name="Beeple"
-		plural="Beeples"
+		plural="Beeple"
 		adjective="Beeple"
 		name_list="ART1"
 		gender=not_set
@@ -94,9 +94,9 @@
 	}
 	name="Affini Compact"
 	adjective="Affini"
-	authority="auth_oligarchic"
-	government="gov_domesticator_oligarchy"
-	planet_name="Affinius"
+	authority="auth_democratic"
+	government="gov_domesticator_democracy"
+	planet_name="Affinia"
 	planet_class="pc_tropical"
 	system_name="Affin"
 	initializer=""
@@ -104,12 +104,12 @@
 	city_graphical_culture="plantoid_01"
 	empire_flag={
 		icon={
-			category="ornate"
-			file="flag_ornate_18.dds"
+			category="hdg"
+			file="affini2.dds"
 		}
 		background={
 			category="backgrounds"
-			file="stripes.dds"
+			file="diagonal_stripe.dds"
 		}
 		colors={
 			"green"
@@ -125,6 +125,7 @@
 		texture=0
 		hair=0
 		clothes=0
+		ruler_title="High Gardener"
 		leader_class="ruler"
 	}
 	spawn_as_fallen=no

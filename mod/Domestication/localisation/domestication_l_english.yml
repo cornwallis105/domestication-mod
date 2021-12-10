@@ -71,11 +71,13 @@
 
  leader_trait_beeple_gov:0 "Floret - Syncretic"
  leader_trait_beeple_gov_desc:0 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
+ #leader_trait_beeple_tooltip:0 "Food Production from Jobs: +2%\nLeader Experience Gain: -5%\nLeader Upkeep: +10%"
+
  leader_trait_cutie_gov:0 "Floret - Cutie"
- leader_trait_cutie_gov_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_gov_desc:0 "While all florets are cute, this floret is just exceptionally cute. The people of this governors sector are uplifted every time it appears in an announcement broadcast."
  leader_trait_cutie_sci:0 "Floret - Cutie"
- leader_trait_cutie_sci_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_sci_desc:0 "While all florets are cute, this floret is just exceptionally cute. Its presence in the research lab encourages everyone to do their best to make our covilization a better place."
  leader_trait_cutie_adm:0 "Floret - Cutie"
- leader_trait_cutie_adm_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_adm_desc:0 "While all florets are cute, this floret is just exceptionally cute. The fleet's crew have adopted it as their mascot, and invoke its name as they charge into battle."
  leader_trait_cutie_gen:0 "Floret - Cutie"
- leader_trait_cutie_gen_desc:0 "This leader has a placeholder floret that is just cute as a button."
+ leader_trait_cutie_gen_desc:0 "While all florets are cute, this floret is just exceptionally cute. Inspired by its cuteness, soldiers do all they can to disable hostile aliens and prevent casualties on all sides so as not to make the floret sad."

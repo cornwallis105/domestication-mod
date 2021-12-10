@@ -30,3 +30,9 @@ on_game_start_country = {
 		domestication.7 # initializes floret count for country
 	}
 }
+
+on_game_start = {
+	events = {
+		domestication_start_of_game.1
+	}
+}

@@ -19,69 +19,24 @@ country_event = {
 				is_domesticator_or_protectorate = yes
 			}
 			# Do not add floret if leader already has 2
-			#from = {
-			#	AND = {
-			#		is_variable_set = floret_count
-			#		check_variable = {
-			#			which = floret_count
-			#			value < 2
-			#		}
-			#	}
-			#}
+			from = {
+				AND = {
+					is_variable_set = floret_count
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
 		}
 	}
 
 	immediate = {
-		random_owned_leader = {
-			limit = {
-				leader_class = governor
-			}
-			save_event_target_as = guvna
-		}
-		log_error = "event triggered: [guvna.GetName]"
-		#from = {
-		event_target:guvna = {
+		from = {
 			if = {
 				limit = {
 					leader_class = scientist
-					num_traits < 3
-					NOR = {
-						has_leader_flag = has_gained_level_floret
-						is_researching_area = society
-						is_researching_area = engineering
-						is_researching_area = physics
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_floret_trait = yes
-						set_leader_flag = has_gained_level_floret
-					}
-				}
-			}
-			if = {
-				limit = {
-					leader_class = scientist
-					num_traits < 3
-					NOT = { has_leader_flag = has_gained_level_floret }
-					OR = {
-						is_researching_area = society
-						is_researching_area = engineering
-						is_researching_area = physics
-					}
+					NOT = {	has_leader_flag = has_gained_level_floret	}
 				}
 				random_list = {
 					90 = { }
@@ -106,7 +61,6 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = admiral
-					num_traits < 3
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
@@ -132,7 +86,6 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = governor
-					num_traits < 3
 					NOT = { has_leader_flag = has_gained_level_floret }
 					#exists = planet
 				}
@@ -159,7 +112,6 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = general
-					num_traits < 3
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
@@ -185,9 +137,7 @@ country_event = {
 			if = {
 				limit = {
 					leader_class = ruler
-					num_traits < 3
 					NOT = { has_leader_flag = has_gained_level_floret }
-					owner = { NOT = { has_ethic = "ethic_gestalt_consciousness" } }
 				}
 				random_list = {
 					80 = { }
@@ -225,115 +175,112 @@ country_event = {
 	}
 
 	immediate = {
-		log_error = "event 2"
 		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+
 			if = {
-				limit = { has_leader_flag = gained_leader_trait_cutie_gov }
-
-				## Up to 2 florets - for the moment
-
-				if = {
-					limit = {
-							NOT = { is_variable_set = floret_count }
-					}
-					set_variable = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
 						which = floret_count
 						value = 0
 					}
 				}
-				if = {
+				set_variable = {
+					which = affini_id_1
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+
+
+			## generate new leader of species matching biological pop in empire
+			owner = {
+				random_owned_pop = {
 					limit = {
-						check_variable = {
-							which = floret_count
-							value = 0
-						}
+						has_job = floret
 					}
-					set_variable = {
-						which = affini_id_1
-						value = owner.floret_index
-					}
-					change_variable = {
-						which = floret_count
-						value = 1
-					}
+					save_event_target_as = floret_species
 				}
-				else = {
-					set_variable = {
-						which = affini_id_2
-						value = owner.floret_index
-					}
-					change_variable = {
-						which = floret_count
-						value = 1
-					}
+				event_target:floret_species = {
+
 				}
-
-
-				## generate new leader of species matching biological pop in empire
-				owner = {
-					random_owned_pop = {
-						limit = {
-							has_job = floret
-						}
-						save_event_target_as = floret_species
-					}
-					event_target:floret_species = {
-
-					}
+				event_target:floret_country = {
 					create_leader = {
 						name = random
 						species = event_target:floret_species
-						class = floretleader
+						class = governor
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
 					}
-					if = {
-						limit = {
-							event_target:new_owner = {
-								check_variable = {
-									which = floret_count
-									value = 1
-								}
-							}
-						}
-						last_created_leader = {
-							set_name = "[this.GetName], 1st Floret"
-							set_variable = {
-								which = floret_id
-								value = owner.floret_index
-							}
-							set_variable = {
-								which = floret_number
+				}
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
 								value = 1
 							}
-							this = {
-								save_event_target_as = new_floret
-							}
 						}
 					}
-					else = {
-						last_created_leader = {
-							set_name = "[this.GetName], 2nd Floret"
-							set_variable = {
-								which = floret_id
-								value = owner.floret_index
-							}
-							set_variable = {
-								which = floret_number
-								value = 2
-							}
-							this = {
-								save_event_target_as = new_floret
-							}
+					last_created_leader = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+						this = {
+							save_event_target_as = new_floret
 						}
 					}
-					change_variable = {
-						which = floret_index
-						value = 1
-					}
-					country_event = { id = domestication_leader.3 }
 				}
+				else = {
+					last_created_leader = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+						this = {
+							save_event_target_as = new_floret
+						}
+					}
+				}
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
+				country_event = { id = domestication_leader.3 }
 			}
 		}
 	}
@@ -363,7 +310,6 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		log_error = "event 3"
 		fromfrom = {
 			if = {
 				limit = {

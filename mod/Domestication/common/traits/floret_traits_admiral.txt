@@ -1,7 +1,12 @@
 leader_trait_cutie_adm = {
 	cost = 1
 	modification = no
+	initial = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
+	modifier = {
+		ship_fire_rate_mult = 0.02
+		ship_speed_mult = 0.1
+	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1

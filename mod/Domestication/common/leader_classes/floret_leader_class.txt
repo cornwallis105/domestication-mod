@@ -1,3 +1,0 @@
-floretleader = {
-	can_have_traits = no
-}

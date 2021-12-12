@@ -139,6 +139,11 @@ tech_haustoric_implant = {
 		bliss_standard
 	}
 
+	modifier = {
+		show_only_custom_tooltip = no
+		custom_tooltip = ADD_HAUSTORIC_IMPLANT_BONUSES
+	}
+
 	potential = {
 		is_domesticator_or_protectorate = yes
 	}
@@ -185,6 +190,48 @@ tech_haustoric_implant = {
 				has_ethic = ethic_fanatic_egalitarian
 			}
 		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+tech_biorhythm_amplification = {
+	cost = @tier3cost1
+	area = society
+	tier = 3
+	category = { biology }
+	prerequisites = { "tech_haustoric_implant" }
+	weight = @tier3weight1
+
+	modifier = {
+		show_only_custom_tooltip = yes
+		custom_tooltip = ADD_BIORHYTHM_AMPLIFICATION_BONUSES
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.5
+			num_species > 3
+		}
+		modifier = {
+			factor = 1.5
+			num_species > 6
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+
+	ai_weight = {
 		modifier = {
 			factor = 1.25
 			research_leader = {

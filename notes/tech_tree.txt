@@ -18,3 +18,63 @@ Advanced Assembly Automation - T5 Physics-Computers
 Matter Replicators - T5 Engineering-Materials
 Post-Scarcity Sociology - T5 Sociology-Statecraft
 Universe Ascension Project - T5 Physics-FieldManipulation
+
+
+
+first contacts:
+
+base_contact_set
+  default_stage_1
+    default_end_stage_hostile_same_species
+    default_hostile_ship_stage
+      default_end_stage_hostile_with_crew_hard
+      default_end_stage_hostile_with_crew_easy
+      default_end_stage_hostile_with_crew
+      default_end_stage_hostile_with_vivisection
+      default_end_stage_hostile_no_crew
+      default_end_stage_cautious
+      default_hostile_systems_stage
+        default_end_stage_cautious
+        default_end_stage_hostile_with_crew_hard
+        default_end_stage_hostile_with_crew_easy
+        default_end_stage_hostile_with_crew
+        default_end_stage_hostile_with_vivisection
+        default_end_stage_hostile_no_crew
+    default_end_stage_same_species
+    default_end_stage_both_machines
+    default_end_stage_both_hive_minds
+    default_stage_2
+      default_end_stage_cautious
+      default_hacking_stage_main
+        default_end_stage_hacking
+        default_end_stage_proactive
+        default_end_stage_cautious
+      default_end_stage_proactive
+      hive_meets_default_end_stage_proactive
+      hive_meets_default_end_stage_cautious
+      machine_meets_hive_end_stage_proactive
+      machine_meets_default_end_stage_proactive
+      machine_meets_hive_end_stage_cautious
+      machine_meets_default_end_stage_cautious
+      default_end_stage_riddles_proactive
+      default_end_stage_riddles_cautious
+      default_monstrous_noises_no_action_end_stage_proactive
+      default_monstrous_noises_no_action_end_stage_cautious
+      default_monstrous_noises_notification_stage
+        default_monstrous_noises_end_stage
+      default_apparent_hostility_end_stage
+      default_apparent_hostility_no_action_end_stage_proactive
+      default_apparent_hostility_no_action_end_stage_cautious
+      default_hummers_end_stage_proactive
+      default_hummers_end_stage_cautious
+      default_octopodes_no_action_end_stage_proactive
+      default_octopodes_no_action_end_stage_cautious
+      default_octopodes_end_stage_proactive
+      default_octopodes_end_stage_cautious
+    default_hostile_systems_stage
+      default_end_stage_cautious
+      default_end_stage_hostile_with_crew_hard
+      default_end_stage_hostile_with_crew_easy
+      default_end_stage_hostile_with_crew
+      default_end_stage_hostile_with_vivisection
+      default_end_stage_hostile_no_crew

@@ -53,6 +53,7 @@ floret = {
 			planet_amenities_add = 1
 		}
 	}
+
 	triggered_planet_modifier = {
 		potential = {
 			has_trait = trait_repugnant
@@ -71,7 +72,7 @@ floret = {
 			planet_amenities_add = 5
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			has_trait = trait_haustoric_implant
@@ -81,9 +82,21 @@ floret = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_biorhythm_amplification }
+			happiness >= 0.5
+		}
+		modifier = {
+			planet_jobs_ruler_produces_mult = 0.01
+			planet_jobs_specialist_produces_mult = 0.01
+		}
+	}
+
 	weight = {
 		weight = @clerk_job_weight
-		
+
 		modifier = {
 			factor = 0.25
 			always = yes

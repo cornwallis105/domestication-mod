@@ -879,5 +879,52 @@ country_event = {
 		trigger = {
 			always = yes
 		}
+		hidden_effect = {
+			event_target:br_home_empire = {
+				country_event = {
+					id = domestication.10
+					days = 25
+					random = 10
+					scopes = { from = root }
+				}
+			}
+		}
+	}
+}
+
+## Inform country of pop lost to Biorhythm Transmitter
+country_event = {
+	id = domestication.10
+	title = domestication.10.name
+	desc =  domestication.10.desc
+	picture = GFX_evt_unknown_ships
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = domestication.10.a
+		trigger = {
+			always = yes
+		}
+		add_opinion_modifier = {
+			who = from
+			modifier = opinion_br_pop_stolen
+		}
+	}
+	option = {
+		name = domestication.10.b
+		trigger = {
+
+		}
+
 	}
 }

@@ -105,3 +105,6 @@
  sm_biorhythm_transmitter:0 "Biorhythm Transmitter"
  sm_biorhythm_transmitter_desc:0 "A massive subspace transmission facility that broadcasts hypnotic-laced biorhythms into the cosmos.\n"
  sm_biorhythm_transmitter_desc_modifier:0 "Has a chance to lure £pops£ §$POPS|Y$§! from planets within §Y4§! jumps.\n\n"
+
+ # Opinion modifiers
+ opinion_br_pop_stolen:0 "Lured Pop Away"

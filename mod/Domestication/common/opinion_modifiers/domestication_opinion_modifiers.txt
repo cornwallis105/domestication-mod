@@ -1,0 +1,26 @@
+opinion_br_pop_stolen = {
+	opinion = {
+		base = -30
+	}
+	unique = yes
+
+	decay = {
+		base = 3
+    modifier = {
+			add = 1
+			has_ethic = "ethic_xenophile"
+    }
+		modifier = {
+			add = 2
+			has_ethic = "ethic_fanatic_xenophile"
+		}
+		modifier = {
+			add = -1
+			has_ethic = "ethic_xenophobe"
+		}
+		modifier = {
+			add = -2
+			has_ethic = "ethic_fanatic_xenophobe"
+		}
+	}
+}

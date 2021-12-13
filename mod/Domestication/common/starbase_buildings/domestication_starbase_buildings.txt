@@ -1,0 +1,38 @@
+biorhythm_transmitter = {
+	icon = "GFX_spaceport_module_navigators_guild"
+	construction_days = 360
+
+	potential = {
+		exists = owner
+		owner = { has_ascension_perk = ap_benefic_acquisition }
+	}
+
+	possible = {
+    exists = owner
+    owner = { has_ascension_perk = ap_benefic_acquisition }
+	}
+
+	resources = {
+		category = starbase_buildings
+		cost = {
+			alloys = 150
+		}
+
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	custom_tooltip = sm_biorhythm_transmitter_desc_modifier
+
+	ai_build_at_chokepoint = yes
+	ai_build_outside_chokepoint = no
+	ai_weight = {
+		weight = 100 #use same weight here - ai weighting is done in starbase_types.txt
+    # ai should never use these
+		modifier = {
+			factor = 0
+			always = yes
+		}
+	}
+}

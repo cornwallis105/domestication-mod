@@ -113,5 +113,9 @@ floret = {
 			factor = 10
 			has_trait = trait_haustoric_implant
 		}
+		modifier = {
+			factor = 3
+			has_pop_flag = br_resettled
+		}
 	}
 }

@@ -2,7 +2,7 @@
 # Domesticator Faction
 ##############################
 
-domesticator = {
+domesticator_faction = {
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
 
@@ -504,6 +504,30 @@ domesticator = {
 		trigger = {
 			owner = {
 				has_policy_flag = diplo_stance_cooperative
+			}
+		}
+	}
+
+	demand = {
+		title = "DOMESTICATOR_OVERLORD" #Domesticator Hegemony
+		unfulfilled_title = "DOMESTICATOR_NOT_OVERLORD"
+		desc = "DOMESTICATOR_OVERLORD_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				num_communications > 2
+			}
+		}
+
+		trigger = {
+			OR = {
+				owner = {
+					is_overlord = yes
+				}
 			}
 		}
 	}

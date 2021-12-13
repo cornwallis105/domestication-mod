@@ -681,3 +681,203 @@ country_event = {
 		}
 	}
 }
+
+## gatekeeper to determine if Biorhythm Transmitter resettlement happens
+country_event = {
+	id = domestication.8
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_ascension_perk = ap_benefic_acquisition
+		# this may end up being super resouce-intensive, and I may need to shift this to check less often
+		any_owned_starbase = {
+			AND = {
+				has_starbase_building = biorhythm_transmitter
+				owner = {
+					any_neighbor_country = {
+						is_domesticator_or_protectorate = no
+						any_owned_planet = {
+							AND = {
+								num_pops > 10
+								distance = {
+									source = prevprevprev
+									use_bypasses = no
+									min_jumps = 1
+									max_jumps = 4
+								}
+								any_owned_pop = {
+								 can_hear_biorhythm = yes
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		random_list = {
+			# default 1/25 chance of resettlement. ~1 every 2 years
+			24 = {}
+			1 = {
+				modifier = {
+					factor = 1.5
+					# 3 or more transmitters
+					count_owned_starbase = {
+						count >= 3
+						limit = {
+							has_starbase_building = biorhythm_transmitter
+						}
+					}
+				}
+				modifier = {
+					factor = 2
+					# 6 or more transmitters
+					count_owned_starbase = {
+						count >= 6
+						limit = {
+							has_starbase_building = biorhythm_transmitter
+						}
+					}
+				}
+				country_event = { id = domestication.9 }
+			}
+		}
+	}
+}
+
+## Pop resettlement from Biorhythm Transmitter
+country_event = {
+	id = domestication.9
+	title = domestication.9.name
+	desc =  domestication.9.desc
+	picture = GFX_evt_colony_settlement
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_ascension_perk = ap_benefic_acquisition
+	}
+
+	immediate = {
+		random_neighbor_country = {
+			limit = {
+				is_domesticator_or_protectorate = no
+				any_owned_planet = {
+					AND = {
+						num_pops > 10
+						any_owned_pop = {
+						 can_hear_biorhythm = yes
+						}
+						root = {
+							any_owned_starbase = {
+								has_starbase_building = biorhythm_transmitter
+								distance = {
+									source = prevprev
+									use_bypasses = no
+									min_jumps = 1
+									max_jumps = 4
+								}
+							}
+						}
+					}
+				}
+			}
+			save_event_target_as = br_home_empire
+			random_owned_pop = {
+				limit = {
+					can_hear_biorhythm = yes
+					planet = {
+						AND = {
+							num_pops > 10
+							root = {
+								any_owned_starbase = {
+									has_starbase_building = biorhythm_transmitter
+									distance = {
+										source = prevprev
+										use_bypasses = no
+										min_jumps = 1
+										max_jumps = 4
+									}
+								}
+							}
+						}
+					}
+				}
+				weights = {
+					base = 1
+					modifier = {
+						add = 1
+						has_job_category = worker
+					}
+					modifier = {
+						add = 3
+						OR = {
+							is_pop_category = slave
+							is_unemployed = yes
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							pop_has_ethic = ethic_fanatic_xenophile
+							pop_has_ethic = ethic_xenophile
+						}
+					}
+					modifier = {
+						factor = 0.1
+						OR = {
+							pop_has_ethic = ethic_fanatic_xenophobe
+							pop_has_ethic = ethic_xenophobe
+						}
+					}
+					modifier = {
+						factor = 1.5
+						OR = {
+							has trait = trait_deviants
+							has trait = trait_docile
+						}
+					}
+					modifier = {
+						factor = 0.5
+						OR = {
+							has trait = trait_conformists
+							has trait = trait_unruly
+						}
+					}
+				}
+				save_event_target_as = br_resettle_pop
+				planet = { save_event_target_as = br_resettle_homeworld }
+				set_pop_flag = br_resettled
+
+				root = {
+					random_owned_planet = {
+						limit = {
+							event_target:br_resettle_pop = {
+								can_live_on_planet = prev
+							}
+						}
+						save_event_target_as = br_resettle_newworld
+						resettle_pop = {
+							pop = event_target:br_resettle_pop
+							planet = this
+						}
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication.9.a
+		trigger = {
+			always = yes
+		}
+	}
+}

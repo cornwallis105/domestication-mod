@@ -39,6 +39,18 @@ is_lonely_floret = {
 	}
 }
 
+can_hear_biorhythm = {
+	species = {
+		ROOT = {
+			NOT = {
+				is_same_species = prev
+			}
+		}
+		is_sapient = yes
+		is_archetype = BIOLOGICAL
+	}
+}
+
 #has_very_high_living_standard_type = {
 #	OR = {
 #		has_living_standard = { type = living_standard_utopian }

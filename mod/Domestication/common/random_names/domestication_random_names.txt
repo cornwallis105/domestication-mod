@@ -287,3 +287,22 @@ war_name_format = {
 	}
 	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"
 }
+
+## Faction names
+pop_faction_name_parts_list = {
+	key = "domesticator_names"
+	parts = {
+		Domestication = 1
+	}
+}
+
+pop_faction_name_format = {
+	random_weight = {
+		factor = 0
+		modifier = {
+			add = 100
+			is_pop_faction_type = "domesticator_faction"
+		}
+	}
+	format = "format.pop_faction.domesticator_faction"
+}

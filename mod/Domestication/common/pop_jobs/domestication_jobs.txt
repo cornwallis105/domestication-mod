@@ -30,6 +30,10 @@ floret = {
 		}
 	}
 
+	pop_modifier = {
+		pop_government_ethic_attraction = 0.5
+	}
+
 	triggered_pop_modifier = {
 		potential = {
 			is_organic_species = yes

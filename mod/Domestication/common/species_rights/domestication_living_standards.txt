@@ -21,19 +21,19 @@ living_standard_chemical_bliss = {
 			}
 		}
 		planet_jobs_produces_mult = -0.6
-		pop_cat_ruler_political_power = 0
-		pop_cat_specialist_political_power = 0
-		pop_cat_worker_political_power = 0
+		pop_cat_ruler_political_power = 0.1
+		pop_cat_specialist_political_power = 0.1
+		pop_cat_worker_political_power = 0.1
 		custom_tooltip = living_standard_chemical_bliss_happiness_tooltip
 	}
-	
+
 	potential = {
-		from = { 
+		from = {
 			OR = {
 				has_technology = tech_subdermal_stimulation
 				has_technology = tech_haustoric_implant
 				## is_domesticator_or_protectorate = yes ## Enables Chemical Bliss at game start for Domesticators
-			} 
+			}
 		}
 		NOT = { has_trait = trait_hive_mind }
 		NOR = {
@@ -852,7 +852,7 @@ living_standard_decadent = {
 	name = living_standard_decadent
 
 	potential = {
-		host_has_dlc = "Humanoids Species Pack"		
+		host_has_dlc = "Humanoids Species Pack"
 		exists = from
 		from = { is_pleasure_seeker = yes }
 		NOT = { from = { has_valid_civic = civic_shared_burden } }

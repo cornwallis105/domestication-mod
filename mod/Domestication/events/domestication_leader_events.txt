@@ -8,6 +8,7 @@
 
 namespace = domestication_leader
 
+# gatekeeper event for level-up florets
 country_event = {
 	id = domestication_leader.1
 	hide_window = yes
@@ -181,7 +182,7 @@ country_event = {
 
 	desc = domestication_leader.2.desc
 
-	picture = GFX_evt_interior_battle
+	picture = GFX_evt_emergency_workers
 
 	hide_window = no
 	is_triggered_only = yes
@@ -323,6 +324,7 @@ country_event = {
 	}
 }
 
+# Create random floret from level-up
 country_event = {
 	id = domestication_leader.3
 	title = domestication_leader.3.name

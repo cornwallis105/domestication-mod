@@ -37,3 +37,9 @@ on_game_start = {
 		domestication_start_of_game.1 # initialize Floret Country
 	}
 }
+
+on_fleet_destroyed_perp = {
+	random_events = {
+		4 = domestication_leader.2 # floret rescue in space battle
+	}
+}

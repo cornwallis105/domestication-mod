@@ -4,9 +4,13 @@
  domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
  domestication.2.a:0 "Wonderful!"
 
- domestication.2.name:0 "Haustoric Implants"
- domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
- domestication.2.a:0 "Wonderful!"
+ domestication.9.name:0 "New Arrivals from the [br_home_empire.GetName]"
+ domestication.9.desc:0 "Heeding the call of our §Y$sm_biorhythm_transmitter$§!, [br_resettle_pop.GetSpeciesAdj] sophonts from [br_resettle_homeworld.GetName] have departed their homeworld en masse. The [Root.GetName] has welcomed them with open [Root.GetSpeciesHandNamePlural] to their new home on [br_resettle_newworld.GetName].\n\nEarly reports indicate that many of the new arrivals have already volunteered for domestication."
+ domestication.9.a:0 "Welcome!"
+
+ domestication_leader.2.name:0 "Admiral Rescues New Floret"
+ domestication_leader.2.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§ personally rescued a brave little [new_floret.Species.GetName] from the hyperdrive core of a wrecked [defeated_country.GetAdj] ship. After bonding with the Admiral during [new_floret.GetHerHis] recovery, the sophont volunteered [new_floret.GetHimselfHerself] for domestication and is now known as §Y[new_floret.GetName]§."
+ domestication_leader.2.a:0 "What a brave little floret!"
 
  domestication_leader.3.name:0 "New Floret Domesticated"
  domestication_leader.new_cutie_sci:0 "Scientist [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
@@ -16,7 +20,3 @@
  domestication_leader.new_cutie_gen:0 "General [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
  domestication_leader.3.a:0 "What a cutie!"
  domestication_leader.3.fallback:0 "This is fallback text which means this event did not fire correctly."
-
- domestication.9.name:0 "New Arrivals from the [br_home_empire.GetName]"
- domestication.9.desc:0 "Heeding the call of our §Y$sm_biorhythm_transmitter$§!, [br_resettle_pop.GetSpeciesAdj] sophonts from [br_resettle_homeworld.GetName] have departed their homeworld en masse. The [Root.GetName] has welcomed them with open [Root.GetSpeciesHandNamePlural] to their new home on [br_resettle_newworld.GetName].\n\nEarly reports indicate that many of the new arrivals have already volunteered for domestication."
- domestication.9.a:0 "Welcome!"

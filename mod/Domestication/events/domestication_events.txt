@@ -840,8 +840,8 @@ country_event = {
 					modifier = {
 						factor = 1.5
 						OR = {
-							has trait = trait_deviants
-							has trait = trait_docile
+							has_trait = trait_deviants
+							has_trait = trait_docile
 						}
 					}
 					modifier = {

@@ -847,8 +847,8 @@ country_event = {
 					modifier = {
 						factor = 0.5
 						OR = {
-							has trait = trait_conformists
-							has trait = trait_unruly
+							has_trait = trait_conformists
+							has_trait = trait_unruly
 						}
 					}
 				}

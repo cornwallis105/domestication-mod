@@ -99,7 +99,9 @@
  leader_trait_cutie_gen:0 "Floret - Cutie"
  leader_trait_cutie_gen_desc:0 "While all florets are cute, this floret is just exceptionally cute. Inspired by its cuteness, soldiers do all they can to disable hostile aliens and prevent casualties on all sides so as not to make the floret sad."
  leader_trait_warp_eng_adm:0 "Floret - Hyperdrive Engineer"
- leader_trait_warp_eng_adm_desc:0 "This floret isn't actually allowed to work in the hyperdrive core, but it would be mean to ignore it §Yevery§ time it demands that we engage the hyperdrive mid-battle."
+ leader_trait_warp_eng_adm_desc:0 "This floret is a former hyperdrive engineer, and while it isn't actually allowed to work in the hyperdrive core, but it would be mean to ignore it §Yevery§ time it demands that we engage the hyperdrive mid-battle."
+ leader_trait_pirate_adm:0 "Floret - Pirate"
+ leader_trait_pirate_adm_desc:0 "This floret is a former pirate, and unlike most florets is kept in peak fighting condition by its owner. It often accompanies its owner on the bridge and helpfully points out where other pirates might be lurking."
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"

@@ -9,7 +9,7 @@
  domestication.9.a:0 "Welcome!"
 
  domestication_leader.2.name:0 "Admiral Rescues New Floret"
- domestication_leader.2.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§ personally rescued a scared little [new_floret.Species.GetName] from the hyperdrive core of a wrecked [defeated_country.GetAdj] ship. After bonding with the Admiral during [new_floret.GetHerHis] recovery, the sophont volunteered [new_floret.GetHimselfHerself] for domestication and is now known as §Y[new_floret.GetName]§."
+ domestication_leader.2.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally rescued a scared little [new_floret.Species.GetName] from the hyperdrive core of a wrecked [defeated_country.GetAdj] ship. After bonding with the Admiral during [new_floret.GetHerHis] recovery, the sophont volunteered [new_floret.GetHimselfHerself] for domestication and is now known as §Y[new_floret.GetName]§!."
  domestication_leader.2.a:0 "What a brave little floret!"
 
  domestication_leader.3.name:0 "New Floret Domesticated"
@@ -20,3 +20,9 @@
  domestication_leader.new_cutie_gen:0 "General [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
  domestication_leader.3.a:0 "What a cutie!"
  domestication_leader.3.fallback:0 "This is fallback text which means this event did not fire correctly."
+
+ pirate.2.j:0 "We will not let them harm a single sophont."
+
+ domestication_leader.4.name:0 "Admiral Captures New Floret"
+ domestication_leader.4.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued a pirate commander. The [new_floret.Species.GetAdj] pirate was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
+ domestication_leader.4.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"

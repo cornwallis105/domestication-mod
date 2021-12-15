@@ -39,6 +39,9 @@ on_game_start = {
 }
 
 on_fleet_destroyed_perp = {
+	events = {
+		domestication_leader.4
+	}
 	random_events = {
 		3 = domestication_leader.2 # hyperdrive eng floret rescued in space battle
 		#4 = domestication_leader.4 # pirate floret rescued in space battle

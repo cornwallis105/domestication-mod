@@ -43,6 +43,16 @@ on_fleet_destroyed_perp = {
 
 	}
 	random_events = {
+
+	}
+}
+
+on_space_battle_won = {
+	events = {
+		domestication_leader.5
+	}
+	random_events = {
+		300 = 0
 		3 = domestication_leader.2 # hyperdrive eng floret rescued in space battle
 		3 = domestication_leader.4 # pirate floret rescued in space battle
 		#3 = domestication_leader.5 # admiral floret rescued in space battle

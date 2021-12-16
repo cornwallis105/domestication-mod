@@ -38,6 +38,9 @@
 
  # Generic modifers
  mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
+ mod_shipsize_cruiser_evasion_mult:0 "Cruiser Evasion"
+ mod_shipsize_battleship_evasion_mult:0 "Battleship Evasion"
+ mod_shipsize_titan_evasion_mult:0 "Titan Evasion"
 
  # Government names
  gov_domesticator_empire:0 "Verdant Empire"
@@ -102,6 +105,8 @@
  leader_trait_warp_eng_adm_desc:0 "This floret is a former hyperdrive engineer, and while it isn't actually allowed to work in the hyperdrive core, but it would be mean to ignore it §Yevery§ time it demands that we engage the hyperdrive mid-battle."
  leader_trait_pirate_adm:0 "Floret - Pirate"
  leader_trait_pirate_adm_desc:0 "This floret is a former pirate, and - unlike most florets - its owner keeps it in peak fighting condition. It often accompanies its owner on the bridge and helpfully points out where other pirates might be lurking."
+ leader_trait_admiral_adm:0 "Floret - Admiral"
+ leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It gets very flustered when its owner demonstrates how to evade railgun volleys like the one that disabled the floret's flagship."
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"

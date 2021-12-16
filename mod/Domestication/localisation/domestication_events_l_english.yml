@@ -26,3 +26,7 @@
  domestication_leader.4.name:0 "Admiral Captures New Floret"
  domestication_leader.4.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued a pirate commander. The [new_floret.Species.GetAdj] pirate was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.4.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"
+
+ domestication_leader.5.name:0 "Admiral Captures New Floret"
+ domestication_leader.5.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued an enemy commander. The [new_floret.Species.GetAdj] admiral was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
+ domestication_leader.5.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"

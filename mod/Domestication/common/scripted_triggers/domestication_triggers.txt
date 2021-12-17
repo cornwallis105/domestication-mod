@@ -25,7 +25,14 @@ is_domesticator_or_protectorate = {
 
 is_pop_domesticable = {
 	owner = { is_domesticator_or_protectorate = yes }
-	has_citizenship_type = { type = citizenship_limited }
+	OR = {
+		has_citizenship_type = { type = citizenship_limited }
+		AND = {
+			has_trait = trait_mechanical
+			owner = { has_technology = tech_droid_workers }
+			owner = { has_technology = tech_haustoric_module }
+		}
+	}
 }
 
 is_lonely_floret = {

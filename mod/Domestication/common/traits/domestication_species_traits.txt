@@ -25,3 +25,30 @@ trait_haustoric_implant = {
 		planet_jobs_unity_produces_mult = -0.6
 	}
 }
+
+trait_haustoric_module = {
+	icon = "gfx/interface/icons/traits/trait_robot_emotion_emulators.dds"
+	initial = no
+	modification = no
+	randomized = no
+
+	sorting_priority = 5
+
+	cost = 1
+	allowed_archetypes = { ROBOT }
+	custom_tooltip = TRAIT_HAUSTORIC_MODULE_EFFECT
+	modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		species_empire_size_mult = -0.05
+		pop_ethic_xenophile_attraction_mult = 0.5
+	}
+	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP
+	triggered_pop_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = no }
+		}
+		pop_happiness = -0.6
+		planet_jobs_unity_produces_mult = -0.6
+	}
+}

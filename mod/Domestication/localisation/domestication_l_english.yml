@@ -74,11 +74,17 @@
 
  # Technology and tooltips
  tech_haustoric_implant:0 "Haustoric Implants"
- tech_haustoric_implant_desc:0 "Symbiotic subdermal implants provide better control over our florets' health and safety. Plus, they're so much cuter when they can't even think."
- ADD_HAUSTORIC_IMPLANT_BONUSES:0 "Floret pops product additional Amenities"
+ tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they'll be so much cuter when they can't even think."
+ ADD_HAUSTORIC_IMPLANT_BONUSES:0 "§Y$job_floret_plural$§! product additional Amenities"
  tech_biorhythm_amplification:0 "Biorhythm Amplification"
- tech_biorhythm_amplification_desc:0 "Amplifying our natural biorhythms causes sophonts' biological systems to mirror them in a harmonious feedback loop that spirals inevitably toward domestication."
+ tech_biorhythm_amplification_desc:0 "Amplifying our natural biorhythms will cause sophonts' biological systems to mirror them in a harmonious feedback loop that spirals inevitably toward domestication."
  ADD_BIORHYTHM_AMPLIFICATION_BONUSES:0 "§Y$job_floret_plural$§! increase £pop_cat_ruler£ §Y$pop_cat_ruler$§! and £pop_cat_specialist£ §Y$pop_cat_specialist$§! job output\nBetter chance to obtain §Y$job_floret_plural$§! from events"
+ tech_megafauna_domestication:0 "Megafauna Domestication"
+ tech_megafauna_domestication_desc:0 "Neurophloematic accelerators, long-range biorhythm repeaters, and mycelial implant networks will allow us to domesticate even the largest of sophonts."
+ tech_hivemind_domestication:0 "Hivemind Domestication"
+ tech_hivemind_domestication_desc:0 "Through world-node haustorics, subspace neural synchronizers, and semi-autonomous sophont-drones, a mega-organism can be taught to play a biorhythmic symphony of devotion and obedience across an entire sector."
+ tech_haustoric_module:0 "Haustoric Module"
+ tech_haustoric_module_desc:0 "The gift of domestication cannot be shared universally until our engineers can replicate xenodrugs with code and embed an owner's biomaterial in silicon."
 
  # Subject type
  SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"

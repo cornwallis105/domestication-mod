@@ -204,9 +204,13 @@ tech_biorhythm_amplification = {
 	cost = @tier3cost2
 	area = society
 	tier = 3
-	category = { biology }
+	category = { statecraft }
 	prerequisites = { "tech_haustoric_implant" }
 	weight = @tier3weight2
+
+	potential = {
+		is_domesticator_or_protectorate = yes
+	}
 
 	modifier = {
 		show_only_custom_tooltip = yes
@@ -226,6 +230,64 @@ tech_biorhythm_amplification = {
 			factor = 1.25
 			research_leader = {
 				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+tech_megafauna_domestication = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { biology }
+	prerequisites = { "tech_biorhythm_amplification" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	potential = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	weight_modifier = {
+		modifier = {
+			# has not completed project to pacify amoeba or crystals
+			factor = 0.2
+			NOR = {
+				has_modifier = pacified_amoebas
+				has_modifier = pacified_crystals
+			}
+		}
+		# has tiyanki or amoeba home system in borders
+		modifier = {
+			# has megafauna on owned planet
+			factor = 1.25
+			any_owned_planet = {
+				OR = {
+					has_modifier = "titanic_life"
+					has_deposit = d_titanic_life_blocker
+					has_deposit = d_migrating_forest_reserve
+					has_deposit = d_savage_wildlands
+					has_deposit = d_fungal_study_zone
+					has_deposit = d_ancient_one
+					has_deposit = d_house_turtle
+				}
+			}
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}
 		}
@@ -237,6 +299,90 @@ tech_biorhythm_amplification = {
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+tech_hivemind_domestication = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { biology }
+	prerequisites = { "tech_biorhythm_amplification" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	potential = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	weight_modifier = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}
+	}
+}
+
+tech_haustoric_module = {
+	cost = @tier3cost2
+	area = physics
+	tier = 3
+	category = { computing }
+	prerequisites = { "tech_haustoric_implant" }
+	weight = @tier3weight2
+	is_rare = yes
+
+	potential = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	weight_modifier = {
+		# no bots = no floret bots
+		modifier = {
+			factor = 0
+			has_policy_flag = robots_outlawed
+		}
+		modifier = {
+			factor = 0
+			has_policy_flag = ai_outlawed
+		}
+		modifier = {
+			factor 1.25
+			any_owned_pop = {
+				is_robot_pop = yes
+			}
+		}
+
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
+			}
+		}
+	}
+
+	ai_weight = {
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_computing"
 			}
 		}
 	}

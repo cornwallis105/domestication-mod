@@ -140,7 +140,7 @@ tech_haustoric_implant = {
 	}
 
 	modifier = {
-		show_only_custom_tooltip = no
+		show_only_custom_tooltip = yes
 		custom_tooltip = ADD_HAUSTORIC_IMPLANT_BONUSES
 	}
 
@@ -158,7 +158,7 @@ tech_haustoric_implant = {
 			}
 		}
 		modifier = {
-			factor = 1.1
+			factor = 1.25
 			is_domesticator_or_protectorate = yes
 		}
 		modifier = {
@@ -201,12 +201,12 @@ tech_haustoric_implant = {
 }
 
 tech_biorhythm_amplification = {
-	cost = @tier3cost1
+	cost = @tier3cost2
 	area = society
 	tier = 3
 	category = { biology }
 	prerequisites = { "tech_haustoric_implant" }
-	weight = @tier3weight1
+	weight = @tier3weight2
 
 	modifier = {
 		show_only_custom_tooltip = yes

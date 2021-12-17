@@ -1,0 +1,9 @@
+spriteTypes = {
+
+	spriteType = {
+		name = "GFX_faction_icon_domesticator_faction"
+		textureFile = "gfx/interface/icons/faction_icons/faction_icons_domesticator_faction.dds"
+		noOfFrames = 1
+	}
+
+}

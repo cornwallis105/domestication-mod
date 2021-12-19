@@ -17,12 +17,10 @@ country_event = {
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
-		any_owned_planet = {
-			exists = owner
-			num_assigned_jobs = {
-				job = floret
-				value >= 1
-			}
+		any_owned_pop = {
+			has_job = floret
+			is_robot_pop = no
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 
@@ -30,6 +28,7 @@ country_event = {
 		every_owned_pop = {
 			limit = {
 				has_job = floret
+				is_robot_pop = no
 				NOT = {
 					pop_has_trait = trait_haustoric_implant
 				}
@@ -840,15 +839,15 @@ country_event = {
 					modifier = {
 						factor = 1.5
 						OR = {
-							has trait = trait_deviants
-							has trait = trait_docile
+							has_trait = trait_deviants
+							has_trait = trait_docile
 						}
 					}
 					modifier = {
 						factor = 0.5
 						OR = {
-							has trait = trait_conformists
-							has trait = trait_unruly
+							has_trait = trait_conformists
+							has_trait = trait_unruly
 						}
 					}
 				}
@@ -878,6 +877,106 @@ country_event = {
 		name = domestication.9.a
 		trigger = {
 			always = yes
+		}
+		hidden_effect = {
+			event_target:br_home_empire = {
+				country_event = {
+					id = domestication.10
+					days = 25
+					random = 10
+					scopes = { from = root }
+				}
+			}
+		}
+	}
+}
+
+## Inform country of pop lost to Biorhythm Transmitter
+country_event = {
+	id = domestication.10
+	title = domestication.10.name
+	desc =  domestication.10.desc
+	picture = GFX_evt_unknown_ships
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = domestication.10.a
+		trigger = {
+			always = yes
+		}
+		add_opinion_modifier = {
+			who = from
+			modifier = opinion_br_pop_stolen
+		}
+	}
+	option = {
+		name = domestication.10.b
+		trigger = {
+
+		}
+
+	}
+}
+
+## Add Haustoric Module trait to mechanical floret pops - triggered on monthly pulse
+country_event = {
+	id = domestication.11
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_technology = tech_haustoric_module
+		has_policy_flag = ai_full_rights
+		any_owned_pop = {
+			is_robot_pop = yes
+			has_job = floret
+			NOT = { has_trait = trait_robot_haustoric_module }
+		}
+	}
+
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				is_robot_pop = yes
+				has_job = floret
+				NOT = {
+					pop_has_trait = trait_robot_haustoric_module
+				}
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_robot_haustoric_module
+				add_traits_at_start_of_list = yes
+
+				effect = {
+					set_citizenship_type = {
+						country = root
+						type = citizenship_limited
+						cooldown = no
+					}
+					set_military_service_type = {
+						country = root
+						type = military_service_none
+						cooldown = no
+					}
+					set_colonization_controls = {
+						country = root
+						type = yes
+						cooldown = no
+					}
+				}
+			}
 		}
 	}
 }

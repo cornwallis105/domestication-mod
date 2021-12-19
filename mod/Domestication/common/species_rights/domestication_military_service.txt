@@ -91,9 +91,7 @@ military_service_full = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_MILITARY_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			has_haustorics = no
 		}
 	}
 	ai_will_do = {
@@ -154,9 +152,7 @@ military_service_limited = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_MILITARY_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			has_haustorics = no
 		}
 	}
 	ai_will_do = {

@@ -8,6 +8,7 @@
 
 namespace = domestication_leader
 
+# gatekeeper event for level-up florets
 country_event = {
 	id = domestication_leader.1
 	hide_window = yes
@@ -170,22 +171,160 @@ country_event = {
 	}
 }
 
-## Create "Cutie" floret for governor
+## Create floret rescued in space battle
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
 country_event = {
 	id = domestication_leader.2
+	title = domestication_leader.2.name
 
-	hide_window = yes
+	desc = domestication_leader.2.desc
+
+	picture = GFX_evt_emergency_workers
+
+	hide_window = no
 	is_triggered_only = yes
 
 	trigger = {
-		always = yes
+		this = { is_domesticator_or_protectorate = yes }
+		# defeated country is default country type
+		from = {
+			is_country_type = default
+		}
+		# admiral has < 2 florets
+		fromfrom = {
+			exists = leader
+			leader = {
+				NOT = { has_trait = leader_trait_warp_eng_adm }
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
+		}
 	}
 
 	immediate = {
+		fromfrom = {
+			solar_system = { save_event_target_as = system }
+			leader = { save_event_target_as = new_owner	}
+		}
+		from = {
+			save_event_target_as = defeated_country
+		}
 
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+
+			if = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				set_variable = {
+					which = affini_id_1
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+
+			add_trait = leader_trait_warp_eng_adm
+
+			## generate new leader of species matching primary species of defeated fleet
+			owner = {
+				event_target:floret_country = {
+					create_leader = {
+						name = random
+						species = event_target:defeated_country.owner_species
+						class = governor
+						leader_age_min = 20
+						leader_age_max = 40
+						skill = 1
+					}
+					last_created_leader = {
+						save_event_target_as = new_floret
+					}
+				}
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					event_target:new_floret = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+					}
+				}
+				else = {
+					event_target:new_floret = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = owner.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+					}
+				}
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.2.a
+		trigger = {
+			always = yes
+		}
 	}
 }
 
+# Create random floret from level-up
 country_event = {
 	id = domestication_leader.3
 	title = domestication_leader.3.name
@@ -258,9 +397,6 @@ country_event = {
 					}
 					save_event_target_as = floret_species
 				}
-				event_target:floret_species = {
-
-				}
 				event_target:floret_country = {
 					create_leader = {
 						name = random
@@ -269,6 +405,9 @@ country_event = {
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
+					}
+					last_created_leader = {
+						save_event_target_as = new_floret
 					}
 				}
 				if = {
@@ -280,7 +419,7 @@ country_event = {
 							}
 						}
 					}
-					last_created_leader = {
+					event_target:new_floret = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
@@ -290,13 +429,10 @@ country_event = {
 							which = floret_number
 							value = 1
 						}
-						this = {
-							save_event_target_as = new_floret
-						}
 					}
 				}
 				else = {
-					last_created_leader = {
+					event_target:new_floret = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
@@ -306,35 +442,11 @@ country_event = {
 							which = floret_number
 							value = 2
 						}
-						this = {
-							save_event_target_as = new_floret
-						}
 					}
 				}
 				change_variable = {
 					which = floret_index
 					value = 1
-				}
-				#country_event = { id = domestication_leader.3 }
-			}
-		}
-		fromfrom = {
-			if = {
-				limit = {
-					exists = planet
-				}
-				planet = {
-					save_event_target_as = current_location
-				}
-			}
-			if = {
-				limit = {
-					exists = fleet
-				}
-				fleet = {
-					random_owned_ship = {
-						save_event_target_as = current_location
-					}
 				}
 			}
 		}
@@ -342,6 +454,334 @@ country_event = {
 
 	option = {
 		name = domestication_leader.3.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+## Create pirate floret rescued in space battle
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+country_event = {
+	id = domestication_leader.4
+	title = domestication_leader.4.name
+
+	desc = domestication_leader.4.desc
+
+	picture = GFX_evt_exploding_ship
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# defeated fleet has an admiral
+		#fromfromfrom = {
+		#	exists = leader
+		#}
+		# defeated country is pirate country type
+		from = {
+			is_country_type = pirate
+		}
+		# admiral has < 2 florets
+		fromfrom = {
+			exists = leader
+			leader = {
+				NOT = { has_trait = leader_trait_pirate_adm }
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
+		}
+		#always = yes
+	}
+
+	immediate = {
+		fromfrom = {
+			solar_system = { save_event_target_as = system }
+			leader = { save_event_target_as = new_owner	}
+		}
+		from = {
+			save_event_target_as = defeated_country
+		}
+		#fromfromfrom = {
+		#	leader = { save_event_target_as = new_floret }
+		#}
+
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			event_target:floret_country = {
+				create_leader = {
+					name = random
+					species = event_target:defeated_country.owner_species
+					class = governor
+					leader_age_min = 20
+					leader_age_max = 40
+					skill = 1
+				}
+				last_created_leader = {
+					save_event_target_as = new_floret
+				}
+			}
+			if = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				set_variable = {
+					which = affini_id_1
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+
+			add_trait = leader_trait_pirate_adm
+
+			event_target:new_floret = {
+				set_owner = event_target:floret_country
+			}
+
+			## generate new leader of species matching primary species of defeated fleet
+			owner = {
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					event_target:new_floret = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = root.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+					}
+				}
+				else = {
+					event_target:new_floret = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = root.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+					}
+				}
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.4.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+## Create admiral floret rescued in space battle
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (destroyed)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+country_event = {
+	id = domestication_leader.5
+	title = domestication_leader.5.name
+
+	desc = domestication_leader.5.desc
+
+	picture = GFX_evt_exploding_ship
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# defeated fleet has an admiral
+		fromfromfrom = {
+			exists = leader
+		}
+		# defeated country is default country type
+		from = {
+			is_country_type = default
+		}
+		# admiral has < 2 florets
+		fromfrom = {
+			exists = leader
+			leader = {
+				NOT = { has_trait = leader_trait_admiral_adm }
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
+		}
+		#always = yes
+	}
+
+	immediate = {
+		fromfrom = {
+			solar_system = { save_event_target_as = system }
+			leader = { save_event_target_as = new_owner	}
+		}
+		from = {
+			save_event_target_as = defeated_country
+		}
+		fromfromfrom = {
+			leader = { save_event_target_as = new_floret }
+		}
+
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			#event_target:floret_country = {
+			#	create_leader = {
+			#		name = random
+			#		species = event_target:defeated_country.owner_species
+			#		class = governor
+			#		leader_age_min = 20
+			#		leader_age_max = 40
+			#		skill = 1
+			#	}
+			#	last_created_leader = {
+			#		save_event_target_as = new_floret
+			#	}
+			#}
+			if = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				set_variable = {
+					which = affini_id_1
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = owner.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+
+			add_trait = leader_trait_admiral_adm
+
+			event_target:new_floret = {
+				set_owner = event_target:floret_country
+			}
+
+			## generate new leader of species matching primary species of defeated fleet
+			owner = {
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					event_target:new_floret = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = root.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+					}
+				}
+				else = {
+					event_target:new_floret = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = root.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+					}
+				}
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.5.a
 		trigger = {
 			always = yes
 		}

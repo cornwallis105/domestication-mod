@@ -174,3 +174,49 @@ add_random_leader_floret_trait = {
 		#owner = { country_event = { id = leader.25} }
 	}
 }
+
+# this = country
+get_pirate_species = {
+	owner_species = { save_event_target_as = country_species }
+	if = {
+		limit = {
+			is_domesticator_or_protectorate = yes
+			any_owned_species = {
+				NOR = {
+					is_same_species = event_target:country_species
+					is_robotic = yes
+					is_sapient = no
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				species = {
+					NOR = {
+						is_same_species = event_target:country_species
+						is_robotic = yes
+						is_sapient = no
+					}
+				}
+			}
+			weights = {
+				base = 1
+				modifier = {
+					factor = 5
+					OR = {
+						pop_has_ethic = ethic_fanatic_xenophobe
+						pop_has_ethic = ethic_xenophobe
+					}
+				}
+				modifier = {
+					factor = 0.1
+					has_job = floret
+				}
+			}
+			species = { save_event_target_as = owner_species }
+		}
+	}
+	else = {
+		event_target:country_species = { save_event_target_as = owner_species }
+	}
+}

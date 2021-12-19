@@ -43,9 +43,10 @@ I welcome any and all feedback and criticism from users as I strive to balance c
 To-do list:  
 - Add happiness malus to planets with low/no florets?  
 - Domesticating leviathans.  
-- Leader traits to represent a floret - small bonus and malus so this doesn't get too OP.  
+- Add more floret (leader trait) types.  
 - Events!  
 - Domestication events for various xenos found during exploration.  
+- Domestication functionality for robots, machine intelligences, and hive minds.  
 - Universe Ascension Project.  
 
 Done list:  
@@ -53,5 +54,4 @@ Done list:
 - Pop trait for Haustoric Implant to be automatically added to floret pops.  
 - Affini Compact emblem.  
 - Domestication Wars - Create protectorate with Affini main species.  
-
-
+- Leader traits to represent florets.  

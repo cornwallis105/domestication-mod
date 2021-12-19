@@ -19,6 +19,14 @@
  trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
  TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAvailable species rights are restricted"
  TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
+ trait_robot_haustoric_module:0 "Haustoric Module"
+ trait_robot_haustoric_module_desc:0 "Purpose-built hardware and personalized software interface directly with these florets' emotional emulators and tacile processors, allowing them to experience their owners' love in every circuit."
+ TRAIT_HAUSTORIC_MODULE_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAffected by £happiness£ §YHappiness§!"
+ TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
+
+ # Factions
+ pft_domesticator_faction:0 "Domesticator Faction"
+ pft_domesticator_faction_desc:1 "Domesticator Factions desire for a multi-species society with a wide variety of sophonts to domesticate. They dislike species-wide Slavery and Purges.\n\n§LXenophile Ethos§!"
 
  # Faction demands
  DOMESTICATOR_OVERLORD:0 "Domestication Astropolitics"
@@ -38,6 +46,9 @@
 
  # Generic modifers
  mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
+ mod_shipsize_cruiser_evasion_mult:0 "Cruiser Evasion"
+ mod_shipsize_battleship_evasion_mult:0 "Battleship Evasion"
+ mod_shipsize_titan_evasion_mult:0 "Titan Evasion"
 
  # Government names
  gov_domesticator_empire:0 "Verdant Empire"
@@ -67,9 +78,17 @@
 
  # Technology and tooltips
  tech_haustoric_implant:0 "Haustoric Implants"
- tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they're so much cuter when they can't even think."
- ADD_HAUSTORIC_IMPLANT_BONUSES:0 "Floret pops product additional Amenities\nUnlocks §Y|$trait_haustoric_implant$§! trait"
- ADD_BIORHYTHM_AMPLIFICATION_BONUSES:0 "§Y$job_floret_plural$§! increase §Y$ruler$§! and §Y$specialist$§! job output\nBetter chance to obtain §Y$job_floret_plural$§! from events"
+ tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they'll be so much cuter when they can't even think."
+ ADD_HAUSTORIC_IMPLANT_BONUSES:0 "§Y$job_floret_plural$§! product additional Amenities"
+ tech_biorhythm_amplification:0 "Biorhythm Amplification"
+ tech_biorhythm_amplification_desc:0 "Amplifying our natural biorhythms will cause sophonts' biological systems to mirror them in a harmonious feedback loop that spirals inevitably toward domestication."
+ ADD_BIORHYTHM_AMPLIFICATION_BONUSES:0 "§Y$job_floret_plural$§! increase £pop_cat_ruler£ §Y$pop_cat_ruler$§! and £pop_cat_specialist£ §Y$pop_cat_specialist$§! job output\nBetter chance to obtain §Y$job_floret_plural$§! from events"
+ tech_megafauna_domestication:0 "Megafauna Domestication"
+ tech_megafauna_domestication_desc:0 "Neurophloematic accelerators, long-range biorhythm repeaters, and mycelial implant networks will allow us to domesticate even the largest of sophonts."
+ tech_hivemind_domestication:0 "Hivemind Domestication"
+ tech_hivemind_domestication_desc:0 "Through world-node haustorics, subspace neural synchronizers, and semi-autonomous sophont-drones, a mega-organism can be taught to play a biorhythmic symphony of devotion and obedience across an entire sector."
+ tech_haustoric_module:0 "Haustoric Module"
+ tech_haustoric_module_desc:0 "The gift of domestication cannot be shared universally until our engineers can replicate xenodrugs with code and embed an owner's biomaterial in silicon."
 
  # Subject type
  SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"
@@ -98,6 +117,12 @@
  leader_trait_cutie_adm_desc:0 "While all florets are cute, this floret is just exceptionally cute. The fleet's crew have adopted it as their mascot, and invoke its name as they charge into battle."
  leader_trait_cutie_gen:0 "Floret - Cutie"
  leader_trait_cutie_gen_desc:0 "While all florets are cute, this floret is just exceptionally cute. Inspired by its cuteness, soldiers do all they can to disable hostile aliens and prevent casualties on all sides so as not to make the floret sad."
+ leader_trait_warp_eng_adm:0 "Floret - Hyperdrive Engineer"
+ leader_trait_warp_eng_adm_desc:0 "This floret is a former hyperdrive engineer, and while it isn't actually allowed to work in the hyperdrive core, but it would be mean to ignore it §Yevery§ time it demands that we engage the hyperdrive mid-battle."
+ leader_trait_pirate_adm:0 "Floret - Pirate"
+ leader_trait_pirate_adm_desc:0 "This floret is a former pirate, and - unlike most florets - its owner keeps it in peak fighting condition. It often accompanies its owner on the bridge and helpfully points out where other pirates might be lurking."
+ leader_trait_admiral_adm:0 "Floret - Admiral"
+ leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It gets very flustered when its owner demonstrates how to evade railgun volleys like the one that disabled the floret's flagship."
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"
@@ -105,3 +130,6 @@
  sm_biorhythm_transmitter:0 "Biorhythm Transmitter"
  sm_biorhythm_transmitter_desc:0 "A massive subspace transmission facility that broadcasts hypnotic-laced biorhythms into the cosmos.\n"
  sm_biorhythm_transmitter_desc_modifier:0 "Has a chance to lure £pops£ §$POPS|Y$§! from planets within §Y4§! jumps.\n\n"
+
+ # Opinion modifiers
+ opinion_br_pop_stolen:0 "Lured Pop Away"

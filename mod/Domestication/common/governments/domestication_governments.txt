@@ -48,7 +48,7 @@ gov_domesticator_empire = {
 gov_domesticator_dictatorship = {
 	## Protector
 	ruler_title = RT_PROTECTOR
-	
+
 	should_force_rename = yes
 
 	possible = {
@@ -65,7 +65,7 @@ gov_domesticator_dictatorship = {
 gov_domesticator_oligarchy = {
 	## High Gardener
 	ruler_title = RT_HIGH_GARDENER
-	
+
 	should_force_rename = yes
 
 	possible = {
@@ -80,9 +80,9 @@ gov_domesticator_oligarchy = {
 
 # Domestication Assembly
 gov_domesticator_democracy = {
-	## High Admiral
-	ruler_title = RT_HIGH_ADMIRAL
-	
+	## High Gardener
+	ruler_title = RT_HIGH_GARDENER
+
 	should_force_rename = yes
 
 	possible = {

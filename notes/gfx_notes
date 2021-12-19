@@ -1,0 +1,13 @@
+Trait colors:
+  normal:
+    background dark: 008c6b
+    background light: 0bd7a9
+    icon: 00241f
+  advanced/robot:
+    background dark: 008c82
+    background light: 0ad8cc
+    icon: 001923
+  bad:
+    background dark: 831002
+    background light: cf1b07
+    icon: 36071d

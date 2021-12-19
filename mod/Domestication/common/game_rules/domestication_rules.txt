@@ -58,7 +58,7 @@ species_has_happiness = {
 				exists = from
 				from = { is_domesticator_or_protectorate = yes }
 				from = { NOT = { has_policy_flag = ai_outlawed } }
-				has_trait = trait_haustoric_module
+				has_trait = trait_robot_haustoric_module
 			}
 			OR = {
 				NOT = { exists = from }

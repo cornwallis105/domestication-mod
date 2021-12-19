@@ -2,13 +2,14 @@
 on_monthly_pulse_country = {
 	events = {
 		domestication.1 # Haustoric Implant pop modification
+		domestication.11 # Haustoric Module pop modification
 		domestication.8 # Biorhythm Transmitter resettlement
 	}
 }
 
 on_tech_increased = {
 	events = {
-		domestication.2
+		domestication.2 # Haustoric Implant info event
 	}
 }
 
@@ -38,23 +39,11 @@ on_game_start = {
 	}
 }
 
-on_fleet_destroyed_perp = {
-	events = {
-
-	}
-	random_events = {
-
-	}
-}
-
 on_space_battle_won = {
-	events = {
-		domestication_leader.5
-	}
 	random_events = {
 		300 = 0
 		3 = domestication_leader.2 # hyperdrive eng floret rescued in space battle
 		3 = domestication_leader.4 # pirate floret rescued in space battle
-		#3 = domestication_leader.5 # admiral floret rescued in space battle
+		3 = domestication_leader.5 # admiral floret rescued in space battle
 	}
 }

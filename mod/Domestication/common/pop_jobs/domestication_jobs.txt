@@ -9,7 +9,6 @@ floret = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
-		is_sapient = yes
 	}
 
 	possible_precalc = can_fill_worker_job
@@ -17,7 +16,13 @@ floret = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_domesticator_or_protectorate = yes }
-		has_citizenship_type = { type = citizenship_limited }
+		OR = {
+			has_citizenship_type = { type = citizenship_limited }
+			AND = {
+				owner = { has_technology = tech_haustoric_module }
+				NOT = { owner = { has_policy_flag = ai_outlawed } }
+			}
+		}
 	}
 
 	resources = {
@@ -79,7 +84,7 @@ floret = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_trait = trait_haustoric_implant
+			has_haustorics = yes
 		}
 		modifier = {
 			planet_amenities_add = 1
@@ -115,7 +120,7 @@ floret = {
 		}
 		modifier = {
 			factor = 10
-			has_trait = trait_haustoric_implant
+			has_haustorics = yes
 		}
 		modifier = {
 			factor = 3

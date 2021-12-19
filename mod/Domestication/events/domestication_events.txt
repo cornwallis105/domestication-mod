@@ -17,12 +17,10 @@ country_event = {
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
-		any_owned_planet = {
-			exists = owner
-			num_assigned_jobs = {
-				job = floret
-				value >= 1
-			}
+		any_owned_pop = {
+			has_job = floret
+			is_robot_pop = no
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 
@@ -30,6 +28,7 @@ country_event = {
 		every_owned_pop = {
 			limit = {
 				has_job = floret
+				is_robot_pop = no
 				NOT = {
 					pop_has_trait = trait_haustoric_implant
 				}
@@ -926,5 +925,58 @@ country_event = {
 
 		}
 
+	}
+}
+
+## Add Haustoric Module trait to mechanical floret pops - triggered on monthly pulse
+country_event = {
+	id = domestication.11
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_technology = tech_haustoric_module
+		has_policy_flag = ai_full_rights
+		any_owned_pop = {
+			is_robot_pop = yes
+			has_job = floret
+			NOT = { has_trait = trait_robot_haustoric_module }
+		}
+	}
+
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				is_robot_pop = yes
+				has_job = floret
+				NOT = {
+					pop_has_trait = trait_robot_haustoric_module
+				}
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_robot_haustoric_module
+				add_traits_at_start_of_list = yes
+
+				effect = {
+					set_citizenship_type = {
+						country = root
+						type = citizenship_limited
+						cooldown = no
+					}
+					set_military_service_type = {
+						country = root
+						type = military_service_none
+						cooldown = no
+					}
+					set_colonization_controls = {
+						country = root
+						type = yes
+						cooldown = no
+					}
+				}
+			}
+		}
 	}
 }

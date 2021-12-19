@@ -19,6 +19,10 @@
  trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
  TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAvailable species rights are restricted"
  TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
+ trait_robot_haustoric_module:0 "Haustoric Module"
+ trait_robot_haustoric_module_desc:0 "Purpose-built hardware and personalized software interface directly with these florets' emotional emulators and tacile processors, allowing them to experience their owners' love in every circuit."
+ TRAIT_HAUSTORIC_MODULE_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-5%§!\nAffected by £happiness£ §YHappiness§!"
+ TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
 
  # Factions
  pft_domesticator_faction:0 "Domesticator Faction"

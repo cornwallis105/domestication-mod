@@ -994,17 +994,17 @@ entertainer = {
 			planet_amenities_add = 2
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant
+			has_haustorics = yes
 		}
 		modifier = {
 			planet_amenities_add = 2
 		}
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			has_trait = trait_repugnant
@@ -1101,7 +1101,7 @@ entertainer = {
 		}
 		modifier = {
 			factor = 2
-			has_trait = trait_haustoric_implant
+			has_haustorics = yes
 		}
 	}
 }

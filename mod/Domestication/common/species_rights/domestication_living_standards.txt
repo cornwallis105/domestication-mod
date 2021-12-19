@@ -17,28 +17,34 @@ living_standard_chemical_bliss = {
 			NAND = {
 				exists = owner
 				owner = { is_domesticator_or_protectorate = yes }
-				has_trait = trait_haustoric_implant
+				has_haustorics = yes
 			}
 		}
 		planet_jobs_produces_mult = -0.6
-		pop_cat_ruler_political_power = 0.1
-		pop_cat_specialist_political_power = 0.1
-		pop_cat_worker_political_power = 0.1
 		custom_tooltip = living_standard_chemical_bliss_happiness_tooltip
 	}
 
+	triggered_pop_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+		pop_cat_ruler_political_power = 0.1
+		pop_cat_specialist_political_power = 0.1
+		pop_cat_worker_political_power = 0.1
+	}
+
 	potential = {
-		from = {
-			OR = {
-				has_technology = tech_subdermal_stimulation
-				has_technology = tech_haustoric_implant
-				## is_domesticator_or_protectorate = yes ## Enables Chemical Bliss at game start for Domesticators
-			}
+		OR = {
+			from = { has_technology = tech_subdermal_stimulation }
+			from = { has_technology = tech_haustoric_implant }
+			## is_domesticator_or_protectorate = yes ## Enables Chemical Bliss at game start for Domesticators
 		}
 		NOT = { has_trait = trait_hive_mind }
 		NOR = {
-			has_trait = trait_mechanical
 			has_trait = trait_machine_unit
+			has_trait = trait_mechanical
 		}
 	}
 
@@ -135,9 +141,7 @@ living_standard_shared_burden = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 
@@ -211,9 +215,7 @@ living_standard_utopian = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 
@@ -339,9 +341,7 @@ living_standard_academic_privilege = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 
@@ -471,9 +471,7 @@ living_standard_good = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 	ai_will_do = {
@@ -602,9 +600,7 @@ living_standard_normal = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 	ai_will_do = {
@@ -717,9 +713,7 @@ living_standard_stratified = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 	ai_will_do = {
@@ -818,9 +812,7 @@ living_standard_subsistence = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 	ai_will_do = {
@@ -896,9 +888,7 @@ living_standard_decadent = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_BLISS_HAUSTORIC_IMPLANT
-			not = {
-				has_trait = trait_haustoric_implant
-			}
+			NOT = { has_trait = trait_haustoric_implant }
 		}
 	}
 

@@ -343,7 +343,7 @@ tech_haustoric_module = {
 	area = physics
 	tier = 3
 	category = { computing }
-	prerequisites = { "tech_haustoric_implant" }
+	prerequisites = { "tech_haustoric_implant" "tech_droid_workers" "tech_robomodding" }
 	weight = @tier3weight2
 	is_rare = yes
 

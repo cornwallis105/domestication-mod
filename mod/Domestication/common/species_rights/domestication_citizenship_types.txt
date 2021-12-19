@@ -58,17 +58,15 @@ citizenship_full = {
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_CITIZEN_HAUSTORIC_IMPLANT
-			NOT = {
-				has_trait = trait_haustoric_implant
-			}
+			has_haustorics = no
 		}
 		custom_tooltip = {
-			fail_text = domesticated_species_no_citizenship	
+			fail_text = domesticated_species_no_citizenship
 			OR = {
 				from = {
 					is_domesticator_or_protectorate = no
 				}
-				is_same_species = from 
+				is_same_species = from
 			}
 		}
 	}
@@ -97,9 +95,9 @@ citizenship_purge = {
 	allow = {
 		hidden_trigger = { exists = from }
 		if = {
-			limit = { 
+			limit = {
 				OR = {
-					is_lonely_hive_mind_pop = yes 
+					is_lonely_hive_mind_pop = yes
 					is_lonely_floret = yes
 				}
 			}

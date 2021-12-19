@@ -16,11 +16,11 @@ clerk = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -169,9 +169,9 @@ technician = {
 		owner = {
 			is_gestalt = no
 		}
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -316,7 +316,7 @@ technician = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -348,9 +348,9 @@ miner = {
 		owner = {
 			is_gestalt = no
 		}
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -472,7 +472,7 @@ miner = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -502,9 +502,9 @@ crystal_miner = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_gestalt = no }
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -602,7 +602,7 @@ crystal_miner = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -629,11 +629,11 @@ gas_extractor = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -731,7 +731,7 @@ gas_extractor = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -758,11 +758,11 @@ mote_harvester = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -860,7 +860,7 @@ mote_harvester = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -892,9 +892,9 @@ farmer = {
 		owner = {
 			is_gestalt = no
 		}
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -1082,7 +1082,7 @@ farmer = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -1248,7 +1248,7 @@ soldier = {
 			factor = 2
 			has_trait = trait_lithoid
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -1276,11 +1276,11 @@ preacher = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -1417,7 +1417,7 @@ preacher = {
 			factor = 0.01
 			has_trait = trait_nerve_stapled
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -1541,11 +1541,11 @@ scrap_miner = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 
@@ -1656,7 +1656,7 @@ scrap_miner = {
 			factor = 0.75
 			has_trait = trait_necrophage
 		}
-		
+
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -1691,9 +1691,9 @@ angler = {
 			is_gestalt = no
 			is_anglers_empire = yes
 		}
-		NAND = { 
+		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
-			has_trait = trait_haustoric_implant 
+			has_haustorics = yes
 		}
 	}
 

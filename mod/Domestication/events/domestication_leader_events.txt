@@ -15,18 +15,14 @@ country_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		AND = {
-			root = {
-				is_domesticator_or_protectorate = yes
-			}
-			# Do not add floret if leader already has 2
-			from = {
-				AND = {
-					is_variable_set = floret_count
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
+		is_domesticator_or_protectorate = yes
+		# Do not add floret if leader already has 2
+		from = {
+			OR = {
+				NOT = { is_variable_set = floret_count }
+				check_variable = {
+					which = floret_count
+					value < 2
 				}
 			}
 		}
@@ -41,13 +37,16 @@ country_event = {
 		#}
 		#event_target:guvna = {
 		from = {
+			log_error = "Level up: [from.GetName]"
 			if = {
 				limit = {
 					leader_class = scientist
 					NOT = {	has_leader_flag = has_gained_level_floret	}
 				}
 				random_list = {
-					90 = { }
+					90 = {
+						log_error = "No floret"
+					}
 					10 = {
 						modifier = {
 							factor = 1.5
@@ -72,7 +71,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					90 = { }
+					90 = { log_error = "No floret" }
 					10 = {
 						modifier = {
 							factor = 1.5
@@ -98,7 +97,7 @@ country_event = {
 					#exists = planet
 				}
 				random_list = {
-					#80 = { }
+					80 = { log_error = "No floret" }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -123,7 +122,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					80 = { }
+					80 = { log_error = "No floret" }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -148,7 +147,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					80 = { }
+					80 = { log_error = "No floret" }
 					20 = {
 						modifier = {
 							factor = 1.5

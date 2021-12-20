@@ -54,7 +54,12 @@ wg_independence = {
 				}
 				remove_claims = { who = from }
 			}
-			country_event = { id = domestication.6 }
+			country_event = {
+				id = domestication.6
+			}
+			country_event = {
+				id = domestication.12
+			}
 		}
 	}
 

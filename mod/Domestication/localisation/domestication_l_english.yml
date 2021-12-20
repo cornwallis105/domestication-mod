@@ -92,6 +92,7 @@
 
  # Subject type
  SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"
+ SUBJECT_domesticated_hivemind:0 "Domesticated Hive Mind"
 
  # Diplomacy messages
  01_DEMAND_DOMEST_PROPOSE:0 "The §Y[From.GetName]§! hereby demands your immediate surrender and compliance with the [Root.GetSpeciesAdj] Domestication Program. Please do not fight us, we would hate to see harm come to any sophont."
@@ -133,3 +134,9 @@
 
  # Opinion modifiers
  opinion_br_pop_stolen:0 "Lured Pop Away"
+ opinion_domesticated_hivemind:0 "Domesticated Hive Mind"
+ opinion_our_domesticated_hivemind:0 "Our Domesticated Hive Mind"
+
+ # planet deposits
+ d_hive_domestication_lab:0 "Hive Domestication Facility"
+ d_hive_domestication_lab_desc:0 "This facility functions as the primary physical interface between the Hive Mind and its Owner. In addition to the Owner, a team of dedicated xeno-biologists, veterinarians, and floret caretakers live and work on-site to ensure that the mega-floret's needs are met."

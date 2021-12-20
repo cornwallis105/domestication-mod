@@ -31,3 +31,11 @@
  domestication_leader.5.desc:0 "In a stunning display of military skill in the [system.GetName] system, Admiral §Y[new_owner.GetName]§!"
  domestication_leader.5.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued an enemy commander. The [new_floret.Species.GetAdj] admiral was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.5.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"
+
+ domestication.10.name:0 "Population Missing"
+ domestication.10.desc:0 "Recent census data from [br_resettle_homeworld.GetName] shows that a large number of our people have simply vanished without a trace. While we have no hard data about what happened, [br_resettle_homeworld.GetName]'s proximity to the [br_pop_stealer.GetAdj] border may at least indicate where they went."
+ domestication.10.a:0 "Jerks!"
+
+ domestication.14.name:0 "Domestication Facility Relocated"
+ domestication.14.desc:0 "With the relocation of our hive's primary nexus to [this.GetName], our Owner's interface facility has also been relocated."
+ domestication.14.a:0 "Wonderful!"

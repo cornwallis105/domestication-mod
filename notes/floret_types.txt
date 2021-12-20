@@ -5,12 +5,14 @@ Scientist:
   Easily Distracted: + anomaly detection chance. Gained from level up.
   Scientist: 3 types, one for each research type, gives bonus in that type. Gained from espionage asset.
   Academic: General research spped bonus. Gained from espionage asset.
+  Hive Drone: Research bonus from "comms line" with other parts of hive
 
 Admiral:
   Enemy admiral: larger that normal + damage, + fire rate. Gained from victory in space combat where enemy admiral is "killed"
   Junior Officer: smaller + fire rate bonus. Gained from espionage asset.
   Hyperdrive engineer: + FTL chance, - FTL damage. Gained from victory in space combat whre >= 1 ships "destroyed"
   Veteran: + evasion, Gained from espionage asset.
+  Hive Drone: - ship upkeep
 
 Governor:
   Bureaucrat: + admin capactity from bureaucrats. Gained by level up
@@ -19,6 +21,7 @@ Governor:
   Captured criminal: - crime. Gained from events pertaining to crime reduction.
   Economist: - Consumer goods upkeep. Gained from espionage asset.
   Newscaster: + stability. Gained from espionage asset.
+  Hive Drone: + admin capacity
 
 General:
   Captured soldier: + damage, - collateral damage from knowledge of enemy tactics. Gained from victory in ground combat.
@@ -26,6 +29,8 @@ General:
   Captured supply officer: - army upkeep. Gained from victory in ground combat.
   Newscaster: + morale damage. Gained from espionage asset.
   Veteran: - collateral damage. Gained from espionage asset.
+  Hive Drone: - army upkeep
+  Gladiator: + morale damage. gained from invading world owned by Warrior Culture empire
 
 Envoy:
   Defected spy: Gained from espionage event "extract operative"

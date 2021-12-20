@@ -108,6 +108,7 @@ country_event = {
 			is_domesticator = yes
 		}
 		this = {
+			is_gestalt = no
 			NOT = { has_country_flag = flag_domesticated_protectorate }
 		}
 	}
@@ -906,7 +907,7 @@ country_event = {
 	}
 
 	immediate = {
-
+		from = { save_event_target_as = br_pop_stealer }
 	}
 
 	option = {
@@ -918,13 +919,6 @@ country_event = {
 			who = from
 			modifier = opinion_br_pop_stolen
 		}
-	}
-	option = {
-		name = domestication.10.b
-		trigger = {
-
-		}
-
 	}
 }
 
@@ -977,6 +971,152 @@ country_event = {
 					}
 				}
 			}
+		}
+	}
+}
+
+## Remove Deomesticated Hivemind features from country if no longer a subject
+country_event = {
+	id = domestication.12
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = flag_domesticated_hive_mind
+	}
+
+	immediate = {
+		remove_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+		from = {
+			remove_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+
+		every_owned_planet = {
+			limit = {
+				has_deposit = d_hive_domestication_lab
+			}
+			remove_deposit = d_hive_domestication_lab
+		}
+	}
+}
+
+## Creation of a Domesticated Hive Mind
+## mass population swaps between subject and overlord
+## this/root = subject, from = overlord
+country_event = {
+	id = domestication.13
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_domesticator = yes
+		}
+		this = {
+			is_hive_empire = yes
+			NOT = { has_country_flag = flag_domesticated_hive_mind }
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticated_hive_mind
+		add_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+
+		from = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+			add_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		set_graphical_culture = event_target:domesticator_overlord
+		set_city_graphical_culture = event_target:domesticator_overlord
+
+		change_country_flag = random
+		randomize_flag_symbol = ornate
+
+		## Destroy all military fleets
+		every_owned_ship = {
+			limit = {
+				is_civilian = no
+				NOT = { is_ship_class = shipclass_starbase }
+			}
+			delete_ship = this
+		}
+
+		## hardcoded values to represent scrap from scuttling the fleet
+
+		add_resource = { minerals = 500 }
+		add_resource = { alloys = 1000 }
+
+		event_target:domesticator_overlord = {
+			add_resource = { minerals = 500 }
+			add_resource = { alloys = 1000 }
+		}
+
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+
+		capital_scope = {
+			add_deposit = d_hive_domestication_lab
+		}
+
+	}
+}
+
+## Relocation of Hive Facility - Capital Changed
+# I think this is the only event needed - no need for seconday event for conquest?
+planet_event = {
+	id = domestication.14
+	title = domestication.14.name
+	desc =  domestication.14.desc
+	picture = GFX_evt_hive_mind
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		owner = { has_country_flag = flag_domesticated_hive_mind }
+		from = {
+			has_deposit = d_hive_domestication_lab
+		}
+	}
+
+	immediate = {
+		from = {
+			remove_deposit = d_hive_domestication_lab
+		}
+		this = {
+			add_deposit = d_hive_domestication_lab
+		}
+	}
+
+	option = {
+		name = domestication.14.a
+		trigger = {
+			always = yes
 		}
 	}
 }

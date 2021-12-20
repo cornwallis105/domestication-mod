@@ -28,6 +28,10 @@ event = {
 		}
 		last_created_country = {
 			save_global_event_target_as = floret_country
+			set_variable = {
+				which = floret_index
+				value = 0
+			}
 		}
 	}
 }

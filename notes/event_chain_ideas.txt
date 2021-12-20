@@ -1,0 +1,6 @@
+Floret Revolution:
+  - Takes place in non-domesticator empire with large number of implanted floret pops
+  - Floret political faction gets founded
+  - Florets get very angry, break stuff, sabotage stuff, infiltrate stuff
+  - If florets get powerful enough, florets can take control of empire and request domestication from Domesticator civ
+  - Remember, there does need to be *some* mechanism for the AI to quash the rebellion

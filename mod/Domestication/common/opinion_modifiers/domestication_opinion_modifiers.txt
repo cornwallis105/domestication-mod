@@ -24,3 +24,17 @@ opinion_br_pop_stolen = {
 		}
 	}
 }
+
+opinion_domesticated_hivemind = {
+	opinion = {
+		base = 50
+	}
+	unique = yes
+}
+
+opinion_our_domesticated_hivemind = {
+	opinion = {
+		base = 50
+	}
+	unique = yes
+}

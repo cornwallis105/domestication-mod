@@ -3,3 +3,10 @@ pretty similar to Hive Mind vassals
 
 Genocidal Hive Minds - can spawn a new Hive Mind Protectorate on a conquered world after a war against them ends
 relocate hive pops from other worlds to that world.
+
+Hives:
+Massive fleet cap malus to hives
+Give bonus "drone" resource to overlord
+Drone resource can be spent on edicts for temp bonuses
+Alien Zoo-like buildings for playing with drones
+Research Zone deposit added to Hive Capital world - reseach bonus for hive and overlord

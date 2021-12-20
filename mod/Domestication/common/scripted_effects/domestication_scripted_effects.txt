@@ -7,8 +7,8 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOR = { # Don't have leader gain normal trait and floret trait at same level
-					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
 					has_leader_flag = has_gained_floret
 				}
 			}
@@ -41,8 +41,8 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOR = { # Don't have leader gain normal trait and floret trait at same level
-					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
 					has_leader_flag = has_gained_floret
 				}
 			}
@@ -75,8 +75,8 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOR = { # Don't have leader gain normal trait and floret trait at same level
-					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
 					has_leader_flag = has_gained_floret
 				}
 			}
@@ -128,8 +128,8 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOR = { # Don't have leader gain normal trait and floret trait at same level
-					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
 					has_leader_flag = has_gained_floret
 				}
 			}
@@ -162,8 +162,8 @@ add_random_leader_floret_trait = {
 		}
 		while = {
 			limit = {
-				NOR = { # Don't have leader gain normal trait and floret trait at same level
-					has_leader_flag = has_gained_trait # timed flag added with random trait gain
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
 					has_leader_flag = has_gained_floret
 				}
 			}

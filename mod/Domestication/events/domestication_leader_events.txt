@@ -37,16 +37,13 @@ country_event = {
 		#}
 		#event_target:guvna = {
 		from = {
-			log_error = "Level up: [from.GetName]"
 			if = {
 				limit = {
 					leader_class = scientist
 					NOT = {	has_leader_flag = has_gained_level_floret	}
 				}
 				random_list = {
-					90 = {
-						log_error = "No floret"
-					}
+					90 = { }
 					10 = {
 						modifier = {
 							factor = 1.5
@@ -71,7 +68,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					90 = { log_error = "No floret" }
+					90 = { }
 					10 = {
 						modifier = {
 							factor = 1.5
@@ -97,7 +94,7 @@ country_event = {
 					#exists = planet
 				}
 				random_list = {
-					80 = { log_error = "No floret" }
+					80 = { }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -122,7 +119,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					80 = { log_error = "No floret" }
+					80 = { }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -147,7 +144,7 @@ country_event = {
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
-					80 = { log_error = "No floret" }
+					80 = { }
 					20 = {
 						modifier = {
 							factor = 1.5
@@ -161,8 +158,8 @@ country_event = {
 							factor = 5
 							has_level > 4
 						}
-						add_random_leader_floret_trait = yes
-						set_leader_flag = has_gained_level_floret
+						#add_random_leader_floret_trait = yes
+						#set_leader_flag = has_gained_level_floret
 					}
 				}
 			}
@@ -257,6 +254,7 @@ country_event = {
 			}
 
 			add_trait = leader_trait_warp_eng_adm
+			add_ruler_trait = leader_trait_warp_eng_rul
 
 			## generate new leader of species matching primary species of defeated fleet
 			owner = {
@@ -566,6 +564,7 @@ country_event = {
 			}
 
 			add_trait = leader_trait_pirate_adm
+			add_ruler_trait = leader_trait_pirate_rul
 
 			event_target:new_floret = {
 				set_owner = event_target:floret_country
@@ -730,6 +729,7 @@ country_event = {
 			}
 
 			add_trait = leader_trait_admiral_adm
+			add_ruler_trait = leader_trait_admiral_rul
 
 			event_target:new_floret = {
 				set_owner = event_target:floret_country

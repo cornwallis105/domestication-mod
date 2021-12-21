@@ -5,7 +5,8 @@ leader_trait_cutie_sci = {
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
 	modifier = {
-		all_technology_research_speed = 0.02
+		all_technology_research_speed = 0.025
+		science_ship_survey_speed = 0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

@@ -27,6 +27,7 @@ add_random_leader_floret_trait = {
 							}
 						}
 						add_trait = leader_trait_cutie_sci
+						add_ruler_trait = leader_trait_cutie_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_sci days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
@@ -61,6 +62,7 @@ add_random_leader_floret_trait = {
 							}
 						}
 						add_trait = leader_trait_cutie_adm
+						add_ruler_trait = leader_trait_cutie_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_adm days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
@@ -95,6 +97,7 @@ add_random_leader_floret_trait = {
 							}
 						}
 						add_trait = leader_trait_cutie_gov
+						add_ruler_trait = leader_trait_cutie_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
@@ -114,6 +117,7 @@ add_random_leader_floret_trait = {
 							}
 						}
 						add_trait = leader_trait_beeple_gov
+						add_ruler_trait = leader_trait_beeple_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_beeple_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
@@ -148,6 +152,7 @@ add_random_leader_floret_trait = {
 							}
 						}
 						add_trait = leader_trait_cutie_gen
+						add_ruler_trait = leader_trait_cutie_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_gen days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}

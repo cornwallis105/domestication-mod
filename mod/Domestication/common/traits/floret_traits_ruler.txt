@@ -1,19 +1,19 @@
-leader_trait_cutie_adm = {
+leader_trait_cutie_rul = {
 	cost = 1
 	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
 	modifier = {
-		ship_fire_rate_mult = 0.025
-		ship_speed_mult = 0.1
+		country_ruler_influence_produces_add = 0.2
+		country_unity_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
-	leader_class = { admiral }
+	leader_trait = { ruler }
+	leader_class = { ruler }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -23,22 +23,51 @@ leader_trait_cutie_adm = {
 	}
 }
 
-leader_trait_warp_eng_adm = {
+leader_trait_beeple_rul = {
+	cost = 1
+	modification = no
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_beeple.dds"
+	modifier = {
+		planet_jobs_food_produces_mult = 0.05
+		pop_growth_speed = 0.025
+		planet_pop_assembly_organic_mult = 0.025
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			AND = {
+				is_domesticator_or_protectorate = yes
+				has_origin = origin_syncretic_evolution
+			}
+		}
+	}
+}
+
+leader_trait_warp_eng_rul = {
 	cost = 1
 	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_hammer.dds"
 	modifier = {
-		ship_emergency_ftl_mult = -0.1
-		ship_disengage_chance_mult = 0.1
+		ship_windup_mult = -0.05
+		ship_winddown_mult = -0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
-	leader_class = { admiral }
+	leader_trait = { ruler }
+	leader_class = { ruler }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -48,22 +77,21 @@ leader_trait_warp_eng_adm = {
 	}
 }
 
-leader_trait_pirate_adm = {
+leader_trait_pirate_rul = {
 	cost = 1
 	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_mercenary_warrior.dds"
 	modifier = {
-		ship_piracy_suppression_add = 2
-		ships_upkeep_mult = -0.05
+		local_trade_protection_add = 2
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
-	leader_class = { admiral }
+	leader_trait = { ruler }
+	leader_class = { ruler }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -73,23 +101,21 @@ leader_trait_pirate_adm = {
 	}
 }
 
-leader_trait_admiral_adm = {
+leader_trait_admiral_rul = {
 	cost = 1
 	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_military_pioneer.dds"
 	modifier = {
-		shipsize_cruiser_evasion_mult = 0.25
-		shipsize_battleship_evasion_mult = 0.25
-		shipsize_titan_evasion_mult = 0.25
+		country_naval_cap_mult = 0.075
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
-	leader_class = { admiral }
+	leader_trait = { ruler }
+	leader_class = { ruler }
 	opposites = {  }
 
 	leader_potential_add = {

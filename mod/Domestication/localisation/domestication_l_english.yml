@@ -133,10 +133,11 @@
  leader_trait_admiral_adm:0 "Floret - Admiral"
  leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It gets very flustered when its owner demonstrates how to evade railgun volleys like the one that disabled the floret's flagship."
  leader_trait_admiral_adm:0 "$leader_trait_admiral_adm$"
- leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It gets very flustered when its owner demonstrates how to evade railgun volleys like the one that disabled the floret's flagship."
+ leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. Its also really good at coming up with names for ships, which means our shipyards need to work extra hard to keep up!"
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"
+ ap_benefic_acquisition_desc:0 "Some sophonts can be convinced to join us through rational agrument, others require different modes of persuasion."
  benefic_acquisition_perks:0 "Unlocks the §Y$bombardment_raiding$§! bombardment stance, which in turn allows us to rescue pops from besieged planets and resettle them to our own worlds.\nAlso allows construction of §Y$sm_biorhythm_transmitter$s§! to lure pops from neighboring empires."
  sm_biorhythm_transmitter:0 "Biorhythm Transmitter"
  sm_biorhythm_transmitter_desc:0 "A massive subspace transmission facility that broadcasts hypnotic-laced biorhythms into the cosmos.\n"

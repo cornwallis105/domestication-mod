@@ -1004,6 +1004,8 @@ country_event = {
 			}
 			remove_deposit = d_hive_domestication_lab
 		}
+
+		remove_country_flag = flag_domesticated_hive_mind
 	}
 }
 
@@ -1019,6 +1021,7 @@ country_event = {
 	trigger = {
 		from = {
 			is_domesticator = yes
+			has_technology = tech_hivemind_domestication
 		}
 		this = {
 			is_hive_empire = yes
@@ -1117,6 +1120,155 @@ planet_event = {
 		name = domestication.14.a
 		trigger = {
 			always = yes
+		}
+	}
+}
+
+## Creation of a Domesticated Hive Mind
+## mass population swaps between subject and overlord
+## this/root = subject, from = overlord
+country_event = {
+	id = domestication.15
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_domesticator = yes
+			has_technology = tech_hivemind_domestication
+			has_technology = tech_haustoric_module
+		}
+		this = {
+			is_hive_empire = yes
+			NOT = { has_country_flag = flag_domesticated_machine_int }
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticated_machine_int
+		add_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+
+		from = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+			add_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		set_graphical_culture = event_target:domesticator_overlord
+		set_city_graphical_culture = event_target:domesticator_overlord
+
+		change_country_flag = random
+		randomize_flag_symbol = blocky
+
+		## Destroy all military fleets
+		every_owned_ship = {
+			limit = {
+				is_civilian = no
+				NOT = { is_ship_class = shipclass_starbase }
+			}
+			delete_ship = this
+		}
+
+		## hardcoded values to represent scrap from scuttling the fleet
+
+		add_resource = { minerals = 500 }
+		add_resource = { alloys = 1000 }
+
+		event_target:domesticator_overlord = {
+			add_resource = { minerals = 500 }
+			add_resource = { alloys = 1000 }
+		}
+
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+
+		capital_scope = {
+			add_deposit = d_machine_domestication_lab
+		}
+
+	}
+}
+
+## Relocation of Machine Facility - Capital Changed
+# I think this is the only event needed - no need for seconday event for conquest?
+planet_event = {
+	id = domestication.16
+	title = domestication.16.name
+	desc =  domestication.16.desc
+	picture = GFX_evt_sapient_AI
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		owner = { has_country_flag = flag_domesticated_machine_int }
+		from = {
+			has_deposit = d_machine_domestication_lab
+		}
+	}
+
+	immediate = {
+		from = {
+			remove_deposit = d_machine_domestication_lab
+		}
+		this = {
+			add_deposit = d_machine_domestication_lab
+		}
+	}
+
+	option = {
+		name = domestication.16.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+## Remove Domesticated Machine Int features from country if no longer a subject
+country_event = {
+	id = domestication.17
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = flag_domesticated_machine_int
+	}
+
+	immediate = {
+		remove_country_flag = flag_domesticated_machine_int
+		remove_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+		from = {
+			remove_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+
+		every_owned_planet = {
+			limit = {
+				has_deposit = d_machine_domestication_lab
+			}
+			remove_deposit = d_machine_domestication_lab
 		}
 	}
 }

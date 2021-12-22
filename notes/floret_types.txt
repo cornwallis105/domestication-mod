@@ -52,6 +52,10 @@ Envoy:
     Arms Smuggler: Assign to Governor - Criminal
     Hacker: Assign to Envoy, + decryption?
 
+Event/Exploration based:
+  - Caretaker AX7-b
+  - Warform AI
+
 
 Available leader modifiers:
   All:

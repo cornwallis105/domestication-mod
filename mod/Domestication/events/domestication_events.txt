@@ -863,6 +863,34 @@ country_event = {
 								can_live_on_planet = prev
 							}
 						}
+						weights = {
+							base = 1
+							modifier = {
+								factor = 2
+								# good habitability
+								habitability = { who = event_target:br_resettle_pop value >= 0.75 }
+							}
+							modifier = {
+								factor = 0.25
+								# low habitability
+								habitability = { who = event_target:br_resettle_pop value <= 0.45 }
+							}
+							modifier = {
+								factor = 1.25
+								# available jobs
+								free_jobs > 2
+							}
+							modifier = {
+								factor = 0.5
+								# available jobs
+								free_jobs <= 0
+							}
+							modifier = {
+								factor = 1.5
+								# available housing
+								free_housing > 0
+							}
+						}
 						save_event_target_as = br_resettle_newworld
 						resettle_pop = {
 							pop = event_target:br_resettle_pop

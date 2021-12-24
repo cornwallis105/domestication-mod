@@ -20,6 +20,7 @@ floret = {
 			has_citizenship_type = { type = citizenship_limited }
 			AND = {
 				owner = { has_technology = tech_haustoric_module }
+				is_robot_pop = yes
 				NOT = { owner = { has_policy_flag = ai_outlawed } }
 			}
 		}

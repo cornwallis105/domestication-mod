@@ -53,8 +53,9 @@ Envoy:
     Hacker: Assign to Envoy, + decryption?
 
 Event/Exploration based:
-  - Caretaker AX7-b
+  - Caretaker AX7-b (distar.245)
   - Warform AI
+  - Marauder Armiral (marauder.703)
 
 
 Available leader modifiers:

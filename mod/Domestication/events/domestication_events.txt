@@ -759,6 +759,7 @@ country_event = {
 
 	is_triggered_only = yes
 	hide_window = no
+	location = event_target:br_resettle_newworld
 
 	trigger = {
 		is_domesticator_or_protectorate = yes

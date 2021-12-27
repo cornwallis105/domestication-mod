@@ -1,3 +1,15 @@
+leader_trait_floret_immortal = {
+	cost = 0
+	modification = no
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_chosen_one.dds"
+	immortal_leaders = yes
+	leader_trait = { admiral scientist general governor }
+	leader_class = { admiral scientist general governor }
+	opposites = {  }
+}
+
 leader_trait_cutie_adm = {
 	cost = 1
 	modification = no

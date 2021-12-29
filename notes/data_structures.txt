@@ -1,0 +1,13 @@
+Because I need to write this shit down or else I'll lose track of how the hell this shit works.
+
+Affini country:
+  floret_index - index to assign to next Affini/floret pair
+
+Affini leader:
+  floret_count - number of florets (total, ever) this leader has had
+  affini_id_1 - ID for Affini/floret pair
+  affini_id_2 - same, but for 2nd active floret
+
+Floret 'leader':
+  floret_number - ", 1st Floret"
+  floret_id - ID for Affini/floret pair

@@ -880,3 +880,22 @@ country_event = {
 		}
 	}
 }
+
+# when new Affini leader spawns, give them random bloom num and append to name
+# scope: country, from: leader
+country_event = {
+	id = domestication_leader.7
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		from = {
+			is_same_species = root
+		}
+	}
+
+	immediate = {
+		
+	}
+}

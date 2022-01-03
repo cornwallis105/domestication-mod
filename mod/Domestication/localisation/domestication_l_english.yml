@@ -1,4 +1,9 @@
 ﻿l_english:
+ # Ordinals
+ ordinal_st:0 "st"
+ ordinal_nd:0 "nd"
+ ordinal_rd:0 "rd"
+ ordinal_th:0 "th"
 
  # Floret leader type - not currently used
  floretleader:0 "Floret"

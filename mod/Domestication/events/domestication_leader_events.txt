@@ -36,6 +36,7 @@ country_event = {
 		#	save_event_target_as = guvna
 		#}
 		#event_target:guvna = {
+		reroll_random = yes
 		from = {
 			if = {
 				limit = {
@@ -408,13 +409,27 @@ country_event = {
 					}
 					last_created_leader = {
 						save_event_target_as = new_floret
-						switch = {
-							trigger = event_target:new_owner = { has_leader_flag }
-							gained_leader_trait_cutie_sci = { add_trait = leader_trait_cutie_sci  }
-							gained_leader_trait_cutie_adm = { add_trait = leader_trait_cutie_adm }
-							gained_leader_trait_cutie_gov = { add_trait = leader_trait_cutie_gov }
-							gained_leader_trait_beeple_gov = { add_trait = leader_trait_beeple_gov }
-							gained_leader_trait_cutie_gen = { add_trait = leader_trait_cutie_gen }
+						event_target:new_owner = {
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_sci }
+								event_target:new_floret = { add_trait = leader_trait_cutie_sci }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_adm }
+								event_target:new_floret = { add_trait = leader_trait_cutie_adm }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_gov }
+								event_target:new_floret = { add_trait = leader_trait_cutie_gov }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_beeple_gov }
+								event_target:new_floret = { add_trait = leader_trait_beeple_gov }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_gen }
+								event_target:new_floret = { add_trait = leader_trait_cutie_gen }
+							}
 						}
 						add_trait = leader_trait_floret_immortal
 					}
@@ -859,7 +874,7 @@ country_event = {
 						factor = 0
 						has_trait = leader_trait_warp_eng_adm
 					}
-					owner = { domestication_leader.2 }
+					owner = { country_event = { id = domestication_leader.2 } }
 				}
 				3 = {
 					modifier = {
@@ -873,10 +888,9 @@ country_event = {
 							}
 						}
 					}
-					owner = { domestication_leader.4 }
+					owner = { country_event = { id = domestication_leader.4 } }
 				}
 			}
-
 		}
 	}
 }
@@ -891,11 +905,254 @@ country_event = {
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		from = {
+			NOT = { has_leader_flag = bloom_initialized }
 			is_same_species = root
+			NOT = { is_same_value = root.ruler }
 		}
 	}
 
 	immediate = {
-		
+		from = { leader_event = { id = domestication_leader.9 } }
+	}
+}
+
+# set leader bloom for all leaders
+country_event = {
+	id = domestication_leader.8
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		root = {
+			AND = {
+				is_domesticator_or_protectorate = yes
+				any_owned_leader = {
+					OR = {
+						is_same_value = root.ruler
+						exists = fleet
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				OR = {
+					is_same_value = root.ruler
+					exists = fleet
+				}
+			}
+			leader_event = { id = domestication_leader.9 }
+		}
+	}
+}
+
+leader_event = {
+	id = domestication_leader.9
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			5 = {
+				set_variable = {
+					which = bloom_number
+					value = 1
+				}
+			}
+			10 = {
+				set_variable = {
+					which = bloom_number
+					value = 2
+				}
+			}
+			15 = {
+				set_variable = {
+					which = bloom_number
+					value = 3
+				}
+			}
+			10 = {
+				set_variable = {
+					which = bloom_number
+					value = 4
+				}
+			}
+			5 = {
+				set_variable = {
+					which = bloom_number
+					value = 5
+				}
+			}
+			3 = {
+				set_variable = {
+					which = bloom_number
+					value = 6
+				}
+			}
+			2 = {
+				set_variable = {
+					which = bloom_number
+					value = 7
+				}
+			}
+			2 = {
+				set_variable = {
+					which = bloom_number
+					value = 8
+				}
+			}
+			1 = {
+				set_variable = {
+					which = bloom_number
+					value = 9
+				}
+			}
+			1 = {
+				set_variable = {
+					which = bloom_number
+					value = 10
+				}
+			}
+		}
+		reroll_random = yes
+		random_list = {
+			10 = {}
+			1 = {
+				change_variable = {
+					which = bloom_number
+					value = 10
+				}
+			}
+			1 = {
+				change_variable = {
+					which = bloom_number
+					value = 20
+				}
+			}
+		}
+
+		set_variable = {
+			which = bloom_last_digit
+			value = this.bloom_number
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = bloom_last_digit
+					value > 10
+				}
+			}
+			subtract_variable = {
+				which = bloom_last_digit
+				value = 10
+			}
+		}
+		round_variable = bloom_number
+		round_variable = bloom_last_digit
+
+		leader_event = { id = domestication_leader.10 }
+	}
+}
+
+leader_event = {
+	id = domestication_leader.10
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		#log_error = "[root.GetName] - [root.bloom_number]"
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = bloom_number
+						value > 10
+					}
+					check_variable = {
+						which = bloom_number
+						value < 20
+					}
+				}
+			}
+			set_name = "[root.GetName], [root.bloom_number]th Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 1
+				}
+				#AND = {
+				#	check_variable_arithmetic = {
+				#		which = bloom_last_digit
+				#		value > 0.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 1.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]st Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 2
+				}
+				#AND = {
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value > 1.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 2.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]nd Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 3
+				}
+				#AND = {
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value > 2.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 3.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]rd Bloom"
+		}
+		else = {
+			set_name = "[root.GetName], [root.bloom_number]th Bloom"
+		}
+
+		#log_error = "[root.GetName]"
+		#set_name = "[root.GetName], [root.bloom_number][root.GetBloomOrdinal] Bloom"
+		set_leader_flag = bloom_initialized
 	}
 }

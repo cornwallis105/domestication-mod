@@ -13,6 +13,12 @@ on_tech_increased = {
 	}
 }
 
+on_leader_spawned = {
+	events = {
+		domestication_leader.7 # set bloom number
+	}
+}
+
 # This = subject
 # From = subject's overlord
 on_becoming_subject = {
@@ -32,6 +38,12 @@ on_leader_level_up = {
 on_game_start_country = {
 	events = {
 		domestication.7 # initializes floret count for country
+	}
+}
+
+empire_init_create_ships = {
+	events = {
+		domestication_leader.8 # initializes bloom for leaders
 	}
 }
 

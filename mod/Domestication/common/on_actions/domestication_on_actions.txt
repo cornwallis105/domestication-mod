@@ -1,21 +1,6 @@
-# this = country
-on_monthly_pulse_country = {
+empire_init_create_ships = {
 	events = {
-		domestication.1 # Haustoric Implant pop modification
-		domestication.11 # Haustoric Module pop modification
-		domestication.8 # Biorhythm Transmitter resettlement
-	}
-}
-
-on_tech_increased = {
-	events = {
-		domestication.2 # Haustoric Implant info event
-	}
-}
-
-on_leader_spawned = {
-	events = {
-		domestication_leader.7 # set bloom number
+		domestication_leader.8 # initializes bloom for leaders
 	}
 }
 
@@ -29,9 +14,16 @@ on_becoming_subject = {
 	}
 }
 
-on_leader_level_up = {
+on_capital_changed = {
 	events = {
-		domestication_leader.1 # gatekeeper for floret add events
+		domestication.14 # relocate Hive Domestication Facility
+	}
+}
+
+on_game_start = {
+	events = {
+		domestication_start_of_game.1 # initialize Floret Country
+		domestication_start_of_game.2 # initialize Bloom Country
 	}
 }
 
@@ -41,15 +33,30 @@ on_game_start_country = {
 	}
 }
 
-empire_init_create_ships = {
+on_leader_death = {
 	events = {
-		domestication_leader.8 # initializes bloom for leaders
+		domestication_leader.12 # rebloom leader
 	}
 }
 
-on_game_start = {
+on_leader_level_up = {
 	events = {
-		domestication_start_of_game.1 # initialize Floret Country
+		domestication_leader.1 # gatekeeper for floret add events
+	}
+}
+
+on_leader_spawned = {
+	events = {
+		domestication_leader.7 # set bloom number
+	}
+}
+
+# this = country
+on_monthly_pulse_country = {
+	events = {
+		domestication.1 # Haustoric Implant pop modification
+		domestication.11 # Haustoric Module pop modification
+		domestication.8 # Biorhythm Transmitter resettlement
 	}
 }
 
@@ -62,8 +69,8 @@ on_space_battle_won = {
 	}
 }
 
-on_capital_changed = {
+on_tech_increased = {
 	events = {
-		domestication.14 # relocate Hive Domestication Facility
+		domestication.2 # Haustoric Implant info event
 	}
 }

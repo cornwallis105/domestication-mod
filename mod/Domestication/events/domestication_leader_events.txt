@@ -1057,7 +1057,7 @@ leader_event = {
 		round_variable = bloom_number
 		round_variable = bloom_last_digit
 
-		leader_event = { id = domestication_leader.10 }
+		leader_event = { id = domestication_leader.11 }
 	}
 }
 
@@ -1154,5 +1154,110 @@ leader_event = {
 		#log_error = "[root.GetName]"
 		#set_name = "[root.GetName], [root.bloom_number][root.GetBloomOrdinal] Bloom"
 		set_leader_flag = bloom_initialized
+
+		## rebloom
+
+	}
+}
+
+# Create copy of bloom leader in bloom country
+leader_event = {
+	id = domestication_leader.11
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		set_variable = {
+			which = bloom_index
+			value = prev.bloom_index
+		}
+
+		event_target:bloom_country = {
+			create_leader = {
+				name = root
+				species = root
+				class = root.leader_class
+				set_age = 0
+				skill = 1
+			}
+			last_created_leader = {
+				save_event_target_as = new_bloom
+				add_trait = leader_trait_floret_immortal
+				set_variable = {
+					which = bloom_index
+					value = prev.bloom_index
+				}
+			}
+			change_variable = {
+				which = bloom_index
+				value = 1
+			}
+		}
+
+
+		leader_event = { id = domestication_leader.10 }
+	}
+}
+
+# Executed as a leader has died
+# This = Country
+# From = Leader
+country_event = {
+	id = domestication_leader.12
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			has_leader_flag = bloom_initialized
+			is_variable_set = bloom_id
+		}
+	}
+
+	immediate = {
+		from = { save_event_target_as = old_bloom }
+		event_target:bloom_country = {
+			random_owned_leader = {
+				limit = {
+					is_variable_set = bloom_id
+					check_variable = {
+						which = bloom_id
+						value = event_target:old_bloom.bloom_id
+					}
+				}
+				save_event_target_as = clone_bloom
+			}
+
+			create_leader = {
+				name = event_target:clone_bloom
+				species = event_target:clone_bloom
+				gender = event_target:clone_bloom.gender
+				class = event_target:clone_bloom.leader_class
+				skill = event_target:clone_bloom
+				set_age = 0
+				#traits = {}
+			}
+			last_created_leader = {
+				set_variable = {
+					which = bloom_id
+					value = event_target:old_bloom.bloom_id
+				}
+				set_variable = {
+					which = bloom_number
+					value = event_target:old_bloom.bloom_number
+				}
+				change_variable = {
+					which = bloom_number
+					value = 1
+				}
+				leader_event = { id = domestication_leader.10 }
+			}
+
+		}
+
 	}
 }

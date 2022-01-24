@@ -17,3 +17,20 @@ Floret 'leader':
 
 Leader 'clone':
   bloom_id - ID for leader/clone pair
+
+
+
+  if = {
+    limit = {
+      leader_class = scientist
+    }
+    global_event_target:bloom_country = {
+      create_leader = {
+        name = "[root.GetName]"
+        species = root
+        class = scientist
+        set_age = 0
+        skill = 1
+      }
+    }
+  }

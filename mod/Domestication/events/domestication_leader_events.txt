@@ -236,7 +236,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -246,7 +246,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -287,7 +287,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -300,7 +300,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -308,9 +308,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -370,7 +372,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -380,7 +382,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -447,7 +449,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -460,7 +462,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -574,7 +576,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -584,7 +586,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -614,7 +616,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -627,7 +629,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -635,9 +637,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -739,7 +743,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -749,7 +753,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -780,7 +784,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -793,7 +797,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -801,9 +805,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}

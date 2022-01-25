@@ -1649,7 +1649,7 @@ country_event = {
 					}
 				}
 
-
+				copy_leader_traits = yes
 
 
 	      leader_event = { id = domestication_leader.10 }

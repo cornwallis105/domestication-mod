@@ -20,7 +20,15 @@ Matter Replicators - T5 Engineering-Materials
 Post-Scarcity Sociology - T5 Sociology-Statecraft
 Universe Ascension Project - T5 Physics-FieldManipulation
 
+Idea for improved automation:
+  Upgraded forms of basic resource buildings (Energy Nexus, etc.) that *reduce*
+  jobs per distric, increase output significantly, and also provide floret jobs,
+  either through districts or buffs to other sources of floret jobs.
 
+Idea for Ascension Perk:
+  Add "corporate" office feature for domesticators, allowing
+  them to create footholds in friendly (or non-friendly?) empires to steal pops
+  away and/or push the empire towards peaceful domestication.
 
 first contacts:
 

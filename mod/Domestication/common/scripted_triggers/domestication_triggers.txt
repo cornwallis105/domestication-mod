@@ -63,28 +63,35 @@ can_hear_biorhythm = {
 		}
 		is_sapient = yes
 		is_archetype = BIOLOGICAL
+		NOT = { has_trait = trait_hive_mind }
 	}
 }
 
-#has_very_high_living_standard_type = {
-#	OR = {
-#		has_living_standard = { type = living_standard_utopian }
-#		AND = {
-#			has_living_standard = { type = living_standard_chemical_bliss }
-#			NAND = {
-#				owner = { is_domesticator_or_protectorate = yes }
-#				has_citizenship_type = { type = citizenship_limited }
-#			}
-#		}
-#	}
-#}
+has_very_high_living_standard_type = {
+	OR = {
+		has_living_standard = { type = living_standard_utopian }
+		AND = {
+			has_living_standard = { type = living_standard_chemical_bliss }
+			NAND = {
+				owner = { is_domesticator_or_protectorate = yes }
+				has_job = floret
+				has_trait = trait_haustoric_implant
+			}
+		}
+	}
+}
 
-#has_high_living_standard_type = {
-#	OR = {
-#		has_living_standard = { type = living_standard_good }
-#		is_pop_domesticable = yes
-#	}
-#}
+has_high_living_standard_type = {
+	OR = {
+		has_living_standard = { type = living_standard_good }
+		AND = {
+			has_living_standard = { type = living_standard_chemical_bliss }
+			owner = { is_domesticator_or_protectorate = yes }
+			has_job = floret
+			has_trait = trait_haustoric_implant
+		}
+	}
+}
 
 complex_specialist_job_check_trigger = {
 	hidden_trigger = {

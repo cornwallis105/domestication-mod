@@ -1,4 +1,9 @@
 ﻿l_english:
+ # Ordinals
+ ordinal_st:0 "st"
+ ordinal_nd:0 "nd"
+ ordinal_rd:0 "rd"
+ ordinal_th:0 "th"
 
  # Floret leader type - not currently used
  floretleader:0 "Floret"
@@ -93,6 +98,7 @@
  # Subject type
  SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"
  SUBJECT_domesticated_hivemind:0 "Domesticated Hive Mind"
+ SUBJECT_domesticated_machine_intelligence:0 "Domesticated Machine Intelligence"
 
  # Diplomacy messages
  01_DEMAND_DOMEST_PROPOSE:0 "The §Y[From.GetName]§! hereby demands your immediate surrender and compliance with the [Root.GetSpeciesAdj] Domestication Program. Please do not fight us, we would hate to see harm come to any sophont."
@@ -133,7 +139,7 @@
  leader_trait_admiral_adm:0 "Floret - Admiral"
  leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It gets very flustered when its owner demonstrates how to evade railgun volleys like the one that disabled the floret's flagship."
  leader_trait_admiral_adm:0 "$leader_trait_admiral_adm$"
- leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. Its also really good at coming up with names for ships, which means our shipyards need to work extra hard to keep up!"
+ leader_trait_admiral_adm_desc:0 "This floret is a former admiral that was captured in battle. It's also really good at coming up with names for ships, which means our shipyards need to work extra hard to keep up!"
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"
@@ -151,3 +157,5 @@
  # planet deposits
  d_hive_domestication_lab:0 "Hive Domestication Facility"
  d_hive_domestication_lab_desc:0 "This facility functions as the primary physical interface between the Hive Mind and its Owner. In addition to the Owner, a team of dedicated xeno-biologists, veterinarians, and floret caretakers live and work on-site to ensure that the mega-floret's needs are met."
+ d_machine_domestication_lab:0 "AI Domestication Facility"
+ d_machine_domestication_lab_desc:0 "This facility functions as the primary physical interface between the Hive Mind and its Owner. In addition to the Owner, a team of dedicated xeno-biologists, veterinarians, and floret caretakers live and work on-site to ensure that the mega-floret's needs are met."

@@ -1,6 +1,7 @@
 version="3.2.*"
 tags={
-	"Species"
+	"Gameplay"
 }
-name="Domestication"
+name="HDG - Domestication Mod"
 supported_version="3.2.*"
+remote_file_id="2729863709"

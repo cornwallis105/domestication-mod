@@ -4,3 +4,9 @@ Floret Revolution:
   - Florets get very angry, break stuff, sabotage stuff, infiltrate stuff
   - If florets get powerful enough, florets can take control of empire and request domestication from Domesticator civ
   - Remember, there does need to be *some* mechanism for the AI to quash the rebellion
+
+POLLEN APHRODISIAC CHAIN (colony.1520)
+  - Add different route through this event chain to *encourage* spreading aphrodesiac pollen into the atmosphere permanently.
+
+MUSHROOM PICKING
+  - Maybe not as much to do here as I thought.

@@ -39,3 +39,7 @@
  domestication.14.name:0 "Domestication Facility Relocated"
  domestication.14.desc:0 "With the relocation of our hive's primary nexus to [this.GetName], our Owner's interface facility has also been relocated."
  domestication.14.a:0 "Wonderful!"
+
+ domestication.16.name:0 "Domestication Facility Relocated"
+ domestication.16.desc:0 "With the relocation of our primary computational cluster to [this.GetName], our Owner's interface facility has also been relocated."
+ domestication.16.a:0 "Wonderful!"

@@ -110,9 +110,9 @@ empire_name_format = {
 war_name_parts_list = {
 	key = "domestication_war_names"
 	parts = {
-		"Domestication_Campaign" = 1
-		"Pacification_Campaign" = 1
-		"Pacification_Program" = 2
+		"Domestication Campaign" = 1
+		"Pacification Campaign" = 1
+		"Pacification Program" = 2
 	}
 }
 

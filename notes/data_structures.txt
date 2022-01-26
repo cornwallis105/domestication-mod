@@ -1,0 +1,36 @@
+Because I need to write this shit down or else I'll lose track of how the hell this shit works.
+
+Affini country:
+  floret_index - index to assign to next Affini/floret pair
+
+Affini leader:
+  floret_count - number of florets (total, ever) this leader has had
+  affini_id_1 - ID for Affini/floret pair
+  affini_id_2 - same, but for 2nd active floret
+  bloom_number - so and so, Nth Bloom
+  bloom_initialized - flag for if the bloom structure has been set up
+  bloom_id - ID for leader/clone pair
+
+Floret 'leader':
+  floret_number - ", 1st Floret"
+  floret_id - ID for Affini/floret pair
+
+Leader 'clone':
+  bloom_id - ID for leader/clone pair
+
+
+
+  if = {
+    limit = {
+      leader_class = scientist
+    }
+    global_event_target:bloom_country = {
+      create_leader = {
+        name = "[root.GetName]"
+        species = root
+        class = scientist
+        set_age = 0
+        skill = 1
+      }
+    }
+  }

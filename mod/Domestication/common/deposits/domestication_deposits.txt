@@ -31,3 +31,37 @@ d_hive_domestication_lab = {
 		weight = 0
 	}
 }
+
+d_machine_domestication_lab = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_central_spire
+
+	planet_modifier = {
+    planet_jobs_physics_research_produces_mult = 0.1
+		planet_jobs_society_research_produces_mult = 0.1
+    planet_jobs_engineering_research_produces_mult = 0.15
+	}
+
+  country_modifier = {
+    country_physics_research_produces_add = 10
+    country_society_research_produces_add = 10
+    country_engineering_research_produces_add = 10
+  }
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		modifier = {
+			job_calculator_add = 2
+      planet_amenities_add = 10
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

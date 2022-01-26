@@ -36,6 +36,7 @@ country_event = {
 		#	save_event_target_as = guvna
 		#}
 		#event_target:guvna = {
+		reroll_random = yes
 		from = {
 			if = {
 				limit = {
@@ -206,13 +207,13 @@ country_event = {
 	}
 
 	immediate = {
-		fromfrom = {
-			solar_system = { save_event_target_as = system }
-			leader = { save_event_target_as = new_owner	}
-		}
-		from = {
-			save_event_target_as = defeated_country
-		}
+		#fromfrom = {
+		#	solar_system = { save_event_target_as = system }
+		#	leader = { save_event_target_as = new_owner	}
+		#}
+		#from = {
+		#	save_event_target_as = defeated_country
+		#}
 
 		event_target:new_owner = {
 			## Up to 2 florets - for the moment
@@ -235,7 +236,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -245,7 +246,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -262,13 +263,15 @@ country_event = {
 					create_leader = {
 						name = random
 						species = event_target:defeated_country.owner_species
-						class = governor
+						class = admiral
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
 					}
 					last_created_leader = {
 						save_event_target_as = new_floret
+						add_trait = leader_trait_warp_eng_adm
+						add_trait = leader_trait_floret_immortal
 					}
 				}
 				if = {
@@ -284,7 +287,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -297,7 +300,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -305,9 +308,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -367,7 +372,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -377,7 +382,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -402,9 +407,33 @@ country_event = {
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
+						immortal = yes
 					}
 					last_created_leader = {
 						save_event_target_as = new_floret
+						event_target:new_owner = {
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_sci }
+								event_target:new_floret = { add_trait = leader_trait_cutie_sci }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_adm }
+								event_target:new_floret = { add_trait = leader_trait_cutie_adm }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_gov }
+								event_target:new_floret = { add_trait = leader_trait_cutie_gov }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_beeple_gov }
+								event_target:new_floret = { add_trait = leader_trait_beeple_gov }
+							}
+							if = {
+								limit = { has_leader_flag = gained_leader_trait_cutie_gen }
+								event_target:new_floret = { add_trait = leader_trait_cutie_gen }
+							}
+						}
+						add_trait = leader_trait_floret_immortal
 					}
 				}
 				if = {
@@ -420,7 +449,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -433,7 +462,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = owner.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -501,13 +530,13 @@ country_event = {
 	}
 
 	immediate = {
-		fromfrom = {
-			solar_system = { save_event_target_as = system }
-			leader = { save_event_target_as = new_owner	}
-		}
-		from = {
-			save_event_target_as = defeated_country
-		}
+		#fromfrom = {
+		#	solar_system = { save_event_target_as = system }
+		#	leader = { save_event_target_as = new_owner	}
+		#}
+		#from = {
+		#	save_event_target_as = defeated_country
+		#}
 		#fromfromfrom = {
 		#	leader = { save_event_target_as = new_floret }
 		#}
@@ -525,6 +554,8 @@ country_event = {
 				}
 				last_created_leader = {
 					save_event_target_as = new_floret
+					add_trait = leader_trait_pirate_adm
+					add_trait = leader_trait_floret_immortal
 				}
 			}
 			if = {
@@ -545,7 +576,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -555,7 +586,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -566,9 +597,9 @@ country_event = {
 			add_trait = leader_trait_pirate_adm
 			add_ruler_trait = leader_trait_pirate_rul
 
-			event_target:new_floret = {
-				set_owner = event_target:floret_country
-			}
+			#event_target:new_floret = {
+			#	set_owner = event_target:floret_country
+			#}
 
 			## generate new leader of species matching primary species of defeated fleet
 			owner = {
@@ -585,7 +616,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -598,7 +629,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -606,9 +637,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -710,7 +743,7 @@ country_event = {
 				}
 				set_variable = {
 					which = affini_id_1
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -720,7 +753,7 @@ country_event = {
 			else = {
 				set_variable = {
 					which = affini_id_2
-					value = owner.floret_index
+					value = event_target:floret_country.floret_index
 				}
 				change_variable = {
 					which = floret_count
@@ -733,9 +766,10 @@ country_event = {
 
 			event_target:new_floret = {
 				set_owner = event_target:floret_country
+				add_trait = leader_trait_admiral_adm
+				add_trait = leader_trait_floret_immortal
 			}
 
-			## generate new leader of species matching primary species of defeated fleet
 			owner = {
 				if = {
 					limit = {
@@ -750,7 +784,7 @@ country_event = {
 						set_name = "[this.GetName], 1st Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -763,7 +797,7 @@ country_event = {
 						set_name = "[this.GetName], 2nd Floret"
 						set_variable = {
 							which = floret_id
-							value = root.floret_index
+							value = event_target:floret_country.floret_index
 						}
 						set_variable = {
 							which = floret_number
@@ -771,9 +805,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -784,5 +820,878 @@ country_event = {
 		trigger = {
 			always = yes
 		}
+	}
+}
+
+# gatekeeper event for florets from combat
+# This = owner of fleet 1 (combatant)
+# From = owner of fleet 2 (defeated)
+# FromFrom = fleet 1
+# FromFromFrom = fleet 2
+country_event = {
+	id = domestication_leader.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# Do not add floret if leader already has 2
+		fromfrom = {
+			exists = leader
+			leader = {
+				NOT = { has_trait = leader_trait_admiral_adm }
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		fromfrom = {
+			solar_system = { save_event_target_as = system }
+			leader = { save_event_target_as = new_owner }
+		}
+		from = {
+			save_event_target_as = defeated_country
+		}
+		event_target:new_owner = {
+			random_list = {
+				150 = {
+					modifier = {
+						factor = 0.67
+						has_level = 3
+					}
+					modifier = {
+						factor = 0.2
+						has_level = 4
+					}
+					modifier = {
+						factor = 0.1
+						has_level > 4
+					}
+				}
+				3 = {
+					modifier = {
+						factor = 0
+						has_trait = leader_trait_warp_eng_adm
+					}
+					owner = { country_event = { id = domestication_leader.2 } }
+				}
+				3 = {
+					modifier = {
+						factor = 0
+						OR = {
+							has_trait = leader_trait_pirate_adm
+							NOT = {
+								event_target:defeated_country = {
+									is_country_type = pirate
+								}
+							}
+						}
+					}
+					owner = { country_event = { id = domestication_leader.4 } }
+				}
+			}
+		}
+	}
+}
+
+# when new Affini leader spawns, give them random bloom num and append to name
+# scope: country, from: leader
+country_event = {
+	id = domestication_leader.7
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		from = {
+			NOT = { has_leader_flag = bloom_initialized }
+			is_same_species = root
+			NOT = { is_same_value = root.ruler }
+		}
+	}
+
+	immediate = {
+		from = { leader_event = { id = domestication_leader.13 } }
+	}
+}
+
+# set leader bloom for all leaders
+country_event = {
+	id = domestication_leader.8
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		root = {
+			AND = {
+				is_domesticator_or_protectorate = yes
+				any_owned_leader = {
+					OR = {
+						is_same_value = root.ruler
+						exists = fleet
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		every_owned_leader = {
+			limit = {
+				OR = {
+					is_same_value = root.ruler
+					exists = fleet
+				}
+			}
+			leader_event = { id = domestication_leader.13 }
+		}
+	}
+}
+
+leader_event = {
+	id = domestication_leader.9
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		random_list = {
+			5 = {
+				set_variable = {
+					which = bloom_number
+					value = 1
+				}
+			}
+			10 = {
+				set_variable = {
+					which = bloom_number
+					value = 2
+				}
+			}
+			15 = {
+				set_variable = {
+					which = bloom_number
+					value = 3
+				}
+			}
+			10 = {
+				set_variable = {
+					which = bloom_number
+					value = 4
+				}
+			}
+			5 = {
+				set_variable = {
+					which = bloom_number
+					value = 5
+				}
+			}
+			3 = {
+				set_variable = {
+					which = bloom_number
+					value = 6
+				}
+			}
+			2 = {
+				set_variable = {
+					which = bloom_number
+					value = 7
+				}
+			}
+			2 = {
+				set_variable = {
+					which = bloom_number
+					value = 8
+				}
+			}
+			1 = {
+				set_variable = {
+					which = bloom_number
+					value = 9
+				}
+			}
+			1 = {
+				set_variable = {
+					which = bloom_number
+					value = 10
+				}
+			}
+		}
+		reroll_random = yes
+		random_list = {
+			10 = {}
+			1 = {
+				change_variable = {
+					which = bloom_number
+					value = 10
+				}
+			}
+			1 = {
+				change_variable = {
+					which = bloom_number
+					value = 20
+				}
+			}
+		}
+
+		set_variable = {
+			which = bloom_last_digit
+			value = this.bloom_number
+		}
+		while = {
+			limit = {
+				check_variable = {
+					which = bloom_last_digit
+					value > 10
+				}
+			}
+			subtract_variable = {
+				which = bloom_last_digit
+				value = 10
+			}
+		}
+		round_variable = bloom_number
+		round_variable = bloom_last_digit
+
+		leader_event = { id = domestication_leader.11 }
+	}
+}
+
+leader_event = {
+	id = domestication_leader.10
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		#log_error = "[root.GetName] - [root.bloom_number]"
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = bloom_number
+						value > 10
+					}
+					check_variable = {
+						which = bloom_number
+						value < 20
+					}
+				}
+			}
+			set_name = "[root.GetName], [root.bloom_number]th Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 1
+				}
+				#AND = {
+				#	check_variable_arithmetic = {
+				#		which = bloom_last_digit
+				#		value > 0.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 1.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]st Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 2
+				}
+				#AND = {
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value > 1.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 2.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]nd Bloom"
+		}
+		else_if = {
+			limit = {
+				check_variable_arithmetic = {
+					which = bloom_number
+					modulo = 10
+					value = 3
+				}
+				#AND = {
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value > 2.6
+				#	}
+				#	check_variable = {
+				#		which = bloom_last_digit
+				#		value < 3.4
+				#	}
+				#}
+			}
+			set_name = "[root.GetName], [root.bloom_number]rd Bloom"
+		}
+		else = {
+			set_name = "[root.GetName], [root.bloom_number]th Bloom"
+		}
+
+		#log_error = "[root.GetName]"
+		#set_name = "[root.GetName], [root.bloom_number][root.GetBloomOrdinal] Bloom"
+		set_leader_flag = bloom_initialized
+
+		## rebloom
+
+	}
+}
+
+# Create copy of bloom leader in bloom country
+leader_event = {
+	id = domestication_leader.11
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = bloom_country_created
+				}
+			}
+			owner = {
+				country_event = { id = domestication_start_of_game.3 }
+			}
+		}
+
+		set_variable = {
+	    which = bloom_id
+	    value = event_target:bloom_country.bloom_index
+	  }
+
+		if = {
+			limit = {
+				leader_class = scientist
+			}
+			event_target:bloom_country = {
+				create_leader = {
+					name = random
+					species = root
+					class = scientist
+					set_age = 0
+					skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+				}
+			}
+		}
+		else_if = {
+	    limit = {
+	      leader_class = governor
+	    }
+	    event_target:bloom_country = {
+	      create_leader = {
+	        name = random
+	        species = root
+	        class = governor
+	        set_age = 0
+	        skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+	      }
+	    }
+	  }
+	  else_if = {
+	    limit = {
+	      leader_class = admiral
+	    }
+	    event_target:bloom_country = {
+	      create_leader = {
+	        name = random
+	        species = root
+	        class = admiral
+	        set_age = 0
+	        skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+	      }
+	    }
+	  }
+	  else_if = {
+	    limit = {
+	      leader_class = general
+	    }
+	    event_target:bloom_country = {
+	      create_leader = {
+	        name = random
+	        species = root
+	        class = general
+	        set_age = 0
+	        skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+	      }
+	    }
+	  }
+		else_if = {
+	    limit = {
+	      leader_class = envoy
+	    }
+	    event_target:bloom_country = {
+	      create_leader = {
+	        name = random
+	        species = root
+	        class = envoy
+	        set_age = 0
+	        skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+	      }
+	    }
+	  }
+		else_if = {
+	    limit = {
+	      leader_class = ruler
+	    }
+	    event_target:bloom_country = {
+	      create_leader = {
+	        name = random
+	        species = root
+	        class = governor
+	        set_age = 0
+	        skill = 1
+					effect = {
+						save_event_target_as = clone_bloom
+					}
+	      }
+	    }
+	  }
+
+		event_target:clone_bloom = {
+			set_name = "[root.GetName]"
+			add_trait = leader_trait_floret_immortal
+			set_variable = {
+				which = bloom_id
+				value = event_target:bloom_country.bloom_index
+			}
+		}
+
+	  event_target:bloom_country = {
+	    change_variable = {
+	      which = bloom_index
+	      value = 1
+	    }
+	  }
+
+	  leader_event = { id = domestication_leader.10 }
+
+	}
+}
+
+# Executed as a leader has died
+# This = Country
+# From = Leader
+country_event = {
+	id = domestication_leader.12
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			has_leader_flag = bloom_initialized
+			is_variable_set = bloom_id
+		}
+	}
+
+	immediate = {
+		from = { save_event_target_as = old_bloom }
+
+		event_target:bloom_country = {
+	    every_owned_leader = {
+	      limit = {
+	        is_variable_set = bloom_id
+	        check_variable = {
+	          which = bloom_id
+	          value = event_target:old_bloom.bloom_id
+	        }
+	      }
+	      save_event_target_as = clone_bloom
+	    }
+
+	    if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = male
+	          leader_class = scientist
+	        }
+	      }
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = male
+						class = scientist
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = male
+	          leader_class = governor
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = male
+		        class = governor
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = male
+	          leader_class = admiral
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = male
+		        class = admiral
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = male
+	          leader_class = general
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = male
+		        class = general
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = female
+	          leader_class = scientist
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = female
+		        class = scientist
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = female
+	          leader_class = governor
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = female
+		        class = governor
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = female
+	          leader_class = admiral
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = female
+		        class = admiral
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = female
+	          leader_class = general
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = female
+		        class = general
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = indeterminable
+	          leader_class = scientist
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = indeterminable
+		        class = scientist
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = indeterminable
+	          leader_class = governor
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = indeterminable
+		        class = governor
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = indeterminable
+	          leader_class = admiral
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = indeterminable
+		        class = admiral
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+	    else_if = {
+	      limit = {
+	        event_target:old_bloom = {
+	          gender = indeterminable
+	          leader_class = general
+	        }
+	      }
+				root = {
+		      create_leader = {
+		        name = random
+		        species = event_target:clone_bloom
+		        gender = indeterminable
+		        class = general
+		        skill = 1
+		        set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+		      }
+				}
+	    }
+
+	    event_target:new_bloom = {
+				set_name = "[clone_bloom.GetName]"
+	      set_variable = {
+	        which = bloom_id
+	        value = event_target:old_bloom.bloom_id
+	      }
+	      set_variable = {
+	        which = bloom_number
+	        value = event_target:old_bloom.bloom_number
+	      }
+	      change_variable = {
+	        which = bloom_number
+	        value = 1
+	      }
+
+				set_variable = {
+					which = bloom_last_digit
+					value = bloom_number
+				}
+				while = {
+					limit = {
+						check_variable = {
+							which = bloom_last_digit
+							value > 10
+						}
+					}
+					subtract_variable = {
+						which = bloom_last_digit
+						value = 10
+					}
+				}
+				round_variable = bloom_number
+				round_variable = bloom_last_digit
+
+				event_target:old_bloom = {
+					switch = {
+						trigger = has_skill
+						10 > { event_target:new_bloom = { set_skill = 9 } }
+						9 > { event_target:new_bloom = { set_skill = 8 } }
+						8 > { event_target:new_bloom = { set_skill = 7 } }
+						7 > { event_target:new_bloom = { set_skill = 6 } }
+						6 > { event_target:new_bloom = { set_skill = 5 } }
+						5 > { event_target:new_bloom = { set_skill = 4 } }
+						4 > { event_target:new_bloom = { set_skill = 3 } }
+						3 > { event_target:new_bloom = { set_skill = 2 } }
+						default = { event_target:new_bloom = { set_skill = 1 } }
+					}
+				}
+
+				copy_leader_traits = yes
+
+
+	      leader_event = { id = domestication_leader.10 }
+	    }
+
+	  }
+	}
+}
+
+leader_event = {
+	id = domestication_leader.13
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = bloom_country_created
+				}
+			}
+
+			create_country = {
+				name = "Bloom Country"
+				type = floret_repo
+				auto_delete = no
+				flag = random
+			}
+			last_created_country = {
+				save_global_event_target_as = bloom_country
+				set_variable = {
+					which = bloom_index
+					value = 0
+				}
+			}
+			set_global_flag = bloom_country_created
+		}
+
+		leader_event = { id = domestication_leader.9 }
 	}
 }

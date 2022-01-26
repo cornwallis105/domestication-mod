@@ -38,7 +38,9 @@ wg_independence = {
 			set_subject_of = {
 				who = none
 			}
-			country_event = { id = domestication.6 }
+			country_event = {	id = domestication.6 }
+			country_event = {	id = domestication.12	}
+			country_event = {	id = domestication.17	}
 		}
 	}
 
@@ -54,12 +56,9 @@ wg_independence = {
 				}
 				remove_claims = { who = from }
 			}
-			country_event = {
-				id = domestication.6
-			}
-			country_event = {
-				id = domestication.12
-			}
+			country_event = {	id = domestication.6 }
+			country_event = {	id = domestication.12	}
+			country_event = {	id = domestication.17	}
 		}
 	}
 

@@ -10,94 +10,94 @@ PLANT5 = {
 
 		generic = {
 			Aaronsohnia Abrotanella Acamptopappus Acanthocephalus Acanthocladium Acanthodesmos Acantholepis Acanthospermum Acanthostyles Achaetogeron Achillea Achnophora Achnopogon Achyrachaena Achyrocline Achyropappus
-			Achyrothalamus Acilepidopsis Acilepis Acmella Acomis Acourtia Acrisione Acritopappus Acroclinium Acroptilon Actinobole Actinoseris Actinospermum Acunniana Adelostigma Adenanthellum Adenocaulon Adenocritonia 
-			Adenoglossa Adenoon Adenopappus Adenophyllum Adenostemma Adenostyles Adenothamnus Aedesia Aegopordon Aequatorium Aetheorhiza Afroaster Ageratella Ageratina Ageratinastrum Ageratum Agiabampoa Agnorhiza Agoseris 
-			Agrianthus Ainsliaea Ajania Ajaniopsis Alatoseta Albertinia Alcantara Alciope Aldama Alepidocline Alfredia Aliella Allagopappus Allardia Alloispermum Allopterigeron Almutaster Alomia Alomiella Alvordia Amauria 
+			Achyrothalamus Acilepidopsis Acilepis Acmella Acomis Acourtia Acrisione Acritopappus Acroclinium Acroptilon Actinobole Actinoseris Actinospermum Acunniana Adelostigma Adenanthellum Adenocaulon Adenocritonia
+			Adenoglossa Adenoon Adenopappus Adenophyllum Adenostemma Adenostyles Adenothamnus Aedesia Aegopordon Aequatorium Aetheorhiza Afroaster Ageratella Ageratina Ageratinastrum Ageratum Agiabampoa Agnorhiza Agoseris
+			Agrianthus Ainsliaea Ajania Ajaniopsis Alatoseta Albertinia Alcantara Alciope Aldama Alepidocline Alfredia Aliella Allagopappus Allardia Alloispermum Allopterigeron Almutaster Alomia Alomiella Alvordia Amauria
 			Amauriopsis Amberboa Amblyocarpum Amblyolepis Amblyopappus Amboroa Ambrosia Ameghinoa Amellus Ammobium Amolinia Ampelaster Amphiachyris Amphiglossa Amphipappus Amphoricarpos Anacantha Anacyclus Anaphalioides
-			Anaphalis Anastraphia Anaxeton Ancathia Ancistrocarphus Ancistrophora Anderbergia Andryala Anemocarpa Angelphytum Angianthus Anisochaeta Anisocoma Anisopappus Anisothrix Anomostephium Antennaria Anthemis Antheropeas 
-			Antillia Antiphiona Antithrixia Anura Anvillea Apalochlamys Apargidium Aphanactis Aphanostephus Aphyllocladus Apodocephala Aposeris Apostates Arbelaezaster Archibaccharis Arctanthemum Arctium Arctogeron Arctotheca 
+			Anaphalis Anastraphia Anaxeton Ancathia Ancistrocarphus Ancistrophora Anderbergia Andryala Anemocarpa Angelphytum Angianthus Anisochaeta Anisocoma Anisopappus Anisothrix Anomostephium Antennaria Anthemis Antheropeas
+			Antillia Antiphiona Antithrixia Anura Anvillea Apalochlamys Apargidium Aphanactis Aphanostephus Aphyllocladus Apodocephala Aposeris Apostates Arbelaezaster Archibaccharis Arctanthemum Arctium Arctogeron Arctotheca
 			Arctotis Argentipallium Argyranthemum Argyroglottis Argyrophanes Argyroxiphium Arida Aristeguietia Arkadium Arnaldoa Arnica Arnicastrum Arnoglossum Arnoseris Arrhenechthites Arrojadocharis Arrowsmithia Artemisia
-			Artemisiopsis Asanthus Ascidiogyne Aspilia Asplundianthus Aster Asteridea Asteriscus Asteromoea Astranthium Athanasia Athrixia Athroisma Atractylis Atractylodes Atrichantha Atrichoseris Austrobrickellia 
-			Austrocritonia Austroeupatorium Austroliabum Austrosynotis Avellara Axiniphyllum Ayapana Ayapanopsis Aylacophora Baccharis Badilloa Baeriopsis Bafutia Bahia Bahianthus Baileya Bajacalia Balduina Balsamorhiza 
+			Artemisiopsis Asanthus Ascidiogyne Aspilia Asplundianthus Aster Asteridea Asteriscus Asteromoea Astranthium Athanasia Athrixia Athroisma Atractylis Atractylodes Atrichantha Atrichoseris Austrobrickellia
+			Austrocritonia Austroeupatorium Austroliabum Austrosynotis Avellara Axiniphyllum Ayapana Ayapanopsis Aylacophora Baccharis Badilloa Baeriopsis Bafutia Bahia Bahianthus Baileya Bajacalia Balduina Balsamorhiza
 			Baltimora Barkleyanthus Barnadesia Barroetea Barrosoa Bartlettia Bartlettina Basedowia Bebbia Bedfordia Bejaranoa Bellida Bellis Bellium Belloa Benitoa Berardia Berkheya Berlandiera Berroa Bethencourtia Bidens
 			Bigelowia Bishopanthus Bishopiella Bishovia Blainvillea Blakeanthus Blakiella Blanchetia Blennosperma Blennospora Blepharipappus Blepharispermum Blepharizonia Blumea Blumeopsis Boeberastrum Boeberoides Boltonia
-			Bombycilaena Borrichia Bothriocline Brachanthemum Brachionostylum Brachyactis Brachyglottis Brachylaena Brachyscome Brachythrix Bracteantha Bradburia Brenandendron Brickellia  Brickelliastrum Brintonia Bryomorphe 
-			Buphthalmum Burkartia Cabobanthus Cabreriella Cacalia Cacaliopsis Cacosmia Caesulia Calea Calendula Callicephalus Callilepis Callistephus Calocephalus Calomeria Calopappus Calorezia Calostephane Calotesta Calotis 
-			Calycadenia Calycocorsus Calycoseris Calyptocarpus Camchaya Campovassouria Camptacra Campuloclinium Canadanthus Cancrinia Cancriniella Cardopatium Carduncellus Carduus Carlina Carminatia Carpesium Carphephorus 
-			Carphochaete Carramboa Carterothamnus Carthamus Cassinia Castalis Castenedia Catamixis Catananche Catatia Catolesia Caucasalia Cavalcantia Cavea Caxamarca Celmisia Centaurea Centaurodendron Centauropsis 
+			Bombycilaena Borrichia Bothriocline Brachanthemum Brachionostylum Brachyactis Brachyglottis Brachylaena Brachyscome Brachythrix Bracteantha Bradburia Brenandendron Brickellia  Brickelliastrum Brintonia Bryomorphe
+			Buphthalmum Burkartia Cabobanthus Cabreriella Cacalia Cacaliopsis Cacosmia Caesulia Calea Calendula Callicephalus Callilepis Callistephus Calocephalus Calomeria Calopappus Calorezia Calostephane Calotesta Calotis
+			Calycadenia Calycocorsus Calycoseris Calyptocarpus Camchaya Campovassouria Camptacra Campuloclinium Canadanthus Cancrinia Cancriniella Cardopatium Carduncellus Carduus Carlina Carminatia Carpesium Carphephorus
+			Carphochaete Carramboa Carterothamnus Carthamus Cassinia Castalis Castenedia Catamixis Catananche Catatia Catolesia Caucasalia Cavalcantia Cavea Caxamarca Celmisia Centaurea Centaurodendron Centauropsis
 			Centaurothamnus Centipeda Centratherum Cephalipterum Cephalopappus Cephalorrhynchus Cephalosorus Ceratogyne Ceruana Chacoa Chaenactis Chaetadelpha Chaetanthera Chaetopappa Chaetospira Chaetymenia Chamaechaenactis
-			Chamaegeron Chamaeleon Chamaemelum Chamomilla Chaptalia Chardinia Cheirolophus Chersodoma Chevreulia Chiliadenus Chiliocephalum Chiliophyllum Chiliotrichiopsis Chiliotrichum Chimantaea Chionolaena Chionopappus 
-			Chlamydophora Chloracantha Chondrilla Chondropyxis Chorisis Chresta Chromolaena Chromolepis Chronopappus Chrysactinia Chrysactinium Chrysanthellum Chrysanthemoides Chrysanthemum Chrysocephalum Chrysocoma 
-			Chrysogonum Chrysoma Chrysophthalmum Chrysopsis Chrysothamnus Chthonocephalus Chucoa Chuquiraga Chrysactinia Cicerbita Ciceronia Cichorium Cineraria Cirsium Cissampelopsis Cladanthus Cladochaeta Clappia Clibadium 
-			Cnicothamnus Cnicus Coespeletia Coleocoma Coleostephus Colobanthera Columbiadoria Comaclinium Comborhiza Commidendrum Complaya Condylidium Conoclinium Condylopodium Conocliniopsis Conoclinium Conyza Coreocarpus 
-			Coreopsis Corethamnium Corethrogyne Coronidium Correllia Corymbium Cosmos Cotula Coulterella Cousinia Cousiniopsis Craspedia Crassocephalum Cratystylis Cremanthodium Crepidiastrum Crepis Crinitaria Critonia 
-			Critoniadelphus Critoniella Critoniopsis Crocidium Cronquistia Cronquistianthus Croptilon Crossostephium Crossothamnus Crupina Cuatrecasanthus Cuatrecasasiella Cuchumatanea Cullumia Cuniculotinus Cuspidia 
-			Cyanopsis Cyanthillium Cyathocline Cyathomone Cyclachaena Cyclolepis Cylindrocline Cymbolaena Cymbonotus Cymbopappus Cymophora Cynara Dacryotrichia Dahlia Damnamenia Damnxanthodium Darwiniothamnus Dasycondylus  
-			Dasyphyllum Daveaua Decachaeta Decastylocarpus Decazesia Deinandra Delairea Delamerea Delilia Dendranthema Dendrocacalia Dendrophorbium Dendrosenecio Dendroseris Denekia Desmanthodium Dewildemania Diacranthera  
-			Dianthoseris Diaperia Diaphractanthus Dicercoclados Dichaetophora Dichrocephala Dichromochlamys Dicoma Dicoria Dicranocarpus Didelta Dielitzia Dieteria Digitacalia Dimeresia Dimerostemma Dimorphocoma 
-			Dimorphotheca Dinoseris Diodontium Diplazoptilon Diplostephium Dipterocome Dipterocypsela Disparago Dissothrix Distephanus Disynaphia Dithyrostegia Dittrichia Doellingeria Dolichlasium Dolichoglottis 
-			Dolichorrhiza Dolichothrix Dolomiaea Doniophyton Doronicum Dracopis Dresslerothamnus Dubautia Dubyaea Dugaldia Dugesia Duhaldea Duidaea Duseniella Dymondia Dyscritogyne Dyscritothamnus Dysodiopsis Dyssodia 
-			Eastwoodia Eatonella Echinacea Echinops Eclipta Edmondia Egletes Eirmocephala Eitenia Ekmania Elachanthus Elaphandra Elephantopus Eleutheranthera Ellenbergia Elytropappus Emilia Emiliella Encelia Enceliopsis 
-			Endocellion Endopappus Engelmannia Engleria Enydra Epaltes Epilasia Episcothamnus Epitriche Erato Erechtites Eremanthus Eremosis Eremothamnus Eriachaenium Ericameria Ericentrodea Erigeron Eriocephalus Eriochlamys 
+			Chamaegeron Chamaeleon Chamaemelum Chamomilla Chaptalia Chardinia Cheirolophus Chersodoma Chevreulia Chiliadenus Chiliocephalum Chiliophyllum Chiliotrichiopsis Chiliotrichum Chimantaea Chionolaena Chionopappus
+			Chlamydophora Chloracantha Chondrilla Chondropyxis Chorisis Chresta Chromolaena Chromolepis Chronopappus Chrysactinia Chrysactinium Chrysanthellum Chrysanthemoides Chrysanthemum Chrysocephalum Chrysocoma
+			Chrysogonum Chrysoma Chrysophthalmum Chrysopsis Chrysothamnus Chthonocephalus Chucoa Chuquiraga Chrysactinia Cicerbita Ciceronia Cichorium Cineraria Cirsium Cissampelopsis Cladanthus Cladochaeta Clappia Clibadium
+			Cnicothamnus Cnicus Coespeletia Coleocoma Coleostephus Colobanthera Columbiadoria Comaclinium Comborhiza Commidendrum Complaya Condylidium Conoclinium Condylopodium Conocliniopsis Conoclinium Conyza Coreocarpus
+			Coreopsis Corethamnium Corethrogyne Coronidium Correllia Corymbium Cosmos Cotula Coulterella Cousinia Cousiniopsis Craspedia Crassocephalum Cratystylis Cremanthodium Crepidiastrum Crepis Crinitaria Critonia
+			Critoniadelphus Critoniella Critoniopsis Crocidium Cronquistia Cronquistianthus Croptilon Crossostephium Crossothamnus Crupina Cuatrecasanthus Cuatrecasasiella Cuchumatanea Cullumia Cuniculotinus Cuspidia
+			Cyanopsis Cyanthillium Cyathocline Cyathomone Cyclachaena Cyclolepis Cylindrocline Cymbolaena Cymbonotus Cymbopappus Cymophora Cynara Dacryotrichia Dahlia Damnamenia Damnxanthodium Darwiniothamnus Dasycondylus
+			Dasyphyllum Daveaua Decachaeta Decastylocarpus Decazesia Deinandra Delairea Delamerea Delilia Dendranthema Dendrocacalia Dendrophorbium Dendrosenecio Dendroseris Denekia Desmanthodium Dewildemania Diacranthera
+			Dianthoseris Diaperia Diaphractanthus Dicercoclados Dichaetophora Dichrocephala Dichromochlamys Dicoma Dicoria Dicranocarpus Didelta Dielitzia Dieteria Digitacalia Dimeresia Dimerostemma Dimorphocoma
+			Dimorphotheca Dinoseris Diodontium Diplazoptilon Diplostephium Dipterocome Dipterocypsela Disparago Dissothrix Distephanus Disynaphia Dithyrostegia Dittrichia Doellingeria Dolichlasium Dolichoglottis
+			Dolichorrhiza Dolichothrix Dolomiaea Doniophyton Doronicum Dracopis Dresslerothamnus Dubautia Dubyaea Dugaldia Dugesia Duhaldea Duidaea Duseniella Dymondia Dyscritogyne Dyscritothamnus Dysodiopsis Dyssodia
+			Eastwoodia Eatonella Echinacea Echinops Eclipta Edmondia Egletes Eirmocephala Eitenia Ekmania Elachanthus Elaphandra Elephantopus Eleutheranthera Ellenbergia Elytropappus Emilia Emiliella Encelia Enceliopsis
+			Endocellion Endopappus Engelmannia Engleria Enydra Epaltes Epilasia Episcothamnus Epitriche Erato Erechtites Eremanthus Eremosis Eremothamnus Eriachaenium Ericameria Ericentrodea Erigeron Eriocephalus Eriochlamys
 			Eriophyllum Eriotrix Erlangea Erodiophyllum Erymophyllum Eryngiophyllum Erythradenia Erythrocephalum Espejoa Espeletia Espeletiopsis Ethulia Eucephalus Euchiton Eumorphia Eupatoriastrum Eupatorina Eupatoriopsis
-			Eupatorium Euphrosyne Eurybia Eurydochus Euryops Eutetras Euthamia Eutrochium Evacidium Evax Ewartia Ewartiothamnus Exomiocarpon Faberia Facelis Farfugium Faujasia Faxonia Feddea Feldstonia Felicia Femeniasia 
+			Eupatorium Euphrosyne Eurybia Eurydochus Euryops Eutetras Euthamia Eutrochium Evacidium Evax Ewartia Ewartiothamnus Exomiocarpon Faberia Facelis Farfugium Faujasia Faxonia Feddea Feldstonia Felicia Femeniasia
 			Fenixia Ferreyranthus Ferreyrella Filago Filifolium Fitchia Fitzwillia Flaveria Fleischmannia Fleischmanniopsis Florestina Floscaldasia Flosmutisia Flourensia Flyriella Formania Foveolina Freya Fulcaldea
-			Gaillardia Galactites Galatella Galeana Galeomma Galinsoga Gamochaeta Gamochaetopsis Garberia Garcibarrigoa Garcilassa Gardnerina Garuleum Gazania Geigeria Geissolepis Geissopappus Geraea Gerbera Geropogon 
+			Gaillardia Galactites Galatella Galeana Galeomma Galinsoga Gamochaeta Gamochaetopsis Garberia Garcibarrigoa Garcilassa Gardnerina Garuleum Gazania Geigeria Geissolepis Geissopappus Geraea Gerbera Geropogon
 			Gibbaria Gilberta Gilruthia Gladiopappus Glossarion Glossocardia Glossopappus Glyptopleura Gnaphaliothamnus Gnaphalium Gnephosis Gochnatia Goldmanella Gongrostylus Gongylolepis Goniocaulon Gonospermum Gonzalezia
-			Gorceixia Gorteria Gossweilera Goyazianthus Grangea Grangeopsis Graphistylis Gratwickia Grauanthus Grazielia Greenmaniella Grindelia Grisebachianthus Grosvenoria Guardiola Guayania Guevaria Guizotia Gundelia  
+			Gorceixia Gorteria Gossweilera Goyazianthus Grangea Grangeopsis Graphistylis Gratwickia Grauanthus Grazielia Greenmaniella Grindelia Grisebachianthus Grosvenoria Guardiola Guayania Guevaria Guizotia Gundelia
 			Gundlachia Gutenbergia Gutierrezia Guynesomia Gymnarrhena Gymnocondylus Gymnocoronis Gymnodiscus Gymnolaena Gymnopentzia Gymnosperma Gymnostephium Gymnostyles Gynoxys Gynura Gypothamnium Gyptidium Gyptis Gyrodoma
-			Haastia Haeckeria Haegiela Handelia Haplocalymma Haplocarpha Haploesthes Haplopappus Haplostephium Harleya Harmonia Harnackia Hartwrightia Hasteola Hatschbachiella Hazardia Hebeclinium Hecastocleis Hedypnois  
-			Heiseria Helenium Helianthella Helianthopsis Helianthus Helichrysopsis Helichrysum Heliocauta Heliomeris Heliopsis Helminthia Helminthotheca Helogyne Hemisteptia Hemizonia Henricksonia Heptanthus Herderia 
-			Herodotia Herrickia Hertia Hesperevax Hesperodoria Hesperomannia Heteracia Heteranthemis Heterocoma Heterocondylus Heterocypsela Heteroderis Heterolepis Heteromera Heteromma Heteropappus Heteroplexis 
-			Heterorhachis Heterosperma Heterothalamus Heterotheca Hidalgoa Hieracium Hilliardia Hilliardiella Hinterhubera Hippia Hippolytia Hirpicium Hispidella Hoehnephytum Hoffmannanthus Hoffmanniella Hofmeisteria 
-			Holocarpha Holocheilus Hololeion Holozonia Homogyne Hoplophyllum Huarpea Huberopappus Hubertia Hughesia Hullsia Hulsea Humeocline Hyalis Hyalochaete Hyalochlamys Hyaloseris Hyalosperma Hybridella Hydrodyssodia 
-			Hydroidea Hydropectis Hymenocephalus Hymenoclea Hymenolepis Hymenonema Hymenopappus Hymenostemma Hymenostephium Hymenothrix Hymenoxys Hyoseris Hypacanthium Hypelichrysum Hypericophyllum Hypochaeris Hysterionica 
-			Hystrichophora Ichthyothere Idiothamnus Ifloga Ighermia Iltisia Imeria Inezia Inula Inulanthera Ionactis Iocenes Iodocephalus Iogeton Iostephane Iphiona Iphionopsis Iranecio Irwinia Ischnea Isocarpha Isocoma 
-			Isoetopsis Isopappus Isostigma Iva Ixeridium Ixeris Ixiochlamys Ixiolaena Ixodia Jacmaia Jaegeria Jalcophila Jaliscoa Jamesianthus Jaramilloa Jasonia Jaumea Jefea Jeffreya Jeffreycia Jensia Joseanthus Jungia  
-			Jurinea Kalimeris Karelinia Karvandarina Kaschgaria Kaunia Kemulariella Keysseria Kinghamia Kingianthus Kippistia Kirkianella Kleinia Koanophyllon Koehneola Koelpinia Koyamacalia Koyamasia Krigia Kyrsteniopsis 
-			Lachanodes Lachnophyllum Lachnorhiza Lachnospermum Lactuca Lactucosonchus Laennecia Laestadia Lagascea Lagenophora Laggera Lagophylla Lamprachaenium Lamprocephalus Lamyropappus Lamyropsis Langebergia Lantanopsis 
-			Lapsana Lapsanastrum Lasianthaea Lasiocephalus Lasiolaena Lasiopogon Lasiospermum Lasthenia Launaea Lawrencella Layia Lecocarpus Leibnitzia Leiboldia Leiocarpa Lepidaploa Lembertia Lemooria Leonis Leontodon 
-			Leontopodium Lepidesmia Lepidolopha Lepidolopsis Lepidonia Lepidophorum Lepidophyllum Lepidospartum Lepidostephium Leptinella Leptocarpha Leptoclinium Leptorhynchos Leptotriche Lescaillea Lessingia Leucactinia 
-			Leucanthemella Leucanthemopsis Leucanthemum Leucheria Leucochrysum Leucomeris Leucophyta Leucopsis Leucoptera Leunisia Leuzea Leysera Liabum Liatris Libanothamnus Lidbeckia Lifago Ligularia Ligulariopsis Limbarda 
-			Lindheimera Linzia Lipochaeta Lipskyella Litothamnus Litrisa Llerasia Logfia Lomatozona Lonas Lopholaena Lophopappus Lorandersonia Lordhowea Lorentzianthus Loricaria Lourteigia Loxothysanus Lucilia Luciliocline 
-			Lugoa Luina Lulia Lundellianthus Lundinia Lycapsus Lychnophora Lycoseris Lygodesmia Macdougalia Machaeranthera Macowania Macrachaenium Macraea Macroclinidium Macronema Macropodina Macvaughiella Madia Mairia 
-			Malacothrix Malmeanthus Malperia Mantisalca Marasmodes Marshallia Marshalljohnstonia Marticorenia Matricaria Mattfeldanthus Mattfeldia Matudina Mauranthemum Mausolea Mecomischus Megalodonta Melampodium 
-			Melanodendron Melanthera Metalasia Metastevia Merrittia Mexerion Mexianthus Micractis Microcephala Microglossa Microgynella Microliabum Micropsis Micropus Microseris Microspermum Mikania Mikaniopsis Milleria 
-			Millotia Minuria Miricacalia Misbrookia Miyamayomena Mniodes Monactis Monoculus Monarrhenus Monenteles Monogereion Monolopia Monopholis Monoptilon Montanoa Moonia Moquinia Moquiniastrum Morithamnus Moscharia 
-			Msuata Mulgedium Munnozia Munzothamnus Muschleria Mutisia Mycelis Myopordon Myriactis Myriocephalus Myripnois Myxopappus Nabalus Nananthea Nannoglottis Nanothamnus Nardophyllum Narvalina Nassauvia Nauplius 
+			Haastia Haeckeria Haegiela Handelia Haplocalymma Haplocarpha Haploesthes Haplopappus Haplostephium Harleya Harmonia Harnackia Hartwrightia Hasteola Hatschbachiella Hazardia Hebeclinium Hecastocleis Hedypnois
+			Heiseria Helenium Helianthella Helianthopsis Helianthus Helichrysopsis Helichrysum Heliocauta Heliomeris Heliopsis Helminthia Helminthotheca Helogyne Hemisteptia Hemizonia Henricksonia Heptanthus Herderia
+			Herodotia Herrickia Hertia Hesperevax Hesperodoria Hesperomannia Heteracia Heteranthemis Heterocoma Heterocondylus Heterocypsela Heteroderis Heterolepis Heteromera Heteromma Heteropappus Heteroplexis
+			Heterorhachis Heterosperma Heterothalamus Heterotheca Hidalgoa Hieracium Hilliardia Hilliardiella Hinterhubera Hippia Hippolytia Hirpicium Hispidella Hoehnephytum Hoffmannanthus Hoffmanniella Hofmeisteria
+			Holocarpha Holocheilus Hololeion Holozonia Homogyne Hoplophyllum Huarpea Huberopappus Hubertia Hughesia Hullsia Hulsea Humeocline Hyalis Hyalochaete Hyalochlamys Hyaloseris Hyalosperma Hybridella Hydrodyssodia
+			Hydroidea Hydropectis Hymenocephalus Hymenoclea Hymenolepis Hymenonema Hymenopappus Hymenostemma Hymenostephium Hymenothrix Hymenoxys Hyoseris Hypacanthium Hypelichrysum Hypericophyllum Hypochaeris Hysterionica
+			Hystrichophora Ichthyothere Idiothamnus Ifloga Ighermia Iltisia Imeria Inezia Inula Inulanthera Ionactis Iocenes Iodocephalus Iogeton Iostephane Iphiona Iphionopsis Iranecio Irwinia Ischnea Isocarpha Isocoma
+			Isoetopsis Isopappus Isostigma Iva Ixeridium Ixeris Ixiochlamys Ixiolaena Ixodia Jacmaia Jaegeria Jalcophila Jaliscoa Jamesianthus Jaramilloa Jasonia Jaumea Jefea Jeffreya Jeffreycia Jensia Joseanthus Jungia
+			Jurinea Kalimeris Karelinia Karvandarina Kaschgaria Kaunia Kemulariella Keysseria Kinghamia Kingianthus Kippistia Kirkianella Kleinia Koanophyllon Koehneola Koelpinia Koyamacalia Koyamasia Krigia Kyrsteniopsis
+			Lachanodes Lachnophyllum Lachnorhiza Lachnospermum Lactuca Lactucosonchus Laennecia Laestadia Lagascea Lagenophora Laggera Lagophylla Lamprachaenium Lamprocephalus Lamyropappus Lamyropsis Langebergia Lantanopsis
+			Lapsana Lapsanastrum Lasianthaea Lasiocephalus Lasiolaena Lasiopogon Lasiospermum Lasthenia Launaea Lawrencella Layia Lecocarpus Leibnitzia Leiboldia Leiocarpa Lepidaploa Lembertia Lemooria Leonis Leontodon
+			Leontopodium Lepidesmia Lepidolopha Lepidolopsis Lepidonia Lepidophorum Lepidophyllum Lepidospartum Lepidostephium Leptinella Leptocarpha Leptoclinium Leptorhynchos Leptotriche Lescaillea Lessingia Leucactinia
+			Leucanthemella Leucanthemopsis Leucanthemum Leucheria Leucochrysum Leucomeris Leucophyta Leucopsis Leucoptera Leunisia Leuzea Leysera Liabum Liatris Libanothamnus Lidbeckia Lifago Ligularia Ligulariopsis Limbarda
+			Lindheimera Linzia Lipochaeta Lipskyella Litothamnus Litrisa Llerasia Logfia Lomatozona Lonas Lopholaena Lophopappus Lorandersonia Lordhowea Lorentzianthus Loricaria Lourteigia Loxothysanus Lucilia Luciliocline
+			Lugoa Luina Lulia Lundellianthus Lundinia Lycapsus Lychnophora Lycoseris Lygodesmia Macdougalia Machaeranthera Macowania Macrachaenium Macraea Macroclinidium Macronema Macropodina Macvaughiella Madia Mairia
+			Malacothrix Malmeanthus Malperia Mantisalca Marasmodes Marshallia Marshalljohnstonia Marticorenia Matricaria Mattfeldanthus Mattfeldia Matudina Mauranthemum Mausolea Mecomischus Megalodonta Melampodium
+			Melanodendron Melanthera Metalasia Metastevia Merrittia Mexerion Mexianthus Micractis Microcephala Microglossa Microgynella Microliabum Micropsis Micropus Microseris Microspermum Mikania Mikaniopsis Milleria
+			Millotia Minuria Miricacalia Misbrookia Miyamayomena Mniodes Monactis Monoculus Monarrhenus Monenteles Monogereion Monolopia Monopholis Monoptilon Montanoa Moonia Moquinia Moquiniastrum Morithamnus Moscharia
+			Msuata Mulgedium Munnozia Munzothamnus Muschleria Mutisia Mycelis Myopordon Myriactis Myriocephalus Myripnois Myxopappus Nabalus Nananthea Nannoglottis Nanothamnus Nardophyllum Narvalina Nassauvia Nauplius
 			Neblinaea Nelsonianthus Nemosenecio Neocabreria Neocuatrecasia Neohintonia Neojeffreya Neomirandea Neonesomia Neopallasia Neotysonia Nesomia Nestlera Nestotus Neurolaena Neurolakis Nicolasia Nicolletia Nidorella
-			Nikitinia Nipponanthemum Nivellea Nolletia Nordenstamia Nothobaccharis Nothocalais Noticastrum Notobasis Notoptera Notoseris Nouelia Novenia Oaxacania Oblivia Ochrocephala Oclemena Odixia Odontocline Oedera  
-			Oldenburgia Oldfeltia Olearia Olgaea Oligactis Oliganthes Oligocarpus Oligochaeta Oligoneuron Oligothrix Olivaea Omalotheca Omphalopappus Oncosiphon Ondetia Onopordum Onoseris Oocephala Oonopsis Oparanthus 
-			Ophryosporus Opisthopappus Orbivestus Oreochrysum Oreoleysera Oreostemma Oritrophium Orochaenactis Osbertia Osmadenia Osmiopsis Osmitopsis Osteospermum Otanthus Oteiza Othonna Otopappus Otospermum Outreya 
-			Oxycarpha Oxylaena Oxylobus Oxypappus Oxyphyllum Oyedaea Ozothamnus Pachylaena Pachystegia Pachythamnus Packera Pacourina Palaeocyanus Palafoxia Paleaepappus Pallenis Pamphalea Pappobolus Papuacalia Paracalia 
+			Nikitinia Nipponanthemum Nivellea Nolletia Nordenstamia Nothobaccharis Nothocalais Noticastrum Notobasis Notoptera Notoseris Nouelia Novenia Oaxacania Oblivia Ochrocephala Oclemena Odixia Odontocline Oedera
+			Oldenburgia Oldfeltia Olearia Olgaea Oligactis Oliganthes Oligocarpus Oligochaeta Oligoneuron Oligothrix Olivaea Omalotheca Omphalopappus Oncosiphon Ondetia Onopordum Onoseris Oocephala Oonopsis Oparanthus
+			Ophryosporus Opisthopappus Orbivestus Oreochrysum Oreoleysera Oreostemma Oritrophium Orochaenactis Osbertia Osmadenia Osmiopsis Osmitopsis Osteospermum Otanthus Oteiza Othonna Otopappus Otospermum Outreya
+			Oxycarpha Oxylaena Oxylobus Oxypappus Oxyphyllum Oyedaea Ozothamnus Pachylaena Pachystegia Pachythamnus Packera Pacourina Palaeocyanus Palafoxia Paleaepappus Pallenis Pamphalea Pappobolus Papuacalia Paracalia
 			Paragynoxys Paraixeris Paranephelius Parantennaria Parapiqueria Paraprenanthes Parasenecio Parastrephia Parthenice Parthenium Pasaccardoa Pascalia Pechuel-loeschea Pectis Pegolettia Pelucha Pembertonia Pentacalia
 			Pentachaeta Pentanema Pentatrichia Pentzia Perdicium Perezia Pericallis Pericome Peripleura Perityle Perralderia Pertya Perymeniopsis Perymenium Petalacte Petasites Peteravenia Petradoria Petrobium Peucephyllum
-			Peyrousea Phacellothrix Phaenocoma Phaeostigma Phagnalon Phalacrachena Phalacraea Phalacrocarpum Phalacroseris Phaneroglossa Phanerostylis Phania Philactis Philoglossa Philyrophyllum Phoebanthus Phyllocephalum 
-			Phymaspermum Picnomon Picradeniopsis Picris Picrosia Picrothamnus Pilosella Pilostemon Pinaropappus Piora Pippenalia Piptocarpha Piptocoma Piptolepis Piptothrix Piqueria Piqueriella Piqueriopsis Pithecoseris 
+			Peyrousea Phacellothrix Phaenocoma Phaeostigma Phagnalon Phalacrachena Phalacraea Phalacrocarpum Phalacroseris Phaneroglossa Phanerostylis Phania Philactis Philoglossa Philyrophyllum Phoebanthus Phyllocephalum
+			Phymaspermum Picnomon Picradeniopsis Picris Picrosia Picrothamnus Pilosella Pilostemon Pinaropappus Piora Pippenalia Piptocarpha Piptocoma Piptolepis Piptothrix Piqueria Piqueriella Piqueriopsis Pithecoseris
 			Pithocarpa Pittocaulon Pityopsis Pladaroxylon Plagiobasis Plagiocheilus Plagiolophus Plagius Planaltoa Planea Plateilema Platycarpha Platypodanthera Platyschkuhria Plazia Plecostachys Plectocephalus Pleiotaxis
-			Pleurocarpaea Pleurocoronis Pleuropappus Pleurophyllum Pluchea Plummera Podachaenium Podanthus Podocoma Podolepis Podotheca Poecilolepis Pogonolepis Pojarkovia Poljakanthema Poljakovia Pollalesta Polyachyrus 
-			Polyanthina Polyarrhena Polycalymma Polychrysum Polymnia Porophyllum Porphyrostemma Praxeliopsis Praxelis Prenanthella Prenanthes Prestelia Printzia Prionopsis Prolobus Prolongoa Proteopsis Proustia Psacaliopsis 
-			Psacalium Psathyrotes Pseudelephantopus Pseudobaccharis Pseudobahia Pseudoblepharispermum Pseudobrickellia Pseudocadiscus Pseudoclappia Pseudognaphalium Pseudogynoxys Pseudohandelia Pseudokyrsteniopsis 
-			Pseudonoseris Pseudostifftia Psiadia Psiadiella Psilactis Psilocarphus Psilostrophe Psychrogeton Psychrophyton Pterachenia Pterocaulon Pterocaulon Pterocypsela Pteronia Pterothrix Pterygopappus Ptilostemon 
-			Pulicaria Pycnocephalum Pyrrhopappus Pyrrocoma Pycnosorus Quelchia Quinetia Quinqueremulus Radlkoferotoma Rafinesquia Raillardella Railliardia Raillardiopsis Rainiera Raoulia Raouliopsis Rastrophyllum Ratibida 
-			Raulinoreitzia Rayjacksonia Reichardia Relhania Remya Rennera Rensonia Revealia Rhagadiolus Rhamphogyne Rhanteriopsis Rhanterium Rhodanthe Rhodogeron Rhynchopsidium Rhynchospermum Rhysolepis Richteria Riencourtia 
-			Rigiopappus Robinsonia Rochonia Rojasianthe Rolandra Roldana Rosenia Rothmaleria Rudbeckia Rugelia Ruilopezia Rumfordia Russowia Rutidosis Sabazia Sachsia Salcedoa Salmea Salmeopsis Sampera Santolina Santosia 
-			Sanvitalia Sarcanthemum Sartorina Sartwellia Saussurea Scabrethia Scalesia Scariola Scherya Schischkinia Schistocarpha Schistostephium Schizogyne Schizoptera Schizotrichia Schkuhria Schlagintweitia Schlechtendalia 
-			Schmalhausenia Schoenia Schumeria Sciadocephala Sclerocarpus Sclerolepis Sclerorhachis Sclerostephane Scolymus Scorzonella Scorzonera Scorzoneroides Scrobicaria Scyphocoronis Selleophytum Selloa Semiria Senecio 
-			Sericocarpus Seriphidium Serratula Shafera Shangwua Sheareria Shinnersia Shinnersoseris Siapaea Sidneya Siebera Sigesbeckia Siloxerus Silphium Silybum Simsia Sinacalia Sinclairia Sinoleontopodium Sinosenecio 
-			Smallanthus Soaresia Solanecio Solenogyne Solidago Soliva Sommerfeltia Sonchella Sonchus Sondottia Soroseris Spaniopappus Sphaeranthus Sphaereupatorium Sphaeroclinium Sphaeromeria Sphaeromorphaea Sphagneticola 
-			Spilanthes Spiracantha Spiroseris Squamopappus Stachycephalum Staehelina Standleyanthus Stanfieldia Staurochlamys Stebbinsoseris Steiractinia Steirodiscus Stenachaenium Stenocarpha Stenocline Stenopadus 
-			Stenophalium Stenops Stenotus Stephanochilus Stephanodoria Stephanomeria Steptorhamphus Stevia Steviopsis Steyermarkina Stifftia Stilpnogyne Stilpnolepis Stilpnopappus Stoebe Stokesia Stomatanthes Stomatochaeta 
-			Stramentopappus Streptoglossa Strotheria Struchium Stuartina Stuckertiella Stuessya Stylocline Stylotrichium Sventenia Symphyllocarpus Symphyopappus Symphyotrichum Syncalathium Syncarpha Syncephalum 
+			Pleurocarpaea Pleurocoronis Pleuropappus Pleurophyllum Pluchea Plummera Podachaenium Podanthus Podocoma Podolepis Podotheca Poecilolepis Pogonolepis Pojarkovia Poljakanthema Poljakovia Pollalesta Polyachyrus
+			Polyanthina Polyarrhena Polycalymma Polychrysum Polymnia Porophyllum Porphyrostemma Praxeliopsis Praxelis Prenanthella Prenanthes Prestelia Printzia Prionopsis Prolobus Prolongoa Proteopsis Proustia Psacaliopsis
+			Psacalium Psathyrotes Pseudelephantopus Pseudobaccharis Pseudobahia Pseudoblepharispermum Pseudobrickellia Pseudocadiscus Pseudoclappia Pseudognaphalium Pseudogynoxys Pseudohandelia Pseudokyrsteniopsis
+			Pseudonoseris Pseudostifftia Psiadia Psiadiella Psilactis Psilocarphus Psilostrophe Psychrogeton Psychrophyton Pterachenia Pterocaulon Pterocaulon Pterocypsela Pteronia Pterothrix Pterygopappus Ptilostemon
+			Pulicaria Pycnocephalum Pyrrhopappus Pyrrocoma Pycnosorus Quelchia Quinetia Quinqueremulus Radlkoferotoma Rafinesquia Raillardella Railliardia Raillardiopsis Rainiera Raoulia Raouliopsis Rastrophyllum Ratibida
+			Raulinoreitzia Rayjacksonia Reichardia Relhania Remya Rennera Rensonia Revealia Rhagadiolus Rhamphogyne Rhanteriopsis Rhanterium Rhodanthe Rhodogeron Rhynchopsidium Rhynchospermum Rhysolepis Richteria Riencourtia
+			Rigiopappus Robinsonia Rochonia Rojasianthe Rolandra Roldana Rosenia Rothmaleria Rudbeckia Rugelia Ruilopezia Rumfordia Russowia Rutidosis Sabazia Sachsia Salcedoa Salmea Salmeopsis Sampera Santolina Santosia
+			Sanvitalia Sarcanthemum Sartorina Sartwellia Saussurea Scabrethia Scalesia Scariola Scherya Schischkinia Schistocarpha Schistostephium Schizogyne Schizoptera Schizotrichia Schkuhria Schlagintweitia Schlechtendalia
+			Schmalhausenia Schoenia Schumeria Sciadocephala Sclerocarpus Sclerolepis Sclerorhachis Sclerostephane Scolymus Scorzonella Scorzonera Scorzoneroides Scrobicaria Scyphocoronis Selleophytum Selloa Semiria Senecio
+			Sericocarpus Seriphidium Serratula Shafera Shangwua Sheareria Shinnersia Shinnersoseris Siapaea Sidneya Siebera Sigesbeckia Siloxerus Silphium Silybum Simsia Sinacalia Sinclairia Sinoleontopodium Sinosenecio
+			Smallanthus Soaresia Solanecio Solenogyne Solidago Soliva Sommerfeltia Sonchella Sonchus Sondottia Soroseris Spaniopappus Sphaeranthus Sphaereupatorium Sphaeroclinium Sphaeromeria Sphaeromorphaea Sphagneticola
+			Spilanthes Spiracantha Spiroseris Squamopappus Stachycephalum Staehelina Standleyanthus Stanfieldia Staurochlamys Stebbinsoseris Steiractinia Steirodiscus Stenachaenium Stenocarpha Stenocline Stenopadus
+			Stenophalium Stenops Stenotus Stephanochilus Stephanodoria Stephanomeria Steptorhamphus Stevia Steviopsis Steyermarkina Stifftia Stilpnogyne Stilpnolepis Stilpnopappus Stoebe Stokesia Stomatanthes Stomatochaeta
+			Stramentopappus Streptoglossa Strotheria Struchium Stuartina Stuckertiella Stuessya Stylocline Stylotrichium Sventenia Symphyllocarpus Symphyopappus Symphyotrichum Syncalathium Syncarpha Syncephalum
 			Syncretocarpus Synedrella Synedrellopsis Syneilesis Synosma Synotis Syntrichopappus Synurus Syreitschikovia Tagetes Taimingasa Takhtajaniantha Talamancalia Talamancaster Tamananthus Tamania Tamaulipa Tanacetopsis
-			Tanacetum Taplinia Taraxacum Tarchonanthus Tarlmounia Tehuana Teixeiranthus Telanthophora Telekia Telmatophila Tenrhynea Tephroseris Tessaria Tetrachyron Tetradymia Tetragonotheca Tetramolopium Tetraneuris 
-			Tetranthus Tetraperone Thaminophyllum Thamnoseris Thelesperma Thespidium Thespis Thevenotia Thiseltonia Thurovia Thymophylla Thymopsis Tiarocarpus Tietkensia Tilesia Tithonia Toiyabea Tolpis Tomentaurum Tonestus 
+			Tanacetum Taplinia Taraxacum Tarchonanthus Tarlmounia Tehuana Teixeiranthus Telanthophora Telekia Telmatophila Tenrhynea Tephroseris Tessaria Tetrachyron Tetradymia Tetragonotheca Tetramolopium Tetraneuris
+			Tetranthus Tetraperone Thaminophyllum Thamnoseris Thelesperma Thespidium Thespis Thevenotia Thiseltonia Thurovia Thymophylla Thymopsis Tiarocarpus Tietkensia Tilesia Tithonia Toiyabea Tolpis Tomentaurum Tonestus
 			Tourneuxia Townsendia Toxanthes Tracyina Tragopogon Traversia Trepadonia Trichanthemis Trichanthodium Trichocline Trichocoronis Trichocoryne Trichogonia Trichogoniopsis Trichogyne Tricholepis Trichoptilium
 			Trichospira Tridactylina Tridax Trigonopterum Trigonospermum Trilisa Trimorpha Trioncinia Tripleurospermum Triplocephalum Tripolium Tripteris Triptilion Triptilodiscus Triniteurybia Trixis Troglophyton
-			Tuberculocarpus Tuberostylis Tugarinovia Turanecio Turaniphytum Turczaninovia Tussilago Tuxtla Tyleropappus Tyrimnus Tzvelevopyrethrum Uechtritzia Ugamia Uleophytum Uniyala Unxia Urbananthus Urbinella Urmenetea 
-			Urolepis Uropappus Urospermum Urostemon Ursinia Vanclevea Vanillosmopsis Varilla Varthemia Vellereophyton Venegasia Venidium Verbesina Vernonanthura Vernonella Vernonia Vernoniastrum Vernoniopsis Vicoa Vieraea 
-			Viereckia Vigethia Viguiera Villanova Villasenoria Vilobia Vinicia Virgulaster Vittadinia Vittetia Volutaria Wagenitzia Waitzia Wamalchitamia Warionia Wedelia Welwitschiella Werneria Westoniella Whitneya Wilkesia 
-			Willemetia Wollastonia Wulffia Wunderlichia Wyethia Xanthisma Xanthium Xanthocephalum Xanthopappus Xeranthemum Xerochrysum Xerolekia Xerxes Xiphochaeta Xylanthemum Xylorhiza Xylothamia Yariguianthus Yermo Youngia 
+			Tuberculocarpus Tuberostylis Tugarinovia Turanecio Turaniphytum Turczaninovia Tussilago Tuxtla Tyleropappus Tyrimnus Tzvelevopyrethrum Uechtritzia Ugamia Uleophytum Uniyala Unxia Urbananthus Urbinella Urmenetea
+			Urolepis Uropappus Urospermum Urostemon Ursinia Vanclevea Vanillosmopsis Varilla Varthemia Vellereophyton Venegasia Venidium Verbesina Vernonanthura Vernonella Vernonia Vernoniastrum Vernoniopsis Vicoa Vieraea
+			Viereckia Vigethia Viguiera Villanova Villasenoria Vilobia Vinicia Virgulaster Vittadinia Vittetia Volutaria Wagenitzia Waitzia Wamalchitamia Warionia Wedelia Welwitschiella Werneria Westoniella Whitneya Wilkesia
+			Willemetia Wollastonia Wulffia Wunderlichia Wyethia Xanthisma Xanthium Xanthocephalum Xanthopappus Xeranthemum Xerochrysum Xerolekia Xerxes Xiphochaeta Xylanthemum Xylorhiza Xylothamia Yariguianthus Yermo Youngia
 			Zaluzania Zandera Zemisia Zexmenia Zinnia Zoegea Zyrphelis Zyzyura Zyzyxia
 		}
 
@@ -180,7 +180,7 @@ PLANT5 = {
 
 	fleet_names = {
 		random_names = {
-			"Radix Armada" "Vivea Armada" "Ferna Armada" "Gneto Armada" "Bryo Armada" "Rophyte Armada" "Stirpis Armada" "Vitanix Armada" "Arbora Armada" "Evora Armada" "Litea Armada" "Geola Armada" "Aluntola Armada" 
+			"Radix Armada" "Vivea Armada" "Ferna Armada" "Gneto Armada" "Bryo Armada" "Rophyte Armada" "Stirpis Armada" "Vitanix Armada" "Arbora Armada" "Evora Armada" "Litea Armada" "Geola Armada" "Aluntola Armada"
 			"Lachlosa Armada"
 		}
 		sequential_name = "%O% Armada"
@@ -336,34 +336,25 @@ PLANT5 = {
 
 			# Always combined with a second name
 			first_names = {
-				Adriatica Ageratina Akshayavat Aliciae Amaranth Arecaceae Argania Articulata Astragalus Atropa Azuli Belladonna Berykinia Betulaceae Bevorea Brovaria 
-				Calanthe Carminatia Catasellia Cattleya Centromadia Cobunoria Ceptoria Cronquistia Cypripedium Cytophane 
+				Adriatica Ageratina Akshayavat Aliciae Amaranth Arecaceae Argania Articulata Astragalus Atropa Azuli Belladonna Berykinia Betulaceae Bevorea Brovaria
+				Calanthe Carminatia Catasellia Cattleya Centromadia Cobunoria Ceptoria Cronquistia Cypripedium Cytophane
 				Dendtritia Dendrobia Dianae Drofilia Echinacea Ellenbergia Elorium Esperium Eugenia Euphyte Feron Flora Fugatia Glabu Gronium Gytorium
-				Harmonia Helenia Henimia Henumia Herbaria Ibinidia Idrix Imeria Indigofera Iphonia Itosakura Ixora Janarsium Justicia 
+				Harmonia Helenia Henimia Henumia Herbaria Ibinidia Idrix Imeria Indigofera Iphonia Itosakura Ixora Janarsium Justicia
 				Kalpavriksha Karelinia Kaunia Ketoria Ketovilia Koronia Latifolia Lephyte Liatris Limorium Lomenia Lonvitium Madasenia Mandragora Milus Mitanium Monval
-				Narcissus Narium Nicolettia Nimeria Niria Noxi Oaxacania Omoderium Orchidaceae Panokiria Phyllix Picea Pinaceae Piperita Piqueria Polygala Polymnia Psychotria Pueraria Quercus 
-				Ramonia Remorium Revia Ribe Rivoria Rizta Ronobirium Sagittatia Stevia Stirpes Styrium Subtropica Thymophylla Toxicodendra 
-				Vendoria Veranium Verdurea Verix Vistophane Vorberia Xanova Xerolekia X'folio Xzempus Yabukita Zinnia Zyzyura 
+				Narcissus Narium Nicolettia Nimeria Niria Noxi Oaxacania Omoderium Orchidaceae Panokiria Phyllix Picea Pinaceae Piperita Piqueria Polygala Polymnia Psychotria Pueraria Quercus
+				Ramonia Remorium Revia Ribe Rivoria Rizta Ronobirium Sagittatia Stevia Stirpes Styrium Subtropica Thymophylla Toxicodendra
+				Vendoria Veranium Verdurea Verix Vistophane Vorberia Xanova Xerolekia X'folio Xzempus Yabukita Zinnia Zyzyura
 			}
 
 			# Always combined with a first name
 			second_names = {
-				"Aarboro, 5th Bloom" "Acuminata, 1st Bloom" "Aeris, 3rd Bloom" "Agrifolia, 3rd Bloom" "Alta, 1st Bloom" 
-				"Anoma, 1st Bloom" "Aspera, 2nd Bloom" "Aster, 4th Bloom" "Aurea, 8th Bloom" "Axini, 2nd Bloom" 
-				"Basil, 4th Bloom" "Belima, 1st Bloom" "Beros, 6th Bloom" "Bertrandi, 3rd Bloom" "Biflorum, 3rd Bloom" "Bo, 2nd Bloom" "Bryo, 2nd Bloom" 
-				"Calyx, 3rd Bloom" "Caule, 3rd Bllom" "Cosmos, 4th Bloom" "Delpina, 12th Bloom" "Elegans, 9th Bloom" "Elliptica, 11th Bloom"  "Evola, 5th Bloom" 
-				"Ferna, 2nd Bloom" "Ferox, 2nd Bloom" "Flovius, 4th Bloom" "Flumen, 3rd Bloom" "Folia, 5th Bloom" "Foliosa, 5th Bloom" "Freya, 2nd Bloom" "Gladiolus, 5th Bloom" "Gneto, 2nd Bloom"
-				"Heptanth, 3rd Bloom" "Hiel, 3rd Bloom" "Hulcea, 5th Bloom" "Incisa, 4th Bloom" "Insignis, 5th Bloom" "Inula, 7th Bloom" "Irminsul, 5th Bloom" "Jatek, 5th Bloom" "Jureus, 6th Bloom" 
-				"Liliops, 2nd Bloom" "Linnaeus, 8th Bloom" "Livus, 4th Bloom" "Lizem, 2nd Bloom" "Lucis, 2nd Bloom" "Lumex, 2nd Bloom" 
-				"Macra, 2nd Bloom" "Macronyx, 6th Bloom" "Magnoli, 3rd Bloom" "Maxima, 1st Bloom" "Mexus, 10th Bloom" "Mirifica, 3rd Bloom" "Mirius, 3rd Bloom" "Mol, 5th Bloom"
-				"Naevosa, 6th Bloom" "Narva, 2nd Bloom" "Nemus, 2nd Bloom" "Neso, 5th Bloom" "Nive, 4th Bloom" 
-				"Perityl, 4th Bloom" "Petus, 5th Bloom" "Prakus, 3rd Bloom" "Praxel, 10th Bloom" "Pretek, 2nd Bloom" "Pruina, 2nd Bloom" "Quist, 1st Bloom"
-				"Radix, 2nd Bloom" "Rophyte, 31st Bloom" "Rosea, 2nd Bloom" "Rotex, 3rd Bloom" "Rupe, 5th Bloom" 
-				"Sallor, 3rd Bloom" "Somb, 3rd Bloom" "Spinosa, 3rd Bloom" "Stirpis, 4th Bloom" 
-				"Tabulare, 5th Bloom" "Telek, 3rd Bloom" "Tes, 1st Bloom" "Thele, 6th Bloom" "Thrix, 3rd Bloom" "Torreya, 7th Bloom" "Tyli, 2nd Bloom"
-				"Tridax, 3rd Bloom" "Trifida, 2nd Bloom" "Triodon, 1st Bloom" "Triplicata, 2nd Bloom" "Tule, 3rd Bloom"
-				"Vanda, 3rd Bloom" "Verim, 1st Bloom" "Vit, 3rd Bloom" "Vitanix, 4th Bloom" "Vivea, 6th Bloom" "Viven, 6th Bloom" 
-				"Wadae, 2nd Bloom" "Xanthorn, 14th Bloom" "Yggdrasil, 20th Bloom" "Yusto, 5th Bloom" "Zarbor, 3rd Bloom"
+				Aarboro Acuminata Aeris Agrifolia Alta Anoma Aspera Aster Aurea Axini Basil Belima Beros Bertrandi Biflorum Bo Bryo
+				Calyx Caule Cosmos Delpina Elegans Elliptica Evola Ferna Ferox Flovius Flumen Folia Foliosa Freya
+				Gladiolus Gneto Heptanth Hiel Hulcea Incisa Insignis Inula Irminsul Jatek Jureus
+				Liliops Linnaeus Livus Lizem Lucis Lumex Macra Macronyx Magnoli Maxima Mexus Mirifica Mirius Mol
+				Naevosa Narva Nemus Neso Nive Perityl Petus Prakus Praxel Pretek Pruina Quist
+				Radix Rophyte Rosea Rotex Rupe Sallor Somb Spinosa Stirpis Tabulare Telek Tes Thele Thrix Torreya Tyli Tridax Trifida Triodon Triplicata Tule
+				Vanda Verim Vit Vitanix Vivea Viven Wadae Xanthorn Yggdrasil Yusto Zarbor
 			}
 
 			regnal_first_names = {

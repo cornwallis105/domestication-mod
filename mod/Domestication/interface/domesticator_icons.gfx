@@ -6,4 +6,22 @@ spriteTypes = {
 		noOfFrames = 1
 	}
 
+	spriteType = {
+		name = "GFX_diplomacy_status_is_domesticated_protectorate"
+		textureFile = "gfx/interface/icons/diplomacy/diplomacy_isdomesticated_protectorate.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_domesticated_machine_intelligence"
+		textureFile = "gfx/interface/icons/diplomacy/diplomacy_isdomesticated_machine_intelligence.dds"
+		noOfFrames = 1
+	}
+
+	spriteType = {
+		name = "GFX_diplomacy_status_is_domesticated_hivemind"
+		textureFile = "gfx/interface/icons/diplomacy/diplomacy_isdomesticated_hivemind.dds"
+		noOfFrames = 1
+	}
+
 }

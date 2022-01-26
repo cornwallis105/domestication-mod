@@ -35,3 +35,65 @@ event = {
 		}
 	}
 }
+
+event = {
+	id = domestication_start_of_game.2
+	hide_window = yes
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_global_flag = bloom_country_created
+		}
+	}
+
+	immediate = {
+		create_country = {
+			name = "Bloom Country"
+			type = floret_repo
+			auto_delete = no
+			flag = random
+		}
+		last_created_country = {
+			save_global_event_target_as = bloom_country
+			set_variable = {
+				which = bloom_index
+				value = 0
+			}
+		}
+		set_global_flag = bloom_country_created
+	}
+}
+
+country_event = {
+	id = domestication_start_of_game.3
+	hide_window = yes
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_global_flag = bloom_country_created
+		}
+	}
+
+	immediate = {
+		create_country = {
+			name = "Bloom Country"
+			type = floret_repo
+			auto_delete = no
+			flag = random
+		}
+		last_created_country = {
+			save_global_event_target_as = bloom_country
+			set_variable = {
+				which = bloom_index
+				value = 0
+			}
+		}
+		set_global_flag = bloom_country_created
+	}
+}

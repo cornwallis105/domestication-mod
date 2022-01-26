@@ -83,6 +83,7 @@ vassal = {
 			limit = {
 				from = {
 					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
 				}
 				is_hive_empire = yes
 			}
@@ -174,6 +175,21 @@ vassal = {
 			set_subject_of = {
 				who = from
 				subject_type = subsidiary
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
+					has_technology = tech_haustoric_module
+				}
+				is_machine_empire = yes
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_hivemind
 			}
 			break = yes
 		}
@@ -252,6 +268,7 @@ protectorate = {
 			limit = {
 				from = {
 					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
 				}
 				is_hive_empire = yes
 			}
@@ -343,6 +360,21 @@ protectorate = {
 			set_subject_of = {
 				who = from
 				subject_type = subsidiary
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
+					has_technology = tech_haustoric_module
+				}
+				is_machine_empire = yes
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_hivemind
 			}
 			break = yes
 		}
@@ -511,8 +543,24 @@ domesticated_protectorate = {
 			limit = {
 				from = {
 					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
 				}
 				is_hive_empire = yes
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_hivemind
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
+					has_technology = tech_haustoric_module
+				}
+				is_machine_empire = yes
 			}
 			set_subject_of = {
 				who = from
@@ -688,6 +736,207 @@ domesticated_hivemind = {
 			set_subject_of = {
 				who = from
 				subject_type = domesticated_protectorate
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
+					has_technology = tech_haustoric_module
+				}
+				is_machine_empire = yes
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_hivemind
+			}
+			break = yes
+		}
+	}
+}
+
+domesticated_machine_intelligence = {
+	can_expand = no
+	can_be_integrated = no
+
+	research_agreement = yes
+	research_sharing = yes	# for tech sharing modifier
+
+	joins_overlord_wars = yes
+	calls_overlord_to_war = yes
+	can_do_diplomacy = no
+
+	intel_from_being_subject = 40
+	intel_from_being_overlord = 50
+
+	diplo_threat = 1.5
+
+	overlord_resources = {
+		category = subjects
+		produces = {
+			influence = 0.20
+			physics_research = 7.5
+			society_research = 7.5
+			engineering_research = 15
+		}
+	}
+
+	potential = {
+		from = {
+			is_country_type = default
+			is_domesticator = yes
+			has_technology = tech_hivemind_domestication
+			has_technology = tech_haustoric_module
+		}
+		has_been_declared_crisis = no
+		has_authority = auth_hive_mind
+	}
+
+	effect = {
+		if = {
+			limit = {
+				from = {
+					is_country_type_with_subjects = no
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = { has_valid_civic = civic_inwards_perfection }
+			}
+			set_subject_of = {
+				who = from
+				subject_type = tributary
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = no
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = vassal
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					has_valid_civic = civic_hive_devouring_swarm
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				NOT = { is_same_species = from }
+				from = {
+					has_valid_civic = civic_fanatic_purifiers
+				}
+			}
+			set_subject_of = {
+				who = none
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_fanatic_materialist
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = satellite
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_fanatic_spiritualist
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = dominion
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_fanatic_xenophile
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = signatory
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_country_type = awakened_fallen_empire
+					has_ethic = ethic_fanatic_xenophobe
+				}
+			}
+			set_subject_of = {
+				who = from
+				subject_type = thrall
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = { has_authority = auth_corporate }
+			}
+			set_subject_of = {
+				who = from
+				subject_type = subsidiary
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+				}
+				is_gestalt = no
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_protectorate
+			}
+			break = yes
+		}
+		if = {
+			limit = {
+				from = {
+					is_domesticator = yes
+					has_technology = tech_hivemind_domestication
+				}
+				is_hive_empire = yes
+			}
+			set_subject_of = {
+				who = from
+				subject_type = domesticated_hivemind
 			}
 			break = yes
 		}

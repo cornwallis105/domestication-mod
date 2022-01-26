@@ -225,3 +225,143 @@ get_pirate_species = {
 		event_target:country_species = { save_event_target_as = owner_species }
 	}
 }
+
+# from old_bloom to new_bloom
+copy_leader_traits = {
+
+	# holy hell, we need to copy over every leader trait individually
+	# maybe let's only copy over floret traits
+	event_target:old_bloom = {
+		if = {
+			limit = {
+				is_variable_set = affini_id_1
+			}
+			event_target:new_bloom = {
+				set_variable = {
+					which = affini_id_1
+					value = prev.affini_id_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_set = affini_id_2
+			}
+			event_target:new_bloom = {
+				set_variable = {
+					which = affini_id_2
+					value = prev.affini_id_2
+				}
+			}
+		}
+
+
+		if = { limit = { has_trait = leader_trait_cutie_adm }	event_target:new_bloom = { add_trait = leader_trait_cutie_adm }	}
+		if = { limit = { has_trait = leader_trait_warp_eng_adm }	event_target:new_bloom = { add_trait = leader_trait_warp_eng_adm }	}
+		if = { limit = { has_trait = leader_trait_pirate_adm }	event_target:new_bloom = { add_trait = leader_trait_pirate_adm }	}
+		if = { limit = { has_trait = leader_trait_admiral_adm }	event_target:new_bloom = { add_trait = leader_trait_admiral_adm }	}
+
+		if = { limit = { has_trait = leader_trait_cutie_gen }	event_target:new_bloom = { add_trait = leader_trait_cutie_gen }	}
+
+		if = { limit = { has_trait = leader_trait_beeple_gov }	event_target:new_bloom = { add_trait = leader_trait_beeple_gov }	}
+		if = { limit = { has_trait = leader_trait_cutie_gov }	event_target:new_bloom = { add_trait = leader_trait_cutie_gov }	}
+
+		if = { limit = { has_trait = leader_trait_cutie_sci }	event_target:new_bloom = { add_trait = leader_trait_cutie_sci }	}
+
+		if = { limit = { has_ruler_trait = leader_trait_cutie_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_cutie_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_beeple_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_warp_eng_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_warp_eng_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_pirate_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_pirate_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_admiral_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_admiral_rul }	}
+
+
+
+		#if = { limit = { has_trait = leader_trait_trickster }	event_target:new_bloom = { add_trait = leader_trait_trickster }	}
+		#if = { limit = { has_trait = leader_trait_fleet_logistician }	event_target:new_bloom = { add_trait = leader_trait_fleet_logistician }	}
+		#if = { limit = { has_trait = leader_trait_engineer }	event_target:new_bloom = { add_trait = leader_trait_engineer }	}
+		#if = { limit = { has_trait = leader_trait_aggressive }	event_target:new_bloom = { add_trait = leader_trait_aggressive }	}
+		#if = { limit = { has_trait = leader_trait_cautious }	event_target:new_bloom = { add_trait = leader_trait_cautious }	}
+		#if = { limit = { has_trait = leader_trait_scout }	event_target:new_bloom = { add_trait = leader_trait_scout }	}
+		#if = { limit = { has_trait = leader_trait_unyielding }	event_target:new_bloom = { add_trait = leader_trait_unyielding }	}
+		#if = { limit = { has_trait = leader_trait_nervous }	event_target:new_bloom = { add_trait = leader_trait_nervous }	}
+		#if = { limit = { has_trait = leader_trait_gale_speed }	event_target:new_bloom = { add_trait = leader_trait_gale_speed }	}
+		#if = { limit = { has_trait = leader_trait_dragonslayer }	event_target:new_bloom = { add_trait = leader_trait_dragonslayer }	}
+		#if = { limit = { has_trait = leader_trait_restrained }	event_target:new_bloom = { add_trait = leader_trait_restrained }	}
+		#if = { limit = { has_trait = leader_trait_charismatic }	event_target:new_bloom = { add_trait = leader_trait_charismatic }	}
+		#if = { limit = { has_trait = leader_trait_butcher }	event_target:new_bloom = { add_trait = leader_trait_butcher }	}
+		#if = { limit = { has_trait = leader_trait_glory_seeker }	event_target:new_bloom = { add_trait = leader_trait_glory_seeker }	}
+		#if = { limit = { has_trait = leader_trait_army_logistician }	event_target:new_bloom = { add_trait = leader_trait_army_logistician }	}
+		#if = { limit = { has_trait = leader_trait_adaptable }	event_target:new_bloom = { add_trait = leader_trait_adaptable }	}
+		#if = { limit = { has_trait = leader_trait_stubborn }	event_target:new_bloom = { add_trait = leader_trait_stubborn }	}
+		#if = { limit = { has_trait = leader_trait_resilient }	event_target:new_bloom = { add_trait = leader_trait_resilient }	}
+		#if = { limit = { has_trait = leader_trait_eager }	event_target:new_bloom = { add_trait = leader_trait_eager }	}
+		#if = { limit = { has_trait = leader_trait_dragonbane }	event_target:new_bloom = { add_trait = leader_trait_dragonbane }	}
+		#if = { limit = { has_trait = leader_trait_army_veteran }	event_target:new_bloom = { add_trait = leader_trait_army_veteran }	}
+		#if = { limit = { has_trait = leader_trait_retired_fleet_officer }	event_target:new_bloom = { add_trait = leader_trait_retired_fleet_officer }	}
+		#if = { limit = { has_trait = leader_trait_architectural_interest }	event_target:new_bloom = { add_trait = leader_trait_architectural_interest }	}
+		#if = { limit = { has_trait = leader_trait_agrarian_upbringing }	event_target:new_bloom = { add_trait = leader_trait_agrarian_upbringing }	}
+		#if = { limit = { has_trait = leader_trait_intellectual }	event_target:new_bloom = { add_trait = leader_trait_intellectual }	}
+		#if = { limit = { has_trait = leader_trait_environmental_engineer }	event_target:new_bloom = { add_trait = leader_trait_environmental_engineer }	}
+		#if = { limit = { has_trait = leader_trait_bureaucrat }	event_target:new_bloom = { add_trait = leader_trait_bureaucrat }	}
+		#if = { limit = { has_trait = leader_trait_righteous }	event_target:new_bloom = { add_trait = leader_trait_righteous }	}
+		#if = { limit = { has_trait = leader_trait_meticulous }	event_target:new_bloom = { add_trait = leader_trait_meticulous }	}
+		#if = { limit = { has_trait = leader_trait_spark_of_genius }	event_target:new_bloom = { add_trait = leader_trait_spark_of_genius }	}
+		#if = { limit = { has_trait = leader_trait_carefree }	event_target:new_bloom = { add_trait = leader_trait_carefree }	}
+		#if = { limit = { has_trait = leader_trait_roamer }	event_target:new_bloom = { add_trait = leader_trait_roamer }	}
+		#if = { limit = { has_trait = leader_trait_archaeologist_ancrel }	event_target:new_bloom = { add_trait = leader_trait_archaeologist_ancrel }	}
+		#if = { limit = { has_trait = leader_trait_archaeologist }	event_target:new_bloom = { add_trait = leader_trait_archaeologist }	}
+		#if = { limit = { has_trait = leader_trait_maniacal }	event_target:new_bloom = { add_trait = leader_trait_maniacal }	}
+		#if = { limit = { has_trait = leader_trait_expertise_materials }	event_target:new_bloom = { add_trait = leader_trait_expertise_materials }	}
+		#if = { limit = { has_trait = leader_trait_expertise_propulsion }	event_target:new_bloom = { add_trait = leader_trait_expertise_propulsion }	}
+		#if = { limit = { has_trait = leader_trait_expertise_voidcraft }	event_target:new_bloom = { add_trait = leader_trait_expertise_voidcraft }	}
+		#if = { limit = { has_trait = leader_trait_expertise_industry }	event_target:new_bloom = { add_trait = leader_trait_expertise_industry }	}
+		#if = { limit = { has_trait = leader_trait_expertise_field_manipulation }	event_target:new_bloom = { add_trait = leader_trait_expertise_field_manipulation }	}
+		#if = { limit = { has_trait = leader_trait_expertise_particles }	event_target:new_bloom = { add_trait = leader_trait_expertise_particles }	}
+		#if = { limit = { has_trait = leader_trait_expertise_computing }	event_target:new_bloom = { add_trait = leader_trait_expertise_computing }	}
+		#if = { limit = { has_trait = leader_trait_expertise_psionics }	event_target:new_bloom = { add_trait = leader_trait_expertise_psionics }	}
+		#if = { limit = { has_trait = leader_trait_expertise_new_worlds }	event_target:new_bloom = { add_trait = leader_trait_expertise_new_worlds }	}
+		#if = { limit = { has_trait = leader_trait_expertise_statecraft }	event_target:new_bloom = { add_trait = leader_trait_expertise_statecraft }	}
+		#if = { limit = { has_trait = leader_trait_expertise_biology }	event_target:new_bloom = { add_trait = leader_trait_expertise_biology }	}
+		#if = { limit = { has_trait = leader_trait_expertise_military_theory }	event_target:new_bloom = { add_trait = leader_trait_expertise_military_theory }	}
+		#if = { limit = { has_trait = leader_trait_towel }	event_target:new_bloom = { add_trait = leader_trait_towel }	}
+		#if = { limit = { has_trait = leader_trait_percussive_maintainer }	event_target:new_bloom = { add_trait = leader_trait_percussive_maintainer }	}
+		#if = { limit = { has_trait = leader_trait_scientist_brainslug }	event_target:new_bloom = { add_trait = leader_trait_scientist_brainslug }	}
+		#if = { limit = { has_trait = leader_trait_general_brainslug }	event_target:new_bloom = { add_trait = leader_trait_general_brainslug }	}
+		#if = { limit = { has_trait = leader_trait_admiral_brainslug }	event_target:new_bloom = { add_trait = leader_trait_admiral_brainslug }	}
+		#if = { limit = { has_trait = leader_trait_admiral_hells_heart }	event_target:new_bloom = { add_trait = leader_trait_admiral_hells_heart }	}
+		#if = { limit = { has_trait = leader_trait_governor_brainslug }	event_target:new_bloom = { add_trait = leader_trait_governor_brainslug }	}
+		#if = { limit = { has_trait = leader_trait_inspired_archaeologist }	event_target:new_bloom = { add_trait = leader_trait_inspired_archaeologist }	}
+		#if = { limit = { has_trait = leader_trait_inspired_researcher }	event_target:new_bloom = { add_trait = leader_trait_inspired_researcher }	}
+		#if = { limit = { has_trait = leader_trait_inspired_surveyor }	event_target:new_bloom = { add_trait = leader_trait_inspired_surveyor }	}
+
+
+		#if = { limit = { has_ruler_trait = leader_trait_ruler_brainslug }	event_target:new_bloom = { add_ruler_trait = leader_trait_ruler_brainslug }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_corvette_focus }	event_target:new_bloom = { add_ruler_trait = trait_ruler_corvette_focus }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_destroyer_focus }	event_target:new_bloom = { add_ruler_trait = trait_ruler_destroyer_focus }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_cruiser_focus }	event_target:new_bloom = { add_ruler_trait = trait_ruler_cruiser_focus }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_battleship_focus }	event_target:new_bloom = { add_ruler_trait = trait_ruler_battleship_focus }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_recruiter }	event_target:new_bloom = { add_ruler_trait = trait_ruler_recruiter }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_from_the_ranks }	event_target:new_bloom = { add_ruler_trait = trait_ruler_from_the_ranks }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_fortifier }	event_target:new_bloom = { add_ruler_trait = trait_ruler_fortifier }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_logistic_understanding }	event_target:new_bloom = { add_ruler_trait = trait_ruler_logistic_understanding }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_military_pioneer }	event_target:new_bloom = { add_ruler_trait = trait_ruler_military_pioneer }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_warlike }	event_target:new_bloom = { add_ruler_trait = trait_ruler_warlike }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_architectural_sense }	event_target:new_bloom = { add_ruler_trait = trait_ruler_architectural_sense }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_frontier_spirit }	event_target:new_bloom = { add_ruler_trait = trait_ruler_frontier_spirit }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_world_shaper }	event_target:new_bloom = { add_ruler_trait = trait_ruler_world_shaper }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_home_in_the_sky }	event_target:new_bloom = { add_ruler_trait = trait_ruler_home_in_the_sky }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_industrialist }	event_target:new_bloom = { add_ruler_trait = trait_ruler_industrialist }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_eye_for_talent }	event_target:new_bloom = { add_ruler_trait = trait_ruler_eye_for_talent }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_deep_connections }	event_target:new_bloom = { add_ruler_trait = trait_ruler_deep_connections }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_charismatic }	event_target:new_bloom = { add_ruler_trait = trait_ruler_charismatic }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_champion_of_the_people }	event_target:new_bloom = { add_ruler_trait = trait_ruler_champion_of_the_people }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_expansionist }	event_target:new_bloom = { add_ruler_trait = trait_ruler_expansionist }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_fertility_preacher }	event_target:new_bloom = { add_ruler_trait = trait_ruler_fertility_preacher }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_investor }	event_target:new_bloom = { add_ruler_trait = trait_ruler_investor }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_space_miner }	event_target:new_bloom = { add_ruler_trait = trait_ruler_space_miner }	}
+		#if = { limit = { has_ruler_trait = trait_ruler_explorer }	event_target:new_bloom = { add_ruler_trait = trait_ruler_explorer }	}
+		#if = { limit = { has_ruler_trait = leader_trait_fleet_organizer }	event_target:new_bloom = { add_ruler_trait = leader_trait_fleet_organizer }	}
+		#if = { limit = { has_ruler_trait = leader_trait_reformer }	event_target:new_bloom = { add_ruler_trait = leader_trait_reformer }	}
+
+	}
+}

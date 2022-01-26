@@ -759,6 +759,7 @@ country_event = {
 
 	is_triggered_only = yes
 	hide_window = no
+	location = event_target:br_resettle_newworld
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
@@ -817,15 +818,20 @@ country_event = {
 						has_job_category = worker
 					}
 					modifier = {
-						add = 3
+						add = 2
 						OR = {
 							is_pop_category = slave
 							is_unemployed = yes
 						}
 					}
 					modifier = {
+						factor = 0.25
+						has_job_category = ruler
+					}
+					modifier = {
 						factor = 1.5
 						OR = {
+							# Yes to treehuggers
 							pop_has_ethic = ethic_fanatic_xenophile
 							pop_has_ethic = ethic_xenophile
 						}
@@ -833,6 +839,7 @@ country_event = {
 					modifier = {
 						factor = 0.1
 						OR = {
+							# No bigots
 							pop_has_ethic = ethic_fanatic_xenophobe
 							pop_has_ethic = ethic_xenophobe
 						}
@@ -840,6 +847,7 @@ country_event = {
 					modifier = {
 						factor = 1.5
 						OR = {
+							# Yes to subby pervs
 							has_trait = trait_deviants
 							has_trait = trait_docile
 						}
@@ -847,6 +855,7 @@ country_event = {
 					modifier = {
 						factor = 0.5
 						OR = {
+							# No uptight brats
 							has_trait = trait_conformists
 							has_trait = trait_unruly
 						}
@@ -854,13 +863,44 @@ country_event = {
 				}
 				save_event_target_as = br_resettle_pop
 				planet = { save_event_target_as = br_resettle_homeworld }
-				set_pop_flag = br_resettled
+				set_timed_pop_flag = {
+					flag = br_resettled
+					years = 2
+				}
 
 				root = {
 					random_owned_planet = {
 						limit = {
 							event_target:br_resettle_pop = {
 								can_live_on_planet = prev
+							}
+						}
+						weights = {
+							base = 1
+							modifier = {
+								factor = 2
+								# good habitability
+								habitability = { who = event_target:br_resettle_pop value >= 0.75 }
+							}
+							modifier = {
+								factor = 0.25
+								# low habitability
+								habitability = { who = event_target:br_resettle_pop value <= 0.45 }
+							}
+							modifier = {
+								factor = 1.25
+								# available jobs
+								free_jobs > 2
+							}
+							modifier = {
+								factor = 0.5
+								# available jobs
+								free_jobs <= 0
+							}
+							modifier = {
+								factor = 1.5
+								# available housing
+								free_housing > 0
 							}
 						}
 						save_event_target_as = br_resettle_newworld
@@ -1004,6 +1044,8 @@ country_event = {
 			}
 			remove_deposit = d_hive_domestication_lab
 		}
+
+		remove_country_flag = flag_domesticated_hive_mind
 	}
 }
 
@@ -1019,6 +1061,7 @@ country_event = {
 	trigger = {
 		from = {
 			is_domesticator = yes
+			has_technology = tech_hivemind_domestication
 		}
 		this = {
 			is_hive_empire = yes
@@ -1117,6 +1160,181 @@ planet_event = {
 		name = domestication.14.a
 		trigger = {
 			always = yes
+		}
+	}
+}
+
+## Creation of a Domesticated Hive Mind
+## mass population swaps between subject and overlord
+## this/root = subject, from = overlord
+country_event = {
+	id = domestication.15
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_domesticator = yes
+			has_technology = tech_hivemind_domestication
+			has_technology = tech_haustoric_module
+		}
+		this = {
+			is_hive_empire = yes
+			NOT = { has_country_flag = flag_domesticated_machine_int }
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticated_machine_int
+		add_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+
+		from = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+			add_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		set_graphical_culture = event_target:domesticator_overlord
+		set_city_graphical_culture = event_target:domesticator_overlord
+
+		change_country_flag = random
+		randomize_flag_symbol = blocky
+
+		## Destroy all military fleets
+		every_owned_ship = {
+			limit = {
+				is_civilian = no
+				NOT = { is_ship_class = shipclass_starbase }
+			}
+			delete_ship = this
+		}
+
+		## hardcoded values to represent scrap from scuttling the fleet
+
+		add_resource = { minerals = 500 }
+		add_resource = { alloys = 1000 }
+
+		event_target:domesticator_overlord = {
+			add_resource = { minerals = 500 }
+			add_resource = { alloys = 1000 }
+		}
+
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+
+		capital_scope = {
+			add_deposit = d_machine_domestication_lab
+		}
+
+	}
+}
+
+## Relocation of Machine Facility - Capital Changed
+# I think this is the only event needed - no need for seconday event for conquest?
+planet_event = {
+	id = domestication.16
+	title = domestication.16.name
+	desc =  domestication.16.desc
+	picture = GFX_evt_sapient_AI
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		owner = { has_country_flag = flag_domesticated_machine_int }
+		from = {
+			has_deposit = d_machine_domestication_lab
+		}
+	}
+
+	immediate = {
+		from = {
+			remove_deposit = d_machine_domestication_lab
+		}
+		this = {
+			add_deposit = d_machine_domestication_lab
+		}
+	}
+
+	option = {
+		name = domestication.16.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+## Remove Domesticated Machine Int features from country if no longer a subject
+country_event = {
+	id = domestication.17
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = flag_domesticated_machine_int
+	}
+
+	immediate = {
+		remove_country_flag = flag_domesticated_machine_int
+		remove_opinion_modifier = {
+			modifier = opinion_domesticated_hivemind
+			who = from
+		}
+		from = {
+			remove_opinion_modifier = {
+				modifier = opinion_our_domesticated_hivemind
+				who = root
+			}
+		}
+
+		every_owned_planet = {
+			limit = {
+				has_deposit = d_machine_domestication_lab
+			}
+			remove_deposit = d_machine_domestication_lab
+		}
+	}
+}
+
+# debug event for in case we accidentally get Affini florets
+country_event = {
+	id = domestication.18
+	hide_window = yes
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		every_owned_pop = {
+			limit = {
+				is_same_species = root.owner_species
+				has_trait = trait_haustoric_implant
+			}
+			modify_species = {
+				species = this
+				remove_trait = trait_haustoric_implant
+			}
 		}
 	}
 }

@@ -1,0 +1,66 @@
+defined_text = { # Leader scope
+	name = GetBloomOrdinal
+	text = {
+    trigger = {
+			AND = {
+				check_variable = {
+					which = bloom_number
+					value > 10
+				}
+				check_variable = {
+					which = bloom_number
+					value < 20
+				}
+			}
+    }
+		localization_key = ordinal_th
+	}
+	text = {
+    trigger = {
+			AND = {
+				check_variable = {
+					which = bloom_last_digit
+					value > 0.6
+				}
+				check_variable = {
+					which = bloom_last_digit
+					value < 1.4
+				}
+			}
+    }
+		localization_key = ordinal_st
+	}
+	text = {
+    trigger = {
+			AND = {
+				check_variable = {
+					which = bloom_last_digit
+					value > 1.6
+				}
+				check_variable = {
+					which = bloom_last_digit
+					value < 2.4
+				}
+			}
+    }
+		localization_key = ordinal_nd
+	}
+	text = {
+    trigger = {
+			AND = {
+				check_variable = {
+					which = bloom_last_digit
+					value > 2.6
+				}
+				check_variable = {
+					which = bloom_last_digit
+					value < 3.4
+				}
+			}
+    }
+		localization_key = ordinal_rd
+	}
+  text = {
+		localization_key = ordinal_th
+	}
+}

@@ -362,7 +362,7 @@ tech_haustoric_module = {
 			has_policy_flag = ai_outlawed
 		}
 		modifier = {
-			factor 1.25
+			factor = 1.25
 			any_owned_pop = {
 				is_robot_pop = yes
 			}

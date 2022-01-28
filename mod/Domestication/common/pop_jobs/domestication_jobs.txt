@@ -16,6 +16,12 @@ floret = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_domesticator_or_protectorate = yes }
+		NOT = {
+			is_same_species = owner.owner_species
+		}
+		NOT = {
+			is_subspecies = owner.owner_species
+		}
 		OR = {
 			has_citizenship_type = { type = citizenship_limited }
 			AND = {

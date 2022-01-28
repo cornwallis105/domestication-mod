@@ -1,0 +1,154 @@
+# Terran Accord
+terran_accord = {
+	name = "humans3"
+	adjective = "PRESCRIPTED_adjective_humans3"
+	spawn_enabled = always # yes / no / always
+
+	ship_prefix = "PRESCRIPTED_ship_prefix_humans3"
+
+	species = {
+		class = "HUM"
+		portrait = "human"
+		name = "PRESCRIPTED_species_name_humans3"
+		plural = "PRESCRIPTED_species_plural_humans3"
+		adjective = "PRESCRIPTED_species_adjective_humans3"
+		name_list = "HUMAN1"
+    gender=not_set
+		trait="trait_adaptive"
+		trait="trait_nomadic"
+		trait="trait_wasteful"
+	}
+
+	room = "personality_metalheads_room"
+
+	authority = "auth_oligarchic"
+  civics={
+		"civic_merchant_guilds"
+		"civic_shadow_council"
+	}
+	government = gov_executive_committee
+	origin = "origin_default"
+
+  ethic="ethic_authoritarian"
+	ethic="ethic_xenophobe"
+	ethic="ethic_materialist"
+
+  planet_name = "NAME_Earth"
+	planet_class = "pc_continental"
+	initializer = "sol_system_initializer"
+	system_name = "NAME_Sol"
+
+	graphical_culture = "humanoid_01"
+	city_graphical_culture = "humanoid_01"
+
+  empire_flag={
+		icon={
+			category="human"
+			file="flag_human_9.dds"
+		}
+		background={
+			category="backgrounds"
+			file="horizontal_stripe.dds"
+		}
+		colors={
+			"blue"
+			"yellow"
+			"null"
+			"null"
+		}
+	}
+
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_human3"
+		gender = male
+		portrait = "human_male_03"
+    texture=0
+		hair=15
+		clothes=0
+		leader_class = ruler
+	}
+}
+
+# Affini Compact
+affini_compact = {
+	name = "humans3"
+	adjective = "PRESCRIPTED_adjective_humans3"
+	spawn_enabled = no # yes / no / always
+
+	ship_prefix = "PRESCRIPTED_ship_prefix_affini"
+
+	species = {
+		class = "PLANT"
+		portrait = "fun1"
+		name = "PRESCRIPTED_species_name_affini"
+		plural = "PRESCRIPTED_species_plural_affini"
+		adjective = "PRESCRIPTED_species_adjective_affini"
+		name_list = "PLANT5"
+    gender=indeterminable
+    trait="trait_plantoid_phototrophic"
+		trait="trait_plantoid_budding"
+		trait="trait_solitary"
+	}
+  secondary_species={
+		class="ART"
+		portrait="bee"
+		name="PRESCRIPTED_species_name_beeple"
+		plural="PRESCRIPTED_species_plural_beeple"
+		adjective="PRESCRIPTED_species_adjective_beeple"
+		name_list="ART1"
+		gender=not_set
+		trait="trait_syncretic_proles"
+		trait="trait_charismatic"
+		trait="trait_communal"
+		trait="trait_fleeting"
+		trait="trait_slow_learners"
+	}
+
+	room = "personality_spiritual_seekers_room"
+
+	authority = "auth_democratic"
+  civics={
+		"civic_domesticators"
+		"civic_byzantine_bureaucracy"
+	}
+	government = gov_domesticator_democracy
+	origin = "origin_syncretic_evolution"
+
+  ethic="ethic_fanatic_xenophile"
+	ethic="ethic_militarist"
+
+  planet_name = "PRESCRIPTED_planet_name_affini"
+	planet_class = "pc_tropical"
+	system_name = "PRESCRIPTED_system_name_affini"
+
+	graphical_culture = "plantoid_01"
+	city_graphical_culture = "plantoid_01"
+
+  empire_flag={
+		icon={
+			category="hdg"
+			file="affini2.dds"
+		}
+		background={
+			category="backgrounds"
+			file="diagonal_stripe.dds"
+		}
+		colors={
+			"green"
+			"dark_brown"
+			"null"
+			"null"
+		}
+	}
+
+	ruler = {
+		name = "PRESCRIPTED_ruler_name_affini"
+		gender = indeterminable
+		portrait = "fun1"
+    texture=0
+		hair=0
+		clothes=0
+    ruler_title="High Gardener"
+		leader_class = ruler
+	}
+}

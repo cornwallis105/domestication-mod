@@ -1,6 +1,6 @@
 # Terran Accord
 terran_accord = {
-	name = "humans3"
+	name = "Terran Accord"
 	adjective = "PRESCRIPTED_adjective_humans3"
 	spawn_enabled = always # yes / no / always
 
@@ -71,8 +71,8 @@ terran_accord = {
 
 # Affini Compact
 affini_compact = {
-	name = "humans3"
-	adjective = "PRESCRIPTED_adjective_humans3"
+	name = "Affini Compact"
+	adjective = "PRESCRIPTED_adjective_affini"
 	spawn_enabled = no # yes / no / always
 
 	ship_prefix = "PRESCRIPTED_ship_prefix_affini"

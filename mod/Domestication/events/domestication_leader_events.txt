@@ -1333,6 +1333,11 @@ country_event = {
 			has_leader_flag = bloom_initialized
 			is_variable_set = bloom_id
 		}
+		NOT = {
+			any_pool_leader = {
+				is_same_value = FROM
+			}
+		}
 	}
 
 	immediate = {

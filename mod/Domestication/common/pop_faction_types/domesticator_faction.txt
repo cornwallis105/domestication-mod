@@ -12,7 +12,7 @@ domesticator_faction = {
 	resources = {
 		category = pop_factions
 		produces = {
-			influence = 2.5
+			unity = 0.625
 		}
 	}
 
@@ -759,7 +759,7 @@ xenoist = {
 	resources = {
 		category = pop_factions
 		produces = {
-			influence = 2
+			unity = 0.5
 		}
 	}
 

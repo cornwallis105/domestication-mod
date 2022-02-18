@@ -13,6 +13,7 @@
 district_city = {
 	base_buildtime = 480
 	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
 
 	show_on_uncolonized = {
 		exists = from
@@ -178,6 +179,7 @@ district_city = {
 district_arcology_housing = {
 	base_buildtime = 600
 	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
 
 	show_on_uncolonized = {
 		uses_district_set = city_world
@@ -341,6 +343,7 @@ district_arcology_housing = {
 district_hab_housing = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
 
 	show_on_uncolonized = {
 		uses_district_set = habitat
@@ -414,6 +417,7 @@ district_hab_housing = {
 district_rw_city = {
 	base_buildtime = @rw_district_buildtime
 	is_capped_by_modifier = no
+	exempt_from_ai_planet_specialization = yes
 
 	show_on_uncolonized = {
 		exists = from

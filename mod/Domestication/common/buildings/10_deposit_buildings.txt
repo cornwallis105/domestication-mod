@@ -224,9 +224,18 @@ building_xeno_zoo = {
 		}
 	}
 
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
+
 	planet_modifier = {
-		job_entertainer_add = 1
-		job_culture_worker_add = 2
+		job_entertainer_add = 2
 	}
 
 	triggered_planet_modifier = {
@@ -237,8 +246,8 @@ building_xeno_zoo = {
 			}
 		}
 		modifier = {
-			job_duelist_add = 1
-			job_entertainer_add = -1
+			job_duelist_add = 2
+			job_entertainer_add = -2
 		}
 	}
 
@@ -251,16 +260,6 @@ building_xeno_zoo = {
 		}
 		modifier = {
 			job_floret_add = 3
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		upkeep = {
-			energy = 1
 		}
 	}
 

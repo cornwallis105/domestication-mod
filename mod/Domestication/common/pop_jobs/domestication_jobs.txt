@@ -35,7 +35,7 @@ floret = {
 	resources = {
 		category = planet_jobs
 		produces = {
-			unity = 1
+			unity = 0.5
 		}
 		upkeep = {
 			consumer_goods = 0.25

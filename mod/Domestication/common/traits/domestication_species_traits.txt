@@ -1,8 +1,16 @@
 trait_haustoric_implant = {
 	#icon = "gfx/interface/icons/traits/trait_plantoid_budding.dds"
 	initial = no
-	modification = no
 	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
 
 	sorting_priority = 5
 
@@ -29,8 +37,16 @@ trait_haustoric_implant = {
 trait_robot_haustoric_module = {
 	icon = "gfx/interface/icons/traits/trait_robot_emotion_emulators.dds"
 	initial = no
-	modification = no
 	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
 
 	sorting_priority = 5
 

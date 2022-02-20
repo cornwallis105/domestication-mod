@@ -905,7 +905,7 @@ building_hab_capital = {
 				is_regular_empire = yes
 			}
 		}
-		job_administrator_add = 1
+		job_politician_add = 1
 	}
 
 	triggered_planet_modifier = {
@@ -914,7 +914,7 @@ building_hab_capital = {
 			owner = { has_authority = auth_corporate }
 		}
 		modifier = {
-			job_politician_add = 1
+			job_executive_add = 1
 		}
 	}
 
@@ -1742,10 +1742,6 @@ building_commercial_megaplex = {
 		owner = { is_regular_empire = yes }
 		NOT = { has_modifier = slave_colony }
 		has_building = building_commercial_zone
-	}
-
-	allow = {
-		buildings_upgrade_allow = yes
 	}
 
 	destroy_trigger = {

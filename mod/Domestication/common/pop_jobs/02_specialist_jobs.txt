@@ -620,9 +620,6 @@ enforcer = {
 	resources = {
 		category = planet_enforcers
 		produces = {
-			unity = 1
-		}
-		produces = {
 			trigger = {
 				exists = owner
 				owner = { has_active_tradition = tr_domination_judgment_corps }
@@ -2885,9 +2882,7 @@ pearl_diver = {
 	}
 
 	planet_modifier = {
-		modifier = {
-			trade_value_add = 3
-		}
+		trade_value_add = 3
 	}
 
 	triggered_planet_modifier = {

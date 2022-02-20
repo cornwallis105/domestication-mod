@@ -1,6 +1,5 @@
 leader_trait_floret_immortal = {
 	cost = 0
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_chosen_one.dds"
@@ -12,7 +11,6 @@ leader_trait_floret_immortal = {
 
 leader_trait_cutie_adm = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
@@ -37,7 +35,6 @@ leader_trait_cutie_adm = {
 
 leader_trait_warp_eng_adm = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_hammer.dds"
@@ -62,7 +59,6 @@ leader_trait_warp_eng_adm = {
 
 leader_trait_pirate_adm = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_mercenary_warrior.dds"
@@ -87,7 +83,6 @@ leader_trait_pirate_adm = {
 
 leader_trait_admiral_adm = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_military_pioneer.dds"

@@ -1,7 +1,7 @@
-version="3.2.*"
+version="3.3"
 tags={
-	"Species"
+	"Gameplay"
 }
 name="Domestication"
-supported_version="3.2.*"
+supported_version="3.3.*"
 path="C:/Users/{username}/Documents/Paradox Interactive/Stellaris/mod/Domestication"

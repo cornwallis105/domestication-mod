@@ -1,6 +1,5 @@
 leader_trait_cutie_rul = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
@@ -25,7 +24,6 @@ leader_trait_cutie_rul = {
 
 leader_trait_beeple_rul = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_beeple.dds"
@@ -54,7 +52,6 @@ leader_trait_beeple_rul = {
 
 leader_trait_warp_eng_rul = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_hammer.dds"
@@ -79,7 +76,6 @@ leader_trait_warp_eng_rul = {
 
 leader_trait_pirate_rul = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_mercenary_warrior.dds"
@@ -103,7 +99,6 @@ leader_trait_pirate_rul = {
 
 leader_trait_admiral_rul = {
 	cost = 1
-	modification = no
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_military_pioneer.dds"

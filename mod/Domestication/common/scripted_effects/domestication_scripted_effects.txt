@@ -32,6 +32,25 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_distracted_sci }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_distracted_sci
+						add_ruler_trait = leader_trait_distracted_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_distracted_sci days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
 		owner = { country_event = { id = domestication_leader.3 } }
@@ -267,12 +286,14 @@ copy_leader_traits = {
 		if = { limit = { has_trait = leader_trait_cutie_gov }	event_target:new_bloom = { add_trait = leader_trait_cutie_gov }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_sci }	event_target:new_bloom = { add_trait = leader_trait_cutie_sci }	}
+		if = { limit = { has_trait = leader_trait_distracted_sci }	event_target:new_bloom = { add_trait = leader_trait_distracted_sci }	}
 
 		if = { limit = { has_ruler_trait = leader_trait_cutie_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_cutie_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_beeple_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_warp_eng_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_warp_eng_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_pirate_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_pirate_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_admiral_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_admiral_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_distracted_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_distracted_rul }	}
 
 
 

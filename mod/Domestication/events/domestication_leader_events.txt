@@ -343,6 +343,7 @@ country_event = {
 					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
 					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
 					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
+					gained_leader_trait_distracted_sci = { text = domestication_leader.new_distracted_sci }
 					default = { text = "domestication_leader.3.fallback" }
 				}
 			}

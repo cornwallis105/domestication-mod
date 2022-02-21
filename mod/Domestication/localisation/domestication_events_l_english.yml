@@ -14,6 +14,7 @@
 
  domestication_leader.3.name:0 "New Floret Domesticated"
  domestication_leader.new_cutie_sci:0 "Scientist [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
+ domestication_leader.new_distracted_sci:0 "Scientist [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is easily distracted by shiny objects. [new_floret.GetHerHis] antics are very fun to watch, but are also a bit distracting on their own."
  domestication_leader.new_cutie_adm:0 "Admiral [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
  domestication_leader.new_cutie_gov:0 "Governor [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName] that is just cute as a button!"
  domestication_leader.new_beeple_gov:0 "Governor [new_owner.GetName] has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named [new_floret.GetName]. Our species evolved alongside the floret's, and the knowledge of that shared history will be useful in governance."

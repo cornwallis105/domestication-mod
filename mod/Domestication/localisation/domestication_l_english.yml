@@ -144,6 +144,10 @@
  leader_trait_distracted_sci_desc:0 "This floret is easily distracted and insists on chasing after every unexpected blip on the scanners, no matter what task we're in the middle of."
  leader_trait_distracted_rul:0 "$leader_trait_distracted_sci$"
  leader_trait_distracted_rul_desc:0 "This floret is easily distracted, which does make it difficult for its owner to focus on work. Videos of it playing with its owner have proven to be extremely popular and appear frequently in entertainment feeds throughout our empire."
+ leader_trait_liason_gov:0 "Floret - Sophont Liaison"
+ leader_trait_liason_gov_desc:0 "This floret previously worked as a bureaucrat for a sophont government, and now uses its expertise to promote improved conditions for our newest residents."
+ leader_trait_liason_rul:0 "$leader_trait_liason_gov$"
+ leader_trait_liason_rul_desc:0 "This floret previously worked as a bureaucrat for a sophont government, and now uses its expertise to promote improved conditions for our newest residents."
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"

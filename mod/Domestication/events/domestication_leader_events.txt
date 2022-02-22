@@ -1361,7 +1361,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1382,7 +1385,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1403,7 +1409,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1424,7 +1433,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = general
+	          lOR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {
@@ -1445,7 +1457,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1466,7 +1481,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1487,7 +1505,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1508,7 +1529,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = general
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {
@@ -1529,7 +1553,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1550,7 +1577,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1571,7 +1601,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1592,7 +1625,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = general
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {

@@ -210,7 +210,7 @@ colonization_control_no = {
 		}
 		custom_tooltip = {
 			fail_text = "SPECIES_COLONIZE_HAUSTORIC_IMPLANT"
-			has_haustorics = yes
+			has_haustorics = no
 		}
 		custom_tooltip = {
 			fail_text = is_slaves_not_battle_thralls_or_indentured_fail

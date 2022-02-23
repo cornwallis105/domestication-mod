@@ -19,8 +19,9 @@ trait_haustoric_implant = {
 	allowed_archetypes = { BIOLOGICAL LITHOID }
 	custom_tooltip = TRAIT_HAUSTORIC_IMPLANT_EFFECT
 	modifier = {
-		planet_jobs_unity_produces_mult = 0.05
-		species_empire_size_mult = -0.05
+		planet_jobs_consumer_goods_produces_mult = 0.5
+		planet_jobs_unity_produces_mult = 0.1
+		species_empire_size_mult = -0.1
 		pop_ethic_xenophile_attraction_mult = 0.5
 	}
 	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP

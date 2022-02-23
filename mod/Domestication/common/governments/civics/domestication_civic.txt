@@ -49,7 +49,8 @@ civic_domesticators = {
 		}
 	}
 	modifier = {
-		country_consumer_goods_produces_mult = 0.05
+		#country_consumer_goods_produces_mult = 0.05
+		planet_pops_consumer_goods_upkeep_mult = -0.05
 		job_floret_per_pop = 0.125
 	}
 	random_weight = {
@@ -73,11 +74,11 @@ civic_slaver_guilds = {
 				value = ethic_fanatic_authoritarian
 			}
 		}
-		civics = { 
-			NOR = { 
+		civics = {
+			NOR = {
 				value = civic_pleasure_seekers
 				value = civic_domesticators
-			} 
+			}
 		}
 	}
 	random_weight = { base = 5 }
@@ -131,8 +132,8 @@ civic_shared_burden = {
 			}
 		}
 		civics = {
-			NOR = { 
-				value = civic_technocracy 
+			NOR = {
+				value = civic_technocracy
 				value = civic_pleasure_seekers
 				value = civic_domesticators
 			}

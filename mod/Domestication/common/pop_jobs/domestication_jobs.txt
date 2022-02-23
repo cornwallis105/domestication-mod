@@ -36,9 +36,10 @@ floret = {
 		category = planet_jobs
 		produces = {
 			unity = 1.25
+			consumer_goods = 0.1
 		}
 		upkeep = {
-			consumer_goods = 0.25
+
 		}
 	}
 
@@ -57,6 +58,8 @@ floret = {
 		planet_amenities_add = 4
 		planet_crime_add = -2
 		planet_stability_add = 0.5
+		planet_jobs_ruler_produces_mult = 0.01
+		planet_jobs_specialist_produces_mult = 0.01
 	}
 
 	triggered_planet_modifier = {

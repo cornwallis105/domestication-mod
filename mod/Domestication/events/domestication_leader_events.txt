@@ -1433,7 +1433,7 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          lOR = {
+	          OR = {
 							leader_class = general
 							pre_ruler_leader_class = general
 						}

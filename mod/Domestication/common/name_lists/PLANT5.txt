@@ -336,25 +336,31 @@ PLANT5 = {
 
 			# Always combined with a second name
 			first_names = {
-				Adriatica Ageratina Akshayavat Aliciae Amaranth Arecaceae Argania Articulata Astragalus Atropa Azuli Belladonna Berykinia Betulaceae Bevorea Brovaria
-				Calanthe Carminatia Catasellia Cattleya Centromadia Cobunoria Ceptoria Cronquistia Cypripedium Cytophane
-				Dendtritia Dendrobia Dianae Drofilia Echinacea Ellenbergia Elorium Esperium Eugenia Euphyte Feron Flora Fugatia Glabu Gronium Gytorium
-				Harmonia Helenia Henimia Henumia Herbaria Ibinidia Idrix Imeria Indigofera Iphonia Itosakura Ixora Janarsium Justicia
-				Kalpavriksha Karelinia Kaunia Ketoria Ketovilia Koronia Latifolia Lephyte Liatris Limorium Lomenia Lonvitium Madasenia Mandragora Milus Mitanium Monval
-				Narcissus Narium Nicolettia Nimeria Niria Noxi Oaxacania Omoderium Orchidaceae Panokiria Phyllix Picea Pinaceae Piperita Piqueria Polygala Polymnia Psychotria Pueraria Quercus
-				Ramonia Remorium Revia Ribe Rivoria Rizta Ronobirium Sagittatia Stevia Stirpes Styrium Subtropica Thymophylla Toxicodendra
-				Vendoria Veranium Verdurea Verix Vistophane Vorberia Xanova Xerolekia X'folio Xzempus Yabukita Zinnia Zyzyura
+				Adriatica Ageratina Akshayavat Aliciae Amaranth Andropogon Arborescens Arecaceae Argania Aristata Articulata Astragalus Atropa Azuli 
+				Belladonna Berykinia Betulaceae Bevorea Bouteloua Brovaria
+				Calanthe Capitata Carminatia Catasellia Cattleya Centromadia Cobunoria Ceptoria Clematis Cronquistia Cypripedium Cytophane
+				Dahlia Dendtritia Dendrobia Dianae Drofilia Echinacea Ellenbergia Elorium Epiphytum Esperium Eugenia Euphyte Eustoma Excelsa
+				Feron Flora Fugatia Glabu Gronium Gytorium
+				Harmonia Helenia Henimia Henumia Herbaria Ibinidia Idrix Imeria Imperialis Indigofera Iphonia Itosakura Ixora Janarsium Justicia
+				Kalpavriksha Karelinia Kaunia Ketoria Ketovilia Kiyosumiensis Koronia Latifolia Lephyte Lespedeza Liatris Limorium Lomenia Lonvitium 
+				Madasenia Mandragora Milus Mitanium Monval
+				Narcissus Narium Nicolettia Nimeria Niria Noxi Oaxacania Omoderium Orchidaceae 
+				Panokiria Pentanthera Phyllix Picea Pinaceae Piperita Piqueria Polygala Polymnia Prunifolium Psychotria Pueraria Pycnophylla Quercus
+				Ramonia Remorium Revia Rhododendra Ribe Rivoria Rizta Ronobirium Sagittatia Socialis Sorghastrum Stevia Stirpes Styrium Subtropica 
+				Texensis Thymophylla Toxicodendra
+				Vendoria Veranium Verdurea Verix Virginiana Vistophane Vorberia Xanova Xerolekia X'folio Xzempus Yabukita Zinnia Zyzyura
 			}
 
 			# Always combined with a first name
 			second_names = {
-				Aarboro Acuminata Aeris Agrifolia Alta Anoma Aspera Aster Aurea Axini Basil Belima Beros Bertrandi Biflorum Bo Bryo
-				Calyx Caule Cosmos Delpina Elegans Elliptica Evola Ferna Ferox Flovius Flumen Folia Foliosa Freya
-				Gladiolus Gneto Heptanth Hiel Hulcea Incisa Insignis Inula Irminsul Jatek Jureus
-				Liliops Linnaeus Livus Lizem Lucis Lumex Macra Macronyx Magnoli Maxima Mexus Mirifica Mirius Mol
-				Naevosa Narva Nemus Neso Nive Perityl Petus Prakus Praxel Pretek Pruina Quist
-				Radix Rophyte Rosea Rotex Rupe Sallor Somb Spinosa Stirpis Tabulare Telek Tes Thele Thrix Torreya Tyli Tridax Trifida Triodon Triplicata Tule
-				Vanda Verim Vit Vitanix Vivea Viven Wadae Xanthorn Yggdrasil Yusto Zarbor
+				Aarboro Acuminata Aeris Agrifolia Alpina Alta Anoma Aspera Aster Aurea Axini Basil Belima Beros Bertrandi Biflorum Bo Brevis Bryo
+				Calyx Canescens Caule Cosmos Crispa Dactyl Delpina Elegans Elliptica Evola Farrerae Ferna Ferox Flovius Flumen Folia Foliosa Freya
+				Gerardi Gladiolus Gneto Gracilis Heptanth Hiel Hosta Hulcea Incisa Insignis Inula Irminsul Jatek Jureus
+				Lasiantha Leptos Liliops Linnaeus Livus Lizem Longipes Lucis Lumex Macra Macronyx Magnoli Maxima Mexus Mirifica Mirius Mol Mollis
+				Naevosa Narva Nemus Neso Nive Nutans Patens Perityl Petus Phlox Prakus Praxel Pretek Pruina Pumila Purpurea Quist
+				Radix Rophyte Rosea Rotex Rupe Russellia Sallor Somb Spinosa Stirpis 
+				Tabulare Tabulata Telek Terniflora Tes Thele Thrix Torreya Tyli Tridax Trifida Triodon Triplicata Tule
+				Vanda Venusta Verim Vit Vitalba Vitanix Viticella Vivea Viven Wadae Xanthorn Yggdrasil Yingeri Yusto Zarbor
 			}
 
 			regnal_first_names = {

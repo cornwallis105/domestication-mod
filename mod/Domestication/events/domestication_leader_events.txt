@@ -1435,7 +1435,7 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          lOR = {
+	          OR = {
 							leader_class = general
 							pre_ruler_leader_class = general
 						}
@@ -1883,23 +1883,24 @@ country_event = {
 							}
 							NOT = { has_trait = leader_trait_academic_sci }
 						}
-						random_owned_leader = {
-							limit = {
-								leader_class = scientist
-								OR = {
-									NOT = { is_variable_set = floret_count }
-									check_variable = {
-										which = floret_count
-										value < 2
-									}
+					}
+					random_owned_leader = {
+						limit = {
+							leader_class = scientist
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
 								}
-								NOT = { has_trait = leader_trait_academic_sci }
 							}
-							save_event_target_as = new_owner
+							NOT = { has_trait = leader_trait_academic_sci }
 						}
+						save_event_target_as = new_owner
 					}
 				}
 			}
+			default = {}
 		}
 
 		if = {

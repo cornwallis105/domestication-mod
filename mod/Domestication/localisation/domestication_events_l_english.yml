@@ -55,3 +55,4 @@
  domestication_leader.new_officer:0 "Admiral [new_owner.GetName] has claimed the rescued [new_floret.Species.GetName] operative as [new_owner.GetHisHer] new floret, naming [new_floret.GetHimHer] [new_floret.GetName]. The new floret is frequently found on the command deck telling everyone to do their best!"
  domestication_leader.new_scientist:0 "Scientist [new_owner.GetName] has claimed the rescued [new_floret.Species.GetName] operative as [new_owner.GetHisHer] new floret, naming [new_floret.GetHimHer] [new_floret.GetName]. The new floret insists on only a mild xenodrug regimen so that [new_floret.GetHeShe] can spend [new_floret.GetHisHer] aware time helping out with research."
  domestication_leader.14.a:0 "What a brave little floret!"
+ domestication_leader.14.fallback:0 "This is fallback text which means this event did not fire correctly."

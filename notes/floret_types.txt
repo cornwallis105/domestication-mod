@@ -22,7 +22,7 @@ Governor:
   Economist: - Consumer goods upkeep. Gained from espionage asset.
   Newscaster: + stability. Gained from espionage asset.
   Hive Drone: + admin capacity
-  Liason: + sophont happiness, reduced conquest penalty. Gained by level up, weighted when has planet with conquest malus.
+  Liaison: + sophont happiness, reduced conquest penalty. Gained by level up, weighted when has planet with conquest malus.
 
 General:
   Captured soldier: + damage, - collateral damage from knowledge of enemy tactics. Gained from victory in ground combat.

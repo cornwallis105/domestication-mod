@@ -73,3 +73,26 @@ leader_trait_liason_gov = {
 		}
 	}
 }
+
+leader_trait_economist_gov = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_investor.dds"
+	modifier = {
+		trade_value_mult = 0.10
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { governor }
+	leader_class = { governor }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}

@@ -475,9 +475,11 @@ country_event = {
 						}
 					}
 				}
-				change_variable = {
-					which = floret_index
-					value = 1
+				event_target:floret_country = {
+					change_variable = {
+						which = floret_index
+						value = 1
+					}
 				}
 			}
 		}
@@ -1739,5 +1741,292 @@ leader_event = {
 		}
 
 		leader_event = { id = domestication_leader.9 }
+	}
+}
+
+# Create random floret from level-up
+country_event = {
+	id = domestication_leader.14
+	title = domestication_leader.14.name
+	desc = {
+		trigger = {
+			hidden:event_target:new_owner = {
+				switch = {
+					trigger = has_country_flag
+					disavowed_agent_attache = { text = domestication_leader.new_attache }
+					disavowed_agent_economist = { text = domestication_leader.new_economist }
+					disavowed_agent_officer = { text = domestication_leader.new_officer }
+					disavowed_agent_scientist = { text = domestication_leader.new_scientist }
+					default = { text = "domestication_leader.14.fallback" }
+				}
+			}
+		}
+	}
+
+	location = event_target:current_location
+	picture = GFX_evt_acquire_asset
+	is_triggered_only = yes
+
+	immediate = {
+
+		switch = {
+			trigger = has_country_flag
+			disavowed_agent_attache = {
+			# General
+				if = {
+					limit = {
+						any_owned_leader = {
+							leader_class = general
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_attache_gen }
+						}
+
+					}
+					random_owned_leader = {
+						limit = {
+							leader_class = general
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_attache_gen }
+						}
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			disavowed_agent_economist = {
+			# Governor
+				if = {
+					limit = {
+						any_owned_leader = {
+							leader_class = governor
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_economist_gov }
+						}
+					}
+					random_owned_leader = {
+						limit = {
+							leader_class = governor
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_economist_gov }
+						}
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			disavowed_agent_officer = {
+			# Admiral
+				if = {
+					limit = {
+						any_owned_leader = {
+							leader_class = admiral
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_officer_adm }
+						}
+					}
+					random_owned_leader = {
+						limit = {
+							leader_class = admiral
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_officer_adm }
+						}
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			disavowed_agent_scientist = {
+			# Scientist
+				if = {
+					limit = {
+						any_owned_leader = {
+							leader_class = scientist
+							OR = {
+								NOT = { is_variable_set = floret_count }
+								check_variable = {
+									which = floret_count
+									value < 2
+								}
+							}
+							NOT = { has_trait = leader_trait_academic_sci }
+						}
+						random_owned_leader = {
+							limit = {
+								leader_class = scientist
+								OR = {
+									NOT = { is_variable_set = floret_count }
+									check_variable = {
+										which = floret_count
+										value < 2
+									}
+								}
+								NOT = { has_trait = leader_trait_academic_sci }
+							}
+							save_event_target_as = new_owner
+						}
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = { exists = event_target:new_owner }
+
+			event_target:new_owner = {
+				## Up to 2 florets - for the moment
+
+				if = {
+					limit = {
+						NOT = { is_variable_set = floret_count }
+					}
+					set_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							which = floret_count
+							value = 0
+						}
+					}
+					set_variable = {
+						which = affini_id_1
+						value = event_target:floret_country.floret_index
+					}
+					change_variable = {
+						which = floret_count
+						value = 1
+					}
+				}
+				else = {
+					set_variable = {
+						which = affini_id_2
+						value = event_target:floret_country.floret_index
+					}
+					change_variable = {
+						which = floret_count
+						value = 1
+					}
+				}
+
+
+				## generate new leader of species matching biological pop in empire
+				owner = {
+
+					event_target:disavowed_floret = {
+						set_variable = {
+							which = floret_id
+							value = event_target:floret_country.floret_index
+						}
+						save_event_target_as = new_floret
+						root = {
+							if = {
+								limit = { has_leader_flag = disavowed_floret_attache }
+								event_target:new_floret = { add_trait = leader_trait_attache_gen }
+								event_target:new_owner = { add_trait = leader_trait_attache_gen }
+							}
+							if = {
+								limit = { has_leader_flag = disavowed_floret_economist }
+								event_target:new_floret = { add_trait = leader_trait_economist_gov }
+								event_target:new_owner = { add_trait = leader_trait_economist_gov }
+							}
+							if = {
+								limit = { has_leader_flag = disavowed_floret_officer }
+								event_target:new_floret = { add_trait = leader_trait_officer_adm }
+								event_target:new_owner = { add_trait = leader_trait_officer_adm }
+							}
+							if = {
+								limit = { has_leader_flag = disavowed_floret_scientist }
+								event_target:new_floret = { add_trait = leader_trait_academic_sci }
+								event_target:new_owner = { add_trait = leader_trait_academic_sci }
+							}
+						}
+						add_trait = leader_trait_floret_immortal
+					}
+				}
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					event_target:new_floret = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = event_target:floret_country.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+					}
+				}
+				else = {
+					event_target:new_floret = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = event_target:floret_country.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+					}
+				}
+			}
+		}
+		event_target:floret_country = {
+			change_variable = {
+				which = floret_index
+				value = 1
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.14.a
+		trigger = {
+			always = yes
+		}
 	}
 }

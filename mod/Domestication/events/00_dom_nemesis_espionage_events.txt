@@ -1,0 +1,163 @@
+namespace = espionage
+
+# Old encoded report comes in
+country_event = {
+	id = espionage.1001
+	title = espionage.1001.name
+	desc = {
+		text = espionage.1001.desc.network
+		trigger = { has_active_spynetwork = yes }
+	}
+	desc = {
+		text = espionage.1001.desc.nonetwork
+		trigger = { has_active_spynetwork = no }
+	}
+	picture = GFX_evt_intelligence_report
+	show_sound = event_encrypted_comms
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:disavowed_agent_country
+	}
+
+	immediate = { }
+
+	option = { #Ignore
+		name = espionage.1001.a
+		hidden_effect = {
+			country_event = { id = espionage.1005 days = 20 random = 5 }
+		}
+	}
+	option = { #Extract the operative
+		name = espionage.1001.b
+		trigger = {
+      OR = {
+        is_domesticator_or_protectorate = no
+        species = { is_same_species = event_target:disavowed_agent_country.species }
+      }
+			has_active_spynetwork = yes
+			any_spynetwork = {
+				owner = { is_same_value = root }
+				target = { is_same_value = event_target:disavowed_agent_country }
+			}
+		}
+		random_spynetwork = {
+			limit = {
+				owner = { is_same_value = root }
+				target = { is_same_value = event_target:disavowed_agent_country }
+			}
+			add_spy_network_level = -10
+		}
+		hidden_effect = {
+			country_event = { id = espionage.1020 days = 30 random = 5 }
+		}
+	}
+  option = { #Extract the operative
+		name = espionage.1001.b
+		trigger = {
+      is_domesticator_or_protectorate = yes
+      NOT = { species = { is_same_species = event_target:disavowed_agent_country.species } }
+			has_active_spynetwork = yes
+			any_spynetwork = {
+				owner = { is_same_value = root }
+				target = { is_same_value = event_target:disavowed_agent_country }
+			}
+		}
+		random_spynetwork = {
+			limit = {
+				owner = { is_same_value = root }
+				target = { is_same_value = event_target:disavowed_agent_country }
+			}
+			add_spy_network_level = -10
+		}
+		hidden_effect = {
+			country_event = { id = domestication_espionage.1 days = 30 random = 5 }
+		}
+	}
+
+	after = {
+		begin_event_chain = {
+			event_chain = operative_resurfaces_chain
+			target = root
+		}
+		hidden_effect = {
+			country_event = { id = espionage.1025 days = 1080 }
+		}
+	}
+}
+# Insistent follow-up
+country_event = {
+	id = espionage.1005
+	title = espionage.1005.name
+	desc = espionage.1005.desc
+	picture = GFX_evt_decryption
+	show_sound = event_encrypted_comms
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:disavowed_agent_country
+		has_event_chain = operative_resurfaces_chain
+	}
+
+	immediate = { }
+
+	option = { #Ignore
+		name = espionage.1005.a
+		hidden_effect = {
+			country_event = { id = espionage.1010 days = 80 }
+		}
+	}
+	option = { #Extract the operative
+		name = espionage.1005.b
+		trigger = {
+      OR = {
+        is_domesticator_or_protectorate = no
+        species = { is_same_species = event_target:disavowed_agent_country.species }
+      }
+			event_target:disavowed_agent_country = {
+				has_active_spynetwork = yes
+			}
+		}
+		hidden_effect = {
+			random_spynetwork = {
+				limit = {
+					owner = { is_same_value = root }
+					target = { is_same_value = event_target:disavowed_agent_country }
+				}
+				add_spy_network_level = -10
+			}
+			country_event = { id = espionage.1020 days = 90 }
+		}
+	}
+  option = { #Extract the operative
+		name = espionage.1005.b
+		trigger = {
+      is_domesticator_or_protectorate = yes
+      NOT = { species = { is_same_species = event_target:disavowed_agent_country.species } }
+			event_target:disavowed_agent_country = {
+				has_active_spynetwork = yes
+			}
+		}
+		hidden_effect = {
+			random_spynetwork = {
+				limit = {
+					owner = { is_same_value = root }
+					target = { is_same_value = event_target:disavowed_agent_country }
+				}
+				add_spy_network_level = -10
+			}
+			country_event = { id = domestication_espionage.1 days = 90 }
+		}
+	}
+	option = { #Attempt to kill the 'operative'
+		name = espionage.1005.c
+		trigger = {
+			event_target:disavowed_agent_country = {
+				NOT = { has_closed_borders = root }
+			}
+		}
+		hidden_effect = {
+			country_event = { id = espionage.1015 days = 80 }
+		}
+	}
+}

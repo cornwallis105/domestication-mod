@@ -168,3 +168,100 @@ leader_trait_liason_rul = {
 		}
 	}
 }
+
+leader_trait_attache_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_scroll.dds"
+	modifier = {
+		country_ruler_influence_produces_add = 0.2
+		diplo_weight_envoys_mult = 0.25
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_officer_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_army_veteran.dds"
+	modifier = {
+		ship_corvette_cost_mult = -0.075
+		ship_destroyer_cost_mult = -0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_economist_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_investor.dds"
+	modifier = {
+		trade_value_mult = 0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_academic_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_intellectual.dds"
+	modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.05
+		planet_jobs_physics_research_produces_mult = 0.05
+		planet_jobs_society_research_produces_mult = 0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}

@@ -1,0 +1,110 @@
+namespace = domestication_espionage
+
+# domestication_espionage.1 - extracting an asset
+country_event = {
+	id = domestication_espionage.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:disavowed_agent_country
+		has_event_chain = operative_resurfaces_chain
+	}
+
+	immediate = {
+		random_list = {
+			70 = { #Operative was real, and is retrieved
+				modifier = {
+					factor = 0
+					has_nemesis = no
+				}
+				country_event = { id = domestication_espionage.2 } #"Disavowed Operative Returned"
+			}
+			20 = { #Operative was fictional; a trap is evaded
+				modifier = {
+					factor = 2
+					root = {
+						relative_encryption_decryption = {
+							target = event_target:disavowed_agent_country
+							value > 1.1
+						}
+					}
+				}
+				country_event = { id = espionage.1017 } #"The Phantom Operative"
+			}
+			20 = { #Operative was fictional; a trap is sprung
+				modifier = {
+					factor = 2
+					root = {
+						relative_encryption_decryption = {
+							target = event_target:disavowed_agent_country
+							value < 0.8
+						}
+					}
+				}
+				country_event = { id = espionage.1022 } #"It's a Ploy!"
+			}
+		}
+	}
+}
+
+# domestication_espionage.2 - extracting an asset
+# Operative extracted
+country_event = {
+	id = domestication_espionage.2
+	title = domestication_espionage.2.name
+	desc = domestication_espionage.2.desc
+	picture = GFX_evt_operative_chase
+	show_sound = event_default
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:disavowed_agent_country
+		has_event_chain = operative_resurfaces_chain
+	}
+
+	immediate = {
+    event_target:floret_country = {
+      create_leader = {
+        class = general
+        species = event_target:disavowed_agent_country.species
+        name = random
+        skill = 2
+        effect = {
+          set_age = 25
+          save_event_target_as = disavowed_floret
+        }
+      }
+    }
+		random_list = {
+			2 = { set_timed_country_flag = { flag = disavowed_floret_attache months = 1 } }
+			1 = {
+				set_timed_country_flag = { flag = disavowed_floret_economist months = 1 }
+				modifier = {
+					factor = 2
+					event_target:disavowed_agent_country = { is_megacorp = yes }
+				}
+			}
+			1 = {
+				set_timed_country_flag = { flag = disavowed_floret_officer months = 1 }
+				modifier = {
+					factor = 2
+					event_target:disavowed_agent_country = { is_militarist = yes }
+				}
+			}
+			1 = {
+				set_timed_country_flag = { flag = disavowed_floret_scientist months = 1 }
+				modifier = {
+					factor = 2
+					event_target:disavowed_agent_country = { is_materialist = yes }
+				}
+			}
+		}
+	}
+
+	option = {
+		name = GOOD
+		country_event = { id = domestication_leader.14 } #Create new floret
+		end_event_chain = operative_resurfaces_chain
+	}
+}

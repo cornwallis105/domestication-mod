@@ -1391,11 +1391,7 @@ bureaucrat = {
 			planet_stability_add = 1
 		}
 	}
-
-	country_modifier = {
-		country_admin_cap_add = 10
-	}
-
+	
 	weight = {
 		weight = @specialist_job_weight
 		modifier = {

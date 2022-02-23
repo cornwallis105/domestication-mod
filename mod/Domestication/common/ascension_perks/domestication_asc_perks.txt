@@ -6,7 +6,6 @@ ap_benefic_acquisition = {
 		}
     # only allowing this for full domesticators, not protectorates
 		is_domesticator = yes
-		has_technology = tech_biorhythm_amplification
 	}
 
 	on_enabled = {
@@ -15,6 +14,7 @@ ap_benefic_acquisition = {
 
 	possible = {
 		is_domesticator = yes
+		has_technology = tech_biorhythm_amplification
 	}
 
 	ai_weight = {

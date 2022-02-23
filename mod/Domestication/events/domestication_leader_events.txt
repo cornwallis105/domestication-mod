@@ -16,6 +16,9 @@ country_event = {
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
+		any_owned_pop = {
+			has_job = floret
+		}
 		# Do not add floret if leader already has 2
 		from = {
 			OR = {
@@ -340,6 +343,8 @@ country_event = {
 					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
 					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
 					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
+					gained_leader_trait_distracted_sci = { text = domestication_leader.new_distracted_sci }
+					gained_leader_trait_liason_gov = { text = domestication_leader.new_liason_gov }
 					default = { text = "domestication_leader.3.fallback" }
 				}
 			}
@@ -1330,6 +1335,11 @@ country_event = {
 			has_leader_flag = bloom_initialized
 			is_variable_set = bloom_id
 		}
+		NOT = {
+			any_pool_leader = {
+				is_same_value = FROM
+			}
+		}
 	}
 
 	immediate = {
@@ -1351,7 +1361,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1372,7 +1385,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1393,7 +1409,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1414,7 +1433,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = male
-	          leader_class = general
+	          lOR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {
@@ -1435,7 +1457,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1456,7 +1481,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1477,7 +1505,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1498,7 +1529,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = female
-	          leader_class = general
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {
@@ -1519,7 +1553,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = scientist
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
 	        }
 	      }
 				root = {
@@ -1540,7 +1577,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = governor
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
 	        }
 	      }
 				root = {
@@ -1561,7 +1601,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = admiral
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
 	        }
 	      }
 				root = {
@@ -1582,7 +1625,10 @@ country_event = {
 	      limit = {
 	        event_target:old_bloom = {
 	          gender = indeterminable
-	          leader_class = general
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
 	        }
 	      }
 				root = {

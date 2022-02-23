@@ -1,7 +1,6 @@
-version="3.2.*"
+version="3.3"
 tags={
 	"Gameplay"
 }
-name="HDG - Domestication Mod"
-supported_version="3.2.*"
-remote_file_id="2729863709"
+name="HDG - Domestication Dev"
+supported_version="3.3.*"

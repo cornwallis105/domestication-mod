@@ -120,7 +120,7 @@
 	}
 	ruler={
 		gender=indeterminable
-		name="Rizta Irminsul, 5th Bloom"
+		name="Rizta Irminsul"
 		portrait="fun1"
 		texture=0
 		hair=0

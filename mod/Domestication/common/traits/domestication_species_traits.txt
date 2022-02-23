@@ -1,8 +1,16 @@
 trait_haustoric_implant = {
 	#icon = "gfx/interface/icons/traits/trait_plantoid_budding.dds"
 	initial = no
-	modification = no
 	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
 
 	sorting_priority = 5
 
@@ -11,8 +19,9 @@ trait_haustoric_implant = {
 	allowed_archetypes = { BIOLOGICAL LITHOID }
 	custom_tooltip = TRAIT_HAUSTORIC_IMPLANT_EFFECT
 	modifier = {
-		planet_jobs_unity_produces_mult = 0.05
-		species_empire_size_mult = -0.05
+		planet_jobs_consumer_goods_produces_mult = 0.5
+		planet_jobs_unity_produces_mult = 0.1
+		species_empire_size_mult = -0.1
 		pop_ethic_xenophile_attraction_mult = 0.5
 	}
 	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP
@@ -29,8 +38,16 @@ trait_haustoric_implant = {
 trait_robot_haustoric_module = {
 	icon = "gfx/interface/icons/traits/trait_robot_emotion_emulators.dds"
 	initial = no
-	modification = no
 	randomized = no
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
 
 	sorting_priority = 5
 

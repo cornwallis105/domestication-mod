@@ -300,6 +300,7 @@ copy_leader_traits = {
 		if = { limit = { has_trait = leader_trait_pirate_adm }	event_target:new_bloom = { add_trait = leader_trait_pirate_adm }	}
 		if = { limit = { has_trait = leader_trait_admiral_adm }	event_target:new_bloom = { add_trait = leader_trait_admiral_adm }	}
 		if = { limit = { has_trait = leader_trait_officer_adm }	event_target:new_bloom = { add_trait = leader_trait_officer_adm }	}
+		if = { limit = { has_trait = leader_trait_marauder_adm }	event_target:new_bloom = { add_trait = leader_trait_marauder_adm }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_gen }	event_target:new_bloom = { add_trait = leader_trait_cutie_gen }	}
 		if = { limit = { has_trait = leader_trait_attache_gen }	event_target:new_bloom = { add_trait = leader_trait_attache_gen }	}
@@ -324,6 +325,7 @@ copy_leader_traits = {
 		if = { limit = { has_ruler_trait = leader_trait_officer_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_officer_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_economist_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_economist_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_academic_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_academic_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_marauder_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_marauder_rul }	}
 
 
 

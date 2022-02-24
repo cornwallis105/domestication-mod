@@ -164,6 +164,10 @@
  leader_trait_academic_sci_desc:0 "This floret was an academic before we rescued it. It insists on only a mild xenodrug regimen so it can spend more time helping out in the research labs."
  leader_trait_academic_rul:0 "$leader_trait_academic_sci$"
  leader_trait_academic_rul_desc:0 "$leader_trait_academic_sci_desc$"
+ leader_trait_marauder_adm:0 "Floret - Marauder"
+ leader_trait_marauder_adm_desc:0 "This floret is a former marauder commander. Though it holds no official rank in our navy, its skill in battle is matched only by its cuteness in snuggling."
+ leader_trait_marauder_rul:0 "$leader_trait_marauder_adm$"
+ leader_trait_marauder_rul_desc:0 "$leader_trait_marauder_adm_desc$"
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"

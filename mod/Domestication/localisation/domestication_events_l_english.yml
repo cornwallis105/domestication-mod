@@ -56,3 +56,6 @@
  domestication_leader.new_scientist:0 "Scientist [new_owner.GetName] has claimed the rescued [new_floret.Species.GetName] operative as [new_owner.GetHisHer] new floret, naming [new_floret.GetHimHer] [new_floret.GetName]. The new floret insists on only a mild xenodrug regimen so that [new_floret.GetHeShe] can spend [new_floret.GetHisHer] aware time helping out with research."
  domestication_leader.14.a:0 "What a brave little floret!"
  domestication_leader.14.fallback:0 "This is fallback text which means this event did not fire correctly."
+
+ marauder.703.f:0 "Place them with a loving owner"
+ gain_marauder_admiral_floret:0 "One of our Admirals will take ownership of the marauder and keep it as their floret."

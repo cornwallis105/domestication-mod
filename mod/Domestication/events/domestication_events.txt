@@ -633,6 +633,7 @@ planet_event = {
 						random_owned_pop = {
 							limit = {
 								NOT = { is_same_species = event_target:overlord_species }
+								is_sapient = yes
 								can_live_on_planet = event_target:overlord_planet
 							}
 							resettle_pop = {

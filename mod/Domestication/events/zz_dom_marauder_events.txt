@@ -1,0 +1,214 @@
+namespace = marauder
+
+# New Admiral
+country_event = {
+	id = marauder.703
+	title = "marauder.703.name"
+	desc = "marauder.703.desc"
+	picture = GFX_evt_hangar_bay
+	show_sound = event_radio_chatter
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_country_flag = marauder_neighbor_event_3 }
+	}
+
+	immediate = {
+		set_country_flag = marauder_neighbor_event_3
+	}
+
+	option = {
+		name = marauder.703.a
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+		create_leader = {
+			class = admiral
+			species = event_target:marauder_neighbor_species
+			name = random
+			skill = 4
+			leader_age_min = 25
+			leader_age_max = 45
+			traits = {
+				trait = leader_trait_mercenary_warrior
+				trait = random_trait
+			}
+		}
+		custom_tooltip = gain_marauder_admiral
+	}
+	option = {
+		name = marauder.703.b
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+	}
+	option = {
+		name = marauder.703.c
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+		}
+		add_resource = { influence = 50 }
+	}
+	option = {
+		name = marauder.703.d
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		add_resource = {
+			food = 1
+			influence = 50
+		}
+	}
+	option = {
+		name = marauder.703.e
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		add_resource = { influence = 50 }
+	}
+	option = {
+		name = marauder.703.f
+		trigger = {
+			is_domesticator_or_protectorate = yes
+			any_owned_leader = {
+				leader_class = admiral
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+				NOT = { has_trait = leader_trait_marauder_adm }
+			}
+		}
+		random_owned_leader = {
+			limit = {
+				leader_class = admiral
+				OR = {
+					NOT = { is_variable_set = floret_count }
+					check_variable = {
+						which = floret_count
+						value < 2
+					}
+				}
+				NOT = { has_trait = leader_trait_marauder_adm }
+			}
+
+			save_event_target_as = new_owner
+
+			add_trait = leader_trait_marauder_adm
+
+			if = {
+				limit = {
+					NOT = { is_variable_set = floret_count }
+				}
+				set_variable = {
+					which = floret_count
+					value = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = floret_count
+						value = 0
+					}
+				}
+				set_variable = {
+					which = affini_id_1
+					value = event_target:floret_country.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+			else = {
+				set_variable = {
+					which = affini_id_2
+					value = event_target:floret_country.floret_index
+				}
+				change_variable = {
+					which = floret_count
+					value = 1
+				}
+			}
+		}
+		
+		event_target:floret_country = {
+			create_leader = {
+				class = admiral
+				species = event_target:marauder_neighbor_species
+				name = random
+				skill = 4
+				leader_age_min = 25
+				leader_age_max = 45
+				traits = {
+					trait = leader_trait_marauder_adm
+					trait = leader_trait_floret_immortal
+				}
+				effect = {
+					save_event_target_as = new_floret
+				}
+			}
+		}
+		event_target:new_floret = {
+			set_variable = {
+				which = floret_id
+				value = event_target:floret_country.floret_index
+			}
+			if = {
+				limit = {
+					event_target:new_owner = {
+						check_variable = {
+							which = floret_count
+							value = 1
+						}
+					}
+				}
+				event_target:new_floret = {
+					set_name = "[this.GetName], 1st Floret"
+					set_variable = {
+						which = floret_id
+						value = event_target:floret_country.floret_index
+					}
+					set_variable = {
+						which = floret_number
+						value = 1
+					}
+				}
+			}
+			else = {
+				event_target:new_floret = {
+					set_name = "[this.GetName], 2nd Floret"
+					set_variable = {
+						which = floret_id
+						value = event_target:floret_country.floret_index
+					}
+					set_variable = {
+						which = floret_number
+						value = 2
+					}
+				}
+			}
+		}
+		event_target:floret_country = {
+			change_variable = {
+				which = floret_index
+				value = 1
+			}
+		}
+
+		custom_tooltip = gain_marauder_admiral_floret
+	}
+}

@@ -80,7 +80,8 @@ leader_trait_economist_gov = {
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_investor.dds"
 	modifier = {
-		trade_value_mult = 0.10
+		trade_value_mult = 0.05
+		planet_pops_consumer_goods_upkeep_mult = -0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

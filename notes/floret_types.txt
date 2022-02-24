@@ -3,9 +3,9 @@ Ideas for floret types:
 Icons:
   Cutie - cat face - DONE
   Distracted - squirrel - DONE
-  Warp Engineer - warp core
-  Pirate - skull and bones
-  Admiral - torso with epaulets
+  Warp Engineer - warp core - DONE
+  Pirate - skull and bones - DONE
+  Admiral - 5 stars - DONE
   Jr. Officer - ?
   Marauder - crossed swords
   Attache - briefcase

@@ -11,3 +11,5 @@ Trait colors:
     background dark: 831002
     background light: cf1b07
     icon: 36071d
+
+floret icon foreground color: 220e17ff / 34 14 23 (dec)

@@ -36,7 +36,6 @@ living_standard_chemical_bliss = {
 		pop_cat_ruler_political_power = 0.1
 		pop_cat_specialist_political_power = 0.1
 		pop_cat_worker_political_power = 0.1
-		planet_jobs_produces_mult = -0.6
 		pop_category_rulers_consumer_goods_upkeep_add = @living_standard_luxuries_high
 		pop_category_specialists_consumer_goods_upkeep_add = @living_standard_luxuries_high
 		pop_category_workers_consumer_goods_upkeep_add = @living_standard_luxuries_high

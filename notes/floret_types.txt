@@ -1,5 +1,19 @@
 Ideas for floret types:
 
+Icons:
+  Cutie - cat face - DONE
+  Distracted - squirrel - DONE
+  Warp Engineer - warp core
+  Pirate - skull and bones
+  Admiral - torso with epaulets
+  Jr. Officer - ?
+  Marauder - crossed swords
+  Attache - briefcase
+  Beeple - bee
+  Liaison - ?
+  Economist - stonks
+  Academic - mortarboard hat
+
 Scientist:
   AI: + research speed, + survey speed. Gained form certain events.
   Easily Distracted: + anomaly detection chance. Gained from level up.

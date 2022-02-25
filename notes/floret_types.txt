@@ -6,8 +6,8 @@ Icons:
   Warp Engineer - warp core - DONE
   Pirate - skull and bones - DONE
   Admiral - 5 stars - DONE
-  Jr. Officer - ?
-  Marauder - crossed swords
+  Jr. Officer - lt's bars - DONE
+  Marauder - crossed swords - DONE
   Attache - briefcase
   Beeple - bee
   Liaison - ?

@@ -14,3 +14,6 @@ MUSHROOM PICKING
 DEFECTING MARAUDER
   - Place them with a loving owner rather than making them a leader.
   - Try to do similar stuff for other free leader events.
+    - Servants From Sand anomaly
+    - Caretaker bot
+    - Warframe

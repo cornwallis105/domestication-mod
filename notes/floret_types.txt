@@ -8,23 +8,23 @@ Icons:
   Admiral - 5 stars - DONE
   Jr. Officer - lt's bars - DONE
   Marauder - crossed swords - DONE
-  Attache - briefcase
-  Beeple - bee
-  Liaison - ?
-  Economist - stonks
+  Attache - briefcase - DONE
+  Beeple - bee - DONE - Thanks, Zelda!
+  Liaison - shaking hand w/ vine - DONE
+  Economist - stonks - DONE
   Academic - mortarboard hat
 
 Scientist:
   AI: + research speed, + survey speed. Gained form certain events.
-  Easily Distracted: + anomaly detection chance. Gained from level up.
+ -X Easily Distracted: + anomaly detection chance. Gained from level up.
   Scientist: 3 types, one for each research type, gives bonus in that type. Gained from espionage asset.
-  Academic: General research spped bonus. Gained from espionage asset.
+ -X Academic: General research spped bonus. Gained from espionage asset.
   Hive Drone: Research bonus from "comms line" with other parts of hive
 
 Admiral:
-  Enemy admiral: larger that normal + damage, + fire rate. Gained from victory in space combat where enemy admiral is "killed"
-  Junior Officer: smaller + fire rate bonus. Gained from espionage asset.
-  Hyperdrive engineer: + FTL chance, - FTL damage. Gained from victory in space combat whre >= 1 ships "destroyed"
+ -X Enemy admiral: larger that normal + damage, + fire rate. Gained from victory in space combat where enemy admiral is "killed"
+ -X Junior Officer: smaller + fire rate bonus. Gained from espionage asset.
+ -X Hyperdrive engineer: + FTL chance, - FTL damage. Gained from victory in space combat whre >= 1 ships "destroyed"
   Veteran: + evasion, Gained from espionage asset.
   Hive Drone: - ship upkeep
 
@@ -33,10 +33,10 @@ Governor:
   Pop Icon: + amenities. Gained by level up.
   Chef: - pop food upkeep. Gained by level up.
   Captured criminal: - crime. Gained from events pertaining to crime reduction.
-  Economist: - Consumer goods upkeep. Gained from espionage asset.
+ -X Economist: - Consumer goods upkeep. Gained from espionage asset.
   Newscaster: + stability. Gained from espionage asset.
   Hive Drone: + admin capacity
-  Liaison: + sophont happiness, reduced conquest penalty. Gained by level up, weighted when has planet with conquest malus.
+ -X Liaison: + sophont happiness, reduced conquest penalty. Gained by level up, weighted when has planet with conquest malus.
 
 General:
   Captured soldier: + damage, - collateral damage from knowledge of enemy tactics. Gained from victory in ground combat.

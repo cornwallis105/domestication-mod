@@ -63,7 +63,7 @@ leader_trait_academic_sci = {
 	cost = 1
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_intellectual.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
 	modifier = {
 		all_technology_research_speed = 0.05
 	}

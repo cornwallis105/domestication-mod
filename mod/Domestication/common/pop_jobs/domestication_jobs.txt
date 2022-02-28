@@ -23,7 +23,10 @@ floret = {
 			is_subspecies = owner.owner_species
 		}
 		OR = {
-			has_citizenship_type = { type = citizenship_limited }
+			AND = {
+				has_citizenship_type = { type = citizenship_limited }
+				is_robot_pop = no
+			}
 			AND = {
 				owner = { has_technology = tech_haustoric_module }
 				is_robot_pop = yes

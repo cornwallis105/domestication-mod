@@ -176,3 +176,15 @@ is_non_sapient_robot = { # The pop is a non-sapient robot
 		}
 	}
 }
+
+can_obtain_new_floret = {
+	exists = owner
+	is_same_species = owner.species
+	OR = {
+		NOT = { is_variable_set = floret_count }
+		check_variable = {
+			which = floret_count
+			value < 2
+		}
+	}
+}

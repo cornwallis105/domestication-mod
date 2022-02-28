@@ -872,6 +872,7 @@ country_event = {
 				root = {
 					random_owned_planet = {
 						limit = {
+							is_colony = yes
 							event_target:br_resettle_pop = {
 								can_live_on_planet = prev
 							}

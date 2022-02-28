@@ -42,65 +42,19 @@ country_event = {
 		custom_tooltip = gain_marauder_admiral
 	}
 	option = {
-		name = marauder.703.b
-		trigger = {
-			NOR = {
-				has_valid_civic = civic_machine_terminator
-				has_valid_civic = civic_hive_devouring_swarm
-				has_valid_civic = civic_fanatic_purifiers
-			}
-		}
-	}
-	option = {
-		name = marauder.703.c
-		trigger = {
-			has_valid_civic = civic_machine_terminator
-		}
-		add_resource = { influence = 50 }
-	}
-	option = {
-		name = marauder.703.d
-		trigger = {
-			has_valid_civic = civic_hive_devouring_swarm
-		}
-		add_resource = {
-			food = 1
-			influence = 50
-		}
-	}
-	option = {
-		name = marauder.703.e
-		trigger = {
-			has_valid_civic = civic_fanatic_purifiers
-		}
-		add_resource = { influence = 50 }
-	}
-	option = {
 		name = marauder.703.f
 		trigger = {
 			is_domesticator_or_protectorate = yes
 			any_owned_leader = {
 				leader_class = admiral
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 				NOT = { has_trait = leader_trait_marauder_adm }
 			}
 		}
 		random_owned_leader = {
 			limit = {
 				leader_class = admiral
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 				NOT = { has_trait = leader_trait_marauder_adm }
 			}
 
@@ -144,7 +98,7 @@ country_event = {
 				}
 			}
 		}
-		
+
 		event_target:floret_country = {
 			create_leader = {
 				class = admiral
@@ -210,5 +164,39 @@ country_event = {
 		}
 
 		custom_tooltip = gain_marauder_admiral_floret
+	}
+	option = {
+		name = marauder.703.b
+		trigger = {
+			NOR = {
+				has_valid_civic = civic_machine_terminator
+				has_valid_civic = civic_hive_devouring_swarm
+				has_valid_civic = civic_fanatic_purifiers
+			}
+		}
+	}
+	option = {
+		name = marauder.703.c
+		trigger = {
+			has_valid_civic = civic_machine_terminator
+		}
+		add_resource = { influence = 50 }
+	}
+	option = {
+		name = marauder.703.d
+		trigger = {
+			has_valid_civic = civic_hive_devouring_swarm
+		}
+		add_resource = {
+			food = 1
+			influence = 50
+		}
+	}
+	option = {
+		name = marauder.703.e
+		trigger = {
+			has_valid_civic = civic_fanatic_purifiers
+		}
+		add_resource = { influence = 50 }
 	}
 }

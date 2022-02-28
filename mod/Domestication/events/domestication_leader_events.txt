@@ -21,13 +21,7 @@ country_event = {
 		}
 		# Do not add floret if leader already has 2
 		from = {
-			OR = {
-				NOT = { is_variable_set = floret_count }
-				check_variable = {
-					which = floret_count
-					value < 2
-				}
-			}
+			can_obtain_new_floret = yes
 		}
 	}
 
@@ -198,13 +192,7 @@ country_event = {
 			exists = leader
 			leader = {
 				NOT = { has_trait = leader_trait_warp_eng_adm }
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 			}
 		}
 	}
@@ -524,13 +512,7 @@ country_event = {
 			exists = leader
 			leader = {
 				NOT = { has_trait = leader_trait_pirate_adm }
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 			}
 		}
 		#always = yes
@@ -693,13 +675,7 @@ country_event = {
 			exists = leader
 			leader = {
 				NOT = { has_trait = leader_trait_admiral_adm }
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 			}
 		}
 		#always = yes
@@ -847,13 +823,7 @@ country_event = {
 			exists = leader
 			leader = {
 				NOT = { has_trait = leader_trait_admiral_adm }
-				OR = {
-					NOT = { is_variable_set = floret_count }
-					check_variable = {
-						which = floret_count
-						value < 2
-					}
-				}
+				can_obtain_new_floret = yes
 			}
 		}
 	}
@@ -1648,61 +1618,61 @@ country_event = {
 				}
 	    }
 
-	    event_target:new_bloom = {
-				set_name = "[clone_bloom.GetName]"
-	      set_variable = {
-	        which = bloom_id
-	        value = event_target:old_bloom.bloom_id
-	      }
-	      set_variable = {
-	        which = bloom_number
-	        value = event_target:old_bloom.bloom_number
-	      }
-	      change_variable = {
-	        which = bloom_number
-	        value = 1
-	      }
+			if = {
+				limit = { exists = event_target:new_bloom }
+				event_target:new_bloom = {
+					set_name = "[clone_bloom.GetName]"
+		      set_variable = {
+		        which = bloom_id
+		        value = event_target:old_bloom.bloom_id
+		      }
+		      set_variable = {
+		        which = bloom_number
+		        value = event_target:old_bloom.bloom_number
+		      }
+		      change_variable = {
+		        which = bloom_number
+		        value = 1
+		      }
 
-				set_variable = {
-					which = bloom_last_digit
-					value = bloom_number
-				}
-				while = {
-					limit = {
-						check_variable = {
+					set_variable = {
+						which = bloom_last_digit
+						value = bloom_number
+					}
+					while = {
+						limit = {
+							check_variable = {
+								which = bloom_last_digit
+								value > 10
+							}
+						}
+						subtract_variable = {
 							which = bloom_last_digit
-							value > 10
+							value = 10
 						}
 					}
-					subtract_variable = {
-						which = bloom_last_digit
-						value = 10
+					round_variable = bloom_number
+					round_variable = bloom_last_digit
+
+					event_target:old_bloom = {
+						switch = {
+							trigger = has_skill
+							10 > { event_target:new_bloom = { set_skill = 9 } }
+							9 > { event_target:new_bloom = { set_skill = 8 } }
+							8 > { event_target:new_bloom = { set_skill = 7 } }
+							7 > { event_target:new_bloom = { set_skill = 6 } }
+							6 > { event_target:new_bloom = { set_skill = 5 } }
+							5 > { event_target:new_bloom = { set_skill = 4 } }
+							4 > { event_target:new_bloom = { set_skill = 3 } }
+							3 > { event_target:new_bloom = { set_skill = 2 } }
+							default = { event_target:new_bloom = { set_skill = 1 } }
+						}
 					}
-				}
-				round_variable = bloom_number
-				round_variable = bloom_last_digit
+					copy_leader_traits = yes
 
-				event_target:old_bloom = {
-					switch = {
-						trigger = has_skill
-						10 > { event_target:new_bloom = { set_skill = 9 } }
-						9 > { event_target:new_bloom = { set_skill = 8 } }
-						8 > { event_target:new_bloom = { set_skill = 7 } }
-						7 > { event_target:new_bloom = { set_skill = 6 } }
-						6 > { event_target:new_bloom = { set_skill = 5 } }
-						5 > { event_target:new_bloom = { set_skill = 4 } }
-						4 > { event_target:new_bloom = { set_skill = 3 } }
-						3 > { event_target:new_bloom = { set_skill = 2 } }
-						default = { event_target:new_bloom = { set_skill = 1 } }
-					}
-				}
-
-				copy_leader_traits = yes
-
-
-	      leader_event = { id = domestication_leader.10 }
-	    }
-
+		      leader_event = { id = domestication_leader.10 }
+		    }
+			}
 	  }
 	}
 }
@@ -1777,13 +1747,7 @@ country_event = {
 					limit = {
 						any_owned_leader = {
 							leader_class = general
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_attache_gen }
 						}
 
@@ -1791,13 +1755,7 @@ country_event = {
 					random_owned_leader = {
 						limit = {
 							leader_class = general
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_attache_gen }
 						}
 						save_event_target_as = new_owner
@@ -1810,26 +1768,14 @@ country_event = {
 					limit = {
 						any_owned_leader = {
 							leader_class = governor
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_economist_gov }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = governor
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_economist_gov }
 						}
 						save_event_target_as = new_owner
@@ -1842,26 +1788,14 @@ country_event = {
 					limit = {
 						any_owned_leader = {
 							leader_class = admiral
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_officer_adm }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = admiral
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_officer_adm }
 						}
 						save_event_target_as = new_owner
@@ -1874,26 +1808,14 @@ country_event = {
 					limit = {
 						any_owned_leader = {
 							leader_class = scientist
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_academic_sci }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = scientist
-							OR = {
-								NOT = { is_variable_set = floret_count }
-								check_variable = {
-									which = floret_count
-									value < 2
-								}
-							}
+							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_academic_sci }
 						}
 						save_event_target_as = new_owner

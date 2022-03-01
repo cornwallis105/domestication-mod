@@ -389,6 +389,14 @@ country_event = {
 				random_owned_pop = {
 					limit = {
 						has_job = floret
+						OR = {
+							NOT = {
+								event_target:new_owner = {
+									has_leader_flag = gained_leader_trait_beeple_gov
+								}
+							}
+							has_trait = trait_syncretic_proles
+						}
 					}
 					save_event_target_as = floret_species
 				}
@@ -1714,7 +1722,7 @@ leader_event = {
 	}
 }
 
-# Create random floret from level-up
+# Create floret from defecting asset
 country_event = {
 	id = domestication_leader.14
 	title = domestication_leader.14.name

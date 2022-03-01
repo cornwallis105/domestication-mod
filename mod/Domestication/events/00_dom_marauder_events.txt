@@ -51,115 +51,117 @@ country_event = {
 				NOT = { has_trait = leader_trait_marauder_adm }
 			}
 		}
-		random_owned_leader = {
-			limit = {
-				leader_class = admiral
-				can_obtain_new_floret = yes
-				NOT = { has_trait = leader_trait_marauder_adm }
-			}
-
-			save_event_target_as = new_owner
-
-			add_trait = leader_trait_marauder_adm
-
-			if = {
+		hidden_effect = {
+			random_owned_leader = {
 				limit = {
-					NOT = { is_variable_set = floret_count }
+					leader_class = admiral
+					can_obtain_new_floret = yes
+					NOT = { has_trait = leader_trait_marauder_adm }
 				}
-				set_variable = {
-					which = floret_count
-					value = 0
-				}
-			}
-			if = {
-				limit = {
-					check_variable = {
+
+				save_event_target_as = new_owner
+
+				add_trait = leader_trait_marauder_adm
+
+				if = {
+					limit = {
+						NOT = { is_variable_set = floret_count }
+					}
+					set_variable = {
 						which = floret_count
 						value = 0
 					}
 				}
-				set_variable = {
-					which = affini_id_1
-					value = event_target:floret_country.floret_index
-				}
-				change_variable = {
-					which = floret_count
-					value = 1
-				}
-			}
-			else = {
-				set_variable = {
-					which = affini_id_2
-					value = event_target:floret_country.floret_index
-				}
-				change_variable = {
-					which = floret_count
-					value = 1
-				}
-			}
-		}
-
-		event_target:floret_country = {
-			create_leader = {
-				class = admiral
-				species = event_target:marauder_neighbor_species
-				name = random
-				skill = 4
-				leader_age_min = 25
-				leader_age_max = 45
-				traits = {
-					trait = leader_trait_marauder_adm
-					trait = leader_trait_floret_immortal
-				}
-				effect = {
-					save_event_target_as = new_floret
-				}
-			}
-		}
-		event_target:new_floret = {
-			set_variable = {
-				which = floret_id
-				value = event_target:floret_country.floret_index
-			}
-			if = {
-				limit = {
-					event_target:new_owner = {
+				if = {
+					limit = {
 						check_variable = {
 							which = floret_count
-							value = 1
+							value = 0
 						}
 					}
-				}
-				event_target:new_floret = {
-					set_name = "[this.GetName], 1st Floret"
 					set_variable = {
-						which = floret_id
+						which = affini_id_1
 						value = event_target:floret_country.floret_index
 					}
+					change_variable = {
+						which = floret_count
+						value = 1
+					}
+				}
+				else = {
 					set_variable = {
-						which = floret_number
+						which = affini_id_2
+						value = event_target:floret_country.floret_index
+					}
+					change_variable = {
+						which = floret_count
 						value = 1
 					}
 				}
 			}
-			else = {
-				event_target:new_floret = {
-					set_name = "[this.GetName], 2nd Floret"
-					set_variable = {
-						which = floret_id
-						value = event_target:floret_country.floret_index
+
+			event_target:floret_country = {
+				create_leader = {
+					class = admiral
+					species = event_target:marauder_neighbor_species
+					name = random
+					skill = 4
+					leader_age_min = 25
+					leader_age_max = 45
+					traits = {
+						trait = leader_trait_marauder_adm
+						trait = leader_trait_floret_immortal
 					}
-					set_variable = {
-						which = floret_number
-						value = 2
+					effect = {
+						save_event_target_as = new_floret
 					}
 				}
 			}
-		}
-		event_target:floret_country = {
-			change_variable = {
-				which = floret_index
-				value = 1
+			event_target:new_floret = {
+				set_variable = {
+					which = floret_id
+					value = event_target:floret_country.floret_index
+				}
+				if = {
+					limit = {
+						event_target:new_owner = {
+							check_variable = {
+								which = floret_count
+								value = 1
+							}
+						}
+					}
+					event_target:new_floret = {
+						set_name = "[this.GetName], 1st Floret"
+						set_variable = {
+							which = floret_id
+							value = event_target:floret_country.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 1
+						}
+					}
+				}
+				else = {
+					event_target:new_floret = {
+						set_name = "[this.GetName], 2nd Floret"
+						set_variable = {
+							which = floret_id
+							value = event_target:floret_country.floret_index
+						}
+						set_variable = {
+							which = floret_number
+							value = 2
+						}
+					}
+				}
+			}
+			event_target:floret_country = {
+				change_variable = {
+					which = floret_index
+					value = 1
+				}
 			}
 		}
 

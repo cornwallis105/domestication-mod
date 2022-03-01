@@ -527,10 +527,9 @@ country_event = {
 	}
 
 	immediate = {
-		#fromfrom = {
-		#	solar_system = { save_event_target_as = system }
-		#	leader = { save_event_target_as = new_owner	}
-		#}
+		fromfrom = {
+			leader = { save_event_target_as = new_owner	}
+		}
 		#from = {
 		#	save_event_target_as = defeated_country
 		#}
@@ -1728,13 +1727,13 @@ country_event = {
 	title = domestication_leader.14.name
 	desc = {
 		trigger = {
-			hidden:event_target:new_owner = {
+			hidden:event_target:new_owner_country = {
 				switch = {
 					trigger = has_country_flag
-					disavowed_agent_attache = { text = domestication_leader.new_attache }
-					disavowed_agent_economist = { text = domestication_leader.new_economist }
-					disavowed_agent_officer = { text = domestication_leader.new_officer }
-					disavowed_agent_scientist = { text = domestication_leader.new_scientist }
+					disavowed_floret_attache = { text = domestication_leader.new_attache }
+					disavowed_floret_economist = { text = domestication_leader.new_economist }
+					disavowed_floret_officer = { text = domestication_leader.new_officer }
+					disavowed_floret_scientist = { text = domestication_leader.new_scientist }
 					default = { text = "domestication_leader.14.fallback" }
 				}
 			}
@@ -1749,7 +1748,7 @@ country_event = {
 
 		switch = {
 			trigger = has_country_flag
-			disavowed_agent_attache = {
+			disavowed_floret_attache = {
 			# General
 				if = {
 					limit = {
@@ -1770,7 +1769,7 @@ country_event = {
 					}
 				}
 			}
-			disavowed_agent_economist = {
+			disavowed_floret_economist = {
 			# Governor
 				if = {
 					limit = {
@@ -1790,7 +1789,7 @@ country_event = {
 					}
 				}
 			}
-			disavowed_agent_officer = {
+			disavowed_floret_officer = {
 			# Admiral
 				if = {
 					limit = {
@@ -1810,7 +1809,7 @@ country_event = {
 					}
 				}
 			}
-			disavowed_agent_scientist = {
+			disavowed_floret_scientist = {
 			# Scientist
 				if = {
 					limit = {
@@ -1887,24 +1886,28 @@ country_event = {
 						save_event_target_as = new_floret
 						root = {
 							if = {
-								limit = { has_leader_flag = disavowed_floret_attache }
+								limit = { has_country_flag = disavowed_floret_attache }
 								event_target:new_floret = { add_trait = leader_trait_attache_gen }
 								event_target:new_owner = { add_trait = leader_trait_attache_gen }
+								event_target:new_owner = { add_ruler_trait = leader_trait_attache_rul }
 							}
 							if = {
-								limit = { has_leader_flag = disavowed_floret_economist }
+								limit = { has_country_flag = disavowed_floret_economist }
 								event_target:new_floret = { add_trait = leader_trait_economist_gov }
 								event_target:new_owner = { add_trait = leader_trait_economist_gov }
+								event_target:new_owner = { add_ruler_trait = leader_trait_economist_rul }
 							}
 							if = {
-								limit = { has_leader_flag = disavowed_floret_officer }
+								limit = { has_country_flag = disavowed_floret_officer }
 								event_target:new_floret = { add_trait = leader_trait_officer_adm }
 								event_target:new_owner = { add_trait = leader_trait_officer_adm }
+								event_target:new_owner = { add_ruler_trait = leader_trait_officer_rul }
 							}
 							if = {
-								limit = { has_leader_flag = disavowed_floret_scientist }
+								limit = { has_country_flag = disavowed_floret_scientist }
 								event_target:new_floret = { add_trait = leader_trait_academic_sci }
 								event_target:new_owner = { add_trait = leader_trait_academic_sci }
+								event_target:new_owner = { add_ruler_trait = leader_trait_academic_rul }
 							}
 						}
 						add_trait = leader_trait_floret_immortal
@@ -1959,5 +1962,6 @@ country_event = {
 		trigger = {
 			always = yes
 		}
+		end_event_chain = operative_resurfaces_chain
 	}
 }

@@ -21,6 +21,7 @@ country_event = {
 				country_event = { id = domestication_espionage.2 } #"Disavowed Operative Returned"
 			}
 			20 = { #Operative was fictional; a trap is evaded
+			#0 = { #Operative was fictional; a trap is evaded
 				modifier = {
 					factor = 2
 					root = {
@@ -33,6 +34,7 @@ country_event = {
 				country_event = { id = espionage.1017 } #"The Phantom Operative"
 			}
 			20 = { #Operative was fictional; a trap is sprung
+			#0 = { #Operative was fictional; a trap is sprung
 				modifier = {
 					factor = 2
 					root = {
@@ -76,6 +78,7 @@ country_event = {
         }
       }
     }
+		save_event_target_as = new_owner_country
 		random_list = {
 			2 = { set_timed_country_flag = { flag = disavowed_floret_attache months = 1 } }
 			1 = {
@@ -105,6 +108,5 @@ country_event = {
 	option = {
 		name = GOOD
 		country_event = { id = domestication_leader.14 } #Create new floret
-		end_event_chain = operative_resurfaces_chain
 	}
 }

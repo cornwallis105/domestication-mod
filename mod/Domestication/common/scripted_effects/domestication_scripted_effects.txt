@@ -299,15 +299,20 @@ copy_leader_traits = {
 		if = { limit = { has_trait = leader_trait_warp_eng_adm }	event_target:new_bloom = { add_trait = leader_trait_warp_eng_adm }	}
 		if = { limit = { has_trait = leader_trait_pirate_adm }	event_target:new_bloom = { add_trait = leader_trait_pirate_adm }	}
 		if = { limit = { has_trait = leader_trait_admiral_adm }	event_target:new_bloom = { add_trait = leader_trait_admiral_adm }	}
+		if = { limit = { has_trait = leader_trait_officer_adm }	event_target:new_bloom = { add_trait = leader_trait_officer_adm }	}
+		if = { limit = { has_trait = leader_trait_marauder_adm }	event_target:new_bloom = { add_trait = leader_trait_marauder_adm }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_gen }	event_target:new_bloom = { add_trait = leader_trait_cutie_gen }	}
+		if = { limit = { has_trait = leader_trait_attache_gen }	event_target:new_bloom = { add_trait = leader_trait_attache_gen }	}
 
 		if = { limit = { has_trait = leader_trait_beeple_gov }	event_target:new_bloom = { add_trait = leader_trait_beeple_gov }	}
 		if = { limit = { has_trait = leader_trait_cutie_gov }	event_target:new_bloom = { add_trait = leader_trait_cutie_gov }	}
 		if = { limit = { has_trait = leader_trait_liason_gov }	event_target:new_bloom = { add_trait = leader_trait_liason_gov }	}
+		if = { limit = { has_trait = leader_trait_economist_gov }	event_target:new_bloom = { add_trait = leader_trait_economist_gov }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_sci }	event_target:new_bloom = { add_trait = leader_trait_cutie_sci }	}
 		if = { limit = { has_trait = leader_trait_distracted_sci }	event_target:new_bloom = { add_trait = leader_trait_distracted_sci }	}
+		if = { limit = { has_trait = leader_trait_academic_sci }	event_target:new_bloom = { add_trait = leader_trait_academic_sci }	}
 
 		if = { limit = { has_ruler_trait = leader_trait_cutie_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_cutie_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_beeple_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }	}
@@ -316,6 +321,11 @@ copy_leader_traits = {
 		if = { limit = { has_ruler_trait = leader_trait_admiral_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_admiral_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_distracted_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_distracted_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_liason_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_liason_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_attache_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_attache_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_officer_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_officer_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_economist_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_economist_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_academic_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_academic_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_marauder_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_marauder_rul }	}
 
 
 

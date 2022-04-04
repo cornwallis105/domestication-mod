@@ -1,0 +1,68 @@
+[21:47:40][game_text.cpp:1135]: Unknown promotion `disavowed_operative` in text: disavowed_operative.GetHimselfHerself] as [disavowed_operative.GetName] - appears nervous and relieved. The sophont was debriefed while under Class H Xenodrugs, and we have placed the new YFloret with a loving YOwner!.
+
+With the matter now resolved, [disavowed_operative.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1007]: Unknown property `GetHimselfHerself` in text: GetHimselfHerself] as [disavowed_operative.GetName] - appears nervous and relieved. The sophont was debriefed while under Class H Xenodrugs, and we have placed the new YFloret with a loving YOwner!.
+
+With the matter now resolved, [disavowed_operative.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1135]: Unknown promotion `disavowed_operative` in text: disavowed_operative.GetName] - appears nervous and relieved. The sophont was debriefed while under Class H Xenodrugs, and we have placed the new YFloret with a loving YOwner!.
+
+With the matter now resolved, [disavowed_operative.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1007]: Unknown property `GetName` in text: GetName] - appears nervous and relieved. The sophont was debriefed while under Class H Xenodrugs, and we have placed the new YFloret with a loving YOwner!.
+
+With the matter now resolved, [disavowed_operative.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1135]: Unknown promotion `disavowed_operative` in text: disavowed_operative.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1007]: Unknown property `GetName` in text: GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1135]: Unknown promotion `disavowed_operative` in text: disavowed_operative.GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1007]: Unknown property `GetHeShe` in text: GetHeShe] [disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1135]: Unknown promotion `disavowed_operative` in text: disavowed_operative.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][trigger.cpp:448]: invalid scope for trigger. got [country], expected {leader}.  file: in scripted trigger loc_leader_genders at file: common/scripted_loc/scripted_loc_engloc.txt line: 106 line: 1
+[21:47:40][trigger.cpp:448]: invalid scope for trigger. got [country], expected {leader}. scripted trigger loc_leader_nogenders at file: common/scripted_loc/scripted_loc_engloc.txt line: 32 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 19 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 84 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 45 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 71 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 123 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 97 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 110 OR at file: common/scripted_loc/scripted_loc_engloc.txt line: 58
+[21:47:40][game_text.cpp:761]: Failed to return a result for scripted localization GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][game_text.cpp:1007]: Unknown property `GetIsAre` in text: GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick.
+[21:47:40][bitmapfont.cpp:3166]: Could not find coloring for character ' ' (0x20)
+[21:48:04][eventtarget.cpp:2156]: Undefined event target: new_owner, location:  file: events/domestication_leader_events.txt line: 1723
+[21:48:04][trigger_impl.cpp:1091]: Script Error: Invalid context switch [event_target:new_owner] from Affini Compact [country], file: events/domestication_leader_events.txt line: 1723, Scope:
+type=country
+id=0
+random={ 0 2656006217 }
+random_allowed=yes
+from={
+	type=country
+	id=0
+	random={ 0 2167585624 }
+	random_allowed=yes
+	from={
+		type=country
+		id=0
+		random={ 0 3913552658 }
+		random_allowed=yes
+		from={
+			type=country
+			id=0
+			random={ 0 1413333879 }
+			random_allowed=yes
+			from={
+				type=country
+				id=0
+				random={ 0 2534700055 }
+				random_allowed=yes
+				from={
+					type=country
+					id=0
+					random={ 0 2428581754 }
+					random_allowed=yes
+					saved_event_target={
+						type=country
+						id=2
+						name="disavowed_agent_country"
+					}
+					saved_event_target={
+						type=leader
+						id=33557951
+						name="disavowed_floret"
+					}
+				}
+			}
+		}
+	}
+}

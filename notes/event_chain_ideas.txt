@@ -10,3 +10,10 @@ POLLEN APHRODISIAC CHAIN (colony.1520)
 
 MUSHROOM PICKING
   - Maybe not as much to do here as I thought.
+
+DEFECTING MARAUDER
+  - Place them with a loving owner rather than making them a leader.
+  - Try to do similar stuff for other free leader events.
+    - Servants From Sand anomaly
+    - Caretaker bot
+    - Warframe

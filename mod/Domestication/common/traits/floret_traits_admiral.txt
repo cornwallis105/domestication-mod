@@ -37,7 +37,7 @@ leader_trait_warp_eng_adm = {
 	cost = 1
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_hammer.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warp_engineer.dds"
 	modifier = {
 		ship_emergency_ftl_mult = -0.1
 		ship_disengage_chance_mult = 0.1
@@ -61,7 +61,7 @@ leader_trait_pirate_adm = {
 	cost = 1
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_mercenary_warrior.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_pirate.dds"
 	modifier = {
 		ship_piracy_suppression_add = 2
 		ships_upkeep_mult = -0.05
@@ -85,11 +85,58 @@ leader_trait_admiral_adm = {
 	cost = 1
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/trait_ruler_military_pioneer.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_admiral.dds"
 	modifier = {
 		shipsize_cruiser_evasion_mult = 0.25
 		shipsize_battleship_evasion_mult = 0.25
 		shipsize_titan_evasion_mult = 0.25
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_officer_adm = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_officer.dds"
+	modifier = {
+		ship_fire_rate_mult = 0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_marauder_adm = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
+	modifier = {
+		ship_evasion_mult = 0.05
+		ship_fire_rate_mult = 0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

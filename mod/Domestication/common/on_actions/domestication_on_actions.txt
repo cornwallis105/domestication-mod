@@ -8,9 +8,9 @@ empire_init_create_ships = {
 # From = subject's overlord
 on_becoming_subject = {
 	events = {
-		domestication.3 # change gov't to match domesticator overlord
-		domestication.13 # initializer event for domesticated hivemind
-		domestication.15 # initializer event for domesticated machine intelligence
+		#domestication.3 # change gov't to match domesticator overlord
+		#domestication.13 # initializer event for domesticated hivemind
+		#domestication.15 # initializer event for domesticated machine intelligence
 	}
 }
 

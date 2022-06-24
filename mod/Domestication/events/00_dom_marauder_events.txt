@@ -132,7 +132,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+						set_name = {
+							key = "domestication.floret_1"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -145,7 +148,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+						set_name = {
+							key = "domestication.floret_2"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index

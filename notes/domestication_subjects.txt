@@ -16,6 +16,10 @@
 # diplo_threat: threat generated from diplomatically vassalizing this type of subject
 # effect: executes when subject relation is created
 
+
+# This file is a legacy from pre-Overlord. I'll have to completely re-work this
+# for the new vassalization system
+
 @protectorate_tech_threshold = 0.4
 @protectorate_tech_switch = 0.5
 

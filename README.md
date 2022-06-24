@@ -41,6 +41,7 @@ In addition, I have included my takes on the Affini Compact and Terran Accord ci
 I welcome any and all feedback and criticism from users as I strive to balance canon with game balance and the inherent limitations of Stellaris.  
 
 To-do list:  
+- Reworking Domesticated Protectorates for Overlord DLC
 - Add happiness malus to planets with low/no florets?  
 - Domesticating leviathans.  
 - Add more floret (leader trait) types.  
@@ -53,5 +54,5 @@ Done list:
 - Bee sprites for Beeple  
 - Pop trait for Haustoric Implant to be automatically added to floret pops.  
 - Affini Compact emblem.  
-- Domestication Wars - Create protectorate with Affini main species.  
+- Domestication Wars.
 - Leader traits to represent florets.  

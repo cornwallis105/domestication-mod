@@ -1,0 +1,5 @@
+﻿l_english:
+ format.pop_faction.domesticator_faction:0 "<xenoist_names_1> <domesticator_names> <xenoist_names_3>"
+ format.war.domestication.1:0 "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <domestication_war_names>"
+ format.war.domestication.2:0 "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <domestication_war_names>"
+ format.war.domestication.3:0 "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"

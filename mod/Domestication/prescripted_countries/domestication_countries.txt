@@ -75,7 +75,7 @@ affini_compact = {
 	adjective = "PRESCRIPTED_adjective_affini"
 	spawn_enabled = no # yes / no / always
 
-	ship_prefix = "PRESCRIPTED_ship_prefix_affini"
+	ship_prefix = ""
 
 	species = {
 		class = "PLANT"

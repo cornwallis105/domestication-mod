@@ -1,4 +1,6 @@
 #Gatekeeper fired from on_action on_leader_level_up
+namespace = leader
+
 country_event = {
 	id = leader.20
 	hide_window = yes

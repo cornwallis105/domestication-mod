@@ -17,11 +17,32 @@ domesticator_faction = {
 	}
 
 	is_potential = {
-		years_passed > 10
-		has_encountered_other_species = yes
-    is_domesticator_or_protectorate = yes
-		NOT = { has_ethic = ethic_gestalt_consciousness }
-		NOT = { has_country_flag = suppress_vanilla_factions }
+		is_faction_allowed = yes
+
+		if = {
+			limit = {
+				has_faction = domesticator_faction
+				any_pop_faction = {
+					is_pop_faction_type = domesticator_faction
+					num_pops >= 5
+				}
+			}
+		}
+		else = {
+			is_domesticator_or_protectorate = yes
+			count_owned_pop = {
+				count >= 5
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+			}
+		}
+
+		#years_passed > 10
+		#has_encountered_other_species = yes
+    #is_domesticator_or_protectorate = yes
+		#NOT = { has_ethic = ethic_gestalt_consciousness }
+		#NOT = { has_country_flag = suppress_vanilla_factions }
 	}
 
 	parameters = {
@@ -40,7 +61,7 @@ domesticator_faction = {
 
 	can_join_faction = {
 		is_shackled_robot = no
-		NOT = { has_trait = trait_nerve_stapled }
+		can_think = yes
 	}
 
 	attraction = {
@@ -509,28 +530,75 @@ domesticator_faction = {
 	}
 
 	demand = {
-		title = "DOMESTICATOR_OVERLORD" #Domesticator Hegemony
-		unfulfilled_title = "DOMESTICATOR_NOT_OVERLORD"
-		desc = "DOMESTICATOR_OVERLORD_DESC"
+		title = "XENOIST_OPPRESSIVE_SUBJUGATION_POLICY"
+		unfulfilled_title = "XENOIST_NO_OPPRESSIVE_SUBJUGATION_POLICY"
+		desc = "XENOIST_OPPRESSIVE_SUBJUGATION_POLICY_DESC"
 
-		fulfilled_effect = 5
+		unfulfilled_effect = -10
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_subject = no
+				has_policy_flag = oppressive_terms
+			}
+		}
+
+		trigger = {
+			owner = {
+				is_subject = no
+				NOT = { has_policy_flag = oppressive_terms }
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_BENEVOLENT_SUBJUGATION_POLICY"
+		unfulfilled_title = "XENOIST_ADOPT_BENEVOLENT_SUBJUGATION_POLICY"
+		desc = "XENOIST_BENEVOLENT_SUBJUGATION_POLICY_DESC"
+
+		fulfilled_effect = 10
 		unfulfilled_effect = -0.001
 
 		potential = {
 			exists = owner
 			owner = {
-				num_communications > 2
+				is_subject = no
+				NOT = { has_policy_flag = oppressive_terms }
 			}
 		}
 
 		trigger = {
-			OR = {
-				owner = {
-					is_overlord = yes
-				}
+			owner = {
+				has_policy_flag = benevolent_terms
 			}
 		}
 	}
+
+#	demand = {
+#		title = "DOMESTICATOR_OVERLORD" #Domesticator Hegemony
+#		unfulfilled_title = "DOMESTICATOR_NOT_OVERLORD"
+#		desc = "DOMESTICATOR_OVERLORD_DESC"
+#
+#		fulfilled_effect = 5
+#		unfulfilled_effect = -0.001
+#
+#		potential = {
+#			exists = owner
+#			owner = {
+#				num_communications > 2
+#			}
+#		}
+#
+#		trigger = {
+#			OR = {
+#				owner = {
+#					is_overlord = yes
+#				}
+#			}
+#		}
+#	}
 
 	on_create = {
 		pop_faction_event = { id = factions.1 }
@@ -557,7 +625,7 @@ domesticator_faction = {
 			description = "EMBRACE_FACTION_DESC"
 
 			cost = {
-				influence = 500
+				unity = 5000
 			}
 
 			potential = {
@@ -565,7 +633,7 @@ domesticator_faction = {
 				owner = {
 					OR = {
 						is_subject = no
-						NOT = { is_subject_type = dominion }
+						NOT = { any_agreement = { agreement_preset = preset_dominion } }
 					}
 				}
 			}
@@ -764,11 +832,26 @@ xenoist = {
 	}
 
 	is_potential = {
-		years_passed > 10
-		has_encountered_other_species = yes
-    is_domesticator_or_protectorate = no
-		NOT = { has_ethic = ethic_gestalt_consciousness }
-		NOT = { has_country_flag = suppress_vanilla_factions }
+		is_faction_allowed = yes
+
+		if = {
+			limit = {
+				has_faction = xenoist
+				any_pop_faction = {
+					is_pop_faction_type = xenoist
+					num_pops >= 5
+				}
+			}
+		}
+		else = {
+			is_domesticator_or_protectorate = no
+			count_owned_pop = {
+				count >= 5
+				limit = {
+					has_ethic = ethic_xenophile
+				}
+			}
+		}
 	}
 
 	parameters = {
@@ -787,7 +870,7 @@ xenoist = {
 
 	can_join_faction = {
 		is_shackled_robot = no
-		NOT = { has_trait = trait_nerve_stapled }
+		can_think = yes
 	}
 
 	attraction = {
@@ -1056,8 +1139,8 @@ xenoist = {
 			exists = owner
 			owner = {
 				OR = {
+					any_controlled_ship = { is_ship_size = observation_station }
 					has_country_flag = recent_enlightenment_timed
-					any_owned_fleet = { is_ship_size = observation_station }
 					# fixes demand disappearing when fulfilled (station dismantles)
 				}
 			}
@@ -1294,6 +1377,53 @@ xenoist = {
 		}
 	}
 
+	demand = {
+		title = "XENOIST_OPPRESSIVE_SUBJUGATION_POLICY"
+		unfulfilled_title = "XENOIST_NO_OPPRESSIVE_SUBJUGATION_POLICY"
+		desc = "XENOIST_OPPRESSIVE_SUBJUGATION_POLICY_DESC"
+
+		unfulfilled_effect = -10
+		fulfilled_effect = 0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_subject = no
+				has_policy_flag = oppressive_terms
+			}
+		}
+
+		trigger = {
+			owner = {
+				is_subject = no
+				NOT = { has_policy_flag = oppressive_terms }
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_BENEVOLENT_SUBJUGATION_POLICY"
+		unfulfilled_title = "XENOIST_ADOPT_BENEVOLENT_SUBJUGATION_POLICY"
+		desc = "XENOIST_BENEVOLENT_SUBJUGATION_POLICY_DESC"
+
+		fulfilled_effect = 10
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_subject = no
+				NOT = { has_policy_flag = oppressive_terms }
+			}
+		}
+
+		trigger = {
+			owner = {
+				has_policy_flag = benevolent_terms
+			}
+		}
+	}
+
 	on_create = {
 		pop_faction_event = { id = factions.1 }
 	}
@@ -1319,7 +1449,7 @@ xenoist = {
 			description = "EMBRACE_FACTION_DESC"
 
 			cost = {
-				influence = 500
+				unity = 5000
 			}
 
 			potential = {
@@ -1327,7 +1457,7 @@ xenoist = {
 				owner = {
 					OR = {
 						is_subject = no
-						NOT = { is_subject_type = dominion }
+						NOT = { any_agreement = { agreement_preset = preset_dominion } }
 					}
 				}
 			}

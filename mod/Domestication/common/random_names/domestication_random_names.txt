@@ -142,7 +142,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <subjugation_war_names>"
+	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <subjugation_war_names>"
+	format = format.war.7 # [This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <subjugation_war_names>
 }
 
 # Subjugation - Attacker Federation
@@ -170,7 +171,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <subjugation_war_names>"
+	lookups = "[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <subjugation_war_names>"
+	format = format.war.8 # [This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <subjugation_war_names>
 }
 
 # Subjugation - Defender Federation
@@ -198,7 +200,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <subjugation_war_names>"
+	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <subjugation_war_names>"
+	format = format.war.9 # [This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <subjugation_war_names>
 }
 
 ### DOMESTICATION WARS
@@ -229,7 +232,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <domestication_war_names>"
+	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <domestication_war_names>"
+	format = format.war.domestication.1 # "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <domestication_war_names>"
 }
 
 # Domestication - Attacker Federation
@@ -257,7 +261,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <domestication_war_names>"
+	lookups = "[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <domestication_war_names>"
+	format = format.war.domestication.2 # "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <domestication_war_names>"
 }
 
 # Domestication - Defender Federation
@@ -285,7 +290,8 @@ war_name_format = {
 			}
 		}
 	}
-	format = "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"
+	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <domestication_war_names>"
+	format = format.war.domestication.3 # "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"
 }
 
 ## Faction names
@@ -304,5 +310,6 @@ pop_faction_name_format = {
 			is_pop_faction_type = "domesticator_faction"
 		}
 	}
+	lookups = "<xenoist_names_1> <domesticator_names> <xenoist_names_3>"
 	format = "format.pop_faction.domesticator_faction"
 }

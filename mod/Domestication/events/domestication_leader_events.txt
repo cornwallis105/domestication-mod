@@ -275,7 +275,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+						set_name = {
+							key = "domestication.floret_1"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -288,7 +291,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -447,7 +453,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -460,7 +469,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -609,7 +621,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -622,7 +637,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -771,7 +789,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -784,7 +805,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -1061,85 +1085,11 @@ leader_event = {
 	}
 
 	immediate = {
+		#save_event_target_as = bloom_leader
 		#log_error = "[root.GetName] - [root.bloom_number]"
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						which = bloom_number
-						value > 10
-					}
-					check_variable = {
-						which = bloom_number
-						value < 20
-					}
-				}
-			}
-			set_name = "[root.GetName], [root.bloom_number]th Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 1
-				}
-				#AND = {
-				#	check_variable_arithmetic = {
-				#		which = bloom_last_digit
-				#		value > 0.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 1.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]st Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 2
-				}
-				#AND = {
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value > 1.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 2.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]nd Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 3
-				}
-				#AND = {
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value > 2.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 3.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]rd Bloom"
-		}
-		else = {
-			set_name = "[root.GetName], [root.bloom_number]th Bloom"
-		}
+		#event_target:bloom_leader = { rename_bloom = yes}
+		rename_bloom = yes
+
 
 		#log_error = "[root.GetName]"
 		#set_name = "[root.GetName], [root.bloom_number][root.GetBloomOrdinal] Bloom"
@@ -1281,7 +1231,10 @@ leader_event = {
 	  }
 
 		event_target:clone_bloom = {
-			set_name = "[root.GetName]"
+			set_name = {
+				key = domestication.bloom_name_set
+				variable_string = "[root.GetName]"
+			}
 			add_trait = leader_trait_floret_immortal
 			set_variable = {
 				which = bloom_id
@@ -1628,7 +1581,10 @@ country_event = {
 			if = {
 				limit = { exists = event_target:new_bloom }
 				event_target:new_bloom = {
-					set_name = "[clone_bloom.GetName]"
+					set_name = {
+						key = domestication.new_bloom_name_set
+						variable_string = "[clone_bloom.GetName]"
+					}
 		      set_variable = {
 		        which = bloom_id
 		        value = event_target:old_bloom.bloom_id
@@ -1923,7 +1879,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+						set_name = {
+							key = "domestication.floret_1"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -1936,7 +1895,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+						set_name = {
+							key = "domestication.floret_2"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index

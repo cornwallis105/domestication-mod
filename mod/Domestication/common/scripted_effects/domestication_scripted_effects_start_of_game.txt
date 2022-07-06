@@ -1,4 +1,5 @@
 generate_start_pops = {
+	optimize_memory
 	if = {
 		limit = {
 			owner = {
@@ -293,7 +294,11 @@ generate_start_pops = {
 		}
 	}
 	if = {
-		limit = { owner = { is_megacorp = yes } }
+		limit = {
+			owner = {
+				is_megacorp = yes
+			}
+		}
 		while = {
 			limit = { num_pops < 28 }
 			create_pop = {
@@ -340,6 +345,41 @@ generate_start_pops = {
 			create_pop = {
 				species = owner_main_species
 				ethos = random
+			}
+		}
+	}
+	if = {
+		limit = {
+			owner = {
+				has_civic = civic_permanent_employment
+			}
+		}
+		while = {
+			count = 4
+			random_owned_pop = {
+				limit = {
+					OR = {
+						has_job = clerk
+						has_job = technician
+						has_job = miner
+						has_job = farmer
+					}
+					is_robotic_species = no
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_zombie
+					add_traits_at_start_of_list = yes
+				}
+				if = {
+					limit = {
+						has_trait = trait_syncretic_proles
+					}
+					modify_species = {
+						species = this
+						remove_trait = trait_syncretic_proles
+					}
+				}
 			}
 		}
 	}

@@ -29,7 +29,8 @@ Countries subjugated by a Domesticator have some unique effects
 - Citizenship rights and policies within the subject will be somewhat restricted, and most pops will be switched over to Residency citizenship.  
 
 Other features:
-- Custom icon art by Miss_Praxis.  Ser work is seriously amazing.  
+- Icons for Haustoric Implants by Miss_Praxis.  Ser work is seriously amazing.
+- Icons for Biorhythm Amplification by theyentanator, also of the amazing art skills. 
 - 2 Affini Compact flag symbols. - Art credit to GlitchyRobo  
 - Beeple species portrait. - Bee portrait credit to Hirvia, Alexthe666 & ⑧ ҠƗ₱ɗєҠƗ₱.ᵉˣᵉ [⇄]  
 

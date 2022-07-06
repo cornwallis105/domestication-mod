@@ -75,7 +75,7 @@ country_event = {
 	id = domestication.2
 	title = domestication.2.name
 	desc =  domestication.2.desc
-	picture = GFX_evt_society_research
+	picture = GFX_evt_scientific_experiments
 	fire_only_once = yes
 
 	is_triggered_only = yes
@@ -1053,5 +1053,400 @@ country_event = {
 				remove_trait = trait_haustoric_implant
 			}
 		}
+	}
+}
+
+## Small scale population swaps between subject and overlord
+## this/root = subject, from = overlord
+country_event = {
+	id = domestication.19
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		this = {
+			is_gestalt = no
+			is_specialist_subject_type = { TYPE = domprot }
+		}
+	}
+
+	immediate = {
+		#set_country_flag = flag_domesticated_protectorate
+
+		overlord = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		random_owned_planet = {
+			limit = {
+				count_owned_pop = {
+					limit = {
+						is_same_species = event_target:overlord_species
+					}
+					count < 2
+				}
+			}
+			planet_event = {
+				id = domestication.5
+				scopes = { from = event_target:domesticator_overlord }
+			}
+		}
+
+		assign_leader = last_created_leader
+
+		## Remove old leaders
+		every_owned_leader = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			kill_leader = {
+				fire = yes
+			}
+		}
+
+		add_modifier = {
+			modifier = "protectorate_floret_jobs"
+			days = -1
+		}
+
+		# initialize floret index
+		country_event = {	id = domestication.7 }
+	}
+}
+
+planet_event = {
+	id = domestication.20
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		# if less than 2 affini pops on planet
+		count_owned_pop = {
+			limit = {
+				is_same_species = from.owner_species
+			}
+			count < 2
+		}
+	}
+
+	# this/root = planet
+	# from = affini compact
+
+	immediate = {
+		#this.country.overlord = {
+		#	save_event_target_as = overlord_empire
+		#}
+
+		from = {
+			owner_species = {
+				save_event_target_as = overlord_species
+			}
+		}
+
+		from = {
+			random_owned_planet = {
+				limit = {
+					count_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+
+						}
+						count > 2
+					}
+				}
+				save_event_target_as = overlord_planet
+				while = {
+					count = 2
+					random_owned_pop = {
+						limit = {
+							is_same_species = event_target:overlord_species
+							can_live_on_planet = root
+							OR = {
+								is_pop_category = worker
+								AND = {
+									is_pop_category = specialist
+									NOT = { has_job = colonist }
+								}
+							}
+						}
+						resettle_pop = {
+							pop = this
+							planet = root
+						}
+					}
+				}
+
+				root = {
+					while = {
+						count = 2
+						random_owned_pop = {
+							limit = {
+								NOT = { is_same_species = event_target:overlord_species }
+								is_sapient = yes
+								can_live_on_planet = event_target:overlord_planet
+							}
+							resettle_pop = {
+								pop = this
+								planet = event_target:overlord_planet
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+# gatekeeper event for periodic Domesticated Protectorate population transfers
+country_event = {
+	id = domestication.21
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		this = {
+			is_gestalt = no
+			is_specialist_subject_type = { TYPE = domprot }
+		}
+	}
+
+	# tier 1 = 0.5 per year = 1/24
+	# tier 2 = 1 per year = 1/12
+	# tier 3 = 2 per year = 1/6
+	immediate = {
+		random_list = {
+			4 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_3 }
+					}
+					country_event = { id = domestication.19 }
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_2 }
+					}
+					country_event = { id = domestication.19 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_1 }
+					}
+					country_event = { id = domestication.19 }
+				}
+			}
+			17 = {
+				# no effect
+			}
+		}
+	}
+
+}
+
+# add/remove DomProt tech bonuses for protectorate-level empires
+country_event = {
+	id = domestication.22
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_specialist_subject_type = { TYPE = domprot }
+		has_country_flag = flag_domprot_protectorate_tech
+		exists = overlord
+	}
+
+	immediate = {
+		this.overlord = {
+			save_event_target_as = domprot_overlord
+		}
+		if = {
+			limit = {
+				has_modifier = domprot_tech_influence
+				tech_unlocked_ratio = {
+					who = event_target:domprot_overlord
+					ratio >= 0.5
+				}
+			}
+			remove_modifier = domprot_tech_influence
+		}
+		else_if = {
+			limit = {
+				NOT = { has_modifier = domprot_tech_influence }
+				tech_unlocked_ratio = {
+					who = event_target:domprot_overlord
+					ratio < 0.5
+				}
+			}
+			add_modifier = {
+				modifier = domprot_tech_influence
+			}
+		}
+	}
+
+}
+
+## Level 3 of a Domesticated Protectorate
+## Rename country, change primary species, etc.
+## this/root = subject
+country_event = {
+	id = domestication.23
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		exists = root.overlord
+		overlord = {
+			is_domesticator = yes
+		}
+		this = {
+			is_gestalt = no
+			NOT = { has_country_flag = flag_domesticated_protectorate }
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticated_protectorate
+
+		overlord = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+		}
+		save_event_target_as = domesticated_regime
+
+		copy_ethos_and_authority = this.overlord
+
+		change_government = {
+			civics = random
+			remove_invalid_civics = yes
+		}
+		while = {
+			limit = {
+				OR = {
+					has_valid_civic = civic_slaver_guilds
+					has_valid_civic = civic_warrior_culture
+					has_valid_civic = civic_shared_burden
+				}
+			}
+			change_government = {
+				civics = random
+				remove_invalid_civics = yes
+			}
+		}
+
+		#force_add_civic = civic_domesticators
+		set_name = random
+
+		change_dominant_species = { species = event_target:overlord_species }
+
+		set_graphical_culture = event_target:domesticator_overlord
+		set_city_graphical_culture = event_target:domesticator_overlord
+
+		change_country_flag = random
+		randomize_flag_symbol = ornate
+
+
+		## Add leaders
+		while = {
+			count = 4
+			create_leader = {
+				class = scientist
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 1
+			create_leader = {
+				class = admiral
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+		while = {
+			count = 2
+			create_leader = {
+				class = governor
+				species = this.owner_species
+				name = random
+				skill = 3
+			}
+		}
+
+		assign_leader = last_created_leader
+
+		## Remove old leaders
+		every_owned_leader = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			kill_leader = {
+				fire = yes
+			}
+		}
+
+		every_owned_army = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+			}
+			remove_army = yes
+		}
+
+		## Outlaw Slavery and purges
+		set_policy = {
+			policy = slavery
+			option = slavery_not_allowed
+			cooldown = yes
+		}
+		set_policy = {
+			policy = purge
+			option = purge_not_allowed
+			cooldown = yes
+		}
+
+		## Set citizenship rights for non-affini in country
+		every_owned_species = {
+			limit = {
+				NOT = { is_same_species = this.owner_species }
+				OR = {
+					has_citizenship_type = { country = root type = citizenship_full }
+					has_citizenship_type = { country = root type = citizenship_slavery }
+				}
+			}
+			set_citizenship_type = {
+				country = root
+				type = citizenship_limited
+				cooldown = yes
+			}
+		}
+
+		# initialize floret index
+		#country_event = {	id = domestication.7 }
 	}
 }

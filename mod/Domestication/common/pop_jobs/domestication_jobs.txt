@@ -4,6 +4,7 @@ floret = {
 	condition_string = WORKER_JOB_TRIGGER
 	building_icon = building_luxury_residence
 	clothes_texture_index = 1
+	can_set_priority = no
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -16,17 +17,144 @@ floret = {
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = { is_domesticator_or_protectorate = yes }
-		NOT = {
-			is_same_species = owner.owner_species
+		OR = {
+			owner = { is_specialist_subject_type = { TYPE = domprot } }
+			AND = {
+				NOT = {
+					is_same_species = owner.owner_species
+				}
+				NOT = {
+					is_subspecies = owner.owner_species
+				}
+			}
 		}
-		NOT = {
-			is_subspecies = owner.owner_species
-		}
+
 		OR = {
 			AND = {
-				has_citizenship_type = { type = citizenship_limited }
+				OR = {
+					owner = {
+						is_specialist_subject_type = { TYPE = domprot }
+						NOT = { any_agreement = { specialist_tier = 3} }
+					}
+					has_citizenship_type = { type = citizenship_limited }
+				}
 				is_robot_pop = no
 			}
+			AND = {
+				owner = { has_technology = tech_haustoric_module }
+				is_robot_pop = yes
+				NOT = { owner = { has_policy_flag = ai_outlawed } }
+			}
+		}
+	}
+
+	resources = {
+		category = planet_florets
+		produces = {
+			unity = 1.25
+			consumer_goods = 0.1
+		}
+		upkeep = {
+
+		}
+	}
+
+	pop_modifier = {
+		pop_government_ethic_attraction = 0.5
+	}
+
+	triggered_pop_modifier = {
+		potential = {
+			is_organic_species = yes
+		}
+		pop_housing_usage_add = -0.5
+	}
+
+	planet_modifier = {
+		planet_crime_add = -2
+		planet_stability_add = 0.5
+		planet_jobs_ruler_produces_mult = 0.01
+		planet_jobs_specialist_produces_mult = 0.01
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		planet_amenities_add = 4
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_biorhythm_amplification }
+			happiness >= 0.5
+		}
+		modifier = {
+			planet_jobs_ruler_produces_mult = 0.01
+			planet_jobs_specialist_produces_mult = 0.01
+		}
+	}
+
+	weight = {
+		weight = @clerk_job_weight
+		mult = value:job_weights_multiple_resources_modifier|JOB|floret|RESOURCE1|unity|WEIGHT1|0.75|RESOURCE2|consumer_goods|WEIGHT2|0.25|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+
+		modifier = {
+			factor = 0.65
+			always = yes
+		}
+		modifier = {
+			factor = 10
+			has_haustorics = yes
+		}
+		modifier = {
+			factor = 3
+			has_pop_flag = br_resettled
+		}
+	}
+}
+
+overlord_floret = {
+	category = worker
+
+	can_set_priority = no
+	is_capped_by_modifier = yes
+	building_icon = building_executive_retreat
+	clothes_texture_index = 1
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			hidden_trigger = { exists = overlord }
+			overlord = {
+				is_domesticator_or_protectorate = yes
+			}
+		}
+
+		NOT = {
+			is_same_species = owner.overlord.owner_species
+		}
+		NOT = {
+			is_subspecies = owner.overlord.owner_species
+		}
+
+		OR = {
+			#AND = {
+				#has_citizenship_type = { type = citizenship_limited }
+				is_robot_pop = no
+			#}
 			AND = {
 				owner = { has_technology = tech_haustoric_module }
 				is_robot_pop = yes
@@ -75,24 +203,6 @@ floret = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_pleasure_seeker = yes }
-		}
-		planet_amenities_add = 5
-		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_haustorics = yes
-		}
-		modifier = {
-			planet_amenities_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
 			owner = { has_technology = tech_biorhythm_amplification }
 			happiness >= 0.5
 		}
@@ -102,29 +212,120 @@ floret = {
 		}
 	}
 
-	weight = {
-		weight = @clerk_job_weight
-		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+	overlord_resources = {
+		category = planet_overlord_florets
+		produces = {
+			influence = 0.05
+			unity = 3
+		}
+	}
 
-		modifier = {
-			factor = 0.25
+	weight = {
+		weight = @overlord_job_weight
+	}
+}
+
+overlord_floret_drone = {
+	category = simple_drone
+
+	can_set_priority = no
+	is_capped_by_modifier = yes
+	building_icon = building_executive_retreat
+	clothes_texture_index = 1
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_drone_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			hidden_trigger = { exists = overlord }
+			overlord = {
+				is_domesticator_or_protectorate = yes
+			}
+		}
+
+		NOT = {
+			is_same_species = owner.overlord.owner_species
+		}
+		NOT = {
+			is_subspecies = owner.overlord.owner_species
+		}
+
+		OR = {
+			#AND = {
+				#has_citizenship_type = { type = citizenship_limited }
+				is_robot_pop = no
+			#}
+			AND = {
+				owner = { has_technology = tech_haustoric_module }
+				is_robot_pop = yes
+				NOT = { owner = { has_policy_flag = ai_outlawed } }
+			}
+		}
+	}
+
+	resources = {
+		category = planet_jobs
+		produces = {
+			unity = 1.25
+		}
+		upkeep = {
+
+		}
+	}
+
+	pop_modifier = {
+		pop_government_ethic_attraction = 0.5
+	}
+
+	triggered_pop_modifier = {
+		potential = {
+			is_organic_species = yes
+		}
+		pop_housing_usage_add = -0.5
+	}
+
+	planet_modifier = {
+		planet_crime_add = -2
+		planet_stability_add = 0.5
+		planet_jobs_complex_drone_produces_mult = 0.01
+	}
+
+	triggered_planet_modifier = {
+		potential = {
 			always = yes
 		}
-		modifier = {
-			factor = 0.25
-			has_trait = trait_repugnant
+		planet_amenities_no_happiness_add = 4
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_biorhythm_amplification }
+			happiness >= 0.5
 		}
 		modifier = {
-			factor = 1.75
-			has_trait = trait_charismatic
+			planet_jobs_complex_drone_produces_mult = 0.01
 		}
-		modifier = {
-			factor = 10
-			has_haustorics = yes
+	}
+
+	overlord_resources = {
+		category = planet_overlord_florets
+		produces = {
+			influence = 0.05
+			unity = 3
 		}
-		modifier = {
-			factor = 3
-			has_pop_flag = br_resettled
-		}
+	}
+
+	weight = {
+		weight = @overlord_job_weight
 	}
 }

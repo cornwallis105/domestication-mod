@@ -11,7 +11,8 @@ empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 0
+			add = 1000
+			NOT = { is_specialist_subject_type = { TYPE = domprot } }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -20,6 +21,7 @@ empire_name_format = {
 			}
 		}
 	}
+	lookups = "[This.GetSpeciesName] <domesticators>"
 	format = "format.domestic.1"
 	noun = "[This.GetSpeciesName]"
 	prefix_format = "[This.GetSpeciesName] <domesticators>"
@@ -72,6 +74,7 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 1000
+			is_specialist_subject_type = { TYPE = domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -80,6 +83,7 @@ empire_name_format = {
 			}
 		}
 	}
+	lookups = "[This.GetSpeciesName] <domesticated1>"
 	format = "format.domesticated.1"
 	noun = "[This.GetSpeciesName]"
 	prefix_format = "[This.GetSpeciesName] <domesticated1>"
@@ -90,7 +94,8 @@ empire_name_format = {
 	random_weight = {
 		factor = 0
 		modifier = {
-			add = 0
+			add = 100
+			is_specialist_subject_type = { TYPE = domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -99,6 +104,7 @@ empire_name_format = {
 			}
 		}
 	}
+	lookups = "<domesticated2> of [This.Capital.GetName]"
 	format = "format.domesticated.2"
 	noun = "[This.GetSpeciesName]"
 	prefix_format = "<domesticated2> of [This.Capital.GetName]"

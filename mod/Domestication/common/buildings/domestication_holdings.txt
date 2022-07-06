@@ -1,0 +1,70 @@
+holding_domestication_center = {
+	base_buildtime = @b2_time
+	owner_type = subject_holding
+	icon = building_executive_retreat
+	base_cap_amount = 1
+
+	potential = {
+		has_overlord_dlc = yes
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = subject_is_domprot
+			exists = planet.owner
+			planet.owner = {
+				is_specialist_subject_type = { TYPE = domprot }
+			}
+		}
+	}
+
+	resources = {
+		category = planet_holdings
+		cost = {
+			minerals = @b1_minerals
+		}
+		upkeep = {
+			energy = @b1_upkeep
+		}
+	}
+
+	planet_modifier = {
+		monthly_loyalty = 0.5
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet.owner
+			planet.owner = {
+				is_gestalt = no
+			}
+		}
+		job_overlord_floret_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet.owner
+			planet.owner = {
+				is_hive_empire = yes
+			}
+		}
+		job_overlord_floret_drone_add = 2
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = planet.owner
+		}
+		text = job_floret_effect_desc
+	}
+
+	destroy_trigger = {
+		exists = planet.owner
+		planet.owner = {
+			NOT = {
+				is_specialist_subject_type = { TYPE = domprot }
+			}
+		}
+	}
+}

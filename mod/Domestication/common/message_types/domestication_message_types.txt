@@ -1,0 +1,17 @@
+message_type = {
+	key = "SUBJECT_LEVEL_UP_specialist_domprot"
+	icon = "GFX_message_domprot_level_up"
+	icon_frame = 1
+
+	sound = "discovery"
+	ping = "mixed_notification_green"
+}
+
+message_type = {
+	key = "WE_LEVEL_UP_specialist_domprot"
+	icon = "GFX_message_domprot_level_up"
+	icon_frame = 1
+
+	sound = "discovery"
+	ping = "mixed_notification_green"
+}

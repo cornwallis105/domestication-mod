@@ -1,0 +1,49 @@
+@level_2_xp_cost = 1200 # 10 years at 100 Loyalty.
+@level_3_xp_cost = 3600 # 30 years at 100 Loyalty.
+
+@specialist_base_conversion_time = 30
+
+specialist_domprot = {
+	icon = "GFX_diplomacy_specialist_subject_domprot"
+	icon_large = "GFX_diplomacy_specialist_subject_domprot_large"
+	preferred_ethic = ethic_xenophile
+	base_conversion_time = @specialist_base_conversion_time
+
+	on_progress_complete = {
+	}
+
+	levels = {
+		# Level 1
+		{
+			experience_needed_for_next_level = @level_2_xp_cost
+			perks = {
+				domprot_1_modifier
+				domprot_1_penalties
+				domprot_1_overlord_modifier
+				domprot_1_neighbor_bonuses
+				domprot_1_pop_transfer
+				domprot_1_protectorate_tech
+			}
+		}
+		# Level 2
+		{
+			experience_needed_for_next_level = @level_3_xp_cost
+			perks = {
+				domprot_2_modifier
+				domprot_2_penalties
+				domprot_2_leaders
+				domprot_2_traits
+				domprot_2_pop_transfer
+			}
+		}
+		# Level 3
+		{
+			perks = {
+				domprot_3_modifier
+				domprot_3_penalties
+				domprot_3_thoroughly_domesticated
+				domprot_3_pop_transfer
+			}
+		}
+	}
+}

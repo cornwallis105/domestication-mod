@@ -1,3 +1,13 @@
 protectorate_floret_jobs = {
 	job_floret_per_pop = 0.125
 }
+
+specialist_domprot_neighbor = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_specialist_domprot_neighbor.dds"
+	planet_crime_mult = -0.1
+	planet_pops_consumer_goods_upkeep_mult = -0.05
+}
+
+domprot_tech_influence = {
+	subject_tech_cost_mult = -0.80
+}

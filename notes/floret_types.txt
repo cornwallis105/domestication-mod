@@ -12,7 +12,11 @@ Icons:
   Beeple - bee - DONE - Thanks, Zelda!
   Liaison - shaking hand w/ vine - DONE
   Economist - stonks - DONE
-  Academic - mortarboard hat
+  Academic - mortarboard hat - DONE
+
+Other ideas:
+  Cotyledon
+  Digitized Hacker
 
 Scientist:
   AI: + research speed, + survey speed. Gained form certain events.

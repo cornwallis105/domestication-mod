@@ -198,13 +198,13 @@ country_event = {
 	}
 
 	immediate = {
-		#fromfrom = {
-		#	solar_system = { save_event_target_as = system }
-		#	leader = { save_event_target_as = new_owner	}
-		#}
-		#from = {
-		#	save_event_target_as = defeated_country
-		#}
+		fromfrom = {
+			solar_system = { save_event_target_as = system }
+			leader = { save_event_target_as = new_owner	}
+		}
+		from = {
+			save_event_target_as = defeated_country
+		}
 
 		event_target:new_owner = {
 			## Up to 2 florets - for the moment
@@ -275,7 +275,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+						set_name = {
+							key = "domestication.floret_1"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -288,7 +291,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -447,7 +453,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -460,7 +469,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -609,7 +621,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -622,7 +637,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -771,7 +789,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+					set_name = {
+						key = "domestication.floret_1"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -784,7 +805,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+					set_name = {
+						key = "domestication.floret_2"
+						variable_string = "this.GetName"
+					}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -893,12 +917,25 @@ country_event = {
 	hide_window = yes
 
 	trigger = {
-		is_domesticator_or_protectorate = yes
-		from = {
-			NOT = { has_leader_flag = bloom_initialized }
-			is_same_species = root
-			NOT = { is_same_value = root.ruler }
+		OR = {
+			AND = {
+				is_domesticator = yes
+				from = {
+					NOT = { has_leader_flag = bloom_initialized }
+					is_same_species = root
+					NOT = { is_same_value = root.ruler }
+				}
+			}
+			AND = {
+				is_domesticated_protectorate = yes
+				from = {
+					NOT = { has_leader_flag = bloom_initialized }
+					is_same_species = root.overlord
+					NOT = { is_same_value = root.ruler }
+				}
+			}
 		}
+
 	}
 
 	immediate = {
@@ -939,6 +976,7 @@ country_event = {
 	}
 }
 
+# Randomize bloom number
 leader_event = {
 	id = domestication_leader.9
 	is_triggered_only = yes
@@ -1051,6 +1089,7 @@ leader_event = {
 	}
 }
 
+# Bloom cleanup
 leader_event = {
 	id = domestication_leader.10
 	is_triggered_only = yes
@@ -1061,85 +1100,11 @@ leader_event = {
 	}
 
 	immediate = {
+		#save_event_target_as = bloom_leader
 		#log_error = "[root.GetName] - [root.bloom_number]"
-		if = {
-			limit = {
-				AND = {
-					check_variable = {
-						which = bloom_number
-						value > 10
-					}
-					check_variable = {
-						which = bloom_number
-						value < 20
-					}
-				}
-			}
-			set_name = "[root.GetName], [root.bloom_number]th Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 1
-				}
-				#AND = {
-				#	check_variable_arithmetic = {
-				#		which = bloom_last_digit
-				#		value > 0.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 1.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]st Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 2
-				}
-				#AND = {
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value > 1.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 2.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]nd Bloom"
-		}
-		else_if = {
-			limit = {
-				check_variable_arithmetic = {
-					which = bloom_number
-					modulo = 10
-					value = 3
-				}
-				#AND = {
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value > 2.6
-				#	}
-				#	check_variable = {
-				#		which = bloom_last_digit
-				#		value < 3.4
-				#	}
-				#}
-			}
-			set_name = "[root.GetName], [root.bloom_number]rd Bloom"
-		}
-		else = {
-			set_name = "[root.GetName], [root.bloom_number]th Bloom"
-		}
+		#event_target:bloom_leader = { rename_bloom = yes}
+		rename_bloom = yes
+
 
 		#log_error = "[root.GetName]"
 		#set_name = "[root.GetName], [root.bloom_number][root.GetBloomOrdinal] Bloom"
@@ -1281,7 +1246,10 @@ leader_event = {
 	  }
 
 		event_target:clone_bloom = {
-			set_name = "[root.GetName]"
+			set_name = {
+				key = domestication.bloom_name_set
+				variable_string = "[root.GetName]"
+			}
 			add_trait = leader_trait_floret_immortal
 			set_variable = {
 				which = bloom_id
@@ -1301,6 +1269,7 @@ leader_event = {
 	}
 }
 
+# Reblooms leader
 # Executed as a leader has died
 # This = Country
 # From = Leader
@@ -1323,364 +1292,38 @@ country_event = {
 
 	immediate = {
 		from = { save_event_target_as = old_bloom }
-
-		event_target:bloom_country = {
-	    every_owned_leader = {
-	      limit = {
-	        is_variable_set = bloom_id
-	        check_variable = {
-	          which = bloom_id
-	          value = event_target:old_bloom.bloom_id
-	        }
-	      }
-	      save_event_target_as = clone_bloom
-	    }
-
-	    if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = male
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
-	        }
-	      }
-				root = {
-					create_leader = {
-						name = random
-						species = event_target:clone_bloom
-						gender = male
-						class = scientist
-						skill = 1
-						set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-					}
+		random_list = {
+			# Leader reblooms
+			50 = {
+				country_event = {
+					id = domestication_leader.15
+					scopes = { from = from }
 				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = male
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = male
-		        class = governor
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = male
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = male
-		        class = admiral
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = male
-	          OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = male
-		        class = general
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = female
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = female
-		        class = scientist
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = female
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = female
-		        class = governor
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = female
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = female
-		        class = admiral
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = female
-						OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = female
-		        class = general
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = indeterminable
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = indeterminable
-		        class = scientist
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = indeterminable
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = indeterminable
-		        class = governor
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = indeterminable
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = indeterminable
-		        class = admiral
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-	    else_if = {
-	      limit = {
-	        event_target:old_bloom = {
-	          gender = indeterminable
-						OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
-	        }
-	      }
-				root = {
-		      create_leader = {
-		        name = random
-		        species = event_target:clone_bloom
-		        gender = indeterminable
-		        class = general
-		        skill = 1
-		        set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-		      }
-				}
-	    }
-
-			if = {
-				limit = { exists = event_target:new_bloom }
-				event_target:new_bloom = {
-					set_name = "[clone_bloom.GetName]"
-		      set_variable = {
-		        which = bloom_id
-		        value = event_target:old_bloom.bloom_id
-		      }
-		      set_variable = {
-		        which = bloom_number
-		        value = event_target:old_bloom.bloom_number
-		      }
-		      change_variable = {
-		        which = bloom_number
-		        value = 1
-		      }
-
-					set_variable = {
-						which = bloom_last_digit
-						value = bloom_number
-					}
-					while = {
-						limit = {
+			}
+			# Leader reblooms if they have less than 2 florets
+			25 = {
+				if = {
+					limit = {
+						from = {
 							check_variable = {
-								which = bloom_last_digit
-								value > 10
+								which = floret_count
+								value < 2
 							}
 						}
-						subtract_variable = {
-							which = bloom_last_digit
-							value = 10
-						}
 					}
-					round_variable = bloom_number
-					round_variable = bloom_last_digit
-
-					event_target:old_bloom = {
-						switch = {
-							trigger = has_skill
-							10 > { event_target:new_bloom = { set_skill = 9 } }
-							9 > { event_target:new_bloom = { set_skill = 8 } }
-							8 > { event_target:new_bloom = { set_skill = 7 } }
-							7 > { event_target:new_bloom = { set_skill = 6 } }
-							6 > { event_target:new_bloom = { set_skill = 5 } }
-							5 > { event_target:new_bloom = { set_skill = 4 } }
-							4 > { event_target:new_bloom = { set_skill = 3 } }
-							3 > { event_target:new_bloom = { set_skill = 2 } }
-							default = { event_target:new_bloom = { set_skill = 1 } }
-						}
+					country_event = {
+						id = domestication_leader.15
+						scopes = { from = from }
 					}
-					copy_leader_traits = yes
-
-		      leader_event = { id = domestication_leader.10 }
-		    }
+				}
 			}
-	  }
+			# Leader does not rebloom
+			25 = {
+
+			}
+		}
+
+
 	}
 }
 
@@ -1923,7 +1566,10 @@ country_event = {
 						}
 					}
 					event_target:new_floret = {
-						set_name = "[this.GetName], 1st Floret"
+						set_name = {
+							key = "domestication.floret_1"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -1936,7 +1582,10 @@ country_event = {
 				}
 				else = {
 					event_target:new_floret = {
-						set_name = "[this.GetName], 2nd Floret"
+						set_name = {
+							key = "domestication.floret_2"
+							variable_string = "this.GetName"
+						}
 						set_variable = {
 							which = floret_id
 							value = event_target:floret_country.floret_index
@@ -1963,5 +1612,391 @@ country_event = {
 			always = yes
 		}
 		end_event_chain = operative_resurfaces_chain
+	}
+}
+
+# Reblooms leader
+# Executed as a leader has died
+# This = Country
+# From = Leader
+country_event = {
+	id = domestication_leader.15
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		from = {
+			has_leader_flag = bloom_initialized
+			is_variable_set = bloom_id
+		}
+		NOT = {
+			any_pool_leader = {
+				is_same_value = FROM
+			}
+		}
+	}
+
+	immediate = {
+		from = { save_event_target_as = old_bloom }
+		event_target:bloom_country = {
+			every_owned_leader = {
+				limit = {
+					is_variable_set = bloom_id
+					check_variable = {
+						which = bloom_id
+						value = event_target:old_bloom.bloom_id
+					}
+				}
+				save_event_target_as = clone_bloom
+			}
+
+			if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = male
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = male
+						class = scientist
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = male
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = male
+						class = governor
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = male
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = male
+						class = admiral
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = male
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = male
+						class = general
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = female
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = female
+						class = scientist
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = female
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = female
+						class = governor
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = female
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = female
+						class = admiral
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = female
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = female
+						class = general
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = indeterminable
+						OR = {
+							leader_class = scientist
+							pre_ruler_leader_class = scientist
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = indeterminable
+						class = scientist
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = indeterminable
+						OR = {
+							leader_class = governor
+							pre_ruler_leader_class = governor
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = indeterminable
+						class = governor
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = indeterminable
+						OR = {
+							leader_class = admiral
+							pre_ruler_leader_class = admiral
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = indeterminable
+						class = admiral
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					event_target:old_bloom = {
+						gender = indeterminable
+						OR = {
+							leader_class = general
+							pre_ruler_leader_class = general
+						}
+					}
+				}
+				root = {
+					create_leader = {
+						name = random
+						species = event_target:clone_bloom
+						gender = indeterminable
+						class = general
+						skill = 1
+						set_age = 0
+						effect = {
+							save_event_target_as = new_bloom
+						}
+					}
+				}
+			}
+
+			if = {
+				limit = { exists = event_target:new_bloom }
+				event_target:new_bloom = {
+					set_name = {
+						key = domestication.new_bloom_name_set
+						variable_string = "[clone_bloom.GetName]"
+					}
+					set_variable = {
+						which = bloom_id
+						value = event_target:old_bloom.bloom_id
+					}
+					set_variable = {
+						which = bloom_number
+						value = event_target:old_bloom.bloom_number
+					}
+					change_variable = {
+						which = bloom_number
+						value = 1
+					}
+
+					set_variable = {
+						which = bloom_last_digit
+						value = bloom_number
+					}
+					while = {
+						limit = {
+							check_variable = {
+								which = bloom_last_digit
+								value > 10
+							}
+						}
+						subtract_variable = {
+							which = bloom_last_digit
+							value = 10
+						}
+					}
+					round_variable = bloom_number
+					round_variable = bloom_last_digit
+
+					event_target:old_bloom = {
+						switch = {
+							trigger = has_skill
+							10 > { event_target:new_bloom = { set_skill = 9 } }
+							9 > { event_target:new_bloom = { set_skill = 8 } }
+							8 > { event_target:new_bloom = { set_skill = 7 } }
+							7 > { event_target:new_bloom = { set_skill = 6 } }
+							6 > { event_target:new_bloom = { set_skill = 5 } }
+							5 > { event_target:new_bloom = { set_skill = 4 } }
+							4 > { event_target:new_bloom = { set_skill = 3 } }
+							3 > { event_target:new_bloom = { set_skill = 2 } }
+							default = { event_target:new_bloom = { set_skill = 1 } }
+						}
+					}
+					copy_leader_traits = yes
+
+					leader_event = { id = domestication_leader.10 }
+				}
+			}
+		}
 	}
 }

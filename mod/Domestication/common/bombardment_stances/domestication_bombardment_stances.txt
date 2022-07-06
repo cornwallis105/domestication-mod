@@ -4,6 +4,15 @@ raiding = {
 			owner = { has_ascension_perk = ap_nihilistic_acquisition }
 			owner = { has_valid_civic = civic_barbaric_despoilers }
       owner = { has_ascension_perk = ap_benefic_acquisition }
+			AND = {
+				owner = { is_country_type = enclave_mercenary }
+				controller = {
+					OR = {
+						has_ascension_perk = ap_nihilistic_acquisition
+						has_valid_civic = civic_barbaric_despoilers
+					}
+				}
+			}
 		}
 	}
 

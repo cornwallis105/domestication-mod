@@ -10,12 +10,6 @@ d_hive_domestication_lab = {
     planet_jobs_engineering_research_produces_mult = 0.1
 	}
 
-  country_modifier = {
-    country_physics_research_produces_add = 10
-    country_society_research_produces_add = 10
-    country_engineering_research_produces_add = 10
-  }
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -43,12 +37,6 @@ d_machine_domestication_lab = {
 		planet_jobs_society_research_produces_mult = 0.1
     planet_jobs_engineering_research_produces_mult = 0.15
 	}
-
-  country_modifier = {
-    country_physics_research_produces_add = 10
-    country_society_research_produces_add = 10
-    country_engineering_research_produces_add = 10
-  }
 
 	triggered_planet_modifier = {
 		potential = {

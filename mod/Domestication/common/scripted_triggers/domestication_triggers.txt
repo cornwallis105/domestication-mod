@@ -12,6 +12,7 @@ is_domesticator_or_protectorate = {
 			OR = {
 				has_valid_civic = civic_domesticators
 				has_country_flag = flag_domesticated_protectorate
+				is_specialist_subject_type = { TYPE = domprot }
 			}
 		}
 	}
@@ -19,7 +20,22 @@ is_domesticator_or_protectorate = {
 		OR = {
 			has_valid_civic = civic_domesticators
 			has_country_flag = flag_domesticated_protectorate
+			is_specialist_subject_type = { TYPE = domprot }
 		}
+	}
+}
+
+is_domesticated_protectorate = {
+	if = {
+		limit = {
+			exists = owner
+		}
+		owner = {
+			is_specialist_subject_type = { TYPE = domprot }
+		}
+	}
+	else = {
+		is_specialist_subject_type = { TYPE = domprot }
 	}
 }
 

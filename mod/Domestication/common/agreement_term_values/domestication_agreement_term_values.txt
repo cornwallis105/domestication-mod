@@ -1,0 +1,27 @@
+specialist_domprot = {
+	term = specialist_type
+	overlord_resources = {
+		category = subjects
+		produces = {
+			influence = 0.20
+		}
+	}
+	triggered_loyalty_change = {
+		trigger = {
+			target = { is_xenophile = yes }
+		}
+		loyalty_change = 5
+	}
+	triggered_loyalty_change = {
+		trigger = {
+			target = { is_xenophobe = yes }
+		}
+		loyalty_change = -20
+	}
+	activate_effect = {
+		convert_to_specialist = specialist_domprot
+	}
+	potential = {
+		agreement_preset = preset_domprot
+	}
+}

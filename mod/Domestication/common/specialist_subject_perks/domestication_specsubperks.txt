@@ -1,0 +1,241 @@
+#########################
+# DOMESTICATED PROTECTORATE SPECIALIST #
+#########################
+
+domprot_1_modifier = {
+	main_perk = yes
+	subject_modifier = {
+		planet_structures_cost_mult = -0.10
+    planet_buildings_upkeep_mult = -0.10
+		planet_districts_upkeep_mult = -0.10
+    job_floret_per_pop = 0.0625
+
+		#description = domprot_1_modifier_desc
+	}
+
+	# For setting the room background
+	activate_effect = {
+		target = {
+			store_country_backup_data = {
+				room = yes
+			}
+			room_name_override = ""
+
+  		# initialize floret index
+  		country_event = {	id = domestication.7 }
+		}
+	}
+
+	# Restore room background back to normal
+	deactivate_effect = {
+		target = {
+			restore_country_backup_data = yes
+
+      remove_modifier =  protectorate_floret_jobs
+		}
+	}
+}
+
+domprot_1_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_naval_cap_mult = -0.4
+		ship_military_cost_mult = 0.4
+		ship_military_upkeep_mult = 0.4
+	}
+}
+
+domprot_1_overlord_modifier = {
+	icon = "GFX_specialist_perk_domprot_1_overlord_modifier"
+	overlord_modifier = {
+		country_naval_cap_mult = 0.1
+		ship_military_cost_mult = 0.1
+		ship_military_upkeep_mult = 0.1
+		#country_base_influence_produces_add = 0.2
+	}
+}
+
+domprot_1_neighbor_bonuses = {
+	icon = "GFX_specialist_perk_domprot_1_neighbor_bonuses"
+
+	overlord_relay_network_modifier = {
+		specialist_domprot_neighbor = 1
+	}
+
+	desc = {
+		description = domprot_1_neighbor_bonuses_desc
+	}
+}
+
+domprot_1_pop_transfer = {
+	icon = "GFX_specialist_perk_domprot_1_pop_transfer"
+  activate_effect = {
+		target = {
+			set_country_flag = flag_domprot_transfer_1
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_country_flag = flag_domprot_transfer_1
+		}
+	}
+	desc = {
+		description = domprot_1_pop_transfer_desc
+	}
+}
+
+domprot_1_protectorate_tech = {
+	icon = "GFX_specialist_perk_domprot_1_protectorate_tech"
+	activate_effect = {
+		target = {
+			set_country_flag = flag_domprot_protectorate_tech
+			if = {
+				limit = {
+					tech_unlocked_ratio = {
+						who = this.overlord
+						ratio < 0.5
+					}
+				}
+				add_modifier = {
+					modifier = domprot_tech_influence
+				}
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_country_flag = flag_domprot_protectorate_tech
+			remove_modifier = domprot_tech_influence
+		}
+	}
+	desc = {
+		description = domprot_1_protectorate_tech_desc
+	}
+}
+
+domprot_2_modifier = {
+	main_perk = yes
+	subject_modifier = {
+    planet_structures_cost_mult = -0.20
+    planet_buildings_upkeep_mult = -0.20
+    planet_districts_upkeep_mult = -0.20
+    job_floret_per_pop = 0.1
+		#num_tech_alternatives_add = 1
+		#description = domprot_2_modifier_desc
+	}
+}
+
+domprot_2_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_naval_cap_mult = -0.5
+		ship_military_cost_mult = 0.5
+		ship_military_upkeep_mult = 0.5
+	}
+}
+
+domprot_2_leaders = {
+	icon = "GFX_specialist_perk_domprot_2_leaders"
+	subject_modifier = {
+		scientist_skill_levels = 2
+	}
+
+	activate_effect = {
+		target = {
+			add_specialist_leaders = {
+				TYPE = domprot
+				CLASS = scientist
+			}
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_specialist_leaders = {
+				TYPE = domprot
+				CLASS = scientist
+			}
+		}
+	}
+
+	desc = {
+		description = domprot_2_leaders_desc
+	}
+}
+
+domprot_2_traits = {
+	icon = "GFX_specialist_perk_domprot_2_traits"
+	desc = {
+		description = domprot_2_traits_desc
+	}
+}
+
+domprot_2_pop_transfer = {
+	icon = "GFX_specialist_perk_domprot_2_pop_transfer"
+  activate_effect = {
+		target = {
+			set_country_flag = flag_domprot_transfer_2
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_country_flag = flag_domprot_transfer_2
+		}
+	}
+	desc = {
+		description = domprot_2_pop_transfer_desc
+	}
+}
+
+domprot_3_modifier = {
+	main_perk = yes
+	subject_modifier = {
+    planet_structures_cost_mult = -0.40
+    planet_buildings_upkeep_mult = -0.40
+    planet_districts_upkeep_mult = -0.40
+    job_floret_per_pop = 0.125
+		#description = domprot_3_modifier_desc
+	}
+
+	# Change country species and name
+
+}
+
+domprot_3_penalties = {
+	main_perk = yes
+	subject_modifier = {
+		country_naval_cap_mult = -0.6
+		ship_military_cost_mult = 0.6
+		ship_military_upkeep_mult = 0.6
+	}
+}
+
+domprot_3_thoroughly_domesticated = {
+	icon = "GFX_specialist_perk_domprot_3_thoroughly_domesticated"
+	activate_effect = {
+		target = {
+  		country_event = {	id = domestication.23 }
+		}
+	}
+}
+
+domprot_3_pop_transfer = {
+	icon = "GFX_specialist_perk_domprot_3_pop_transfer"
+  activate_effect = {
+		target = {
+			set_country_flag = flag_domprot_transfer_3
+		}
+	}
+
+	deactivate_effect = {
+		target = {
+			remove_country_flag = flag_domprot_transfer_3
+		}
+	}
+	desc = {
+		description = domprot_3_pop_transfer_desc
+	}
+}

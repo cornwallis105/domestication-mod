@@ -17,3 +17,8 @@ DEFECTING MARAUDER
     - Servants From Sand anomaly
     - Caretaker bot
     - Warframe
+
+PROTECTORATES TO-DO LIST:
+
+FLORETS:
+  - Rework Pirate floret - work into "Pirate Station Raided" event

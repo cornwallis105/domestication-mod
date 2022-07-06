@@ -1,0 +1,7 @@
+planet_florets = {
+	parent = planet_jobs
+}
+
+planet_overlord_florets = {
+	parent = holdings_jobs
+}

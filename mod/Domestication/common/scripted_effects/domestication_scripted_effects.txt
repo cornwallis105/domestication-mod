@@ -418,3 +418,62 @@ copy_leader_traits = {
 
 	}
 }
+
+add_domprot_leader_trait = {
+
+}
+
+remove_domprot_leader_trait = {
+
+}
+
+refresh_subject_count_loyalty_penalty = {
+	every_subject = {
+		erase_modifier = { MOD = divided_patronage }
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_civic = civic_feudal_realm
+				has_civic = civic_franchising
+				has_ascension_perk = ap_shared_destiny
+			}
+			subjects > 1
+		}
+		set_variable = { which = subjects_minus_one value = trigger:subjects }
+		subtract_variable = { which = subjects_minus_one value = 1 }
+		set_variable = { which = domprot_subject_modifier value = this.subjects_minus_one }
+		divide_variable = { which = domprot_subject_modifier value = 2 }
+		every_subject = {
+			if = {
+				limit = {
+					PREV = {
+						is_domesticator = yes
+					}
+					OR = {
+						any_agreement = { agreement_preset = preset_protectorate }
+						is_specialist_subject_type = { TYPE = domprot }
+					}
+				}
+				if = {
+					# Rank 3 DomProt has no loyalty penalty
+					limit = {
+						NOT = { any_agreement = { specialist_tier = 3} }
+					}
+				}
+				add_modifier = {
+					modifier = divided_patronage
+					multiplier = PREV.domprot_subject_modifier
+				}
+			}
+			else = {
+				add_modifier = {
+					modifier = divided_patronage
+					multiplier = PREV.subjects_minus_one
+				}
+			}
+		}
+		clear_variable = subjects_minus_one
+		clear_variable = domprot_subject_modifier
+	}
+}

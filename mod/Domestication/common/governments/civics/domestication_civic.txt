@@ -114,6 +114,15 @@ civic_warrior_culture = {
 	modifier = {
 		army_damage_mult = 0.20
 	}
+	swap_type = {
+		description = "civic_tooltip_warrior_culture_effects"
+		trigger = {
+			host_has_dlc = "Overlord"
+		}
+		modifier = {
+			country_enclave_capacity_add = 1
+		}
+	}
 }
 
 civic_shared_burden = {

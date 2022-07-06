@@ -64,3 +64,173 @@ defined_text = { # Leader scope
 		localization_key = ordinal_th
 	}
 }
+
+defined_text = { # Country/leader/pop/species scope
+	name = GetNeckName
+	text = {
+		trigger = {
+			is_species_class = AVI
+		}
+		localization_key = AVI_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = MAM
+		}
+		localization_key = MAM_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = REP
+		}
+		localization_key = REP_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = FUN
+		}
+		localization_key = FUN_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = MOL
+		}
+		localization_key = MOL_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = HUM
+		}
+		localization_key = HUM_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = ART
+		}
+		localization_key = ART_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = PLANT
+		}
+		localization_key = PLANT_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = ROBOT
+		}
+		localization_key = ROBOT_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = MACHINE
+		}
+		localization_key = MACHINE_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = LITHOID
+		}
+		localization_key = LITHOID_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = NECROID
+		}
+		localization_key = NECROID_neck
+	}
+	text = {
+		trigger = {
+			is_species_class = AQUATIC
+		}
+		localization_key = AQUATIC_neck
+	}
+	text = {
+		localization_key = neck_fallback
+	}
+}
+
+defined_text = { # Country/leader/pop/species scope
+	name = GetNeckNamePlural
+	text = {
+		trigger = {
+			is_species_class = AVI
+		}
+		localization_key = AVI_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = MAM
+		}
+		localization_key = MAM_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = REP
+		}
+		localization_key = REP_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = FUN
+		}
+		localization_key = FUN_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = MOL
+		}
+		localization_key = MOL_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = HUM
+		}
+		localization_key = HUM_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = ART
+		}
+		localization_key = ART_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = PLANT
+		}
+		localization_key = PLANT_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = ROBOT
+		}
+		localization_key = ROBOT_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = MACHINE
+		}
+		localization_key = MACHINE_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = LITHOID
+		}
+		localization_key = LITHOID_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = NECROID
+		}
+		localization_key = NECROID_neck_plural
+	}
+	text = {
+		trigger = {
+			is_species_class = AQUATIC
+		}
+		localization_key = AQUATIC_neck_plural
+	}
+	text = {
+		localization_key = neck_fallback_plural
+	}
+}

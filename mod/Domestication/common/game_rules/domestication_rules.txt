@@ -25,8 +25,7 @@ can_fill_ruler_job = {
 			is_being_assimilated = no
 			is_pop_domesticable = no
 			NOT = { has_trait = trait_syncretic_proles }
-			NOT = { has_trait = trait_nerve_stapled }
-			NOT = { has_trait = trait_zombie }
+			can_think = yes
 			OR = {
 				NOT = { has_trait = trait_mechanical }
 				AND = {
@@ -52,8 +51,7 @@ species_has_happiness = {
 	NOR = {
 		has_trait = trait_machine_unit
 		has_trait = trait_hive_mind
-		has_trait = trait_nerve_stapled
-		has_trait = trait_zombie
+		can_think = no
 		AND = {
 			has_trait = trait_mechanical
 			NAND = {

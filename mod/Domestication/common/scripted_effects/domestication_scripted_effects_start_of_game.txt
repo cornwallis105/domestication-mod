@@ -6,6 +6,7 @@ generate_start_pops = {
 				OR = {
 					has_origin = origin_syncretic_evolution
 					has_origin = origin_necrophage
+					has_origin = origin_domesticators
 					has_valid_civic = civic_machine_servitor
 					has_valid_civic = civic_machine_assimilator
 				}
@@ -27,6 +28,7 @@ generate_start_pops = {
 					OR = {
 						has_origin = origin_syncretic_evolution
 						has_origin = origin_necrophage
+						has_origin = origin_domesticators
 					}
 				}
 			}
@@ -38,7 +40,7 @@ generate_start_pops = {
 						prev.owner = {
 							AND = {
 								has_origin = origin_syncretic_evolution
-								NOT = { has_valid_civic = civic_domesticators }
+								#NOT = { has_valid_civic = civic_domesticators }
 							}
 						}
 					}
@@ -50,10 +52,10 @@ generate_start_pops = {
 				else_if = {
 					limit = {
 						prev.owner = {
-							AND = {
-								has_origin = origin_syncretic_evolution
-								has_valid_civic = civic_domesticators
-							}
+							#AND = {
+								has_origin = origin_domesticators
+								#has_valid_civic = civic_domesticators
+							#}
 						}
 					}
 					set_citizenship_type = {

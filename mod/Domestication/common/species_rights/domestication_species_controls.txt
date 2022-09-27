@@ -95,9 +95,9 @@ population_control_no = {
 			}
 		}
 		custom_tooltip = {
-				fail_text = SPECIES_STERILE_HAUSTORIC_IMPLANT
-				has_haustorics = no
-			}
+			fail_text = SPECIES_STERILE_HAUSTORIC_IMPLANT
+			has_haustorics = no
+		}
 	}
 	ai_will_do = {
 		factor = 1

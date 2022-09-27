@@ -119,4 +119,15 @@ spriteTypes = {
 		texturefile = "gfx/interface/icons/message/message_domprot_level_up.dds"
 	}
 
+	spriteType = {
+		name = "GFX_origin_domesticators"
+		texturefile = "gfx/event_pictures/origins/origin_domesticators.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
+		name = "GFX_domesticators_icon"
+		texturefile = "gfx/interface/icons/origins/origin_domesticators.dds"
+	}
+
 }

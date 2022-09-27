@@ -88,3 +88,80 @@ leader_trait_academic_sci = {
 		}
 	}
 }
+
+leader_trait_dathnak_sci = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
+	modifier = {
+		category_new_worlds_research_speed_mult = 0.20
+		country_society_tech_research_speed = 0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.1
+		leaders_upkeep_mult = 0.2
+	}
+	leader_trait = { scientist }
+	leader_class = { scientist }
+
+	ai_categories = {
+		society
+	}
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_brainslug_sci = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_brainslug_floret.dds"
+	modifier = {
+		all_technology_research_speed = 0.07
+		science_ship_survey_speed = 0.1
+		ship_anomaly_research_speed_mult = 0.1
+	}
+	initial = no
+	randomized = no
+
+	leader_trait = { scientist }
+	leader_class = { scientist }
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+leader_trait_stranded_sci = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
+	modifier = {
+		all_technology_research_speed = 0.05
+		category_computing_research_speed_mult = 0.1
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { scientist }
+	leader_class = { scientist }
+
+	ai_categories = {
+		physics
+	}
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}

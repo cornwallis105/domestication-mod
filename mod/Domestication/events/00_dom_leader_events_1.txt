@@ -8,6 +8,7 @@ country_event = {
 
 	immediate = {
     reroll_random = yes
+		#log = "Using new leader method for level-up"
 		from = {
 			if = {
 				limit = {

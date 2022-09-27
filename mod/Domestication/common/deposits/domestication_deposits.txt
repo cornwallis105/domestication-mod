@@ -53,3 +53,76 @@ d_machine_domestication_lab = {
 		weight = 0
 	}
 }
+
+d_domesticated_sentinels = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_huge_monument
+
+	planet_modifier = {
+		planet_max_districts_add = -1
+		planet_jobs_unity_produces_mult = 0.15
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = yes }
+		}
+		modifier = {
+			job_domesticator_sentinel_add = 2
+			job_soldier_add = 1
+      planet_amenities_add = 10
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_domesticated_nanites = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_gray_goo
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = yes }
+		}
+		modifier = {
+			job_domesticator_nanite_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_domesticated_nemmas = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_tropical_island
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = yes }
+		}
+		modifier = {
+			planet_max_districts_add = -1
+			planet_jobs_society_research_produces_mult = 0.15
+			job_domesticator_nemma_add = 2
+      planet_amenities_add = 10
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

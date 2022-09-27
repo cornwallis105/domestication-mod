@@ -1,6 +1,7 @@
 add_random_leader_floret_trait = {
 	log_error = "started scripted effect"
 	save_event_target_as = new_owner
+	reroll_random = yes
 	if = { #Is a science ship commander
 		limit = {
 			leader_class = scientist
@@ -51,6 +52,26 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_sci }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_sci
+						add_ruler_trait = leader_trait_brainslug_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_sci days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
 		owner = { country_event = { id = domestication_leader.3 } }
@@ -83,6 +104,26 @@ add_random_leader_floret_trait = {
 						add_trait = leader_trait_cutie_adm
 						add_ruler_trait = leader_trait_cutie_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_cutie_adm days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_adm }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_adm
+						add_ruler_trait = leader_trait_brainslug_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_adm days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
@@ -128,9 +169,13 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									has_origin = origin_syncretic_evolution
+									OR = {
+										has_origin = origin_syncretic_evolution
+										has_origin = origin_domesticators
+									}
 									any_owned_pop = {
 										has_job = floret
+										has_trait = trait_syncretic_proles
 									}
 								}
 							}
@@ -158,6 +203,26 @@ add_random_leader_floret_trait = {
 						add_trait = leader_trait_liason_gov
 						add_ruler_trait = leader_trait_liason_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_liason_gov days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_gov }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_gov
+						add_ruler_trait = leader_trait_brainslug_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
@@ -196,6 +261,26 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_gen }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_gen
+						add_ruler_trait = leader_trait_brainslug_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
 			}
 		}
 		owner = { country_event = { id = domestication_leader.3 } }
@@ -228,6 +313,7 @@ get_pirate_species = {
 			any_owned_species = {
 				NOR = {
 					is_same_species = event_target:country_species
+					is_subspecies = event_target:country_species
 					is_robotic = yes
 					is_sapient = no
 				}
@@ -238,6 +324,7 @@ get_pirate_species = {
 				species = {
 					NOR = {
 						is_same_species = event_target:country_species
+						is_subspecies = event_target:country_species
 						is_robotic = yes
 						is_sapient = no
 					}
@@ -296,11 +383,12 @@ copy_leader_traits = {
 
 
 		if = { limit = { has_trait = leader_trait_cutie_adm }	event_target:new_bloom = { add_trait = leader_trait_cutie_adm }	}
-		if = { limit = { has_trait = leader_trait_warp_eng_adm }	event_target:new_bloom = { add_trait = leader_trait_warp_eng_adm }	}
-		if = { limit = { has_trait = leader_trait_pirate_adm }	event_target:new_bloom = { add_trait = leader_trait_pirate_adm }	}
+		if = { limit = { has_trait = leader_trait_warp_eng_adm } event_target:new_bloom = { add_trait = leader_trait_warp_eng_adm }	}
+		if = { limit = { has_trait = leader_trait_pirate_adm } event_target:new_bloom = { add_trait = leader_trait_pirate_adm }	}
 		if = { limit = { has_trait = leader_trait_admiral_adm }	event_target:new_bloom = { add_trait = leader_trait_admiral_adm }	}
 		if = { limit = { has_trait = leader_trait_officer_adm }	event_target:new_bloom = { add_trait = leader_trait_officer_adm }	}
-		if = { limit = { has_trait = leader_trait_marauder_adm }	event_target:new_bloom = { add_trait = leader_trait_marauder_adm }	}
+		if = { limit = { has_trait = leader_trait_marauder_adm }event_target:new_bloom = { add_trait = leader_trait_marauder_adm }	}
+		if = { limit = { has_trait = leader_trait_warform_adm } event_target:new_bloom = { add_trait = leader_trait_warform_adm }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_gen }	event_target:new_bloom = { add_trait = leader_trait_cutie_gen }	}
 		if = { limit = { has_trait = leader_trait_attache_gen }	event_target:new_bloom = { add_trait = leader_trait_attache_gen }	}
@@ -309,23 +397,31 @@ copy_leader_traits = {
 		if = { limit = { has_trait = leader_trait_cutie_gov }	event_target:new_bloom = { add_trait = leader_trait_cutie_gov }	}
 		if = { limit = { has_trait = leader_trait_liason_gov }	event_target:new_bloom = { add_trait = leader_trait_liason_gov }	}
 		if = { limit = { has_trait = leader_trait_economist_gov }	event_target:new_bloom = { add_trait = leader_trait_economist_gov }	}
+		if = { limit = { has_trait = leader_trait_dathnak_gov }	event_target:new_bloom = { add_trait = leader_trait_dathnak_gov }	}
+		if = { limit = { has_trait = leader_trait_racket_gov }	event_target:new_bloom = { add_trait = leader_trait_racket_gov }	}
 
 		if = { limit = { has_trait = leader_trait_cutie_sci }	event_target:new_bloom = { add_trait = leader_trait_cutie_sci }	}
 		if = { limit = { has_trait = leader_trait_distracted_sci }	event_target:new_bloom = { add_trait = leader_trait_distracted_sci }	}
 		if = { limit = { has_trait = leader_trait_academic_sci }	event_target:new_bloom = { add_trait = leader_trait_academic_sci }	}
+		if = { limit = { has_trait = leader_trait_dathnak_sci }	event_target:new_bloom = { add_trait = leader_trait_dathnak_sci }	}
+		if = { limit = { has_trait = leader_trait_stranded_sci }	event_target:new_bloom = { add_trait = leader_trait_stranded_sci }	}
 
 		if = { limit = { has_ruler_trait = leader_trait_cutie_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_cutie_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_beeple_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_warp_eng_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_warp_eng_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_pirate_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_pirate_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_beeple_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_warp_eng_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_warp_eng_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_pirate_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_pirate_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_admiral_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_admiral_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_distracted_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_distracted_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_liason_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_liason_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_distracted_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_distracted_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_liason_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_liason_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_attache_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_attache_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_officer_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_officer_rul }	}
 		if = { limit = { has_ruler_trait = leader_trait_economist_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_economist_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_academic_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_academic_rul }	}
-		if = { limit = { has_ruler_trait = leader_trait_marauder_rul }	event_target:new_bloom = { add_ruler_trait = leader_trait_marauder_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_academic_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_academic_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_marauder_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_marauder_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_dathnak_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_dathnak_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_warform_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_warform_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_stranded_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_stranded_rul }	}
+		if = { limit = { has_ruler_trait = leader_trait_racket_rul } event_target:new_bloom = { add_ruler_trait = leader_trait_racket_rul }	}
 
 
 
@@ -460,10 +556,10 @@ refresh_subject_count_loyalty_penalty = {
 					limit = {
 						NOT = { any_agreement = { specialist_tier = 3} }
 					}
-				}
-				add_modifier = {
-					modifier = divided_patronage
-					multiplier = PREV.domprot_subject_modifier
+					add_modifier = {
+						modifier = divided_patronage
+						multiplier = PREV.domprot_subject_modifier
+					}
 				}
 			}
 			else = {

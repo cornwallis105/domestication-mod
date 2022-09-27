@@ -152,3 +152,46 @@ leader_trait_marauder_adm = {
 		}
 	}
 }
+
+leader_trait_warform_adm = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warform.dds"
+	modifier = {
+		ship_fire_rate_mult = 0.1
+		ship_weapon_range_mult = 0.15
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { admiral }
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_brainslug_adm = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_brainslug_floret.dds"
+	modifier = {
+		ship_fire_rate_mult = 0.03
+		ship_evasion_mult = 0.03
+		ships_upkeep_mult = -0.07
+	}
+	initial = no
+	randomized = no
+
+	leader_trait = { admiral }
+	leader_class = { admiral }
+
+	ai_weight = {
+		weight = 0
+	}
+}

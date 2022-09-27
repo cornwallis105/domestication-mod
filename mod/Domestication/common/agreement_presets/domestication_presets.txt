@@ -31,7 +31,7 @@ preset_domprot = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_defensive
+				value = joins_overlord_wars_none
 			}
 			{
 				key = joins_subject_wars
@@ -92,7 +92,18 @@ preset_domprot = {
 		}
 		NOR = {
 			has_civic = civic_inwards_perfection
-			FROM = { has_civic = civic_inwards_perfection }
+			from = { has_civic = civic_inwards_perfection }
+		}
+		OR = {
+			is_hive_empire = no
+			from = { has_technology = tech_hivemind_domestication }
+		}
+		OR = {
+			is_machine_empire = no
+			from = {
+				has_technology = tech_hivemind_domestication
+				has_technology = tech_haustoric_module 
+			}
 		}
 	}
 }
@@ -121,7 +132,7 @@ preset_domprot_nice_01 = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_defensive
+				value = joins_overlord_wars_none
 			}
 			{
 				key = joins_subject_wars
@@ -225,7 +236,7 @@ preset_domprot_nice_02 = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_defensive
+				value = joins_overlord_wars_none
 			}
 			{
 				key = joins_subject_wars
@@ -329,7 +340,7 @@ preset_domprot_mean_01 = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_all
+				value = joins_overlord_wars_defensive
 			}
 			{
 				key = joins_subject_wars
@@ -437,7 +448,7 @@ preset_domprot_mean_02 = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_all
+				value = joins_overlord_wars_defensive
 			}
 			{
 				key = joins_subject_wars
@@ -545,7 +556,7 @@ preset_domprot_mean_03 = {
 			}
 			{
 				key = joins_overlord_wars
-				value = joins_overlord_wars_all
+				value = joins_overlord_wars_defensive
 			}
 			{
 				key = joins_subject_wars

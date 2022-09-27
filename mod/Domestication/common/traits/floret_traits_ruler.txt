@@ -271,10 +271,131 @@ leader_trait_marauder_rul = {
 	cost = 1
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warform.dds"
 	modifier = {
 		ship_evasion_mult = 0.025
 		ship_fire_rate_mult = 0.025
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_dathnak_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
+	modifier = {
+		country_society_research_produces_mult = 0.1
+		station_gatherers_produces_mult = 0.10
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.1
+		leaders_upkeep_mult = 0.2
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_warform_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
+	modifier = {
+		ship_weapon_damage = 0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_brainslug_rul = {
+	cost = 0
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_brainslug_floret.dds"
+	modifier = {
+		country_naval_cap_mult = 0.07
+		country_physics_research_produces_mult = 0.07
+		country_society_research_produces_mult = 0.07
+		country_engineering_research_produces_mult = 0.07
+	}
+	initial = no
+	randomized = no
+
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+leader_trait_stranded_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
+	modifier = {
+		planet_jobs_engineering_research_produces_mult = 0.05
+		planet_jobs_physics_research_produces_mult = 0.1
+		planet_jobs_society_research_produces_mult = 0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_racket_rul = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_economist.dds"
+	modifier = {
+		pop_government_ethic_attraction = 0.10
+		country_ruler_influence_produces_add = 0.25
+		planet_buildings_upkeep_mult = -0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

@@ -121,6 +121,11 @@ clerk = {
 			can_take_servant_job = yes
 		}
 		modifier = {
+			factor = 1.1
+			exists = owner
+			owner = { is_megacorp = yes }
+		}
+		modifier = {
 			factor = 0.01
 			is_pop_domesticable = yes
 		}
@@ -164,6 +169,7 @@ technician = {
 		}
 		produces = {
 			trigger = {
+				exists = owner
 				owner = {
 					is_robot_empire = yes
 				}
@@ -1153,10 +1159,27 @@ angler = {
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_valid_civic = civic_agrarian_idyll }
+		}
+		planet_amenities_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
 	weight = {
 		weight = @worker_job_weight
 		mult = value:job_weights_modifier|JOB|angler|RESOURCE|food|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
+		modifier = {
+			factor = 1.1
+			owner = { has_valid_civic = civic_agrarian_idyll }
+		}
+		modifier = {
+			factor = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
+			owner = { has_valid_civic = civic_agrarian_idyll }
+		}
 		modifier = {
 			factor = 10
 			is_enslaved = yes
@@ -1225,7 +1248,78 @@ ranger = {
 			factor = 1.5
 			has_job = ranger
 		}
+		modifier = {
+			factor = 0.4
+			is_pop_domesticable = yes
+		}
+		modifier = {
+			factor = 1.5
+			owner = { is_domesticator_or_protectorate = yes }
+			has_citizenship_type = { type = citizenship_full }
+		}
+	}
+}
 
+squire = {
+	category = worker
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_order_keep
+	clothes_texture_index = 4
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+		is_enslaved = no
+	}
+
+	possible_precalc = can_fill_specialist_job #deliberate, they are baby knights
+
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
+
+	planet_modifier = {
+		knights_independent_category_produces_mult = 0.02
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		planet_amenities_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = { has_modifier = syamelles_curse_habitat }
+		}
+		planet_pop_assembly_organic_add = 0.25
+	}
+
+	resources = {
+		category = planet_squires
+		upkeep = {
+			trigger = {
+				planet = { has_modifier = syamelles_curse_habitat }
+			}
+			alloys = 0.5
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+		factor = 1.2
+		
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes

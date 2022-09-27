@@ -23,6 +23,8 @@ domprot_1_modifier = {
 
   		# initialize floret index
   		country_event = {	id = domestication.7 }
+
+			add_modifier = { modifier = protectorate_1_floret_jobs }
 		}
 	}
 
@@ -31,7 +33,7 @@ domprot_1_modifier = {
 		target = {
 			restore_country_backup_data = yes
 
-      remove_modifier =  protectorate_floret_jobs
+      remove_modifier = protectorate_1_floret_jobs
 		}
 	}
 }
@@ -125,6 +127,18 @@ domprot_2_modifier = {
 		#num_tech_alternatives_add = 1
 		#description = domprot_2_modifier_desc
 	}
+
+	activate_effect = {
+		target = {
+			add_modifier = { modifier = protectorate_2_floret_jobs }
+			remove_modifier = protectorate_1_floret_jobs
+		}
+	}
+	deactivate_effect = {
+		target = {
+      remove_modifier = protectorate_2_floret_jobs
+		}
+	}
 }
 
 domprot_2_penalties = {
@@ -200,7 +214,17 @@ domprot_3_modifier = {
 		#description = domprot_3_modifier_desc
 	}
 
-	# Change country species and name
+	activate_effect = {
+		target = {
+			add_modifier = { modifier = protectorate_3_floret_jobs }
+			remove_modifier = protectorate_2_floret_jobs
+		}
+	}
+	deactivate_effect = {
+		target = {
+      remove_modifier = protectorate_3_floret_jobs
+		}
+	}
 
 }
 

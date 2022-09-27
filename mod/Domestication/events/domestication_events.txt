@@ -25,44 +25,55 @@ country_event = {
 	}
 
 	immediate = {
-		every_owned_pop = {
+		every_owned_planet = {
 			limit = {
-				has_job = floret
-				is_robot_pop = no
-				NOT = {
-					pop_has_trait = trait_haustoric_implant
+				any_owned_pop = {
+					has_job = floret
+					is_robot_pop = no
+					NOT = {
+						pop_has_trait = trait_haustoric_implant
+					}
 				}
 			}
-			modify_species = {
-				species = this
-				add_trait = trait_haustoric_implant
-				add_traits_at_start_of_list = yes
+			random_owned_pop = {
+				limit = {
+					has_job = floret
+					is_robot_pop = no
+					NOT = {
+						pop_has_trait = trait_haustoric_implant
+					}
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_haustoric_implant
+					add_traits_at_start_of_list = yes
 
-				effect = {
-					set_citizenship_type = {
-						country = root
-						type = citizenship_limited
-						cooldown = no
-					}
-					set_living_standard = {
-						country = root
-						type = living_standard_chemical_bliss
-						cooldown = no
-					}
-					set_military_service_type = {
-						country = root
-						type = military_service_none
-						cooldown = no
-					}
-					set_population_controls = {
-						country = root
-						type = yes
-						cooldown = no
-					}
-					set_colonization_controls = {
-						country = root
-						type = yes
-						cooldown = no
+					effect = {
+						set_citizenship_type = {
+							country = root
+							type = citizenship_limited
+							cooldown = no
+						}
+						set_living_standard = {
+							country = root
+							type = living_standard_chemical_bliss
+							cooldown = no
+						}
+						set_military_service_type = {
+							country = root
+							type = military_service_none
+							cooldown = no
+						}
+						set_population_controls = {
+							country = root
+							type = yes
+							cooldown = no
+						}
+						set_colonization_controls = {
+							country = root
+							type = yes
+							cooldown = no
+						}
 					}
 				}
 			}
@@ -261,10 +272,10 @@ country_event = {
 			}
 		}
 
-		add_modifier = {
-			modifier = "protectorate_floret_jobs"
-			days = -1
-		}
+		#add_modifier = {
+		#	modifier = "protectorate_floret_jobs"
+		#	days = -1
+		#}
 
 		# initialize floret index
 		country_event = {	id = domestication.7 }
@@ -376,7 +387,7 @@ country_event = {
 
 	immediate = {
 		remove_country_flag = flag_domesticated_protectorate
-		remove_modifier = protectorate_floret_jobs
+		#remove_modifier = protectorate_floret_jobs
 	}
 }
 
@@ -697,34 +708,45 @@ country_event = {
 	}
 
 	immediate = {
-		every_owned_pop = {
+		every_owned_planet = {
 			limit = {
-				is_robot_pop = yes
-				has_job = floret
-				NOT = {
-					pop_has_trait = trait_robot_haustoric_module
+				any_owned_pop = {
+					is_robot_pop = yes
+					has_job = floret
+					NOT = {
+						pop_has_trait = trait_robot_haustoric_module
+					}
 				}
 			}
-			modify_species = {
-				species = this
-				add_trait = trait_robot_haustoric_module
-				add_traits_at_start_of_list = yes
+			random_owned_pop = {
+				limit = {
+					is_robot_pop = yes
+					has_job = floret
+					NOT = {
+						pop_has_trait = trait_robot_haustoric_module
+					}
+				}
+				modify_species = {
+					species = this
+					add_trait = trait_robot_haustoric_module
+					add_traits_at_start_of_list = yes
 
-				effect = {
-					set_citizenship_type = {
-						country = root
-						type = citizenship_limited
-						cooldown = no
-					}
-					set_military_service_type = {
-						country = root
-						type = military_service_none
-						cooldown = no
-					}
-					set_colonization_controls = {
-						country = root
-						type = yes
-						cooldown = no
+					effect = {
+						set_citizenship_type = {
+							country = root
+							type = citizenship_limited
+							cooldown = no
+						}
+						set_military_service_type = {
+							country = root
+							type = military_service_none
+							cooldown = no
+						}
+						set_colonization_controls = {
+							country = root
+							type = yes
+							cooldown = no
+						}
 					}
 				}
 			}
@@ -1099,117 +1121,9 @@ country_event = {
 			}
 		}
 
-		assign_leader = last_created_leader
-
-		## Remove old leaders
-		every_owned_leader = {
-			limit = {
-				NOT = { is_same_species = this.owner_species }
-			}
-			kill_leader = {
-				fire = yes
-			}
-		}
-
-		add_modifier = {
-			modifier = "protectorate_floret_jobs"
-			days = -1
-		}
 
 		# initialize floret index
 		country_event = {	id = domestication.7 }
-	}
-}
-
-planet_event = {
-	id = domestication.20
-	hide_window = yes
-
-	is_triggered_only = yes
-
-	trigger = {
-		# if less than 2 affini pops on planet
-		count_owned_pop = {
-			limit = {
-				is_same_species = from.owner_species
-			}
-			count < 2
-		}
-	}
-
-	# this/root = planet
-	# from = affini compact
-
-	immediate = {
-		#this.country.overlord = {
-		#	save_event_target_as = overlord_empire
-		#}
-
-		from = {
-			owner_species = {
-				save_event_target_as = overlord_species
-			}
-		}
-
-		from = {
-			random_owned_planet = {
-				limit = {
-					count_owned_pop = {
-						limit = {
-							is_same_species = event_target:overlord_species
-							can_live_on_planet = root
-							OR = {
-								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
-							}
-
-						}
-						count > 2
-					}
-				}
-				save_event_target_as = overlord_planet
-				while = {
-					count = 2
-					random_owned_pop = {
-						limit = {
-							is_same_species = event_target:overlord_species
-							can_live_on_planet = root
-							OR = {
-								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
-							}
-						}
-						resettle_pop = {
-							pop = this
-							planet = root
-						}
-					}
-				}
-
-				root = {
-					while = {
-						count = 2
-						random_owned_pop = {
-							limit = {
-								NOT = { is_same_species = event_target:overlord_species }
-								is_sapient = yes
-								can_live_on_planet = event_target:overlord_planet
-							}
-							resettle_pop = {
-								pop = this
-								planet = event_target:overlord_planet
-							}
-						}
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -1410,6 +1324,22 @@ country_event = {
 				fire = yes
 			}
 		}
+		every_owned_leader = {
+			leader_event = { id = domestication_leader.13 }
+		}
+		every_pool_leader = {
+			limit = {
+				NAND =
+				{
+					is_same_species = this.owner_species
+					has_leader_flag = bloom_initialized
+				}
+			}
+			change_species = this.owner_species
+			change_leader_portrait = species
+			set_name = random
+			leader_event = { id = domestication_leader.13 }
+		}
 
 		every_owned_army = {
 			limit = {
@@ -1448,5 +1378,701 @@ country_event = {
 
 		# initialize floret index
 		#country_event = {	id = domestication.7 }
+	}
+}
+
+planet_event = {
+	id = domestication.24
+	title = ancrel.4059.name
+	desc = domestication.24.desc
+	location = event_target:sentinels_planet
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		room = no_video_feed_room
+	}
+
+	option = {
+		name = domestication.24.a # Accept protection
+		hidden_effect = { planet_event = { id = ancrel.4062 } }
+		remove_deposit = d_archaeological_site
+		add_deposit = d_sentinels
+	}
+}
+
+planet_event = {
+	id = domestication.25
+	title = ancrel.4059.name
+	desc = domestication.25.desc
+	location = event_target:sentinels_planet
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		room = no_video_feed_room
+	}
+
+	option = {
+		name = domestication.25.a # Domesticated Sentinels!
+		remove_deposit = d_archaeological_site
+		add_deposit = d_domesticated_sentinels
+	}
+}
+
+# Silent event to spawn Megafauna projects after researching the tech
+country_event = {
+	id = domestication.26
+	picture = GFX_evt_huge_monument
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_technology = tech_megafauna_domestication
+	}
+
+	immediate = {
+		# Sentinels
+		if = {
+			limit = {
+				any_owned_planet = { has_deposit = d_sentinels }
+			}
+			random_owned_planet = {
+				limit = { has_deposit = d_sentinels }
+				save_global_event_target_as = sentinels_planet
+			}
+			country_event = {
+				id = domestication.27
+				days = 30
+				random = 90
+			}
+		}
+		# Nemma
+		if = {
+			limit = {
+				any_owned_planet = { has_planet_flag = turtle_world_cotyledons }
+			}
+			random_owned_planet = {
+				limit = { has_planet_flag = turtle_world_cotyledons }
+				planet_event = {
+					id = domestication.38
+					days = 30
+					random = 90
+				}
+			}
+		}
+	}
+}
+
+# Domesticating the Sentinels
+country_event = {
+	id = domestication.27
+	title = domestication.27.name
+	desc =  domestication.27.desc
+	picture = GFX_evt_huge_monument
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_technology = tech_megafauna_domestication
+	}
+
+	# Create project to domesticate the Sentinels
+	option = {
+		name = domestication.27.a
+		trigger = {
+			always = yes
+		}
+		begin_event_chain = {
+			event_chain = "domesticating_the_sentinels"
+			target = ROOT
+		}
+		country_event = { id = domestication.28 }
+	}
+
+	# nope
+	option = {
+		name = domestication.27.b
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Informs player that they need to upgrade the system's starbase
+country_event = {
+	id = domestication.28
+	title = domestication.28.name
+	desc =  domestication.28.desc
+	picture = GFX_evt_megastructure_construction
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		always = yes
+	}
+
+	option = {
+		name = domestication.28.a
+		trigger = {
+			always = yes
+		}
+	}
+
+	immediate = {
+		set_country_flag = flag_domesticating_the_sentinels
+	}
+}
+
+# Domesticate the Sentinels, if the Starbase is good enough
+country_event = {
+	id = domestication.29
+	title = domestication.29.name
+	desc =  domestication.29.desc
+	picture = GFX_evt_space_station
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_country_flag = flag_domesticating_the_sentinels
+		event_target:sentinels_planet = {
+			owner = { is_same_value = prevprev }
+			starbase.fleet = { fleet_power >= 20000 }
+		}
+	}
+
+	option = {
+		name = domestication.29.a
+		trigger = {
+			always = yes
+		}
+		event_target:sentinels_planet = {
+			remove_deposit = d_sentinels
+			add_deposit = d_domesticated_sentinels
+			every_planet_army = {
+				limit = { army_type = "sentinel_army" }
+				remove_army = yes
+			}
+		}
+		hidden_effect = {
+			end_event_chain = "domesticating_the_sentinels"
+			country_event = {
+				id = domestication.30
+				days = 1800
+				random = 1080
+			}
+		}
+	}
+}
+
+# Domesticating the Sentinels: The Evermore
+country_event = {
+	id = domestication.30
+	title = domestication.30.name
+	desc = {
+ 		trigger = {
+ 			species = { is_species_class = PLANT }
+ 		}
+ 		text = domestication.30.desc.plant
+ 	}
+ 	desc = {
+ 		trigger = {
+			species = { NOT = { is_species_class = PLANT } }
+ 		}
+ 		text = domestication.30.desc
+ 	}
+	picture = GFX_evt_huge_monument
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	hide_window = no
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		has_country_flag = flag_domesticating_the_sentinels
+		event_target:sentinels_planet = {
+			owner = { is_same_value = prevprev }
+			starbase.fleet = { fleet_power >= 20000 }
+		}
+	}
+
+	option = {
+		name = domestication.30.a
+		trigger = {
+			always = yes
+		}
+		event_target:sentinels_planet = {
+			add_modifier = {
+				modifier = the_evermore_domesticated_modifier
+			}
+		}
+		hidden_effect = {
+			remove_country_flag = flag_domesticating_the_sentinels
+		}
+	}
+	option = {
+		name = domestication.30.b
+		trigger = {
+			always = yes
+		}
+		hidden_effect = {
+			remove_country_flag = flag_domesticating_the_sentinels
+		}
+	}
+}
+
+# gatekeeper event for periodic Overlord Floret migration
+country_event = {
+	id = domestication.31
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_specialist_subject_type = { TYPE = domprot }
+		any_owned_pop = {
+			OR = {
+				has_job = overlord_floret
+				has_job = overlord_floret_drone
+			}
+		}
+	}
+
+	# tier 1 = 0.5 per year = 1/24
+	# tier 2 = 1 per year = 1/12
+	# tier 3 = 2 per year = 1/6
+	immediate = {
+		random_list = {
+			4 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_3 }
+					}
+					country_event = { id = domestication.32 }
+				}
+			}
+			2 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_2 }
+					}
+					country_event = { id = domestication.32 }
+				}
+			}
+			1 = {
+				if = {
+					limit = {
+						this = { has_country_flag = flag_domprot_transfer_1 }
+					}
+					country_event = { id = domestication.32 }
+				}
+			}
+			89 = {
+				# no effect
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = domestication.32
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		this = {
+			is_specialist_subject_type = { TYPE = domprot }
+		}
+	}
+
+	immediate = {
+		#set_country_flag = flag_domesticated_protectorate
+
+		overlord = {
+			save_event_target_as = domesticator_overlord
+			species = {
+				save_event_target_as = overlord_species
+			}
+		}
+		this = {
+			save_event_target_as = domesticated_regime
+		}
+
+		random_owned_planet = {
+			limit = {
+				any_owned_pop = {
+					OR = {
+						has_job = overlord_floret
+						has_job = overlord_floret_drone
+					}
+				}
+			}
+			planet_event = {
+				id = domestication.33
+				scopes = { from = event_target:domesticator_overlord }
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = domestication.33
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_pop = {
+			OR = {
+				has_job = overlord_floret
+				has_job = overlord_floret_drone
+			}
+		}
+	}
+
+	# this/root = planet
+	# from = affini compact
+
+	immediate = {
+		from = {
+			owner_species = {
+				save_event_target_as = overlord_species
+			}
+		}
+
+		from = {
+			random_owned_planet = {
+				limit = {
+					has_available_jobs = "floret"
+				}
+				save_event_target_as = overlord_planet
+
+				root = {
+					random_owned_pop = {
+						limit = {
+							NOT = { is_same_species = event_target:overlord_species }
+							OR = {
+								has_job = overlord_floret
+								has_job = overlord_floret_drone
+							}
+						}
+
+						resettle_pop = {
+							pop = this
+							planet = event_target:overlord_planet
+						}
+						if = {
+							limit = {
+								pop_has_trait = trait_hive_mind
+							}
+							modify_species = {
+								species = this
+								remove_trait = trait_hive_mind
+								add_trait = trait_haustoric_hive_node
+								add_traits_at_start_of_list = yes
+
+								effect = {
+									set_citizenship_type = {
+										country = root
+										type = citizenship_limited
+										cooldown = no
+									}
+									set_living_standard = {
+										country = root
+										type = living_standard_chemical_bliss
+										cooldown = no
+									}
+									set_military_service_type = {
+										country = root
+										type = military_service_none
+										cooldown = no
+									}
+									set_population_controls = {
+										country = root
+										type = yes
+										cooldown = no
+									}
+									set_colonization_controls = {
+										country = root
+										type = yes
+										cooldown = no
+									}
+								}
+							}
+						}
+						else_if = {
+							limit = {
+								pop_has_trait = trait_machine_unit
+							}
+							modify_species = {
+								species = this
+								remove_trait = trait_machine_unit
+								add_trait = trait_haustoric_terminal_node
+								add_traits_at_start_of_list = yes
+
+								effect = {
+									set_citizenship_type = {
+										country = root
+										type = citizenship_limited
+										cooldown = no
+									}
+									set_living_standard = {
+										country = root
+										type = living_standard_chemical_bliss
+										cooldown = no
+									}
+									set_military_service_type = {
+										country = root
+										type = military_service_none
+										cooldown = no
+									}
+									set_population_controls = {
+										country = root
+										type = yes
+										cooldown = no
+									}
+									set_colonization_controls = {
+										country = root
+										type = yes
+										cooldown = no
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+# Domesticating the Nanite Swarm
+ship_event = {
+	id = domestication.34
+	title = domestication.34.name
+	desc =  domestication.34.desc
+	fire_only_once = yes
+	hide_window = no
+
+	picture = GFX_evt_gray_gooed_planet
+	show_sound = event_laboratory_sound
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.34.a
+		event_target:nanite_swarm_planet = {
+			remove_modifier = nanite_swarm_modifier
+			add_modifier = {
+				modifier = domesticated_nanite_swarm_modifier
+				days = -1
+			}
+			add_deposit = d_domesticated_nanites
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+			add_resource = { influence = 50 }
+		}
+		if = {
+			limit = {
+				owner_species = {
+					OR = {
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+						has_trait = trait_pc_habitat_preference
+						has_trait = trait_pc_shattered_ring_habitable_preference
+					}
+				}
+			}
+			event_target:nanite_swarm_planet = {
+				change_pc = pc_gaia
+				every_deposit = {
+					limit = { is_blocker = yes }
+					clear_blocker = yes
+				}
+			}
+		}
+		else = {
+			event_target:nanite_swarm_planet = {
+				change_pc = root.owner_species
+				every_deposit = {
+					limit = { is_blocker = yes }
+					clear_blocker = yes
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = domestication.35
+	title = "domestication.35.name"
+	desc = domestication.35.desc
+	picture = GFX_evt_unspeakable_horror
+	show_sound = event_space_amoeba
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {#Yes investigate the Nemmas
+		name = domestication.35.a
+		enable_special_project = {
+			name = "study_turtle_world_domestication_project"
+			location = this
+			owner = root
+		}
+	}
+	option = {#Leave the Nemmas alone
+		name = domestication.35.b
+		remove_modifier = "turtle_world_domesticator_modifier"
+		add_modifier = {
+			modifier = "turtle_world_modifier_alone"
+			days = -1
+		}
+	}
+}
+
+# domesticating the Nemma - Project complete
+planet_event = {
+	id = domestication.36
+	title = "domestication.36.name"
+	desc = {
+		trigger = { owner = { has_technology = tech_megafauna_domestication } }
+		text = "domestication.36.desc"
+	}
+	desc = {
+		trigger = { owner = { NOT = { has_technology = tech_megafauna_domestication } } }
+		text = "domestication.36.desc.no_tech"
+	}
+	picture = GFX_evt_board_meeting
+	show_sound = event_administrative_work
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.36.a
+		trigger = {
+			owner = {
+				has_technology = tech_megafauna_domestication
+			}
+		}
+		enable_special_project = {
+			name = "cotyledon_turtle_world_project"
+			location = this
+			owner = root
+		}
+	}
+
+	option = {
+		name = domestication.36.b
+		trigger = {
+			owner = {
+				NOT = { has_technology = tech_megafauna_domestication }
+			}
+		}
+		hidden_effect = {
+			set_planet_flag = turtle_world_cotyledons
+		}
+		if = {
+			limit = {
+				owner = { has_tech_option = tech_megafauna_domestication }
+			}
+			owner = {
+				add_tech_progress = {
+					tech = tech_megafauna_domestication
+					progress = 0.4
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				owner = { has_technology = tech_haustoric_implant }
+			}
+			owner = {
+				add_research_option = tech_megafauna_domestication
+				add_tech_progress = {
+					tech = tech_megafauna_domestication
+					progress = 0.1
+				}
+			}
+		}
+		else = {
+			owner = {
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = @tier3researchreward
+					min = @tier3researchmin
+					max = @tier3researchmax
+				}
+			}
+		}
+	}
+}
+
+# Nemma Domestication Complete!
+planet_event = {
+	id = domestication.37
+	title = "domestication.37.name"
+	desc = "domestication.37.desc"
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.37.a
+		add_deposit = d_domesticated_nemmas
+	}
+}
+
+# domesticating the Nemma - Project complete
+planet_event = {
+	id = domestication.38
+	title = "domestication.38.name"
+	desc = "domestication.38.desc"
+	picture = GFX_evt_board_meeting
+	show_sound = event_administrative_work
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.38.a
+		trigger = {
+			owner = {
+				has_technology = tech_megafauna_domestication
+			}
+		}
+		enable_special_project = {
+			name = "cotyledon_turtle_world_project"
+			location = this
+			owner = root
+		}
 	}
 }

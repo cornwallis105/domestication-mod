@@ -62,42 +62,9 @@ country_event = {
 				save_event_target_as = new_owner
 
 				add_trait = leader_trait_marauder_adm
+				add_ruler_trait = leader_trait_marauder_rul
 
-				if = {
-					limit = {
-						NOT = { is_variable_set = floret_count }
-					}
-					set_variable = {
-						which = floret_count
-						value = 0
-					}
-				}
-				if = {
-					limit = {
-						check_variable = {
-							which = floret_count
-							value = 0
-						}
-					}
-					set_variable = {
-						which = affini_id_1
-						value = event_target:floret_country.floret_index
-					}
-					change_variable = {
-						which = floret_count
-						value = 1
-					}
-				}
-				else = {
-					set_variable = {
-						which = affini_id_2
-						value = event_target:floret_country.floret_index
-					}
-					change_variable = {
-						which = floret_count
-						value = 1
-					}
-				}
+				floret_count_increment = yes
 			}
 
 			event_target:floret_country = {
@@ -117,58 +84,7 @@ country_event = {
 					}
 				}
 			}
-			event_target:new_floret = {
-				set_variable = {
-					which = floret_id
-					value = event_target:floret_country.floret_index
-				}
-				if = {
-					limit = {
-						event_target:new_owner = {
-							check_variable = {
-								which = floret_count
-								value = 1
-							}
-						}
-					}
-					event_target:new_floret = {
-						set_name = {
-							key = "domestication.floret_1"
-							variable_string = "this.GetName"
-						}
-						set_variable = {
-							which = floret_id
-							value = event_target:floret_country.floret_index
-						}
-						set_variable = {
-							which = floret_number
-							value = 1
-						}
-					}
-				}
-				else = {
-					event_target:new_floret = {
-						set_name = {
-							key = "domestication.floret_2"
-							variable_string = "this.GetName"
-						}
-						set_variable = {
-							which = floret_id
-							value = event_target:floret_country.floret_index
-						}
-						set_variable = {
-							which = floret_number
-							value = 2
-						}
-					}
-				}
-			}
-			event_target:floret_country = {
-				change_variable = {
-					which = floret_index
-					value = 1
-				}
-			}
+			floret_rename_single = yes
 		}
 
 		custom_tooltip = gain_marauder_admiral_floret

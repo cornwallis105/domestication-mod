@@ -159,3 +159,53 @@ military_service_limited = {
 		factor = 1
 	}
 }
+
+military_service_none = {
+	token = military_service_none
+	name = military_service_none
+
+	potential = {
+		OR = {
+			from = { NOT = { has_authority = auth_hive_mind } }
+			NOT = { has_trait = trait_hive_mind }
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = same_species_disallowed
+			NOT = { is_same_species = from }
+		}
+		custom_tooltip = {
+			fail_text = species_has_military_slavery
+			NOT = {
+				has_slavery_type = { country = from type = slavery_military }
+			}
+		}
+		custom_tooltip = {
+			fail_text = MACHINE_SPECIES_NOT_MACHINE
+			if = {
+				limit = {
+					from = { has_authority = auth_machine_intelligence }
+				}
+				NOR = {
+					has_trait = trait_mechanical
+					has_trait = trait_machine_unit
+				}
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			from = { is_domesticator_or_full_protectorate = no }
+		}
+		modifier = {
+			factor = 10
+			from = { is_domesticator_or_full_protectorate = yes }
+			NOT = { is_same_species = from }
+		}
+	}
+}

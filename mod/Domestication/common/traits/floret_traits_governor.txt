@@ -97,3 +97,71 @@ leader_trait_economist_gov = {
 		}
 	}
 }
+
+leader_trait_dathnak_gov = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_economist.dds"
+	modifier = {
+		planet_jobs_society_research_produces_mult = 0.1
+		planet_jobs_exotic_gases_produces_mult = 0.5
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.1
+		leaders_upkeep_mult = 0.2
+	}
+	leader_trait = { governor }
+	leader_class = { governor }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_brainslug_gov = {
+	cost = 1
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_brainslug_floret.dds"
+	modifier = {
+		planet_building_build_speed_mult = 0.07
+		planet_jobs_engineering_research_produces_mult = 0.1
+		planet_jobs_physics_research_produces_mult = 0.1
+		planet_jobs_society_research_produces_mult = 0.1
+	}
+	initial = no
+	randomized = no
+
+	leader_trait = { governor }
+	leader_class = { governor }
+
+	ai_weight = {
+		weight = 0
+	}
+}
+
+leader_trait_racket_gov = {
+	cost = 1
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_economist.dds"
+	modifier = {
+		planet_stability_add = 5
+		planet_jobs_unity_produces_mult = 0.05
+		planet_buildings_upkeep_mult = -0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { governor }
+	leader_class = { governor }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}

@@ -59,6 +59,8 @@ on_monthly_pulse_country = {
 		domestication.8 # Biorhythm Transmitter resettlement
 		domestication.21 # DomProt pop transfers
 		domestication.22 # DomProt protectorate tech bonus
+		domestication.29 # Domesticating the Sentinels - Starbase check
+		domestication.31 # DomProt Overlord Floret migration
 	}
 }
 
@@ -66,7 +68,7 @@ on_space_battle_won = {
 	random_events = {
 		300 = 0
 		6 = domestication_leader.2 # hyperdrive eng floret rescued in space battle
-		12 = domestication_leader.4 # pirate floret rescued in space battle
+		#12 = domestication_leader.4 # pirate floret rescued in space battle
 		6 = domestication_leader.5 # admiral floret rescued in space battle
 	}
 }
@@ -74,5 +76,6 @@ on_space_battle_won = {
 on_tech_increased = {
 	events = {
 		domestication.2 # Haustoric Implant info event
+		domestication.26 # Megafauna projects
 	}
 }

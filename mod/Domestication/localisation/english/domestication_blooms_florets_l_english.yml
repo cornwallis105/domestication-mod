@@ -102,7 +102,30 @@
 
  domestication.floret_1:0 "[this.GetName], First Floret"
  domestication.floret_2:0 "[this.GetName], Second Floret"
+ domestication.floret_3:0 "[this.GetName], Third Floret"
 
+ domestication.floret_pinnate_1_2:0 "[this.GetName], First and Second Florets Pinnate"
+ domestication.floret_pinnate_2_3:0 "[this.GetName], Second and Third Florets Pinnate"
+ domestication.floret_pinnate_3_4:0 "[this.GetName], Third and Fourth Florets Pinnate"
 
  domestication.bloom_name_set:0 "[root.GetName]"
  domestication.new_bloom_name_set:0 "[clone_bloom.GetName]"
+
+ DATHNAK_CHR_Chabky:0 "Chabky"
+ DATHNAK_CHR_Fotanga:0 "Fotanga"
+ DATHNAK_CHR_Paltanak:0 "Paltanak"
+ DATHNAK_CHR_Rapzak:0 "Rapzak"
+ DATHNAK_CHR_Rutmag:0 "Rutmag"
+ DATHNAK_CHR_Zakty:0 "Zakty"
+
+ domestication.floret_brainslug_1:0 "[this.GetName] and Blob"
+ domestication.floret_brainslug_2:0 "[this.GetName] and Gorp"
+ domestication.floret_brainslug_3:0 "[this.GetName] and Flerp"
+ domestication.floret_brainslug_4:0 "[this.GetName] and Sluggy"
+ domestication.floret_brainslug_5:0 "[this.GetName] and Squishy"
+ domestication.floret_brainslug_6:0 "[this.GetName] and Floob"
+ domestication.floret_brainslug_7:0 "[this.GetName] and Xyx"
+ domestication.floret_brainslug_8:0 "[this.GetName] and Doof"
+ domestication.floret_brainslug_9:0 "[this.GetName] and Vlomf"
+ domestication.floret_brainslug_10:0 "[this.GetName] and Glx"
+ domestication.floret_brainslug_11:0 "[this.GetName] and Gup"

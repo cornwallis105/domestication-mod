@@ -1,0 +1,51 @@
+special_project = {
+	key = "DOMESTICATE_THE_SWARM"
+	days_to_research = 300
+	timelimit = -1
+	picture = "GFX_evt_gray_goo"
+	icon = "gfx/interface/icons/situation_log/situation_log_ai.dds"
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	on_success = {
+		ship_event = { id = domestication.34 }
+	}
+	desc = {
+		trigger = { owner.capital_scope = { is_artificial = yes }  }
+		text = DOMESTICATE_THE_SWARM_DESC_ARTIFICIAL
+	}
+	desc = {
+		trigger = { owner.capital_scope = { is_artificial = no }  }
+		text = DOMESTICATE_THE_SWARM_DESC
+	}
+}
+
+special_project = {
+	key = "study_turtle_world_domestication_project"
+	days_to_research = 180
+	tech_department = society_technology
+	timelimit = -1
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = planet_event
+	on_success = {
+		planet_event = { id = domestication.36 }
+	}
+}
+
+special_project = {
+	key = "cotyledon_turtle_world_project"
+	cost = 2000
+	tech_department = society_technology
+	timelimit = -1
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = planet_event
+	on_success = {
+		planet_event = { id = domestication.37 }
+	}
+}

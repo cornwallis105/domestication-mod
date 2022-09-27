@@ -1,0 +1,26 @@
+﻿l_english:
+ # Diplomacy messages
+ 01_DEMAND_DOMEST_PROPOSE:0 "The §Y[From.GetName]§! hereby demands your immediate surrender and compliance with the [Root.GetSpeciesAdj] Domestication Program. Please do not fight us, we would hate to see harm come to any sophont."
+ 01_DEMAND_DOMEST_SELECT:0 "Let me see if I understand this correctly... you want to domesticate the [Root.GetName]?"
+ 02_DEMAND_DOMEST_SELECT:0 "I don't even know what to say to that..."
+ 03_DEMAND_DOMEST_SELECT:0 "You... you want to keep [Root.GetSpeciesNamePlural] as... livestock?"
+ 04_DEMAND_DOMEST_SELECT:0 "Have you lost your mind, [From.GetSpeciesNameInsult]?"
+ 01_DEMAND_DOMEST_ACCEPT:0 "We accept your terms and trust that we'll be safe in your [From.GetSpeciesHandNamePlural]. So, uh, does that make you my owner now...?"
+ 02_DEMAND_DOMEST_ACCEPT:0 "We have little choice but to accept your... \"domestication.\" Um, why are you looking at me like that?"
+ 01_DEMAND_DOMEST_REFUSE:0 "We cannot accept your proposal in good conscience. Make of what what you will."
+ 02_DEMAND_DOMEST_REFUSE:0 "We would never surrender our freedom to the likes of you!"
+ 03_DEMAND_DOMEST_REFUSE:0 "Free [Root.GetSpeciesNamePlural] will never be slaves to [From.GetSpeciesNamePluralInsult]!"
+ 04_DEMAND_DOMEST_REFUSE:0 "We would sooner reduce [Root.Capital.GetName] to ashes than accept your shackles!"
+
+  # Domesticators
+ DOM_HOSTILE_GREETING_01:0 "You [From.GetSpeciesNamePlural] are clearly a danger to yourselves and others."
+ DOM_HOSTILE_GREETING_02:0 "[From.GetSpeciesNamePlural]... So cute, and yet so misguided. You will learn the joys of domestication, in due time."
+ DOM_DOMINEERING_GREETING_01:0 "The future of your civilization will be dictated by the terms of the [From.GetSpeciesAdj] Domestication Treaty."
+ DOM_NEUTRAL_GREETING_01:0 "We look forward to... ~closer~ relations with the [From.GetName]."
+ DOM_NEUTRAL_GREETING_02:0 "As you explore the galaxy, be sure that the [From.GetName] does not prove to be a danger to itself or others."
+ DOM_THREATENED_GREETING_01:0 "The [From.GetSpeciesAdj] Domestication Program may have to be postponed indefinitely."
+ DOM_FRIENDLY_GREETING_01:0 "Well, aren't you just the cutest little [From.GetSpeciesName] I've ever seen!"
+ DOM_FRIENDLY_GREETING_02:0 "The [From.GetName] and the [Root.GetAllianceName] can build a better universe, together."
+ DOM_FRIENDLY_GREETING_03:0 "This may be unprofessional, but have you ever considered becoming a floret? Trust me, you'd look good in a collar."
+ DOM_WAR_GREETING_01:0 "This war is senseless. A better future for the [From.GetSpeciesName] people starts with surrender."
+ DOM_WAR_GREETING_02:0 "Are you ready to discuss the terms of the [From.GetSpeciesAdj] Domestication Treaty?"

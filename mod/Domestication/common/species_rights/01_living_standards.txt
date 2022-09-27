@@ -1,3 +1,204 @@
+# from = country
+# this = species
+#triggered_pop_modifier = {
+#	potential = { is_pop_category = ruler }
+#	pop_happiness = 0.15
+#}
+
+living_standard_deassimilation = {
+	token = living_standard_deassimilation
+	name = living_standard_deassimilation
+
+	pop_modifier = {}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		has_trait = trait_hive_mind
+		from = {
+			NOT = { has_ethic = ethic_gestalt_consciousness }
+			has_ascension_perk = ap_evolutionary_mastery
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_ego_assimilation = {
+	token = living_standard_ego_assimilation
+	name = living_standard_ego_assimilation
+
+	in_breach_of = {
+		{
+			trigger = {
+				is_gestalt = yes
+			}
+			key = resolution_greatergood_universal_prosperity_mandate
+		}
+	}
+
+	pop_modifier = {
+		pop_happiness = -0.50
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			OR = {
+				AND = {
+					has_authority = auth_hive_mind
+					has_ascension_perk = ap_evolutionary_mastery
+					NOT = { has_civic = civic_hive_devouring_swarm }
+				}
+				AND = {
+					has_authority = auth_machine_intelligence
+					has_valid_civic = civic_machine_assimilator
+				}
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_tech_assimilation = {
+	token = living_standard_tech_assimilation
+	name = living_standard_tech_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			OR = {
+				has_country_flag = flesh_weakened
+				has_country_flag = synthetic_empire
+			}
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+living_standard_psi_assimilation = {
+	token = living_standard_psi_assimilation
+	name = living_standard_psi_assimilation
+
+	pop_modifier = {
+		pop_happiness = -0.25
+	}
+
+	potential = {
+		host_has_dlc = "Utopia"
+		exists = from
+		from = {
+			has_ascension_perk = ap_transcendence
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_BE_ASSIMILATING
+			has_citizenship_type = {
+				type = citizenship_assimilation
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
+
+living_standard_organic_trophy = {
+	token = living_standard_organic_trophy
+	name = living_standard_organic_trophy
+
+	triggered_pop_modifier = {
+		potential = {
+			NAND = {
+				exists = owner
+				owner = { has_deficit = consumer_goods }
+			}
+		}
+		pop_happiness = 0.4
+	}
+
+	pop_modifier = {
+		pop_category_bio_trophy_consumer_goods_upkeep_add = @living_standard_luxuries_very_high
+	}
+
+	potential = {
+		host_has_dlc = "Synthetic Dawn Story Pack"
+		exists = from
+		from = {
+			has_authority = auth_machine_intelligence
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = species_is_not_trophy
+			has_citizenship_type = {
+				type = citizenship_organic_trophy
+				country = from
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 100
+	}
+}
+
 living_standard_chemical_bliss = {
 	token = living_standard_chemical_bliss
 	name = living_standard_chemical_bliss
@@ -103,7 +304,12 @@ living_standard_shared_burden = {
 
 	potential = {
 		exists = from
-		from = { has_valid_civic = civic_shared_burden }
+		from = {
+			OR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
+		}
 	}
 
 	triggered_pop_modifier = {
@@ -162,6 +368,7 @@ living_standard_shared_burden = {
 		factor = 1
 	}
 }
+
 
 living_standard_utopian = {
 	token = living_standard_utopian
@@ -348,7 +555,10 @@ living_standard_academic_privilege = {
 		exists = from
 		from = {
 			is_gestalt = no
-			NOT = { has_valid_civic = civic_shared_burden }
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
 		}
 		NOR = {
 			has_trait = trait_hive_mind
@@ -494,7 +704,10 @@ living_standard_good = {
 		exists = from
 		from = {
 			is_gestalt = no
-			NOT = { has_valid_civic = civic_shared_burden }
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
 		}
 		NOR = {
 			has_trait = trait_hive_mind
@@ -646,7 +859,10 @@ living_standard_normal = {
 		exists = from
 		from = {
 			is_gestalt = no
-			NOT = { has_valid_civic = civic_shared_burden }
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
 		}
 		NOR = {
 			has_trait = trait_hive_mind
@@ -763,7 +979,10 @@ living_standard_stratified = {
 		exists = from
 		from = {
 			is_gestalt = no
-			NOT = { has_valid_civic = civic_shared_burden }
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
 		}
 		NOR = {
 			has_trait = trait_hive_mind
@@ -887,7 +1106,12 @@ living_standard_subsistence = {
 
 	potential = {
 		exists = from
-		NOT = { from = { has_valid_civic = civic_shared_burden } }
+		from = {
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
+		}
 		OR = {
 			from = { is_gestalt = no }
 			has_citizenship_type = { type = citizenship_slavery country = from }
@@ -953,6 +1177,77 @@ living_standard_subsistence = {
 	}
 }
 
+living_standard_servitude = {
+	token = living_standard_servitude
+	name = living_standard_servitude
+
+	potential = {
+		exists = from
+		from = { is_gestalt = no }
+		has_trait = trait_mechanical
+	}
+
+	allow = {
+		custom_tooltip = {
+			fail_text = requires_servitude
+			has_citizenship_type = { type = citizenship_robot_servitude country = from }
+		}
+	}
+
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+# Used for pops that have no happiness
+living_standard_hive_mind = {
+	token = living_standard_hive_mind
+	name = living_standard_hive_mind
+
+	potential = {
+		from = { has_ethic = ethic_gestalt_consciousness }
+	}
+
+	allow = {
+		if = {
+			limit = {
+				from = { has_authority = auth_hive_mind }
+			}
+			custom_tooltip = {
+				fail_text = species_is_not_hive
+				has_trait = trait_hive_mind
+			}
+		}
+		else_if = {
+			limit = { from = { has_authority = auth_machine_intelligence } }
+			custom_tooltip = {
+				fail_text = species_is_not_machine
+				OR = {
+					has_trait = trait_machine_unit
+					has_trait = trait_mechanical
+					AND = {
+						from = { has_civic = civic_machine_assimilator }
+						has_trait = trait_cybernetic
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = SPECIES_MUST_NOT_BE_ASSIMILATING
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_assimilation
+					country = from
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
 living_standard_decadent = {
 	token = living_standard_decadent
 	name = living_standard_decadent
@@ -961,7 +1256,12 @@ living_standard_decadent = {
 		host_has_dlc = "Humanoids Species Pack"
 		exists = from
 		from = { is_pleasure_seeker = yes }
-		NOT = { from = { has_valid_civic = civic_shared_burden } }
+		from = {
+			NOR = {
+				has_valid_civic = civic_shared_burden
+				has_valid_civic = civic_cosmic_harmony
+			}
+		}
 		OR = {
 			from = { is_gestalt = no }
 			has_citizenship_type = { type = citizenship_slavery country = from }
@@ -1031,6 +1331,34 @@ living_standard_decadent = {
 		pop_category_workers_consumer_goods_upkeep_add = @living_standard_luxuries_normal_decadent
 		pop_cat_ruler_political_power = 7
 		pop_cat_specialist_political_power = 1
+	}
+
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+# only for purge, so no happiness effect
+living_standard_none = {
+	token = living_standard_none
+	name = living_standard_none
+
+	allow = {
+		hidden_trigger = { exists = from }
+		custom_tooltip = {
+			fail_text = species_is_neutered_displaced
+			OR = {
+				has_citizenship_type = { country = from type = citizenship_purge_machine }
+				has_citizenship_type = { country = from type = citizenship_purge }
+			}
+			NOR = {
+				has_purge_type = { country = from type = purge_neutering }
+				AND = {
+					has_purge_type = { country = from type = purge_displacement }
+					is_robotic_species = no
+				}
+			}
+		}
 	}
 
 	ai_will_do = {

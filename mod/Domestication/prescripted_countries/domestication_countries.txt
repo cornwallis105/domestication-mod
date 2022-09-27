@@ -41,23 +41,22 @@ terran_accord = {
 	graphical_culture = "humanoid_01"
 	city_graphical_culture = "humanoid_01"
 
-  empire_flag={
+	empire_flag={
 		icon={
 			category="human"
 			file="flag_human_9.dds"
 		}
 		background={
 			category="backgrounds"
-			file="horizontal_stripe.dds"
+			file="flag_BG_48.dds"
 		}
 		colors={
 			"blue"
-			"yellow"
+			"white"
 			"null"
 			"null"
 		}
 	}
-
 	ruler = {
 		name = "PRESCRIPTED_ruler_name_human3"
 		gender = male
@@ -108,11 +107,11 @@ affini_compact = {
 
 	authority = "auth_democratic"
   civics={
-		"civic_domesticators"
+		"civic_cosmic_harmony"
 		"civic_byzantine_bureaucracy"
 	}
 	government = gov_domesticator_democracy
-	origin = "origin_syncretic_evolution"
+	origin = "origin_domesticators"
 
   ethic="ethic_fanatic_xenophile"
 	ethic="ethic_militarist"

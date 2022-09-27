@@ -377,7 +377,7 @@ tech_haustoric_module = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = physics
 				has_trait = "leader_trait_expertise_computing"
 			}
 		}
@@ -387,7 +387,7 @@ tech_haustoric_module = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
-				area = society
+				area = physics
 				has_trait = "leader_trait_expertise_computing"
 			}
 		}

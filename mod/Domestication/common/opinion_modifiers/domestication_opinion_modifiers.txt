@@ -38,3 +38,16 @@ opinion_our_domesticated_hivemind = {
 	}
 	unique = yes
 }
+
+triggered_opinion_hive_mind_empath = {
+	trigger = {
+		is_country_type = default
+		FROM = {
+			has_valid_civic = "civic_cosmic_harmony"
+		}
+	}
+
+	opinion = {
+		base = 10
+	}
+}

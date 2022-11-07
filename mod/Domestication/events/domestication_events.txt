@@ -2076,3 +2076,147 @@ planet_event = {
 		}
 	}
 }
+
+# domesticating the Sneks - Gatekeeper
+planet_event = {
+	id = domestication.39
+	location = ROOT
+	trackable = yes
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			5 = {
+				planet_event = {
+					id = domestication.40
+				}
+			}
+			10 = {
+				planet_event = {
+					id = domestication.41
+				}
+			}
+			5 = {
+				planet_event = {
+					id = domestication.42
+				}
+			}
+		}
+	}
+}
+
+# domesticating the Sneks - Good ending
+planet_event = {
+	id = domestication.40
+	title = "domestication.40.name"
+	desc = {
+		trigger = {
+			owner = { has_technology = tech_epigenetic_triggers	}
+		}
+		text = "domestication.40.desc.1"
+	}
+	desc = {
+		trigger = {
+			NOT = { owner = { has_technology = tech_epigenetic_triggers	} }
+		}
+		text = "domestication.40.desc.2"
+	}
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_primitive_civilization
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.40.a
+		create_species = {
+			name = NAME_Hiss
+			class = PRE_REP
+			portrait = pre_rep09
+			homeworld = root
+			sapient = no
+			traits = { trait = random_presapient_trait }
+			effect = { save_event_target_as = latest_presapient }
+		}
+		while = {
+			count = 5
+			create_pop = {
+				species = event_target:latest_presapient
+			}
+		}
+	}
+}
+
+# domesticating the Sneks - Medium ending
+planet_event = {
+	id = domestication.41
+	title = "domestication.41.name"
+	desc = "domestication.41.desc"
+	picture = GFX_evt_animal_wildlife
+	show_sound = event_alien_nature
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.41.a
+		add_deposit = d_alien_pets_deposit
+		if = {
+			limit = {
+				NOT = { owner = { has_technology = tech_epigenetic_triggers } }
+			}
+			owner = {
+				add_research_option = tech_epigenetic_triggers
+				add_tech_progress = {
+					tech = tech_epigenetic_triggers
+					progress = 0.25
+				}
+			}
+		}
+		else = {
+			owner = {
+				add_monthly_resource_mult = {
+					resource = society_research
+					value = @tier2researchreward
+					min = @tier2researchmin
+					max = @tier2researchmax
+				}
+			}
+		}
+	}
+}
+
+# domesticating the Sneks - Bad ending
+planet_event = {
+	id = domestication.42
+	title = "domestication.42.name"
+	desc = "domestication.42.desc"
+	picture = GFX_evt_alien_wildlife
+	show_sound = event_alien_nature
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = domestication.42.a
+		if = {
+			limit = { NOT = { root = { has_planet_modifier = pm_dangerous_wildlife } } }
+			add_modifier = {
+				modifier = dangerous_wildlife
+			}
+		}
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier3researchreward
+				min = @tier3researchmin
+				max = @tier3researchmax
+			}
+		}
+	}
+}

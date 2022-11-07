@@ -165,3 +165,18 @@
  domestication.38.name:0 "The Nemmas, Revisited"
  domestication.38.desc:0 "Shelving the plans for domesticating the Nemmas of [Root.GetName] was a regretable necessity, but recent scientific discoveries have brought the project back under consideration. It will still take some time to determine what kind of implant will work in a reptile the size of an island, but the promise of mega-florets is motivation enough for any [Root.Owner.GetSpeciesName]."
  domestication.38.a:0 "Project approved, signed and dated."
+
+ colony.9100.c:0 "But do they make good pets?"
+ NAME_Hiss:0 "Hiss" #snakes
+ SNEK_DOMESTICATION_PROJECT:0 "Domesticate the Ophidians"
+ SNEK_DOMESTICATION_PROJECT_desc:0 "Domestication! We're trying domestication! After a series of careful observations and productive meetings (all recorded and filed with the proper bureaus), we intend to study the ophidians to see if they can properly be called \"sophonts.\" If we can find evidence of tool use and adaptive strategy, we may be able to pivot into a cotyledon project!"
+ domestication.40.name:0 "Nearly Sophonts"
+ domestication.40.desc.1:0 "After exstensive research and experimentation, we have determine that while the ophidians, or, as our scientists on §Y[root.GetName]§! have dubbed them, the \"Hiss,\" are not sapient, they aren't far off either. We suspect that it may be possible to \"Uplift\" the cuties to true sapience, but such a feat is beyond our current capabilities.\n\nIn the meantime, we have managed to pacify the Hiss, removing the immediate threat posed to our colony."
+ domestication.40.desc.2:0 "After exstensive research and experimentation, we have determine that while the ophidians, or, as our scientists on §Y[root.GetName]§! have dubbed them, the \"Hiss,\" are not sapient, they aren't far off either. Our scientists believe that it will be possible to Uplift the cuties, and they have filed the necessary timelines and resource requistions for our approval.\n\nIn the meantime, we have managed to pacify the Hiss, removing the immediate threat posed to our colony."
+ domestication.40.a:0 "Excellent!"
+ domestication.41.name:0 "Pets, Not Florets"
+ domestication.41.desc:0 "After exstensive research and experimentation, we have determined that the ophidians, or, as our scientists on §Y[root.GetName]§! have dubbed them, the \"Hiss,\" are not sapient. While they will likely never possess the level of intelligence necessary to be considered \"sophonts,\" we have still managed to domesticate them in a more animal sense. The docile creatures no longer pose a threat to our colony, and [root.owner.GetSpeciesNamePlural] are traveling from across the sector to play with the cuties."
+ domestication.41.a:0 "Understood"
+ domestication.42.name:0 "Untamable Ophidians"
+ domestication.42.desc:0 "After exstensive research and experimentation, we have reached the unfortunate conclusion that the ophidians §Y[root.GetName]§! simply cannot be domesticated. They lack the requisite intelligence to be considered \"sophonts,\" and furthermore, our attempts to pacify them have been largely unsuccessful. The colonists on [root.GetName] will simply have to adapt to the constant threat that the ophidians pose."
+ domestication.42.a:0 "Disappointing"

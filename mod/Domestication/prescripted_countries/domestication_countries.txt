@@ -133,8 +133,8 @@ affini_compact = {
 			file="diagonal_stripe.dds"
 		}
 		colors={
-			"green"
-			"dark_brown"
+			"satin_burgundy"
+			"black"
 			"null"
 			"null"
 		}

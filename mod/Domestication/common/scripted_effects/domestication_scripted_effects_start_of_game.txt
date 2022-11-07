@@ -352,6 +352,20 @@ generate_start_pops = {
 	}
 	if = {
 		limit = {
+			owner = { has_origin = origin_domesticators }
+		}
+		while = {
+			count = 4
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+		add_district_and_planet_size_if_needed_effect = { district = district_farming }
+		add_district_and_planet_size_if_needed_effect = { district = district_generator }
+	}
+	if = {
+		limit = {
 			owner = {
 				has_civic = civic_permanent_employment
 			}

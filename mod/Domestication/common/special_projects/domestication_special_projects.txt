@@ -63,3 +63,61 @@ special_project = {
 		planet_event = { id = domestication.39 }
 	}
 }
+
+special_project = {
+	key = "MESSENGER_POD_PROJECT_2_UNLEASHED"
+	cost = 500
+	#days_to_research = 60
+	tech_department = society_technology
+	picture = GFX_evt_genetic_modification
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+	location = no
+
+	event_scope = planet_event
+
+	requirements = {
+		leader = scientist
+		#skill = 2
+		is_founder_species = yes
+	}
+
+	on_success = {
+		if = {
+			limit = { owner = { is_domesticator = no } }
+			owner = { country_event = { id = akx.9210 } }
+		}
+		else = {
+			#owner = { country_event = {  } }
+		}
+	}
+
+	on_fail = {
+	}
+}
+
+
+special_project = {
+	key = "MESSENGER_POD_PROJECT_2_LEASHED"
+	cost = 500
+	#days_to_research = 60
+	tech_department = society_technology
+	picture = GFX_evt_genetic_modification
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+	location = no
+
+	event_scope = planet_event
+
+	requirements = {
+		leader = scientist
+		#is_researching_area = society
+		#skill = 2
+		is_founder_species = yes
+	}
+
+	on_success = {
+		owner = { country_event = { id = akx.9220 } }
+	}
+
+	on_fail = {
+	}
+}

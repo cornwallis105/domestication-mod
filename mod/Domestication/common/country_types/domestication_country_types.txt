@@ -9,12 +9,14 @@ floret_repo = {
 		needs_border_access = no
 		generate_borders = no
 		needs_colony = no
+		auto_delete = no
 	}
 	modules = {
-    all_technology_module = {}
+		#standard_event_module = {}
+		all_technology_module = {}
 		exclusive_diplomacy_module = { # Nothing is allowed, but we need this for relationships.
 			contact_rule = on_action_only
 		}
-		standard_leader_module = {}
+		#standard_leader_module = {}
 	}
 }

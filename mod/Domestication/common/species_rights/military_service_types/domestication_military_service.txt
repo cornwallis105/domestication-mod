@@ -1,6 +1,4 @@
 military_service_full = {
-	token = military_service_full
-
 	potential = {
 		if = {
 			limit = {
@@ -113,9 +111,6 @@ military_service_full = {
 }
 
 military_service_limited = {
-	token = military_service_limited
-	name = military_service_limited
-
 	potential = {
 		from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 	}
@@ -161,9 +156,6 @@ military_service_limited = {
 }
 
 military_service_none = {
-	token = military_service_none
-	name = military_service_none
-
 	potential = {
 		OR = {
 			from = { NOT = { has_authority = auth_hive_mind } }
@@ -197,13 +189,9 @@ military_service_none = {
 		}
 	}
 	ai_will_do = {
-		factor = 1
+		factor = 0
 		modifier = {
-			factor = 0
-			from = { is_domesticator_or_full_protectorate = no }
-		}
-		modifier = {
-			factor = 10
+			add = 10
 			from = { is_domesticator_or_full_protectorate = yes }
 			NOT = { is_same_species = from }
 		}

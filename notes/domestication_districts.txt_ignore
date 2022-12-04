@@ -27,11 +27,16 @@ district_city = {
 	}
 
 	potential = {
-		exists = owner
-		owner = {
-			OR = {
-				is_regular_empire = yes
-				is_country_type = primitive
+		OR = {
+			NOT = { exists = owner } #this condition is needed for galaxy generation
+			AND = {
+				exists = owner
+				owner = {
+					OR = {
+						is_regular_empire = yes
+						is_country_type = primitive
+					}
+				}
 			}
 		}
 		OR = {
@@ -134,7 +139,7 @@ district_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = no
 				}
 			}
@@ -149,7 +154,7 @@ district_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -172,7 +177,7 @@ district_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -290,7 +295,7 @@ district_arcology_housing = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = no
 				}
 			}
@@ -323,7 +328,7 @@ district_arcology_housing = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -333,33 +338,43 @@ district_arcology_housing = {
 		}
 	}
 
-	#triggered_desc = {
-	#	trigger = {
-	#		exists = owner
-	#		owner = {
-	#				has_active_tradition = tr_prosperity_interstellar_franchising
-	#				is_domesticator_or_protectorate = yes
-	#		}
-	#	}
-	#	text = job_floret_effect_desc
-	#}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_mercantile_trickle_up_economics
+				is_domesticator_or_protectorate = yes
+			}
+		}
+		text = job_floret_effect_desc
+	}
 }
 
-district_hab_housing = {
+district_hab_commercial = {
 	base_buildtime = 240
 	is_capped_by_modifier = no
-	exempt_from_ai_planet_specialization = yes
 
 	show_on_uncolonized = {
 		uses_district_set = habitat
+
+		exists = from
+		from = { is_gestalt = no }
 	}
 
 	potential = {
 		uses_district_set = habitat
+
+		exists = owner
+		owner = { is_gestalt = no }
+	}
+
+	conversion_ratio = 0.5
+	convert_to = {
+		district_hab_energy
 	}
 
 	resources = {
-		category = planet_districts
+		category = planet_districts_hab_trade
 		cost = {
 			minerals = @hab_cost
 		}
@@ -369,33 +384,70 @@ district_hab_housing = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 8
+		planet_housing_add = 3
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = { has_active_tradition = tr_mercantile_trickle_up_economics }
 		}
 		modifier = {
-			job_maintenance_drone_add = 2
+			job_clerk_add = 1
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
+	triggered_planet_modifier = {
+		potential = {
 			exists = owner
-			owner = { is_gestalt = yes }
+			owner = { is_fallen_empire_spiritualist = no }
 		}
-		text = job_maintenance_drone_effect_desc
+		modifier = {
+			job_clerk_add = 3
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_fallen_empire_spiritualist = yes }
+		}
+		modifier = {
+			job_manager_add = 3
+		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = {
+				has_active_tradition = tr_mercantile_commercial_enterprise
+			}
+		}
+		modifier = {
+			job_merchant_add = 1
+		}
+	}
+
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}
+	triggered_desc = {
+		text = job_merchant_effect_desc
+		trigger = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_mercantile_commercial_enterprise
+			}
+		}
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -410,7 +462,7 @@ district_hab_housing = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -522,7 +574,7 @@ district_rw_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = no
 				}
 			}
@@ -555,7 +607,7 @@ district_rw_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}
@@ -570,7 +622,7 @@ district_rw_city = {
 			exists = owner
 			owner = {
 				AND = {
-					has_active_tradition = tr_prosperity_interstellar_franchising
+					has_active_tradition = tr_mercantile_trickle_up_economics
 					is_domesticator_or_protectorate = yes
 				}
 			}

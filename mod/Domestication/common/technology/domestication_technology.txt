@@ -40,11 +40,15 @@ tech_subdermal_stimulation = {
 			}
 		}
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_biology"
 			}
+		}
+		modifier = {
+			factor = 2
+			has_relic = r_pox_sample
 		}
 	}
 
@@ -111,7 +115,7 @@ tech_tracking_implants = {
 			}
 		}
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_statecraft"
@@ -176,11 +180,11 @@ tech_haustoric_implant = {
 			has_federation = yes
 			federation = {
 				has_federation_perk = rare_tech_boost
-				any_member = { has_technology = tech_subdermal_stimulation }
+				any_member = { has_technology = tech_haustoric_implant }
 			}
 		}
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_biology"
@@ -233,7 +237,7 @@ tech_biorhythm_amplification = {
 			num_species > 6
 		}
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_statecraft"
@@ -291,7 +295,7 @@ tech_megafauna_domestication = {
 			}
 		}
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_biology"
@@ -325,7 +329,7 @@ tech_hivemind_domestication = {
 
 	weight_modifier = {
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = society
 				has_trait = "leader_trait_expertise_biology"
@@ -375,7 +379,7 @@ tech_haustoric_module = {
 		}
 
 		modifier = {
-			factor = 1.25
+			factor = value:tech_weight_likelihood
 			research_leader = {
 				area = physics
 				has_trait = "leader_trait_expertise_computing"

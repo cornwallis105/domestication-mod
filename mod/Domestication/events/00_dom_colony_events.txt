@@ -70,6 +70,10 @@ planet_event = {
     trigger = {
       owner = { is_domesticator_or_protectorate = yes }
     }
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
     name = colony.9000.dom
     add_modifier = {
 			modifier = "turtle_world_domesticator_modifier"
@@ -84,47 +88,51 @@ planet_event = {
 }
 
 # Insidious Ophidians
-planet_event = {
-	id = colony.9100
-	title = colony.9100.name
-	desc = colony.9100.desc
-	picture = GFX_evt_alien_nature
-	show_sound = event_air_raid_siren
-	location = ROOT
-
-	is_triggered_only = yes
-
-	trigger = {
-		original_owner = yes
-	}
-
-	option = {
-		name = colony.9100.a
-		enable_special_project = {
-			name = SNEK_SCIENCE_PROJECT
-			location = this
-			owner = root.owner
-		}
-	}
-
-	option = {
-		name = colony.9100.b
-		enable_special_project = {
-			name = SNEK_WAR_PROJECT
-			location = this
-			owner = root.owner
-		}
-	}
-
-	option = {
-		name = colony.9100.c
-		trigger = {
-			owner = { is_domesticator_or_full_protectorate = yes }
-		}
-		enable_special_project = {
-			name = SNEK_DOMESTICATION_PROJECT
-			location = this
-			owner = root.owner
-		}
-	}
-}
+#planet_event = {
+#	id = colony.9100
+#	title = colony.9100.name
+#	desc = colony.9100.desc
+#	picture = GFX_evt_alien_nature
+#	show_sound = event_air_raid_siren
+#	location = ROOT
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		original_owner = yes
+#	}
+#
+#	option = {
+#		name = colony.9100.a
+#		enable_special_project = {
+#			name = SNEK_SCIENCE_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#
+#	option = {
+#		name = colony.9100.b
+#		enable_special_project = {
+#			name = SNEK_WAR_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#
+#	option = {
+#		name = colony.9100.c
+#		trigger = {
+#			owner = { is_domesticator_or_full_protectorate = yes }
+#		}
+#		icon = {
+#			icon = GFX_domesticators_icon
+#			text = dialog_domesticator
+#		}
+#		enable_special_project = {
+#			name = SNEK_DOMESTICATION_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#}

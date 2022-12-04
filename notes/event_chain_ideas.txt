@@ -18,6 +18,14 @@ DEFECTING MARAUDER
     - Caretaker bot
     X That free scientist lady
 
+HORIZON SIGNAL
+  - Domesticate the Worm!
+    - During event climax, give option (or mandatory?) to contact formerly disappeared scientist, who will domesticate
+      the Worm through force of will
+    - Also, learn spooky new things about domestication, how domestication to a particular affini is written
+      into a floret's DNA.
+    - THE POD THE POD THE POD THE POD
+
 PROTECTORATES TO-DO LIST:
 
 FLORETS:

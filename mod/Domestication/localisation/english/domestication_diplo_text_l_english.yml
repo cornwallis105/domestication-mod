@@ -24,3 +24,5 @@
  DOM_FRIENDLY_GREETING_03:0 "This may be unprofessional, but have you ever considered becoming a floret? Trust me, you'd look good in a collar."
  DOM_WAR_GREETING_01:0 "This war is senseless. A better future for the [From.GetSpeciesName] people starts with surrender."
  DOM_WAR_GREETING_02:0 "Are you ready to discuss the terms of the [From.GetSpeciesAdj] Domestication Treaty?"
+
+ personality_cared_for_pets:0 "Well-Cared-For Pets"

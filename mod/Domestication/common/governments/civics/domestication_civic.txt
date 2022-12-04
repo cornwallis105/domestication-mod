@@ -160,7 +160,10 @@ civic_warrior_culture = {
 			}
 		}
 		civics = {
-			NOT = { value = civic_pleasure_seekers }
+			NOR = {
+				value = civic_pleasure_seekers
+				value = civic_cosmic_harmony
+			}
 		}
 		origin = {
 			NOT = { value = origin_domesticators }

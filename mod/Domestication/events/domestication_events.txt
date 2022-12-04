@@ -66,12 +66,12 @@ country_event = {
 						}
 						set_population_controls = {
 							country = root
-							type = yes
+							type = population_control_yes
 							cooldown = no
 						}
 						set_colonization_controls = {
 							country = root
-							type = yes
+							type = colonization_control_yes
 							cooldown = no
 						}
 					}
@@ -175,7 +175,7 @@ country_event = {
 		set_city_graphical_culture = event_target:domesticator_overlord
 
 		change_country_flag = random
-		randomize_flag_symbol = ornate
+		randomize_flag_symbol = plantoid
 
 		## Add leaders
 		while = {
@@ -744,7 +744,7 @@ country_event = {
 						}
 						set_colonization_controls = {
 							country = root
-							type = yes
+							type = colonization_control_yes
 							cooldown = no
 						}
 					}
@@ -1397,6 +1397,7 @@ planet_event = {
 	option = {
 		name = domestication.24.a # Accept protection
 		hidden_effect = { planet_event = { id = ancrel.4062 } }
+		owner = { hidden_effect = { country_event = { id = domestication.27 } } }
 		remove_deposit = d_archaeological_site
 		add_deposit = d_sentinels
 	}
@@ -1804,12 +1805,12 @@ planet_event = {
 									}
 									set_population_controls = {
 										country = root
-										type = yes
+										type = population_control_yes
 										cooldown = no
 									}
 									set_colonization_controls = {
 										country = root
-										type = yes
+										type = colonization_control_yes
 										cooldown = no
 									}
 								}
@@ -1843,12 +1844,12 @@ planet_event = {
 									}
 									set_population_controls = {
 										country = root
-										type = yes
+										type = population_control_yes
 										cooldown = no
 									}
 									set_colonization_controls = {
 										country = root
-										type = yes
+										type = colonization_control_yes
 										cooldown = no
 									}
 								}

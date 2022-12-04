@@ -1,8 +1,9 @@
 ap_benefic_acquisition = {
 	potential = {
 		host_has_dlc = "Apocalypse"
-		NOT = {
+		NOR = {
 			has_ascension_perk = ap_nihilistic_acquisition
+			has_ascension_perk = ap_benefic_acquisition
 		}
     # only allowing this for full domesticators, not protectorates
 		is_domesticator = yes

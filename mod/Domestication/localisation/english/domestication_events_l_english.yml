@@ -180,3 +180,10 @@
  domestication.42.name:0 "Untamable Ophidians"
  domestication.42.desc:0 "After exstensive research and experimentation, we have reached the unfortunate conclusion that the ophidians §Y[root.GetName]§! simply cannot be domesticated. They lack the requisite intelligence to be considered \"sophonts,\" and furthermore, our attempts to pacify them have been largely unsuccessful. The colonists on [root.GetName] will simply have to adapt to the constant threat that the ophidians pose."
  domestication.42.a:0 "Disappointing"
+
+ anomaly.4157.domestication:0 "Will you let us help you?"
+ domestication_leader.24.desc:0 ""This... "domestication..." you speak of is foreign to my kind. But... perhaps it is time that my people learn to accept guidance from those who do not share our quarrelsome ways.\n\nPerhaps it is better that I do not bear my burden alone.""
+ domestication_leader.24.a:0 "Let's find you a worthy owner."
+ domestication_leader.23.name:0 "The Bearer"
+ domestication_leader.23.desc:0 "Trapped in a cryopod for countless centuries, the sophont known as §Y$NAME_Majula_the_Bearer$§! has volunteered [new_floret.GetHimselfHerself] for domestication on the condition that [new_floret.GetHeShe] be kept as far from conflict as possible and that [new_floret.GetHeShe] be kept lucid enough to tell the stories of [new_floret.GetHisHer] lost people.\n\nAfter much deliberation, [new_floret.GetSheHe] has selected §YGovernor [new_owner.GetName]§! to be [new_floret.GetHisHer] new owner. The [root.GetName] will do everything it can to make sure that §Y[new_floret.GetName]§!'s stories are never forgotten."
+ domestication_leader.23.a:0 "A stark reminder of our limitations"

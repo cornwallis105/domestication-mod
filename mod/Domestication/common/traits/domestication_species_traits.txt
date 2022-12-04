@@ -99,7 +99,6 @@ trait_haustoric_hive_node = {
 		species_empire_size_mult = -0.4
 		pop_ethic_xenophile_attraction_mult = 0.5
 	}
-}
 
 	leader_age_min = 10
 	leader_age_max = 20

@@ -1065,9 +1065,9 @@ country_event = {
 				}
 			}
 			# Leader does not rebloom
-			25 = {
+			#25 = {
 
-			}
+			#}
 		}
 
 
@@ -2095,6 +2095,177 @@ country_event = {
 
 	option = {
 		name = domestication_leader.22.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+## Create stranded warrior floret
+# This = country
+country_event = {
+	id = domestication_leader.23
+	title = domestication_leader.23.name
+
+	desc = domestication_leader.23.desc
+
+	picture = GFX_evt_acquire_asset
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+		any_owned_leader = {
+			leader_class = governor
+			NOT = { has_trait = leader_trait_cryopod_gov }
+			can_obtain_new_floret = yes
+		}
+
+	}
+
+	immediate = {
+		event_target:floret_country = {
+			create_leader = {
+				class = governor
+				species = event_target:AlienWarriorSpecies
+				name = "NAME_Majula_the_Bearer"
+				traits = {
+					trait = leader_trait_glory_seeker
+					trait = leader_trait_charismatic
+				}
+				event_leader = yes
+			}
+			last_created_leader = {
+				save_event_target_as = new_floret
+				add_trait = leader_trait_cryopod_gov
+				add_trait = leader_trait_floret_immortal
+			}
+		}
+
+
+		random_owned_leader = {
+			limit = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_cryopod_gov }
+				can_obtain_new_floret = yes
+			}
+			save_event_target_as = new_owner
+		}
+
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_cryopod_gov
+			add_ruler_trait = leader_trait_cryopod_rul
+
+			#event_target:new_floret = {
+			#	set_name = "NAME_S8751"
+			#	set_owner = event_target:floret_country
+			#}
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.23.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+#Dialogue End Gain New General
+country_event = {
+	id = domestication_leader.24
+	title = "anomaly.4157.name"
+	diplomatic_title = BLANK_STRING
+	desc = "domestication_leader.24.desc"
+	location = event_target:HomePlanet
+
+	is_triggered_only = yes
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = event_target:AlienWarriorSpecies
+		planet_background = event_target:HomePlanet
+		graphical_culture = event_target:HomePlanet
+		city_level = event_target:HomePlanet
+		room = event_target:AlienWarriorSpecies.ruler
+	}
+
+	option = {
+		name = domestication_leader.24.a
+		country_event = { id = domestication_leader.23}
+	}
+}
+
+## Create Ahab floret
+# This = country
+country_event = {
+	id = domestication_leader.25
+	title = domestication_leader.25.name
+
+	desc = domestication_leader.25.desc
+
+	picture = GFX_evt_acquire_asset
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+		any_owned_leader = {
+			leader_class = admiral
+			NOT = { has_trait = leader_trait_ahab_adm }
+			can_obtain_new_floret = yes
+		}
+
+	}
+
+	immediate = {
+		event_target:captain_reth = {
+			set_owner = event_target:floret_country
+			save_event_target_as = new_floret
+			add_trait = leader_trait_ahab_adm
+			add_trait = leader_trait_floret_immortal
+		}
+
+		random_owned_leader = {
+			limit = {
+				leader_class = admiral
+				NOT = { has_trait = leader_trait_ahab_adm }
+				can_obtain_new_floret = yes
+			}
+			save_event_target_as = new_owner
+		}
+
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_cryopod_gov
+			add_ruler_trait = leader_trait_ahab_rul
+
+			#event_target:new_floret = {
+			#	set_name = "NAME_S8751"
+			#	set_owner = event_target:floret_country
+			#}
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.25.a
 		trigger = {
 			always = yes
 		}

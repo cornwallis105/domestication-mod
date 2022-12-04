@@ -1,5 +1,5 @@
 leader_trait_cutie_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
@@ -23,7 +23,7 @@ leader_trait_cutie_rul = {
 }
 
 leader_trait_beeple_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_beeple.dds"
@@ -51,7 +51,7 @@ leader_trait_beeple_rul = {
 }
 
 leader_trait_warp_eng_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warp_engineer.dds"
@@ -75,7 +75,7 @@ leader_trait_warp_eng_rul = {
 }
 
 leader_trait_pirate_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_pirate.dds"
@@ -98,7 +98,7 @@ leader_trait_pirate_rul = {
 }
 
 leader_trait_admiral_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_admiral.dds"
@@ -121,7 +121,7 @@ leader_trait_admiral_rul = {
 }
 
 leader_trait_distracted_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_distracted.dds"
@@ -145,7 +145,7 @@ leader_trait_distracted_rul = {
 }
 
 leader_trait_liason_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_liaison.dds"
@@ -170,7 +170,7 @@ leader_trait_liason_rul = {
 }
 
 leader_trait_attache_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_attache.dds"
@@ -194,7 +194,7 @@ leader_trait_attache_rul = {
 }
 
 leader_trait_officer_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_officer.dds"
@@ -218,13 +218,13 @@ leader_trait_officer_rul = {
 }
 
 leader_trait_economist_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_economist.dds"
 	modifier = {
-	trade_value_mult = 0.025
-	planet_pops_consumer_goods_upkeep_mult = -0.025
+		trade_value_mult = 0.025
+		planet_pops_consumer_goods_upkeep_mult = -0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -242,7 +242,7 @@ leader_trait_economist_rul = {
 }
 
 leader_trait_academic_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
@@ -268,10 +268,10 @@ leader_trait_academic_rul = {
 }
 
 leader_trait_marauder_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warform.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
 	modifier = {
 		ship_evasion_mult = 0.025
 		ship_fire_rate_mult = 0.025
@@ -293,7 +293,7 @@ leader_trait_marauder_rul = {
 }
 
 leader_trait_dathnak_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
@@ -318,10 +318,10 @@ leader_trait_dathnak_rul = {
 }
 
 leader_trait_warform_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warform.dds"
 	modifier = {
 		ship_weapon_damage = 0.075
 	}
@@ -362,7 +362,7 @@ leader_trait_brainslug_rul = {
 }
 
 leader_trait_stranded_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_academic.dds"
@@ -388,7 +388,7 @@ leader_trait_stranded_rul = {
 }
 
 leader_trait_racket_rul = {
-	cost = 1
+	cost = 0
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_economist.dds"
@@ -404,6 +404,55 @@ leader_trait_racket_rul = {
 	leader_trait = { ruler }
 	leader_class = { ruler }
 
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_cryopod_rul = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cryopod.dds"
+	modifier = {
+		planet_jobs_unity_produces_mult = 0.075
+		planet_army_build_speed_mult = -0.1
+		pop_ethic_pacifist_attraction_mult = 0.1
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_ahab_rul = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_ahab.dds"
+	modifier = {
+		ship_evasion_mult = 0.05
+		ship_disengage_chance_mult = 0.1
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { ruler }
+	leader_class = { ruler }
 	opposites = {  }
 
 	leader_potential_add = {

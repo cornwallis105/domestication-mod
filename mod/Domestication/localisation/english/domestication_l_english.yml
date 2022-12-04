@@ -203,9 +203,17 @@
  leader_trait_stranded_rul:0 "$leader_trait_stranded_sci$"
  leader_trait_stranded_rul_desc:0 "$leader_trait_stranded_sci_desc$"
  leader_trait_racket_gov:0 "Floret - Racket"
- leader_trait_racket_gov_desc:0 "This floret is a Racket who voluntarily "
+ leader_trait_racket_gov_desc:0 "This floret is a Racket who manipulated the caravan commerce offerings to put themself up for domestication. How very resourceful!"
  leader_trait_racket_rul:0 "$leader_trait_racket_gov$"
  leader_trait_racket_rul_desc:0 "$leader_trait_racket_gov_desc$"
+ leader_trait_cryopod_gov:0 "Floret - The Bearer"
+ leader_trait_cryopod_gov_desc:0 "This floret is the last survivor of a race that fought itself to extinction. The floret only wants to be shielded from conflict and to pass on the stories of its doomed people."
+ leader_trait_cryopod_rul:0 "$leader_trait_cryopod_gov$"
+ leader_trait_cryopod_rul_desc:0 "$leader_trait_cryopod_gov_desc$"
+ leader_trait_ahab_adm:0 "Floret - The Bearer"
+ leader_trait_ahab_adm_desc:0 "This floret is the last survivor of a race that fought itself to extinction. The floret only wants to be shielded from conflict and to pass on the stories of its doomed people."
+ leader_trait_ahab_rul:0 "$leader_trait_cryopod_gov$"
+ leader_trait_ahab_rul_desc:0 "$leader_trait_cryopod_gov_desc$"
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"

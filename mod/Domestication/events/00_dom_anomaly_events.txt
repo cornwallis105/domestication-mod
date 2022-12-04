@@ -1,5 +1,195 @@
 namespace = anomaly
 
+# Cryopod alien warrior dialogue
+country_event = {
+	id = anomaly.4158
+	title = "anomaly.4157.name"
+	diplomatic_title = BLANK_STRING
+	desc = "anomaly.4158.desc"
+	location = event_target:HomePlanet
+
+	is_triggered_only = yes
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = event_target:AlienWarriorSpecies
+		planet_background = event_target:HomePlanet
+		graphical_culture = event_target:HomePlanet
+		city_level = event_target:HomePlanet
+		room = event_target:AlienWarriorSpecies.ruler
+	}
+
+	option = {
+		name = anomaly.4158.a
+		response_text = anomaly.4158.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = anomaly.4158.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.militant.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.spiritual.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.c
+		response_text = anomaly.4158.c.response
+		is_dialog_only = yes
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4157.domestication
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		trigger = {
+			is_domesticator_or_full_protectorate = yes
+			any_owned_leader = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_cryopod_gov }
+				can_obtain_new_floret = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = domestication_leader.24 }
+		}
+	}
+	option = { # Rejecting
+		name = anomaly.4158.d
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4161 }
+		}
+	}
+	option = { # Joins you
+		name = anomaly.4158.d
+		trigger = {
+			OR = {
+				has_country_flag = suspected_angels
+				NOT = {
+					has_country_flag = suspected_assholes
+				}
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_pacifist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4160 }
+		}
+	}
+	option = { # Kills researcher
+		name = anomaly.4158.d
+		trigger = {
+			OR = {
+				has_country_flag = suspected_assholes
+				NOT = {
+					has_country_flag = suspected_angels
+				}
+			}
+			OR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4162 }
+		}
+	}
+
+	option = {
+		name = anomaly.4158.f
+		trigger = {
+			NOT = {
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4163 }
+		}
+	}
+	option = {
+		name = anomaly.4158.xenophobe.f
+		trigger = {
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4163 }
+		}
+	}
+}
+
 # event for Baldarak ship
 ship_event = {
 	id = anomaly.5004
@@ -249,6 +439,10 @@ ship_event = {
 				has_technology = tech_self_aware_logic
 				is_domesticator_or_protectorate = yes
 			}
+		}
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
 		}
 		name = anomaly.6710.dom
 		enable_special_project = {

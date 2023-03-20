@@ -132,10 +132,10 @@ cara_generate_deal3 = {
 				}
 				set_timed_country_flag = { flag = fleet3deal9 days = @fleet3dealdecay }
 			}
-      1 = {
+      2 = {
 				modifier = {
 					factor = 0
-          NOR = {
+          NAND = {
             is_domesticator_or_full_protectorate = yes
             any_owned_leader = {
               leader_class = governor

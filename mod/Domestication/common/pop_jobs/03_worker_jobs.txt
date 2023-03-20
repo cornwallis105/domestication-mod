@@ -19,7 +19,7 @@ clerk = {
 
 	possible = {
 		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
+			owner = { is_domesticator_or_protectorate = no }
 			has_haustorics = yes
 		}
 	}

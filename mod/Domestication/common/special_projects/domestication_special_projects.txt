@@ -121,3 +121,75 @@ special_project = {
 	on_fail = {
 	}
 }
+
+special_project = {
+	key = "POLLEN_1_PROJECT_XENODRUG"
+	#cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	timelimit = 1080
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		#skill = 2
+	}
+
+	on_success = {
+		from = { planet_event = { id = xenodrug_event.1 } }
+	}
+}
+
+special_project = {
+	key = "hallucinogen_xenodrug_research"
+	cost = 1500
+	tech_department = society_technology
+	picture = GFX_evt_ship_in_orbit
+	icon = "gfx/interface/icons/situation_log/situation_log_debris.dds"
+
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = { id = xenodrug_event.3 }
+	}
+}
+
+special_project = {
+	key = "UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION"
+	event_chain = "feral_overload_chain"
+	cost = 500
+	tech_department = society_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_analyzing_artifacts
+
+	event_scope = planet_event
+
+	on_success = {
+		log_error = "xenodrug_UTILIZE_CAVE_SHROOM_PROJECT"
+		planet_event = { id = xenodrug_event.4 }
+	}
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "EXTERMINATE_CAVE_SHROOM_PROJECT_DOMESTICATION"
+	event_chain = "feral_overload_chain"
+	cost = 500
+	tech_department = engineering_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_nuclear_explosion
+
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = { id = xenodrug_event.6 }
+	}
+
+	on_fail = {
+	}
+}

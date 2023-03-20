@@ -79,11 +79,11 @@ honorbound_warriors = {
 		liberator = no
 		opportunist = no
 		slaver = no
-		uplifter = no
+		uplifter = yes
 		purger = no
 		displacer = no
 		infiltrator = no
-		dominator = yes
+		dominator = no
 		robot_exploiter = no
 		robot_liberator = no
 		propagator = no
@@ -133,7 +133,7 @@ cared_for_pets = {
 	commercial_pact_acceptance = 50
 	research_agreement_acceptance = 50
 	defensive_pact_acceptance = 50
-	migration_pact_acceptance = 0
+	migration_pact_acceptance = -25
 
 	advanced_start_chance = 25
 

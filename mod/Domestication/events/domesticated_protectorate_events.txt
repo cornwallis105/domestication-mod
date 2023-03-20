@@ -1,0 +1,186 @@
+namespace = dom_prot_event
+
+country_event = {
+  id = dom_prot_event.1
+  title = "dom_prot_event.1"
+  desc = "dom_prot_event.1.desc"
+  picture = GFX_evt_signing
+
+  is_triggered_only = yes
+
+  trigger = {
+    is_domesticator = yes
+    is_at_war = no
+    resource_stockpile_compare = { resource = influence value >= 50 }
+    any_subject = {
+      is_full_protectorate = yes
+      is_at_war = no
+      any_system_within_border = {
+        NOT = { any_system_planet = { is_colony = yes } }
+        any_country_neighbor_to_system = {
+          OR = {
+            is_country_type = default
+            is_country_type = fallen_empire
+            is_country_type = dormant_marauders
+            is_country_type = awakened_fallen_empire
+          }
+          has_communications = prevprev
+          has_communications = root
+          is_domesticated_protectorate = no
+          NOT = { is_neighbor_of = root }
+        }
+      }
+    }
+  }
+
+  immediate = {
+    random_subject = {
+      limit = {
+        is_full_protectorate = yes
+        is_at_war = no
+        any_system_within_border = {
+          NOT = { any_system_planet = { is_colony = yes } }
+          any_country_neighbor_to_system = {
+            OR = {
+              is_country_type = default
+              is_country_type = fallen_empire
+              is_country_type = dormant_marauders
+              is_country_type = awakened_fallen_empire
+            }
+            has_communications = prevprev
+            has_communications = root
+            is_domesticated_protectorate = no
+            NOT = { is_neighbor_of = root }
+          }
+        }
+      }
+      save_event_target_as = system_former_owner
+      random_system_within_border = {
+        limit = {
+          NOT = { any_system_planet = { is_colony = yes } }
+          any_country_neighbor_to_system = {
+            OR = {
+              is_country_type = default
+              is_country_type = fallen_empire
+              is_country_type = dormant_marauders
+              is_country_type = awakened_fallen_empire
+            }
+            has_communications = prevprev
+            has_communications = root
+            is_domesticated_protectorate = no
+            NOT = { is_neighbor_of = root }
+          }
+        }
+        save_event_target_as = system_to_transfer
+        random_country_neighbor_to_system = {
+          limit = {
+            OR = {
+              is_country_type = default
+              is_country_type = fallen_empire
+              is_country_type = dormant_marauders
+              is_country_type = awakened_fallen_empire
+            }
+            has_communications = prevprev
+            has_communications = root
+            is_domesticated_protectorate = no
+            NOT = { is_neighbor_of = root }
+          }
+          save_event_target_as = enemy_empire
+        }
+      }
+    }
+  }
+
+  option = {
+    name = dom_prot_event.1.a
+
+    add_resource = {
+      influence = -50
+    }
+    event_target:system_former_owner = {
+      add_resource = {
+        influence = 50
+      }
+    }
+    event_target:system_to_transfer.starbase = {
+      set_owner = root
+    }
+  }
+
+  option = {
+    name = dom_prot_event.1.b
+  }
+}
+
+country_event = {
+  id = dom_prot_event.2
+  title = "dom_prot_event.2"
+  desc = "dom_prot_event.2.desc"
+  picture = GFX_evt_signing
+
+  is_triggered_only = yes
+
+  trigger = {
+    is_domesticator = yes
+    is_at_war = no
+    resource_stockpile_compare = { resource = influence value >= 50 }
+    any_subject = {
+      is_full_protectorate = yes
+      is_at_war = no
+      any_system_within_border = {
+        OR = {
+          has_star_flag = first_zoroni_site@root.owner
+          has_star_flag = first_grunur_site@root.owner
+          has_star_flag = grunur_site@root.owner
+        }
+      }
+    }
+  }
+
+  immediate = {
+    random_subject = {
+      limit = {
+        #is_full_protectorate = yes
+        is_at_war = no
+        any_system_within_border = {
+          OR = {
+            has_star_flag = first_zoroni_site@root.owner
+            has_star_flag = first_grunur_site@root.owner
+            has_star_flag = grunur_site@root.owner
+          }
+        }
+      }
+      save_event_target_as = system_former_owner
+      random_system_within_border = {
+        limit = {
+          OR = {
+            has_star_flag = first_zoroni_site@root.owner
+            has_star_flag = first_grunur_site@root.owner
+            has_star_flag = grunur_site@root.owner
+          }
+        }
+        save_event_target_as = system_to_transfer
+      }
+    }
+  }
+
+  option = {
+    name = dom_prot_event.2.a
+
+    add_resource = {
+      influence = -50
+    }
+    event_target:system_former_owner = {
+      add_resource = {
+        influence = 50
+      }
+    }
+    event_target:system_to_transfer.starbase = {
+      set_owner = root
+    }
+  }
+
+  option = {
+    name = dom_prot_event.2.b
+  }
+}

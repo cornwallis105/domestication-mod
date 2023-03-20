@@ -182,83 +182,83 @@ PLANT5 = {
 		random_names = {
 			AFFINI_FLEET_Radix AFFINI_FLEET_Vivea AFFINI_FLEET_Ferna AFFINI_FLEET_Gneto AFFINI_FLEET_Bryo AFFINI_FLEET_Rophyte AFFINI_FLEET_Stirpis AFFINI_FLEET_Vitanix AFFINI_FLEET_Arbora AFFINI_FLEET_Evora AFFINI_FLEET_Litea AFFINI_FLEET_Geola AFFINI_FLEET_Aluntola AFFINI_FLEET_Lachlosa
 		}
-		sequential_name = AFFINI_xxFLEET_ORD #"%O% Armada"
+		sequential_name = AFFINI_FLEET_ORD #"%O% Armada"
 	}
 
 	army_names = {
 
 		machine_defense = {
-			sequential_name = AFFINI_xxSTIRPESKAMATEA_ORD
+			sequential_name = AFFINI_MACHINE_DEF_ORD
 		}
 
 		machine_assault_1 = {
-			sequential_name = AFFINI_xxSTIRPESKAZARMATA_ORD
+			sequential_name = AFFINI_MACHINE_AST_ORD
 		}
 
 		machine_assault_2 = {
-			sequential_name = AFFINI_xxSTIRPESKAZARMATA_ORD
+			sequential_name = AFFINI_MACHINE_AST_ORD
 		}
 
 		machine_assault_3 = {
-			sequential_name = AFFINI_xxSTIRPESKAZARMATA_ORD
+			sequential_name = AFFINI_MACHINE_AST_ORD
 		}
 
 		defense_army = {
-			sequential_name = AFFINI_xxSTIRPESKAMATEA_ORD
+			sequential_name = AFFINI_DEF_ORD
 		}
 
 		assault_army = {
-			sequential_name = AFFINI_xxSTIRPESKAZARMATA_ORD
+			sequential_name = AFFINI_AST_ORD
 		}
 
 		slave_army = {
-			sequential_name = AFFINI_xxSTIRPESKAYACTO_ORD
+			sequential_name = AFFINI_SLAVE_ORD
 		}
 
 		undead_army = {
-			sequential_name = AFFINI_xxSTIRPESKAHORRORIS_ORD
+			sequential_name = AFFINI_UNDEAD_ORD
 		}
 
 		clone_army = {
-			sequential_name = AFFINI_xxMATEAVOLEA_ROM
+			sequential_name = AFFINI_CLONE_ORD
 		}
 
 		robotic_army = {
-			sequential_name = AFFINI_xxSTIRPESKASENTIS_ROM
+			sequential_name = AFFINI_MACHINE_AST_ORD
 		}
 
 		robotic_defense_army = {
-			sequential_name = AFFINI_xxMATEASENTIS_ROM
+			sequential_name = AFFINI_MACHINE_DEF_ORD
 		}
 
 		psionic_army = {
-			sequential_name = AFFINI_xxSTIRPESKAPSIORI_ORD
+			sequential_name = AFFINI_PSYCHIC_ORD
 		}
 
 		xenomorph_army = {
-			sequential_name = AFFINI_xxSTIRPESKAMORPHAATA_ORD
+			sequential_name = AFFINI_XENOMORPH_ORD
 		}
 
 		gene_warrior_army = {
-			sequential_name = AFFINI_xxSTIRPESKAGENEA_ORD
+			sequential_name = AFFINI_GENETIC_ORD
 		}
 
 		occupation_army = {
-			sequential_name = AFFINI_xxSTIRPESKAMATEA_ORD
+			sequential_name = AFFINI_OCCUPATION_ORD
 		}
 
 		robotic_occupation_army = {
-			sequential_name = AFFINI_xxMATEASENTIS_ROM
+			sequential_name = AFFINI_MACHINE_DEF_ORD
 		}
 
 		primitive_army = {
-			sequential_name = AFFINI_PRIMITIVEARMYxx_SEQ
+			sequential_name = AFFINI_PRIMITIVEARMY_SEQ
 		}
 		industrial_army = {
-			sequential_name = AFFINI_INDUSTRIALARMYxx_SEQ
+			sequential_name = AFFINI_INDUSTRIALARMY_SEQ
 		}
 		postatomic_army = {
-			sequential_name = AFFINI_POSTATOMICARMYxx_SEQ
+			sequential_name = AFFINI_POSTATOMICARMY_SEQ
 		}
 	}
 
@@ -268,6 +268,7 @@ PLANT5 = {
 			names = {
 				AFFINI_PLANET_Lorensis AFFINI_PLANET_Kalimera AFFINI_PLANET_Chrysola AFFINI_PLANET_Parum AFFINI_PLANET_Alivea AFFINI_PLANET_Gerolium AFFINI_PLANET_Iovebrium AFFINI_PLANET_Geonida AFFINI_PLANET_Berim AFFINI_PLANET_Veorix AFFINI_PLANET_Florem AFFINI_PLANET_Yxidora AFFINI_PLANET_Ioflorem AFFINI_PLANET_Bergonea AFFINI_PLANET_Ylia AFFINI_PLANET_Lavensis AFFINI_PLANET_Foli AFFINI_PLANET_Evotilis AFFINI_PLANET_Davaria AFFINI_PLANET_Elox AFFINI_PLANET_Eovolis AFFINI_PLANET_Lora AFFINI_PLANET_Arbola AFFINI_PLANET_Thistum AFFINI_PLANET_Bristo AFFINI_PLANET_Carponia AFFINI_PLANET_Cistus AFFINI_PLANET_Volya AFFINI_PLANET_Bexor AFFINI_PLANET_Radix AFFINI_PLANET_Xanidora AFFINI_PLANET_Elmora AFFINI_PLANET_Zeolia AFFINI_PLANET_Hespia AFFINI_PLANET_Ylivara AFFINI_PLANET_Aluma AFFINI_PLANET_Zenoleum AFFINI_PLANET_Varum AFFINI_PLANET_Enverum AFFINI_PLANET_Zerpex AFFINI_PLANET_Stratiphylla AFFINI_PLANET_Zeolia AFFINI_PLANET_Ixum AFFINI_PLANET_Veola AFFINI_PLANET_Mexus AFFINI_PLANET_Trifida AFFINI_PLANET_Nivea AFFINI_PLANET_Eriocentra AFFINI_PLANET_Scopara AFFINI_PLANET_Leptos AFFINI_PLANET_Cedrus AFFINI_PLANET_Conferta AFFINI_PLANET_Excelsa
 				AFFINI_PLANET_Sabina AFFINI_PLANET_Horix AFFINI_PLANET_Malus AFFINI_PLANET_Prunifol AFFINI_PLANET_Baccata AFFINI_PLANET_Apios AFFINI_PLANET_Talien AFFINI_PLANET_Parmelia AFFINI_PLANET_Drosera AFFINI_PLANET_Oxyprion AFFINI_PLANET_Xerophila AFFINI_PLANET_Glabra AFFINI_PLANET_Serrula AFFINI_PLANET_Incam AFFINI_PLANET_Yuyuma AFFINI_PLANET_Asper AFFINI_PLANET_Xanthon AFFINI_PLANET_Tsiran AFFINI_PLANET_Corax AFFINI_PLANET_Dorsum AFFINI_PLANET_Ferox AFFINI_PLANET_Oryza AFFINI_PLANET_Sanguis AFFINI_PLANET_Tenax AFFINI_PLANET_Ura AFFINI_PLANET_Vernus AFFINI_PLANET_Zygos
+				AFFINI_PLANET_Kydia AFFINI_PLANET_Emblica AFFINI_PLANET_Truncata AFFINI_PLANET_Phthora
 			}
 		}
 
@@ -286,6 +287,7 @@ PLANT5 = {
 		pc_tropical = {
 			names = {
 				AFFINI_PLANET_Subtropica AFFINI_PLANET_Caricia AFFINI_PLANET_Mangiferia AFFINI_PLANET_Balbisiana AFFINI_PLANET_Theobroma AFFINI_PLANET_Dioscoria AFFINI_PLANET_Telopia AFFINI_PLANET_Argentia AFFINI_PLANET_Saccharum AFFINI_PLANET_Ravenalia
+				AFFINI_PLANET_Zanthoxylum AFFINI_PLANET_Argyreia AFFINI_PLANET_Tectona AFFINI_PLANET_Pterocarpa
 			}
 		}
 
@@ -340,7 +342,7 @@ PLANT5 = {
 				AFFINI_CHR_F_Calanthe AFFINI_CHR_F_Capitata AFFINI_CHR_F_Carminatia AFFINI_CHR_F_Catasellia AFFINI_CHR_F_Cattleya AFFINI_CHR_F_Centromadia AFFINI_CHR_F_Cobunoria AFFINI_CHR_F_Ceptoria AFFINI_CHR_F_Clematis AFFINI_CHR_F_Cronquistia AFFINI_CHR_F_Cypripedium AFFINI_CHR_F_Cytophane
 				AFFINI_CHR_F_Dahlia AFFINI_CHR_F_Dendtritia AFFINI_CHR_F_Dendrobia AFFINI_CHR_F_Dianae AFFINI_CHR_F_Drofilia AFFINI_CHR_F_Echinacea AFFINI_CHR_F_Ellenbergia AFFINI_CHR_F_Elorium AFFINI_CHR_F_Epiphytum AFFINI_CHR_F_Esperium AFFINI_CHR_F_Eugenia AFFINI_CHR_F_Euphyte AFFINI_CHR_F_Eustoma AFFINI_CHR_F_Excelsa
 				AFFINI_CHR_F_Feron AFFINI_CHR_F_Flora AFFINI_CHR_F_Fugatia AFFINI_CHR_F_Glabu AFFINI_CHR_F_Gronium AFFINI_CHR_F_Gytorium
-				AFFINI_CHR_F_Harmonia AFFINI_CHR_F_Helenia AFFINI_CHR_F_Henimia AFFINI_CHR_F_Henumia AFFINI_CHR_F_Herbaria AFFINI_CHR_F_Ibinidia AFFINI_CHR_F_Idrix AFFINI_CHR_F_Imeria AFFINI_CHR_F_Imperialis AFFINI_CHR_F_Indigofera AFFINI_CHR_F_Iphonia AFFINI_CHR_F_Itosakura AFFINI_CHR_F_Ixora AFFINI_CHR_F_Janarsium AFFINI_CHR_F_Justicia
+				AFFINI_CHR_F_Harmonia AFFINI_CHR_F_Helenia AFFINI_CHR_F_Henimia AFFINI_CHR_F_Henumia AFFINI_CHR_F_Herbaria AFFINI_CHR_F_Ibinidia AFFINI_CHR_F_Idrix AFFINI_CHR_F_Imeria AFFINI_CHR_F_Imperialis AFFINI_CHR_F_Indigofera AFFINI_CHR_F_Iphonia AFFINI_CHR_F_Itosakura AFFINI_CHR_F_Ixora AFFINI_CHR_F_Jacaranda AFFINI_CHR_F_Janarsium AFFINI_CHR_F_Justicia
 				AFFINI_CHR_F_Kalpavriksha AFFINI_CHR_F_Karelinia AFFINI_CHR_F_Kaunia AFFINI_CHR_F_Ketoria AFFINI_CHR_F_Ketovilia AFFINI_CHR_F_Kiyosumiensis AFFINI_CHR_F_Koronia AFFINI_CHR_F_Latifolia AFFINI_CHR_F_Lephyte AFFINI_CHR_F_Lespedeza AFFINI_CHR_F_Liatris AFFINI_CHR_F_Limorium AFFINI_CHR_F_Lomenia AFFINI_CHR_F_Lonvitium
 				AFFINI_CHR_F_Madasenia AFFINI_CHR_F_Mandragora AFFINI_CHR_F_Milus AFFINI_CHR_F_Mitanium AFFINI_CHR_F_Monval
 				AFFINI_CHR_F_Narcissus AFFINI_CHR_F_Narium AFFINI_CHR_F_Nicolettia AFFINI_CHR_F_Nimeria AFFINI_CHR_F_Niria AFFINI_CHR_F_Noxi AFFINI_CHR_F_Oaxacania AFFINI_CHR_F_Omoderium AFFINI_CHR_F_Orchidaceae

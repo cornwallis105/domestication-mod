@@ -1,7 +1,25 @@
 planet_florets = {
 	parent = planet_jobs
+	icon = "job_floret"
+	generate_mult_modifiers = {
+		produces
+		#upkeep
+	}
+	generate_add_modifiers = {
+		#produces
+	}
+	modifier_category = pop
 }
 
-planet_overlord_florets = {
-	parent = holdings_jobs
+planet_domesticators = {
+	parent = planet_jobs
+	icon = "job_domesticator_sentinel"
+	generate_mult_modifiers = {
+		produces
+		upkeep
+	}
+	generate_add_modifiers = {
+		#produces
+	}
+	modifier_category = pop
 }

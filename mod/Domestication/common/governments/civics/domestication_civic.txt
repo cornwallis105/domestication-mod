@@ -79,8 +79,6 @@ origin_domesticators = {
 
 civic_cosmic_harmony = {
 	description = "civic_tooltip_cosmic_harmony_effects"
-	playable = { host_has_dlc = "Megacorp" }
-	ai_playable = { host_has_dlc = "Megacorp" }
 	potential = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
 		authority = { NOT = { value = auth_corporate } }

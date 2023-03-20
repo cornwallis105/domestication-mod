@@ -43,3 +43,9 @@ MEGAFAUNA:
   - Amor Alveo / Space Amoebas
   - Mining drones / Crystals / Void Clouds
   X Nemmas! (Giant Sea Turtles!) (colony.9000)
+
+
+XENODRUGS:
+  - Dancing Plague
+  - Mushroom Picking
+  - Mharin Kharin: Floral Fascination

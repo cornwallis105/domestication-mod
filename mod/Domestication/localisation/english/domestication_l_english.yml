@@ -5,124 +5,6 @@
  ordinal_rd:0 "rd"
  ordinal_th:0 "th"
 
- # Floret leader type - not currently used
- floretleader:0 "Floret"
- FLORETLEADERS:0 "Florets"
-
- # Jobs and related modifers
- job_floret:0 "Floret"
- job_floret_plural:0 "Florets"
- job_floret_desc:0 "These domesticated sophonts live their lives in xenodrug-induced bliss, providing comfort and amusement to their owners."
- job_floret_effect_desc:0 "£job_floret£ $job_floret_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and decrease £crime£ §Y$PLANET_CRIME_TITLE$§!"
- mod_job_floret_add:0 "$job_floret$ Jobs"
- mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
- mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
- protectorate_floret_jobs:0 "Floret Jobs"
- planet_florets:0 "Planet $job_floret_plural$"
- job_domesticator_sentinel:0 "Sentinel Domesticator"
- job_domesticator_sentinel_plural:0 "Sentinel Domesticators"
- job_domesticator_sentinel_desc:0 "These mega-floret domestication specialists care for the enormous Sentinels that formerly guarded the Hollowed Ground."
- mod_job_domesticator_sentinel_add:0 "$job_domesticator_sentinel$ Jobs"
- job_domesticator_nanite:0 "Nanite Domesticator"
- job_domesticator_nanite_plural:0 "Nanite Domesticators"
- job_domesticator_nanite_desc:0 "These domestication specialists care for the nanites swarms that inhabit this world."
- mod_job_domesticator_nanite_add:0 "$job_domesticator_nanite$ Jobs"
- job_domesticator_nemma:0 "Nemma Domesticator"
- job_domesticator_nemma_plural:0 "Nemma Domesticators"
- job_domesticator_nemma_desc:0 "These mega-floret domestication specialists care for the enormous nemmas that wander the planet's oceans, carrying our colonies on their backs."
- mod_job_domesticator_nemma_add:0 "$job_domesticator_nemma$ Jobs"
-
- # Pop traits
- trait_haustoric_implant:0 "Haustoric Implant"
- trait_haustoric_implant_desc:0 "Subdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision."
- TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-40%§!\nAvailable species rights are restricted"
- TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
- trait_haustoric_hive_node:0 "Haustoric Hive Node"
- trait_haustoric_hive_node_desc:0 "These drones' hive synapses have been integrated with a haustoric implant, enabling them to live apart from the primary hive (with proper supervision)."
- trait_haustoric_terminal_node:0 "Haustoric Terminal Module"
- trait_haustoric_terminal_node_desc:0 "These machine units' syncronization modules have been augmented allow maximum cuddle appreciation even at great separation from a primary node."
- trait_robot_haustoric_module:0 "Haustoric Module"
- trait_robot_haustoric_module_desc:0 "Purpose-built hardware and personalized software interface directly with these florets' emotional emulators and tacile processors, allowing them to experience their owners' love in every circuit."
- TRAIT_HAUSTORIC_MODULE_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-40%§!\nAffected by £happiness£ §YHappiness§!"
- TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
-
- # Factions
- pft_domesticator_faction:0 "Domesticator Faction"
- pft_domesticator_faction_desc:1 "Domesticator Factions desire for a multi-species society with a wide variety of sophonts to domesticate. They dislike species-wide Slavery and Purges.\n\n§LXenophile Ethos§!"
- factions.1.desc.domesticator_faction:0 "Their members have been pushing hard for §Yextremely§! friendly relations with alien species.\n\n"
-
- # Faction demands
- DOMESTICATOR_OVERLORD:0 "Domestication Astropolitics"
- DOMESTICATOR_NOT_OVERLORD:0 "$DOMESTICATOR_OVERLORD$"
- DOMESTICATOR_OVERLORD_DESC:0 "Installing protectorates to watch over one or more sophont species will please the [Root.GetName]."
-
- # Civics
- origin_domesticators:0 "Domesticators"
- #origin_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
- origin_domesticators_desc:0 "This society has structured itself around the "domestication," both civilizationally and individually, of various adorable sophonts throughout the galaxy, regardless of what said sophonts might think of it themselves."
- origin_tooltip_domesticators_effects:0 "- Start the game with §Y12§! £pop£ Pops being of another species\n- Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$"
- civic_cosmic_harmony:0 "Cosmic Harmony"
- civic_cosmic_harmony_desc:0 "This society believes in the beauty of existence, from the grand wonders of the universe to the lowliest creatures that live within it."
- origin_domesticators_secondary_species:0 "Domesticated Species"
- civic_tooltip_cosmic_harmony_effects:0 "Allows §Y$living_standard_shared_burden$§! Living Standard, under which all £pop£ Pops have moderate £consumer_goods£ §Y$consumer_goods$§! Upkeep regardless of §YStrata§!\nDisables the use of most other §YLiving Standards§!\n£opinion£ Opinion bonus with other empires: §G+10§!\n"
-
- # Name list
- name_list_PLANT5:0 "Plantoid (Affini)"
-
- # Flag category
- FLAG_CATEGORY_hdg:0 "HDG"
-
- # Generic modifers
- mod_country_base_consumer_goods_produces_add:0 "Monthly Consumer Goods"
- mod_shipsize_cruiser_evasion_mult:0 "Cruiser Evasion"
- mod_shipsize_battleship_evasion_mult:0 "Battleship Evasion"
- mod_shipsize_titan_evasion_mult:0 "Titan Evasion"
-
- # Government names
- gov_domesticator_empire:0 "Verdant Empire"
- gov_domesticator_empire_desc:0 "This hereditary monarchy is dedicated to the pacification and domestication of the lesser sophonts of the galaxy."
- gov_domesticator_dictatorship:0 "Benevolent Protectorship"
- gov_domesticator_dictatorship_desc:0 "This autocratic government is built on the benevolent domestication of xeno species by the firm vines of its Protector."
- gov_domesticator_oligarchy:0 "Guardian Committee"
- gov_domesticator_oligarchy_desc:0 "This oligarchic government is ruled over by a committee of those best suited to execute its mission of relieving the younger species of the galaxy of their political and personal responsibilities."
- gov_domesticator_democracy:0 "Domestication Assembly"
- gov_domesticator_democracy_desc:0 "This government is founded on the principles of direct democracy and an eternal charge to enlighten and domesticate the weary and suffering masses of the universe."
-
- # Ruler titles
- RT_SUMMERKING:0 "Summerking"
- RT_SUMMERQUEEN:0 "Summerqueen"
- RT_PROTECTOR:0 "Protector"
- RT_HIGH_GARDENER:0 "High Gardener"
- RT_HIGH_ADMIRAL:0 "High Gardener"
-
- # Species rights tooltips
- SPECIES_BLISS_HAUSTORIC_IMPLANT:0 "Every floret is entitled to a robust xenodrug regimen."
- SPECIES_CITIZEN_HAUSTORIC_IMPLANT:0 "Florets are not afforded political rights within our empire."
- SPECIES_MILITARY_HAUSTORIC_IMPLANT:0 "Florets must be kept safe at all costs. Subjecting them to military service would be unconscionable."
- SPECIES_STERILE_HAUSTORIC_IMPLANT:0 "The Haustoric Implant invariably renders florets sterile."
- SPECIES_COLONIZE_HAUSTORIC_IMPLANT:0 "Florets cannot be allowed to venture into the dangerous galaxy unaccompanied by their owners."
- DOMESTICATOR_POP_CONTROLS_NOT_ALLOWED:0 "Cannot enable population controls for non-implanted florets."
- domesticated_species_no_citizenship:0 "This species has had its political rights restricted for its own safety."
-
- # Technology and tooltips
- tech_haustoric_implant:0 "Haustoric Implants"
- tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they'll be so much cuter when they can't even think."
- ADD_HAUSTORIC_IMPLANT_BONUSES:0 "§Y$job_floret_plural$§! product additional Amenities"
- tech_biorhythm_amplification:0 "Biorhythm Amplification"
- tech_biorhythm_amplification_desc:0 "Amplifying our natural biorhythms will cause sophonts' biological systems to mirror them in a harmonious feedback loop that spirals inevitably toward domestication."
- ADD_BIORHYTHM_AMPLIFICATION_BONUSES:0 "§Y$job_floret_plural$§! increase £pop_cat_ruler£ §Y$pop_cat_ruler$§! and £pop_cat_specialist£ §Y$pop_cat_specialist$§! job output\nBetter chance to obtain §Y$job_floret_plural$§! from events"
- tech_megafauna_domestication:0 "Megafauna Domestication"
- tech_megafauna_domestication_desc:0 "Neurophloematic accelerators, long-range biorhythm repeaters, and mycelial implant networks will allow us to domesticate even the largest of sophonts."
- tech_hivemind_domestication:0 "Hivemind Domestication"
- tech_hivemind_domestication_desc:0 "Through world-node haustorics, subspace neural synchronizers, and semi-autonomous sophont-drones, a mega-organism can be taught to play a biorhythmic symphony of devotion and obedience across an entire sector."
- tech_haustoric_module:0 "Haustoric Module"
- tech_haustoric_module_desc:0 "The gift of domestication cannot be shared universally until our engineers can replicate xenodrugs with code and embed an owner's biomaterial in silicon."
-
- # Subject type
- SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"
- SUBJECT_domesticated_hivemind:0 "Domesticated Hive Mind"
- SUBJECT_domesticated_machine_intelligence:0 "Domesticated Machine Intelligence"
-
  # Floret Leader traits
  leader_trait_beeple_gov:0 "Floret - Syncretic"
  leader_trait_beeple_gov_desc:0 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
@@ -214,6 +96,174 @@
  leader_trait_ahab_adm_desc:0 "This floret is the last survivor of a race that fought itself to extinction. The floret only wants to be shielded from conflict and to pass on the stories of its doomed people."
  leader_trait_ahab_rul:0 "$leader_trait_cryopod_gov$"
  leader_trait_ahab_rul_desc:0 "$leader_trait_cryopod_gov_desc$"
+ leader_trait_class_o_gen:0 "Floret - Class-O"
+ leader_trait_class_o_gen_desc:0 "This floret is kept on Class-O xenodrugs for its own safety and well-being. Its owner loves and cares for it very much and does everything in their power to protect §Yall§! sophonts from harm."
+ leader_trait_class_o_rul:0 "$leader_trait_class_o_gen$"
+ leader_trait_class_o_rul_desc:0 "$leader_trait_class_o_gen_desc$"
+ leader_trait_historian_sci:0 "Floret - Historian"
+ leader_trait_historian_sci_desc:0 "This floret loves to learn about galactic history, whether in the library or on archaeological digsites."
+ leader_trait_historian_rul:0 "$leader_trait_historian_sci$"
+ leader_trait_historian_rul_desc:0 "This floret loves to learn about galactic history. The floret cuts of its books are very popular!"
+ leader_trait_musician_adm:0 "Floret - Musician"
+ leader_trait_musician_adm_desc:0 "This floret is an excellent musician. You can find its music on your datapad, or in the fleet's hyperdrive plumes!"
+ leader_trait_musician_rul:0 "$leader_trait_musician_adm$"
+ leader_trait_musician_rul_desc:0 "This floret is an excellent musician. You can find its music on your datapad, or in live concert in the capital!"
+ leader_trait_great_khan_adm:0 "Floret - Great Khan"
+ leader_trait_great_khan_adm_desc:0 "Empires once cowered in fear of this floret. Now, they cower in fear of its owner."
+ leader_trait_great_khan_rul:0 "$leader_trait_great_khan_adm$"
+ leader_trait_great_khan_rul_desc:0 "$leader_trait_great_khan_adm_desc$"
+ leader_trait_underground_gen:0 "Floret - Cave Dweller"
+ leader_trait_underground_gen_desc:0 "This floret is from a subterranean civilization. It likes to remind our soldiers how much fun it is to dig holes, from little divets to full trench networks."
+ leader_trait_underground_gov:0 "$leader_trait_underground_gen$"
+ leader_trait_underground_gov_desc:0 "This floret is from a subterranean civilization. It has much to teach us about various kinds of rocks, and how to conserve energy by turning the lights down."
+ leader_trait_underground_rul:0 "$leader_trait_underground_gen$"
+ leader_trait_underground_rul_desc:0 "$leader_trait_underground_gov_desc$"
+
+ # Floret leader type - not currently used
+ floretleader:0 "Floret"
+ FLORETLEADERS:0 "Florets"
+
+ # Jobs and related modifers
+ job_floret:0 "Floret"
+ job_floret_plural:0 "Florets"
+ job_floret_desc:0 "These domesticated sophonts live their lives in xenodrug-induced bliss, providing comfort and amusement to their owners."
+ job_floret_effect_desc:0 "£job_floret£ $job_floret_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and decrease £crime£ §Y$PLANET_CRIME_TITLE$§!"
+ mod_job_floret_add:0 "$job_floret$ Jobs"
+ mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
+ mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
+ protectorate_floret_jobs:0 "Floret Jobs"
+ planet_florets:0 "Planet $job_floret_plural$"
+ xenodrugs_modifier:0 "Exotic Xenodrugs"
+ xenodrugs_modifier_desc:0 "Each new species of exoflora presents an oppotunity to develop new strains of Xenodrugs."
+ mod_planet_florets_produces_mult:1 "$job_floret_with_icon$ Output"
+ mod_planet_florets_upkeep_mult:1 "$job_floret_with_icon$ Upkeep"
+ job_floret_with_icon:0 "£job_floret£ $job_floret$"
+
+ job_lead_bureaucrat:0 "Lead Bureaucrat"
+ job_lead_bureaucrat_plural:0 "Lead Bureaucrats"
+ job_lead_bureaucrat_desc:0 "The bureaucratic demands of an empire is a daunting task that requires dedicated and highly trained individuals."
+ job_lead_bureaucrat_effect_desc:0 "£job_lead_bureaucrat£ $job_lead_bureaucrat_plural$ turn £consumer_goods£ §Y$consumer_goods$§! into £unity£ §Y$unity$§!, £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and £mod_planet_stability_add£ §Y$PLANET_STABILITY_TITLE$§!"
+ mod_job_lead_bureaucrat_add:0 "$job_lead_bureaucrat$ Jobs"
+
+ job_domesticator_sentinel:0 "Sentinel Domesticator"
+ job_domesticator_sentinel_plural:0 "Sentinel Domesticators"
+ job_domesticator_sentinel_desc:0 "These mega-floret domestication specialists care for the enormous Sentinels that formerly guarded the Hollowed Ground."
+ mod_job_domesticator_sentinel_add:0 "$job_domesticator_sentinel$ Jobs"
+ job_domesticator_nanite:0 "Nanite Domesticator"
+ job_domesticator_nanite_plural:0 "Nanite Domesticators"
+ job_domesticator_nanite_desc:0 "These domestication specialists care for the nanites swarms that inhabit this world."
+ mod_job_domesticator_nanite_add:0 "$job_domesticator_nanite$ Jobs"
+ job_domesticator_nemma:0 "Nemma Domesticator"
+ job_domesticator_nemma_plural:0 "Nemma Domesticators"
+ job_domesticator_nemma_desc:0 "These mega-floret domestication specialists care for the enormous nemmas that wander the planet's oceans, carrying our colonies on their backs."
+ mod_job_domesticator_nemma_add:0 "$job_domesticator_nemma$ Jobs"
+ job_domesticator_underground:0 "Subterranean Domesticator"
+ job_domesticator_underground_plural:0 "Subterranean Domesticators"
+ job_domesticator_underground_desc:0 "These domestication specialists handle the wide range of tasks associated with caring for sophonts deep underground."
+ mod_job_domesticator_underground_add:0 "$job_domesticator_underground$ Jobs"
+ mod_job_domesticator_underground_per_pop:0 "§G+1§! $job_domesticator_underground$ Job per $VALUE$ Planet Pops"
+ mod_job_domesticator_underground_per_pop_short:0 "\n§G+1§! £mod_job_domesticator_underground_add£ per $VALUE$ £pop"
+ planet_domesticators:0 "Planet Domesticators"
+ domesticators_category:0 "Domesticators"
+ mod_planet_domesticators_produces_mult:1 "$job_domesticator_with_icon$ Output"
+ mod_planet_domesticators_upkeep_mult:1 "$job_domesticator_with_icon$ Upkeep"
+ job_domesticator_with_icon:0 "£job_domesticator_sentinel£ $domesticators_category$"
+
+ # Pop traits
+ trait_haustoric_implant:0 "Haustoric Implant"
+ trait_haustoric_implant_desc:0 "§LSubdermal implants, grown from their owners' genentic material, have integrated with these florets' endocrine, nervous and muscular systems. Their xenodrug regimens can be controlled with remarkable precision.§!\n"
+ TRAIT_HAUSTORIC_IMPLANT_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-40%§!\nAvailable species rights are restricted"
+ TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
+ trait_haustoric_hive_node:0 "Haustoric Hive Node"
+ trait_haustoric_hive_node_desc:0 "§LThese drones' hive synapses have been integrated with a haustoric implant, enabling them to live apart from the primary hive (with proper supervision).§!\n"
+ trait_haustoric_terminal_node:0 "Haustoric Terminal Module"
+ trait_haustoric_terminal_node_desc:0 "§LThese machine units' syncronization modules have been augmented allow maximum cuddle appreciation even at great separation from a primary node.§!\n"
+ trait_robot_haustoric_module:0 "Haustoric Module"
+ trait_robot_haustoric_module_desc:0 "§LPurpose-built hardware and personalized software interface directly with these florets' emotional emulators and tacile processors, allowing them to experience their owners' love in every circuit.§!\n"
+ TRAIT_HAUSTORIC_MODULE_EFFECT:0 "£amenities£ Amenities from £job£ Jobs: §G+20%§!\n£unity£ Unity from £job£ Jobs: §G+5%§!\nEmpire Sprawl from Pops: §G-40%§!\nAffected by £happiness£ §YHappiness§!"
+ TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP:0 "Pop Happiness when away from owners: §R-60%§!\nPop Resource Production when away from owners: §R-60%§!"
+
+ # Factions
+ pft_domesticator_faction:0 "Domesticator Faction"
+ pft_domesticator_faction_desc:1 "Domesticator Factions desire for a multi-species society with a wide variety of sophonts to domesticate. They dislike species-wide Slavery and Purges.\n\n§LXenophile Ethos§!"
+ factions.1.desc.domesticator_faction:0 "Their members have been pushing hard for §Yextremely§! friendly relations with alien species.\n\n"
+
+ # Faction demands
+ DOMESTICATOR_OVERLORD:0 "Domestication Astropolitics"
+ DOMESTICATOR_NOT_OVERLORD:0 "$DOMESTICATOR_OVERLORD$"
+ DOMESTICATOR_OVERLORD_DESC:0 "Installing protectorates to watch over one or more sophont species will please the [Root.GetName]."
+
+ # Civics
+ origin_domesticators:0 "Domesticators"
+ #origin_domesticators_desc:0 "This society has a tradition of taking the violent and vulnerable from other species and keeping them as cherished pets."
+ origin_domesticators_desc:0 "This society has structured itself around the "domestication," both civilizationally and individually, of various adorable sophonts throughout the galaxy, regardless of what said sophonts might think of it themselves."
+ origin_tooltip_domesticators_effects:0 "- Start the game with §Y12§! £pop£ Pops being of another species\n- Allows pops with $citizenship_limited$ and $living_standard_chemical_bliss$ to 'work' as $job_floret_plural$"
+ civic_cosmic_harmony:0 "Cosmic Harmony"
+ civic_cosmic_harmony_desc:0 "This society believes in the beauty of existence, from the grand wonders of the universe to the lowliest creatures that live within it."
+ origin_domesticators_secondary_species:0 "Domesticated Species"
+ civic_tooltip_cosmic_harmony_effects:0 "Allows §Y$living_standard_shared_burden$§! Living Standard, under which all £pop£ Pops have moderate £consumer_goods£ §Y$consumer_goods$§! Upkeep regardless of §YStrata§!\nDisables the use of most other §YLiving Standards§!\n£opinion£ Opinion bonus with other empires: §G+10§!\n"
+
+ # Name list
+ name_list_PLANT5:0 "Plantoid (Affini)"
+
+ # Flag category
+ FLAG_CATEGORY_hdg:0 "HDG"
+
+ # Generic modifers
+ mod_country_base_consumer_goods_produces_add:0 "Monthly £consumer_goods£ Consumer Goods"
+ mod_country_base_alloys_produces_add:0 "Monthly £alloys£ Alloys"
+ mod_country_base_physics_research_produces_add:0 "Monthly £physics_research£ Physics Research"
+ mod_country_base_society_research_produces_add:0 "Monthly £society_research£ Society Research"
+ mod_country_base_engineering_research_produces_add:0 "Monthly £engineering_research£ Engineering Research"
+ mod_shipsize_cruiser_evasion_mult:0 "Cruiser Evasion"
+ mod_shipsize_battleship_evasion_mult:0 "Battleship Evasion"
+ mod_shipsize_titan_evasion_mult:0 "Titan Evasion"
+
+ # Government names
+ gov_domesticator_empire:0 "Verdant Empire"
+ gov_domesticator_empire_desc:0 "This hereditary monarchy is dedicated to the pacification and domestication of the lesser sophonts of the galaxy."
+ gov_domesticator_dictatorship:0 "Benevolent Protectorship"
+ gov_domesticator_dictatorship_desc:0 "This autocratic government is built on the benevolent domestication of xeno species by the firm vines of its Protector."
+ gov_domesticator_oligarchy:0 "Guardian Committee"
+ gov_domesticator_oligarchy_desc:0 "This oligarchic government is ruled over by a committee of those best suited to execute its mission of relieving the younger species of the galaxy of their political and personal responsibilities."
+ gov_domesticator_democracy:0 "Domestication Assembly"
+ gov_domesticator_democracy_desc:0 "This government is founded on the principles of direct democracy and an eternal charge to enlighten and domesticate the weary and suffering masses of the universe."
+
+ # Ruler titles
+ RT_SUMMERKING:0 "Summerking"
+ RT_SUMMERQUEEN:0 "Summerqueen"
+ RT_PROTECTOR:0 "Protector"
+ RT_HIGH_GARDENER:0 "High Gardener"
+ RT_HIGH_ADMIRAL:0 "High Gardener"
+
+ # Species rights tooltips
+ SPECIES_BLISS_HAUSTORIC_IMPLANT:0 "Every floret is entitled to a robust xenodrug regimen."
+ SPECIES_CITIZEN_HAUSTORIC_IMPLANT:0 "Florets are not afforded political rights within our empire."
+ SPECIES_MILITARY_HAUSTORIC_IMPLANT:0 "Florets must be kept safe at all costs. Subjecting them to military service would be unconscionable."
+ SPECIES_STERILE_HAUSTORIC_IMPLANT:0 "The Haustoric Implant invariably renders florets sterile."
+ SPECIES_COLONIZE_HAUSTORIC_IMPLANT:0 "Florets cannot be allowed to venture into the dangerous galaxy unaccompanied by their owners."
+ DOMESTICATOR_POP_CONTROLS_NOT_ALLOWED:0 "Cannot enable population controls for non-implanted florets."
+ domesticated_species_no_citizenship:0 "This species has had its political rights restricted for its own safety."
+
+ # Technology and tooltips
+ tech_haustoric_implant:0 "Haustoric Implants"
+ tech_haustoric_implant_desc:0 "Symbiotic subdermal implants will provide better control over our florets' health and safety. Plus, they'll be so much cuter when they can't even think."
+ ADD_HAUSTORIC_IMPLANT_BONUSES:0 "§Y$job_floret_plural$§! product additional Amenities and receive the §G$trait_haustoric_implant$§! trait"
+ tech_biorhythm_amplification:0 "Biorhythm Amplification"
+ tech_biorhythm_amplification_desc:0 "Amplifying our natural biorhythms will cause sophonts' biological systems to mirror them in a harmonious feedback loop that spirals inevitably toward domestication."
+ ADD_BIORHYTHM_AMPLIFICATION_BONUSES:0 "§Y$job_floret_plural$§! increase £pop_cat_ruler£ §Y$pop_cat_ruler$§! and £pop_cat_specialist£ §Y$pop_cat_specialist$§! job output\nBetter chance to obtain §Y$job_floret_plural$§! from events"
+ tech_megafauna_domestication:0 "Megafauna Domestication"
+ tech_megafauna_domestication_desc:0 "Neurophloematic accelerators, long-range biorhythm repeaters, and mycelial implant networks will allow us to domesticate even the largest of sophonts."
+ tech_hivemind_domestication:0 "Hivemind Domestication"
+ tech_hivemind_domestication_desc:0 "Through world-node haustorics, subspace neural synchronizers, and semi-autonomous sophont-drones, a mega-organism can be taught to play a biorhythmic symphony of devotion and obedience across an entire sector."
+ tech_haustoric_module:0 "Haustoric Module"
+ tech_haustoric_module_desc:0 "The gift of domestication cannot be shared universally until our engineers can replicate xenodrugs with code and embed an owner's biomaterial in silicon."
+ ADD_HAUSTORIC_MODULE_BONUSES:0 "Robotic pops can become §Y$job_floret_plural$§! and receive the §G$trait_robot_haustoric_module$§! trait"
+
+ # Subject type
+ SUBJECT_domesticated_protectorate:0 "Domesticated Protectorate"
+ SUBJECT_domesticated_hivemind:0 "Domesticated Hive Mind"
+ SUBJECT_domesticated_machine_intelligence:0 "Domesticated Machine Intelligence"
 
  # Ascension perks
  ap_benefic_acquisition:0 "Benefic Acquisition"
@@ -222,6 +272,8 @@
  sm_biorhythm_transmitter:0 "Biorhythm Transmitter"
  sm_biorhythm_transmitter_desc:0 "A massive subspace transmission facility that broadcasts hypnotic-laced biorhythms into the cosmos.\n"
  sm_biorhythm_transmitter_desc_modifier:0 "Has a chance to lure £pops£ §$POPS|Y$§! from planets within §Y4§! jumps.\n\n"
+ ap_cosmic_inevitability:0 "Cosmic Inevitability"
+ ap_cosmic_inevitability_desc:0 "\"Please don't fight us, we would hate to see harm come to any sophont.\"\n - Oxalis Platena, Seventh Bloom"
 
  # Opinion modifiers
  opinion_br_pop_stolen:0 "Lured Pop Away"
@@ -266,7 +318,53 @@
  LITHOID_neck_plural:0 "slabs"
  NECROID_neck:0 "neck"
  NECROID_neck_plural:0 "necks"
- AQUATIC_neck:0 "isthumus"
- AQUATIC_neck_plural:0 "isthumi"
+ AQUATIC_neck:0 "isthmus"
+ AQUATIC_neck_plural:0 "isthmi"
  neck_fallback:0 "neck"
  neck_fallback_plural:0 "necks"
+
+ HUM_eye:0 "eye"
+ HUM_eye_plural:0 "eyes"
+ MAM_eye:0 "eye"
+ MAM_eye_plural:0 "eyes"
+ REP_eye:0 "eye"
+ REP_eye_plural:0 "eyes"
+ AVI_eye:0 "eye"
+ AVI_eye_plural:0 "eyes"
+ ART_eye:0 "compound eye"
+ ART_eye_plural:0 "compound eyes"
+ MOL_eye:0 "eye stalk"
+ MOL_eye_plural:0 "eye stalks"
+ FUN_eye:0 "photoreceptor"
+ FUN_eye_plural:0 "photoreceptors"
+ PLANT_eye:0 "chloroplast"
+ PLANT_eye_plural:0 "chloroplasts"
+ ROBOT_eye:0 "optical sensor"
+ ROBOT_eye_plural:0 "optical sensors"
+ MACHINE_eye:0 "optical sensor"
+ MACHINE_eye_plural:0 "optical sensors"
+ LITHOID_eye:0 "lens"
+ LITHOID_eye_plural:0 "lenses"
+ NECROID_eye:0 "eye"
+ NECROID_eye_plural:0 "eyes"
+ AQUATIC_eye:0 "eye"
+ AQUATIC_eye_plural:0 "eyes"
+ eye_fallback:0 "eye"
+ eye_fallback_plural:0 "eyes"
+
+ no_migration_with_feralists:0 "Domesticators can only form migration agreements with other domesticators"
+
+ # Situations
+ situation_subterranean_domestication:0 "Subterranean Domestication"
+ situation_subterranean_domestication_type:0 "Subterranean Domestication"
+ situation_subterranean_domestication_monthly_change_tooltip:0 "$situation_monthly_change_tooltip_approaches_dependent$"
+ situation_subterranean_domestication_desc:0 "Domesticating the [target.owner.GetSubMantleLower] empire on [target.GetName] will require lengthy diplomatic negotiations."
+ approach_domestication:0 "Domesticate"
+ approach_independence:0 "Stand Back"
+ situation_sub_dom_complete_tooltip:0 "We will peacefully annex the [target.owner.GetSubMantleLower] empire."
+ situation_sub_dom_fail_tooltip:0 "We will peacefully coexist with an independent [target.owner.GetSubMantleLower] empire."
+
+ war_goal_wg_domestication:0 "Domestication"
+ war_goal_wg_domestication_desc:2 "War is waged to domesticate the cuties as a Domesticated Protectorate.\n\nIn the event of a Status Quo peace, systems we occupy will be released as a new Domesticated Protectorate if they include at least one planet.\n\nInitial Agreement Terms of the Domesticated Protectorate are determined by our §Y$policy_subjugation_war_terms$§! Policy."
+ cannot_domesticate_hivemind:0 "Missing tech: $tech_hivemind_domestication$"
+ cannot_domesticate_machine:0 "Missing tech: $tech_haustoric_module$"

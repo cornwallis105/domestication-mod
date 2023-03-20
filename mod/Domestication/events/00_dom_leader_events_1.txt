@@ -1,6 +1,46 @@
-#Gatekeeper fired from on_action on_leader_level_up
 namespace = leader
 
+country_event = {
+	id = leader.1
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		any_owned_leader = {
+			leader_class = admiral
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				is_domesticator_or_full_protectorate = yes
+			}
+			country_event = {
+				id = domestication_promising_officer.2
+				scopes = {
+					from = from
+					fromfrom = fromfrom
+					fromfromfrom = fromfromfrom
+				}
+			}
+		}
+		else = {
+			country_event = {
+				id = domestication_promising_officer.1
+				scopes = {
+					from = from
+					fromfrom = fromfrom
+					fromfromfrom = fromfromfrom
+				}
+			}
+		}
+	}
+}
+
+#Gatekeeper fired from on_action on_leader_level_up
 country_event = {
 	id = leader.20
 	hide_window = yes

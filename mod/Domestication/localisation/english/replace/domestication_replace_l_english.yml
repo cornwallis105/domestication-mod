@@ -2,3 +2,4 @@
  # Body parts
  PLANT_hand:2 "vine"
  PLANT_hand_plural:1 "vines"
+ mod_country_base_unity_produces_add:0 "Monthly £unity£ Unity"

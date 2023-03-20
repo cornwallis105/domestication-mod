@@ -1,17 +1,8 @@
 ﻿l_english:
+ dialog_domesticator:0 "Domesticator"
+ WONDERFUL:0 "Wonderful!"
 
- domestication.2.name:0 "Haustoric Implants"
- domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
- domestication.2.a:0 "Wonderful!"
-
- domestication.9.name:0 "New Arrivals from the [br_home_empire.GetName]"
- domestication.9.desc:0 "Heeding the call of our §Y$sm_biorhythm_transmitter$§!, [br_resettle_pop.GetSpeciesAdj] sophonts from [br_resettle_homeworld.GetName] have departed their homeworld en masse. The [Root.GetName] has welcomed them with open [Root.GetSpeciesHandNamePlural] to their new home on [br_resettle_newworld.GetName].\n\nEarly reports indicate that many of the new arrivals have already volunteered for domestication."
- domestication.9.a:0 "Welcome!"
-
- domestication_leader.2.name:0 "Admiral Rescues New Floret"
- domestication_leader.2.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally rescued a scared little [new_floret.Species.GetName] from the hyperdrive core of a wrecked [defeated_country.GetAdj] ship. After bonding with the Admiral during [new_floret.GetHerHis] recovery, the sophont volunteered [new_floret.GetHimselfHerself] for domestication and is now known as §Y[new_floret.GetName]§!."
- domestication_leader.2.a:0 "What a brave little floret!"
-
+ # Level-up
  domestication_leader.3.name:0 "New Floret Domesticated"
  domestication_leader.new_cutie_sci:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is just cute as a button!"
  domestication_leader.new_distracted_sci:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is easily distracted by shiny objects. [new_floret.GetHerHisCap] antics are very fun to watch, but are also a bit distracting on their own."
@@ -24,35 +15,55 @@
  domestication_leader.new_brainslug_gov:0 "§YGovernor [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] two brand new florets, a [new_floret.Species.GetName] and Brain Slug pair named §Y[new_floret.GetName]§! that are adorably inseparable!"
  domestication_leader.new_brainslug_adm:0 "§YAdmiral [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] two brand new florets, a [new_floret.Species.GetName] and Brain Slug pair named §Y[new_floret.GetName]§! that are adorably inseparable!"
  domestication_leader.new_brainslug_gen:0 "§YGeneral [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] two brand new florets, a [new_floret.Species.GetName] and Brain Slug pair named §Y[new_floret.GetName]§! that are adorably inseparable!"
+ domestication_leader.new_class_o_gen:0 "§YGeneral [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§!. Due to unspeakable levels of trauma, the [new_floret.Species.GetName] was put on Class-O xenodrugs and spends [new_floret.GetHisHer] days in unthinking bliss."
+ domestication_leader.new_historian_sci:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is very interested in galactic history! [new_floret.GetHeSheCap] doesn't particularly mind if [new_floret.GetHeShe] [new_floret.GetIsAre] delving through libraries or excavating archaeological sites, as long as [new_floret.GetHeShe] can do it with [new_floret.GetHisHer] beloved owner."
+ domestication_leader.new_musician_adm:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is an excellent musician! [new_floret.GetHisHerCap] owner is so proud of [new_floret.GetHisHer] talent that [new_owner.GetHeShe] [new_owner.GetIsAre] weaving [new_floret.GetHisHer] music into the fleet's hyperdrive plumes."
+ domestication_leader.new_underground_gov:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a Cave-Dwelling [new_floret.Species.GetName] named §Y[new_floret.GetName]§!! [new_floret.GetHeSheCap] love[new_floret.GetSXX] finding interesting rocks for [new_floret.GetHisHer] owner, but asks that we turn the lights in our cities down so they don't hurt [new_floret.GetHisHer] [new_floret.GetEyeNamePlural]."
+ domestication_leader.new_underground_gen:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a Cave-Dwelling [new_floret.Species.GetName] named §Y[new_floret.GetName]§!! [new_floret.GetHeSheCap] love[new_floret.GetSXX] to remind [new_floret.GetHisHer] owner's troops about the importance of digging defensive trenches, and we just can't say no when [new_floret.GetHeShe] begs to dig one more hole."
  domestication_leader.3.a:0 "Adorable!"
  domestication_leader.3.fallback:0 "This is fallback text which means this event did not fire correctly."
 
- pirate.2.j:0 "We will not let them harm a single sophont."
+ # Haustoric Implants
+ domestication.2.name:0 "Haustoric Implants"
+ domestication.2.desc:0 "Recent breakthroughs in bio-engineering have given us a remarkable new tool for improving the lives of our florets: the Haustoric Implant. Grown from their owner's genetic material, the implant is surgically placed near the floret's spine or equivalent anatomy. Over the course of a week, the implant matures and spreads its vines throughout the floret's body, interfacing with their endocrine, nervous and muscular systems. It can automatically or manually administer xenodrugs, alter the floret's mental state and provide limited muscle control overrides, while also rendering the floret irrevocably sterile.\n\nOur surgery centers are working at full capacity to implant our existing florets, and new florets will receive the implant as a mandatory part of their domestication."
+ domestication.2.a:0 "Wonderful!"
 
+ # Biorhythm Transmitter
+ domestication.9.name:0 "New Arrivals from the [br_home_empire.GetName]"
+ domestication.9.desc:0 "Heeding the call of our §Y$sm_biorhythm_transmitter$§!, [br_resettle_pop.GetSpeciesAdj] sophonts from [br_resettle_homeworld.GetName] have departed their homeworld en masse. The [Root.GetName] has welcomed them with open [Root.GetSpeciesHandNamePlural] to their new home on [br_resettle_newworld.GetName].\n\nEarly reports indicate that many of the new arrivals have already volunteered for domestication."
+ domestication.9.a:0 "Welcome!"
+ domestication.10.name:0 "Population Missing"
+ domestication.10.desc:0 "Recent census data from [br_resettle_homeworld.GetName] shows that a large number of our people have simply vanished without a trace. While we have no hard data about what happened, [br_resettle_homeworld.GetName]'s proximity to the [br_pop_stealer.GetAdj] border may at least indicate where they went."
+ domestication.10.a:0 "Jerks!"
+
+ # Admiral Rescues Floret
+ domestication_leader.2.name:0 "Admiral Rescues New Floret"
+ domestication_leader.2.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally rescued a scared little [new_floret.Species.GetName] from the hyperdrive core of a wrecked [defeated_country.GetAdj] ship. After bonding with the Admiral during [new_floret.GetHerHis] recovery, the sophont volunteered [new_floret.GetHimselfHerself] for domestication and is now known as §Y[new_floret.GetName]§!."
+ domestication_leader.2.a:0 "What a brave little floret!"
+
+ # Pirates
+ pirate.2.j:0 "We will not let them harm a single sophont."
  domestication_leader.4.name:0 "Admiral Captures New Floret"
  domestication_leader.4.desc:0 "During the recent battle in [FromFrom.System.GetName], Admiral §Y[new_owner.GetName]§! personally subdued a pirate commander. The [new_floret.Species.GetAdj] pirate was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.4.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"
 
+ # Admiral
  domestication_leader.5.name:0 "Admiral Captures New Floret"
  domestication_leader.5.desc:0 "In a stunning display of military skill in the [system.GetName] system, Admiral §Y[new_owner.GetName]§!"
  domestication_leader.5.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued an enemy commander. The [new_floret.Species.GetAdj] admiral was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.5.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"
 
- domestication.10.name:0 "Population Missing"
- domestication.10.desc:0 "Recent census data from [br_resettle_homeworld.GetName] shows that a large number of our people have simply vanished without a trace. While we have no hard data about what happened, [br_resettle_homeworld.GetName]'s proximity to the [br_pop_stealer.GetAdj] border may at least indicate where they went."
- domestication.10.a:0 "Jerks!"
-
+ # Domesticated Hive
  domestication.14.name:0 "Domestication Facility Relocated"
  domestication.14.desc:0 "With the relocation of our hive's primary nexus to [this.GetName], our Owner's interface facility has also been relocated."
- domestication.14.a:0 "Wonderful!"
 
+ # Domesticated Machine Core
  domestication.16.name:0 "Domestication Facility Relocated"
  domestication.16.desc:0 "With the relocation of our primary computational cluster to [this.GetName], our Owner's interface facility has also been relocated."
- domestication.16.a:0 "Wonderful!"
 
+ # Operative
  domestication_espionage.2.name:0 "Disavowed Operative Rescued"
  domestication_espionage.2.desc:0 "Our once-disavowed operative has made it back to [root.GetAdj] space. This §H[disavowed_agent_country.GetAdj] sophont§! - who identified [disavowed_floret.GetHimselfHerself] as [disavowed_floret.GetName] - appears nervous and relieved. The sophont was debriefed while under Class H Xenodrugs, and we have placed the new §YFloret§! with a loving §YOwner§!.\n\nWith the matter now resolved, [disavowed_floret.GetName]'s shaky disavowal will be renewed. Having confirmed that [disavowed_floret.GetHeShe] [disavowed_floret.GetIsAre] no longer missing in action, our current operatives can ensure that this time, the disavowal will stick."
-
  domestication_leader.14.name:0 "Rescued Operative Finds Owner"
  domestication_leader.new_attache:0 "§YGeneral [new_owner.GetName]§! has claimed the rescued [new_floret.Species.GetAdj] operative as [new_owner.GetHisHer] new floret, naming [new_floret.GetHimHer] §Y[new_floret.GetName]§!. The new floret rarely leaves [new_floret.GetHisHer] owner's side, helping out with logistics when [new_floret.GetHeShe] can and napping in [new_floret.GetHisHer] owner's [new_floret.Species.GetHandNamePlural] when [new_floret.GetHeShe] get[new_floret.GetSXX] tired."
  domestication_leader.new_economist:0 "§YGovernor [new_owner.GetName]§! has claimed the rescued [new_floret.Species.GetAdj] operative as [new_owner.GetHisHer] new floret, naming [new_floret.GetHimHer] §Y[new_floret.GetName]§!. [new_floret.GetHisHerCap] owner lets [new_floret.GetHimHer] look at spreadsheets when [new_floret.GetHeShe]'[new_floret.GetSRe] bored, and occasionally [new_floret.GetHeShe] does point out economic ineffeciencies to improve."
@@ -61,9 +72,11 @@
  domestication_leader.14.a:0 "What a brave little floret!"
  domestication_leader.14.fallback:0 "This is fallback text which means this event did not fire correctly."
 
+ # Stray Marauder
  marauder.703.f:0 "Place them with a loving owner"
  gain_marauder_admiral_floret:0 "One of our Admirals will take ownership of the marauder and keep it as their floret."
 
+ # Warform
  distar.164.d:0 "We have a different suggestion."
  distar.164.d.tooltip:0 "§Y[this.GetName]§! becomes the new owner of §Y[warform_leader.GetName]§!"
  domestication_leader.17.desc:0 "§LBEEP!§!"
@@ -72,8 +85,7 @@
  domestication_leader.16.desc:0 "Although $NAME_S8751$ claims to want to serve us in a military capacity, it is clear to any [root.Species.GetName] that what it really needs is lots of love and affection.\n\nAs such, Admiral [new_owner.GetName] has graciously and eagarly volunteered to be [new_floret.GetName]'s new owner."
  domestication_leader.16.a:0 "What a good beeper!"
 
- dialog_domesticator:0 "Domesticator"
-
+ # Danthnak
  dathnak_species:0 "Dathnak"
  dathnak_species_plural:0 "Dathnak"
  dathnak_species_adjective:0 "Dathnak"
@@ -82,6 +94,7 @@
  domestication_leader.19.desc:0 "While transporting the Dathnak to their new home on... \"Baldarak\"... Scientist [new_owner.GetName] bonded with one of the Dathnak. The [science_ship.GetName] has been modified to house the Dathnak, and [new_owner.GetName] is ready to explore the galaxy with [new_floret.GetName] at [new_owner.GetHisHer] side."
  domestication_leader.19.a:0 "Welcome aboard, [new_floret.GetName]!"
 
+ # Sentinels
  ancrel.4059.dom_fail:0 "Your protection is appreciated, but unnecessary."
  ancrel.4059.dom_succeed:0 "Your protection is appreciated, but unnecessary."
  domestication.24.desc:0 "§HThe Sentinels listen as we try to explain how we can protect their charges from space. The lead Sentinel chuckles.§!\n\nNo, little ones. Do not offer promises that you are not strong enough to keep."
@@ -95,7 +108,7 @@
  domestication.27.a:0 "Let us relieve them of their watch."
  domestication.27.b:0 "Let them be."
  domestication.28.name:0 "We Will Stand Vigil"
- domestication.28.desc:0 "To prove our worthiness, we will have to create a grand bastion to protect [sentinels_planet.GetName].\n\n§HIn order to progress, we will need a Starbase of at least £military_power£ 20000 military power orbiting [sentinels_planet.star.GetName].§!"
+ domestication.28.desc:0 "To prove our worthiness, we will have to create a grand bastion to protect [sentinels_planet.GetName].\n\n§HIn order to progress, we will need a Starbase of at least £military_power£ 20000 military power orbiting [sentinels_planet.solar_system.GetName].§!"
  domestication.28.a:0 "Call in the Department of Astro-Engineering"
  domestication.29.name:0 "Vigil's End"
  domestication.29.desc:0 "The [sentinels_planet.solar_system.GetName] Bastion is complete, and we return to the Hollowed Ground on [sentinels_planet.GetName]. The Sentinels, weary of their task, have accepted that we can protect these graves better that they. Still, the loss of purpose weighs heavily on any sophont, and many have found new purpose in caring for their \"wards.\"\n\nIt's an unconventional way for florets to refer to their owners, but the Sentinels are no ordinary florets."
@@ -107,22 +120,24 @@
  domestication.30.b:0 "That sounds incredibly boring..."
  the_evermore_domesticated_modifier:1 "The Evermore"
  the_evermore_domesticated_modifier_desc:0 "The Evermore is a virtual realm in which the digitized consciousnesses of aliens live in eternal bliss, now accessible to one and all."
- distar.172.domestication:0 "Slugs would make wonderful pinnates for florets!"
 
+ # Brain slugs
+ distar.172.domestication:0 "Slugs would make wonderful pinnates for florets!"
  distar.171.domestication.desc:0 "Science Officer [Root.GetLeaderName] has concluded [Root.Leader.GetHisHer] study on the neural symbionts found on [From.From.GetName]. These slug-shaped creatures consist mostly of a complex brain in a resistant protein casing. Despite their neurological advancement, their lack of external organs and limited motor capacities make any attempts at communication exceedingly difficult. After weeks of frustration, [Root.GetLeaderName] experimented with introducing the creatures into an animal host. The reptilians these neural symbionts once built a primitive society with on [From.From.GetName] are too aggressive to facilitate experimentation, so a number of substitute species from the surface were tested instead.\n\nRegrettably, the symbionts refused to attach themselves to any of the offered animals. Science Officer [Root.GetLeaderName] hypothesizes that the symbionts will only accept a certain kind of host - perhaps, importantly, a willing one.\n\nIn order to get at the heart of this mystery, a [brain_slug_floret.GetSpeciesName] crew member has requested permission to volunteer themself as a host for a neural slug. After all, if these symbionts were capable of turning wild animals into tool-using farmers, what might they do for a [brain_slug_floret.GetSpeciesName]?"
  distar.171.domesticator:0 "Cotyledon Project approved. For science!"
  distar.172.domestication.desc:0 "Science Officer [brainslug_scientist.GetName] is elated to report that the volunteer's joining with a symbiont from [From.From.From.GetName] has been a glowing success. After an initial period of confusion and mild discomfort, the subject reports notably increased intellectual faculties when it comes to solving complex tasks. Even more remarkably, the subject is now able to mentally communicate with the slug-like creature freshly attached to their brain stem.\n\nThe symbionts are hiveminds with lifespans of hundreds of years. They claim their past union with the reptiles on [From.From.From.GetName] came to end when their hosts grew unfoundedly suspicious of them. In fits of rage, the reptiles began tearing off their symbionts and clubbing them to death. Dismayed by their hosts' actions, the symbionts that survived retreated away from the reptiles, who without the neural stimulation of their slugs devolved back into non-sapient beasts.\n\nThe symbionts would like to extend an offer of union to other sophonts in the [Root.Owner.GetName]. They ask, however, that only the willing become hosts."
-
  domestication_leader.20.name:0 "Symbiotic Florets"
  domestication_leader.20.desc:0 "While the Brain Slug Cotyledon Project was successful, the [new_floret.Species.GetName] volunteer is in no shape to return to [new_floret.GetHisHer] previous post. As such, §YScientist [new_owner.GetName]§! has dutifully adopted §Y[new_floret.GetName]§! as [new_owner.GetHisHer] new florets."
  domestication_leader.20.a:0 "One small step for a [new_floret.Species.GetName], one giant leap for floret-kind!"
 
+ # Stranded Scientist
  distar.3020.c:0 "Let's find her a nice owner."
  distar.3020.c.tooltip:0 "[stranded_scientist_leader.GetName] will be paired with a nice [Root.Owner.Species.GetName] who will give her lots of snuggles."
  domestication_leader.21.name:0 "Safe and Sound"
  domestication_leader.21.desc:0 "[stranded_scientist_leader.GetName] has been through so much, being trapped alone on her ship for years. She deserves the kind of peaceful rest that only an [Root.Species.GetName] owner can provide. §YScience Officer [new_owner.GetName]§! has graciously volunteered to adopt §Y[new_floret.GetName]§! and make sure she's never alone again."
  domestication_leader.21.a:0 "So cute!"
 
+ # Racket
  fleet3dealdesc_domestication1:0 "We have a leader, an excellent fit for the [Root.GetName]! A floret! Very cute, enjoys cuddles. Wants nothing more than to be your obedient pet!\n\n§LThe Racket squints at her data pad.§!\n\nThis can't be right. Some jokester seems to have hacked the commerce database and put themself up for... um... \"Domestication?\" Look, I'm not getting paid enough to sort all of this out so just give us our... £energy£ §Y0 $energy$§!...\n\n§LThe Racket sighs heavily.§!\n\nYou know what, it's fine. Just take them off our hands. Please?"
  fleet3deal_domestication1product1_tooltip:0 "One of our Governors will adopt the Racket volunteer."
  domestication_leader.22.name:0 "A Racket Volunteer"
@@ -130,6 +145,7 @@
  domestication_leader.22.a:0 "So cute!"
  dom_cara_free.tooltip:0 "No charge? How civilized!"
 
+ # Sentinels
  domesticating_the_nanite_swarm_title:0 "Domesticating the Sentinels"
  domesticating_the_nanite_swarm_desc:0 "We need to pursuade the Sentinels to let us relieve them of their vigil. They will never do so until we can convince them of our ability to protect their fallen masters.\n\n§HBuild a Starbase of at least £military_power£ 20000 fleet power in the [sentinels_planet.solar_system.GetName] system.§!"
  anomaly.6705.dom:0 "Domesticate the Swarm."
@@ -143,6 +159,7 @@
  domestication.34.desc:0 "While the nanite swarm of §H[nanite_swarm_planet.GetName]§! was impressive as a collective, as individuals they were quite vulnerable and submissive. Extracting a few from the planet's atmosphere and using our advanced AI technology, we have managed to domesticate the machines' communication systems. Then when we reintroduced our reprogrammed nanites into the swarm, the modifications spread across the globe in a flash.\n\nWith control of the network secured, our first request was to reintroduce a stable biosphere onto §H[nanite_swarm_planet.GetName]§! - one which is optimized for [Root.Owner.GetSpeciesNamePlural]. The planet is now ready and waiting for us, and the nanite swarm is eagarly waiting to meet its new owners."
  domestication.34.a:0 "Let's not keep them waiting!"
 
+ # Nemmas
  colony.9000.dom:0 "We can't let them come to harm."
  domestication.35.name:0 "A Heartwarming Discovery"
  domestication.35.desc:0 "Our colony at [Root.GetName], built primary on the backs of the Nemmas, is growing steadily. All mining operations into the Nemmas' shells have been permanently withdrawn, and life is settling into an equilibrium.\n\nQuestions remain, though. What do the Nemmas want? Is it safe to settle on their back for the long term? Do they make good pets?\n\nDedicated research will be needed."
@@ -161,11 +178,11 @@
  turtle_world_domesticator_modifier_desc:0 "What were initially regarded as islands on this planet have instead turned out to be the backs of massive, live reptiles. The amount of space available to safety construct the colony is limited, and mining into the creatures is strictly forbidden."
  domestication.37.name:0 "The Nemma Domestication Project"
  domestication.37.desc:0 "Months of tireless research and careful experimentation on the Nemmas of §Y[Root.GetName]§! have yielded conclusive results. Our mega-xeno-veterinarians have successfully implanted a Nemma with a haustoric implant!\n\nAlthough the magnificent creature is not capable of speech, we have learned to decode its brainwaves and communicate with it via feelings and emotions. Class-E xenodrugs have calmed its anxiety about the settlement on its back, and the thankful appreciation of its passengers provoked a response that is somewhat analagous to \"blushing.\""
- domestication.37.a:0 "Wonderful!"
  domestication.38.name:0 "The Nemmas, Revisited"
  domestication.38.desc:0 "Shelving the plans for domesticating the Nemmas of [Root.GetName] was a regretable necessity, but recent scientific discoveries have brought the project back under consideration. It will still take some time to determine what kind of implant will work in a reptile the size of an island, but the promise of mega-florets is motivation enough for any [Root.Owner.GetSpeciesName]."
  domestication.38.a:0 "Project approved, signed and dated."
 
+ # Ophidians - Not in-game anymore?
  colony.9100.c:0 "But do they make good pets?"
  NAME_Hiss:0 "Hiss" #snakes
  SNEK_DOMESTICATION_PROJECT:0 "Domesticate the Ophidians"
@@ -181,9 +198,117 @@
  domestication.42.desc:0 "After exstensive research and experimentation, we have reached the unfortunate conclusion that the ophidians §Y[root.GetName]§! simply cannot be domesticated. They lack the requisite intelligence to be considered \"sophonts,\" and furthermore, our attempts to pacify them have been largely unsuccessful. The colonists on [root.GetName] will simply have to adapt to the constant threat that the ophidians pose."
  domestication.42.a:0 "Disappointing"
 
+ # Cryopod General
  anomaly.4157.domestication:0 "Will you let us help you?"
  domestication_leader.24.desc:0 ""This... "domestication..." you speak of is foreign to my kind. But... perhaps it is time that my people learn to accept guidance from those who do not share our quarrelsome ways.\n\nPerhaps it is better that I do not bear my burden alone.""
  domestication_leader.24.a:0 "Let's find you a worthy owner."
  domestication_leader.23.name:0 "The Bearer"
  domestication_leader.23.desc:0 "Trapped in a cryopod for countless centuries, the sophont known as §Y$NAME_Majula_the_Bearer$§! has volunteered [new_floret.GetHimselfHerself] for domestication on the condition that [new_floret.GetHeShe] be kept as far from conflict as possible and that [new_floret.GetHeShe] be kept lucid enough to tell the stories of [new_floret.GetHisHer] lost people.\n\nAfter much deliberation, [new_floret.GetSheHe] has selected §YGovernor [new_owner.GetName]§! to be [new_floret.GetHisHer] new owner. The [root.GetName] will do everything it can to make sure that §Y[new_floret.GetName]§!'s stories are never forgotten."
  domestication_leader.23.a:0 "A stark reminder of our limitations"
+
+ # Ahab
+ distar.215.domestication:0 "You're clearly a danger to yourself, and possibly others."
+ domestication_leader.25.name:0 "The Reckless Captain"
+ domestication_leader.25.desc:0 "Having been rescued from the belly of the Tiyanki Matriarch, §YCaptain [captain_reth.GetName]$§! has been deem an extreme danger to [new_floret.GetHimselfHerself], although whether [new_floret.GetHeShe] is a danger to others is still up for deabte. Needless to to say, [new_floret.GetHeShe] is a clear candidate for mandatory domestication, and  §Admiral [new_owner.GetName]§! has enthusiastically volunteered to be §Y[new_floret.GetName]§!'s new owner."
+
+ # The Great Khan
+ dom_marauder.1.name:0 "The Death of the Great Khan"
+ dom_marauder.1.desc:0 "$marauder.510.desc$\n\nCuriously, no body has yet been recovered from the wreckage..."
+ dom_marauder.1.a:0 "So ends the reign of [great_khan.GetName]."
+ dom_marauder.3.name:0 "The Great Khan is Captured!"
+ dom_marauder.3.desc:0 "In a dazzling display of bravery, our forces have boarded the §YGreat Khan [great_khan.GetName]§!'s flagship and captured the Great Khan [great_khan.GetHimselfHerself]! Expecting to go down with [great_khan.GetHisHer] ship, [great_khan.GetName] made no effort to flee, and the look on [great_khan.GetHisHer] face when we stormed [great_khan.GetHisHer] throne room was just priceless!\n\nManditory domestication was never a question when it came to a violent warlord like [great_khan.GetName], and we have selected §YAdmiral [new_owner.GetName]§! to be the Khan's new owner. It will be difficult to find the cute little pet buried under all that trauma, but the Admiral is up to the task.\n\nAs for the new floret, §Y[new_floret.GetName]§! is resting peacefully in [new_floret.GetHisHer] owner's [this.GetSpeciesHandNamePlural], finally getting the love and attention [new_floret.GetHeShe] [new_floret.GetHasHave] always deserved."
+ dom_marauder.3.g.desc:0 "In a dazzling display of bravery, our forces have boarded the §YGreat Khan [great_khan.GetName]§!'s flagship and captured the Great Khan [great_khan.GetHimselfHerself]! Expecting to go down with [great_khan.GetHisHer] ship, [great_khan.GetName] made no effort to flee, and the look on [great_khan.GetHisHer] face when we stormed [great_khan.GetHisHer] throne room was just priceless!\n\nManditory domestication was never a question when it came to a violent warlord like [great_khan.GetName], and we have selected §YAdmiral [new_owner.GetName]§! to be the Khan's new owner. It will be difficult to find the cute little pet buried under all that trauma, but the Admiral is up to the task.\n\nAs for the new floret, §Y[new_floret.GetName]§! is responding wonderfully to [new_floret.GetHisHer] Class-G xenodrugs, and [new_floret.GetHeShe] is resting peacefully in [new_floret.GetHisHer] owner's [this.GetSpeciesHandNamePlural]. [new_floret.GetHeSheCap] [new_floret.GetIsAre] finally getting the love, attention, and validation [new_floret.GetHeShe] [new_floret.GetHasHave] always needed and deserved."
+ dom_marauder.3.a:0 "A danger to others no longer"
+ dom_marauder.4.name:0 "$dom_marauder.3.name$"
+ dom_marauder.4.desc:0 "In a dazzling display of bravery, our forces have boarded the §YGreat Khan [great_khan.GetName]§!'s flagship and captured the Great Khan [great_khan.GetHimselfHerself]! Expecting to go down with [great_khan.GetHisHer] ship, [great_khan.GetName] made no effort to flee, and the look on [great_khan.GetHisHer] face when we stormed [great_khan.GetHisHer] throne room was just priceless!\n\nManditory domestication was never a question when it came to a violent warlord like [great_khan.GetName], and we have deemed it best for the new floret's well-being to be as far away from the battlefield as possible. It will be difficult to find the cute little pet buried under all that trauma, but [new_floret.GetHisHer] new owner is up to the task.\n\nAs for the new floret, [new_floret.GetHeShe] [new_floret.GetIsAre] resting peacefully in [new_floret.GetHisHer] owner's [this.GetSpeciesHandNamePlural], finally get the love and attention [new_floret.GetHeShe] [new_floret.GetHasHave] always needed and deserved."
+ dom_marauder.4.a:0 "$dom_marauder.3.a$"
+ dom_marauder.5.name:0 "Great Khan's Throne Recovered"
+ dom_marauder.5.desc:0 "While disassembling the hulk of the Great Khan's flagship, our technicians took the effort to remove the Great Khan's throne from the ship for preservation.\n\nWhile the true prize from the ship is safe within [great_khan_floret.GetHisHer] owner's [this.GetSpeciesHandNamePlural], this important historical relic has been placed inside a secure vault."
+ dom_marauder.7.name:0 "They Never Stood a Chance"
+ dom_marauder.7.desc:0 "Xeno-Outreach Broadcasts featuring new florets are common on [khan_destroyer.GetSpeciesAdj] broadcast frequencies, but today's is a bit unusual. Indeed, the star of today's program is none other than §Y[great_khan_floret.GetName]§!! In a message to the galaxy, [great_khan_floret.GetHeShe] tells everyone how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] new life in the [khan_destroyer.GetName], how much [great_khan_floret.GetHeShe] loves being a floret, and of course, how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] owner, the magnificent §Y[khans_owner.GetName]§!!\n\nXeno-Veterinary Psychologists suggest that seeing just how easily any sophont, even a warlord like the \"Great Khan,\" can be broken by a loving [khan_destroyer.GetSpeciesName] will have a profound impact on feralists throughout the galaxy."
+ dom_marauder.7.a:0 "What a wonderful floret!"
+ dom_marauder.8.name:0 "They Never Stood a Chance"
+ dom_marauder.8.desc:0 "$dom_marauder.7.desc$"
+ dom_marauder.8.a:0 "What a wonderful floret!"
+ dom_marauder.9.name:0 "The Great Khan Lives... In Chains"
+ dom_marauder.9.desc:0 "Propaganda broadcasts featuring brainwashed slaves are an unfortunate fact of life for anyone in proximity to [khan_destroyer.GetAdj] space, but today's is a bit unusual. Indeed, the victim in today's program is none other than §YGreat Khan [great_khan_backup.GetName]§!! In a message to the galaxy, [great_khan_floret.GetHeShe] intoduces [great_khan_floret.GetHimselfHerself] as §Y[great_khan_floret.GetName]§! and tells everyone how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] new life in the [khan_destroyer.GetName], how much [great_khan_floret.GetHeShe] loves being a "floret," and how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] §Rowner§!, §Y[khans_owner.GetName]§!.\n\nBetween learning that the Great Khan is still alive and seeing the effects of [khan_destroyer.GetAdj] torture, our populace is more than a little shaken. If the [khan_destroyer.GetSpeciesNamePlural] can turn such a commanding warlord into this... \"pet,\" there's one question one every [this.GetSpeciesName]'s mind:"
+ dom_marauder.9.a:0 "Do we really stand a chance?"
+
+ sub_dom_project:0 "[target.Owner.GetSubMantleUpper] Domestication Project"
+ dom_underground.1.name:0 "The [this.owner.GetSubMantleUpper] Domestication Project"
+ dom_underground.1.desc:0 "Relations with the [this.owner.GetSubMantleLower] [subterranean_species.GetAdj] Empire on [this.GetName] are peaceful, and yet the status quo leaves many [this.owner.GetSpeciesNamePlural] unsatisfied. The [this.owner.GetSubMantleLower] empire is clearly less advanced than our own, and even its nobility live in conditions that we find unacceptable. In normal circumstances, we would simply march in, topple the existing government, and bring the joys of domestication to every [subterranean_species.GetName]. Alas, the [this.owner.GetSubMantleLower] geography of the empire makes such an approach intolerably risky, and thus another plan is needed.\n\nShall we attempt to domesticate the [subterranean_species.GetName] through diplomacy, or shall we content ourselves with peaceful coexistence?"
+ dom_underground.1.a:0 "Approve the Domestication Project"
+ dom_underground.1.c:0 "Pursue peaceful coexistence"
+ dom_underground.2.name:0 "The [target.Owner.GetSubMantleUpper] Domestication Treaty"
+ dom_underground.2.desc:0 "After months of tense negotiations, zealous xeno-outreach, and loving head-pats, [target.owner.GetSpeciesAdj] and [subterranean_species_3.GetAdj] diplomats met today to sign the [subterranean_species_3.GetAdj] Domestication Treaty. Having been impressed by our technology, convinced of our good intentions, and doted upon by their new owners, the former rulers of the [target.owner.GetSubMantleLower] empire have willingly surrendered their independence to the [target.owner.GetName].\n\nOur engineers are already hard at work integrating [subterranean_species_3.GetAdj] infrastructure into our own networks, while our bureaucrats are working around the clock issuing citizenship to independent [subterranean_species_3.GetNamePlural] and processing domestication contracts for [subterranean_species_3.GetAdj] florets."
+ dom_underground.2.a:0 "A great day for [target.owner.GetSpeciesNamePlural] and [subterranean_species_3.GetNamePlural] alike!"
+ dom_underground.3.name:0 "Cancelling the $sub_dom_project$"
+ dom_underground.3.desc:0 "The massive resource costs of conducting a domestication project deep underground on [target.GetName] have proven to be more than the [target.owner.GetName] can bear. With great sadness, our diplomats have returned to [target.owner.capital.GetName], our domestication centers have closed, and our mission to the [target.owner.GetSubMantleLower] empire has reverted to its original purpose of facilitating trade.\n\nWe can only hope that relations with the [target.owner.GetSubMantleLower] empire remain peaceful despite our hybris."
+ dom_underground.3.a:0 "A sad day for the [target.owner.GetName]"
+ dom_underground.5.name:0 "Earthquakes on [target.GetName]"
+ dom_underground.5.desc:0 "There has been a wave of earthquakes on [target.GetName] recently, and buildings in several of our settlements have been damaged, although injuries have been minor. The [target.Owner.GetSubMantleLower] alien empire is excavating a new cavern deep underground where they plan to build a new city, and this appears to be the source of the earthquakes."
+ dom_underground.5.a:0 "Develop earthquake mitigation strategies for our colony"
+ dom_underground.5.a.tooltip:0 "Colonial expansion and maintenance will be more expensive"
+ dom_underground.5.b:0 "Insist that [target.owner.GetSpeciesAdj] work on future expansions"
+ dom_underground.5.b.tooltip:0 "The $sub_dom_project$ will require addition engineers"
+ dom_underground.6.desc:0 "We have been approached by a delegation from the [target.Owner.GetSubMantleLower] aliens on [target.GetName]. It seems their empire has fallen on hard times recently, and they are facing the threat of a famine. They are pleading with us to provide whatever assistance we can."
+ dom_underground.6.a:0 "Arrange for food convoys to the [target.Owner.GetSubMantleLower] empire"
+ dom_underground.6.a.tooltip:0 "We will send them a monthly shipment of food, and rely on their distribution networks"
+ dom_underground.6.b:0 "Establish groceries within the [target.Owner.GetSubMantleLower] empire"
+ dom_underground.6.b.tooltip:0 "Groceries will require an upfront cost for construction, as well as the food to stock their shelves"
+ dom_underground.6.c.tooltip:0 "This will slow down the $sub_dom_project$"
+ dom_underground.7.desc:0 "Several xeno anthropologists from [target.Owner.Capital.GetName] have requested that they be allowed to live amongst the [target.Owner.GetSubMantleLower] aliens beneath the surface of [target.GetName] and learn about their ancient ways and customs. Alternatively, we could ask them to run a Cotyledon Program alongside their research to assist with the $sub_dom_project$, or deny approval for the research altogether."
+ dom_underground.7.a:0 "Limit the study to [target.Owner.GetSubMantleLower] culture"
+ dom_underground.7.a.tooltip:0 "This will improve our £society£ §Y$society_research$§! for the duration of the $sub_dom_project$, but will require additional resources"
+ dom_underground.7.b:0 "Start a [target.Owner.GetSubMantleUpper] Cotyledon Program"
+ dom_underground.7.b.tooltip:0 "This will help the $sub_dom_project$ progress, but will require additional resources"
+ dom_underground.7.c:0 "Deny the xeno anthropologists' request"
+ dom_underground.7.c.tooltip:0 "This will have no effect"
+ dom_underground.8.desc:0 "As a gift to celebrate the friendship between our two civilizations, a caravan from the subterranean aliens on [target.GetName] has brought a large quantity of gemstones to the surface. Stones such as these are apparently mined by their empire deep underground, as close to the [target.GetPlanetMoon]'s core as they dare to venture."
+ dom_underground.8.desc.subterranean:0 "As a gift to celebrate the friendship between our two civilizations, a caravan from the magma-dwellers on [target.GetName] has brought a large quantity of gemstones to our caverns. Stones such as these are apparently mined deep underground, as close to the [target.GetPlanetMoon]'s core as their civilization dares to venture."
+ dom_underground.8.a:0 "How adorable! We graciously accept!"
+ dom_underground.8.b:0 "Repurpose the materials to advance the Domestication Project"
+ dom_underground.8.b.tooltip:0 "This will advance the $sub_dom_project$"
+ dom_underground.9.desc:0 "After seeing the advanced weapons that our security forces are equipped with, several generals from the [Root.Owner.GetSubMantleLower] alien empire on [Root.GetName] have come forward requesting that we share some of our military technology.\n\nOur own officers absolutely refuse to do this, as it they can't stand to see the cuties hurt with the weapons they currently have. If we refuse the request, however, the aliens are certain to view it as an insult."
+ dom_underground.9.a:0 "Offer them non-lethal weapons instead"
+ dom_underground.9.a.tooltip:0 "This will slow the $sub_dom_project$ and require additional resources"
+ dom_underground.9.b:0 "Try to placate them with civilian technology"
+ dom_underground.9.b.tooltip:0 "This will slow the $sub_dom_project$ and require additional resources"
+ dom_underground.9.c:0 "Deny the request outright"
+ dom_underground.9.c.tooltip:0 "This will significantly slow the $sub_dom_project$"
+ dom_underground.10.name:0 "[target.Owner.GetSubMantleUpper] Volunteers"
+ dom_underground.10.desc:0 "As the $sub_dom_project$ progresses, we are getting more and more volunteers for domestication. Additionally, since we have limited our security presense in the [target.owner.GetSubMantleLower] empire for diplomatic reasons, we have been unable to prevent feralist elements from attacking would-be florets.\n\nOur diplomats suggest relocating known volunteers to the surface, while our generals want to deploy more security personnel. Either way, this will hamper our negotiations with the [target.owner.GetSubMantleLower] empire, but sophont safety is our top priority."
+ dom_underground.10.a:0 "Extradite the volunteers"
+ dom_underground.10.a.tooltip:0 "This will significantly slow the $sub_dom_project$"
+ dom_underground.10.b:0 "Deploy more guards near domestication centers"
+ dom_underground.10.b.tooltip:0 "This will slow the $sub_dom_project$ and require additional resources"
+
+ dom_prot_event.1:0 "Imminent Domain"
+ dom_prot_event.1.desc:0 "In a gesture of submission, the [system_former_owner.GetName] has offered to cede the §Y[system_to_transfer.GetName]§! system to the [root.GetName]. This system would make an ideal staging point for a Domestication Campaign against the [enemy_empire.GetName]."
+ dom_prot_event.1.a:0 "We graciously accept"
+ dom_prot_event.1.b:0 "We respectfully decline"
+
+ dom_prot_event.2:0 "Imminent Domain"
+ dom_prot_event.2.desc:0 "In a gesture of submission, the [system_former_owner.GetName] has offered to cede the §Y[system_to_transfer.GetName]§! system to the [root.GetName]. This system contains an important archaelogical site that we would like to access."
+ dom_prot_event.2.a:0 "We graciously accept"
+ dom_prot_event.2.b:0 "We respectfully decline"
+
+ # Colony Plant Xenodrug events
+ more_xenodruggies.tooltip:0 "Better xenodrugs mean better playtime for florets and their owners."
+ colony.1521.domestication:0 "Astounding! What else can it do?"
+ xenodrug_event.1.name:0 "Mharin Kharin: Xenodrug Applications"
+ xenodrug_event.1.desc:0 "On closer examination, the plants native to [Root.GetName] turn out to be incredibly interesting and useful. Some excrete pollen that have a moderate stimulating effect, and xenoveterinarians have developed several exciting new varieties of Class-A and Class-P Xenodrugs derived from the Mharin Kharin."
+ colony.2095.domestication:0 "Maybe they'd make good xenodrugs?"
+ xenodrug_event.2.name:0 "The Spores Make You Hear Everything"
+ xenodrug_event.2.desc:0 "After some careful research, our xenoveterinarians have discovered that the alien fungus on [Root.GetName] has some curious properties. Florets who are given a xenodrug derived from the fungus have reported being able to hear everything: colors, flavors, their owners' love. Refined versions of this Class-S Xenodrug will soon be available throughout the [Root.Owner.GetName]."
+ hallucinogen_xenodrug_research:0 "Hallucinogen Research"
+ hallucinogen_xenodrug_research_DESC:1 "Conduct intensive study on the hallucinogen in [Root.GetName]'s atmosphere."
+ xenodrug_event.3.name:0 "Hallucinogens Perfected"
+ xenodrug_event.3.desc:0 "With precise geo-engineering, we've managed to filter the atmosphere of [Root.GetName] to greatly reduce the effects of the hallucinogen. Independents and florets alike can now enjoy the intoxicating air without worrying about addiction, and a liquified version of the hallucinogen is becoming popular as a Class-J Xenodrug in Floret Cafés."
+ colony.8001.domestication:0 "Find the cause before anyone else gets hurt."
+ feral_overload_domestication:0 "Predator Play"
+ feral_overload_domestication_desc:0 "Thanks to science, the population enjoys the positive and pleasurable effects of the Cave Shroom spores."
+ xenodrug_event.5.name:0 "Hungry Like the Horse"
+ xenodrug_event.5.desc:0 "Industrial facilities have been built over the outlets for the fungus-infested cave systems. Apart from filtering and regulating the spread of spores, these plants can also convert any excess spore clouds into useful §Hexotic gases§!.\n\nAdditionally, our xenoveterinarians have refined the spores into a Class-L Xenodrug. Florets and independents alike have taken to using this new xenodrug to engage in animalistic mating."
+ UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION:0 "Utilize the Cave Mushrooms"
+ UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION_DESC:0 "Our scientists will try to find ways to use the primal effects of the Cave Mushrooms to our benefit."

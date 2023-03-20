@@ -8,8 +8,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_1"
-				variable_string = "root.GetName"
+				key = domestication.bloom_1
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -20,8 +20,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_2"
-				variable_string = "root.GetName"
+				key = domestication.bloom_2
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -32,8 +32,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_3"
-				variable_string = "root.GetName"
+				key = domestication.bloom_3
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -44,8 +44,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_4"
-				variable_string = "root.GetName"
+				key = domestication.bloom_4
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -56,8 +56,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_5"
-				variable_string = "root.GetName"
+				key = domestication.bloom_5
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -68,8 +68,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_6"
-				variable_string = "root.GetName"
+				key = domestication.bloom_6
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -80,8 +80,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_7"
-				variable_string = "root.GetName"
+				key = domestication.bloom_7
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -92,8 +92,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_8"
-				variable_string = "root.GetName"
+				key = domestication.bloom_8
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -104,8 +104,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_9"
-				variable_string = "root.GetName"
+				key = domestication.bloom_9
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -116,8 +116,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_10"
-				variable_string = "root.GetName"
+				key = domestication.bloom_10
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -128,8 +128,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_11"
-				variable_string = "root.GetName"
+				key = domestication.bloom_11
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -140,8 +140,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_12"
-				variable_string = "root.GetName"
+				key = domestication.bloom_12
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -152,8 +152,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_13"
-				variable_string = "root.GetName"
+				key = domestication.bloom_13
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -164,8 +164,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_14"
-				variable_string = "root.GetName"
+				key = domestication.bloom_14
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -176,8 +176,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_15"
-				variable_string = "root.GetName"
+				key = domestication.bloom_15
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -188,8 +188,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_16"
-				variable_string = "root.GetName"
+				key = domestication.bloom_16
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -200,8 +200,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_17"
-				variable_string = "root.GetName"
+				key = domestication.bloom_17
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -212,8 +212,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_18"
-				variable_string = "root.GetName"
+				key = domestication.bloom_18
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -224,8 +224,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_19"
-				variable_string = "root.GetName"
+				key = domestication.bloom_19
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -236,8 +236,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_20"
-				variable_string = "root.GetName"
+				key = domestication.bloom_20
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -248,8 +248,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_21"
-				variable_string = "root.GetName"
+				key = domestication.bloom_21
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -260,8 +260,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_22"
-				variable_string = "root.GetName"
+				key = domestication.bloom_22
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -272,8 +272,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_23"
-				variable_string = "root.GetName"
+				key = domestication.bloom_23
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -284,8 +284,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_24"
-				variable_string = "root.GetName"
+				key = domestication.bloom_24
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -296,8 +296,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_25"
-				variable_string = "root.GetName"
+				key = domestication.bloom_25
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -308,8 +308,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_26"
-				variable_string = "root.GetName"
+				key = domestication.bloom_26
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -320,8 +320,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_27"
-				variable_string = "root.GetName"
+				key = domestication.bloom_27
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -332,8 +332,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_28"
-				variable_string = "root.GetName"
+				key = domestication.bloom_28
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -344,8 +344,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_29"
-				variable_string = "root.GetName"
+				key = domestication.bloom_29
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -356,8 +356,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_30"
-				variable_string = "root.GetName"
+				key = domestication.bloom_30
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -368,8 +368,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_31"
-				variable_string = "root.GetName"
+				key = domestication.bloom_31
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -380,8 +380,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_32"
-				variable_string = "root.GetName"
+				key = domestication.bloom_32
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -392,8 +392,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_33"
-				variable_string = "root.GetName"
+				key = domestication.bloom_33
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -404,8 +404,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_34"
-				variable_string = "root.GetName"
+				key = domestication.bloom_34
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -416,8 +416,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_35"
-				variable_string = "root.GetName"
+				key = domestication.bloom_35
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -428,8 +428,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_36"
-				variable_string = "root.GetName"
+				key = domestication.bloom_36
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -440,8 +440,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_37"
-				variable_string = "root.GetName"
+				key = domestication.bloom_37
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -452,8 +452,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_38"
-				variable_string = "root.GetName"
+				key = domestication.bloom_38
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -464,8 +464,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_39"
-				variable_string = "root.GetName"
+				key = domestication.bloom_39
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -476,8 +476,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_40"
-				variable_string = "root.GetName"
+				key = domestication.bloom_40
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -488,8 +488,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_41"
-				variable_string = "root.GetName"
+				key = domestication.bloom_41
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -500,8 +500,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_42"
-				variable_string = "root.GetName"
+				key = domestication.bloom_42
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -512,8 +512,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_43"
-				variable_string = "root.GetName"
+				key = domestication.bloom_43
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -524,8 +524,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_44"
-				variable_string = "root.GetName"
+				key = domestication.bloom_44
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -536,8 +536,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_45"
-				variable_string = "root.GetName"
+				key = domestication.bloom_45
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -548,8 +548,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_46"
-				variable_string = "root.GetName"
+				key = domestication.bloom_46
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -560,8 +560,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_47"
-				variable_string = "root.GetName"
+				key = domestication.bloom_47
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -572,8 +572,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_48"
-				variable_string = "root.GetName"
+				key = domestication.bloom_48
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -584,8 +584,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_49"
-				variable_string = "root.GetName"
+				key = domestication.bloom_49
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -596,8 +596,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_50"
-				variable_string = "root.GetName"
+				key = domestication.bloom_50
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -608,8 +608,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_51"
-				variable_string = "root.GetName"
+				key = domestication.bloom_51
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -620,8 +620,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_52"
-				variable_string = "root.GetName"
+				key = domestication.bloom_52
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -632,8 +632,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_53"
-				variable_string = "root.GetName"
+				key = domestication.bloom_53
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -644,8 +644,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_54"
-				variable_string = "root.GetName"
+				key = domestication.bloom_54
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -656,8 +656,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_55"
-				variable_string = "root.GetName"
+				key = domestication.bloom_55
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -668,8 +668,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_56"
-				variable_string = "root.GetName"
+				key = domestication.bloom_56
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -680,8 +680,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_57"
-				variable_string = "root.GetName"
+				key = domestication.bloom_57
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -692,8 +692,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_58"
-				variable_string = "root.GetName"
+				key = domestication.bloom_58
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -704,8 +704,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_59"
-				variable_string = "root.GetName"
+				key = domestication.bloom_59
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -716,8 +716,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_60"
-				variable_string = "root.GetName"
+				key = domestication.bloom_60
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -728,8 +728,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_61"
-				variable_string = "root.GetName"
+				key = domestication.bloom_61
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -740,8 +740,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_62"
-				variable_string = "root.GetName"
+				key = domestication.bloom_62
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -752,8 +752,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_63"
-				variable_string = "root.GetName"
+				key = domestication.bloom_63
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -764,8 +764,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_64"
-				variable_string = "root.GetName"
+				key = domestication.bloom_64
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -776,8 +776,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_65"
-				variable_string = "root.GetName"
+				key = domestication.bloom_65
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -788,8 +788,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_66"
-				variable_string = "root.GetName"
+				key = domestication.bloom_66
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -800,8 +800,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_67"
-				variable_string = "root.GetName"
+				key = domestication.bloom_67
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -812,8 +812,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_68"
-				variable_string = "root.GetName"
+				key = domestication.bloom_68
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -824,8 +824,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_69"
-				variable_string = "root.GetName"
+				key = domestication.bloom_69
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -836,8 +836,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_70"
-				variable_string = "root.GetName"
+				key = domestication.bloom_70
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -848,8 +848,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_71"
-				variable_string = "root.GetName"
+				key = domestication.bloom_71
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -860,8 +860,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_72"
-				variable_string = "root.GetName"
+				key = domestication.bloom_72
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -872,8 +872,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_73"
-				variable_string = "root.GetName"
+				key = domestication.bloom_73
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -884,8 +884,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_74"
-				variable_string = "root.GetName"
+				key = domestication.bloom_74
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -896,8 +896,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_75"
-				variable_string = "root.GetName"
+				key = domestication.bloom_75
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -908,8 +908,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_76"
-				variable_string = "root.GetName"
+				key = domestication.bloom_76
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -920,8 +920,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_77"
-				variable_string = "root.GetName"
+				key = domestication.bloom_77
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -932,8 +932,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_78"
-				variable_string = "root.GetName"
+				key = domestication.bloom_78
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -944,8 +944,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_79"
-				variable_string = "root.GetName"
+				key = domestication.bloom_79
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -956,8 +956,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_80"
-				variable_string = "root.GetName"
+				key = domestication.bloom_80
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -968,8 +968,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_81"
-				variable_string = "root.GetName"
+				key = domestication.bloom_81
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -980,8 +980,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_82"
-				variable_string = "root.GetName"
+				key = domestication.bloom_82
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -992,8 +992,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_83"
-				variable_string = "root.GetName"
+				key = domestication.bloom_83
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1004,8 +1004,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_84"
-				variable_string = "root.GetName"
+				key = domestication.bloom_84
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1016,8 +1016,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_85"
-				variable_string = "root.GetName"
+				key = domestication.bloom_85
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1028,8 +1028,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_86"
-				variable_string = "root.GetName"
+				key = domestication.bloom_86
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1040,8 +1040,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_87"
-				variable_string = "root.GetName"
+				key = domestication.bloom_87
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1052,8 +1052,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_88"
-				variable_string = "root.GetName"
+				key = domestication.bloom_88
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1064,8 +1064,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_89"
-				variable_string = "root.GetName"
+				key = domestication.bloom_89
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1076,8 +1076,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_90"
-				variable_string = "root.GetName"
+				key = domestication.bloom_90
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1088,8 +1088,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_91"
-				variable_string = "root.GetName"
+				key = domestication.bloom_91
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1100,8 +1100,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_92"
-				variable_string = "root.GetName"
+				key = domestication.bloom_92
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1112,8 +1112,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_93"
-				variable_string = "root.GetName"
+				key = domestication.bloom_93
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1124,8 +1124,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_94"
-				variable_string = "root.GetName"
+				key = domestication.bloom_94
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1136,8 +1136,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_95"
-				variable_string = "root.GetName"
+				key = domestication.bloom_95
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1148,8 +1148,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_96"
-				variable_string = "root.GetName"
+				key = domestication.bloom_96
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1160,8 +1160,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_97"
-				variable_string = "root.GetName"
+				key = domestication.bloom_97
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1172,8 +1172,8 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_98"
-				variable_string = "root.GetName"
+				key = domestication.bloom_98
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else_if = {
@@ -1184,14 +1184,14 @@ rename_bloom = {
 			}
 		}
 		set_name = {
-				key = "domestication.bloom_99"
-				variable_string = "root.GetName"
+				key = domestication.bloom_99
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 	else = {
 		set_name = {
-				key = "domestication.bloom_many"
-				variable_string = "root.GetName"
+				key = domestication.bloom_many
+				variable_string = "\\[root.GetName\\]"
 		}
 	}
 }

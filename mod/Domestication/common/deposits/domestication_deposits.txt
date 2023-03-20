@@ -126,3 +126,60 @@ d_domesticated_nemmas = {
 		weight = 0
 	}
 }
+
+# Replacement for occurrances during Subterranean Domestication
+d_underground_contact_zone = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_quarantine_zone
+
+	planet_modifier = {
+		district_generator_max = 2
+		planet_max_districts_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			NAND = {
+				has_planet_flag = subterranean_domestication_complete
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
+		}
+		modifier = {
+			job_underground_trade_worker_add = 1
+			job_underground_trade_worker_per_pop = 0.05 # 1 per 20
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+			has_planet_flag = subterranean_domestication_complete
+			owner = { is_domesticator_or_full_protectorate = yes }
+		}
+		modifier = {
+			job_domesticator_underground_add = 2
+			job_domesticator_underground_per_pop = 0.04 # 1 per 25
+			job_floret_add = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		modifier = {
+			job_underground_contact_drone_add = 1
+			job_underground_contact_drone_per_pop = 0.05 # 1 per 20
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

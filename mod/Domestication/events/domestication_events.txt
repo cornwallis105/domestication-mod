@@ -39,9 +39,7 @@ country_event = {
 				limit = {
 					has_job = floret
 					is_robot_pop = no
-					NOT = {
-						pop_has_trait = trait_haustoric_implant
-					}
+					has_haustorics = no
 				}
 				modify_species = {
 					species = this
@@ -426,6 +424,7 @@ country_event = {
 				owner = {
 					any_neighbor_country = {
 						is_domesticator_or_protectorate = no
+						NOT = { is_country_type = fallen_empire }
 						any_owned_planet = {
 							AND = {
 								num_pops > 10
@@ -497,6 +496,7 @@ country_event = {
 		random_neighbor_country = {
 			limit = {
 				is_domesticator_or_protectorate = no
+				NOT = { is_country_type = fallen_empire }
 				any_owned_planet = {
 					AND = {
 						num_pops > 10
@@ -833,7 +833,7 @@ country_event = {
 		set_city_graphical_culture = event_target:domesticator_overlord
 
 		change_country_flag = random
-		randomize_flag_symbol = ornate
+		randomize_flag_symbol = plantoid
 
 		## Destroy all military fleets
 		every_owned_ship = {
@@ -896,7 +896,7 @@ planet_event = {
 	}
 
 	option = {
-		name = domestication.14.a
+		name = WONDERFUL
 		trigger = {
 			always = yes
 		}
@@ -1012,7 +1012,7 @@ planet_event = {
 	}
 
 	option = {
-		name = domestication.16.a
+		name = WONDERFUL
 		trigger = {
 			always = yes
 		}
@@ -1281,7 +1281,7 @@ country_event = {
 		set_city_graphical_culture = event_target:domesticator_overlord
 
 		change_country_flag = random
-		randomize_flag_symbol = ornate
+		randomize_flag_symbol = plantoid
 
 
 		## Add leaders
@@ -2046,7 +2046,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = domestication.37.a
+		name = WONDERFUL
 		add_deposit = d_domesticated_nemmas
 	}
 }
@@ -2218,6 +2218,68 @@ planet_event = {
 				min = @tier3researchmin
 				max = @tier3researchmax
 			}
+		}
+	}
+}
+
+# Protectorates break migration treaties with non-Domesticators
+country_event = {
+	id = domestication.43
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticated_protectorate = yes
+	}
+
+	immediate = {
+		every_country = {
+			limit = {
+				has_communications = root
+				is_domesticator_or_protectorate = no
+			}
+			end_all_treaties_with = root
+		}
+	}
+}
+
+# store old protectorate name
+country_event = {
+	id = domestication.44
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_full_protectorate = yes
+	}
+
+	immediate = {
+		event_target:floret_country = {
+			set_name = {
+				key = "domprot_rename_1"
+				variable_string = "[root.GetName]"
+			}
+		}
+	}
+}
+
+# revert protectorate name
+country_event = {
+	id = domestication.45
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_full_protectorate = yes
+	}
+
+	immediate = {
+		set_name = {
+			key = "domprot_rename_2"
+			variable_string = "[floret_country.GetName]"
 		}
 	}
 }

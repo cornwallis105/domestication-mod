@@ -1,0 +1,169 @@
+situation_subterranean_domestication = {
+	picture = GFX_evt_underground_city
+	start_value = 10
+  #progress_direction = bidirectional
+  complete_icon_frame = GFX_situation_outcome_frame_green
+	complete_icon = GFX_situation_outcome_positive
+  fail_icon_frame = GFX_situation_outcome_frame_red
+	fail_icon = GFX_situation_outcome_meh
+
+	#category = negative
+	on_start = {
+		#situation_event = { id = colony.9865 }
+	}
+	on_progress_complete = { # Peaceful Domestication
+		custom_tooltip = situation_sub_dom_complete_tooltip
+		situation_event = { id = dom_underground.2 }
+	}
+	on_fail = { # Independent Empire
+		custom_tooltip = situation_sub_dom_fail_tooltip
+		situation_event = { id = dom_underground.3 }
+	}
+	monthly_progress = {
+		base = 0
+		modifier = {
+			desc = string_current_approach
+			current_situation_approach = approach_domestication
+			add = 5
+		}
+		modifier = {
+			desc = string_current_approach
+			current_situation_approach = approach_independence
+			subtract = 5
+		}
+	}
+	approach = {
+		name = approach_domestication
+		icon = GFX_situation_approach_handshake
+		icon_background = GFX_situation_approach_bg_green
+    on_select = {
+			custom_tooltip = approach_outcome_tooltip
+		}
+		resources = {
+			category = situations
+      produces = {
+        trigger = { has_situation_flag = sub_dom_xeno_anth_research }
+				society_research = 10
+			}
+			upkeep = {
+				energy = 20
+      }
+      upkeep = {
+        trigger = {
+					has_situation_flag = sub_dom_tunnel_collapse_engineering
+				}
+				engineering_research = 10
+			}
+      upkeep = {
+        trigger = {
+          OR = {
+            has_situation_flag = sub_dom_famine_shipment
+            has_situation_flag = sub_dom_famine_groceries
+          }
+				}
+				food = 10
+			}
+      upkeep = {
+        trigger = {
+          OR = {
+            has_situation_flag = sub_dom_xeno_anth_research
+            has_situation_flag = sub_dom_xeno_anth_cotyledon
+          }
+        }
+				energy = 5
+			}
+      upkeep = {
+        trigger = { has_situation_flag = sub_dom_arms_non_lethal }
+				engineering_research = 10
+			}
+      upkeep = {
+        trigger = { has_situation_flag = sub_dom_arms_civilian }
+				consumer_goods = 10
+			}
+		}
+    triggered_target_modifier = {
+			potential = {
+				has_situation_flag = sub_dom_tunnel_collapse_mitigation
+			}
+      planet_buildings_upkeep_mult = 0.2
+      planet_districts_upkeep_mult = 0.2
+      planet_buildings_cost_mult = 0.1
+      planet_districts_cost_mult = 0.1
+		}
+	}
+	approach = {
+		name = approach_independence
+		icon = GFX_situation_approach_shrug
+		icon_background = GFX_situation_approach_bg_yellow
+    on_select = {
+			custom_tooltip = approach_outcome_tooltip
+		}
+	}
+	stages = {
+		stage_1 = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_green
+			end = 20
+		}
+		stage_2 = {
+			end = 40
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+		stage_3 = {
+      end = 60
+      icon = GFX_situation_stage_3
+      icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+		stage_4 = {
+      end = 80
+      icon = GFX_situation_stage_4
+      icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+    stage_5 = {
+      end = 100
+      icon = GFX_situation_stage_5
+      icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+    stage_6 = {
+      end = 120
+      icon = GFX_situation_stage_6
+      icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+    stage_7 = {
+      end = 140
+      icon = GFX_situation_stage_7
+      icon_background = GFX_situation_stage_frame_green
+      custom_tooltip = stage_unknown_effects
+      on_first_enter = {
+        situation_event = { id = dom_underground.4 }
+			}
+		}
+	}
+	abort_trigger = {
+		OR = {
+			NOT = { exists = target.owner }
+			target.owner = { NOT = { is_same_value = root.owner } }
+		}
+	}
+}

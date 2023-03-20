@@ -1,5 +1,179 @@
 namespace = marauder
 
+# Great Khan Defeated Second Time (HIDDEN)
+country_event = {
+	id = marauder.509
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = awakened_marauders
+		fromfrom = {
+			exists = leader
+			fleet = { num_ships = 0 }
+			leader = { has_leader_flag = great_khan }
+		}
+		has_global_flag = great_khan_defeated_once
+	}
+
+	immediate = {
+		set_global_flag = great_khan_dead
+		set_country_flag = khan_dead_event_fine
+		from = {
+			save_global_event_target_as = khan_destroyer
+			set_country_flag = no_khan_do
+
+			if = {
+				limit = { is_domesticator_or_full_protectorate = yes }
+				set_global_flag = great_khan_domesticated
+			}
+
+			if = {
+				limit = {
+					is_ai = no
+					is_domesticator_or_full_protectorate = yes
+				}
+				country_event = { id = dom_marauder.5 days = 2 }
+			}
+			else_if = {
+				limit = { is_ai = no }
+				country_event = { id = marauder.710 days = 2 }
+			}
+		}
+		fromfrom = {
+			solar_system = { save_event_target_as = khan_death_system }
+		}
+		observer_event = { id = observer.16 }
+
+		if = {
+			limit = { has_global_flag = great_khan_domesticated }
+			every_country = {
+				limit = {
+					is_ai = no
+					NOT = { has_country_flag = no_khan_do }
+				}
+				country_event = { id = dom_marauder.1 }
+			}
+			event_target:khan_destroyer = {
+				country_event = { id = dom_marauder.2 }
+			}
+		}
+		else = {
+			every_country = {
+				limit = { is_ai = no }
+				country_event = { id = marauder.510 }
+			}
+		}
+
+
+		country_event = { id = marauder.600 days = 200 random = 100 }
+		if = {
+			limit = {
+				exists = event_target:great_khan_ruler
+			}
+
+			event_target:great_khan_ruler = {
+				#set_owner = event_target:floret_repo
+				#add_trait = leader_trait_floret_immortal
+				#exile_leader_as = khan_in_exile
+				kill_leader = { show_notification = no }
+			}
+		}
+		if = {
+			limit = {
+				exists = event_target:great_khan
+			}
+			event_target:great_khan = {
+				kill_leader = { show_notification = no }
+			}
+		}
+	}
+}
+
+# Great Khan Dies
+country_event = {
+	id = marauder.510
+	title = "marauder.510.name"
+	desc = "marauder.510.desc"
+	picture = GFX_evt_space_funeral
+	show_sound = event_airlock
+
+	is_triggered_only = yes
+
+	option = {
+		name = marauder.510.a
+	}
+}
+
+### The Future of the Horde (HIDDEN)
+country_event = {
+	id = marauder.600
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = awakened_marauders
+		NOT = { has_country_flag = marauder600_happened }
+	}
+
+	immediate = {
+		set_country_flag = marauder600_happened
+		remove_global_flag = marauder_crisis_ongoing
+		random_list = {
+			60 = {
+				# Fractures into Diadochi
+				country_event = { id = marauder.601 }
+				modifier = {
+					factor = 0 # Should not happen if Marauder is too small
+					num_owned_planets < 6
+				}
+			}
+			10 = {
+				# Stays united in New Khanate
+				country_event = { id = marauder.602 }
+				modifier = {
+					factor = 0 # Can only happens if Horde owns planets
+					num_owned_planets < 1
+				}
+			}
+			10 = {
+				# Turns into Democratic Federation
+				modifier = {
+					factor = 0 # Can only happen if there are enough Satrapies
+					count_country = {
+						limit = {
+							is_subject = yes
+							any_agreement = { agreement_preset = preset_satrapy }
+						}
+						count < 2
+					}
+				}
+				modifier = {
+					factor = 0 # Can only happens if Horde owns planets
+					num_owned_planets < 1
+				}
+				country_event = { id = marauder.603 }
+			}
+			10 = {
+				# Reverts to old ways
+				modifier = {
+					factor = 0 # Fallback option if Horde owns no planets
+					num_owned_planets > 0
+				}
+				country_event = { id = marauder.604 }
+			}
+		}
+		event_target:khan_destroyer = {
+			country_event = {
+				id = dom_marauder.6
+				days = 10
+			}
+		}
+	}
+}
+
 # New Admiral
 country_event = {
 	id = marauder.703

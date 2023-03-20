@@ -64,6 +64,14 @@ on_monthly_pulse_country = {
 	}
 }
 
+# this = country
+on_five_year_pulse = {
+	events = {
+		dom_prot_event.1 # system transfer
+		dom_prot_event.2 # system transfer - Baol or Zroni site
+	}
+}
+
 on_space_battle_won = {
 	random_events = {
 		300 = 0
@@ -77,5 +85,21 @@ on_tech_increased = {
 	events = {
 		domestication.2 # Haustoric Implant info event
 		domestication.26 # Megafauna projects
+	}
+}
+
+# Executed just as country is changing its government, before the new one is applied
+# THIS = country
+on_pre_government_changed = {
+	events = {
+		domestication.44 # store old protectorate name
+	}
+}
+
+# Executed just as country is changing its government, after the new one is applied
+# THIS = country
+on_post_government_changed = {
+	events = {
+		domestication.45 # revert protectorate name
 	}
 }

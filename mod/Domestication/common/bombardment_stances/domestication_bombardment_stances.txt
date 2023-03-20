@@ -3,7 +3,9 @@ raiding = {
 		OR = {
 			owner = { has_ascension_perk = ap_nihilistic_acquisition }
 			owner = { has_valid_civic = civic_barbaric_despoilers }
-      owner = { has_ascension_perk = ap_benefic_acquisition }
+			owner = { has_origin = origin_slavers }
+			owner = { is_country_type = debt_collectors }
+			owner = { has_ascension_perk = ap_benefic_acquisition }
 			AND = {
 				owner = { is_country_type = enclave_mercenary }
 				controller = {
@@ -37,7 +39,13 @@ raiding = {
 			factor = 0
 			exists = from
 			from = {
-				owner = { NOT = { is_hostile = root.owner } }
+				OR = { 
+					num_pops < 2 
+					owner = { NOT = { is_hostile = root.owner } }
+				}
+			}
+			NOT = {
+				owner = { has_origin = origin_slavers }
 			}
 		}
 		modifier = {
@@ -46,6 +54,13 @@ raiding = {
 			from = {
 				owner = { has_claim = root.solar_system }
 			}
+			NOT = {
+				owner = { has_origin = origin_slavers }
+			}
+		}
+		modifier = {
+			factor = 100
+			owner = { has_origin = origin_slavers }
 		}
 	}
 }

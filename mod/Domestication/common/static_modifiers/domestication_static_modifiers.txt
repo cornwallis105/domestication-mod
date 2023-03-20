@@ -11,7 +11,7 @@ protectorate_3_floret_jobs = {
 }
 
 specialist_domprot_neighbor = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_specialist_domprot_neighbor.dds"
+	icon = "gfx/interface/subjugation/specialist_perks/domprot_1_neighbor_bonuses.dds"
 	planet_crime_mult = -0.1
 	planet_pops_consumer_goods_upkeep_mult = -0.05
 }
@@ -40,4 +40,18 @@ turtle_world_domesticator_modifier = {
 	district_mining_max = -4
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
+}
+
+xenodrugs_modifier = {
+	planet_florets_produces_mult = 0.05
+	planet_domesticators_produces_mult = 0.05
+	planet_domesticators_upkeep_mult = -0.05
+	#mult = xenodrugs_count
+}
+
+feral_overload_domestication = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_microscopic_life.dds"
+	icon_frame = 1
+	pop_happiness = 0.025
+	pop_growth_speed = 0.2
 }

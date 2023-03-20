@@ -12,7 +12,10 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 1000
-			NOT = { is_specialist_subject_type = { TYPE = domprot } }
+			NOT = {
+				is_subject = yes
+				any_agreement = { has_active_specialization = specialist_domprot }
+			}
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -42,7 +45,7 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "domesticated1"
 	parts = {
-		"Protectorate" = 25
+		"Protectorate" = 30
 		"Administration" = 1
 		"Polity" = 1
 		"Coalition" = 1
@@ -73,7 +76,8 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 1000
-			is_specialist_subject_type = { TYPE = domprot }
+			is_subject = yes
+			any_agreement = { has_active_specialization = specialist_domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -93,7 +97,8 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 100
-			is_specialist_subject_type = { TYPE = domprot }
+			is_subject = yes
+			any_agreement = { has_active_specialization = specialist_domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -125,15 +130,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -145,7 +144,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <subjugation_war_names>}}"
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Subjugation - Attacker Federation
@@ -154,15 +153,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = yes
@@ -173,7 +166,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "{war_name_vs_adj {[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <subjugation_war_names>}}"
+	format = "{war_name_vs_adj {[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Subjugation - Defender Federation
@@ -182,15 +175,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -201,7 +188,7 @@ war_name_format = {
 			}
 		}
 	}
-	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <subjugation_war_names>}}"
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <domestication_war_names>}}"
 }
 
 ### DOMESTICATION WARS
@@ -212,15 +199,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -241,15 +222,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = yes
@@ -269,15 +244,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no

@@ -325,6 +325,9 @@ tech_hivemind_domestication = {
 
 	potential = {
 		is_domesticator_or_protectorate = yes
+		any_relation = {
+			is_gestalt = yes
+		}
 	}
 
 	weight_modifier = {
@@ -356,6 +359,11 @@ tech_haustoric_module = {
 	prerequisites = { "tech_haustoric_implant" "tech_droid_workers" "tech_robomodding" }
 	weight = @tier3weight2
 	is_rare = yes
+
+	modifier = {
+		show_only_custom_tooltip = yes
+		custom_tooltip = ADD_HAUSTORIC_MODULE_BONUSES
+	}
 
 	potential = {
 		is_domesticator_or_protectorate = yes

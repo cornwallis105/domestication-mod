@@ -24,6 +24,9 @@ domprot_1_modifier = {
   		# initialize floret index
   		country_event = {	id = domestication.7 }
 
+			# end previous treaties
+			country_event = {	id = domestication.43 }
+
 			add_modifier = { modifier = protectorate_1_floret_jobs }
 		}
 	}
@@ -51,8 +54,8 @@ domprot_1_overlord_modifier = {
 	icon = "GFX_specialist_perk_domprot_1_overlord_modifier"
 	overlord_modifier = {
 		country_naval_cap_mult = 0.1
-		ship_military_cost_mult = 0.1
-		ship_military_upkeep_mult = 0.1
+		ship_military_cost_mult = 0.05
+		ship_military_upkeep_mult = 0.05
 		#country_base_influence_produces_add = 0.2
 	}
 }

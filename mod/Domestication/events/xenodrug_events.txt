@@ -1,0 +1,205 @@
+namespace = xenodrug_event
+
+planet_event = {
+	id = xenodrug_event.1
+	title = "xenodrug_event.1.name"
+	desc = "xenodrug_event.1.desc"
+	picture = GFX_evt_alien_ruins
+	location = ROOT
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+	}
+
+	trigger = {
+		has_global_flag = pheromonefrenzy_global
+		has_planet_flag = pheromone_planet
+		has_planet_flag = colony_event
+	}
+
+	option = {
+		name = WONDERFUL
+    custom_tooltip = more_xenodruggies.tooltip
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+		}
+    hidden_effect = {
+      owner = { increment_xenodrugs = yes }
+    }
+	}
+}
+
+planet_event = {
+	id = xenodrug_event.2
+	title = "xenodrug_event.2.name"
+	desc = "xenodrug_event.2.desc"
+  picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+	}
+
+	trigger = {
+		#has_global_flag = pheromonefrenzy_global
+		#has_planet_flag = pheromone_planet
+		#has_planet_flag = colony_event
+	}
+
+	option = {
+		name = WONDERFUL
+    custom_tooltip = more_xenodruggies.tooltip
+		owner = {
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier1researchreward
+				min = @tier1researchmin
+				max = @tier1researchmax
+			}
+		}
+    hidden_effect = {
+      owner = { increment_xenodrugs = yes }
+    }
+	}
+}
+
+planet_event = {
+	id = xenodrug_event.3
+	title = "xenodrug_event.3.name"
+	desc = "xenodrug_event.3.desc"
+	picture = GFX_evt_alien_planet
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = WONDERFUL
+		hidden_effect = {
+			remove_modifier = "atmospheric_hallucinogen"
+			add_modifier = {
+				modifier = "atmospheric_hallucinogen_good"
+				days = -1
+			}
+      owner = { increment_xenodrugs = yes }
+		}
+		custom_tooltip = more_xenodruggies.tooltip
+	}
+
+}
+
+planet_event = {
+	id = xenodrug_event.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		log_error = "xenodrug_event.4"
+		if = {
+			limit = {
+				has_planet_flag = feral_overload_domestication
+			}
+			planet_event = { id = xenodrug_event.5 }
+		}
+		else = {
+			planet_event = { id = colony.8005 }
+		}
+	}
+}
+
+### Special Project: Utilize Cave Shrooms
+planet_event = {
+	id = xenodrug_event.5
+	title = "xenodrug_event.5.name"
+	desc = "xenodrug_event.5.desc"
+	picture = GFX_evt_animal_wildlife
+	show_sound = event_laboratory_sound
+	location = ROOT
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_modifier = feral_overload_00
+	}
+
+	after = {
+		remove_planet_flag = colony_event
+		remove_planet_flag = feral_overload_domestication
+	}
+
+	option = {
+		name = WONDERFUL
+		add_deposit = d_spore_vents
+		add_modifier = {
+			modifier = feral_overload_domestication
+			days = -1
+		}
+		owner = { end_event_chain = feral_overload_chain }
+		hidden_effect = {
+			owner = {
+				increment_xenodrugs = yes
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = xenodrug_event.6
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		if {
+
+			planet_event = { id = xenodrug_event.7 }
+		}
+		else = {
+			planet_event = { id = colony.8006 }
+		}
+	}
+}
+
+### Special Project: Exterminate Cave Shrooms
+planet_event = {
+	id = xenodrug_event.7
+	title = "colony.8006.name"
+	desc = "colony.8006.desc"
+	picture = GFX_evt_archaeologists_escaping
+	show_sound = event_laboratory_sound
+	location = ROOT
+
+	is_triggered_only = yes
+
+	immediate = {
+		remove_modifier = feral_overload_00
+	}
+
+	after = {
+		remove_planet_flag = colony_event
+		remove_planet_flag = feral_overload_domestication
+	}
+
+	option = {
+		name = colony.8006.a
+		add_deposit = d_cave_shroom_veins
+		owner = { end_event_chain = feral_overload_chain }
+	}
+}

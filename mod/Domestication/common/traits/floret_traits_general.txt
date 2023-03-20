@@ -50,7 +50,11 @@ leader_trait_brainslug_gen = {
 	cost = 0
 	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_brainslug_floret.dds"
 	modifier = {
-		armies_upkeep_mult = -0.1
+		armies_upkeep_mult = -0.2
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
 	}
 	initial = no
 	randomized = no
@@ -58,7 +62,55 @@ leader_trait_brainslug_gen = {
 	leader_trait = { general }
 	leader_class = { general }
 
-	ai_weight = {
-		weight = 0
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_class_o_gen = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_class_o.dds"
+	modifier = {
+		army_collateral_damage_mult = -0.50
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { general }
+	leader_class = { general }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_underground_gen = {
+	cost = 0
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_underground.dds"
+	modifier = {
+		army_health = 0.1
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_trait = { general }
+	leader_class = { general }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
 	}
 }

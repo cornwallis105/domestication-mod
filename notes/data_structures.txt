@@ -57,8 +57,8 @@ Leader 'clone':
     }
     set_name = {
         key = "domestication.bloom_th"
-        variable_string = "bloom_leader.GetName"
-        variable_string = "bloom_leader.bloom_number"
+        variable_string = "[bloom_leader.GetName]"
+        variable_string = "[bloom_leader.bloom_number]"
     }
     #set_name = "[bloom_leader.GetName], [bloom_leader.bloom_number]th Bloom"
   }
@@ -82,8 +82,8 @@ Leader 'clone':
     }
     set_name = {
         key = "domestication.bloom_st"
-        variable_string = "bloom_leader.GetName"
-        variable_string = "bloom_leader.bloom_number"
+        variable_string = "[bloom_leader.GetName]"
+        variable_string = "[bloom_leader.bloom_number]"
     }
     #set_name = "[bloom_leader.GetName], [bloom_leader.bloom_number]st Bloom"
   }
@@ -107,8 +107,8 @@ Leader 'clone':
     }
     set_name = {
         key = "domestication.bloom_nd"
-        variable_string = "bloom_leader.GetName"
-        variable_string = "bloom_leader.bloom_number"
+        variable_string = "[bloom_leader.GetName]"
+        variable_string = "[bloom_leader.bloom_number]"
     }
     #set_name = "[bloom_leader.GetName], [bloom_leader.bloom_number]nd Bloom"
   }
@@ -132,16 +132,16 @@ Leader 'clone':
     }
     set_name = {
         key = "domestication.bloom_rd"
-        variable_string = "bloom_leader.GetName"
-        variable_string = "bloom_leader.bloom_number"
+        variable_string = "[bloom_leader.GetName]"
+        variable_string = "[bloom_leader.bloom_number]"
     }
     #set_name = "[bloom_leader.GetName], [bloom_leader.bloom_number]rd Bloom"
   }
   else = {
     set_name = {
         key = "domestication.bloom_th"
-        variable_string = "bloom_leader.GetName"
-        variable_string = "bloom_leader.bloom_number"
+        variable_string = "[bloom_leader.GetName]"
+        variable_string = "[bloom_leader.bloom_number]"
     }
     #set_name = "[bloom_leader.GetName], [bloom_leader.bloom_number]th Bloom"
   }

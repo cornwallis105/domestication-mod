@@ -55,6 +55,35 @@ add_random_leader_floret_trait = {
 				5 = {
 					if = {
 						limit = {
+							NOT = { has_trait = leader_trait_historian_sci }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_historian_sci
+						add_ruler_trait = leader_trait_historian_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_historian_sci days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
 							NOT = { has_trait = leader_trait_brainslug_sci }
 							owner = {
 								AND = {
@@ -110,6 +139,35 @@ add_random_leader_floret_trait = {
 				5 = {
 					if = {
 						limit = {
+							NOT = { has_trait = leader_trait_musician_adm }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_musician_adm
+						add_ruler_trait = leader_trait_musician_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_musician_adm days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 0
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
 							NOT = { has_trait = leader_trait_brainslug_adm }
 							owner = {
 								AND = {
@@ -162,7 +220,21 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
-				5 = {
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							OR = {
+								has_origin = origin_syncretic_evolution
+								has_origin = origin_domesticators
+							}
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_syncretic_proles
+							}
+						}
+					}
 					if = {
 						limit = {
 							NOT = { has_trait = leader_trait_beeple_gov }
@@ -193,7 +265,6 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									has_origin = origin_syncretic_evolution
 									any_owned_pop = {
 										has_job = floret
 									}
@@ -206,7 +277,17 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
-				5 = {
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
 					if = {
 						limit = {
 							NOT = { has_trait = leader_trait_brainslug_gov }
@@ -223,6 +304,36 @@ add_random_leader_floret_trait = {
 						add_trait = leader_trait_brainslug_gov
 						add_ruler_trait = leader_trait_brainslug_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gov days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_cave_dweller
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_underground_gov }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_cave_dweller
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_underground_gov
+						add_ruler_trait = leader_trait_underground_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_underground_gov days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
@@ -261,7 +372,47 @@ add_random_leader_floret_trait = {
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
-				5 = {
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								NOT = { has_trait = trait_syncretic_proles }
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_class_o_gen }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										NOT = { has_trait = trait_syncretic_proles }
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_class_o_gen
+						add_ruler_trait = leader_trait_class_o_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_class_o_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
 					if = {
 						limit = {
 							NOT = { has_trait = leader_trait_brainslug_gen }
@@ -278,6 +429,36 @@ add_random_leader_floret_trait = {
 						add_trait = leader_trait_brainslug_gen
 						add_ruler_trait = leader_trait_brainslug_rul
 						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_cave_dweller
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_underground_gen }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_cave_dweller
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_underground_gen
+						add_ruler_trait = leader_trait_underground_rul
+						set_timed_leader_flag = { flag = gained_leader_trait_underground_gen days = 7 }
 						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
 					}
 				}
@@ -409,10 +590,81 @@ copy_leader_traits = {
 
 		if = { limit = { has_ruler_trait = leader_trait_cutie_rul }
 			event_target:new_bloom = { add_ruler_trait = leader_trait_cutie_rul }
-			event_target:new_bloom = { add_trait = leader_trait_cutie_gov }
-			event_target:new_bloom = { add_trait = leader_trait_cutie_sci }
-			event_target:new_bloom = { add_trait = leader_trait_cutie_adm }
-			event_target:new_bloom = { add_trait = leader_trait_cutie_gen }
+			if = {
+				limit = {
+					OR = {
+						leader_class = governor
+						pre_ruler_leader_class = governor
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_cutie_gov }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = scientist
+						pre_ruler_leader_class = scientist
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_cutie_sci }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = admiral
+						pre_ruler_leader_class = admiral
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_cutie_adm }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = general
+						pre_ruler_leader_class = general
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_cutie_gen }
+			}
+		}
+		if = { limit = { has_ruler_trait = leader_trait_brainslug_rul }
+			event_target:new_bloom = { add_ruler_trait = leader_trait_brainslug_rul }
+			if = {
+				limit = {
+					OR = {
+						leader_class = governor
+						pre_ruler_leader_class = governor
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_brainslug_gov }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = scientist
+						pre_ruler_leader_class = scientist
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_brainslug_sci }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = admiral
+						pre_ruler_leader_class = admiral
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_brainslug_adm }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						leader_class = general
+						pre_ruler_leader_class = general
+					}
+				}
+				event_target:new_bloom = { add_trait = leader_trait_brainslug_gen }
+			}
 		}
 		if = { limit = { has_ruler_trait = leader_trait_beeple_rul }
 			event_target:new_bloom = { add_ruler_trait = leader_trait_beeple_rul }
@@ -478,6 +730,22 @@ copy_leader_traits = {
 			event_target:new_bloom = { add_ruler_trait = leader_trait_cryopod_rul }
 			event_target:new_bloom = { add_trait = leader_trait_cryopod_gov }
 		}
+		if = { limit = { has_ruler_trait = leader_trait_historian_rul }
+			event_target:new_bloom = { add_ruler_trait = leader_trait_historian_rul }
+			event_target:new_bloom = { add_trait = leader_trait_historian_sci }
+		}
+		if = { limit = { has_ruler_trait = leader_trait_musician_rul }
+			event_target:new_bloom = { add_ruler_trait = leader_trait_musician_rul }
+			event_target:new_bloom = { add_trait = leader_trait_musician_adm }
+		}
+		if = { limit = { has_ruler_trait = leader_trait_class_o_rul }
+			event_target:new_bloom = { add_ruler_trait = leader_trait_class_o_rul }
+			event_target:new_bloom = { add_trait = leader_trait_class_o_gen }
+		}
+		if = { limit = { has_ruler_trait = leader_trait_great_khan_rul }
+			event_target:new_bloom = { add_ruler_trait = leader_trait_great_khan_rul }
+			event_target:new_bloom = { add_trait = leader_trait_great_khan_adm }
+		}
 
 	}
 }
@@ -538,5 +806,32 @@ refresh_subject_count_loyalty_penalty = {
 		}
 		clear_variable = subjects_minus_one
 		clear_variable = domprot_subject_modifier
+	}
+}
+
+increment_xenodrugs = {
+	if = {
+		limit = { is_variable_set = xenodrugs_count }
+		change_variable = {
+			which = xenodrugs_count
+			value = 1
+		}
+		remove_modifier = xenodrugs_modifier
+		add_modifier = {
+			modifier = xenodrugs_modifier
+			multiplier = xenodrugs_count
+			days = -1
+		}
+	}
+	else = {
+		set_variable = {
+			which = xenodrugs_count
+			value = 1
+		}
+		add_modifier = {
+			modifier = xenodrugs_modifier
+			multiplier = xenodrugs_count
+			days = -1
+		}
 	}
 }

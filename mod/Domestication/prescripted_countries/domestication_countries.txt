@@ -1,6 +1,6 @@
 # Terran Accord
 terran_accord = {
-	name = "Terran Accord"
+	name = "NAME_Terran_Accord"
 	adjective = "PRESCRIPTED_adjective_humans3"
 	spawn_enabled = always # yes / no / always
 
@@ -61,8 +61,8 @@ terran_accord = {
 		name = "PRESCRIPTED_ruler_name_human3"
 		gender = male
 		portrait = "human_male_03"
-    texture=0
-		hair=15
+    	texture=0
+		attachment=15
 		clothes=0
 		trait = "trait_ruler_charismatic"
 		leader_class = governor
@@ -71,7 +71,7 @@ terran_accord = {
 
 # Affini Compact
 affini_compact = {
-	name = "Affini Compact"
+	name = "NAME_Affini_Compact"
 	adjective = "PRESCRIPTED_adjective_affini"
 	spawn_enabled = no # yes / no / always
 
@@ -146,9 +146,9 @@ affini_compact = {
 		gender = indeterminable
 		portrait = "fun1"
     texture=0
-		hair=0
+		attachment=0
 		clothes=0
-    ruler_title="High Gardener"
+    	ruler_title= "RT_HIGH_GARDENER"
 		trait = "trait_ruler_eye_for_talent"
 		leader_class = governor
 	}

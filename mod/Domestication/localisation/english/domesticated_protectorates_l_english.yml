@@ -65,6 +65,7 @@
  domprot_3_thoroughly_domesticated:0 "Thoroughly Domesticated"
  domprot_3_thoroughly_domesticated_desc:0 "§EAn empire thoroughly domesticated, part of our civilization in all but name.§!"
  MESSAGE_SUBJECT_LEVEL_UP_specialist_domprot_TITLE:0 "$MESSAGE_SUBJECT_LEVEL_UP_TITLE$"
+ MESSAGE_WE_LEVEL_UP_specialist_domprot_TITLE:0 "$MESSAGE_WE_LEVEL_UP_TITLE$"
  subject_is_domprot:0 "$TRIGGER_FAIL$§RSubject must be Domesticated Protectorate specialist.§!"
  domprot_rename_1:0 "[root.GetName]"
  domprot_rename_2:0 "[floret_country.GetName]"

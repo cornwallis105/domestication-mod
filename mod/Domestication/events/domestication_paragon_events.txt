@@ -132,12 +132,12 @@ leader_event = {
           randomize_traits = yes
           event_leader = yes
           background_ethic = ethic_xenophile
-        }
+		  set_age = 42
+		}
         last_created_leader = {
           save_event_target_as = new_floret
           add_trait = leader_trait_blorgfriend_floret
           add_trait = leader_trait_floret_immortal
-		  add_age = 42
         }
       }
       owner = { country_event = { id = dom_paragon.2 } }
@@ -216,12 +216,12 @@ leader_event = {
         gender = male
         class = general
         skill = 1
-      }
+	    set_age = 45
+	  }
       last_created_leader = {
         save_event_target_as = new_floret
         add_trait = leader_trait_floret_immortal
         add_trait = leader_trait_militarist_2_floret
-	  	add_age = 45
       }
 
     }
@@ -410,12 +410,12 @@ country_event = {
   				gender = indeterminable
   				class = governor
   				skill = 4
+				set_age = 709
   			}
 				last_created_leader = {
 					save_event_target_as = new_floret
           add_trait = leader_trait_floret_immortal
           add_trait = leader_trait_caretaker_floret
-		  add_age = 709
 				}
 			}
 
@@ -1026,12 +1026,12 @@ country_event = { # militarist 2
   				gender = female
   				class = general
   				skill = 1
-  			}
+				set_age = 28
+			}
 				last_created_leader = {
 					save_event_target_as = new_floret
 				    add_trait = leader_trait_floret_immortal
 				    add_trait = leader_trait_militarist_2_floret
-					add_age = 28
 				}
 			}
 

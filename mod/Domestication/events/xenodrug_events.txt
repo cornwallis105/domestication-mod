@@ -168,8 +168,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		if {
-
+		if = {
+			limit = {
+				has_planet_flag = feral_overload_domestication
+			}
 			planet_event = { id = xenodrug_event.7 }
 		}
 		else = {

@@ -94,7 +94,7 @@ country_event = {
 			is_domesticator_or_full_protectorate = yes
 			any_owned_leader = {
 				leader_class = governor
-				NOT = { has_trait = leader_trait_cryopod_gov }
+				NOT = { has_trait = leader_trait_cryopod_floret }
 				can_obtain_new_floret = yes
 			}
 		}

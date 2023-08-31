@@ -122,11 +122,11 @@ honorbound_warriors = {
 cared_for_pets = {
 	aggressiveness = 0.25
 	trade_willingness = 1.0
-	bravery = 1.5
+	bravery = 1.0
 	combat_bravery = 1.0
 
-	military_spending = 1.2
-	colony_spending = 1.0
+	military_spending = 0.5
+	colony_spending = 1.25
 
 	federation_acceptance = 0 #50
 	nap_acceptance = 50

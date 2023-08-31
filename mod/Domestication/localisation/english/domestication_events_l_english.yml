@@ -1,9 +1,11 @@
 ﻿l_english:
  dialog_domesticator:0 "Domesticator"
  WONDERFUL:0 "Wonderful!"
+ DOMESTICATE:0 "Domesticate"
 
  # Level-up
  domestication_leader.3.name:0 "New Floret Domesticated"
+ domestication_leader.new_cutie_floret:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is just cute as a button!"
  domestication_leader.new_cutie_sci:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is just cute as a button!"
  domestication_leader.new_distracted_sci:0 "§YScientist [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is easily distracted by shiny objects. [new_floret.GetHerHisCap] antics are very fun to watch, but are also a bit distracting on their own."
  domestication_leader.new_cutie_adm:0 "§YAdmiral [new_owner.GetName]§! has found [new_owner.GetHimselfHerself] a brand new floret, a [new_floret.Species.GetName] named §Y[new_floret.GetName]§! that is just cute as a button!"
@@ -312,3 +314,276 @@
  xenodrug_event.5.desc:0 "Industrial facilities have been built over the outlets for the fungus-infested cave systems. Apart from filtering and regulating the spread of spores, these plants can also convert any excess spore clouds into useful §Hexotic gases§!.\n\nAdditionally, our xenoveterinarians have refined the spores into a Class-L Xenodrug. Florets and independents alike have taken to using this new xenodrug to engage in animalistic mating."
  UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION:0 "Utilize the Cave Mushrooms"
  UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION_DESC:0 "Our scientists will try to find ways to use the primal effects of the Cave Mushrooms to our benefit."
+ colony_mod.5.domestication:0 "Could it have recreational uses?"
+ POLLEN_1_PROJECT_XENODRUG: "Pollen Study"
+ POLLEN_1_PROJECT_XENODRUG_DESC:0 "Some of the planet's native flora have very interesting pollen with potential xenodrug applications."
+
+ observation.107.domestication:0 "We have to do something."
+ STOP_ROGUE_SCIENTIST_WAR:0 "Stop the war on [This.GetName]"
+ STOP_ROGUE_SCIENTIST_WAR_DESC:0 "The war on [This.GetName] could have disastrous consequences if we don't act quickly. The use of military force is both authorized and encouraged. Good luck."
+ dom_contact.1.name:0 "[pre_ftl_planet.GetName] Pacified"
+ dom_contact.1.desc:0 "There was no room for error as our ground forces made planetfall on [pre_ftl_planet.GetName]. Nevertheless, the operation went flawlessly, and our forces are now in control of all nuclear weapons and key strategic locations on the planet. The leaders of the warring nations, seeing armies of their \"gods\" at their doorstep, have thankfully surrendered.\n\nThis was not the way we had intended to greet the people of [pre_ftl_planet.GetName], and they will likely distrust us for years to come. Still, the population is safe, and nothing could be more important."
+ dom_contact.1.a:0 "Crisis averted"
+
+ SUPPRESS_PRE_FTL_REBELLION:0 "Suppress the Feralist Rebellion on [pre_ftl_planet.GetName]"
+ SUPPRESS_PRE_FTL_REBELLION_DESC:0 "Feralist rebels have taken over [pre_ftl_planet.GetName]. We'll need a larger contingent of ground forces to pacify the cuties and make sure they don't hurt themselves."
+ dom_contact.2.name:0 "[pre_ftl_planet.GetName] Pacified"
+ dom_contact.2.desc:0 "Our forces on [pre_ftl_planet.GetName] have successfully brought the feralist rebellion to an end. Our florets and personnel are safe, and most of the rebels are in the process of being domesticated.\n\nUnfortunately, the [pre_ftl_species.GetAdj] Domestication Project has failed to reach a peaceful conclusion. We will be dictating new terms for the [pre_ftl_species.GetAdj] Domestication Treaty that will require [pre_ftl_planet.GetName] to be governed directly by the [affini_compact.GetName]."
+ dom_contact.2.a:0 "Not the solution we had hoped for"
+
+ dom_pre_ftl.1.name:0 "The [target.owner.GetAdj] Domestication Treaty"
+ dom_pre_ftl.1.desc:0 "After years of tense negotiations, zealous xeno-outreach, and loving head-pats, [affini_compact.GetAdj] and [pre_ftl_country.GetAdj] diplomats met today to sign the [pre_ftl_country.GetAdj] Domestication Treaty.\n\nIn a mere blip of geologic time, we have completely reshaped [pre_ftl_country.GetAdj] society, leaving it unrecognizable from its previous state. Every [pre_ftl_country.GetSpeciesName] now has access to safe housing, nutritious food, abudant leisure activities, and the best healthcare the [affini_compact.GetName] can offer. While the [pre_ftl_country.GetName] will remain a nominally independent nation, its day-to-day operations will be guided by our benevolent [affini_compact.owner_species.GetHandNamePlural].\n\nBest of all, [pre_ftl_country.GetSpeciesNamePlural] will now have the freedom to find loving owners who will cherish them forever. Hopefully our Domestication Centers will be able to keep up with demand!"
+ dom_pre_ftl.1.a:0 "A great day for [affini_compact.GetSpeciesNamePlural] and [pre_ftl_country.GetSpeciesNamePlural] alike!"
+
+ dom_pre_ftl.4.name:0 "Substandard Housing"
+ dom_pre_ftl.4.desc:0 "The living situation amongst the sophonts on [target.GetName] is, quite frankly, utterly unacceptable. Our urban architectural specialists want to construct several new cities to house the [target.owner.GetSpeciesAdj] population, and all they ask for is the materials to build them with."
+ dom_pre_ftl.4.a:0 "Make it happen"
+ dom_pre_ftl.4.b:0 "We can't spare the resources at this time"
+
+ dom_pre_ftl.questionable:0 "The outcome will depend on how the [target.owner.GetSpeciesAdj] people view our actions."
+ dom_pre_ftl.5.name:0 "Feralist Ideology"
+ dom_pre_ftl.5.desc:0 "Our xeno-domestication sepcialists on [target.GetName] have noted a growing feralist sentiment amongst the [target.owner.GetSpeciesAdj] population. Despite our best efforts, the sophonts there just don't seem to trust us."
+ dom_pre_ftl.5.a:0 "Placate the population with luxuries"
+ dom_pre_ftl.5.b:0 "Convince [target.owner.GetSpeciesAdj] cultural figures to help"
+ dom_pre_ftl.5.c:0 "Adopt a more cautious approach"
+ dom_pre_ftl.5.d:0 "Ignore their tantrums"
+
+ dom_pre_ftl.6.name:0 "Population Rejects Material Gifts"
+ dom_pre_ftl.6.desc:0 "In a miscalculation on our part, it appears that the [target.owner.GetSpeciesAdj] culture views material gifts as wasteful and enviornmentally damaging. They see our generous gifts as an insulting bribe, and many of them are turning to feralist ideologies."
+ dom_pre_ftl.6.a:0 "A costly mistake"
+
+ dom_pre_ftl.7.name:0 "Gifts Accepted Greedily"
+ dom_pre_ftl.7.desc:0 "It would seem that the way to a [target.owner.GetSpeciesName]'s [target.owner.GetSpeciesOrganName] is through their possessions. This cultural focus on material goods may be a problem in the long term, but for now, they seem to trust us a little more."
+ dom_pre_ftl.7.a:0 "If only they were this enthusiastic about collars"
+
+ dom_pre_ftl.8.name:0 "Feralism Subsides"
+ dom_pre_ftl.8.desc:0 "Our efforts, though not the most effective, have managed to quell the wave of feralism sweeping [target.GetName]. The diversion has slowed progress on the [root.GetName], though."
+ dom_pre_ftl.8.a:0 "Understood"
+
+ dom_pre_ftl.9.name:0 "Cuties are... Not Cute?"
+ dom_pre_ftl.9.desc:0 "It seems that our idea of putting [target.owner.GetSpeciesNamePlural] in outreach broadcasts was ill-planned. The [target.owner.GetSpeciesName] see themselves as horribly ugly, and the image of one on screen was met with disgust. We haven't won anyone over today."
+ dom_pre_ftl.9.a:0 "We'll show them how cute they are... eventually"
+
+ dom_pre_ftl.10.name:0 "Do the Floret!"
+ dom_pre_ftl.10.desc:0 "The [target.owner.GetSpeciesNamePlural] have a long cultural tradition of group dancing, and the leaders of these dances are well-respected in [target.owner.GetSpeciesAdj] society. By winning over several very influential dance leaders, we've got the whole population dancing to \"The Floret Wiggle.\""
+ dom_pre_ftl.10.a:0 "It's a catchy song!"
+
+ dom_pre_ftl.11.name:0 "A Show of Weakness"
+ dom_pre_ftl.11.desc:0 "By committing to a slower approach to the [target.GetName], we have inadvertantly shown a weakness that the chaotic-minded [target.owner.GetSpeciesNamePlural] have seized upon. Only the strongest wills can tame the [target.owner.GetSpeciesNamePlural], and so far, that's not us."
+ dom_pre_ftl.11.a:0 "Hopefully they'll wear themselves out"
+
+ dom_pre_ftl.12.name:0 "Slow and Steady"
+ dom_pre_ftl.12.desc:0 "By committing to a slower approach to the [target.GetName], we have demonstrated to the [target.owner.GetSpeciesNamePlural] that we respect their society's slower pace. We'll give them time to adjust, and good things will come to those who wait."
+ dom_pre_ftl.12.a:0 "How will we pass the time?"
+
+ dom_pre_ftl.13.name:0 "Feral Hearts"
+ dom_pre_ftl.13.desc:0 "Our hands-off approach to the wave of feralism sweeping [target.GetName] has only emboldened those who oppose the [root.GetName]. Many [target.owner.GetSpeciesNamePlural] who used to cooperate with us have turned hostile. Time will tell if this is a minor setback, or the first step toward open war."
+ dom_pre_ftl.13.a:0 "I'm sure this is fine..."
+
+ dom_pre_ftl.14.name:0 "Smooth Sailing"
+ dom_pre_ftl.14.desc:0 "Convincing a civilization's leaders to submit to domestication is usually a long and trying process. [target.GetName] seems to be the exception, though.\n\nOur negotiators report that the [target.owner.GetSpeciesAdj] diplomats are very amenible to our requests, and many talk about visiting their nearest domestication center as soon as the [target.owner.GetSpeciesAdj] Domestication Treaty's ink is dry."
+ dom_pre_ftl.14.a:0 "Bureaucracy first, play later!"
+
+ dom_pre_ftl.15.name:0 "Truth and Retribution"
+ dom_pre_ftl.15.desc:0 "One of our teams, sent to confiscate [target.owner.GetSpeciesAdj] weaponry on [target.GetName], has made a troubling discovery. A militant [target.owner.GetSpeciesAdj] faction has been stockpiling weapons in preparation for an attack on another rival faction. Our xeno-archaeo-bureaucrats suggest that the roots of this conflict stretch back centuries, with each act of retaliation fueling another reprisal.\n\nIt's clear that we need to stop the cycle of bloodshed, and the way we do so will affect the course of the [root.getName]."
+ dom_pre_ftl.15.a:0 "Domesticate the faction's leaders"
+ dom_pre_ftl.15.b:0 "Encourage nonviolent conflict resolution"
+ dom_pre_ftl.15.c:0 "Appeal to their common [target.owner.GetSpeciesName]-ity"
+
+ dom_pre_ftl.16.name:0 "Faction Subdued"
+ dom_pre_ftl.16.desc:0 "Our efforts, though not the most effective, have managed to successfully avert a massacre on [target.GetName]. The [target.owner.GetSpeciesNamePlural] seem to have mixed opinions about our methods, though, and the distraction will slow down negotiations."
+ dom_pre_ftl.16.a:0 "Understood"
+
+ dom_pre_ftl.17.name:0 "Faction Left Leaderless"
+ dom_pre_ftl.17.desc:0 "With the violent faction's leaders captured and safe in their new owners' [target.observation_outpost_owner.GetSpeciesHandNamePlural], we've successfully stopped the violence before it could start. The faction's rank and file, directionless without their leadership, have acquiesced to our disarmament plans."
+ dom_pre_ftl.17.a:0 "Such obedient little cuties!"
+
+ dom_pre_ftl.18.name:0 "Faction Erupts in Chaos"
+ dom_pre_ftl.18.desc:0 "Without their leadership to direct their ire, the faction's members have turned to indiscriminant violence. Our forces were able to prevent most casualties, but public opinion of the [root.GetName] has soured."
+ dom_pre_ftl.18.a:0 "That didn't go well..."
+
+ dom_pre_ftl.19.name:0 "Live and Let Live"
+ dom_pre_ftl.19.desc:0 "Enlisting the support of several [target.owner.GetSpeciesAdj] mediators, we were able to get both factions to the negotiating table to address their long-standing disputes. It will take some time to fully resolve their issues, but at least they've agreed to hand over their weapons and solve their disputes peacefully."
+ dom_pre_ftl.19.a:0 "Great work!"
+
+ dom_pre_ftl.20.name:0 "Mediation Session Turns Hostile"
+ dom_pre_ftl.20.desc:0 "Our attempt to mediate the dispute between rival factions on [target.GetName] was unsuccessful. While we were able to get both parties to the negotiating table, the negotiations themselves quickly devolved into insults and arguments. Fortunately, we were able to use the negotiations as a distraction while we seized the factions' weapons caches."
+ dom_pre_ftl.20.a:0 "Such naughty words!"
+
+ dom_pre_ftl.21.name:0 "[target.owner.GetSpeciesNamePlural], One and All"
+ dom_pre_ftl.21.desc:0 "By appealing to their shared ideals and heritage, we were able to get the leaders of both factions to talk through their differences and finally end the cycle of violence. They have willingly laid down their arms, and are committing themselves to building a better future for all [target.owner.GetSpeciesNamePlural]."
+ dom_pre_ftl.21.a:0 "That worked well"
+
+ dom_pre_ftl.22.name:0 "[target.owner.GetSpeciesAdj] Unity"
+ dom_pre_ftl.22.desc:0 "By appealing to their shared ideals and heritage, we were able to get the leaders of both factions to talk through their differences and finally end the cycle of violence. Unfortunately, the normally solitary [target.owner.GetSpeciesNamePlural] have a deep history of uniting only to fight off outsiders. Outsiders like us."
+ dom_pre_ftl.22.a:0 "That wasn't what we meant!"
+
+ dom_pre_ftl.23.name:0 "The Harvest Goddess"
+ dom_pre_ftl.23.desc:0 "By some cosmic coincidence, is seems that we bear a striking resemblance to the [target.owner.GetSpeciesAdj] harvest diety, and some [target.owner.GetSpeciesNamePlural] have taken to calling us \"goddesses.\"\n\nWe could try to reinforce the notion of our divinity to further the [target.owner.GetSpeciesAdj] Domestication Project, but the fact that we are not divine beings makes this proposition a risky one."
+ dom_pre_ftl.23.a:0 "\"Goddess\" has a nice ring to it"
+ dom_pre_ftl.23.b:0 "We are benevolent, but not divine"
+ dom_pre_ftl.23.c:0 "Attempt to dissuade them of religion in general"
+
+ dom_pre_ftl.24.name:0 "Your Goddess, Your Owner"
+ dom_pre_ftl.24.desc:0 "\"Any sufficiently powerful and benevolent being is indistinguishable from a diety.\" That's what one of our negotiators says, at least. And the [target.owner.GetSpeciesNamePlural] seem to believe it.\n\nMany prominent [target.owner.GetSpeciesAdj] theologians are now actively supporting the [target.GetName], and the people are eager to receive their salvation."
+ dom_pre_ftl.24.a:0 "Such adorable worshippers!"
+
+ dom_pre_ftl.25.name:0 "It's Hard to be a God"
+ dom_pre_ftl.25.desc:0 "It seemed like a good idea to try to convince the [target.owner.GetSpeciesNamePlural] of our divinity. Unfortunately, our clumsy understanding of their actual theology made them suspicious, and now they're accusing us of deceit."
+ dom_pre_ftl.25.a:0 "Such is the price of our hybris!"
+
+ dom_pre_ftl.26.name:0 "Endless Possibilities"
+ dom_pre_ftl.26.desc:0 "By rejecting the notion that the [target.observation_outpost_owner.GetName] is divine, we have inspired a feeling of hope and possibility in the [target.owner.GetSpeciesAdj] people. After all, if our civilization was once as primitive as theirs, then their descendents will stand beside us as equals."
+ dom_pre_ftl.26.a:0 "\"Equals\" might be too strong a term..."
+
+ dom_pre_ftl.27.name:0 "The Great Disappointment"
+ dom_pre_ftl.27.desc:0 "When we told the [target.owner.GetSpeciesNamePlural], we expected relief or anger or confusion. Instead, they just seem disappointed that we're mortals, like they really wanted the myths to be true. While the [target.GetName] is continuing as planned, there are growing whispers amongst the [target.owner.GetSpeciesNamePlural] that [target.observation_outpost_owner.GetSpeciesNamePlural] are simply \"no fun.\""
+ dom_pre_ftl.27.a:0 "How disappointing"
+
+ dom_pre_ftl.28.name:0 "Deicide"
+ dom_pre_ftl.28.desc:0 "The [target.owner.GetSpeciesNamePlural] are reacting quite well to the news that the sky is full of stars, not gods. The mood on [target.GetName] is one of relief, as the fear of divine retribution fades into memory. Already, [target.owner.GetSpeciesNamePlural] are abandoning their temples and engrossing themselves in the wonders of [target.observation_outpost_owner.GetAdj] technology."
+ dom_pre_ftl.28.a:0 "The future is bright"
+
+ dom_pre_ftl.29.name:0 "[target.observation_outpost_owner.GetSpeciesNamePluralInsult]! Heretics!"
+ dom_pre_ftl.29.desc:0 "In retrospect, trying to turn the traditionalist [target.owner.GetSpeciesNamePlural] away from their ancestral religion was not the best idea. The consensus amongst the [target.owner.GetSpeciesNamePlural] is that we are demons sent by their gods to test their faith."
+ dom_pre_ftl.29.a:0 "Hopefully they'll forgive us..."
+
+ dom_pre_ftl.30.name:0 "Ancient Faiths Long Forgotten"
+ dom_pre_ftl.30.desc:0 "It seems the whole \"goddess\" thing was a bit of misunderstanding. The goddess in question hasn't been worshipped for centuries, and our pronouncements about the [target.owner.GetSpeciesAdj] religion were met with confusion. Fortunately, the matter seems to be largely forgotten within a few days."
+ dom_pre_ftl.30.a:0 "Probably for the best"
+
+ dom_pre_ftl.31.name:0 "The Benefits of Domestication"
+ dom_pre_ftl.31.desc:0 "As we interact with the common people of [target.GetName], a few questions keep being asked: Why should the [target.owner.GetSpeciesNamePlural] accept domestication? What future awaits them in the stars?"
+ dom_pre_ftl.31.a:0 "A vast universe, full of wonder, to explore"
+ dom_pre_ftl.31.b:0 "Freedom from need, freedom from want"
+ dom_pre_ftl.31.c:0 "The joy of being a treasured pet"
+
+ dom_pre_ftl.32.name:0 "Wanderlust"
+ dom_pre_ftl.32.desc:0 "The universe is vast, infinite, with countless worlds to explore. A thousand [target.owner.GetSpeciesAdj] would not be enough to see even a sliver of it. The [target.owner.GetSpeciesNamePlural] are starting to agree that \"independence\" is a small price to pay for the freedom to explore beyond their skies.\n\nThe [target.owner.GetSpeciesNamePlural] have begun carrying drying-cloths, their symbol for vagabonds, as a way of showing their support for the [root.GetName]."
+ dom_pre_ftl.32.a:0 "Don't forget your drying-cloth!"
+
+ dom_pre_ftl.33.name:0 "A Dark and Careless Universe"
+ dom_pre_ftl.33.desc:0 "The universe is vast, dark, and infinite. It's enough to scare any [target.owner.GetSpeciesName] back into the deepest caves of [target.GetName], for fear of what waits in the night sky.\n\nIt may be more difficult than we'd anticipated to bring the [target.owner.GetSpeciesNamePlural] into space."
+ dom_pre_ftl.33.a:0 "Would it help if we held your [target.owner.GetSpeciesHandName]?"
+
+ dom_pre_ftl.34.name:0 "A Universe of Plenty"
+ dom_pre_ftl.34.desc:0 "[target.owner.GetSpeciesAdj] history is filled with episodes of famine and starvation. Many of their conflicts stem from the need to access scarce resources. Access to [target.observation_outpost_owner.GetAdj] technology would solve most, if not all, of these conflicts, and that's enough to sway many previously wary [target.owner.GetSpeciesNamePlural] to our side."
+ dom_pre_ftl.34.a:0 "The pleasure is all ours"
+
+ dom_pre_ftl.35.name:0 "A Lack of Purpose"
+ dom_pre_ftl.35.desc:0 "\"Life without work is meaningless,\" or so they say on [target.GetName]. Despite our assurances that they can still \"work\" in whatever way they like, the [target.owner.GetSpeciesNamePlural] are convinced that scarcity and labor are the only things holding their society together. Support for the [root.GetName] has decreased notably."
+ dom_pre_ftl.35.a:0 "Being a floret is an important job!"
+
+ dom_pre_ftl.36.name:0 "Perfect Little Pets"
+ dom_pre_ftl.36.desc:0 "It's a simple fact that every sophont is adorable, even if they don't realize it. The way that [target.owner.GetSpeciesNamePlural] natually curl up into little balls when they're together, though, is a little bit rarer. Even better, they seem to naturally cuddle up against any [target.observation_outpost_owner.GetSpeciesName] they come in contact with. They really do make perfect pets, and even they are beginning to realize it."
+ dom_pre_ftl.36.a:0 "Can I take this one home with me?"
+
+ dom_pre_ftl.37.name:0 "No One's Property"
+ dom_pre_ftl.37.desc:0 "Perhaps describing our florets as \"property\" around the [target.owner.GetSpeciesNamePlural] wasn't the best idea. While they have no aversion to owning other sophonts themselves, being owned by another is seen as deeply degrading and un-[target.owner.GetSpeciesName]like.\n\nThe realization that ownership of florets is reserved for [target.observation_outpost_owner.GetSpeciesNamePlural] has derailed our negotiation with the [target.owner.GetSpeciesNamePlural]."
+ dom_pre_ftl.37.a:0 "Hey! There's nothing wrong with being a floret!"
+
+ dom_pre_ftl.38.name:0 "Polarized Society"
+ dom_pre_ftl.38.desc:0 "Our promises about the future of the [target.owner.GetSpeciesAdj] civilization have caused a split in their society. While we have convinced many [target.owner.GetSpeciesNamePlural] to support Domestication, a nearly equal number now oppose it more vehemently."
+ dom_pre_ftl.38.a:0 "So, partial success?"
+
+ dom_pre_ftl.39.name:0 "Growing Support"
+ dom_pre_ftl.39.desc:0 "The [root.GetName] is continuing apace, without much to report. From what we can tell, it seems that the [target.owner.GetSpeciesNamePlural] are growing more accepting of the [target.observation_outpost_owner.GetSpeciesAdj] in their midst."
+ dom_pre_ftl.39.a:0 "Good to hear"
+
+ dom_pre_ftl.40.name:0 "Growing Resistance"
+ dom_pre_ftl.40.desc:0 "The [root.GetName] is continuing as scheduled, but reports our showing an increase in feralist activity on [target.GetName]. No particular cause has been identified, but our negotiators are getting worried."
+ dom_pre_ftl.40.a:0 "Troubling..."
+
+ dom_pre_ftl.41.name:0 "Seeds of Rebellion"
+ dom_pre_ftl.41.desc:0 "The scheduled end of the [root.GetName] is quickly approaching, but we've received a worrying report from our diplomats on [target.GetName]. They suspect that the [target.owner.GetSpeciesAdj] negotiators are drawing out the proceedings needlessly, as if buying time. While they don't want to be alarmist, they think there's a strong possibility that the [target.owner.GetSpeciesNamePlural] are planning a general uprising to prevent the [target.owner.GetSpeciesAdj] Domestication Treaty from being signed.\n\nIt's probably northing to worry about, but perhaps we should dispatch a few armies to the [target.solar_system.GetName] System."
+ dom_pre_ftl.41.a:0 "Just a precaution, hopefully..."
+
+ dom_pre_ftl.42.name:0 "Feralist Rebellion on [target.GetName]"
+ dom_pre_ftl.42.desc:0 "We're very disappointed in the [target.owner.GetSpeciesNamePlural]. First, they don't show up to the negotiation session and make us worry. Then, whole angry crowd shows up with weapons and demands that we leave the planet!\n\nReports are filtering in from other settlements describing attacks on domestication centers and other [target.observation_outpost_owner.GetAdj] institutions. We've manages to evacuate our personnel and florets to safe areas, but restoring order is beyond the capabiltiies of our forces on [target.GetName]."
+ dom_pre_ftl.42.a:0 "It looks like we'll be doing this the hard way"
+
+ dom_pre_ftl.43.name:0 "Too Many Volunteers"
+ dom_pre_ftl.43.desc:0 "Our Domestication Centers on [target.GetName] are reporting an abnormally high number of [target.owner.GetSpeciesNamePlural] volunteering for domestication. Some sophonts are having to wait months to be placed with an owner! We have to address this problem, and soon!"
+ dom_pre_ftl.43.a:0 "Relocate volunteers into [target.observation_outpost_owner.GetAdj] territory"
+ dom_pre_ftl.43.b:0 "Focus on finding owners on [target.GetName]"
+
+ dom_pre_ftl.44.name:0 "Notice: [target.owner.GetSpeciesNamePlural] are Cute"
+ dom_pre_ftl.44.desc:0 "Our domestication specialists on [target.GetName] have informed us that [target.owner.GetSpeciesNamePlural] are cute and make wonderful pets. They're just perfect little [target.owner.GetSpeciesNamePluralCompliment] with their cute little [target.owner.GetSpeciesHandNamePlural]! Don't you just want to snuggle them forever?\n\nThat is all."
+ dom_pre_ftl.44.a:0 "Very important. Thank you."
+
+ REVIVE_PLAGUE_SPECIES:0 "The [revived_species.GetAdj] Revival Project"
+ REVIVE_PLAGUE_SPECIES_DESC:0 "Our xeno-biologists will need time and resources to stablize the [revived_species.GetAdj] genome and clone enough distinct individuals to make a genetically-healthy population."
+
+ dom_pre_ftl.45.name:0 "The Mass Graves of [root.GetName]"
+ dom_pre_ftl.45.desc:0 "We have successfully colonized [root.GetName], a world which was once home to the [revived_species.GetNamePlural] until they were wiped out by a plague we were unable to stop.\n\nNow, we have access to large amounts of their genetic material and the technology to try to bring them back."
+ dom_pre_ftl.45.a:0 "Their genetic children will live once more"
+ dom_pre_ftl.45.b:0 "Let dead species lie"
+
+ dom_pre_ftl.46.name:0 "A New Generation of [revived_species.GetNamePlural]"
+ dom_pre_ftl.46.desc:0 "At long last, we have successfully synthesized the [revived_species.GetAdj] genome and cloned enough individuals to carry on the species. These new post-plague [revived_species.GetNamePlural] will live vastly different lives than their ancestors. They will be raised from birth by [root.owner.GetSpeciesAdj] caretakers. The [revived_species.GetAdj] culture will, by necessity, be shaped largely by archaelogical finds and by the records of our Observation Station.\n\nThe [revived_species.GetNamePlural] live, but the plague memorials of [root.GetName] will forever remind them, and us, of what was lost."
+ dom_pre_ftl.46.a:0 "May their progeny outnumber the stars"
+
+ dom_paragon.1.name:0 "A Blorg in Need..."
+ dom_paragon.1.desc:1 "§Y[Root.GetName]'s§! ex-partner, a Blorg named §Y$NONA_BLORG_EX_HUSBAND_NAME$§!, has fallen on hard times and is looking for a fresh start. [Root.GetFirstName] claims that $NONA_BLORG_EX_HUSBAND_NAME$ really just needs someone to take care of him, and requests that we find an owner to take him as their floret."
+ dom_paragon.1.a:0 "We have just the [root.owner.GetSpeciesName] in mind."
+ dom_paragon.1.b:0 "We'll find him a good owner at the Domestication Center."
+ dom_paragon.1a.custom_tooltip:0 "One of our governors adopts the Blorg §Y$NONA_BLORG_EX_HUSBAND_NAME$§! as their floret."
+ dom_paragon.1b.custom_tooltip:0 "A new [root.owner.GetSpeciesAdj] governor will adopt the Blorg §Y$NONA_BLORG_EX_HUSBAND_NAME$§! as their floret."
+
+ dom_paragon.2.name:0 "...is a Floret Indeed"
+ dom_paragon.2.desc:0 "§Y[new_owner.GetName]§! has graciously and enthusiastically agreed to adopt §Y$NONA_BLORG_EX_HUSBAND_NAME$§! as [new_owner.GetHisHer] floret. $NONA_BLORG_EX_HUSBAND_NAME$, now §Y[new_floret.GetName]§!, is finally getting some much needed love and attention. He's had a traumatic life, but now he can finally start putting that behind him and focus on being the best floret in the galaxy!"
+ dom_paragon.2.a:0 "Adorable!"
+
+ dom_paragon.40400.d:0 "How much do you know about the [root.GetName]?"
+ dom_paragon.40400.d.response:0 "I have heard that your armies are a force of nature, that no one stands a chance against you in battle, and that you are waited on by loyal and obedient slaves. I would like to see for myself if these rumors are true."
+ dom_paragon.40400.hire_custom_tooltip:0 "§Y$NAME_militarist2$§! will be domesticated by one of our generals."
+
+ dom_paragon.40401.name:0 "A Worthy Foe"
+ dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more that a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
+ dom_paragon.40401.a:0 "Adorable!"
+
+ dom_paragon.40401.name:0 "A Worthy Foe"
+ dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more that a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
+ dom_paragon.40401.a:0 "Adorable!"
+
+ dom_paragon.4.name:0 "Burdens Lifted"
+ dom_paragon.4.desc:0 "After years of loyal service in the [root.owner.GetAdj] Navy, §Y[ethic_leader.GetName]§! has come to a difficult realization: [ethic_leader.GetHisHerCap] trauma cannot be alleviated by military victories. Even the small happiness [ethic_leader.GetHeShe] feels when liberating sophonts from oppression is tempered by the heavy burden of [ethic_leader.GetHisHer] rank. If not [ethic_leader.GetHimHer], who would lead the [root.owner.GetAdj] war effort?\n\nFortunately, [ethic_leader.GetHeShe]'s been sharing [ethic_leader.GetHisHer] woes with §YAdmiral [new_owner.GetName]§!, who has finally convinced [dom_militarist_2.GetHimHer] that the burden of liberating the galaxy need not rest on [ethic_leader.GetHisHer] shoulders alone. To that end, [ethic_leader.GetName], now §Y[new_floret.GetName]§!, has formally relinquished both [new_floret.GetHisHer] commission and [new_floret.GetHisHer] independence. [new_floret.GetHeSheCap] will continue to serve in the navy alongside [new_floret.GetHisHer] owner, safe in the assurance that [new_floret.GetHeShe] will never again have to bear any burden alone."
+ dom_paragon.4.a:0 "Thank you for your service!"
+ dom_paragon.5.name:0 "$dom_paragon.4.name$"
+ dom_paragon.5.desc:0 "After years of loyal service in the [root.owner.GetAdj] Navy, §Y[ethic_leader.GetName]§! has come to a difficult realization: [ethic_leader.GetHisHerCap] trauma cannot be alleviated by military victories. Even the small happiness [ethic_leader.GetHeShe] feels when liberating sophonts from oppression is tempered by the heavy burden of [ethic_leader.GetHisHer] rank. If not [ethic_leader.GetHimHer], who would lead the [root.owner.GetAdj] war effort?\n\nFortunately, [ethic_leader.GetHeShe]'s been sharing [ethic_leader.GetHisHer] woes with §YCaptain [new_owner.GetName]§!, who has finally convinced [dom_militarist_2.GetHimHer] that the burden of liberating the galaxy need not rest on [ethic_leader.GetHisHer] shoulders alone. To that end, [ethic_leader.GetName], now §Y[new_floret.GetName]§!, has formally relinquished both [new_floret.GetHisHer] commission and [new_floret.GetHisHer] independence. [new_floret.GetHeSheCap] will continue to serve in the navy alongside [new_floret.GetHisHer] owner, safe in the assurance that [new_floret.GetHeShe] will never again have to bear any burden alone."
+ dom_paragon.5.a:0 "Thank you for your service!"
+
+ domestication_leader.15.name:0 "The Miracle of Reblooming"
+ domestication_leader.15.desc.0:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nWithout any florets to distract [clone_bloom.GetHimHer] from [clone_bloom.GetHisHer] service, [clone_bloom.GetName] is looking forward to getting back in the field."
+ domestication_leader.15.desc.1:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nWhile briefly considering retirement to spend more time with their floret, §Y[floret_1.GetName]§!, [clone_bloom.GetName] has decided to return to [clone_bloom.GetHisHer] service."
+ domestication_leader.15.desc.2:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nWhile briefly considering retirement to spend more time with their florets, §Y[floret_1.GetName]§!, [clone_bloom.GetName] has decided to return to [clone_bloom.GetHisHer] service."
+ domestication_leader.15.desc.3:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nWhile briefly considering retirement to spend more time with their florets, §Y[floret_1.GetName]§! and §Y[floret_2.GetName]§!, [clone_bloom.GetName] has decided to return to [clone_bloom.GetHisHer] service."
+ domestication_leader.15.a:0 "Welcome back, §Y[new_bloom.GetName]§!!"
+
+ domestication_leader.26.name:0 "The Miracle of Reblooming"
+ domestication_leader.26.desc.0:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nA new bloom is often accompanied by a new outlook on life, though, and [clone_bloom.GetName] has decided to leave their post, settle down, and hopefully find an adorable floret."
+ domestication_leader.26.desc.1:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nA new bloom is often accompanied by a new outlook on life, though, and [clone_bloom.GetName] has decided to leave their post, settle down, and spend more time with their floret, §Y[floret_1.GetName]§!."
+ domestication_leader.26.desc.2:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nA new bloom is often accompanied by a new outlook on life, though, and [clone_bloom.GetName] has decided to leave their post, settle down, and spend more time with their florets, §Y[floret_1.GetName]§!."
+ domestication_leader.26.desc.3:0 "Our great §Y[clone_bloom.GetTitle] [clone_bloom.GetName]§!'s bloom has come to an end. This is not a time for mourning, of course, for the end of a bloom is simply the beginning of a new one.\n\nA new bloom is often accompanied by a new outlook on life, though, and [clone_bloom.GetName] has decided to leave their post, settle down, and spend more time with their florets, §Y[floret_1.GetName]§! and §Y[floret_2.GetName]§!."
+ domestication_leader.26.a:0 "Enjoy your retirement!"
+
+ dom_paragon.40100.e:0 "How much do you know about the [root.GetName]?"
+ dom_paragon.40100.e.response:0 "I have heard that your fleets scour the cosmos, plundering helpless vessels for the greatest treasures in the universe. Is that wrong?"
+ dom_paragon.40100.hire_custom_tooltip:0 "§Y$NAME_xenophile$§! will be domesticated by one of our admirals."
+
+
+ dom_paragon.40101.name:0 "O Captain, My Captain"
+ dom_paragon.40101.desc:0 "§LReady the fleet! We're going raiding!§!\n\nThe [root.GetSpeciesAdj] crew on deck cast uncertain looks at the speaker, then look questioningly at the [new_owner.species.GetName] standing over [ethic_leader.GetHimHer]. At a reassuring nod from the [new_owner.species.GetName], the crew begin carrying out the command.\n\nThe [new_owner.species.GetName] rubs a [new_owner.owner.GetSpeciesHandName] against the speaker's cheek.\n\n§LYes, little one, let's show those cuties what you're made of.§!\n\nThe crew aren't really sure what to make of the situation. Is §Y[new_floret.GetName]§! really aware of what's going on, or does [new_floret.GetHisHer] owner, §Y[new_owner.GetName]§! have [new_floret.GetHimHer] on so many Class-Hs that [new_floret.GetHeShe] truly thinks [new_floret.GetHeShe]'[new_floret.GetSRe] in charge? It doesn't really matter, of course. Either way, the fleet will be carrying out its intended mission - hunting down feralist ships and rescuing the poor little cuties trapped on them. That will mean more friends for §Y[new_floret.GetName]§! to play with, and isn't that the greatest treasure of all?"
+ dom_paragon.40401.a:0 "Adorable!"
+
+ leader_trait_xenophile_1_floret_effect:2 "$FLEET_EFFECTS_TXT$:\n$t$Every Enemy Empire Ship Destroyed:\n$tt$$r_unity$: §G+$@trait_corsair_amt$§!"
+
+ domestication.46.name:0 "Colonization Ship Captured"
+ domestication.46.desc:0 "The [FromFrom.fleet.GetName] in §Y[event_loc.GetName]§! has managed to capture a §Y[From.GetAdj] Colonization Ship§! filled to the brim with [rescued_species.GetAdj] colonists. To keep the little cuties safe and relieve overcrowding, we've relocated them to our colony on §Y[resettle_newworld.GetName]§!."
+ domestication.46.a:0 "Welcome!"
+
+ dom_paragon.246.dom:0 "So, you're a good little beeper who likes taking care of cute sophonts?"
+ dom_paragon.246.dom.response:0 "§EI-- I-- am--§!\n\n§E*BEEP!*§!"
+ dom_paragon.247.name:0 "A Very Useful Beeper"
+ dom_paragon.247.desc:0 "§Y[ethic_leader.GetName]§! "
+ dom_paragon.247.a:0 "An extremely good beeper!"

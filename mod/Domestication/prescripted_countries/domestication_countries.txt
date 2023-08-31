@@ -64,7 +64,8 @@ terran_accord = {
     texture=0
 		hair=15
 		clothes=0
-		leader_class = ruler
+		trait = "trait_ruler_charismatic"
+		leader_class = governor
 	}
 }
 
@@ -103,7 +104,7 @@ affini_compact = {
 		trait="trait_slow_learners"
 	}
 
-	room = "personality_spiritual_seekers_room"
+	room = "specialist_domprot_room"
 
 	authority = "auth_democratic"
   civics={
@@ -148,6 +149,7 @@ affini_compact = {
 		hair=0
 		clothes=0
     ruler_title="High Gardener"
-		leader_class = ruler
+		trait = "trait_ruler_eye_for_talent"
+		leader_class = governor
 	}
 }

@@ -209,8 +209,7 @@ country_event = {
 			leader_age_min = 25
 			leader_age_max = 45
 			traits = {
-				trait = leader_trait_mercenary_warrior
-				trait = random_trait
+				0 = leader_trait_mercenary_warrior
 			}
 		}
 		custom_tooltip = gain_marauder_admiral
@@ -222,7 +221,7 @@ country_event = {
 			any_owned_leader = {
 				leader_class = admiral
 				can_obtain_new_floret = yes
-				NOT = { has_trait = leader_trait_marauder_adm }
+				NOT = { has_trait = leader_trait_marauder_floret }
 			}
 		}
 		hidden_effect = {
@@ -230,13 +229,12 @@ country_event = {
 				limit = {
 					leader_class = admiral
 					can_obtain_new_floret = yes
-					NOT = { has_trait = leader_trait_marauder_adm }
+					NOT = { has_trait = leader_trait_marauder_floret }
 				}
 
 				save_event_target_as = new_owner
 
-				add_trait = leader_trait_marauder_adm
-				add_ruler_trait = leader_trait_marauder_rul
+				add_trait = leader_trait_marauder_floret
 
 				floret_count_increment = yes
 			}
@@ -250,7 +248,7 @@ country_event = {
 					leader_age_min = 25
 					leader_age_max = 45
 					traits = {
-						trait = leader_trait_marauder_adm
+						trait = leader_trait_marauder_floret
 						trait = leader_trait_floret_immortal
 					}
 					effect = {

@@ -219,12 +219,21 @@ domprot_3_modifier = {
 
 	activate_effect = {
 		target = {
+			store_country_backup_data = {
+				flag = no
+				room = yes
+				name = no
+				ethics = no
+				government = no
+			}
+			room_name_override = "specialist_domprot_room"
 			add_modifier = { modifier = protectorate_3_floret_jobs }
 			remove_modifier = protectorate_2_floret_jobs
 		}
 	}
 	deactivate_effect = {
 		target = {
+			restore_country_backup_data = yes
       remove_modifier = protectorate_3_floret_jobs
 		}
 	}

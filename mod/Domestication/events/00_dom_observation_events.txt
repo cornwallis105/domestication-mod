@@ -1,0 +1,208 @@
+namespace = observation
+
+# Missing Scientist (Gatekeeper)
+# Missing Scientist (Gatekeeper)
+situation_event = {
+	id = observation.100
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			NOT = {
+				has_country_flag = observation_100_fired
+			}
+
+			is_regular_pre_ftl = yes
+			is_pre_industrial = yes
+
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost = { has_mission = passive_observation }
+				observation_outpost_owner = {
+					is_ai = no
+					is_gestalt = no
+					is_domesticator_or_protectorate = no
+					NOT = { has_country_flag = missing_scientist_chain }
+				}
+			}
+		}
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = observation_100_fired
+			save_event_target_as = pre_ftl_country
+
+			capital_scope = {
+				save_event_target_as = pre_ftl_planet
+				set_planet_flag = missing_scientist_planet
+				observation_outpost_owner = {
+					country_event = { id = observation.101 }
+				}
+			}
+		}
+		set_situation_flag = has_ongoing_observation_event_chain
+		# Setting this flag for the duration of the entire event chain
+		# to prevent other observation events from interfering.
+	}
+}
+
+# Missing Scientist
+country_event = {
+	id = observation.101
+	title = "observation.101.name"
+	desc = "observation.101.desc"
+	picture = GFX_evt_landing_ship
+	show_sound = event_ship_thrusters
+	location = event_target:pre_ftl_planet
+
+	is_triggered_only = yes
+
+	immediate = {
+		create_leader = {
+			class = scientist
+			species = owner_main_species
+			name = random
+			effect = {
+				save_event_target_as = missing_scientist
+			}
+		}
+		event_target:missing_scientist = {
+			exile_leader_as = missing_scientist
+			#save_event_target_as = missing_scientist
+		}
+		event_target:pre_ftl_planet.observation_outpost = {
+			set_event_locked = yes
+		}
+	}
+
+	option = {
+		name = "observation.101.a"
+		hidden_effect = {
+			random_list = {
+				25 = {
+					# Missing scientist dies.
+					country_event = { id = observation.102 days = 10 random = 5 }
+				}
+				75 = {
+					country_event = {
+						id = observation.103
+						# 5 ± 2.5 years
+						days = 900
+						random = 1800
+					}
+					set_country_flag = missing_scientist_chain
+				}
+			}
+		}
+	}
+
+	after = {
+		custom_tooltip = cannot_reveal_tt
+		custom_tooltip = cannot_dismantle_outpost_tt
+	}
+}
+
+# Planet Descends into Civil War
+country_event = {
+	id = observation.107
+	title = "observation.107.name"
+	desc = "observation.107.desc"
+	picture = GFX_evt_city_ruins
+	show_sound = event_ground_battle
+	location = event_target:pre_ftl_planet
+
+	is_triggered_only = yes
+
+	trigger = {
+		event_target:pre_ftl_planet = {
+			has_planet_flag = extraction_civil_war
+			owner = {
+				is_regular_pre_ftl = yes
+			}
+			has_observation_outpost = yes
+			observation_outpost_owner = {
+				has_country_flag = missing_scientist_chain
+			}
+		}
+	}
+
+	immediate = {
+		event_target:pre_ftl_planet = {
+			remove_planet_flag = extraction_civil_war
+		}
+		event_target:pre_ftl_country = {
+			random_situation = {
+				limit = {
+					is_situation_type = pre_ftl_tech_progress_situation
+				}
+				remove_situation_flag = has_ongoing_observation_event_chain
+			}
+		}
+		event_target:pre_ftl_planet.observation_outpost = {
+			set_event_locked = no
+		}
+	}
+
+	option = {
+		name = "observation.107.a"
+		event_target:pre_ftl_country = {
+			shift_ethic = "ethic_fanatic_spiritualist"
+		}
+		hidden_effect = {
+			event_target:pre_ftl_planet = {
+				random_list = {
+					33 = {
+						# Planet Depopulated
+						planet_event = {
+							id = observation.1401
+							days = 360
+							random = 360
+						}
+						modifier = {
+							factor = 0.5
+							owner = {
+								is_militarist = no
+							}
+						}
+					}
+					33 = {
+						# Planet Uninhabitable
+						planet_event = {
+							id = observation.1403
+							days = 360
+							random = 360
+						}
+						modifier = {
+							factor = 0.5
+							owner = {
+								is_militarist = no
+							}
+						}
+					}
+					33 = {
+						# Pre-FTLs regress to Stone Age
+						planet_event = {
+							id = observation.1405
+							days = 360
+							random = 360
+						}
+					}
+				}
+			}
+		}
+	}
+
+  option = {
+    name = "observation.107.domestication"
+    save_event_target_as = nuclear_war_stoppers
+    event_target:pre_ftl_planet = {
+      enable_special_project = {
+        name = "STOP_ROGUE_SCIENTIST_WAR"
+        owner = ROOT
+        location = event_target:pre_ftl_planet
+      }
+    }
+  }
+}

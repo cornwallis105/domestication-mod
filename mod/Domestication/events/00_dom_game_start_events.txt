@@ -1,0 +1,285 @@
+namespace = game_start
+
+### Empire init - add ships
+country_event = {
+	id = game_start.9
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		#science
+		if = {
+			limit = { is_low_tech_start = no }
+
+			create_fleet = {
+				effect = {
+					set_owner = prev
+
+					create_ship = {
+						name = random
+						random_existing_design = science
+					}
+
+					set_fleet_stance = evasive
+					#set_location = prev.capital_star
+					set_location = prev.capital_scope.star
+
+					owner = {
+						create_leader = {
+							class = scientist
+							sub_type = survey
+							name = random
+							species = owner_main_species
+              effect = {
+                save_event_target_as = new_sci
+              }
+						}
+					}
+					set_leader = event_target:new_sci
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_origin = origin_broken_shackles
+					# Assigned in origin.110 instead
+				}
+			}
+			create_leader = {
+				class = scientist
+				name = random
+				species = owner_main_species
+			}
+		}
+
+		if = {
+			limit = {
+				is_eager_explorer_empire = yes
+			}
+			while = {
+				count = 2
+				create_fleet = {
+					effect = {
+						set_owner = prev
+
+						create_ship = {
+							name = random
+							random_existing_design = explorer_vessel
+						}
+
+						set_fleet_stance = passive
+						set_location = prev.capital_scope.star
+
+						owner = {
+							create_leader = {
+								class = scientist
+								sub_type = survey
+								name = random
+								species = owner_main_species
+							}
+						}
+						if = {
+							limit = {
+								NOT = { root =  { has_country_flag = created_first_eager_ship } }
+							}
+							root = {
+								set_country_flag = created_first_eager_ship
+							}
+							last_created_leader = {
+								add_trait = leader_trait_meticulous
+							}
+						}
+						else = {
+							last_created_leader = {
+								add_trait = leader_trait_roamer
+							}
+						}
+						set_leader = last_created_leader
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_civic = civic_privatized_exploration
+			}
+			random_owned_starbase = {
+				set_starbase_size = starbase_starhold
+				set_starbase_module = {
+					slot = 2
+					module = shipyard
+				}
+				set_starbase_module = {
+					slot = 3
+					module = trading_hub
+				}
+				set_starbase_module = {
+					slot = 4
+					module = trading_hub
+				}
+				set_starbase_building = {
+					slot = 2
+					building = resource_silo
+				}
+			}
+		}
+
+		#constructor
+		if = {
+			limit = { is_low_tech_start = no }
+
+			create_fleet = {
+				effect = {
+					set_owner = prev
+
+					create_ship = {
+						name = random
+						random_existing_design = constructor
+					}
+
+					set_fleet_stance = evasive
+					set_location = prev.capital_star
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				is_eager_explorer_empire = yes
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+
+					create_ship = {
+						name = random
+						random_existing_design = engineer_vessel
+					}
+
+					set_fleet_stance = evasive
+					set_location = prev.capital_star
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				is_low_tech_start = no
+			}
+
+			create_fleet = {
+				effect = {
+					set_owner = prev
+					if = {
+						limit = {
+							root = {
+								NOT = {
+									has_valid_civic = civic_hive_cordyceptic_drones
+								}
+							}
+						}
+						while = {
+							count = 2
+							create_ship = {
+								name = random
+								random_existing_design = corvette
+							}
+						}
+						if = {
+							limit = {
+								root = { has_origin = origin_progenitor_hive }
+							}
+							create_ship = {
+								name = random
+								random_existing_design = offspring_corvette
+							}
+						}
+						else = {
+							create_ship = {
+								name = random
+								random_existing_design = corvette
+							}
+						}
+						set_location = prev.capital_star
+					}
+					else = {
+						while = {
+							count = 2
+							create_ship = {
+								name = NAME_Reanimated_Small_Space_Organism
+								design = NAME_Reanimated_Small_Space_Organism
+								prefix = yes
+							}
+						}
+						if = {
+							limit = {
+								root = { has_origin = origin_progenitor_hive }
+							}
+							create_ship = {
+								name = random
+								random_existing_design = offspring_corvette
+							}
+						}
+						else = {
+							create_ship = {
+								name = "NAME_Reanimated_Small_Space_Organism"
+								design = NAME_Reanimated_Small_Space_Organism
+								prefix = yes
+							}
+						}
+						set_location = prev.capital_star
+					}
+					owner = {
+						create_leader = {
+							class = admiral
+							name = random
+							species = owner_main_species
+              effect = {
+                save_event_target_as = new_adm
+              }
+						}
+					}
+					set_leader = event_target:new_adm
+				}
+			}
+		}
+
+		else_if = {
+			limit = {
+				NOT = {
+					has_origin = origin_broken_shackles
+					# Assigned in origin.110 instead
+				}
+			}
+			create_leader = {
+				class = admiral
+				name = random
+				species = owner_main_species
+			}
+		}
+
+		else_if = {
+			limit = {
+				has_civic = civic_hive_cordyceptic_drones
+				has_civic = civic_hive_stargazers
+			}
+			create_fleet = {
+				set_take_point = yes
+				effect = {
+					set_owner = prev
+					while = {
+						count = 3
+						create_ship = {
+							name = NAME_Reanimated_Small_Space_Organism
+							design = NAME_Reanimated_Small_Space_Organism
+							prefix = yes
+						}
+					}
+					set_location = prev.capital_star
+				}
+			}
+		}
+	}
+}

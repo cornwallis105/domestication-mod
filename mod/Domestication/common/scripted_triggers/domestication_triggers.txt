@@ -274,3 +274,10 @@ can_obtain_new_floret = {
 		}
 	}
 }
+
+leader_is_affini = {
+	is_variable_set = bloom_id
+	#species = {
+	#	has_species_flag = affini_species
+	#}
+}

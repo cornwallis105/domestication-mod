@@ -89,6 +89,7 @@ country_event = {
 
 	is_triggered_only = yes
 	hide_window = no
+	show_sound = event_laboratory_sound
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
@@ -482,6 +483,7 @@ country_event = {
 	title = domestication.9.name
 	desc =  domestication.9.desc
 	picture = GFX_evt_colony_settlement
+	show_sound = event_default
 
 	is_triggered_only = yes
 	hide_window = no
@@ -666,6 +668,7 @@ country_event = {
 	title = domestication.10.name
 	desc =  domestication.10.desc
 	picture = GFX_evt_unknown_ships
+	show_sound = event_alien_signal
 
 	is_triggered_only = yes
 	hide_window = no
@@ -875,6 +878,7 @@ planet_event = {
 	title = domestication.14.name
 	desc =  domestication.14.desc
 	picture = GFX_evt_hive_mind
+	show_sound = event_laboratory_sound
 
 	is_triggered_only = yes
 	hide_window = no
@@ -991,6 +995,7 @@ planet_event = {
 	title = domestication.16.name
 	desc =  domestication.16.desc
 	picture = GFX_evt_sapient_AI
+	show_sound = event_machinery
 
 	is_triggered_only = yes
 	hide_window = no
@@ -1428,6 +1433,7 @@ country_event = {
 	id = domestication.26
 	picture = GFX_evt_huge_monument
 	fire_only_once = yes
+	show_sound = event_wind_ruins
 
 	is_triggered_only = yes
 	hide_window = yes
@@ -1477,6 +1483,7 @@ country_event = {
 	desc =  domestication.27.desc
 	picture = GFX_evt_huge_monument
 	fire_only_once = yes
+	show_sound = event_wind_ruins
 
 	is_triggered_only = yes
 	hide_window = no
@@ -1515,6 +1522,7 @@ country_event = {
 	desc =  domestication.28.desc
 	picture = GFX_evt_megastructure_construction
 	fire_only_once = yes
+	show_sound = event_construction
 
 	is_triggered_only = yes
 	hide_window = no
@@ -1542,6 +1550,7 @@ country_event = {
 	desc =  domestication.29.desc
 	picture = GFX_evt_space_station
 	fire_only_once = yes
+	show_sound = event_handshake
 
 	is_triggered_only = yes
 	hide_window = no
@@ -1597,6 +1606,7 @@ country_event = {
  	}
 	picture = GFX_evt_huge_monument
 	fire_only_once = yes
+	show_sound = event_activating_unknown_technology
 
 	is_triggered_only = yes
 	hide_window = no
@@ -2039,7 +2049,7 @@ planet_event = {
 	title = "domestication.37.name"
 	desc = "domestication.37.desc"
 	picture = GFX_evt_alien_planet
-	show_sound = event_default
+	show_sound = event_alien_nature
 	location = ROOT
 	trackable = yes
 
@@ -2125,7 +2135,7 @@ planet_event = {
 		text = "domestication.40.desc.2"
 	}
 	picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
 	location = ROOT
 	trackable = yes
 
@@ -2281,5 +2291,92 @@ country_event = {
 			key = "domprot_rename_2"
 			variable_string = "[floret_country.GetName]"
 		}
+	}
+}
+
+# Rescue pop from Colony Ship
+# This = owner of ship 1 (combatant)
+# From = owner of ship 2 (destroyed)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+country_event = {
+	id = domestication.46
+	title = "domestication.46.name"
+	desc = "domestication.46.desc"
+	picture = GFX_evt_happy_reunion
+	show_sound = event_faceoff_in_space
+	location = FromFrom
+
+	is_triggered_only = yes
+
+	trigger = {
+		FromFromFrom = {
+			is_ship_class = shipclass_colonizer
+		}
+		From = {
+			is_gestalt = no
+		}
+		any_owned_planet = {
+			is_colony = yes
+			root.FromFromFrom.species = {
+				can_live_on_planet = prev
+			}
+		}
+	}
+
+	immediate = {
+		FromFrom.fleet.solar_system = {
+			save_event_target_as = event_loc
+		}
+		FromFromFrom = {
+			species = {
+				save_event_target_as = rescued_species
+			}
+		}
+		random_owned_planet = {
+			limit = {
+				is_colony = yes
+				event_target:rescued_species = {
+					can_live_on_planet = prev
+				}
+			}
+			weights = {
+				base = 1
+				modifier = {
+					factor = 2
+					# good habitability
+					habitability = { who = event_target:rescued_species value >= 0.75 }
+				}
+				modifier = {
+					factor = 0.25
+					# low habitability
+					habitability = { who = event_target:rescued_species value <= 0.45 }
+				}
+				modifier = {
+					factor = 1.25
+					# available jobs
+					free_jobs > 2
+				}
+				modifier = {
+					factor = 0.5
+					# available jobs
+					free_jobs <= 0
+				}
+				modifier = {
+					factor = 1.5
+					# available housing
+					free_housing > 0
+				}
+			}
+			save_event_target_as = resettle_newworld
+			create_pop = {
+				species = event_target:rescued_species
+				ethos = root.From
+			}
+		}
+	}
+
+	option = {
+		name = domestication.46.a
 	}
 }

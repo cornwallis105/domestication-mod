@@ -6,7 +6,7 @@ cara_allow_deal3 = {
  }
  else_if = {
 	 limit = { has_country_flag = fleet3deal1cost2 }
-	 resource_stockpile_compare = { resource = food value >= 200 }
+	 resource_stockpile_compare = { resource = food value >= 1000 }
  }
  else_if = {
 	 limit = { has_country_flag = fleet3deal1cost3 }
@@ -38,7 +38,7 @@ cara_allow_deal3 = {
 	 limit = { has_country_flag = fleet3deal3 }
 	 resource_stockpile_compare = {
 		 resource = alloys
-		 value >= 500
+		 value >= 2000
 	 }
  }
  else_if = {

@@ -1,0 +1,131 @@
+leader_trait_corrupt = {
+	negative = yes
+	inline_script = {
+		script = trait/icon_negative
+		ICON = "GFX_leader_trait_corrupt"
+		COUNCIL = no
+		TIER = 1
+	}
+  leader_potential_add = {
+    owner = { is_domesticator_or_protectorate = no }
+	}
+	triggered_modifier = {
+		potential = { trait_is_gestalt_check = no }
+		planet_crime_add = 10
+	}
+	triggered_modifier = {
+		potential = { trait_is_gestalt_check = yes }
+		planet_crime_no_happiness_add = 10
+	}
+	leader_class = { governor }
+	opposites = {
+		leader_trait_righteous
+		leader_trait_righteous_2
+	}
+	selectable_weight = {
+		weight = @class_negative_trait_weight
+		modifier = {
+			species = {
+				has_trait = trait_decadent
+			}
+			factor = @species_trait_weight_mult
+		}
+		modifier = {
+			owner = { is_domesticator_or_protectorate = yes }
+			factor = 0
+		}
+	}
+}
+
+leader_trait_polluter = {
+	negative = yes
+	inline_script = {
+		script = trait/icon_negative
+		ICON = "GFX_leader_trait_polluter"
+		COUNCIL = no
+		TIER = 1
+	}
+	modifier = {
+		pop_growth_speed = -0.05
+	}
+	leader_potential_add = {
+		owner = { is_machine_empire = no }
+    owner = { is_domesticator_or_protectorate = no }
+	}
+	leader_class = { governor }
+	selectable_weight = {
+		weight = @class_negative_trait_weight
+		modifier = {
+			has_ethic = ethic_materialist
+			factor = @ethic_weight_mult
+		}
+		modifier = {
+      owner = { is_domesticator_or_protectorate = yes }
+      factor = 0
+    }
+	}
+}
+
+leader_trait_sadistic = {
+	negative = yes
+	inline_script = {
+		script = trait/icon_negative
+		ICON = "GFX_leader_trait_sadistic"
+		COUNCIL = no
+		TIER = 1
+	}
+	modifier = {
+		planet_stability_add = -5
+	}
+	leader_potential_add = {
+		NOT = { has_ethic = ethic_pacifist }
+    owner = { is_domesticator_or_protectorate = no }
+	}
+	leader_class = { governor }
+	opposites = { "leader_trait_righteous" }
+	selectable_weight = {
+		weight = @class_negative_trait_weight
+		modifier = {
+			has_ethic = ethic_militarist
+			factor = @ethic_weight_mult
+		}
+		modifier = {
+      owner = { is_domesticator_or_protectorate = yes }
+      factor = 0
+    }
+	}
+}
+
+leader_trait_insider_trading = {
+	negative = yes
+	inline_script = {
+		script = trait/icon_negative
+		ICON = "GFX_leader_trait_insider_trading"
+		COUNCIL = no
+		TIER = 1
+	}
+  leader_potential_add = {
+    owner = { is_domesticator_or_protectorate = no }
+	}
+	triggered_modifier = {
+		potential = { trait_is_gestalt_check = no }
+		trade_value_mult = -0.10
+	}
+	triggered_modifier = {
+		potential = { trait_is_gestalt_check = yes }
+		planet_jobs_produces_mult = -0.05
+	}
+	leader_class = { governor }
+	opposites = {
+		trait_ruler_investor
+		trait_ruler_investor_2
+		trait_ruler_investor_3
+	}
+	selectable_weight = {
+		weight = @class_negative_trait_weight
+		modifier = {
+      owner = { is_domesticator_or_protectorate = yes }
+      factor = 0
+    }
+	}
+}

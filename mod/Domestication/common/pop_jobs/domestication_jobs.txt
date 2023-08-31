@@ -635,3 +635,59 @@ domesticator_underground = {
 		}
 	}
 }
+
+domesticator_titanic = {
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_autochthon_monument
+	clothes_texture_index = 3
+
+	resources = {
+		category = planet_domesticators
+		produces = {
+			unity = 5
+			society_research = 6
+		}
+		upkeep = {
+			consumer_goods = 1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		planet_amenities_add = 3
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		owner = { is_domesticator_or_protectorate = yes }
+		has_citizenship_type = { type = citizenship_full }
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		mult = value:job_weights_multiple_resources_modifier|JOB|domesticator_sentinel|RESOURCE1|society_research|WEIGHT1|0.5|RESOURCE2|unity|WEIGHT2|0.5|
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_job = domesticator_titanic
+		}
+	}
+}

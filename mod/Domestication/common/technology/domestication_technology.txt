@@ -14,7 +14,10 @@ tech_subdermal_stimulation = {
 	}
 
 	potential = {
-		NOT = { has_ethic = ethic_gestalt_consciousness	}
+		NOR = {
+			has_ethic = ethic_gestalt_consciousness
+			has_civic = civic_dystopian_society
+		}
 		is_domesticator_or_protectorate = no
 	}
 
@@ -40,13 +43,6 @@ tech_subdermal_stimulation = {
 			}
 		}
 		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
-		modifier = {
 			factor = 2
 			has_relic = r_pox_sample
 		}
@@ -58,13 +54,6 @@ tech_subdermal_stimulation = {
 			NOR = {
 				has_ethic = ethic_egalitarian
 				has_ethic = ethic_fanatic_egalitarian
-			}
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -80,6 +69,10 @@ tech_tracking_implants = {
 	weight = @tier4weight2
 
 	# Unlocks tracking implants edict
+	
+	potential = {
+		is_domesticator_or_protectorate = no
+	}
 
 	weight_modifier = {
 		factor = 0.5
@@ -87,14 +80,8 @@ tech_tracking_implants = {
 			factor = 0.20
 			NOR = {
 				has_modifier = "curator_insight"
-				research_leader = {
-					area = society
-					has_trait = "leader_trait_curator"
-				}
-				research_leader = {
-					area = society
-					has_trait = "leader_trait_expertise_statecraft"
-				}
+				has_trait_in_council = { TRAIT = leader_trait_curator }
+				has_trait_in_council = { TRAIT = leader_trait_expertise_statecraft }
 			}
 		}
 		modifier = {
@@ -114,23 +101,9 @@ tech_tracking_implants = {
 				any_member = { has_technology = tech_tracking_implants }
 			}
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 
 	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 }
 
@@ -183,13 +156,6 @@ tech_haustoric_implant = {
 				any_member = { has_technology = tech_haustoric_implant }
 			}
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
 	}
 
 	ai_weight = {
@@ -198,13 +164,6 @@ tech_haustoric_implant = {
 			NOR = {
 				has_ethic = ethic_egalitarian
 				has_ethic = ethic_fanatic_egalitarian
-			}
-		}
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
 			}
 		}
 	}
@@ -236,23 +195,9 @@ tech_biorhythm_amplification = {
 			factor = 1.5
 			num_species > 6
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 
 	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_statecraft"
-			}
-		}
 	}
 }
 
@@ -294,23 +239,9 @@ tech_megafauna_domestication = {
 				}
 			}
 		}
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
 	}
 
 	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
 	}
 }
 
@@ -332,22 +263,15 @@ tech_hivemind_domestication = {
 
 	weight_modifier = {
 		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
+			factor = 2
+			any_subject = {
+				is_gestalt = yes
+				
 			}
 		}
 	}
 
 	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = society
-				has_trait = "leader_trait_expertise_biology"
-			}
-		}
 	}
 }
 
@@ -372,11 +296,11 @@ tech_haustoric_module = {
 	weight_modifier = {
 		# no bots = no floret bots
 		modifier = {
-			factor = 0
+			factor = 0.25
 			has_policy_flag = robots_outlawed
 		}
 		modifier = {
-			factor = 0
+			factor = 0.25
 			has_policy_flag = ai_outlawed
 		}
 		modifier = {
@@ -385,23 +309,8 @@ tech_haustoric_module = {
 				is_robot_pop = yes
 			}
 		}
-
-		modifier = {
-			factor = value:tech_weight_likelihood
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
 	}
 
 	ai_weight = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = physics
-				has_trait = "leader_trait_expertise_computing"
-			}
-		}
 	}
 }

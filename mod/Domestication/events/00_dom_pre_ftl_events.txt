@@ -1,0 +1,63 @@
+namespace = preftl
+
+# Silent World - Informs player about an empty plague planet and kills the last pop
+situation_event = {
+	id = preftl.2063
+	title = preftl.2063.name
+	desc = preftl.2063.desc
+	picture = GFX_evt_disease_outbreak
+	show_sound = event_wind_ruins
+	is_triggered_only = yes
+	location = target
+	situation = this
+
+	immediate = {
+		target = {
+			observation_outpost = {
+				set_event_locked = no
+			}
+			random_owned_pop = {
+        species = {
+          set_species_flag = zoonotic_plague_species
+        }
+				limit = {
+					is_robotic_species = no
+				}
+				kill_pop = yes
+			}
+		}
+		owner = {
+			set_country_flag = society_insights
+			set_predictive_observation_insight = {
+				VALUE = 10
+			}
+		}
+	}
+
+	option = {
+		name = ACKNOWLEDGED
+		owner = {
+			add_observation_insight_effect = {
+				VALUE = 10
+				OUTPOST = root.target.observation_outpost
+			}
+			add_monthly_resource_mult = {
+				resource = society_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+	}
+
+	after = {
+		destroy_situation = this
+		target = {
+			remove_planet_flag = has_on_going_observation_situation
+      set_planet_flag = zoonotic_plague_dead_world
+			observation_outpost = {
+				dismantle = yes
+			}
+		}
+	}
+}

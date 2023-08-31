@@ -5,6 +5,7 @@ planet_event = {
 	title = "xenodrug_event.1.name"
 	desc = "xenodrug_event.1.desc"
 	picture = GFX_evt_alien_ruins
+	show_sound = event_alien_nature
 	location = ROOT
 
 	is_triggered_only = yes

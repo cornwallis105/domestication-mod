@@ -25,7 +25,7 @@ country_event = {
 			is_domesticator_or_protectorate = yes
       any_owned_leader = {
         leader_class = admiral
-        NOT = { has_trait = leader_trait_warform_adm }
+        NOT = { has_trait = leader_trait_warform_floret }
         can_obtain_new_floret = yes
       }
 		}
@@ -253,7 +253,7 @@ ship_event = {
 		if = {
 			limit = { owner = { is_domesticator_or_full_protectorate = no } }
 			leader = {
-				add_trait = leader_trait_scientist_brainslug
+				add_trait = leader_trait_brainslug
 			}
 		}
 		owner = {
@@ -316,7 +316,7 @@ ship_event = {
 								}
 							}
 						}
-						add_trait = leader_trait_scientist_brainslug
+						add_trait = leader_trait_brainslug
 					}
 				}
 				random_owned_leader = {
@@ -331,7 +331,7 @@ ship_event = {
 							}
 						}
 					}
-					add_trait = leader_trait_governor_brainslug
+					add_trait = leader_trait_brainslug
 				}
 				country_event = { id = distar.174 } #Pool leaders get trait
 				country_event = { id = distar.175 } #Unrest is generated
@@ -507,7 +507,6 @@ country_event = { #New leaders get Brainslug Trait
 		from = {
 			if = {
 				limit = {
-					leader_class = general
 					species = {
 						NOR = {
 							has_trait = trait_cybernetic
@@ -522,100 +521,7 @@ country_event = { #New leaders get Brainslug Trait
 						#Nothing
 					}
 					20 = {
-						add_trait = leader_trait_general_brainslug
-						add_ruler_trait = leader_trait_ruler_brainslug
-					}
-				}
-				break = yes
-			}
-			if = {
-				limit = {
-					leader_class = admiral
-					species = {
-						NOR = {
-							has_trait = trait_cybernetic
-							has_trait = trait_mechanical
-							has_trait = trait_machine_unit
-							is_species_class = ROBOT
-						}
-					}
-				}
-				random_list = {
-					80 = {
-						#Nothing
-					}
-					20 = {
-						add_trait = leader_trait_admiral_brainslug
-						add_ruler_trait = leader_trait_ruler_brainslug
-					}
-				}
-				break = yes
-			}
-			if = {
-				limit = {
-					leader_class = governor
-					species = {
-						NOR = {
-							has_trait = trait_cybernetic
-							has_trait = trait_mechanical
-							has_trait = trait_machine_unit
-							is_species_class = ROBOT
-						}
-					}
-				}
-				random_list = {
-					80 = {
-						#Nothing
-					}
-					20 = {
-						add_trait = leader_trait_governor_brainslug
-						add_ruler_trait = leader_trait_ruler_brainslug
-					}
-				}
-				break = yes
-			}
-			if = {
-				limit = {
-					leader_class = scientist
-					species = {
-						NOR = {
-							has_trait = trait_cybernetic
-							has_trait = trait_mechanical
-							has_trait = trait_machine_unit
-							is_species_class = ROBOT
-						}
-					}
-				}
-				random_list = {
-					80 = {
-						#Nothing
-					}
-					20 = {
-						add_trait = leader_trait_scientist_brainslug
-						add_ruler_trait = leader_trait_ruler_brainslug
-					}
-				}
-				break = yes
-			}
-			if = {
-				limit = {
-					leader_class = ruler
-					species = {
-						NOR = {
-							has_trait = trait_cybernetic
-							has_trait = trait_mechanical
-							has_trait = trait_machine_unit
-							is_species_class = ROBOT
-						}
-					}
-				}
-				random_list = {
-					80 = {
-						#Nothing
-					}
-					20 = {
-						add_trait = leader_trait_ruler_brainslug
-						add_ruler_trait = leader_trait_ruler_brainslug
+						add_trait = leader_trait_brainslug
 					}
 				}
 				break = yes
@@ -686,7 +592,7 @@ country_event = {
 			# scientist has < 2 florets
 			any_owned_leader = {
 				leader_class = admiral
-				NOT = { has_trait = leader_trait_ahab_adm }
+				NOT = { has_trait = leader_trait_ahab_floret }
 				can_obtain_new_floret = yes
 			}
 		}
@@ -736,6 +642,66 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = { id = distar.216 }
+		}
+	}
+}
+
+ship_event = {
+	id = distar.245
+	title = "distar.245.name"
+	desc = "distar.245.desc"
+	picture = GFX_evt_space_debris
+	show_sound = event_scanner
+	location = event_target:droppod_tar
+
+	is_triggered_only = yes
+
+	immediate = {
+		ethic_leader_creator = {
+			SPECIES_CLASS = AI
+			LEADER_PORTRAIT = cpl_04
+			CLASS = governor
+			NAME = NAME_Caretaker
+			LEVEL = 4
+			GENDER = indeterminable
+			IMMORTAL = no
+			ETHIC = gestalt_consciousness
+			DESC = caretaker_leader_desc
+			CATCH_PHRASE = caretaker_leader_catch_phrase
+		}
+		last_created_leader = {
+			add_trait = subclass_governor_pioneer
+			add_trait = leader_trait_govenor_caretaker
+			add_trait = leader_trait_intellectual
+			add_trait = leader_trait_settler
+			save_event_target_as = caretaker_leader_tar
+			set_age = 709
+		}
+	}
+
+	option = {
+		name = ONSCREEN
+		hidden_effect = {
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				owner = { country_event = { id = dom_paragon.246 } }
+			}
+			else = {
+				owner = { country_event = { id = distar.246 } }
+			}
+		}
+	}
+	option = {
+		name = NOTIME
+		owner = {
+			add_monthly_resource_mult = {
+				resource = influence
+				value = @tier1influencereward
+				min = @tier1influencemin
+				max = @tier1influencemax
+			}
 		}
 	}
 }
@@ -803,7 +769,7 @@ ship_event = {
 			}
 		}
 		last_created_leader = {
-			set_is_female = yes
+			set_gender = female
 			save_global_event_target_as = stranded_scientist_leader
 			exile_leader_as = stranded_scientist_leader
 		}
@@ -842,7 +808,7 @@ ship_event = {
 			owner = {
 				any_owned_leader = {
 					leader_class = scientist
-					NOT = { has_trait = leader_trait_stranded_sci }
+					NOT = { has_trait = leader_trait_stranded_floret }
 					can_obtain_new_floret = yes
 				}
 			}
@@ -855,7 +821,7 @@ ship_event = {
 					class = scientist
 					effect = {
 						add_trait = leader_trait_floret_immortal
-						add_trait = leader_trait_stranded_sci
+						add_trait = leader_trait_stranded_floret
 						save_event_target_as = new_floret
 						save_global_event_target_as = stranded_scientist_leader_clone
 					}

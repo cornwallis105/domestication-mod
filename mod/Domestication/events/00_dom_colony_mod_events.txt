@@ -64,3 +64,51 @@ planet_event = {
 	}
 
 }
+
+planet_event = {
+	id = colony_mod.101
+	title = "colony_mod.101.name"
+	desc = "colony_mod.101.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_air_raid_siren
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		trigger = {
+			NOT = {
+				has_planet_flag = nice_titan_study
+			}
+		}
+		hidden_effect = {
+			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
+			set_planet_flag = titanic_life_can_build
+		}
+		custom_tooltip = titanic_recruit_tooltip
+	}
+
+	option = {
+		name = EXCELLENT
+		trigger = {
+			has_planet_flag = nice_titan_study
+		}
+		hidden_effect = {
+			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
+			set_planet_flag = titanic_life_can_build
+			every_deposit = {
+				limit = { is_deposit_type = d_titanic_life_blocker }
+				clear_blocker = yes
+			}
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				add_deposit = d_domesticated_titans
+			}
+		}
+		custom_tooltip = titanic_recruit_phile_tooltip
+	}
+
+}

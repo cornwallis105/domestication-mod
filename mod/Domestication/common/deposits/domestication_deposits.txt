@@ -183,3 +183,64 @@ d_underground_contact_zone = {
 		weight = 0
 	}
 }
+
+d_domesticated_titans = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+
+	icon = d_titanic_life_blocker
+
+	resources = {
+			category = planet_deposits
+			produces = {
+				trigger = {
+					exists = owner
+					owner = {
+						is_domesticator_or_protectorate = yes
+					}
+				}
+				society_research = 8
+			}
+		}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_domesticator_or_protectorate = yes }
+		}
+		modifier = {
+			planet_max_districts_add = -1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_domesticator_or_protectorate = yes
+				has_technology = tech_megafauna_domestication
+			}
+		}
+		modifier = {
+			job_domesticator_titanic_add = 2
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}
+
+d_zoonotic_plague_memorial = {
+	is_for_colonizable = yes
+	category = deposit_cat_rare
+	icon = d_monument
+
+	resources = {
+		produces = {
+			unity = 10
+		}
+	}
+
+	drop_weight = {
+		weight = 0
+	}
+}

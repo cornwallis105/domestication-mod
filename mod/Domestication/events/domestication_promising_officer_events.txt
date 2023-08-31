@@ -22,6 +22,7 @@ country_event = {
 		text = "leader.1.desc"
 	}
 	picture = GFX_evt_federation_fleet
+	show_sound = event_default
 	location = ROOT
 
 	is_triggered_only = yes
@@ -220,6 +221,7 @@ country_event = {
 		}
 		text = "leader.1.desc"
 	}
+	show_sound = event_default
 	picture = GFX_evt_federation_fleet
 	location = ROOT
 

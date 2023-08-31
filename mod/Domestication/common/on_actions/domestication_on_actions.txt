@@ -65,7 +65,7 @@ on_monthly_pulse_country = {
 }
 
 # this = country
-on_five_year_pulse = {
+on_five_year_pulse_country = {
 	events = {
 		dom_prot_event.1 # system transfer
 		dom_prot_event.2 # system transfer - Baol or Zroni site
@@ -101,5 +101,23 @@ on_pre_government_changed = {
 on_post_government_changed = {
 	events = {
 		domestication.45 # revert protectorate name
+	}
+}
+
+on_colonized = {
+	events = {
+		dom_pre_ftl.45 # Revive plague-extinct species
+	}
+}
+
+# This = owner of ship 1 (combatant)
+# From = owner of ship 2 (destroyed)
+# FromFrom = ship 1
+# FromFromFrom = ship 2
+on_ship_destroyed_perp = {
+	events = {
+		domestication.46 # Rescue pop from colony ship
+	}
+	random_events = {
 	}
 }

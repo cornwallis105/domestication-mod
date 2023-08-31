@@ -51,3 +51,49 @@ triggered_opinion_hive_mind_empath = {
 		base = 10
 	}
 }
+
+opinion_pre_ftl_bad_choice = {
+	opinion = {
+		base = -30
+	}
+	decay = {
+		base = 2
+    modifier = {
+			add = 1
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+    }
+		modifier = {
+			add = -1
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+	}
+}
+
+opinion_pre_ftl_good_choice = {
+	opinion = {
+		base = 30
+	}
+	decay = {
+		base = -2
+    modifier = {
+			add = 1
+			OR = {
+				has_ethic = "ethic_xenophile"
+				has_ethic = "ethic_fanatic_xenophile"
+			}
+    }
+		modifier = {
+			add = -1
+			OR = {
+				has_ethic = "ethic_xenophobe"
+				has_ethic = "ethic_fanatic_xenophobe"
+			}
+		}
+	}
+}

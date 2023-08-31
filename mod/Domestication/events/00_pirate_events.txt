@@ -252,7 +252,7 @@ country_event = {
 				fromfrom = {
 					exists = leader
 					leader = {
-						NOT = { has_trait = leader_trait_pirate_adm }
+						NOT = { has_trait = leader_trait_pirate_floret }
 						can_obtain_new_floret = yes
 					}
 				}
@@ -278,7 +278,7 @@ country_event = {
 				fromfrom = {
 					exists = leader
 					leader = {
-						NOT = { has_trait = leader_trait_pirate_adm }
+						NOT = { has_trait = leader_trait_pirate_floret }
 						can_obtain_new_floret = yes
 					}
 				}

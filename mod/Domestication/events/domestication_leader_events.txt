@@ -21,6 +21,22 @@ country_event = {
 		}
 		# Do not add floret if leader already has 2
 		from = {
+			# not new leaders
+			has_level > 1
+			# not pool leaders
+			owner = {
+				any_owned_leader = {
+					is_same_value = prevprev
+				}
+			}
+			NOT = {
+				owner = {
+					any_pool_leader = {
+						is_same_value = prevprev
+					}
+				}
+			}
+			# Do not add floret if leader already has 2
 			can_obtain_new_floret = yes
 		}
 	}
@@ -136,31 +152,6 @@ country_event = {
 					}
 				}
 			}
-			if = {
-				limit = {
-					leader_class = ruler
-					NOT = { has_leader_flag = has_gained_level_floret }
-				}
-				random_list = {
-					80 = { }
-					20 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						#add_random_leader_floret_trait = yes
-						#set_leader_flag = has_gained_level_floret
-					}
-				}
-			}
 		}
 	}
 }
@@ -177,6 +168,7 @@ country_event = {
 	desc = domestication_leader.2.desc
 
 	picture = GFX_evt_emergency_workers
+	show_sound = event_airlock
 
 	hide_window = no
 	is_triggered_only = yes
@@ -191,10 +183,17 @@ country_event = {
 		fromfrom = {
 			exists = leader
 			leader = {
-				NOT = { has_trait = leader_trait_warp_eng_adm }
+				NOT = { has_trait = leader_trait_warp_eng_floret }
 				can_obtain_new_floret = yes
 			}
 		}
+	}
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
 	}
 
 	immediate = {
@@ -211,8 +210,7 @@ country_event = {
 
 			floret_count_increment = yes
 
-			add_trait = leader_trait_warp_eng_adm
-			add_ruler_trait = leader_trait_warp_eng_rul
+			add_trait = leader_trait_warp_eng_floret
 
 			## generate new leader of species matching primary species of defeated fleet
 			owner = {
@@ -227,7 +225,7 @@ country_event = {
 					}
 					last_created_leader = {
 						save_event_target_as = new_floret
-						add_trait = leader_trait_warp_eng_adm
+						add_trait = leader_trait_warp_eng_floret
 						add_trait = leader_trait_floret_immortal
 					}
 				}
@@ -253,20 +251,17 @@ country_event = {
 			hidden:event_target:new_owner = {
 				switch = {
 					trigger = has_leader_flag
-					gained_leader_trait_cutie_sci = { text = domestication_leader.new_cutie_sci }
-					gained_leader_trait_cutie_adm = { text = domestication_leader.new_cutie_adm }
-					gained_leader_trait_cutie_gov = { text = domestication_leader.new_cutie_gov }
-					gained_leader_trait_beeple_gov = { text = domestication_leader.new_beeple_gov }
-					gained_leader_trait_cutie_gen = { text = domestication_leader.new_cutie_gen }
-					gained_leader_trait_distracted_sci = { text = domestication_leader.new_distracted_sci }
-					gained_leader_trait_liason_gov = { text = domestication_leader.new_liason_gov }
+					gained_leader_trait_cutie_floret = { text = domestication_leader.new_cutie_floret }
+					gained_leader_trait_beeple_floret = { text = domestication_leader.new_beeple_gov }
+					gained_leader_trait_distracted_floret = { text = domestication_leader.new_distracted_sci }
+					gained_leader_trait_liaison_floret = { text = domestication_leader.new_liason_gov }
 					gained_leader_trait_brainslug_sci = { text = domestication_leader.new_brainslug_sci }
 					gained_leader_trait_brainslug_gov = { text = domestication_leader.new_brainslug_gov }
 					gained_leader_trait_brainslug_adm = { text = domestication_leader.new_brainslug_adm }
 					gained_leader_trait_brainslug_gen = { text = domestication_leader.new_brainslug_gen }
-					gained_leader_trait_class_o_gen = { text = domestication_leader.new_class_o_gen }
-					gained_leader_trait_musician_adm = { text = domestication_leader.new_musician_adm }
-					gained_leader_trait_historian_sci = { text = domestication_leader.new_historian_sci }
+					gained_leader_trait_class_o_floret = { text = domestication_leader.new_class_o_gen }
+					gained_leader_trait_musician_floret = { text = domestication_leader.new_musician_adm }
+					gained_leader_trait_historian_floret = { text = domestication_leader.new_historian_sci }
 					gained_leader_trait_underground_gen = { text = domestication_leader.new_underground_gen }
 					gained_leader_trait_underground_gov = { text = domestication_leader.new_underground_gov }
 					default = { text = "domestication_leader.3.fallback" }
@@ -278,6 +273,14 @@ country_event = {
 	location = event_target:current_location
 	picture = GFX_evt_acquire_asset
 	is_triggered_only = yes
+	show_sound = event_default
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	immediate = {
 		event_target:new_owner = {
@@ -293,13 +296,13 @@ country_event = {
 						OR = {
 							AND = {
 								event_target:new_owner = {
-									has_leader_flag = gained_leader_trait_beeple_gov
+									has_leader_flag = gained_leader_trait_beeple_floret
 								}
 								has_trait = trait_syncretic_proles
 							}
 							AND = {
 								event_target:new_owner = {
-									has_leader_flag = gained_leader_trait_class_o_gen
+									has_leader_flag = gained_leader_trait_class_o_floret
 								}
 								NOT = { has_trait = trait_syncretic_proles }
 							}
@@ -329,8 +332,8 @@ country_event = {
 									has_leader_flag = gained_leader_trait_brainslug_gen
 									has_leader_flag = gained_leader_trait_brainslug_adm
 									has_leader_flag = gained_leader_trait_brainslug_sci
-									has_leader_flag = gained_leader_trait_beeple_gov
-									has_leader_flag = gained_leader_trait_class_o_gen
+									has_leader_flag = gained_leader_trait_beeple_floret
+									has_leader_flag = gained_leader_trait_class_o_floret
 									has_leader_flag = gained_leader_trait_underground_gov
 									has_leader_flag = gained_leader_trait_underground_gen
 								}
@@ -353,72 +356,56 @@ country_event = {
 						save_event_target_as = new_floret
 						event_target:new_owner = {
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_cutie_sci }
-								event_target:new_floret = { add_trait = leader_trait_cutie_sci }
+								limit = { has_leader_flag = gained_leader_trait_cutie_floret }
+								event_target:new_floret = { add_trait = leader_trait_cutie_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_cutie_adm }
-								event_target:new_floret = { add_trait = leader_trait_cutie_adm }
+								limit = { has_leader_flag = gained_leader_trait_beeple_floret }
+								event_target:new_floret = { add_trait = leader_trait_beeple_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_cutie_gov }
-								event_target:new_floret = { add_trait = leader_trait_cutie_gov }
+								limit = { has_leader_flag = gained_leader_trait_distracted_floret }
+								event_target:new_floret = { add_trait = leader_trait_distracted_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_beeple_gov }
-								event_target:new_floret = { add_trait = leader_trait_beeple_gov }
-							}
-							if = {
-								limit = { has_leader_flag = gained_leader_trait_cutie_gen }
-								event_target:new_floret = { add_trait = leader_trait_cutie_gen }
-							}
-							if = {
-								limit = { has_leader_flag = gained_leader_trait_distracted_sci }
-								event_target:new_floret = { add_trait = leader_trait_distracted_sci }
-							}
-							if = {
-								limit = { has_leader_flag = gained_leader_trait_liason_gov }
-								event_target:new_floret = { add_trait = leader_trait_liason_gov }
+								limit = { has_leader_flag = gained_leader_trait_liaison_floret }
+								event_target:new_floret = { add_trait = leader_trait_liaison_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_brainslug_gov }
-								event_target:new_floret = { add_trait = leader_trait_brainslug_gov }
+								event_target:new_floret = { add_trait = leader_trait_brainslug_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_brainslug_adm }
-								event_target:new_floret = { add_trait = leader_trait_brainslug_adm }
+								event_target:new_floret = { add_trait = leader_trait_brainslug_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_brainslug_gen }
-								event_target:new_floret = { add_trait = leader_trait_brainslug_gen }
+								event_target:new_floret = { add_trait = leader_trait_brainslug_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_brainslug_sci }
-								event_target:new_floret = { add_trait = leader_trait_brainslug_sci }
+								event_target:new_floret = { add_trait = leader_trait_brainslug_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_brainslug_sci }
-								event_target:new_floret = { add_trait = leader_trait_brainslug_sci }
+								limit = { has_leader_flag = gained_leader_trait_class_o_floret }
+								event_target:new_floret = { add_trait = leader_trait_class_o_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_class_o_gen }
-								event_target:new_floret = { add_trait = leader_trait_class_o_gen }
+								limit = { has_leader_flag = gained_leader_trait_historian_floret }
+								event_target:new_floret = { add_trait = leader_trait_historian_floret }
 							}
 							if = {
-								limit = { has_leader_flag = gained_leader_trait_historian_sci }
-								event_target:new_floret = { add_trait = leader_trait_historian_sci }
-							}
-							if = {
-								limit = { has_leader_flag = gained_leader_trait_musician_adm }
-								event_target:new_floret = { add_trait = leader_trait_musician_adm }
+								limit = { has_leader_flag = gained_leader_trait_musician_floret }
+								event_target:new_floret = { add_trait = leader_trait_musician_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_underground_gen }
-								event_target:new_floret = { add_trait = leader_trait_underground_gen }
+								event_target:new_floret = { add_trait = leader_trait_underground_floret }
 							}
 							if = {
 								limit = { has_leader_flag = gained_leader_trait_underground_gov }
-								event_target:new_floret = { add_trait = leader_trait_underground_gov }
+								event_target:new_floret = { add_trait = leader_trait_underground_floret }
 							}
 						}
 						add_trait = leader_trait_floret_immortal
@@ -468,6 +455,14 @@ country_event = {
 
 	hide_window = no
 	is_triggered_only = yes
+	show_sound = event_airlock
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
@@ -483,7 +478,7 @@ country_event = {
 		fromfrom = {
 			exists = leader
 			leader = {
-				NOT = { has_trait = leader_trait_pirate_adm }
+				NOT = { has_trait = leader_trait_pirate_floret }
 				can_obtain_new_floret = yes
 			}
 		}
@@ -514,14 +509,13 @@ country_event = {
 				}
 				last_created_leader = {
 					save_event_target_as = new_floret
-					add_trait = leader_trait_pirate_adm
+					add_trait = leader_trait_pirate_floret
 					add_trait = leader_trait_floret_immortal
 				}
 			}
 			floret_count_increment = yes
 
-			add_trait = leader_trait_pirate_adm
-			add_ruler_trait = leader_trait_pirate_rul
+			add_trait = leader_trait_pirate_floret
 
 			#event_target:new_floret = {
 			#	set_owner = event_target:floret_country
@@ -554,9 +548,17 @@ country_event = {
 	desc = domestication_leader.5.desc
 
 	picture = GFX_evt_exploding_ship
+	show_sound = event_airlock
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
@@ -572,7 +574,7 @@ country_event = {
 		fromfrom = {
 			exists = leader
 			leader = {
-				NOT = { has_trait = leader_trait_admiral_adm }
+				NOT = { has_trait = leader_trait_admiral_floret }
 				can_obtain_new_floret = yes
 			}
 		}
@@ -608,12 +610,11 @@ country_event = {
 			#}
 			floret_count_increment = yes
 
-			add_trait = leader_trait_admiral_adm
-			add_ruler_trait = leader_trait_admiral_rul
+			add_trait = leader_trait_admiral_floret
 
 			event_target:new_floret = {
 				set_owner = event_target:floret_country
-				add_trait = leader_trait_admiral_adm
+				add_trait = leader_trait_admiral_floret
 				add_trait = leader_trait_floret_immortal
 			}
 
@@ -647,7 +648,7 @@ country_event = {
 		fromfrom = {
 			exists = leader
 			leader = {
-				NOT = { has_trait = leader_trait_admiral_adm }
+				NOT = { has_trait = leader_trait_admiral_floret }
 				can_obtain_new_floret = yes
 			}
 		}
@@ -680,7 +681,7 @@ country_event = {
 				3 = {
 					modifier = {
 						factor = 0
-						has_trait = leader_trait_warp_eng_adm
+						has_trait = leader_trait_warp_eng_floret
 					}
 					owner = { country_event = { id = domestication_leader.2 } }
 				}
@@ -688,7 +689,7 @@ country_event = {
 					modifier = {
 						factor = 0
 						OR = {
-							has_trait = leader_trait_pirate_adm
+							has_trait = leader_trait_pirate_floret
 							NOT = {
 								event_target:defeated_country = {
 									is_country_type = pirate
@@ -721,6 +722,7 @@ country_event = {
 					NOT = { has_leader_flag = bloom_initialized }
 					is_same_species = root
 					NOT = { is_same_value = root.ruler }
+					is_event_leader = no
 				}
 			}
 			AND = {
@@ -729,6 +731,7 @@ country_event = {
 					NOT = { has_leader_flag = bloom_initialized }
 					is_same_species = root.overlord
 					NOT = { is_same_value = root.ruler }
+					is_event_leader = no
 				}
 			}
 		}
@@ -762,6 +765,7 @@ country_event = {
 	}
 
 	immediate = {
+		remove_global_flag = no_bloom_naming
 		every_owned_leader = {
 			limit = {
 				OR = {
@@ -928,6 +932,18 @@ leader_event = {
 	immediate = {
 		if = {
 			limit = {
+				species = {
+					NOT = { has_species_flag = affini_species }
+				}
+			}
+			species = {
+				set_species_flag = affini_species
+			}
+		}
+
+
+		if = {
+			limit = {
 				NOT = {
 					has_global_flag = bloom_country_created
 				}
@@ -956,6 +972,7 @@ leader_event = {
 					effect = {
 						save_event_target_as = clone_bloom
 					}
+					event_leader = yes
 				}
 			}
 		}
@@ -973,6 +990,7 @@ leader_event = {
 					effect = {
 						save_event_target_as = clone_bloom
 					}
+					event_leader = yes
 	      }
 	    }
 	  }
@@ -990,6 +1008,7 @@ leader_event = {
 					effect = {
 						save_event_target_as = clone_bloom
 					}
+					event_leader = yes
 	      }
 	    }
 	  }
@@ -1007,6 +1026,7 @@ leader_event = {
 					effect = {
 						save_event_target_as = clone_bloom
 					}
+					event_leader = yes
 	      }
 	    }
 	  }
@@ -1024,26 +1044,30 @@ leader_event = {
 					effect = {
 						save_event_target_as = clone_bloom
 					}
+					event_leader = yes
 	      }
 	    }
 	  }
-		else_if = {
-	    limit = {
-	      leader_class = ruler
-	    }
-	    event_target:bloom_country = {
-	      create_leader = {
-	        name = random
-	        species = root
-	        class = governor
-	        set_age = 0
-	        skill = 1
-					effect = {
-						save_event_target_as = clone_bloom
-					}
-	      }
-	    }
-	  }
+#		else_if = {
+#	    limit = {
+#	      leader_class = ruler
+#	    }
+#	    event_target:bloom_country = {
+#	      create_leader = {
+#	        name = random
+#	        species = root
+#	        class = governor
+#	        set_age = 0
+#	        skill = 1
+#					effect = {
+#						save_event_target_as = clone_bloom
+#					}
+#	      }
+#	    }
+#	  }
+		last_created_leader = {
+			set_owner = event_target:bloom_country
+		}
 
 		root = {
 			set_name = {
@@ -1089,11 +1113,13 @@ country_event = {
 		from = {
 			has_leader_flag = bloom_initialized
 			is_variable_set = bloom_id
-		}
-		NOT = {
-			any_pool_leader = {
-				is_same_value = FROM
+			is_pool_leader = no
+			NOT = { leader_class = envoy }
+			leader_years_of_service >= 2
+			NOT = {
+				has_leader_flag = leader_death_events_blocked
 			}
+			leader_is_affini = yes
 		}
 	}
 
@@ -1123,14 +1149,21 @@ country_event = {
 						scopes = { from = from }
 					}
 				}
+				else = {
+					country_event = {
+						id = domestication_leader.26
+						scopes = { from = from }
+					}
+				}
 			}
 			# Leader does not rebloom
 			20 = {
-
+				country_event = {
+					id = domestication_leader.26
+					scopes = { from = from }
+				}
 			}
 		}
-
-
 	}
 }
 
@@ -1167,6 +1200,18 @@ leader_event = {
 			set_global_flag = bloom_country_created
 		}
 
+		if = {
+			limit = {
+				host_has_dlc = "Plantoids Species Pack"
+			}
+			random_list = {
+				2 = {}
+				1 = {
+					affini_portrait_swap = yes
+				}
+			}
+		}
+
 		leader_event = { id = domestication_leader.9 }
 	}
 }
@@ -1193,6 +1238,14 @@ country_event = {
 	location = event_target:current_location
 	picture = GFX_evt_acquire_asset
 	is_triggered_only = yes
+	show_sound = event_spymaster
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	immediate = {
 
@@ -1205,7 +1258,7 @@ country_event = {
 						any_owned_leader = {
 							leader_class = general
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_attache_gen }
+							NOT = { has_trait = leader_trait_attache_floret }
 						}
 
 					}
@@ -1213,7 +1266,7 @@ country_event = {
 						limit = {
 							leader_class = general
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_attache_gen }
+							NOT = { has_trait = leader_trait_attache_floret }
 						}
 						save_event_target_as = new_owner
 					}
@@ -1226,14 +1279,14 @@ country_event = {
 						any_owned_leader = {
 							leader_class = governor
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_economist_gov }
+							NOT = { has_trait = leader_trait_economist_floret }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = governor
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_economist_gov }
+							NOT = { has_trait = leader_trait_economist_floret }
 						}
 						save_event_target_as = new_owner
 					}
@@ -1246,14 +1299,14 @@ country_event = {
 						any_owned_leader = {
 							leader_class = admiral
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_officer_adm }
+							NOT = { has_trait = leader_trait_officer_floret }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = admiral
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_officer_adm }
+							NOT = { has_trait = leader_trait_officer_floret }
 						}
 						save_event_target_as = new_owner
 					}
@@ -1266,14 +1319,14 @@ country_event = {
 						any_owned_leader = {
 							leader_class = scientist
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_academic_sci }
+							NOT = { has_trait = leader_trait_academic_floret }
 						}
 					}
 					random_owned_leader = {
 						limit = {
 							leader_class = scientist
 							can_obtain_new_floret = yes
-							NOT = { has_trait = leader_trait_academic_sci }
+							NOT = { has_trait = leader_trait_academic_floret }
 						}
 						save_event_target_as = new_owner
 					}
@@ -1302,27 +1355,23 @@ country_event = {
 						root = {
 							if = {
 								limit = { has_country_flag = disavowed_floret_attache }
-								event_target:new_floret = { add_trait = leader_trait_attache_gen }
-								event_target:new_owner = { add_trait = leader_trait_attache_gen }
-								event_target:new_owner = { add_ruler_trait = leader_trait_attache_rul }
+								event_target:new_floret = { add_trait = leader_trait_attache_floret }
+								event_target:new_owner = { add_trait = leader_trait_attache_floret }
 							}
 							if = {
 								limit = { has_country_flag = disavowed_floret_economist }
-								event_target:new_floret = { add_trait = leader_trait_economist_gov }
-								event_target:new_owner = { add_trait = leader_trait_economist_gov }
-								event_target:new_owner = { add_ruler_trait = leader_trait_economist_rul }
+								event_target:new_floret = { add_trait = leader_trait_economist_floret }
+								event_target:new_owner = { add_trait = leader_trait_economist_floret }
 							}
 							if = {
 								limit = { has_country_flag = disavowed_floret_officer }
-								event_target:new_floret = { add_trait = leader_trait_officer_adm }
-								event_target:new_owner = { add_trait = leader_trait_officer_adm }
-								event_target:new_owner = { add_ruler_trait = leader_trait_officer_rul }
+								event_target:new_floret = { add_trait = leader_trait_officer_floret }
+								event_target:new_owner = { add_trait = leader_trait_officer_floret }
 							}
 							if = {
 								limit = { has_country_flag = disavowed_floret_scientist }
-								event_target:new_floret = { add_trait = leader_trait_academic_sci }
-								event_target:new_owner = { add_trait = leader_trait_academic_sci }
-								event_target:new_owner = { add_ruler_trait = leader_trait_academic_rul }
+								event_target:new_floret = { add_trait = leader_trait_academic_floret }
+								event_target:new_owner = { add_trait = leader_trait_academic_floret }
 							}
 						}
 						add_trait = leader_trait_floret_immortal
@@ -1350,7 +1399,50 @@ country_event = {
 country_event = {
 	id = domestication_leader.15
 	is_triggered_only = yes
-	hide_window = yes
+
+	title = "domestication_leader.15.name"
+	picture = GFX_evt_news_room
+	show_sound = event_life_support_fail
+
+	desc = {
+		trigger = {
+			# one floret
+			exists = event_target:floret_1
+			event_target:floret_1 = {
+				NOT = { has_leader_flag = flag_florets_pinnate }
+			}
+			NOT = { exists = event_target:floret_2 }
+		}
+		text = "domestication_leader.15.desc.1"
+	}
+	desc = {
+		trigger = {
+			# two pinnate florets
+			exists = event_target:floret_1
+			event_target:floret_1 = {
+				has_leader_flag = flag_florets_pinnate
+			}
+			NOT = { exists = event_target:floret_2 }
+		}
+		text = "domestication_leader.15.desc.2"
+	}
+	desc = {
+		trigger = {
+			# multiple florets
+			exists = event_target:floret_1
+			exists = event_target:floret_2
+		}
+		text = "domestication_leader.15.desc.3"
+	}
+	desc = {
+		trigger = {
+			# zero florets
+			NOT = { exists = event_target:floret_1 }
+		}
+		text = "domestication_leader.15.desc.0"
+	}
+
+	#hide_window = yes
 
 	trigger = {
 		from = {
@@ -1366,6 +1458,47 @@ country_event = {
 
 	immediate = {
 		from = { save_event_target_as = old_bloom }
+
+
+		if = {
+			limit = {
+				event_target:old_bloom = {
+					is_variable_set = affini_id_1
+				}
+			}
+			event_target:floret_country = {
+				every_owned_leader = {
+					limit = {
+						is_variable_set = floret_id
+						check_variable = {
+							which = floret_id
+							value = event_target:old_bloom.affini_id_1
+						}
+					}
+					save_event_target_as = floret_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				event_target:old_bloom = {
+					is_variable_set = affini_id_2
+				}
+			}
+			event_target:floret_country = {
+				every_owned_leader = {
+					limit = {
+						is_variable_set = floret_id
+						check_variable = {
+							which = floret_id
+							value = event_target:old_bloom.affini_id_2
+						}
+					}
+					save_event_target_as = floret_2
+				}
+			}
+		}
+
 		event_target:bloom_country = {
 			every_owned_leader = {
 				limit = {
@@ -1382,10 +1515,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
+						leader_class = scientist
 					}
 				}
 				root = {
@@ -1406,10 +1536,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
+						leader_class = governor
 					}
 				}
 				root = {
@@ -1430,10 +1557,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
+						leader_class = admiral
 					}
 				}
 				root = {
@@ -1454,10 +1578,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
+						leader_class = general
 					}
 				}
 				root = {
@@ -1478,10 +1599,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
+						leader_class = scientist
 					}
 				}
 				root = {
@@ -1502,10 +1620,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
+						leader_class = governor
 					}
 				}
 				root = {
@@ -1526,10 +1641,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
+						leader_class = admiral
 					}
 				}
 				root = {
@@ -1550,10 +1662,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
+						leader_class = general
 					}
 				}
 				root = {
@@ -1574,10 +1683,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						OR = {
-							leader_class = scientist
-							pre_ruler_leader_class = scientist
-						}
+						leader_class = scientist
 					}
 				}
 				root = {
@@ -1598,10 +1704,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						OR = {
-							leader_class = governor
-							pre_ruler_leader_class = governor
-						}
+						leader_class = governor
 					}
 				}
 				root = {
@@ -1622,10 +1725,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						OR = {
-							leader_class = admiral
-							pre_ruler_leader_class = admiral
-						}
+						leader_class = admiral
 					}
 				}
 				root = {
@@ -1646,10 +1746,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						OR = {
-							leader_class = general
-							pre_ruler_leader_class = general
-						}
+						leader_class = general
 					}
 				}
 				root = {
@@ -1764,9 +1861,28 @@ country_event = {
 					}
 					copy_leader_traits = yes
 
+					if = {
+						limit = {
+							host_has_dlc = "Plantoids Species Pack"
+						}
+						random_list = {
+							1 = {}
+							1 = {
+								affini_portrait_swap = yes
+							}
+						}
+					}
+
 					leader_event = { id = domestication_leader.10 }
 				}
 			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.15.a
+		trigger = {
+			always = yes
 		}
 	}
 }
@@ -1780,16 +1896,24 @@ country_event = {
 	desc = domestication_leader.16.desc
 
 	picture = GFX_evt_sapient_AI
+	show_sound = event_metal_fatigue
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		# admiral has < 2 florets
 		any_owned_leader = {
 			leader_class = admiral
-			NOT = { has_trait = leader_trait_warform_adm }
+			NOT = { has_trait = leader_trait_warform_floret }
 			can_obtain_new_floret = yes
 		}
 
@@ -1799,7 +1923,7 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				leader_class = admiral
-				NOT = { has_trait = leader_trait_warform_adm }
+				NOT = { has_trait = leader_trait_warform_floret }
 				can_obtain_new_floret = yes
 			}
 			save_event_target_as = new_owner
@@ -1809,8 +1933,7 @@ country_event = {
 			## Up to 2 florets - for the moment
 			floret_count_increment = yes
 
-			add_trait = leader_trait_warform_adm
-			add_ruler_trait = leader_trait_warform_rul
+			add_trait = leader_trait_warform_floret
 
 			event_target:new_floret = {
 				set_name = "NAME_S8751"
@@ -1840,6 +1963,7 @@ country_event = {
 	diplomatic = yes
 
 	is_triggered_only = yes
+	show_sound = event_default
 
 	picture_event_data = {
 		portrait = event_target:warform_leader
@@ -1851,7 +1975,7 @@ country_event = {
 		trigger = {
 			is_domesticator_or_protectorate = yes
       any_owned_leader = {
-        NOT = { has_trait = leader_trait_warform_adm }
+        NOT = { has_trait = leader_trait_warform_floret }
         can_obtain_new_floret = yes
       }
 		}
@@ -1862,7 +1986,7 @@ country_event = {
 					class = admiral
 					effect = {
 						add_trait = leader_trait_floret_immortal
-						add_trait = leader_trait_warform_adm
+						add_trait = leader_trait_warform_floret
 						save_event_target_as = new_floret
 					}
 				}
@@ -1925,6 +2049,7 @@ country_event = {
 	desc = domestication_leader.19.desc
 
 	picture = GFX_evt_emergency_workers
+	show_sound = event_airlock
 
 	hide_window = no
 	is_triggered_only = yes
@@ -1940,8 +2065,7 @@ country_event = {
 
 			floret_count_increment = yes
 
-			add_trait = leader_trait_dathnak_sci
-			add_ruler_trait = leader_trait_dathnak_rul
+			add_trait = leader_trait_dathnak_floret
 
 			## generate new leader of species matching primary species of defeated fleet
 			owner = {
@@ -1956,7 +2080,7 @@ country_event = {
 					}
 					last_created_leader = {
 						save_event_target_as = new_floret
-						add_trait = leader_trait_dathnak_sci
+						add_trait = leader_trait_dathnak_floret
 						add_trait = leader_trait_floret_immortal
 					}
 				}
@@ -1981,9 +2105,17 @@ country_event = {
 	desc = domestication_leader.20.desc
 
 	picture = GFX_evt_society_research
+	show_sound = event_laboratory_sound
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		this = { is_domesticator_or_protectorate = yes }
@@ -1995,8 +2127,7 @@ country_event = {
 
 			floret_count_increment = yes
 
-			add_trait = leader_trait_brainslug_sci
-			add_ruler_trait = leader_trait_brainslug_rul
+			add_trait = leader_trait_brainslug_floret
 
 			## generate new leader of species of volunteer
 			owner = {
@@ -2013,7 +2144,7 @@ country_event = {
 						}
 					}
 					last_created_leader = {
-						add_trait = leader_trait_brainslug_sci
+						add_trait = leader_trait_brainslug_floret
 						add_trait = leader_trait_floret_immortal
 					}
 				}
@@ -2039,16 +2170,24 @@ country_event = {
 	desc = domestication_leader.21.desc
 
 	picture = GFX_evt_emergency_workers
+	show_sound = event_airlock
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
 			leader_class = scientist
-			NOT = { has_trait = leader_trait_stranded_sci }
+			NOT = { has_trait = leader_trait_stranded_floret }
 			can_obtain_new_floret = yes
 		}
 
@@ -2061,14 +2200,14 @@ country_event = {
 				event_target:new_owner = {
 					OR = {
 						can_obtain_new_floret = no
-						has_trait = leader_trait_stranded_sci
+						has_trait = leader_trait_stranded_floret
 					}
 				}
 			}
 			random_owned_leader = {
 				limit = {
 					leader_class = scientist
-					NOT = { has_trait = leader_trait_stranded_sci }
+					NOT = { has_trait = leader_trait_stranded_floret }
 					can_obtain_new_floret = yes
 				}
 				save_event_target_as = new_owner
@@ -2079,8 +2218,7 @@ country_event = {
 			## Up to 2 florets - for the moment
 			floret_count_increment = yes
 
-			add_trait = leader_trait_stranded_sci
-			add_ruler_trait = leader_trait_stranded_rul
+			add_trait = leader_trait_stranded_floret
 
 			#event_target:new_floret = {
 			#	set_name = "NAME_S8751"
@@ -2110,16 +2248,24 @@ country_event = {
 	desc = domestication_leader.22.desc
 
 	picture = GFX_evt_acquire_asset
+	show_sound = event_finding_loot
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
 			leader_class = governor
-			NOT = { has_trait = leader_trait_racket_gov }
+			NOT = { has_trait = leader_trait_racket_floret }
 			can_obtain_new_floret = yes
 		}
 
@@ -2129,7 +2275,7 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				leader_class = governor
-				NOT = { has_trait = leader_trait_racket_gov }
+				NOT = { has_trait = leader_trait_racket_floret }
 				can_obtain_new_floret = yes
 			}
 			save_event_target_as = new_owner
@@ -2139,8 +2285,7 @@ country_event = {
 			## Up to 2 florets - for the moment
 			floret_count_increment = yes
 
-			add_trait = leader_trait_racket_gov
-			add_ruler_trait = leader_trait_racket_rul
+			add_trait = leader_trait_racket_floret
 
 			#event_target:new_floret = {
 			#	set_name = "NAME_S8751"
@@ -2170,16 +2315,24 @@ country_event = {
 	desc = domestication_leader.23.desc
 
 	picture = GFX_evt_acquire_asset
+	show_sound = event_ghost_town
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
 			leader_class = governor
-			NOT = { has_trait = leader_trait_cryopod_gov }
+			NOT = { has_trait = leader_trait_cryopod_floret }
 			can_obtain_new_floret = yes
 		}
 
@@ -2193,13 +2346,13 @@ country_event = {
 				name = "NAME_Majula_the_Bearer"
 				traits = {
 					trait = leader_trait_glory_seeker
-					trait = leader_trait_charismatic
+					trait = leader_trait_inspiring
 				}
 				event_leader = yes
 			}
 			last_created_leader = {
 				save_event_target_as = new_floret
-				add_trait = leader_trait_cryopod_gov
+				add_trait = leader_trait_cryopod_floret
 				add_trait = leader_trait_floret_immortal
 			}
 		}
@@ -2208,7 +2361,7 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				leader_class = governor
-				NOT = { has_trait = leader_trait_cryopod_gov }
+				NOT = { has_trait = leader_trait_cryopod_floret }
 				can_obtain_new_floret = yes
 			}
 			save_event_target_as = new_owner
@@ -2218,8 +2371,7 @@ country_event = {
 			## Up to 2 florets - for the moment
 			floret_count_increment = yes
 
-			add_trait = leader_trait_cryopod_gov
-			add_ruler_trait = leader_trait_cryopod_rul
+			add_trait = leader_trait_cryopod_floret
 
 			#event_target:new_floret = {
 			#	set_name = "NAME_S8751"
@@ -2274,16 +2426,24 @@ country_event = {
 	desc = domestication_leader.25.desc
 
 	picture = GFX_evt_acquire_asset
+	show_sound = event_airlock
 
 	hide_window = no
 	is_triggered_only = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
 
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
 			leader_class = admiral
-			NOT = { has_trait = leader_trait_ahab_adm }
+			NOT = { has_trait = leader_trait_ahab_floret }
 			can_obtain_new_floret = yes
 		}
 
@@ -2293,7 +2453,7 @@ country_event = {
 
 		event_target:floret_country = {
 			create_leader = {
-				name = NAME_Reth_Unddol
+				name = NAME_Reth_Unddol_first_name
 				species = event_target:captain_species
 				gender = male
 				class = governor
@@ -2303,7 +2463,7 @@ country_event = {
 			}
 			last_created_leader = {
 				save_event_target_as = new_floret
-				add_trait = leader_trait_ahab_adm
+				add_trait = leader_trait_ahab_floret
 				add_trait = leader_trait_floret_immortal
 			}
 		}
@@ -2311,7 +2471,7 @@ country_event = {
 		random_owned_leader = {
 			limit = {
 				leader_class = admiral
-				NOT = { has_trait = leader_trait_ahab_adm }
+				NOT = { has_trait = leader_trait_ahab_floret }
 				can_obtain_new_floret = yes
 			}
 			save_event_target_as = new_owner
@@ -2321,8 +2481,7 @@ country_event = {
 			## Up to 2 florets - for the moment
 			floret_count_increment = yes
 
-			add_trait = leader_trait_ahab_adm
-			add_ruler_trait = leader_trait_ahab_rul
+			add_trait = leader_trait_ahab_floret
 
 			#event_target:new_floret = {
 			#	set_name = "NAME_S8751"
@@ -2339,6 +2498,120 @@ country_event = {
 		name = WONDERFUL
 		trigger = {
 			always = yes
+		}
+	}
+}
+
+# Leader retires at rebloom
+# From = Leader (old bloom)
+country_event = {
+	id = domestication_leader.26
+	title = "domestication_leader.26.name"
+	is_triggered_only = yes
+	picture = GFX_evt_news_room
+	show_sound = event_life_support_fail
+
+	desc = {
+		trigger = {
+			# one floret
+			exists = event_target:floret_1
+			event_target:floret_1 = {
+				NOT = { has_leader_flag = flag_florets_pinnate }
+			}
+			NOT = { exists = event_target:floret_2 }
+		}
+		text = "domestication_leader.26.desc.1"
+	}
+	desc = {
+		trigger = {
+			# two pinnate florets
+			exists = event_target:floret_1
+			event_target:floret_1 = {
+				has_leader_flag = flag_florets_pinnate
+			}
+			NOT = { exists = event_target:floret_2 }
+		}
+		text = "domestication_leader.26.desc.2"
+	}
+	desc = {
+		trigger = {
+			# multiple florets
+			exists = event_target:floret_1
+			exists = event_target:floret_2
+		}
+		text = "domestication_leader.26.desc.3"
+	}
+	desc = {
+		trigger = {
+			# zero florets
+			NOT = { exists = event_target:floret_1 }
+		}
+		text = "domestication_leader.26.desc.0"
+	}
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		from = { save_event_target_as = old_bloom }
+		event_target:bloom_country = {
+			every_owned_leader = {
+				limit = {
+					is_variable_set = bloom_id
+					check_variable = {
+						which = bloom_id
+						value = event_target:old_bloom.bloom_id
+					}
+				}
+				save_event_target_as = clone_bloom
+			}
+		}
+		if = {
+			limit = {
+				event_target:old_bloom = {
+					is_variable_set = affini_id_1
+				}
+			}
+			event_target:floret_country = {
+				every_owned_leader = {
+					limit = {
+						is_variable_set = floret_id
+						check_variable = {
+							which = floret_id
+							value = event_target:old_bloom.affini_id_1
+						}
+					}
+					save_event_target_as = floret_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				event_target:old_bloom = {
+					is_variable_set = affini_id_2
+				}
+			}
+			event_target:floret_country = {
+				every_owned_leader = {
+					limit = {
+						is_variable_set = floret_id
+						check_variable = {
+							which = floret_id
+							value = event_target:old_bloom.affini_id_2
+						}
+					}
+					save_event_target_as = floret_2
+				}
+			}
+		}
+	}
+
+	option = {
+		name = domestication_leader.26.a
+		add_modifier = {
+			modifier = affini_retirement
+			years = 5
 		}
 	}
 }

@@ -1,0 +1,53 @@
+namespace = dom_contact
+
+# Preventing nuclear war
+country_event = {
+  id = dom_contact.1
+  title = "dom_contact.1.name"
+  desc = "dom_contact.1.desc"
+  picture = GFX_evt_victorious_army
+  show_sound = event_ground_battle
+
+  is_triggered_only = yes
+
+  immediate = {
+    event_target:pre_ftl_planet = {
+      add_planet_devastation = 15
+      set_owner = event_target:nuclear_war_stoppers
+      add_modifier = {
+        modifier = planet_culture_shock
+        years = 10
+      }
+    }
+  }
+
+  option = {
+    name = "dom_contact.1.a"
+  }
+}
+
+# Preventing nuclear war
+country_event = {
+  id = dom_contact.2
+  title = "dom_contact.2.name"
+  desc = "dom_contact.2.desc"
+  picture = GFX_evt_victorious_army
+  show_sound = event_ground_battle
+
+  is_triggered_only = yes
+
+  immediate = {
+    event_target:pre_ftl_planet = {
+      add_planet_devastation = 15
+      set_owner = event_target:affini_compact
+      add_modifier = {
+        modifier = planet_culture_shock
+        years = 10
+      }
+    }
+  }
+
+  option = {
+    name = "dom_contact.2.a"
+  }
+}

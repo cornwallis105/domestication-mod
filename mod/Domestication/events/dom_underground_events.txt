@@ -6,7 +6,7 @@ planet_event = {
 	title = "dom_underground.1.name"
 	desc = "dom_underground.1.desc"
 	picture = GFX_evt_underground_city
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
 	location = ROOT
 	trackable = yes
 
@@ -58,8 +58,8 @@ situation_event = {
   id = dom_underground.2
   title = "dom_underground.2.name"
   desc = "dom_underground.2.desc"
-  picture = GFX_evt_underground_city
-  show_sound = event_primitive_civilization
+  picture = GFX_evt_striking_a_deal
+  show_sound = event_pre_ftl_civilization
 
   is_triggered_only = yes
 
@@ -99,6 +99,7 @@ situation_event = {
       add_district = district_farming
     }
   }
+	after = { destroy_situation = this }
 }
 
 # Domestication finished - Failure
@@ -107,7 +108,7 @@ situation_event = {
   title = "dom_underground.3.name"
   desc = "dom_underground.3.desc"
   picture = GFX_evt_underground_city
-  show_sound = event_primitive_civilization
+  show_sound = event_pre_ftl_civilization
 
   is_triggered_only = yes
 
@@ -221,7 +222,7 @@ situation_event = {
   title = "colony.69.name"
   desc = "dom_underground.6.desc"
   picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
   location = target
 
   is_triggered_only = yes
@@ -281,7 +282,7 @@ situation_event = {
   title = "colony.72.name"
   desc = "dom_underground.7.desc"
   picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
   location = target
 
   is_triggered_only = yes
@@ -333,7 +334,7 @@ situation_event = {
 		text = "dom_underground.8.desc.subterranean"
 	}
 	picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
 	location = target
 
   is_triggered_only = yes
@@ -376,7 +377,7 @@ situation_event = {
   title = "colony.74.name"
 	desc = "dom_underground.9.desc"
 	picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
 	location = target
 
   is_triggered_only = yes
@@ -418,7 +419,7 @@ situation_event = {
   title = "dom_underground.10.name"
 	desc = "dom_underground.10.desc"
   picture = GFX_evt_alien_cavemen
-	show_sound = event_primitive_civilization
+	show_sound = event_pre_ftl_civilization
 	location = target
 
   is_triggered_only = yes

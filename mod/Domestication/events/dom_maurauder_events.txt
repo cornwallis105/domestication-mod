@@ -128,14 +128,13 @@ country_event = {
 				last_created_leader = {
 					save_event_target_as = new_floret
           save_global_event_target_as = great_khan_floret
-					add_trait = leader_trait_great_khan_adm
+					add_trait = leader_trait_great_khan_floret
 					add_trait = leader_trait_floret_immortal
 				}
 			}
 			floret_count_increment = yes
 
-			add_trait = leader_trait_great_khan_adm
-			add_ruler_trait = leader_trait_great_khan_rul
+			add_trait = leader_trait_great_khan_floret
 
 			floret_check_trans_and_rename = yes
 		}
@@ -200,10 +199,7 @@ country_event = {
   trigger = {
     event_target:khan_destroyer = {
       any_owned_leader = {
-        OR = {
-          has_trait = leader_trait_great_khan_adm
-          has_ruler_trait = leader_trait_great_khan_rul
-        }
+        has_trait = leader_trait_great_khan_floret
       }
     }
   }
@@ -212,10 +208,7 @@ country_event = {
 		event_target:khan_destroyer = {
 	    random_owned_leader = {
 	      limit = {
-	        OR = {
-	          has_trait = leader_trait_great_khan_adm
-	          has_ruler_trait = leader_trait_great_khan_rul
-	        }
+	        has_trait = leader_trait_great_khan_floret
 	      }
 	      save_event_target_as = khans_owner
 	    }
@@ -335,6 +328,7 @@ country_event = {
 	title = "dom_marauder.12.name"
 	desc = "dom_marauder.12.desc"
 	picture = GFX_evt_interior_battle
+	show_sound = event_ground_battle
 
 	is_triggered_only = yes
 

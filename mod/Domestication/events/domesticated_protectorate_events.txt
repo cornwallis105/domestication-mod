@@ -5,6 +5,7 @@ country_event = {
   title = "dom_prot_event.1"
   desc = "dom_prot_event.1.desc"
   picture = GFX_evt_signing
+  show_sound = event_administrative_work
 
   is_triggered_only = yes
 
@@ -117,6 +118,7 @@ country_event = {
   title = "dom_prot_event.2"
   desc = "dom_prot_event.2.desc"
   picture = GFX_evt_signing
+  show_sound = event_administrative_work
 
   is_triggered_only = yes
 

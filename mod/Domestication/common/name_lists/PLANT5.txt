@@ -1,4 +1,4 @@
-### Plantoid 5 - Affini
+﻿### Plantoid 5 - Affini
 ### Created by Colleen Arkadija (cornwallis105)
 ### Based on Plantoid 4 by Miranda van den Brink - Paradox
 ### Latin plant names theme with Human Domestication Guide flavor added
@@ -169,13 +169,13 @@ PLANT5 = {
 
 		### For Fallen Empires
 		small_ship_fallen_empire = {
-			"Jaahne" "Merok" "Vornak" "Vea" "Varex" "Rax" "Verek" "Milo" "Kaado" "Morek" "Trylek" "Peo" "Maach" "Keto" "Vol" "Luma" "Rekiel" "Dramus" "Licus" "Marex" "Ilio" "Zenet" "Domes" "Vivea" "Ferna" "Magnoli" "Gneto" "Bryo" "Rophyte" "Stirpis" "Vitanix" "Aarboro" "Radix" "Zarbor" "Rotex" "Anoma" "Sallor" "Mexus"
+			# "Jaahne" "Merok" "Vornak" "Vea" "Varex" "Rax" "Verek" "Milo" "Kaado" "Morek" "Trylek" "Peo" "Maach" "Keto" "Vol" "Luma" "Rekiel" "Dramus" "Licus" "Marex" "Ilio" "Zenet" "Domes" "Vivea" "Ferna" "Magnoli" "Gneto" "Bryo" "Rophyte" "Stirpis" "Vitanix" "Aarboro" "Radix" "Zarbor" "Rotex" "Anoma" "Sallor" "Mexus"
 		}
 		large_ship_fallen_empire = {
-			"Jaane" "Merok" "Vornak" "Rax" "Verek" "Milo" "Caado" "Morek" "Trylek" "Peo" "Maach" "Keto"
+			# "Jaane" "Merok" "Vornak" "Rax" "Verek" "Milo" "Caado" "Morek" "Trylek" "Peo" "Maach" "Keto"
 		}
 		massive_ship_fallen_empire = {
-			"Ulus" "Incanon" "Ovus" "Vector" "Eovoles" "Yacto" "Volea"
+			# "Ulus" "Incanon" "Ovus" "Vector" "Eovoles" "Yacto" "Volea"
 		}
 	}
 

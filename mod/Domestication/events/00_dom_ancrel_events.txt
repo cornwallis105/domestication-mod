@@ -1,0 +1,76 @@
+namespace = ancrel
+
+# Sentinels Archaeology site ending
+planet_event = {
+	id = ancrel.4059
+	title = ancrel.4059.name
+	desc = ancrel.4059.desc
+	location = event_target:sentinels_planet
+	show_sound = event_dangerous_animals
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		room = no_video_feed_room
+	}
+
+	option = {
+		name = ancrel.4059.a
+		response_text = ancrel.4059.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = ancrel.4059.c
+		response_text = ancrel.4059.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = ancrel.4059.b # Accept protection
+		hidden_effect = { planet_event = { id = ancrel.4062 } }
+		remove_deposit = d_archaeological_site
+		add_deposit = d_sentinels
+	}
+  # if you are a domesticator, have Megafauna Domestication,
+  # but don't have a 20k starbase in system
+  option = {
+		name = ancrel.4059.dom_fail # Offer protection
+    icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+    trigger = {
+      owner = {
+        is_domesticator_or_protectorate = yes
+        has_technology = tech_megafauna_domestication
+      }
+      starbase.fleet = {
+        fleet_power < 20000
+      }
+    }
+    hidden_effect = { planet_event = { id = domestication.24 } }
+	}
+  # if you are a domesticator, have Megafauna Domestication,
+  # AND have a 20k starbase in system
+  option = {
+		name = ancrel.4059.dom_succeed # Offer protection
+    icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+    trigger = {
+      owner = {
+        is_domesticator_or_protectorate = yes
+        has_technology = tech_megafauna_domestication
+      }
+      starbase.fleet = {
+        fleet_power >= 20000
+      }
+    }
+    hidden_effect = { planet_event = { id = domestication.25 } }
+	}
+	option = {
+		name = ancrel.4059.d # claim land
+		hidden_effect = { planet_event = { id = ancrel.4060 } }
+	}
+}

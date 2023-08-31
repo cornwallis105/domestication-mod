@@ -1,0 +1,760 @@
+add_random_leader_floret_trait = {
+	log_error = "started scripted effect"
+	save_event_target_as = new_owner
+	reroll_random = yes
+	if = { #Is a science ship commander
+		limit = {
+			leader_class = scientist
+		}
+		while = {
+			limit = {
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret
+				}
+			}
+			random_list = {
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_distracted_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_distracted_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_distracted_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_historian_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_historian_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_historian_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_sci days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+			}
+		}
+		owner = { country_event = { id = domestication_leader.3 } }
+	}
+	if = {
+		limit = {
+			leader_class = admiral
+		}
+		while = {
+			limit = {
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret
+				}
+			}
+			random_list = {
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_musician_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_musician_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_musician_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 0
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_adm days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+			}
+		}
+		owner = { country_event = { id = domestication_leader.3 } }
+	}
+	if = {
+		limit = {
+			leader_class = governor
+		}
+		while = {
+			limit = {
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret
+				}
+			}
+			random_list = {
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							OR = {
+								has_origin = origin_syncretic_evolution
+								has_origin = origin_domesticators
+							}
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_syncretic_proles
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_beeple_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									OR = {
+										has_origin = origin_syncretic_evolution
+										has_origin = origin_domesticators
+									}
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_syncretic_proles
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_beeple_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_beeple_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_liaison_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_liaison_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_liaison_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gov days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_cave_dweller
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_underground_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_cave_dweller
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_underground_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_underground_gov days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+			}
+		}
+		owner = { country_event = { id = domestication_leader.3 } }
+	}
+	if = {
+		limit = {
+			leader_class = general
+		}
+		while = {
+			limit = {
+				NOT = { # Don't have leader gain normal trait and floret trait at same level
+					#has_leader_flag = has_gained_trait # timed flag added with random trait gain
+					has_leader_flag = has_gained_floret
+				}
+			}
+			random_list = {
+				5 = {
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_cutie_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_cutie_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_cutie_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								NOT = { has_trait = trait_syncretic_proles }
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_class_o_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										NOT = { has_trait = trait_syncretic_proles }
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_class_o_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_class_o_floret days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_brainslug
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_brainslug_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_brainslug
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_brainslug_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_brainslug_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+				0 = {
+					modifier = {
+						add = 5
+						owner = {
+							is_domesticator_or_protectorate = yes
+							any_owned_pop = {
+								has_job = floret
+								has_trait = trait_cave_dweller
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_trait = leader_trait_underground_floret }
+							owner = {
+								AND = {
+									is_domesticator_or_protectorate = yes
+									any_owned_pop = {
+										has_job = floret
+										has_trait = trait_cave_dweller
+									}
+								}
+							}
+						}
+						add_trait = leader_trait_underground_floret
+						set_timed_leader_flag = { flag = gained_leader_trait_underground_gen days = 7 }
+						set_timed_leader_flag = { flag = has_gained_floret days = 7 }
+					}
+				}
+			}
+		}
+		owner = { country_event = { id = domestication_leader.3 } }
+	}
+}
+
+# this = country
+get_pirate_species = {
+	owner_species = { save_event_target_as = country_species }
+	if = {
+		limit = {
+			is_domesticator_or_protectorate = yes
+			any_owned_species = {
+				NOR = {
+					is_same_species = event_target:country_species
+					is_subspecies = event_target:country_species
+					is_robotic = yes
+					is_sapient = no
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = {
+				species = {
+					NOR = {
+						is_same_species = event_target:country_species
+						is_subspecies = event_target:country_species
+						is_robotic = yes
+						is_sapient = no
+					}
+				}
+			}
+			weights = {
+				base = 1
+				modifier = {
+					factor = 5
+					OR = {
+						pop_has_ethic = ethic_fanatic_xenophobe
+						pop_has_ethic = ethic_xenophobe
+					}
+				}
+				modifier = {
+					factor = 0.1
+					has_job = floret
+				}
+			}
+			species = { save_event_target_as = owner_species }
+		}
+	}
+	else = {
+		event_target:country_species = { save_event_target_as = owner_species }
+	}
+}
+
+# from old_bloom to new_bloom
+copy_leader_traits = {
+
+	# holy hell, we need to copy over every leader trait individually
+	# maybe let's only copy over floret traits
+	event_target:old_bloom = {
+		if = {
+			limit = {
+				is_variable_set = affini_id_1
+			}
+			event_target:new_bloom = {
+				set_variable = {
+					which = affini_id_1
+					value = prev.affini_id_1
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_variable_set = affini_id_2
+			}
+			event_target:new_bloom = {
+				set_variable = {
+					which = affini_id_2
+					value = prev.affini_id_2
+				}
+			}
+		}
+
+		if = { limit = { has_trait = leader_trait_cutie_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_cutie_floret }
+		}
+		if = { limit = { has_trait = leader_trait_brainslug_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_brainslug_floret }
+		}
+		if = { limit = { has_trait = leader_trait_beeple_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_beeple_floret }
+		}
+		if = { limit = { has_trait = leader_trait_warp_eng_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_warp_eng_floret }
+		}
+		if = { limit = { has_trait = leader_trait_pirate_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_pirate_floret }
+		}
+		if = { limit = { has_trait = leader_trait_admiral_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_admiral_floret }
+		}
+		if = { limit = { has_trait = leader_trait_distracted_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_distracted_floret }
+		}
+		if = { limit = { has_trait = leader_trait_liaison_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_liaison_floret }
+		}
+		if = { limit = { has_trait = leader_trait_attache_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_attache_floret }
+		}
+		if = { limit = { has_trait = leader_trait_officer_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_officer_floret }
+			}
+		if = { limit = { has_trait = leader_trait_economist_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_economist_floret }
+		}
+		if = { limit = { has_trait = leader_trait_academic_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_academic_floret }
+		}
+		if = { limit = { has_trait = leader_trait_marauder_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_marauder_floret }
+		}
+		if = { limit = { has_trait = leader_trait_dathnak_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_dathnak_floret }
+		}
+		if = { limit = { has_trait = leader_trait_warform_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_warform_floret }
+		}
+		if = { limit = { has_trait = leader_trait_stranded_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_stranded_floret }
+		}
+		if = { limit = { has_trait = leader_trait_racket_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_racket_floret }
+		}
+		if = { limit = { has_trait = leader_trait_cryopod_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_cryopod_floret }
+		}
+		if = { limit = { has_trait = leader_trait_historian_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_historian_floret }
+		}
+		if = { limit = { has_trait = leader_trait_musician_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_musician_floret }
+		}
+		if = { limit = { has_trait = leader_trait_class_o_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_class_o_floret }
+		}
+		if = { limit = { has_trait = leader_trait_great_khan_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_great_khan_floret }
+		}
+		if = { limit = { has_trait = leader_trait_ahab_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_ahab_floret }
+		}
+		if = { limit = { has_trait = leader_trait_blorgfriend_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_blorgfriend_floret }
+		}
+		if = { limit = { has_trait = leader_trait_militarist_2_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_militarist_2_floret }
+		}
+		if = { limit = { has_trait = leader_trait_militarist_1_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_militarist_1_floret }
+		}
+
+	}
+}
+
+add_domprot_leader_trait = {
+
+}
+
+remove_domprot_leader_trait = {
+
+}
+
+refresh_subject_count_loyalty_penalty = {
+	every_subject = {
+		erase_modifier = { MOD = divided_patronage }
+	}
+	if = {
+		limit = {
+			NOR = {
+				has_civic = civic_feudal_realm
+				has_civic = civic_franchising
+				has_ascension_perk = ap_shared_destiny
+			}
+			subjects > 1
+		}
+		set_variable = { which = subjects_minus_one value = trigger:subjects }
+		subtract_variable = { which = subjects_minus_one value = 1 }
+		set_variable = { which = domprot_subject_modifier value = this.subjects_minus_one }
+		divide_variable = { which = domprot_subject_modifier value = 2 }
+		every_subject = {
+			if = {
+				limit = {
+					PREV = {
+						is_domesticator = yes
+					}
+					OR = {
+						any_agreement = { agreement_preset = preset_protectorate }
+						is_specialist_subject_type = { TYPE = domprot }
+					}
+				}
+				if = {
+					# Rank 3 DomProt has no loyalty penalty
+					limit = {
+						NOT = { any_agreement = { specialist_tier = 3} }
+					}
+					add_modifier = {
+						modifier = divided_patronage
+						multiplier = PREV.domprot_subject_modifier
+					}
+				}
+			}
+			else = {
+				add_modifier = {
+					modifier = divided_patronage
+					multiplier = PREV.subjects_minus_one
+				}
+			}
+		}
+		clear_variable = subjects_minus_one
+		clear_variable = domprot_subject_modifier
+	}
+}
+
+increment_xenodrugs = {
+	if = {
+		limit = { is_variable_set = xenodrugs_count }
+		change_variable = {
+			which = xenodrugs_count
+			value = 1
+		}
+		remove_modifier = xenodrugs_modifier
+		add_modifier = {
+			modifier = xenodrugs_modifier
+			multiplier = xenodrugs_count
+			days = -1
+		}
+	}
+	else = {
+		set_variable = {
+			which = xenodrugs_count
+			value = 1
+		}
+		add_modifier = {
+			modifier = xenodrugs_modifier
+			multiplier = xenodrugs_count
+			days = -1
+		}
+	}
+}
+
+shift_planet_ethics = {
+	random_owned_pop = {
+		limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
+		pop_change_ethic = ethic_$ETHIC$
+	}
+	if = {
+		limit = {
+			owner = {
+				OR = {
+					pre_ftl_victorian_era = yes
+					pre_ftl_modern_era = yes
+				}
+			}
+		}
+		random_owned_pop = {
+			limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
+			pop_change_ethic = ethic_$ETHIC$
+		}
+	}
+	if = {
+		limit = {
+			pre_ftl_modern_era = yes
+		}
+		random_owned_pop = {
+			limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
+			pop_change_ethic = ethic_$ETHIC$
+		}
+	}
+}
+
+affini_portrait_swap = {
+	random_list = {
+		1 = {
+			change_leader_portrait = pla1
+		}
+		1 = {
+			change_leader_portrait = pla2
+		}
+		1 = {
+			change_leader_portrait = pla4
+		}
+		1 = {
+			change_leader_portrait = pla5
+		}
+		1 = {
+			change_leader_portrait = pla11
+		}
+		1 = {
+			change_leader_portrait = pla12
+		}
+		1 = {
+			change_leader_portrait = pla13
+		}
+		1 = {
+			change_leader_portrait = pla14
+		}
+		1 = {
+			change_leader_portrait = fun1
+		}
+	}
+}

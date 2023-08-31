@@ -2,3 +2,12 @@
  # Body parts
  PLANT_hand:2 "vine"
  PLANT_hand_plural:1 "vines"
+ mod_country_base_unity_produces_add:1 "Monthly £unity£ Unity"
+ ACTION_OPEN_TECHNOLOGICAL_ENLIGHTENMENT_TITLE:1 "Share Technology / Domesticate"
+
+ CORP_DOW_ACCEPT_02:1 "Prepare to have your assets liquidated, [From.GetSpeciesNamePlural]."
+ CORP_DOW_ACCEPT_03:1 "Valued clients! Here at [Root.GetName] no request is too big. We bring custom-made, user friendly solutions to all our clients. Ready the fleet!"
+
+ councilor_byzantine_bureaucracy:0 "Bureaucratic Coordinator"
+ councilor_byzantine_bureaucracy_female:0 "$councilor_byzantine_bureaucracy$"
+ councilor_byzantine_bureaucracy_desc:1 "The $TITLE$ is in charge of coordinating the efforts of all administrative departments."

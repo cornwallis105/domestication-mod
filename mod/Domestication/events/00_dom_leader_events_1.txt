@@ -1,146 +1,39 @@
-#Gatekeeper fired from on_action on_leader_level_up
 namespace = leader
 
 country_event = {
-	id = leader.20
+	id = leader.1
 	hide_window = yes
+
 	is_triggered_only = yes
 
+	trigger = {
+		is_country_type = default
+		any_owned_leader = {
+			leader_class = admiral
+		}
+	}
+
 	immediate = {
-    reroll_random = yes
-		from = {
-			if = {
-				limit = {
-					leader_class = scientist
-					num_traits < 3
-					NOT = {
-						has_leader_flag = has_gained_level_trait
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_trait = yes
-						set_leader_flag = has_gained_level_trait
-					}
+		if = {
+			limit = {
+				is_domesticator_or_full_protectorate = yes
+			}
+			country_event = {
+				id = domestication_promising_officer.2
+				scopes = {
+					from = from
+					fromfrom = fromfrom
+					fromfromfrom = fromfromfrom
 				}
 			}
-			if = {
-				limit = {
-					leader_class = admiral
-					num_traits < 3
-					NOT = { has_leader_flag = has_gained_level_trait }
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_trait = yes
-						set_leader_flag = has_gained_level_trait
-					}
-				}
-			}
-			if = {
-				limit = {
-					leader_class = governor
-					num_traits < 3
-					NOT = { has_leader_flag = has_gained_level_trait }
-					#exists = planet
-				}
-				random_list = {
-					80 = { }
-					20 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_trait = yes
-						set_leader_flag = has_gained_level_trait
-					}
-				}
-			}
-			if = {
-				limit = {
-					leader_class = general
-					num_traits < 3
-					NOT = { has_leader_flag = has_gained_level_trait }
-				}
-				random_list = {
-					80 = { }
-					20 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_trait = yes
-						set_leader_flag = has_gained_level_trait
-					}
-				}
-			}
-			if = {
-				limit = {
-					leader_class = ruler
-					num_traits < 3
-					NOT = { has_leader_flag = has_gained_level_trait }
-					owner = { NOT = { has_ethic = "ethic_gestalt_consciousness" } }
-				}
-				random_list = {
-					80 = { }
-					20 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_trait = yes
-						set_leader_flag = has_gained_level_trait
-					}
+		}
+		else = {
+			country_event = {
+				id = domestication_promising_officer.1
+				scopes = {
+					from = from
+					fromfrom = fromfrom
+					fromfromfrom = fromfromfrom
 				}
 			}
 		}

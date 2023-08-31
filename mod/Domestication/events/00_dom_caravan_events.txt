@@ -1,0 +1,250 @@
+namespace = cara
+
+# Fleet 3 - Deals, cara.3200
+country_event = {
+	id = cara.3200
+	title = cara_fleet3_deals.title
+	desc = {
+		trigger = { has_country_flag = fleet3deal1 }
+		text = fleet3dealdesc1 #Selling minerals
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal2 }
+		text = fleet3dealdesc2 #Selling Racket leader
+	}
+  desc = {
+		trigger = { has_country_flag = fleet3deal_domestication1 }
+		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal3 has_authority = auth_machine_intelligence }
+		text = fleet3dealdesc3machi #Selling pops, MI
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal3 NOT = { has_authority = auth_machine_intelligence } }
+		text = fleet3dealdesc3 #Selling pops, regular
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal4 }
+		text = fleet3dealdesc4 #Selling alloy/gas/living metal
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal5 NOT = { has_ethic = ethic_gestalt_consciousness } }
+		text = fleet3dealdesc5 #Selling unique building
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal5 has_ethic = ethic_gestalt_consciousness }
+		text = fleet3dealdesc5_gesta #Selling unique building GC
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal6 }
+		text = fleet3dealdesc6 #Selling unique ship weapons tech
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal7 }
+		text = fleet3dealdesc7 #Selling energy mining platform "upgrade" (planetary energy deposit)
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal8 }
+		text = fleet3dealdesc8 #Selling tech drone planet mod
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal9 }
+		text = fleet3dealdesc9 #Selling Racket Caravan Destroyer
+	}
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet3_country
+		room = ethic_spaceship_room
+	}
+
+	immediate = {
+		cara_generate_deal3 = yes
+	}
+
+	option = {
+		name = cara_fleet3_take_deal
+		allow = { cara_allow_deal3 = yes }
+		cara_execute_deal3 = yes
+		response_text = "cara_fleet3_dealtaken"
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = fleet3getback
+		response_text = fleet3getbackreply
+		hidden_effect = {
+			set_country_flag = cara_fleet3_getback
+		}
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet3_exit
+		hidden_effect = {
+			while = { #Clear Fleet 3 deal planet flags with added failsafe
+				limit = {
+					any_planet_within_border = {
+						OR = {
+							has_planet_flag = fleet3deal3planet
+							has_planet_flag = fleet3deal7planet
+							has_planet_flag = fleet3deal8planet
+						}
+					}
+				}
+				random_planet_within_border = {
+					limit = {
+						OR = {
+							has_planet_flag = fleet3deal3planet
+							has_planet_flag = fleet3deal7planet
+							has_planet_flag = fleet3deal8planet
+						}
+					}
+					switch = {
+						trigger = has_planet_flag
+						fleet3deal3planet = { remove_planet_flag = fleet3deal3planet }
+						fleet3deal7planet = { remove_planet_flag = fleet3deal7planet }
+						fleet3deal8planet = { remove_planet_flag = fleet3deal8planet }
+					}
+				}
+			}
+		}
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+	}
+}
+
+# Fleet 3 - Re-offer deal, cara.3251
+country_event = {
+	id = cara.3251
+	title = cara_fleet3_redeals.title
+	desc = {
+		trigger = { has_country_flag = fleet3deal1 }
+		text = fleet3dealdesc1 #Selling minerals
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal2 }
+		text = fleet3dealdesc2 #Selling Racket leader
+	}
+  desc = {
+		trigger = { has_country_flag = fleet3deal_domestication1 }
+		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal3 has_authority = auth_machine_intelligence }
+		text = fleet3dealdesc3machi #Selling pops, MI
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal3 NOT = { has_authority = auth_machine_intelligence } }
+		text = fleet3dealdesc3 #Selling pops, regular
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal4 }
+		text = fleet3dealdesc4 #Selling alloy/gas/living metal
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal5 }
+		text = fleet3dealdesc5 #Selling unique building
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal6 }
+		text = fleet3dealdesc6 #Selling unique ship weapons tech
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal7 }
+		text = fleet3dealdesc7 #Selling energy mining platform "upgrade" (planetary energy deposit)
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal8 }
+		text = fleet3dealdesc8 #Selling tech drone planet mod
+	}
+	desc = {
+		trigger = { has_country_flag = fleet3deal9 }
+		text = fleet3dealdesc9 #Selling Racket Caravan Destroyer
+	}
+
+	diplomatic = yes
+	is_triggered_only = yes
+	custom_gui = "enclave_caravaneer_window"
+
+	picture_event_data = {
+		portrait = event_target:caravaneer_fleet3_country
+		room = ethic_spaceship_room
+	}
+
+	trigger = {
+		caravaneer_fleet3_active_diplo = no
+	}
+
+	immediate = {
+		remove_country_flag = cara_fleet3_getback
+		switch = {
+			trigger = has_country_flag
+			fleet3deal3 = {
+				random_owned_planet = {
+					limit = { has_planet_flag = fleet3deal3planet }
+					save_event_target_as = fleet3deal3planet
+				}
+			}
+			fleet3deal7 = {
+				random_planet_within_border = { #As it is placed on uninhabitable (unownable) planets
+					limit = { has_planet_flag = fleet3deal7planet }
+					save_event_target_as = fleet3deal7planet
+				}
+			}
+			fleet3deal8 = {
+				random_owned_planet = {
+					limit = { has_planet_flag = fleet3deal8planet }
+					save_event_target_as = fleet3deal8planet
+				}
+			}
+		}
+		cara_generate_deal3 = yes
+	}
+
+	option = {
+		name = cara_fleet3_take_deal
+		allow = { cara_allow_deal3 = yes }
+		cara_execute_deal3 = yes
+		response_text = "cara_fleet3_dealtaken"
+		custom_gui = "enclave_caravaneer_option"
+	}
+
+	option = {
+		name = cara_fleet3_exit
+		hidden_effect = {
+			while = { #Clear Fleet 3 deal planet flags with added failsafe
+				limit = {
+					any_planet_within_border = {
+						OR = {
+							has_planet_flag = fleet3deal3planet
+							has_planet_flag = fleet3deal7planet
+							has_planet_flag = fleet3deal8planet
+						}
+					}
+				}
+				random_planet_within_border = {
+					limit = {
+						OR = {
+							has_planet_flag = fleet3deal3planet
+							has_planet_flag = fleet3deal7planet
+							has_planet_flag = fleet3deal8planet
+						}
+					}
+					switch = {
+						trigger = has_planet_flag
+						fleet3deal3planet = { remove_planet_flag = fleet3deal3planet }
+						fleet3deal7planet = { remove_planet_flag = fleet3deal7planet }
+						fleet3deal8planet = { remove_planet_flag = fleet3deal8planet }
+					}
+				}
+			}
+		}
+		default_hide_option = yes
+		custom_gui = "enclave_caravaneer_option"
+	}
+}

@@ -1,0 +1,946 @@
+namespace = pirate
+
+# Birth of Space Piracy
+country_event = {
+	id = pirate.1
+	title = "pirate.1.name"
+	picture = GFX_evt_pirate_armada
+	show_sound = event_space_battle
+	location = event_target:pirate_system
+
+	desc = { # Spiritual
+		text = pirate.1.desc_01
+		trigger = {
+			has_spiritualist_government = yes
+		}
+	}
+
+	desc = { # Militarist
+		text = pirate.1.desc_02
+		trigger = {
+			OR = {
+				has_militarist_government = yes
+				has_government = gov_bandit_commune
+			}
+		}
+	}
+
+	desc = { # Materialist
+		text = pirate.1.desc_03
+		trigger = {
+			has_materialist_government = yes
+		}
+	}
+
+	desc = { # Pacifist
+		text = pirate.1.desc_04
+		trigger = {
+			has_pacifist_government = yes
+		}
+	}
+
+	desc = { # Generic Autocracy
+		text = pirate.1.desc_05
+		trigger = {
+			OR = {
+				has_government = gov_despotic_empire
+				has_government = gov_feudal_empire
+				has_government = gov_constitutional_dictatorship
+				has_government = gov_enlightened_monarchy
+				has_government = gov_elective_monarchy
+				has_government = gov_bandit_kingdom
+			}
+		}
+	}
+
+	desc = { # Generic Oligarchy
+		text = pirate.1.desc_06
+		trigger = {
+			OR = {
+				has_government = gov_megacorporation
+				has_government = gov_plutocratic_oligarchy
+			}
+		}
+	}
+
+	desc = { # Generic Democracy
+		text = pirate.1.desc_07
+		trigger = {
+			OR = {
+				has_government = gov_representative_democracy
+				has_government = gov_communal_parity
+			}
+		}
+	}
+
+	trigger = {
+		is_country_type = default
+		NOR = {
+			has_country_flag = birth_of_piracy
+			has_ethic = ethic_gestalt_consciousness
+		}
+		exists = capital_scope
+		any_system_within_border = {
+			has_trade_route = yes
+			trade_intercepted_value > 0
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_timed_country_flag = { flag = pirates_spawned days = 3600 }
+		set_country_flag = birth_of_piracy
+		set_country_flag = pirate_encountered
+		capital_scope = {
+			save_event_target_as = capital
+			solar_system = { save_event_target_as = capital_system }
+		}
+		save_event_target_as = pirate_target
+		get_pirate_species = yes
+		random_system_within_border = {
+			limit = {
+				has_trade_route = yes
+				trade_intercepted_value > 0
+			}
+			save_event_target_as = pirate_system
+			create_normal_pirate_country = yes
+			create_pirate_fleet = yes
+		}
+	}
+
+	option = {
+		name = pirate.2.a
+		trigger = {
+			has_spiritualist_government = yes
+		}
+	}
+	option = {
+		name = pirate.2.b
+		trigger = {
+			OR = {
+				has_militarist_government = yes
+				has_government = gov_bandit_commune
+				has_government = gov_successor_khanate
+				has_government = gov_diadochi
+			}
+		}
+	}
+	option = {
+		name = pirate.2.c
+		trigger = {
+			has_materialist_government = yes
+		}
+	}
+	option = {
+		name = pirate.2.d
+		trigger = {
+			has_pacifist_government = yes
+		}
+	}
+	option = {
+		name = pirate.2.e
+		trigger = {
+			OR = {
+				has_government = gov_despotic_empire
+				has_government = gov_feudal_empire
+				has_government = gov_constitutional_dictatorship
+				has_government = gov_enlightened_monarchy
+				has_government = gov_elective_monarchy
+				has_government = gov_bandit_kingdom
+				has_purifier_government = yes
+			}
+		}
+	}
+	option = {
+		name = pirate.2.f
+		trigger = {
+			OR = {
+				has_government = gov_megacorporation
+				has_government = gov_plutocratic_oligarchy
+				has_government = gov_trade_league
+			}
+		}
+	}
+	option = {
+		name = pirate.2.g
+		trigger = {
+			OR = {
+				has_government = gov_representative_democracy
+				has_government = gov_communal_parity
+			}
+		}
+	}
+	option = {
+		name = pirate.2.h
+		trigger = {
+			OR = {
+				has_government = gov_criminal_syndicate
+				has_government = gov_subversive_cult
+			}
+		}
+	}
+	option = {
+		name = pirate.2.j
+		trigger = {
+			OR = {
+				has_government = gov_domesticator_empire
+				has_government = gov_domesticator_dictatorship
+				has_government = gov_domesticator_oligarchy
+				has_government = gov_domesticator_democracy
+			}
+		}
+	}
+	option = {
+		name = pirate.2.i #none of the above
+		trigger = {
+			NOR = {
+				has_spiritualist_government = yes
+				has_militarist_government = yes
+				has_government = gov_bandit_commune
+				has_materialist_government = yes
+				has_pacifist_government = yes
+				has_government = gov_despotic_empire
+				has_government = gov_feudal_empire
+				has_government = gov_constitutional_dictatorship
+				has_government = gov_enlightened_monarchy
+				has_government = gov_elective_monarchy
+				has_government = gov_bandit_kingdom
+				has_purifier_government = yes
+				has_government = gov_megacorporation
+				has_government = gov_plutocratic_oligarchy
+				has_government = gov_trade_league
+				has_government = gov_representative_democracy
+				has_government = gov_communal_parity
+				has_government = gov_criminal_syndicate
+				has_government = gov_subversive_cult
+				has_government = gov_successor_khanate
+				has_government = gov_diadochi
+			}
+		}
+		log_error = "[Root.GetGovernmentName] is missing an option in pirate.1, using fallback option instead"
+	}
+}
+
+
+# Destroyed Pirate Station (HIDDEN)
+# on_fleet_destroyed_perp
+country_event = {
+	id = pirate.24
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		from = {
+			is_country_type = pirate
+			has_communications = root
+		}
+		fromfromfrom = {
+			is_ship_size = pirate_station
+			NOT = { has_fleet_flag = pirate_home_system_fleet }
+		}
+		is_country_type = default
+	}
+
+	immediate = {
+		fromfrom = { save_event_target_as = pirate_slayers }
+		if = {
+			limit = {
+				has_event_chain = "l_cluster_chain"
+				is_domesticator_or_protectorate = yes
+				fromfrom = {
+					exists = leader
+					leader = {
+						NOT = { has_trait = leader_trait_pirate_floret }
+						can_obtain_new_floret = yes
+					}
+				}
+			}
+			random_list = {
+				55 = { country_event = { id = pirate.25 } }
+				30 = {
+					country_event = {
+						id = domestication_leader.4
+						scopes = {
+							from = from
+							fromfrom = fromfrom
+							fromfromfrom = fromfromfrom
+						}
+					}
+				}
+				15 = { country_event = { id = pirate.26 } }
+			}
+		}
+		else_if = {
+			limit = {
+				is_domesticator_or_protectorate = yes
+				fromfrom = {
+					exists = leader
+					leader = {
+						NOT = { has_trait = leader_trait_pirate_floret }
+						can_obtain_new_floret = yes
+					}
+				}
+			}
+			random_list = {
+				70 = { country_event = { id = pirate.25 } }
+				30 = { country_event =
+					{
+						id = domestication_leader.4
+						scopes = {
+							from = from
+							fromfrom = fromfrom
+							fromfromfrom = fromfromfrom
+						}
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_event_chain = "l_cluster_chain" }
+			random_list = {
+				85 = { country_event = { id = pirate.25 } }
+				15 = { country_event = { id = pirate.26 } }
+			}
+		}
+		else = {
+			country_event = { id = pirate.25 }
+		}
+	}
+}
+
+# Destroyed Pirate Station
+country_event = {
+	id = pirate.25
+	title = pirate.25.name
+	picture = GFX_evt_large_explosion
+	desc = pirate.25.desc
+	show_sound = event_space_battle
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			5 = {
+				set_country_flag = massive_loot
+				modifier = {
+					factor = 1.5
+					years_passed > 80
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 100
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 120
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 140
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 160
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 180
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 200
+				}
+			}
+			15 = {
+				set_country_flag = big_loot
+				modifier = {
+					factor = 1.2
+					years_passed > 80
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 100
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 120
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 140
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 160
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 180
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 200
+				}
+			}
+			35 = {
+				set_country_flag = medium_loot
+			}
+			50 = {
+				set_country_flag = small_loot
+				modifier = {
+					factor = 0.8
+					years_passed > 80
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 100
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 120
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 140
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 160
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 180
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 200
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = massive_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 1200
+				energy = 600
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 600
+				energy = 300
+			}
+		}
+		hidden_effect = { remove_country_flag = massive_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = big_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 600
+				energy = 300
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 300
+				energy = 150
+			}
+		}
+		hidden_effect = { remove_country_flag = big_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = medium_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 360
+				energy = 200
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 180
+				energy = 100
+			}
+		}
+		hidden_effect = { remove_country_flag = medium_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = small_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 160
+				energy = 100
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 80
+				energy = 50
+			}
+		}
+		hidden_effect = { remove_country_flag = small_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = {
+			NOR = {
+				has_country_flag = massive_loot
+				has_country_flag = big_loot
+				has_country_flag = medium_loot
+				has_country_flag = small_loot
+			}
+		}
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 400
+				energy = 400
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 200
+				energy = 200
+			}
+		}
+	}
+}
+
+# Destroyed Pirate Station, Gained L-Cluster Insight
+country_event = {
+	id = pirate.26
+	title = pirate.25.name
+	picture = GFX_evt_large_explosion
+	desc = pirate.26.desc
+	show_sound = event_space_battle
+
+	is_triggered_only = yes
+
+	immediate = {
+		random_list = {
+			5 = {
+				set_country_flag = massive_loot
+				modifier = {
+					factor = 1.5
+					years_passed > 80
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 100
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 120
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 140
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 160
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 180
+				}
+				modifier = {
+					factor = 1.5
+					years_passed > 200
+				}
+			}
+			15 = {
+				set_country_flag = big_loot
+				modifier = {
+					factor = 1.2
+					years_passed > 80
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 100
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 120
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 140
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 160
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 180
+				}
+				modifier = {
+					factor = 1.2
+					years_passed > 200
+				}
+			}
+			35 = {
+				set_country_flag = medium_loot
+			}
+			50 = {
+				set_country_flag = small_loot
+				modifier = {
+					factor = 0.8
+					years_passed > 80
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 100
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 120
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 140
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 160
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 180
+				}
+				modifier = {
+					factor = 0.8
+					years_passed > 200
+				}
+			}
+		}
+	}
+
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = massive_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 1200
+				energy = 600
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 600
+				energy = 300
+			}
+		}
+		generate_lcluster_clue = yes
+		hidden_effect = { remove_country_flag = massive_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = big_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 600
+				energy = 300
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 300
+				energy = 150
+			}
+		}
+		generate_lcluster_clue = yes
+		hidden_effect = { remove_country_flag = big_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = medium_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 360
+				energy = 200
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 180
+				energy = 100
+			}
+		}
+		generate_lcluster_clue = yes
+		hidden_effect = { remove_country_flag = medium_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = { has_country_flag = small_loot }
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 160
+				energy = 100
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 80
+				energy = 50
+			}
+		}
+		generate_lcluster_clue = yes
+		hidden_effect = { remove_country_flag = small_loot }
+	}
+	option = {
+		name = EXCELLENT
+		trigger = {
+			NOR = {
+				has_country_flag = massive_loot
+				has_country_flag = big_loot
+				has_country_flag = medium_loot
+				has_country_flag = small_loot
+			}
+		}
+		if = {
+			limit = {
+				years_passed > 100
+			}
+			add_resource = {
+				minerals = 400
+				energy = 400
+			}
+		}
+		else = {
+			add_resource = {
+				minerals = 200
+				energy = 200
+			}
+		}
+		generate_lcluster_clue = yes
+	}
+}
+
+
+## Pirate Test Event
+#country_event = {
+#	id = pirate.100
+#	title = "Pirate Test"
+#	picture = GFX_evt_smugglers_in_bar
+#	desc = "What's yer poison?"
+#	show_sound = event_ship_bridge
+#
+#	trigger = {
+#		always = no
+#	}
+#
+#	option = {
+#		name = "Fleet 0"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_0 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 1"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_1 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 2"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_2 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 3"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_3 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 4"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_4 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 5"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_5 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 6"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_6 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 7"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_7 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 8"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_8 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#	option = {
+#		name = "Fleet 9"
+#		create_fleet = {
+#			name = "NAME_Pirate_Fleet"
+#			effect = {
+#				set_owner = root
+#				create_pirate_ships_9 = yes
+#				set_location = root.capital_scope
+#			}
+#		}
+#	}
+#}
+
+# Pirate station spawns on disabled starbase (HIDDEN)
+ship_event = {
+	id = pirate.70
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_ship_class = shipclass_starbase
+		exists = from
+		from = {
+			owner = { is_country_type = pirate }
+		}
+		solar_system = {
+			NOT = {
+				any_fleet_in_system = { is_ship_size = pirate_station }
+			}
+		}
+	}
+
+	immediate = {
+		solar_system = {
+			random_system_planet = { save_event_target_as = pirate_base_location }
+		}
+		create_fleet = {
+			name = "NAME_Pirate_Station"
+			effect = {
+				set_owner = from.owner
+				create_ship = {
+					name = random
+					design = "NAME_Pirate_Nest"
+					graphical_culture = "pirate_01"
+				}
+				set_location = event_target:pirate_base_location
+			}
+		}
+	}
+}
+
+# Pirates Sighted
+country_event = {
+	id = pirate.50
+	title = "pirate.50.name"
+	picture = GFX_evt_pirates_attacking_cargo
+	desc = pirate.50.a.desc
+	desc = pirate.50.b.desc
+	desc = pirate.50.c.desc
+	show_sound = event_ship_bridge
+	location = event_target:pirate_system
+
+	is_triggered_only = yes
+
+	immediate = {
+		capital_scope = {
+			solar_system = { save_event_target_as = capital_system }
+		}
+		get_pirate_species = yes
+		save_event_target_as = pirate_target
+		create_normal_pirate_country = yes
+		create_pirate_fleet = yes
+	}
+
+	option = {
+		name = pirate.50.a
+	}
+}

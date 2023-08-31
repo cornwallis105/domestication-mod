@@ -1,13 +1,63 @@
-protectorate_floret_jobs = {
+protectorate_1_floret_jobs = {
+	job_floret_per_pop = 0.0625
+}
+
+protectorate_2_floret_jobs = {
+	job_floret_per_pop = 0.1
+}
+
+protectorate_3_floret_jobs = {
 	job_floret_per_pop = 0.125
 }
 
 specialist_domprot_neighbor = {
-	icon = "gfx/interface/icons/planet_modifiers/pm_specialist_domprot_neighbor.dds"
+	icon = "gfx/interface/subjugation/specialist_perks/domprot_1_neighbor_bonuses.dds"
 	planet_crime_mult = -0.1
 	planet_pops_consumer_goods_upkeep_mult = -0.05
 }
 
 domprot_tech_influence = {
 	subject_tech_cost_mult = -0.80
+}
+
+the_evermore_domesticated_modifier = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_glitchy_matrix.dds"
+	planet_pops_consumer_goods_upkeep_mult = -0.10
+	pop_happiness = 0.05
+}
+
+domesticated_nanite_swarm_modifier = {
+	planet_buildings_cost_mult = -0.25
+	planet_building_build_speed_mult = 0.25
+	planet_jobs_engineering_research_produces_mult = 0.3
+	icon = "gfx/interface/icons/planet_modifiers/pm_nanite_world.dds"
+	icon_frame = 1
+}
+
+turtle_world_domesticator_modifier = {
+	planet_housing_mult = -0.1
+	planet_jobs_society_research_produces_mult = 0.15
+	district_mining_max = -4
+	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+	icon_frame = 1
+}
+
+xenodrugs_modifier = {
+	planet_florets_produces_mult = 0.05
+	planet_domesticators_produces_mult = 0.05
+	planet_domesticators_upkeep_mult = -0.05
+	#mult = xenodrugs_count
+}
+
+feral_overload_domestication = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_microscopic_life.dds"
+	icon_frame = 1
+	pop_happiness = 0.025
+	pop_growth_speed = 0.2
+}
+
+affini_retirement = {
+	country_leader_pool_size = 1
+	leaders_upkeep_mult = -0.2
+	leaders_cost_mult = -0.25
 }

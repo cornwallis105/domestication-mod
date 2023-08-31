@@ -1,0 +1,643 @@
+namespace = colony
+
+# Subterranean Aliens
+country_event = {
+	id = colony.53
+	title = "colony.53.name"
+	desc = {
+		trigger = {
+			NOT = { has_origin = origin_subterranean }
+		}
+		text = "colony.53.desc"
+	}
+	desc = {
+		trigger = { has_origin = origin_subterranean }
+		text = "colony.53.desc.subterranean"
+	}
+
+	is_triggered_only = yes
+
+	diplomatic = yes
+
+	picture_event_data = {
+		room = no_video_feed_room
+	}
+
+	option = {
+		name = colony.53.a
+		response_text = colony.53.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		trigger = {
+			NOT = { has_origin = origin_subterranean }
+		}
+		name = colony.53.b
+		response_text = "colony.53.b.response"
+		hidden_effect = {
+			if = {
+				limit = { is_domesticator_or_full_protectorate = yes }
+				FROM = {
+					planet_event = {
+						id = dom_underground.1
+						days = 30
+						random = 30
+					}
+					remove_planet_flag = seismic_disturbance_friendly
+				}
+			}
+			else = {
+				FROM = {
+					set_planet_flag = seismic_disturbance_friendly
+				}
+			}
+			FROM = {
+				create_subterranean_nation = { FLAG = subterranean_nation }
+			}
+		}
+		FROM = {
+			add_modifier = {
+				modifier = "subterranean_civilization"
+				days = -1
+			}
+			add_deposit = d_underground_contact_zone
+			#set_planet_flag = trade_size_increase
+		}
+	}
+	option = {
+		trigger = { has_origin = origin_subterranean }
+		name = colony.53.b
+		response_text = "colony.53.b.response.subterranean"
+		hidden_effect = {
+			if = {
+				limit = { is_domesticator_or_full_protectorate = yes }
+				FROM = {
+					planet_event = {
+						id = dom_underground.1
+						days = 30
+						random = 30
+					}
+					remove_planet_flag = seismic_disturbance_friendly
+				}
+			}
+			else = {
+				FROM = {
+					set_planet_flag = seismic_disturbance_friendly
+				}
+			}
+			FROM = {
+				create_subterranean_nation = { FLAG = subterranean_nation }
+			}
+		}
+		FROM = {
+			add_modifier = {
+				modifier = "subterranean_civilization"
+				days = -1
+			}
+			add_deposit = d_underground_contact_zone
+			#set_planet_flag = trade_size_increase
+		}
+	}
+	option = {
+		name = colony.53.c
+		response_text = colony.53.c.response
+		hidden_effect = {
+			FROM = {
+				planet_event = { id = colony.54 days = 35 random = 40 }
+			}
+		}
+	}
+}
+
+# POLLEN APHRODISIAC CHAIN #
+# Second event, offers the player the choice to nip the event chain in the bud (if they can afford it). If they do not, the first planet modifier is applied.
+planet_event = {
+	id = colony.1521
+	title = "colony.1521.name"
+	desc = "colony.1521.desc"
+	picture = GFX_evt_medieval_alien_civilization
+	location = ROOT
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+	}
+
+	trigger = {
+		owner = {
+			has_country_flag = pheromone_country
+		}
+		has_planet_flag = pheromone_planet
+		has_planet_flag = colony_event
+		num_pops > 0
+	}
+
+	option = {
+		name = REMARKABLE
+		add_modifier = {
+			modifier = "pheromoned_1"
+			days = -1
+		}
+
+		trigger = {
+      owner = { is_domesticator_or_protectorate = no }
+    }
+
+		hidden_effect = { planet_event = { id = colony.1522 days = 400 } }
+	}
+
+	option = {
+		name = colony.1521.domestication
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+
+		trigger = {
+      owner = { is_domesticator_or_protectorate = yes }
+    }
+
+		add_modifier = {
+			modifier = "pheromoned_1"
+			days = -1
+		}
+		enable_special_project = {
+			name = "POLLEN_1_PROJECT_XENODRUG"
+			location = root
+			owner = root
+		}
+		#hidden_effect = { planet_event = { id = colony.1522 days = 400 } }
+	}
+
+	option = {
+		name = colony.1521.b
+		allow = {
+			owner = {
+				resource_stockpile_compare = { resource = energy value >= 400 }
+			}
+		}
+		owner = {
+			add_resource = { energy = -400 }
+		}
+	}
+
+	option = {
+		name = colony.1521.c
+		trigger = {
+			owner = {
+				resource_stockpile_compare = { resource = energy value < 400 }
+			}
+		}
+		add_modifier = {
+			modifier = "pheromoned_1"
+			days = -1
+		}
+		hidden_effect = { planet_event = { id = colony.1522 days = 500 } }
+	}
+}
+
+#And Someone is Listening
+planet_event = {
+	id = colony.2070
+	title = "colony.2070.name"
+	desc = "colony.2070.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = colony.2070.a
+		owner = {
+			add_modifier = {
+				modifier = disinformation_protocols
+				days = -1
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				planet_event = {
+					id = xenodrug_event.2
+					days = 30
+				}
+			}
+		}
+	}
+}
+
+#But No One Listens
+planet_event = {
+	id = colony.2075
+	title = "colony.2075.name"
+	desc = "colony.2075.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = colony.2075.a
+		add_deposit = d_fungal_study_zone
+		owner = {
+			set_country_flag = fumongus_colony_complete
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				planet_event = {
+					id = xenodrug_event.2
+					days = 30
+				}
+			}
+		}
+	}
+}
+
+#Study the Mycelium Array Further
+planet_event = {
+	id = colony.2080
+	title = "colony.2080.name"
+	desc = "colony.2080.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	#Try to develop the spores
+	option = {
+		trigger = {
+			owner = { has_global_flag = fumongus_active }
+		}
+		name = colony.2080.a
+		hidden_effect = {
+			planet_event = { id = colony.2095 days = 35 random = 40  }
+		}
+	}
+	#Try to tune the network to spy on pops
+	option = {
+		trigger = {
+			owner = {
+				has_global_flag = fumongus_active
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+		}
+		name = colony.2080.b
+		hidden_effect = {
+			random_list = {
+				10 = {
+					modifier = {
+						factor = 6
+						owner = { is_egalitarian = yes }
+					}
+					modifier = {
+						factor = 3
+						owner = { has_ethic = ethic_fanatic_egalitarian }
+					}
+					planet_event = { id = colony.2085 days = 10 random = 20  }
+				}
+				90 = {
+					planet_event = { id = colony.2090 days = 35 random = 40  }
+				}
+			}
+		}
+	}
+	#If network dismantled
+	option = {
+		trigger = {
+			owner = { has_global_flag = fumongus_dismantled }
+		}
+		name = colony.2080.c
+		add_deposit = d_fungal_study_zone
+		hidden_effect = {
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				planet_event = {
+					id = xenodrug_event.2
+					days = 30
+				}
+			}
+		}
+	}
+}
+
+#Trying to grow more spores
+planet_event = {
+	id = colony.2095
+	title = "colony.2095.name"
+	desc = "colony.2095.desc"
+	picture = GFX_evt_alien_nature
+	show_sound = event_alien_nature
+	location = ROOT
+
+	is_triggered_only = yes
+
+	#Eat them
+	option = {
+		name = colony.2095.a
+		add_deposit = d_fungal_caves
+
+	}
+	#Study them
+	option = {
+		trigger = {
+			owner = { is_domesticator_or_full_protectorate = no }
+		}
+		name = colony.2095.b
+		add_deposit = d_fungal_study_zone
+	}
+
+	option = {
+		trigger = {
+			owner = { is_domesticator_or_full_protectorate = yes }
+		}
+		name = colony.2095.domestication
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		add_deposit = d_fungal_study_zone
+		hidden_effect = {
+			planet_event = {
+				id = xenodrug_event.2
+				days = 30
+			}
+		}
+	}
+}
+
+### FERAL OVERLOAD
+planet_event = {
+	id = colony.8001
+	title = "colony.8001.name"
+	desc = "colony.8001.desc"
+	picture = GFX_evt_colony_settlement
+	show_sound = event_planetary_riot
+	location = ROOT
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+	}
+
+	trigger = {
+		owner = {
+			NOT = {
+				has_ethic = ethic_gestalt_consciousness
+				has_country_flag = feral_overload_flag
+			}
+		}
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_alpine
+			is_planet_class = pc_tundra
+			is_planet_class = pc_continental
+			is_planet_class = pc_ocean
+			is_planet_class = pc_tropical
+
+		}
+		num_pops > 0
+	}
+
+	immediate = {
+		owner = {
+			set_country_flag = feral_overload_flag
+		}
+		set_planet_flag = colony_event
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = colony.8001.a
+		add_modifier = {
+			modifier = feral_overload_00
+			days = -1
+		}
+		hidden_effect = {
+			planet_event = { id = colony.8002 days = 40 random = 20 }
+		}
+	}
+
+	option = {
+		trigger = {
+			owner = { is_domesticator_or_full_protectorate = yes }
+		}
+		name = colony.8001.domestication
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		hidden_effect = {
+			begin_event_chain = {
+				event_chain = "feral_overload_chain"
+				target = ROOT
+			}
+			set_planet_flag = feral_overload_domestication
+		}
+		add_modifier = {
+			modifier = feral_overload_00
+			days = -1
+		}
+		enable_special_project = {
+			name = "INVESTIGATE_CAVE_SHROOM_PROJECT"
+			location = this
+			owner = root
+		}
+	}
+}
+
+### Choose how to respond to Cave Shrooms
+planet_event = {
+	id = colony.8004
+	title = "colony.8004.name"
+	desc = "colony.8004.desc"
+	picture = GFX_evt_gray_goo
+	show_sound = event_laboratory_sound
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = colony.8004.a
+		if = {
+			limit = {
+				has_planet_flag = feral_overload_domestication
+			}
+			enable_special_project = {
+				name = "UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION"
+				location = this
+				owner = root
+			}
+		}
+		else = {
+			enable_special_project = {
+				name = "UTILIZE_CAVE_SHROOM_PROJECT"
+				location = this
+				owner = root
+			}
+		}
+	}
+
+	option = {
+		name = colony.8004.b
+		enable_special_project = {
+			name = "EXTERMINATE_CAVE_SHROOM_PROJECT"
+			location = this
+			owner = root
+		}
+	}
+}
+
+#Nemma World
+planet_event = {
+	id = colony.9000
+	title = "colony.9000.name"
+	desc = "colony.9000.desc"
+	picture = GFX_evt_continental
+	show_sound = event_alien_nature
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+	}
+
+	trigger = {
+		num_pops > 0
+		OR = {
+			is_planet_class = pc_continental
+			is_planet_class = pc_ocean
+		}
+		NOR = {
+			any_country = { has_country_flag = turtle_world_spawned }
+			has_planet_flag = colony_event
+		}
+	}
+
+	immediate = {
+		set_planet_flag = turtle_world_colony
+		set_planet_flag = colony_event
+		owner = { set_country_flag = turtle_world_spawned }
+	}
+
+	option = {
+    trigger = {
+      owner = { is_domesticator_or_protectorate = no }
+    }
+		name = {
+			trigger = {
+				owner = { NOT = { species_portrait = rep14 } }
+			}
+			text = "colony.9000.a"
+		}
+		name = {
+			trigger = {
+				owner = { species_portrait = rep14 }
+			}
+			text = "colony.9000.a.turtle"
+		}
+
+		add_modifier = {
+			modifier = "turtle_world_modifier"
+			days = -1
+		}
+		hidden_effect = {
+			planet_event = {
+				id = colony.9005 days = 700 random = 30
+			}
+		}
+	}
+  option = {
+    trigger = {
+      owner = { is_domesticator_or_protectorate = yes }
+    }
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+    name = colony.9000.dom
+    add_modifier = {
+			modifier = "turtle_world_domesticator_modifier"
+			days = -1
+		}
+    hidden_effect = {
+			planet_event = {
+				id = domestication.35 days = 700 random = 30
+			}
+		}
+  }
+}
+
+# Insidious Ophidians
+#planet_event = {
+#	id = colony.9100
+#	title = colony.9100.name
+#	desc = colony.9100.desc
+#	picture = GFX_evt_alien_nature
+#	show_sound = event_air_raid_siren
+#	location = ROOT
+#
+#	is_triggered_only = yes
+#
+#	trigger = {
+#		original_owner = yes
+#	}
+#
+#	option = {
+#		name = colony.9100.a
+#		enable_special_project = {
+#			name = SNEK_SCIENCE_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#
+#	option = {
+#		name = colony.9100.b
+#		enable_special_project = {
+#			name = SNEK_WAR_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#
+#	option = {
+#		name = colony.9100.c
+#		trigger = {
+#			owner = { is_domesticator_or_full_protectorate = yes }
+#		}
+#		icon = {
+#			icon = GFX_domesticators_icon
+#			text = dialog_domesticator
+#		}
+#		enable_special_project = {
+#			name = SNEK_DOMESTICATION_PROJECT
+#			location = this
+#			owner = root.owner
+#		}
+#	}
+#}

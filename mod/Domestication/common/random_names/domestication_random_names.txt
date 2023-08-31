@@ -12,7 +12,10 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 1000
-			NOT = { is_specialist_subject_type = { TYPE = domprot } }
+			NOT = {
+				is_subject = yes
+				any_agreement = { has_active_specialization = specialist_domprot }
+			}
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -21,10 +24,9 @@ empire_name_format = {
 			}
 		}
 	}
-	lookups = "[This.GetSpeciesName] <domesticators>"
-	format = "format.domestic.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <domesticators>"
+	format = "{[This.GetSpeciesAdj] {<domesticators>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<domesticators>}}"
 	# Affini Compact
 }
 
@@ -43,7 +45,7 @@ empire_name_parts_list = {
 empire_name_parts_list = {
 	key = "domesticated1"
 	parts = {
-		"Protectorate" = 25
+		"Protectorate" = 30
 		"Administration" = 1
 		"Polity" = 1
 		"Coalition" = 1
@@ -74,7 +76,8 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 1000
-			is_specialist_subject_type = { TYPE = domprot }
+			is_subject = yes
+			any_agreement = { has_active_specialization = specialist_domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -83,10 +86,9 @@ empire_name_format = {
 			}
 		}
 	}
-	lookups = "[This.GetSpeciesName] <domesticated1>"
-	format = "format.domesticated.1"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "[This.GetSpeciesName] <domesticated1>"
+	format = "{[This.GetSpeciesAdj] {<domesticated1>}}"
+	adjective = "{[This.GetSpeciesAdj]}"
+	prefix_format = "{[This.GetSpeciesAdj] {<domesticated1>}}"
 	# Terran Protectorate
 }
 
@@ -95,7 +97,8 @@ empire_name_format = {
 		factor = 0
 		modifier = {
 			add = 100
-			is_specialist_subject_type = { TYPE = domprot }
+			is_subject = yes
+			any_agreement = { has_active_specialization = specialist_domprot }
 			OR = {
 				has_government = "gov_domesticator_empire"
 				has_government = "gov_domesticator_dictatorship"
@@ -104,10 +107,9 @@ empire_name_format = {
 			}
 		}
 	}
-	lookups = "<domesticated2> of [This.Capital.GetName]"
-	format = "format.domesticated.2"
-	noun = "[This.GetSpeciesName]"
-	prefix_format = "<domesticated2> of [This.Capital.GetName]"
+	format = "{AofB{<domesticated2> [This.Capital.GetName]}}"
+	prefix_format = "{AofBpfx{[This.Capital.GetName] <domesticated2>}}"
+	noun = "{[This.Capital.GetName]}"
 	# Protectorate of Sol
 }
 
@@ -128,15 +130,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -148,8 +144,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <subjugation_war_names>"
-	format = format.war.7 # [This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <subjugation_war_names>
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Subjugation - Attacker Federation
@@ -158,15 +153,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = yes
@@ -177,8 +166,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <subjugation_war_names>"
-	format = format.war.8 # [This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <subjugation_war_names>
+	format = "{war_name_vs_adj {[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Subjugation - Defender Federation
@@ -187,15 +175,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -206,8 +188,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <subjugation_war_names>"
-	format = format.war.9 # [This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <subjugation_war_names>
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <domestication_war_names>}}"
 }
 
 ### DOMESTICATION WARS
@@ -218,15 +199,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -238,8 +213,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <domestication_war_names>"
-	format = format.war.domestication.1 # "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAdj] <domestication_war_names>"
+	format = "{war_vs_adjectives {[This.MainAttacker.GetAdj] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Domestication - Attacker Federation
@@ -248,15 +222,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = yes
@@ -267,8 +235,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <domestication_war_names>"
-	format = format.war.domestication.2 # "[This.MainAttacker.GetAllianceName] - [This.MainDefender.GetAdj] <domestication_war_names>"
+	format = "{war_name_vs_adj {[This.MainAttacker.GetAllianceName] [This.MainDefender.GetAdj] <domestication_war_names>}}"
 }
 
 # Domestication - Defender Federation
@@ -277,15 +244,9 @@ war_name_format = {
 		factor = 0
 		modifier = {
 			add = 999
-			OR = {
-				using_war_goal = {
-					type = wg_subjugation
-					owner = attacker
-				}
-				using_war_goal = {
-					type = wg_megacorp_subjugate
-					owner = attacker
-				}
+			using_war_goal = {
+				type = wg_domestication
+				owner = attacker
 			}
 			attacker = {
 				has_federation = no
@@ -296,8 +257,7 @@ war_name_format = {
 			}
 		}
 	}
-	lookups = "[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <domestication_war_names>"
-	format = format.war.domestication.3 # "[This.MainAttacker.GetAdj] - [This.MainDefender.GetAllianceName] <domestication_war_names>"
+	format = "{war_adj_vs_name {[This.MainAttacker.GetAdj] [This.MainDefender.GetAllianceName] <domestication_war_names>}}"
 }
 
 ## Faction names
@@ -316,6 +276,5 @@ pop_faction_name_format = {
 			is_pop_faction_type = "domesticator_faction"
 		}
 	}
-	lookups = "<xenoist_names_1> <domesticator_names> <xenoist_names_3>"
-	format = "format.pop_faction.domesticator_faction"
+	format = "{AassocB{<xenoist_names_1> {<domesticator_names>} <xenoist_names_3>}}}"
 }

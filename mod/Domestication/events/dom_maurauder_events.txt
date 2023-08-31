@@ -1,0 +1,338 @@
+namespace = dom_marauder
+
+# Great Khan Dies?
+country_event = {
+	id = dom_marauder.1
+	title = "dom_marauder.1.name"
+	desc = "dom_marauder.1.desc"
+	picture = GFX_evt_space_funeral
+	show_sound = event_airlock
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.1.a
+	}
+}
+
+# Great Khan Domesticated (HIDDEN)
+country_event = {
+	id = dom_marauder.2
+  hide_window = yes
+
+  is_triggered_only = yes
+
+  immediate = {
+    if = {
+			limit = {
+				any_owned_leader = {
+					leader_class = admiral
+					can_obtain_new_floret = yes
+				}
+			}
+      # Place Khan with Admiral
+      country_event = { id = dom_marauder.3 }
+    }
+    else = {
+      # No admiral available
+      country_event = { id = dom_marauder.4 }
+    }
+  }
+}
+
+# Great Khan Domesticated
+country_event = {
+	id = dom_marauder.3
+	title = "dom_marauder.3.name"
+	#desc = "dom_marauder.3.desc"
+
+	desc = {
+ 		trigger = {
+ 			event_target:new_floret = { has_leader_flag = floret_is_trans }
+ 		}
+ 		text = dom_marauder.3.g.desc
+ 	}
+ 	desc = {
+ 		trigger = {
+ 			NOT = { event_target:new_floret = { has_leader_flag = floret_is_trans } }
+ 		}
+ 		text = dom_marauder.3.desc
+ 	}
+
+
+	picture = GFX_evt_interior_battle
+	show_sound = event_airlock
+
+	is_triggered_only = yes
+
+  immediate = {
+    if = {
+      limit = {
+        any_owned_leader = {
+          leader_class = admiral
+          can_obtain_new_floret = yes
+          this.solar_system = { is_same_value = event_target:khan_death_system }
+        }
+      }
+      random_owned_leader = {
+        limit = {
+          leader_class = admiral
+          can_obtain_new_floret = yes
+          this.solar_system = { is_same_value = event_target:khan_death_system }
+        }
+        save_event_target_as = new_owner
+      }
+    }
+    else = {
+      random_owned_leader = {
+        limit = {
+          leader_class = admiral
+          can_obtain_new_floret = yes
+        }
+        save_event_target_as = new_owner
+      }
+    }
+
+    event_target:great_khan_ruler = {
+      save_event_target_as = floret_template
+    }
+
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			event_target:floret_country = {
+				create_leader = {
+					name = random
+					species = event_target:raider_khanate.owner_main_species
+					class = governor
+					leader_age_min = 20
+					leader_age_max = 40
+					skill = 1
+				}
+				last_created_leader = {
+					save_global_event_target_as = great_khan_backup
+					add_trait = leader_trait_floret_immortal
+					set_name = {
+						key = "domestication.khan_floret_name_set"
+						variable_string = "[great_khan_ruler.GetName]"
+					}
+				}
+
+				create_leader = {
+					name = random
+					species = event_target:raider_khanate.owner_main_species
+					class = governor
+					leader_age_min = 20
+					leader_age_max = 40
+					skill = 1
+				}
+				last_created_leader = {
+					save_event_target_as = new_floret
+          save_global_event_target_as = great_khan_floret
+					add_trait = leader_trait_great_khan_floret
+					add_trait = leader_trait_floret_immortal
+				}
+			}
+			floret_count_increment = yes
+
+			add_trait = leader_trait_great_khan_floret
+
+			floret_check_trans_and_rename = yes
+		}
+	}
+
+	option = {
+		name = dom_marauder.3.a
+
+		hidden_effect = {
+			country_event = {
+				id = dom_marauder.12
+				days = 90
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dom_marauder.4
+	title = "dom_marauder.4.name"
+	desc = "dom_marauder.4.desc"
+	picture = GFX_evt_interior_battle
+	show_sound = event_airlock
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.4.a
+
+		hidden_effect = {
+			country_event = {
+				id = dom_marauder.12
+				days = 90
+			}
+		}
+	}
+}
+
+# Great Khan's Throne
+country_event = {
+	id = dom_marauder.5
+	title = "dom_marauder.5.name"
+	desc = "dom_marauder.5.desc"
+	picture = GFX_evt_space_walk
+	show_sound = event_ship_thrusters
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		add_relic = r_khans_throne
+	}
+}
+
+# inform others about the Domestication of the Khan
+country_event = {
+	id = dom_marauder.6
+  hide_window = yes
+
+  is_triggered_only = yes
+
+  trigger = {
+    event_target:khan_destroyer = {
+      any_owned_leader = {
+        has_trait = leader_trait_great_khan_floret
+      }
+    }
+  }
+
+  immediate = {
+		event_target:khan_destroyer = {
+	    random_owned_leader = {
+	      limit = {
+	        has_trait = leader_trait_great_khan_floret
+	      }
+	      save_event_target_as = khans_owner
+	    }
+		}
+    every_country = {
+			limit = {
+				is_ai = no
+			}
+			if = {
+				limit = {
+					is_same_value = root
+				}
+				country_event = { id = dom_marauder.7 }
+			}
+			else_if = {
+				limit = {
+					is_domesticator_or_protectorate = yes
+				}
+				country_event = { id = dom_marauder.8 }
+			}
+			else = {
+				country_event = { id = dom_marauder.9 }
+			}
+		}
+  }
+}
+
+# Domesticated Khan - Us
+country_event = {
+	id = dom_marauder.7
+	title = "dom_marauder.7.name"
+	desc = "dom_marauder.7.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_conversation
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.7.a
+	}
+}
+
+# Domesticated Khan - Allies
+country_event = {
+	id = dom_marauder.8
+	title = "dom_marauder.8.name"
+	desc = "dom_marauder.8.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_conversation
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.8.a
+	}
+}
+
+# Domesticated Khan - Others
+country_event = {
+	id = dom_marauder.9
+	title = "dom_marauder.9.name"
+	desc = "dom_marauder.9.desc"
+	picture = GFX_evt_announcement
+	show_sound = event_conversation
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.9.a
+	}
+}
+
+# Domesticated Khan Debug
+country_event = {
+	id = dom_marauder.11
+	hide_window = yes
+
+  is_triggered_only = yes
+
+	immediate = {
+
+		random_country = {
+			limit = {
+				has_origin = origin_domesticators
+			}
+			save_event_target_as = khanate_domesticator
+			random_owned_ship = {
+				limit = {
+					is_civilian = no
+					exists = fleet.leader
+				}
+				save_event_target_as = domesticator_ship
+			}
+		}
+
+		event_target:great_khan.fleet = {
+			random_owned_ship = {
+				save_event_target_as = khans_ship
+			}
+		}
+
+		event_target:raider_khanate = {
+			country_event = {
+				id = marauder.509
+				scopes = {
+					from = event_target:khanate_domesticator
+					fromfrom = event_target:khans_ship
+					fromfromfrom = event_target:domesticator_ship
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dom_marauder.12
+	title = "dom_marauder.12.name"
+	desc = "dom_marauder.12.desc"
+	picture = GFX_evt_interior_battle
+	show_sound = event_ground_battle
+
+	is_triggered_only = yes
+
+	option = {
+		name = dom_marauder.12.a
+	}
+}

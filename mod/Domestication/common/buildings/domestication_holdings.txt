@@ -4,6 +4,8 @@ holding_domestication_center = {
 	icon = building_executive_retreat
 	base_cap_amount = 1
 
+	category = amenity
+
 	potential = {
 		has_overlord_dlc = yes
 	}
@@ -32,6 +34,10 @@ holding_domestication_center = {
 		monthly_loyalty = 0.5
 	}
 
+	triggered_country_modifier = {
+		country_naval_cap_mult = 0.05
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = planet.owner
@@ -46,7 +52,7 @@ holding_domestication_center = {
 		potential = {
 			exists = planet.owner
 			planet.owner = {
-				is_hive_empire = yes
+				is_gestalt = yes
 			}
 		}
 		job_overlord_floret_drone_add = 2

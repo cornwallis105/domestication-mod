@@ -1,0 +1,90 @@
+spriteTypes = {
+  spriteType = {
+    name = "GFX_leader_trait_floret_academic"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_academic.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_admiral"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_admiral.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_ahab"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_ahab.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_attache"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_beeple"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_beeple.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_brainslug"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_brainslug_floret.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_class_o"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_class_o.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_cryopod"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cryopod.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_cutie"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cutie.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_distracted"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_distracted.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_economist"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_economist.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_great_khan"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_great_khan_floret.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_historian"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_historian.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_liaison"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_liaison.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_marauder"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_marauder.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_musician"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_musician.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_officer"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_officer.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_pirate"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_pirate.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_racket"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_racket.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_underground"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_underground.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_warform"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_warform.dds"
+  }
+  spriteType = {
+    name = "GFX_leader_trait_floret_warp_engineer"
+    texturefile = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_warp_engineer.dds"
+  }
+}

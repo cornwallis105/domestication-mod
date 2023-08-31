@@ -1,0 +1,253 @@
+namespace = domestication_promising_officer
+
+# New Admiral
+country_event = {
+	id = domestication_promising_officer.1
+	title = "leader.1.name"
+	desc = {
+		trigger = { has_authority = auth_hive_mind }
+		text = "leader.1.desc.hive"
+	}
+	desc = {
+		trigger = { has_authority = auth_machine_intelligence }
+		text = "leader.1.desc.machine"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_hive_mind
+				has_authority = auth_machine_intelligence
+			}
+		}
+		text = "leader.1.desc"
+	}
+	picture = GFX_evt_federation_fleet
+	show_sound = event_default
+	location = ROOT
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		any_owned_leader = {
+			leader_class = admiral
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			solar_system = { save_event_target_as = system }
+			random_controlled_ship = {
+				save_event_target_as = ship
+			}
+		}
+		random_list = {
+			25 = {
+				create_leader = {
+					class = admiral
+					species = owner_main_species
+					name = random
+					skill = 2
+					traits = {
+						trait = leader_trait_gale_speed
+						trait = leader_trait_aggressive
+					}
+				}
+				last_created_leader = { save_event_target_as = officer }
+			}
+			25 = {
+				create_leader = {
+					class = admiral
+					species = owner_main_species
+					name = random
+					skill = 2
+					traits = {
+						trait = leader_trait_aggressive
+						trait = leader_trait_engineer
+					}
+				}
+				last_created_leader = { save_event_target_as = officer }
+			}
+			25 = {
+				create_leader = {
+					class = admiral
+					species = owner_main_species
+					name = random
+					skill = 2
+					traits = {
+						trait = leader_trait_fleet_logistician
+						trait = leader_trait_cautious
+					}
+				}
+				last_created_leader = { save_event_target_as = officer }
+			}
+			25 = {
+				create_leader = {
+					class = admiral
+					species = owner_main_species
+					name = random
+					skill = 2
+					traits = {
+						trait = leader_trait_scout
+						trait = leader_trait_trickster
+					}
+				}
+				last_created_leader = { save_event_target_as = officer }
+			}
+		}
+
+	}
+
+	option = {
+		name = GOOD
+		custom_tooltip = new_admiral
+	}
+}
+
+country_event = {
+	id = domestication_promising_officer.2
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		any_owned_leader = {
+			leader_class = admiral
+		}
+	}
+
+	immediate = {
+    set_global_flag = no_bloom_naming
+    random_list = {
+      25 = {
+        create_leader = {
+          class = admiral
+          species = owner_main_species
+          name = random
+          skill = 2
+          #event_leader = yes
+          traits = {
+            trait = leader_trait_gale_speed
+            trait = leader_trait_aggressive
+          }
+        }
+        last_created_leader = { save_event_target_as = officer }
+      }
+      25 = {
+        create_leader = {
+          class = admiral
+          species = owner_main_species
+          name = random
+          skill = 2
+          #event_leader = yes
+          traits = {
+            trait = leader_trait_aggressive
+            trait = leader_trait_engineer
+          }
+        }
+        last_created_leader = { save_event_target_as = officer }
+      }
+      25 = {
+        create_leader = {
+          class = admiral
+          species = owner_main_species
+          name = random
+          skill = 2
+          #event_leader = yes
+          traits = {
+            trait = leader_trait_fleet_logistician
+            trait = leader_trait_cautious
+          }
+        }
+        last_created_leader = { save_event_target_as = officer }
+      }
+      25 = {
+        create_leader = {
+          class = admiral
+          species = owner_main_species
+          name = random
+          skill = 2
+          #event_leader = yes
+          traits = {
+            trait = leader_trait_scout
+            trait = leader_trait_trickster
+          }
+        }
+        last_created_leader = { save_event_target_as = officer }
+      }
+    }
+    #event_target:officer = {
+    #  set_leader_flag = event_leader_override
+    #}
+    remove_global_flag = no_bloom_naming
+		country_event = {
+			id = domestication_leader.7
+			scopes = {
+				from = event_target:officer
+			}
+		}
+
+    country_event = {
+			id = domestication_promising_officer.3
+			scopes = {
+        from = from
+        fromfrom = fromfrom
+        fromfromfrom = fromfromfrom
+				fromfromfromfrom = event_target:officer
+			}
+		}
+	}
+}
+
+# New Admiral
+country_event = {
+	id = domestication_promising_officer.3
+	title = "leader.1.name"
+	desc = {
+		trigger = { has_authority = auth_hive_mind }
+		text = "leader.1.desc.hive"
+	}
+	desc = {
+		trigger = { has_authority = auth_machine_intelligence }
+		text = "leader.1.desc.machine"
+	}
+	desc = {
+		trigger = {
+			NOR = {
+				has_authority = auth_hive_mind
+				has_authority = auth_machine_intelligence
+			}
+		}
+		text = "leader.1.desc"
+	}
+	show_sound = event_default
+	picture = GFX_evt_federation_fleet
+	location = ROOT
+
+	is_triggered_only = yes
+
+	trigger = {
+		is_country_type = default
+		any_owned_leader = {
+			leader_class = admiral
+		}
+	}
+
+	immediate = {
+		fromfromfromfrom = {
+			save_event_target_as = officer
+		}
+		FROMFROM = {
+			solar_system = { save_event_target_as = system }
+			random_controlled_ship = {
+				save_event_target_as = ship
+			}
+		}
+	}
+
+	option = {
+		name = GOOD
+		custom_tooltip = new_admiral
+	}
+}

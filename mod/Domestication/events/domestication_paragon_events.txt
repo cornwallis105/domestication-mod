@@ -1,0 +1,1118 @@
+# sounds like a champagne
+namespace = dom_paragon
+
+# Nona / xenophile2
+# A Blorg Comes Calling
+leader_event = {
+	id = dom_paragon.1
+	title = dom_paragon.1.name
+	desc = dom_paragon.1.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = root
+	}
+
+	option = {
+		name = dom_paragon.1.a
+
+    trigger = {
+      owner = {
+        any_owned_leader = {
+          leader_class = governor
+          can_obtain_new_floret = yes
+        }
+      }
+    }
+
+    hidden_effect = {
+      owner = {
+        random_owned_leader = {
+          limit = {
+            leader_class = governor
+            can_obtain_new_floret = yes
+          }
+          save_event_target_as = new_owner
+        }
+      }
+      event_target:floret_country = {
+				create_species = {
+					name = "PRESCRIPTED_species_name_blorg"
+					plural = "PRESCRIPTED_species_plural_blorg"
+					adjective = "PRESCRIPTED_species_adjective_blorg"
+					class = FUN
+					portrait = fun12
+					gender = male
+					traits = {
+						ideal_planet_class = capital_scope
+						trait = "trait_repugnant"
+						trait = "trait_solitary"
+						trait = "trait_venerable"
+						trait = "trait_nomadic"
+					}
+				}
+        create_leader = {
+          class = governor
+          species = last_created_species
+          name = "NONA_BLORG_EX_HUSBAND_NAME"
+          custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
+          randomize_traits = yes
+          event_leader = yes
+          background_ethic = ethic_xenophile
+        }
+        last_created_leader = {
+          save_event_target_as = new_floret
+          add_trait = leader_trait_blorgfriend_floret
+          add_trait = leader_trait_floret_immortal
+        }
+      }
+      owner = { country_event = { id = dom_paragon.2 } }
+    }
+
+		custom_tooltip = dom_paragon.1a.custom_tooltip
+	}
+
+  option = {
+		name = dom_paragon.1.b
+
+    trigger = {
+	      owner = {
+	        NOT = {
+	        any_owned_leader = {
+	          leader_class = governor
+	          can_obtain_new_floret = yes
+	        }
+		    }
+		  }
+		}
+
+    hidden_effect = {
+      owner = {
+        create_leader = {
+          species = this
+          name = random
+          class = governor
+          set_age = 42
+          skill = 3
+          randomize_traits = yes
+          background_ethic = ethic_xenophile
+          effect = {
+            save_event_target_as = new_owner
+          }
+        }
+				create_species = {
+	        name = "PRESCRIPTED_species_name_blorg"
+	        plural = "PRESCRIPTED_species_plural_blorg"
+	        adjective = "PRESCRIPTED_species_adjective_blorg"
+	        class = FUN
+	        portrait = fun12
+	        gender = male
+	        traits = {
+	          ideal_planet_class = capital_scope
+	          trait = "trait_repugnant"
+	          trait = "trait_solitary"
+	          trait = "trait_venerable"
+	          trait = "trait_nomadic"
+	        }
+	      }
+      }
+      event_target:floret_country = {
+        create_leader = {
+          class = governor
+          species = last_created_species
+          name = "NONA_BLORG_EX_HUSBAND_NAME"
+          custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
+          randomize_traits = yes
+          event_leader = yes
+          background_ethic = ethic_xenophile
+        }
+        last_created_leader = {
+          save_event_target_as = new_floret
+          add_trait = leader_trait_blorgfriend_floret
+          add_trait = leader_trait_floret_immortal
+        }
+      }
+      owner = { country_event = { id = dom_paragon.2 } }
+    }
+		custom_tooltip = dom_paragon.1b.custom_tooltip
+	}
+}
+
+##
+# This = country
+country_event = {
+	id = dom_paragon.2
+	title = dom_paragon.2.name
+
+	desc = dom_paragon.2.desc
+
+  picture = GFX_evt_acquire_asset
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_blorgfriend_floret
+
+			#event_target:new_floret = {
+			#	set_name = "NAME_S8751"
+			#	set_owner = event_target:floret_country
+			#}
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.2.a
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+# Baron Vyctor Jariden / militarist1
+leader_event = {
+  id = dom_paragon.3
+  is_triggered_only = yes
+  fire_only_once = yes
+  hide_window = yes
+
+  immediate = {
+		owner = { save_event_target_as = affini_compact }
+    event_target:floret_country = {
+      create_leader = {
+        name = NAME_militarist1_first_name
+        species = event_target:ethic_leader
+        gender = male
+        class = general
+        set_age = 45
+        skill = 1
+      }
+      last_created_leader = {
+        save_event_target_as = new_floret
+        add_trait = leader_trait_floret_immortal
+        add_trait = leader_trait_militarist_2_floret
+      }
+
+    }
+
+    if = {
+      limit = {
+        event_target:affini_compact = {
+          any_owned_leader = {
+            leader_class = admiral
+            can_obtain_new_floret = yes
+          }
+        }
+      }
+      event_target:affini_compact = {
+        random_owned_leader = {
+          limit = {
+            leader_class = admiral
+            can_obtain_new_floret = yes
+          }
+          save_event_target_as = new_owner
+        }
+        country_event = { id = dom_paragon.4 }
+      }
+    }
+    else = {
+      event_target:affini_compact = {
+        create_leader = {
+          species = this
+          name = random
+          class = admiral
+          set_age = 30
+          skill = 4
+          randomize_traits = yes
+          background_ethic = ethic_xenophile
+          effect = {
+            save_event_target_as = new_owner
+          }
+        }
+				country_event = { id = dom_paragon.5 }
+      }
+    }
+  }
+}
+
+# Floret Baron Vyctor - existing owner
+country_event = {
+	id = dom_paragon.4
+	title = dom_paragon.4.name
+
+	desc = dom_paragon.4.desc
+
+	picture = GFX_evt_acquire_asset
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_militarist_1_floret
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.4.a
+		trigger = {
+			always = yes
+		}
+		hidden_effect = {
+			event_target:ethic_leader = {
+				exile_leader_as = dom_militarist_2
+			}
+		}
+	}
+}
+
+
+# Floret Baron Vyctor - new leader owner
+country_event = {
+	id = dom_paragon.5
+	title = dom_paragon.5.name
+
+	desc = dom_paragon.5.desc
+
+	picture = GFX_evt_acquire_asset
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_militarist_1_floret
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.5.a
+		trigger = {
+			always = yes
+		}
+		hidden_effect = {
+			event_target:ethic_leader = {
+				exile_leader_as = dom_militarist_2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = dom_paragon.246
+	title = "distar.246.name"
+	desc = "distar.246.desc"
+	location = event_target:droppod_tar
+
+	show_sound = event_administrative_work
+	location = fromfrom
+	is_triggered_only = yes
+	picture = GFX_leader_recruitment_bg_renowned
+	event_window_type = leader_recruit
+	is_triggered_only = yes
+
+	picture_event_data = {
+		portrait = event_target:caretaker_leader_tar
+		room = ethic_spaceship_room
+	}
+
+	option = {	#Domesticate the leader
+		tag = hire_leader
+		name = DOMESTICATE
+		allow = {
+			NOR = {
+				has_policy_flag = ai_outlawed
+				has_civic = civic_fanatic_purifiers
+				has_civic = civic_hive_devouring_swarm
+			}
+		}
+		hidden_effect = {
+			event_target:droppod_tar = {
+				destroy_ambient_object = this
+			}
+			event_target:floret_country = {
+        create_leader = {
+  				name = NAME_Caretaker_first
+  				species = event_target:ethic_leader
+  				gender = indeterminable
+  				class = governor
+  				set_age = 709
+  				skill = 4
+  			}
+				last_created_leader = {
+					save_event_target_as = new_floret
+          add_trait = leader_trait_floret_immortal
+          add_trait = leader_trait_caretaker_floret
+				}
+			}
+
+			if = {
+				limit = {
+					any_owned_leader = {
+						leader_class = governor
+						can_obtain_new_floret = yes
+					}
+				}
+				random_owned_leader = {
+					limit = {
+						leader_class = governor
+						can_obtain_new_floret = yes
+					}
+					save_event_target_as = new_owner
+				}
+			}
+			else = {
+				create_leader = {
+					species = this
+					name = random
+					class = governor
+					set_age = 30
+					skill = 4
+					randomize_traits = yes
+					background_ethic = ethic_xenophile
+					effect = {
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			country_event = { id = dom_paragon.247 }
+	}
+
+	option = {	#Examine the leader
+		name = "distar.246.b"
+		trigger = {
+			NOR = {
+				has_authority = auth_machine_intelligence
+				has_policy_flag = ai_outlawed
+			}
+		}
+		tag = dismiss_leader
+		custom_tooltip = "distar.246.b.tooltip"
+		tooltip = {
+			add_monthly_resource_mult = {
+				resource = engineering_research
+				value = @tier2researchreward
+				min = @tier2researchmin
+				max = @tier2researchmax
+			}
+		}
+		hidden_effect = {
+			country_event = { id = distar.247 }
+		}
+	}
+	option = { #Destroy the leader
+		name = distar.246.d.destroy
+		custom_tooltip = "distar.246.d"
+		trigger = {
+			has_policy_flag = ai_outlawed
+		}
+		tag = dismiss_leader
+		tooltip = {
+			add_monthly_resource_mult = {
+				resource = influence
+				value = @tier1influencereward
+				min = @tier1influencemin
+				max = @tier1influencemax
+			}
+		}
+		hidden_effect = {
+			country_event = { id = distar.248 }
+		}
+	}
+	option = {
+		name = distar.246.f
+		is_dialog_only = yes
+		response_text = distar.246.f.response
+	}
+	option = {
+		name = distar.247.e
+		is_dialog_only = yes
+		response_text = distar.247.e.response
+	}
+	option = {
+		name = dom_paragon.246.dom
+		is_dialog_only = yes
+		response_text = dom_paragon.246.dom.response
+	}
+}
+
+country_event = {
+
+	id = dom_paragon.247
+	title = dom_paragon.247.name
+
+	desc = dom_paragon.247.desc
+
+	picture = GFX_evt_gladiators
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_caretaker_floret
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.247.a
+		trigger = {
+			always = yes
+		}
+	}
+
+}
+
+# On winning a ground battle.
+# (Before controller is switched)
+# This = country, leader attacker
+# From = country, planet owner
+# FromFrom = planet
+country_event = {
+	id = dom_paragon.2130
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		FROMFROM = {
+			any_ground_combat_attacker = {
+				exists = leader
+				leader = {
+					has_trait = leader_trait_militarist_2_floret
+				}
+			}
+		}
+	}
+
+	immediate = {
+		FROMFROM = {
+			every_ground_combat_attacker = {
+				if = {
+					limit = {
+						exists = leader
+						leader = {
+							has_trait = leader_trait_militarist_2_floret
+						}
+					}
+					leader = { save_event_target_as = attacking_general }
+				}
+			}
+			while = {
+				count = value:perc_of_planet_pop_liberated
+				random_owned_pop = { # Pick a pop
+					limit = {
+						planet = { is_same_value = ROOT.FROMFROM }
+					}
+					save_event_target_as = kidnapped_pop
+				}
+				ROOT = { # Pick a planet
+					reroll_random = yes
+					random_owned_planet = {
+						save_event_target_as = target_planet
+					}
+				}
+				resettle_pop = { # Kidnap pop
+					pop = event_target:kidnapped_pop
+					planet = event_target:target_planet
+				}
+			}
+		}
+	}
+}
+
+country_event = { # xenophile 1
+	id = dom_paragon.40100
+	title = "paragon.40100.name"
+	desc = "paragon.40100.desc"
+	show_sound = par_portrait_12
+	is_triggered_only = yes
+
+	picture = GFX_leader_recruitment_bg_renowned
+	auto_opens = no
+	event_window_type = leader_recruit
+	notification_event_icon = "GFX_message_leader_recruitment_lysator"
+
+	immediate = {
+		ethic_leader_creator = {
+			SPECIES_CLASS = random_non_machine # Species class, for animation purposes, example: MAM4
+			LEADER_PORTRAIT = par_renown_12 # xenophile_leader_gen # Leader portrait
+			CLASS = admiral
+			NAME = NAME_xenophile1
+			LEVEL = 4
+			GENDER = male
+			IMMORTAL = no
+			ETHIC = xenophile
+			DESC = xenophile1
+			CATCH_PHRASE = xenophile1_catch_phrase
+		}
+		last_created_leader = {
+			add_trait = subclass_admiral_tactician
+			add_trait = leader_trait_guerilla_tactics
+			add_trait = leader_trait_slipshod
+			add_trait = leader_trait_trickster
+			add_trait = leader_trait_corsair
+			set_age = 33
+		}
+	}
+
+	picture_event_data = {
+		portrait = event_target:ethic_leader
+		room = ethic_spaceship_room
+	}
+
+	option = {
+		name = DISMISS
+		tag = dismiss_leader
+		hidden_effect = {
+			remove_global_flag = xenophile_leader_1 # Put this leader back into the pool, so player could still get him
+			ethic_leader_kill_effect = yes
+			set_country_flag = dismissed_xenophile_leader_1
+		}
+	}
+	option = {
+		name = paragon.40100.a
+		response_text = paragon.40100.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = paragon.40100.b
+		response_text = paragon.40100.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = paragon.40100.c
+		response_text = paragon.40100.c.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = paragon.40100.d
+		response_text = paragon.40100.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = dom_paragon.40100.e
+		response_text = dom_paragon.40100.e.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = DOMESTICATE
+		tag = hire_leader
+		custom_tooltip = dom_paragon.40100.hire_custom_tooltip
+		hidden_effect = {
+			event_target:floret_country = {
+        create_leader = {
+  				name = NAME_xenophile1_first
+  				species = event_target:ethic_leader
+  				gender = male
+  				class = admiral
+  				set_age = 33
+  				skill = 1
+  			}
+				last_created_leader = {
+					save_event_target_as = new_floret
+          add_trait = leader_trait_floret_immortal
+          add_trait = leader_trait_xenophile_1_floret
+				}
+			}
+
+			remove_country_flag = spawning_renowned_leader
+
+			if = {
+				limit = {
+					any_owned_leader = {
+						leader_class = admiral
+						can_obtain_new_floret = yes
+					}
+				}
+				random_owned_leader = {
+					limit = {
+						leader_class = admiral
+						can_obtain_new_floret = yes
+					}
+					save_event_target_as = new_owner
+				}
+			}
+			else = {
+				create_leader = {
+					species = this
+					name = random
+					class = admiral
+					set_age = 30
+					skill = 4
+					randomize_traits = yes
+					background_ethic = ethic_xenophile
+					effect = {
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			country_event = { id = dom_paragon.40101 }
+		}
+	}
+}
+
+country_event = {
+
+	id = dom_paragon.40101
+	title = dom_paragon.40101.name
+
+	desc = dom_paragon.40101.desc
+
+	picture = GFX_evt_salute
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_xenophile_1_floret
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.40401.a
+		trigger = {
+			always = yes
+		}
+	}
+
+}
+
+# Nona / xenophile2
+# A Blorg Comes Calling
+leader_event = {
+	id = dom_paragon.40220
+	title = paragon.40220.name
+	desc = paragon.40220.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = root
+	}
+
+	option = {
+		name = paragon.40220.a
+		owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier3materialreward
+				min = @tier3materialmin
+				max = @tier3materialmax
+			}
+			hidden_effect = {
+				create_species = {
+					name = "PRESCRIPTED_species_name_blorg"
+					plural = "PRESCRIPTED_species_plural_blorg"
+					adjective = "PRESCRIPTED_species_adjective_blorg"
+					class = FUN
+					portrait = fun12
+					gender = male
+					traits = {
+						ideal_planet_class = capital_scope
+						trait = "trait_repugnant"
+						trait = "trait_solitary"
+						trait = "trait_venerable"
+						trait = "trait_nomadic"
+					}
+				}
+				create_leader = {
+					species = last_created_species
+					name = "NONA_BLORG_EX_HUSBAND_NAME"
+					custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
+					class = governor
+					set_age = 42
+					skill = 3
+					randomize_traits = yes
+					background_ethic = ethic_xenophile
+					effect = {
+						save_event_target_as = keram_the_blorg
+					}
+				}
+				event_target:keram_the_blorg = {
+					add_trait_no_notify = leader_trait_mining_focus
+					add_trait_no_notify = leader_trait_substance_abuser
+					add_trait_no_notify = leader_trait_melancholic
+					set_owner = prev
+				}
+				hire_event_leader_message = {
+					LEADER = keram_the_blorg
+				}
+			}
+		}
+		custom_tooltip = paragon.40220.a.custom_tooltip
+	}
+
+	option = {
+		name = paragon.40220.b
+	}
+}
+
+# Baron Vyctor Jariden / militarist1
+# Free of His Burdens
+leader_event = {
+	id = dom_paragon.40310
+	title = paragon.40310.name
+	desc = paragon.40310.desc
+	picture = GFX_evt_atmospheric_flight
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = root
+	}
+
+	option = {
+		name = paragon.40310.a
+		this = {
+			remove_all_negative_traits = yes
+			add_experience = 5000
+		}
+	}
+}
+
+# Baron Vyctor Jariden / militarist1
+# Outspoken Expansionist
+leader_event = {
+	id = dom_paragon.40320
+	title = paragon.40320.name
+	desc = paragon.40320.desc
+	picture = GFX_evt_alien_propaganda
+	show_sound = par_portrait_01
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = root
+	}
+
+	option = {
+		name = paragon.40320.a
+		owner = {
+			add_modifier = { modifier = vyctor_aggressive_expansion_plan years = 10 }
+		}
+	}
+
+	option = {
+		name = paragon.40320.b
+		owner = {
+			add_modifier = { modifier = vyctor_improved_fleet_logistics years = 10 }
+		}
+	}
+}
+
+country_event = { # militarist 2
+	id = dom_paragon.40400
+	title = "paragon.40400.name"
+	desc = "paragon.40400.desc"
+	show_sound = par_portrait_02
+	is_triggered_only = yes
+
+	picture = GFX_leader_recruitment_bg_renowned
+	auto_opens = no
+	notification_event_icon = "GFX_message_leader_recruitment_giazumon"
+
+	event_window_type = leader_recruit
+
+	immediate = {
+		ethic_leader_creator = {
+			SPECIES_CLASS = random_non_machine
+			LEADER_PORTRAIT = par_renown_02 #militarist_leader_gen
+			CLASS = general
+			NAME = NAME_militarist2
+			LEVEL = 4
+			GENDER = female
+			IMMORTAL = no
+			ETHIC = militarist
+			DESC = militarist2
+			CATCH_PHRASE = militarist2_catch_phrase
+		}
+		last_created_leader = {
+			add_trait = subclass_general_invader
+			add_trait = leader_trait_pilferer
+			add_trait = leader_trait_disorganized
+			add_trait = leader_trait_butcher_2
+			add_trait = leader_trait_kidnapper
+			set_age = 28
+		}
+	}
+
+	picture_event_data = {
+		portrait = event_target:ethic_leader
+		room = ethic_spaceship_room
+	}
+
+	option = {
+		name = DISMISS
+		tag = dismiss_leader
+		hidden_effect = {
+			remove_global_flag = militarist_leader_2
+			ethic_leader_kill_effect = yes
+			set_country_flag = dismissed_militarist_leader_2
+		}
+	}
+	option = {
+		name = paragon.40400.a
+		response_text = paragon.40400.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = paragon.40400.b
+		response_text = paragon.40400.b.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = paragon.40400.c
+		response_text = paragon.40400.c.response
+		is_dialog_only = yes
+	}
+  option = {
+		name = dom_paragon.40400.d
+		response_text = dom_paragon.40400.d.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = DOMESTICATE
+		tag = hire_leader
+		custom_tooltip = dom_paragon.40400.hire_custom_tooltip
+		hidden_effect = {
+			random_owned_planet = {
+				limit = {
+					is_variable_set = paragon_memory_vault
+				}
+				change_variable = {
+					which = paragon_memory_vault
+					value = 1
+				}
+			}
+
+			lower_leader_chance = yes
+			set_country_flag = spawning_renowned_leader
+
+			event_target:floret_country = {
+        create_leader = {
+  				name = NAME_militarist2
+  				species = event_target:ethic_leader
+  				gender = female
+  				class = general
+  				set_age = 28
+  				skill = 1
+  			}
+				last_created_leader = {
+					save_event_target_as = new_floret
+          add_trait = leader_trait_floret_immortal
+          add_trait = leader_trait_militarist_2_floret
+				}
+			}
+
+			remove_country_flag = spawning_renowned_leader
+
+			if = {
+				limit = {
+					any_owned_leader = {
+						leader_class = general
+						can_obtain_new_floret = yes
+					}
+				}
+				random_owned_leader = {
+					limit = {
+						leader_class = general
+						can_obtain_new_floret = yes
+					}
+					save_event_target_as = new_owner
+				}
+			}
+			else = {
+				create_leader = {
+					species = this
+					name = random
+					class = general
+					set_age = 30
+					skill = 4
+					randomize_traits = yes
+					background_ethic = ethic_xenophile
+					effect = {
+						save_event_target_as = new_owner
+					}
+				}
+			}
+			country_event = { id = dom_paragon.40401 }
+		}
+	}
+}
+
+country_event = {
+
+	id = dom_paragon.40401
+	title = dom_paragon.40401.name
+
+	desc = dom_paragon.40401.desc
+
+	picture = GFX_evt_gladiators
+	show_sound = event_default
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	event_window_type = leader_story
+	event_picture_background = "GFX_leader_recruitment_bg_renowned"
+
+	picture_event_data = {
+		portrait = event_target:new_floret
+	}
+
+	hide_window = no
+	is_triggered_only = yes
+
+	trigger = {
+		is_domesticator_or_protectorate = yes
+		# scientist has < 2 florets
+	}
+
+	immediate = {
+		event_target:new_owner = {
+			## Up to 2 florets - for the moment
+			floret_count_increment = yes
+
+			add_trait = leader_trait_militarist_2_floret
+
+			owner = {
+				floret_rename_single = yes
+			}
+		}
+	}
+
+	option = {
+		name = dom_paragon.40401.a
+		trigger = {
+			always = yes
+		}
+	}
+
+}

@@ -1,0 +1,291 @@
+special_project = {
+	key = "DOMESTICATE_THE_SWARM"
+	days_to_research = 300
+	timelimit = -1
+	picture = "GFX_evt_gray_goo"
+	icon = "gfx/interface/icons/situation_log/situation_log_ai.dds"
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+	}
+	on_success = {
+		ship_event = { id = domestication.34 }
+	}
+	desc = {
+		trigger = { owner.capital_scope = { is_artificial = yes }  }
+		text = DOMESTICATE_THE_SWARM_DESC_ARTIFICIAL
+	}
+	desc = {
+		trigger = { owner.capital_scope = { is_artificial = no }  }
+		text = DOMESTICATE_THE_SWARM_DESC
+	}
+}
+
+special_project = {
+	key = "study_turtle_world_domestication_project"
+	days_to_research = 180
+	tech_department = society_technology
+	timelimit = -1
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = planet_event
+	on_success = {
+		planet_event = { id = domestication.36 }
+	}
+}
+
+special_project = {
+	key = "cotyledon_turtle_world_project"
+	cost = 2000
+	tech_department = society_technology
+	timelimit = -1
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+	event_scope = planet_event
+	on_success = {
+		planet_event = { id = domestication.37 }
+	}
+}
+
+special_project = {
+	key = SNEK_DOMESTICATION_PROJECT
+	cost = 1500
+	tech_department = society_technology
+	timelimit = -1
+	picture = GFX_evt_alien_nature
+	icon = "gfx/interface/icons/situation_log/situation_log_tick.dds"
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = { id = domestication.39 }
+	}
+}
+
+special_project = {
+	key = "MESSENGER_POD_PROJECT_2_UNLEASHED"
+	cost = 500
+	#days_to_research = 60
+	tech_department = society_technology
+	picture = GFX_evt_genetic_modification
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+	location = no
+
+	event_scope = planet_event
+
+	requirements = {
+		leader = scientist
+		#skill = 2
+		is_founder_species = yes
+	}
+
+	on_success = {
+		if = {
+			limit = { owner = { is_domesticator = no } }
+			owner = { country_event = { id = akx.9210 } }
+		}
+		else = {
+			#owner = { country_event = {  } }
+		}
+	}
+
+	on_fail = {
+	}
+}
+
+
+special_project = {
+	key = "MESSENGER_POD_PROJECT_2_LEASHED"
+	cost = 500
+	#days_to_research = 60
+	tech_department = society_technology
+	picture = GFX_evt_genetic_modification
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+	location = no
+
+	event_scope = planet_event
+
+	requirements = {
+		leader = scientist
+		#is_researching_area = society
+		#skill = 2
+		is_founder_species = yes
+	}
+
+	on_success = {
+		owner = { country_event = { id = akx.9220 } }
+	}
+
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "POLLEN_1_PROJECT_XENODRUG"
+	#cost = 0
+	days_to_research = 180
+	tech_department = society_technology
+	timelimit = 1080
+	picture = GFX_evt_alien_planet
+	icon = "gfx/interface/icons/situation_log/situation_log_quest.dds"
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_science_ship = 1
+		leader = scientist
+		#skill = 2
+	}
+
+	on_success = {
+		from = { planet_event = { id = xenodrug_event.1 } }
+	}
+}
+
+special_project = {
+	key = "hallucinogen_xenodrug_research"
+	cost = 1500
+	tech_department = society_technology
+	picture = GFX_evt_ship_in_orbit
+	icon = "gfx/interface/icons/situation_log/situation_log_debris.dds"
+
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = { id = xenodrug_event.3 }
+	}
+}
+
+special_project = {
+	key = "UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION"
+	event_chain = "feral_overload_chain"
+	cost = 500
+	tech_department = society_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_analyzing_artifacts
+
+	event_scope = planet_event
+
+	on_success = {
+		log_error = "xenodrug_UTILIZE_CAVE_SHROOM_PROJECT"
+		planet_event = { id = xenodrug_event.4 }
+	}
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "EXTERMINATE_CAVE_SHROOM_PROJECT_DOMESTICATION"
+	event_chain = "feral_overload_chain"
+	cost = 500
+	tech_department = engineering_technology
+	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
+	picture = GFX_evt_nuclear_explosion
+
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = { id = xenodrug_event.6 }
+	}
+
+	on_fail = {
+	}
+}
+
+special_project = {
+	key = "STOP_ROGUE_SCIENTIST_WAR"
+	days_to_research = 180
+	timelimit = 1080
+	picture = GFX_evt_ground_combat
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_transport = 6
+		leader = general
+	}
+
+	on_success = {
+		owner = {
+			country_event = {
+				id = dom_contact.1
+		  }
+		}
+
+	}
+
+	on_fail = {
+		event_target:pre_ftl_planet = {
+			random_list = {
+				33 = {
+					# Planet Depopulated
+					planet_event = {
+						id = observation.1401
+					}
+					modifier = {
+						factor = 0.5
+						owner = {
+							is_militarist = no
+						}
+					}
+				}
+				33 = {
+					# Planet Uninhabitable
+					planet_event = {
+						id = observation.1403
+					}
+					modifier = {
+						factor = 0.5
+						owner = {
+							is_militarist = no
+						}
+					}
+				}
+				33 = {
+					# Pre-FTLs regress to Stone Age
+					planet_event = {
+						id = observation.1405
+					}
+				}
+			}
+		}
+	}
+}
+
+special_project = {
+	key = "SUPPRESS_PRE_FTL_REBELLION"
+	days_to_research = 180
+	picture = GFX_evt_ground_combat
+
+	event_scope = ship_event
+
+	requirements = {
+		shipclass_transport = 6
+		leader = general
+	}
+
+	on_success = {
+		owner = {
+			country_event = {
+				id = dom_contact.2
+		  }
+		}
+	}
+}
+
+special_project = {
+	key = "REVIVE_PLAGUE_SPECIES"
+	cost = 5000
+	tech_department = society_technology
+	picture = GFX_evt_society_research
+
+	event_scope = planet_event
+
+	on_success = {
+		planet_event = {
+			id = dom_pre_ftl.46
+	  }
+	}
+}

@@ -11,12 +11,18 @@ specialist_domprot = {
 			target = { is_xenophile = yes }
 		}
 		loyalty_change = 5
+		ai_acceptance = {
+			subject = 30
+		}
 	}
 	triggered_loyalty_change = {
 		trigger = {
 			target = { is_xenophobe = yes }
 		}
 		loyalty_change = -20
+		ai_acceptance = {
+			subject = -100
+		}
 	}
 	activate_effect = {
 		convert_to_specialist = specialist_domprot

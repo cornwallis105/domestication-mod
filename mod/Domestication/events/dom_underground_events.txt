@@ -1,0 +1,467 @@
+namespace = dom_underground
+
+# Subterranean Domestication Project
+planet_event = {
+	id = dom_underground.1
+	title = "dom_underground.1.name"
+	desc = "dom_underground.1.desc"
+	picture = GFX_evt_underground_city
+	show_sound = event_pre_ftl_civilization
+	location = ROOT
+	trackable = yes
+
+	is_triggered_only = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		is_capital = no
+	}
+
+	trigger = {
+		num_pops > 0
+    owner = {
+      is_domesticator_or_full_protectorate = yes
+    }
+    has_modifier = "subterranean_civilization"
+	}
+
+	option = {
+		name = "dom_underground.1.a"
+
+		hidden_effect = {
+      set_planet_flag = subterranean_domestication
+		}
+    owner = {
+      start_situation = {
+        type = situation_subterranean_domestication
+        target = root
+        effect = {
+          #set_situation_flag = domestication_diplomatic
+          set_situation_approach = approach_domestication
+        }
+      }
+    }
+	}
+  option = {
+    name = "dom_underground.1.c"
+    hidden_effect = {
+      set_planet_flag = seismic_disturbance_friendly
+    }
+  }
+}
+
+# Domestication finished - Successful
+situation_event = {
+  id = dom_underground.2
+  title = "dom_underground.2.name"
+  desc = "dom_underground.2.desc"
+  picture = GFX_evt_striking_a_deal
+  show_sound = event_pre_ftl_civilization
+
+  is_triggered_only = yes
+
+  immediate = {
+    random_country = {
+      limit = {
+        is_country_type = adversary
+        has_country_flag = subterranean_nation
+      }
+      owner_species = { save_event_target_as = subterranean_species_3 }
+    }
+
+    target = {
+      set_planet_flag = subterranean_domestication_complete
+    }
+  }
+
+  option = {
+    name = "dom_underground.2.a"
+
+    target = {
+      while = {
+        count = 8
+        create_pop = {
+          species = event_target:subterranean_species_3
+        }
+      }
+      remove_deposit = d_underground_farm_blocked
+      remove_deposit = d_underground_mine_blocked
+      remove_deposit = d_underground_generator_blocked
+      add_deposit = d_underground_farm
+      add_deposit = d_underground_mine
+      add_deposit = d_underground_generator
+      add_district = district_city
+      add_district = district_generator
+      add_district = district_mining
+      add_district = district_farming
+    }
+  }
+	after = { destroy_situation = this }
+}
+
+# Domestication finished - Failure
+situation_event = {
+  id = dom_underground.3
+  title = "dom_underground.3.name"
+  desc = "dom_underground.3.desc"
+  picture = GFX_evt_underground_city
+  show_sound = event_pre_ftl_civilization
+
+  is_triggered_only = yes
+
+  option = {
+    name = "dom_underground.3.a"
+  }
+}
+
+# Stage events
+situation_event = {
+	id = dom_underground.4
+	hide_window = yes
+
+	is_triggered_only = yes
+
+  immediate = {
+    random_list = {
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = sub_dom_tunnel_collapse
+        }
+        situation_event = { id = dom_underground.5 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = sub_dom_famine
+        }
+        situation_event = { id = dom_underground.6 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = sub_dom_xeno_anthropology
+        }
+        situation_event = { id = dom_underground.7 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = sub_dom_gift
+        }
+        situation_event = { id = dom_underground.8 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          OR = {
+            has_situation_flag = sub_dom_arms
+            situation_progress < 90
+          }
+        }
+        situation_event = { id = dom_underground.9 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          OR = {
+            has_situation_flag = sub_dom_refugees
+            situation_progress < 90
+          }
+        }
+        situation_event = { id = dom_underground.10 }
+      }
+    }
+  }
+}
+
+situation_event = {
+  id = dom_underground.5
+  title = "dom_underground.5.name"
+  desc = "dom_underground.5.desc"
+  picture = GFX_evt_underground_civilization
+	show_sound = event_air_raid_siren
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_tunnel_collapse
+    target = { add_planet_devastation = 5 }
+	}
+
+	option = {
+		name = dom_underground.5.a
+    custom_tooltip = dom_underground.5.a.tooltip
+		tooltip = {
+			target = { add_planet_devastation = 5 }
+		}
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_tunnel_collapse_mitigation
+    }
+	}
+	option = {
+		name = dom_underground.5.b
+    custom_tooltip = dom_underground.5.b.tooltip
+		tooltip = {
+			target = { add_planet_devastation = 5 }
+		}
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_tunnel_collapse_engineering
+    }
+	}
+}
+
+situation_event = {
+  id = dom_underground.6
+  title = "colony.69.name"
+  desc = "dom_underground.6.desc"
+  picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_famine
+	}
+
+	option = {
+		name = dom_underground.6.a
+    custom_tooltip = dom_underground.6.a.tooltip
+
+    allow = {
+			owner = {
+				resource_stockpile_compare = { resource = food value >= 50 }
+			}
+		}
+		owner = {
+			add_resource = { food = -50 }
+		}
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_famine_shipment
+    }
+	}
+	option = {
+		name = dom_underground.6.b
+    custom_tooltip = dom_underground.6.b.tooltip
+
+    allow = {
+			owner = {
+				resource_stockpile_compare = { resource = minerals value >= 100 }
+			}
+		}
+		owner = {
+			add_resource = { minerals = -100 }
+		}
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_famine_groceries
+    }
+	}
+  option = {
+		name = colony.69.b
+    custom_tooltip = dom_underground.6.c.tooltip
+
+    add_situation_progress = -10
+
+    hidden_effect = {
+      #set_situation_flag = sub_dom_famine_groceries
+    }
+	}
+}
+
+situation_event = {
+  id = dom_underground.7
+  title = "colony.72.name"
+  desc = "dom_underground.7.desc"
+  picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_xeno_anthropology
+	}
+
+	option = {
+		name = dom_underground.7.a
+    custom_tooltip = dom_underground.7.a.tooltip
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_xeno_anth_research
+    }
+	}
+	option = {
+		name = dom_underground.7.b
+    custom_tooltip = dom_underground.7.b.tooltip
+
+    add_situation_progress = 10
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_xeno_anth_cotyledon
+    }
+	}
+  option = {
+		name = dom_underground.7.c
+    custom_tooltip = dom_underground.7.c.tooltip
+
+	}
+}
+
+situation_event = {
+  id = dom_underground.8
+  title = "colony.70.name"
+	desc = {
+		trigger = {
+			NOT = {
+				owner = { has_origin = origin_subterranean }
+			}
+		}
+		text = "dom_underground.8.desc"
+	}
+	desc = {
+		trigger = {
+			owner = { has_origin = origin_subterranean }
+		}
+		text = "dom_underground.8.desc.subterranean"
+	}
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+	location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_gift
+	}
+
+	option = {
+		name = dom_underground.8.a
+    #custom_tooltip = dom_underground.8.a.tooltip
+
+    target.owner = {
+			add_monthly_resource_mult = {
+				resource = minerals
+				value = @tier1materialreward
+				min = @tier1materialmin
+				max = @tier1materialmax
+			}
+		}
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_gift_accepted
+    }
+	}
+	option = {
+		name = dom_underground.8.b
+    custom_tooltip = dom_underground.8.b.tooltip
+
+    add_situation_progress = 10
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_gift_invested
+    }
+	}
+}
+
+situation_event = {
+  id = dom_underground.9
+  title = "colony.74.name"
+	desc = "dom_underground.9.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+	location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_arms
+	}
+
+	option = {
+		name = dom_underground.9.a
+    custom_tooltip = dom_underground.9.a.tooltip
+
+    add_situation_progress = -10
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_arms_non_lethal
+    }
+	}
+	option = {
+		name = dom_underground.9.b
+    custom_tooltip = dom_underground.9.b.tooltip
+
+    add_situation_progress = -10
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_arms_civilian
+    }
+	}
+  option = {
+		name = dom_underground.9.c
+    custom_tooltip = dom_underground.9.c.tooltip
+
+    add_situation_progress = -20
+	}
+}
+
+situation_event = {
+  id = dom_underground.10
+  title = "dom_underground.10.name"
+	desc = "dom_underground.10.desc"
+  picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+	location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = sub_dom_refugees
+
+		random_country = {
+			limit = {
+				is_country_type = adversary
+				has_country_flag = subterranean_nation
+			}
+			owner_species = { save_event_target_as = subterranean_species_2 }
+		}
+	}
+
+	option = {
+		name = dom_underground.10.a
+    custom_tooltip = dom_underground.10.a.tooltip
+
+    add_situation_progress = -20
+    target = {
+      create_pop = {
+        species = event_target:subterranean_species_2
+        ethos = {
+          ethic = "ethic_xenophile"
+        }
+      }
+    }
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_refugees_extradite
+    }
+	}
+	option = {
+		name = dom_underground.10.b
+    custom_tooltip = dom_underground.10.b.tooltip
+
+    add_situation_progress = -10
+
+    hidden_effect = {
+      set_situation_flag = sub_dom_refugees_security
+    }
+	}
+}

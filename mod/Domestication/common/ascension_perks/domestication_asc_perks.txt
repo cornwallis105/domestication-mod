@@ -1,8 +1,9 @@
 ap_benefic_acquisition = {
 	potential = {
 		host_has_dlc = "Apocalypse"
-		NOT = {
+		NOR = {
 			has_ascension_perk = ap_nihilistic_acquisition
+			has_ascension_perk = ap_benefic_acquisition
 		}
     # only allowing this for full domesticators, not protectorates
 		is_domesticator = yes
@@ -20,5 +21,47 @@ ap_benefic_acquisition = {
 	ai_weight = {
     # in theory, AI should never even get this far since they can't be domesticators in the first place
 		factor = 0
+	}
+}
+
+ap_cosmic_inevitability = {
+	potential = {
+		NOT = {
+			has_ascension_perk = ap_cosmic_inevitability
+		}
+		is_domesticator = yes
+	}
+
+	modifier = {
+		country_base_energy_produces_add = 500
+		country_base_minerals_produces_add = 250
+		country_base_food_produces_add = 250
+		country_base_consumer_goods_produces_add = 150
+		country_base_alloys_produces_add = 150
+		country_base_unity_produces_add = 100
+		country_base_physics_research_produces_add = 100
+		country_base_society_research_produces_add = 100
+		country_base_engineering_research_produces_add = 100
+		all_technology_research_speed = 0.05
+		country_naval_cap_add = 100
+		country_starbase_capacity_add = 2
+		country_base_influence_produces_add = 1
+	}
+
+	possible = {
+		is_domesticator = yes
+	}
+
+	ai_weight = {
+    # in theory, AI should never even get this far since they can't be domesticators in the first place
+		factor = 100
+		modifier = {
+			factor = 5
+			has_origin = origin_domesticators
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_origin = origin_domesticators }
+		}
 	}
 }

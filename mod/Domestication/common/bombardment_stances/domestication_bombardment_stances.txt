@@ -1,19 +1,6 @@
-raiding = {
+floretrescue = {
 	trigger = {
-		OR = {
-			owner = { has_ascension_perk = ap_nihilistic_acquisition }
-			owner = { has_valid_civic = civic_barbaric_despoilers }
-      owner = { has_ascension_perk = ap_benefic_acquisition }
-			AND = {
-				owner = { is_country_type = enclave_mercenary }
-				controller = {
-					OR = {
-						has_ascension_perk = ap_nihilistic_acquisition
-						has_valid_civic = civic_barbaric_despoilers
-					}
-				}
-			}
-		}
+		owner = { has_ascension_perk = ap_benefic_acquisition }
 	}
 
 	default = no
@@ -21,13 +8,13 @@ raiding = {
 	stop_when_armies_dead = no
 	abduct_pops = yes
 
-	planet_damage = 1.0
-	army_damage = 0.5
+	planet_damage = 0.75
+	army_damage = 1.0
 
 	kill_pop_chance = {
-		base = 1.0
+		base = 0.33
 	}
-	min_pops_to_kill_pop = 2
+	min_pops_to_kill_pop = 11
 
 	# root = fleet
 	# from = planet
@@ -37,7 +24,13 @@ raiding = {
 			factor = 0
 			exists = from
 			from = {
-				owner = { NOT = { is_hostile = root.owner } }
+				OR = {
+					num_pops < 11
+					owner = { NOT = { is_hostile = root.owner } }
+				}
+			}
+			NOT = {
+				owner = { has_origin = origin_domesticators }
 			}
 		}
 		modifier = {
@@ -46,6 +39,13 @@ raiding = {
 			from = {
 				owner = { has_claim = root.solar_system }
 			}
+			NOT = {
+				owner = { has_origin = origin_domesticators }
+			}
+		}
+		modifier = {
+			factor = 100
+			owner = { has_origin = origin_domesticators }
 		}
 	}
 }

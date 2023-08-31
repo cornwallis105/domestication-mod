@@ -12,13 +12,40 @@ MUSHROOM PICKING
   - Maybe not as much to do here as I thought.
 
 DEFECTING MARAUDER
-  - Place them with a loving owner rather than making them a leader.
+  X Place them with a loving owner rather than making them a leader.
   - Try to do similar stuff for other free leader events.
     - Servants From Sand anomaly
     - Caretaker bot
-    - Warframe
+    X That free scientist lady
+
+HORIZON SIGNAL
+  - Domesticate the Worm!
+    - During event climax, give option (or mandatory?) to contact formerly disappeared scientist, who will domesticate
+      the Worm through force of will
+    - Also, learn spooky new things about domestication, how domestication to a particular affini is written
+      into a floret's DNA.
+    - THE POD THE POD THE POD THE POD
 
 PROTECTORATES TO-DO LIST:
 
 FLORETS:
-  - Rework Pirate floret - work into "Pirate Station Raided" event
+  - Reduce Floret job priority when pop is:
+    - Not implanted
+    - Implants are researched
+    - Fewer than 2/3 non-implanted non-Affini pops on planet
+  - DONE!
+
+MEGAFAUNA:
+  - Titanic Life
+  - The Living Sea (distar.191)
+  X The Sentinels (ancrel.4059)
+  - Tiyana Vek / Tiyanki
+  - Amor Alveo / Space Amoebas
+  - Mining drones / Crystals / Void Clouds
+  X Nemmas! (Giant Sea Turtles!) (colony.9000)
+
+
+XENODRUGS:
+  - Dancing Plague
+  - Mushroom Picking
+  - Mharin Kharin: Floral Fascination

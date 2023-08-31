@@ -1,0 +1,475 @@
+namespace = anomaly
+
+# Cryopod alien warrior dialogue
+country_event = {
+	id = anomaly.4158
+	title = "anomaly.4157.name"
+	diplomatic_title = BLANK_STRING
+	desc = "anomaly.4158.desc"
+	location = event_target:HomePlanet
+
+	is_triggered_only = yes
+	diplomatic = yes
+
+	picture_event_data = {
+		portrait = event_target:AlienWarriorSpecies
+		planet_background = event_target:HomePlanet
+		graphical_culture = event_target:HomePlanet
+		city_level = event_target:HomePlanet
+		room = event_target:AlienWarriorSpecies.ruler
+	}
+
+	option = {
+		name = anomaly.4158.a
+		response_text = anomaly.4158.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = anomaly.4158.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.militant.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.spiritual.b
+		response_text = anomaly.4158.b.response
+		is_dialog_only = yes
+		trigger = {
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_militarist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4158.c
+		response_text = anomaly.4158.c.response
+		is_dialog_only = yes
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+	}
+	option = {
+		name = anomaly.4157.domestication
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		trigger = {
+			is_domesticator_or_full_protectorate = yes
+			any_owned_leader = {
+				leader_class = governor
+				NOT = { has_trait = leader_trait_cryopod_floret }
+				can_obtain_new_floret = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = domestication_leader.24 }
+		}
+	}
+	option = { # Rejecting
+		name = anomaly.4158.d
+		trigger = {
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_pacifist
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4161 }
+		}
+	}
+	option = { # Joins you
+		name = anomaly.4158.d
+		trigger = {
+			OR = {
+				has_country_flag = suspected_angels
+				NOT = {
+					has_country_flag = suspected_assholes
+				}
+			}
+			OR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_pacifist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_fanatic_xenophobe
+				has_ethic = ethic_xenophobe
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4160 }
+		}
+	}
+	option = { # Kills researcher
+		name = anomaly.4158.d
+		trigger = {
+			OR = {
+				has_country_flag = suspected_assholes
+				NOT = {
+					has_country_flag = suspected_angels
+				}
+			}
+			OR = {
+				has_ethic = ethic_fanatic_militarist
+				has_ethic = ethic_fanatic_materialist
+			}
+			NOR = {
+				has_ethic = ethic_fanatic_spiritualist
+				has_ethic = ethic_spiritualist
+				has_ethic = ethic_fanatic_pacifist
+				has_ethic = ethic_pacifist
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4162 }
+		}
+	}
+
+	option = {
+		name = anomaly.4158.f
+		trigger = {
+			NOT = {
+				has_ethic = ethic_fanatic_xenophobe
+			}
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4163 }
+		}
+	}
+	option = {
+		name = anomaly.4158.xenophobe.f
+		trigger = {
+			has_ethic = ethic_fanatic_xenophobe
+		}
+		hidden_effect = {
+			country_event = {id = anomaly.4163 }
+		}
+	}
+}
+
+# event for Baldarak ship
+ship_event = {
+	id = anomaly.5004
+	title = "PROJECT_COMPLETE"
+	desc = "anomaly.5004.desc"
+	picture = GFX_evt_cargoship_caravan
+	show_sound = event_ship_thrusters
+	location = FROMFROMFROM
+
+	is_triggered_only = yes
+
+	option = {
+		name = anomaly.5004.a
+		hidden_effect = {
+      if = {
+        limit = {
+          exists = fleet.leader
+        }
+				save_event_target_as = science_ship
+        fleet.leader = {
+          save_event_target_as = new_owner
+        }
+      }
+			owner = {
+				country_event = { id = anomaly.5006 }
+			}
+			random_galaxy_planet = {
+				limit = { has_planet_flag = baldarak }
+				set_surveyed = {
+					surveyed = yes
+					surveyor = root.owner
+				}
+				set_name = "NAME_Baldarak"
+				add_modifier = {
+					modifier = "gas_giant_civ"
+					days = -1
+				}
+				clear_deposits = yes
+				if = {
+					limit = { has_mining_station = yes }
+					mining_station = { dismantle = yes }
+				}
+			}
+		}
+		random_galaxy_planet = {
+			limit = { has_planet_flag = baldarak }
+			set_deposit = d_society_5
+		}
+	}
+}
+
+# Incoming Transmission
+# Baldarak Settled
+country_event = {
+	id = anomaly.5006
+	title = TRANSMISSION
+	desc = "anomaly.5006.desc"
+
+	diplomatic = yes
+
+	is_triggered_only = yes
+
+	picture_event_data = {
+		room = no_video_feed_room
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = baldarak_settled
+		}
+	}
+
+	option = {
+		name = anomaly.5006.a
+		trigger = {
+			species = { NOT = { is_species = "Baldarak" } }
+		}
+		response_text = anomaly.5006.a.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = anomaly.5006.a.2
+		trigger = {
+			species = { is_species = "Baldarak" }
+		}
+		response_text = anomaly.5006.a.2.response
+		is_dialog_only = yes
+	}
+	option = {
+		name = anomaly.5006.b
+		response_text = anomaly.5006.b.response
+    hidden_effect = {
+      if = {
+        limit = { is_domesticator_or_full_protectorate = yes }
+        country_event = { id = domestication_leader.18 }
+      }
+    }
+	}
+}
+
+ship_event = {
+	id = anomaly.6705
+	title = "anomaly.6705.name"
+	desc = {
+		trigger = {
+			text = anomaly.6705.desc.start
+			text = newline
+			success_text = {
+				text = anomaly.6705.desc.L
+				owner = { has_country_flag = encountered_first_lgate }
+			}
+			success_text = {
+				text = anomaly.6705.desc.noL
+				owner = { NOT = { has_country_flag = encountered_first_lgate } }
+			}
+			text = anomaly.6705.desc.end
+		}
+	}
+	picture = GFX_evt_gray_goo
+	show_sound = event_mystic_reveal
+
+	is_triggered_only = yes
+
+	option =  {
+		allow = {
+			owner = {
+				has_technology = tech_self_aware_logic
+				is_domesticator_or_protectorate = no
+			}
+		}
+		name = anomaly.6705.a
+		owner = { generate_lcluster_clue = yes }
+		enable_special_project = {
+			name = "TAME_THE_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+	option =  {
+		trigger = {
+			owner = {
+				has_technology = tech_self_aware_logic
+				is_domesticator_or_protectorate = yes
+			}
+		}
+		name = anomaly.6705.dom
+		owner = { generate_lcluster_clue = yes }
+		enable_special_project = {
+			name = "DOMESTICATE_THE_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+	option =  {
+		name = anomaly.6705.b
+		owner = { generate_lcluster_clue = yes }
+		custom_tooltip = anomaly.6705.b.tooltip
+		owner = {
+			switch = {
+				trigger = has_technology
+				tech_self_aware_logic = {
+					add_monthly_resource_mult = {
+						resource = physics_research
+						value = @tier2researchreward
+						min = @tier2researchmin
+						max = @tier2researchmax
+					}
+				}
+				tech_administrative_ai = {
+					add_tech_option_or_research_effect = {
+   						TECH = tech_self_aware_logic
+   						PROGRESS = 0.7
+   						CATEGORY = physics_research
+					}
+				}
+				default = { give_technology = { tech = tech_administrative_ai }}
+			}
+			set_country_flag = studied_nanite_swarm
+		}
+	}
+	option =  {
+		name = anomaly.6705.c
+		owner = { generate_lcluster_clue = yes }
+		enable_special_project = {
+			name = "DESTROY_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+
+}
+
+# Nanite Swarm on Planet
+ship_event = {
+	id = anomaly.6710
+	title = "anomaly.6710.name"
+	picture = GFX_evt_gray_goo
+	show_sound = event_mystic_reveal
+	desc = {
+		trigger = {
+			text = anomaly.6710.desc.start
+			text = newline
+			success_text = {
+				text = anomaly.6710.desc.domestication
+				owner = { is_domesticator_or_protectorate = yes }
+			}
+			success_text = {
+				text = anomaly.6710.desc.normal
+				owner = { is_gestalt = no is_domesticator_or_protectorate = no }
+			}
+			success_text = {
+				text = anomaly.6710.desc.gestalt
+				owner = { is_gestalt = yes is_domesticator_or_protectorate = no }
+			}
+		}
+	}
+	fire_only_once = yes
+
+	trigger = {
+		owner = {
+			has_country_flag = studied_nanite_swarm
+			has_technology = tech_self_aware_logic
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	option =  {
+		trigger = {
+			owner = {
+				has_technology = tech_self_aware_logic
+				is_domesticator_or_protectorate = no
+			}
+		}
+		name = anomaly.6710.a
+		enable_special_project = {
+			name = "TAME_THE_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+	option =  {
+		trigger = {
+			owner = {
+				has_technology = tech_self_aware_logic
+				is_domesticator_or_protectorate = yes
+			}
+		}
+		icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		name = anomaly.6710.dom
+		enable_special_project = {
+			name = "DOMESTICATE_THE_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+	option =  {
+		name = anomaly.6710.b
+		enable_special_project = {
+			name = "DESTROY_SWARM"
+			location = event_target:nanite_swarm_planet
+			owner = root
+		}
+	}
+	option =  {
+		name = anomaly.6710.c
+		owner = {
+			add_monthly_resource_mult = {
+				resource = physics_research
+				value = @tier5researchreward
+				min = @tier5researchmin
+				max = @tier5researchmax
+			}
+			add_resource = { influence = 200 }
+		}
+
+	}
+}

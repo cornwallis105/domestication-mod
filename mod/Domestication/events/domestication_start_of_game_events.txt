@@ -66,6 +66,7 @@ event = {
 			}
 		}
 		set_global_flag = bloom_country_created
+		set_global_flag = no_bloom_naming
 	}
 }
 
@@ -97,5 +98,6 @@ country_event = {
 			}
 		}
 		set_global_flag = bloom_country_created
+		set_global_flag = no_bloom_naming
 	}
 }

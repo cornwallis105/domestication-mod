@@ -23,7 +23,7 @@ can_fill_ruler_job = {
 			is_enslaved = no
 			is_being_purged = no
 			is_being_assimilated = no
-			is_pop_domesticable = no
+			domesticator_privilege = yes
 			NOT = { has_trait = trait_syncretic_proles }
 			can_think = yes
 			OR = {
@@ -33,7 +33,7 @@ can_fill_ruler_job = {
 					owner = { has_policy_flag = ai_full_rights }
 				}
 			}
-			NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+			NOT = { has_citizenship_type = { type = citizenship_organic_trophy country = owner } }
 			if = {
 				limit = {
 					divinity_right_to_work_job_check_trigger_exempt = no

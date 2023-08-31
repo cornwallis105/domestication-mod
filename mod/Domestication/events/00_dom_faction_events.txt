@@ -1,0 +1,91 @@
+namespace = factions
+
+pop_faction_event = {
+	id = factions.1
+	title = factions.1.title
+	desc = {
+		trigger = {
+			text = factions.1.desc.start
+			text = newline
+			success_text = {
+				text = factions.1.desc.imperialist
+				is_pop_faction_type = imperialist
+			}
+			success_text = {
+				text = factions.1.desc.isolationist
+				is_pop_faction_type = isolationist
+			}
+			success_text = {
+				text = factions.1.desc.progressive
+				is_pop_faction_type = progressive
+			}
+			success_text = {
+				text = factions.1.desc.prosperity
+				is_pop_faction_type = prosperity
+			}
+			success_text = {
+				text = factions.1.desc.supremacist
+				is_pop_faction_type = supremacist
+			}
+			success_text = {
+				text = factions.1.desc.technologist
+				is_pop_faction_type = technologist
+			}
+			success_text = {
+				text = factions.1.desc.totalitarian
+				is_pop_faction_type = totalitarian
+			}
+			success_text = {
+				text = factions.1.desc.traditionalist
+				is_pop_faction_type = traditionalist
+			}
+			success_text = {
+				text = factions.1.desc.xenoist
+				is_pop_faction_type = xenoist
+			}
+			success_text = {
+				text = factions.1.desc.manifesti
+				is_pop_faction_type = manifesti
+			}
+      success_text = {
+				text = factions.1.desc.domesticator_faction
+				is_pop_faction_type = domesticator_faction
+			}
+			success_text = {
+				hidden:owner = { NOT = { has_country_flag = first_faction } }
+				text = factions.1.desc.firstfinisher
+			}
+		}
+	}
+
+	picture = GFX_evt_galactic_senate
+	show_sound = event_factions
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			owner = {
+				has_origin = origin_broken_shackles
+				#has_country_flag = first_faction
+			}
+		}
+	}
+
+	after = {
+		hidden_effect = { owner = { set_country_flag = first_faction } }
+	}
+
+	option = {
+		name = OK
+		hidden_effect = {
+			owner = {
+				every_owned_planet = {
+					every_owned_pop = {
+						force_faction_evaluation = yes
+					}
+				}
+			}
+		}
+	}
+}

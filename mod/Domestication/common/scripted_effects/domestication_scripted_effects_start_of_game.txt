@@ -6,6 +6,7 @@ generate_start_pops = {
 				OR = {
 					has_origin = origin_syncretic_evolution
 					has_origin = origin_necrophage
+					has_origin = origin_domesticators
 					has_valid_civic = civic_machine_servitor
 					has_valid_civic = civic_machine_assimilator
 				}
@@ -27,6 +28,7 @@ generate_start_pops = {
 					OR = {
 						has_origin = origin_syncretic_evolution
 						has_origin = origin_necrophage
+						has_origin = origin_domesticators
 					}
 				}
 			}
@@ -38,7 +40,7 @@ generate_start_pops = {
 						prev.owner = {
 							AND = {
 								has_origin = origin_syncretic_evolution
-								NOT = { has_valid_civic = civic_domesticators }
+								#NOT = { has_valid_civic = civic_domesticators }
 							}
 						}
 					}
@@ -50,10 +52,10 @@ generate_start_pops = {
 				else_if = {
 					limit = {
 						prev.owner = {
-							AND = {
-								has_origin = origin_syncretic_evolution
-								has_valid_civic = civic_domesticators
-							}
+							#AND = {
+								has_origin = origin_domesticators
+								#has_valid_civic = civic_domesticators
+							#}
 						}
 					}
 					set_citizenship_type = {
@@ -70,7 +72,7 @@ generate_start_pops = {
 					}
 					set_colonization_controls = {
 						country = root.owner
-						type = no
+						type = colonization_control_no
 					}
 				}
 			}
@@ -187,16 +189,63 @@ generate_start_pops = {
 					clear_ethos = yes
 				}
 			}
+			owner = {
+				country_event = {
+					id = syndaw.1
+					days = 1
+				}
+			}
 		}
 	}
 
 	if = {
 		limit = { owner = { has_origin = origin_mechanists } }
-		owner = { create_built_robot_species = yes }
+		owner = {
+			create_built_robot_species = yes
+		}
 		while = {
 			count = 8
 			create_pop = {
 				species = last_created_species
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				has_job = miner
+				is_robotic_species = yes
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_robot_power_drills
+				add_trait = trait_robot_bulky
+				add_trait = trait_robot_high_maintenance
+				add_traits_at_start_of_list = yes
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				has_job = farmer
+				is_robotic_species = yes
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_robot_harvesters
+				add_trait = trait_robot_bulky
+				add_trait = trait_robot_high_maintenance
+				add_traits_at_start_of_list = yes
+			}
+		}
+		every_owned_pop = {
+			limit = {
+				has_job = technician
+				is_robotic_species = yes
+			}
+			modify_species = {
+				species = this
+				add_trait = trait_robot_superconductive
+				add_trait = trait_robot_bulky
+				add_trait = trait_robot_high_maintenance
+				add_traits_at_start_of_list = yes
 			}
 		}
 
@@ -297,6 +346,7 @@ generate_start_pops = {
 		limit = {
 			owner = {
 				is_megacorp = yes
+				has_reduced_pop_origin = no
 			}
 		}
 		while = {
@@ -309,12 +359,52 @@ generate_start_pops = {
 	}
 	if = {
 		limit = {
+			owner = { has_origin = origin_broken_shackles }
+			num_pops < 6
+		}
+
+		while = {
+			limit = { num_pops < 6 }
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+	}
+	if = {
+		limit = {
 			owner = {
 				is_regular_empire = yes
+				has_reduced_pop_origin = no
 			}
 		}
 		while = {
 			limit = { num_pops < 28 }
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_origin = origin_payback }
+			num_pops < 18
+		}
+		while = {
+			limit = { num_pops < 18 }
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_origin = origin_fear_of_the_dark }
+		}
+		while = {
+			count = 20
 			create_pop = {
 				species = owner_main_species
 				ethos = random
@@ -347,6 +437,36 @@ generate_start_pops = {
 				ethos = random
 			}
 		}
+	}
+	if = {
+		limit = {
+			owner = {
+				is_eager_explorer_empire = yes
+			}
+		}
+		while = {
+			count = 10
+			random_owned_pop = {
+				limit = {
+					is_same_species = root.owner.species
+				}
+				kill_pop = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			owner = { has_origin = origin_domesticators }
+		}
+		while = {
+			count = 4
+			create_pop = {
+				species = owner_main_species
+				ethos = random
+			}
+		}
+		add_district_and_planet_size_if_needed_effect = { district = district_farming }
+		add_district_and_planet_size_if_needed_effect = { district = district_generator }
 	}
 	if = {
 		limit = {

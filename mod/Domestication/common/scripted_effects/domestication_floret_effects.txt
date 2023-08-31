@@ -1,0 +1,473 @@
+# Incremend an Affini's floret count
+floret_count_increment = {
+  if = {
+    limit = {
+      NOT = { is_variable_set = floret_count }
+    }
+    set_variable = {
+      which = floret_count
+      value = 0
+    }
+  }
+  if = {
+    limit = {
+      NOT = { is_variable_set = floret_trait_count }
+    }
+    set_variable = {
+      which = floret_trait_count
+      value = 0
+    }
+  }
+  if = {
+    limit = {
+      check_variable = {
+        which = floret_count
+        value = 0
+      }
+    }
+    set_variable = {
+      which = affini_id_1
+      value = event_target:floret_country.floret_index
+    }
+    change_variable = {
+      which = floret_count
+      value = 1
+    }
+  }
+  else = {
+    set_variable = {
+      which = affini_id_2
+      value = event_target:floret_country.floret_index
+    }
+    change_variable = {
+      which = floret_count
+      value = 1
+    }
+  }
+}
+
+# Rename a single floret - 1st, 2nd, or 3rd
+floret_rename_single = {
+  event_target:new_owner = {
+    change_variable = {
+      which = floret_trait_count
+      value = 1
+    }
+  }
+
+  # gets the frozen bloom from storage so we can get their last name
+  event_target:bloom_country = {
+    every_owned_leader = {
+      limit = {
+        is_variable_set = bloom_id
+        check_variable = {
+          which = bloom_id
+          value = event_target:new_owner.bloom_id
+        }
+      }
+      save_event_target_as = clone_bloom
+    }
+  }
+
+  if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 1
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_1"
+        #variable_string = "\\[this.GetName\\]"
+        variable_string = "\\[this.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 1
+      }
+    }
+  }
+  else_if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 2
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_2"
+        variable_string = "\\[this.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 2
+      }
+    }
+  }
+  else = {
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_3"
+        variable_string = "\\[this.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 3
+      }
+    }
+  }
+  event_target:floret_country = {
+    change_variable = {
+      which = floret_index
+      value = 1
+    }
+  }
+
+}
+
+# Rename a Floret Pinnate pair: 1/2nd, 2/3rd, 3/4th
+floret_rename_pinnate = {
+  event_target:new_owner = {
+    change_variable = {
+      which = floret_trait_count
+      value = 2
+    }
+  }
+
+  # gets the frozen bloom from storage so we can get their last name
+  event_target:bloom_country = {
+    every_owned_leader = {
+      limit = {
+        is_variable_set = bloom_id
+        check_variable = {
+          which = bloom_id
+          value = event_target:new_owner.bloom_id
+        }
+      }
+      save_event_target_as = clone_bloom
+    }
+  }
+
+  if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 2
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_pinnate_1_2"
+        variable_string = "\\[this.GetName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 1
+      }
+    }
+  }
+  else_if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 3
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_pinnate_2_3"
+        variable_string = "\\[this.GetName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 2
+      }
+    }
+  }
+  else = {
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_pinnate_3_4"
+        variable_string = "\\[this.GetName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 3
+      }
+    }
+  }
+  event_target:new_floret = {
+    set_leader_flag = flag_florets_pinnate
+  }
+  event_target:floret_country = {
+    change_variable = {
+      which = floret_index
+      value = 1
+    }
+  }
+}
+
+# Append "and [slugname]" to floret name, then call for pinnate rename
+floret_rename_brainslug = {
+  random_list = {
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_1"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_2"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_3"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_4"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_5"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_6"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_7"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_8"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_9"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_10"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+    2 = {
+      event_target:new_floret = {
+        set_name = {
+          key = "domestication.floret_brainslug_11"
+          variable_string = "\\[this.GetFirstName\\]"
+        }
+      }
+    }
+  }
+  floret_rename_pinnate = yes
+}
+
+# Rename a single floret - 1st, 2nd, or 3rd
+floret_rename_single_existing = {
+  event_target:new_owner = {
+    change_variable = {
+      which = floret_trait_count
+      value = 1
+    }
+  }
+
+  # gets the frozen bloom from storage so we can get their last name
+  event_target:bloom_country = {
+    every_owned_leader = {
+      limit = {
+        is_variable_set = bloom_id
+        check_variable = {
+          which = bloom_id
+          value = event_target:new_owner.bloom_id
+        }
+      }
+      save_event_target_as = clone_bloom
+    }
+  }
+
+  if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 1
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_existing_1"
+        #variable_string = "\\[this.GetName\\]"
+        variable_string = "\\[floret_template.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 1
+      }
+    }
+  }
+  else_if = {
+    limit = {
+      event_target:new_owner = {
+        check_variable = {
+          which = floret_trait_count
+          value = 2
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_existing_2"
+        variable_string = "\\[floret_template.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 2
+      }
+    }
+  }
+  else = {
+    event_target:new_floret = {
+      set_name = {
+        key = "domestication.floret_existing_3"
+        variable_string = "\\[floret_template.GetFirstName\\]"
+        variable_string = "\\[clone_bloom.GetSecondName\\]"
+      }
+      set_variable = {
+        which = floret_id
+        value = event_target:floret_country.floret_index
+      }
+      set_variable = {
+        which = floret_number
+        value = 3
+      }
+    }
+  }
+  event_target:floret_country = {
+    change_variable = {
+      which = floret_index
+      value = 1
+    }
+  }
+
+}
+
+floret_check_trans_and_rename = {
+  if = {
+    limit = {
+      OR = {
+        AND = {
+          event_target:floret_template = { gender = male }
+          event_target:new_floret = { gender = female }
+        }
+        AND = {
+          event_target:floret_template = { gender = female }
+          event_target:new_floret = { gender = male }
+        }
+      }
+    }
+    event_target:new_floret = {
+      set_leader_flag = floret_is_trans
+    }
+  }
+
+  if = {
+    limit = {
+      event_target:new_floret = { has_leader_flag = floret_is_trans }
+    }
+    floret_rename_single = yes
+  }
+  else = {
+    floret_rename_single_existing = yes
+  }
+}

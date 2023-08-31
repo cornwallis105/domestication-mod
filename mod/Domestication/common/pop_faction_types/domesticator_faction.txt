@@ -5,6 +5,7 @@
 domesticator_faction = {
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
+	visual_ethic = "xenoist_visual_ethic"
 
 	unique = yes
 	support_multiplier = 1
@@ -19,24 +20,7 @@ domesticator_faction = {
 	is_potential = {
 		is_faction_allowed = yes
 
-		if = {
-			limit = {
-				has_faction = domesticator_faction
-				any_pop_faction = {
-					is_pop_faction_type = domesticator_faction
-					num_pops >= 5
-				}
-			}
-		}
-		else = {
-			is_domesticator_or_protectorate = yes
-			count_owned_pop = {
-				count >= 5
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-			}
-		}
+		is_domesticator_or_protectorate = yes
 
 		#years_passed > 10
 		#has_encountered_other_species = yes
@@ -72,7 +56,7 @@ domesticator_faction = {
 			exists = from
 			from = {
 				exists = leader
-				leader = { leader_class = ruler }
+				leader = { is_ruler = yes }
 			}
 		}
 
@@ -116,27 +100,19 @@ domesticator_faction = {
 		}
 	}
 
-	demand = {
-		title = "FACTION_OUTRAGED_GC"
-		unfulfilled_title = "FACTION_OUTRAGED_GC"
-		desc = "FACTION_OUTRAGED_GC_DESC"
-
-		fulfilled_effect = -20
-		unfulfilled_effect = -0.001
-
-		potential = {
-			exists = owner
-			owner = {
-				has_country_flag = faction_xenophile_outraged_gc
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_country_flag = faction_xenophile_outraged_gc
-			}
-		}
+	# DEMAND: Faction Outraged (by a GalCom Resolution)
+	inline_script = {
+		script = pop_faction_types/demand_faction_outraged
+		FLAG = galcom_resolution_passed_anti_xenoist
 	}
+	
+	# DEMAND: Faction Pleased (by a GalCom Resolution)
+	inline_script = {
+		script = pop_faction_types/demand_faction_pleased
+		FLAG = galcom_resolution_passed_pro_xenoist
+	}
+	
+
 
 	demand = { # "XENOIST_NO_SLAVES"
 		title = "XENOIST_NO_SLAVES"
@@ -575,6 +551,42 @@ domesticator_faction = {
 			}
 		}
 	}
+	
+	# Global Faction Demands.
+	inline_script = {
+		script = "paragon/global_faction_demands"
+		ETHIC = ethic_xenophile
+		ETHIC_FANATIC = ethic_fanatic_xenophile
+		ETHIC_OPPOSED = ethic_xenophobe
+	} 
+	
+	demand = { # Alien Zoo (for conservation)
+		title = "XENOIST_XENOLOGICAL_CONSERVATION"
+		unfulfilled_title = "XENOIST_NO_XENOLOGICAL_CONSERVATION"
+		desc = "XENOIST_XENOLOGICAL_CONSERVATION_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_alien_life_studies
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+
+		trigger = {
+			owner = {
+				count_owned_planet = {
+					limit = {
+						has_building = building_xeno_zoo
+					}
+					count > 0
+				}
+			}
+		}
+	}
 
 #	demand = {
 #		title = "DOMESTICATOR_OVERLORD" #Domesticator Hegemony
@@ -698,17 +710,6 @@ domesticator_faction = {
 				}
 				modifier = {
 					factor = 0
-					NOT = {
-						owner = {
-							exists = ruler
-							ruler = {
-								leader_of_faction = xenoist
-							}
-						}
-					}
-				}
-				modifier = {
-					factor = 0
 					owner = {
 						count_pop_faction = {
 							count < 4
@@ -820,6 +821,7 @@ domesticator_faction = {
 xenoist = {
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
+	visual_ethic = "xenoist_visual_ethic"
 
 	unique = yes
 	support_multiplier = 1
@@ -834,24 +836,7 @@ xenoist = {
 	is_potential = {
 		is_faction_allowed = yes
 
-		if = {
-			limit = {
-				has_faction = xenoist
-				any_pop_faction = {
-					is_pop_faction_type = xenoist
-					num_pops >= 5
-				}
-			}
-		}
-		else = {
-			is_domesticator_or_protectorate = no
-			count_owned_pop = {
-				count >= 5
-				limit = {
-					has_ethic = ethic_xenophile
-				}
-			}
-		}
+		is_domesticator_or_protectorate = no
 	}
 
 	parameters = {
@@ -881,7 +866,7 @@ xenoist = {
 			exists = from
 			from = {
 				exists = leader
-				leader = { leader_class = ruler }
+				leader = { is_ruler = yes }
 			}
 		}
 
@@ -918,26 +903,16 @@ xenoist = {
 		}
 	}
 
-	demand = {
-		title = "FACTION_OUTRAGED_GC"
-		unfulfilled_title = "FACTION_OUTRAGED_GC"
-		desc = "FACTION_OUTRAGED_GC_DESC"
-
-		fulfilled_effect = -20
-		unfulfilled_effect = -0.001
-
-		potential = {
-			exists = owner
-			owner = {
-				has_country_flag = faction_xenophile_outraged_gc
-			}
-		}
-
-		trigger = {
-			owner = {
-				has_country_flag = faction_xenophile_outraged_gc
-			}
-		}
+	# DEMAND: Faction Outraged (by a GalCom Resolution)
+	inline_script = {
+		script = pop_faction_types/demand_faction_outraged
+		FLAG = galcom_resolution_passed_anti_xenoist
+	}
+	
+	# DEMAND: Faction Pleased (by a GalCom Resolution)
+	inline_script = {
+		script = pop_faction_types/demand_faction_pleased
+		FLAG = galcom_resolution_passed_pro_xenoist
 	}
 
 	demand = {
@@ -959,7 +934,10 @@ xenoist = {
 
 		trigger = {
 			owner = {
-				has_policy_flag = interference_passive
+				OR = {
+					has_policy_flag = interference_not_allowed
+					has_policy_flag = interference_subtle
+				}
 			}
 		}
 	}
@@ -1196,7 +1174,10 @@ xenoist = {
 
 		potential = {
 			exists = owner
-			owner = { has_country_flag = encountered_first_primitive }
+			owner = {
+				has_country_flag = encountered_first_primitive
+				NOT = { has_origin = origin_necrophage }
+			}
 		}
 
 		trigger = {
@@ -1245,6 +1226,7 @@ xenoist = {
 						is_country_type = default
 						is_country_type = fallen_empire
 						is_country_type = awakened_fallen_empire
+						is_country_type = primitive
 					}
 				}
 			}
@@ -1424,6 +1406,42 @@ xenoist = {
 		}
 	}
 
+	# Global Faction Demands.
+	inline_script = {
+		script = "paragon/global_faction_demands"
+		ETHIC = ethic_xenophile
+		ETHIC_FANATIC = ethic_fanatic_xenophile
+		ETHIC_OPPOSED = ethic_xenophobe
+	} 
+	
+	demand = { # Alien Zoo (for conservation)
+		title = "XENOIST_XENOLOGICAL_CONSERVATION"
+		unfulfilled_title = "XENOIST_NO_XENOLOGICAL_CONSERVATION"
+		desc = "XENOIST_XENOLOGICAL_CONSERVATION_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				has_technology = tech_alien_life_studies
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+
+		trigger = {
+			owner = {
+				count_owned_planet = {
+					limit = {
+						has_building = building_xeno_zoo
+					}
+					count > 0
+				}
+			}
+		}
+	}
+
 	on_create = {
 		pop_faction_event = { id = factions.1 }
 	}
@@ -1519,17 +1537,6 @@ xenoist = {
 				modifier = {
 					factor = 0
 					owner = { has_valid_civic = civic_fanatic_purifiers }
-				}
-				modifier = {
-					factor = 0
-					NOT = {
-						owner = {
-							exists = ruler
-							ruler = {
-								leader_of_faction = xenoist
-							}
-						}
-					}
 				}
 				modifier = {
 					factor = 0

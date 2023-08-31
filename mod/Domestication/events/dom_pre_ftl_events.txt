@@ -1,0 +1,2100 @@
+namespace = dom_pre_ftl
+
+# Domestication finished - Successful
+situation_event = {
+  id = dom_pre_ftl.1
+  title = "dom_pre_ftl.1.name"
+  desc = "dom_pre_ftl.1.desc"
+  picture = GFX_evt_striking_a_deal
+  show_sound = event_pre_ftl_civilization
+
+  is_triggered_only = yes
+
+  immediate = {
+    target.solar_system.owner = {
+      save_event_target_as = affini_compact
+    }
+    target = {
+      set_planet_flag = pre_ftl_domestication_complete
+      owner = {
+        save_event_target_as = pre_ftl_country
+        establish_communications_no_message = event_target:affini_compact
+  			remove_pre_ftl_flags = yes
+  			set_country_flag = was_enlightened
+  			add_opinion_modifier = { who = event_target:affini_compact modifier = opinion_enlightened_us }
+        set_subject_of = {
+					who = event_target:affini_compact
+					preset = preset_domprot
+				}
+        random_agreement = {
+  				limit = {
+  					owner = { is_same_value = event_target:affini_compact }
+  					target = { is_same_value = event_target:new_ftl_country }
+  				}
+  				add_loyalty = 100
+  			}
+  			home_planet = {
+  				observation_outpost = {
+  					dismantle = yes
+  				}
+  			}
+        achieve_ftl_effect = {
+          PRE_FTL = this
+          OWNER = event_target:affini_compact
+        }
+      }
+      solar_system = {
+        every_system_planet = {
+          limit = {
+            exists = owner
+            owner = { is_same_value = event_target:affini_compact }
+          }
+          set_owner = event_target:new_ftl_country
+        }
+				if = {
+					limit = { exists = starbase }
+					starbase = {
+						set_owner = event_target:pre_ftl_country
+						if = {
+							limit = { has_starbase_size = starbase_outpost }
+							set_starbase_size = starbase_starport
+							set_starbase_module = {
+								slot = 1
+								module = shipyard
+							}
+							set_starbase_module = {
+								slot = 2
+								module = shipyard
+							}
+						}
+						else_if = {
+							limit = {
+								NOT = { has_starbase_module = shipyard }
+							}
+							set_starbase_module = {
+								slot = 1
+								module = shipyard
+							}
+							set_starbase_module = {
+								slot = 2
+								module = shipyard
+							}
+						}
+					}
+				}
+				else = {
+					create_starbase = {
+						size = starbase_starport
+						module = shipyard
+						module = shipyard
+						owner = event_target:pre_ftl_country
+					}
+				}
+				every_fleet_in_system = {
+					limit = {
+						owner = {
+              NOT = { is_same_value = event_target:pre_ftl_country }
+              NOT = { is_same_value = event_target:affini_compact }
+            }
+						is_mobile = yes
+					}
+					set_mia = mia_return_home
+				}
+				add_claims = {
+					who = event_target:affini_compact
+					num_of_claims = 1
+					show_notification = no
+				}
+			}
+    }
+  }
+
+  option = {
+    name = "dom_pre_ftl.1.a"
+
+  }
+  after = { destroy_situation = this }
+}
+
+# Domestication finished - Failure
+situation_event = {
+  id = dom_pre_ftl.2
+  title = "dom_pre_ftl.2.name"
+  desc = "dom_pre_ftl.2.desc"
+  picture = GFX_evt_enlightenment_failure
+  show_sound = event_pre_ftl_civilization
+
+  is_triggered_only = yes
+
+  option = {
+    name = "dom_pre_ftl.2.a"
+  }
+}
+
+# Stage events
+situation_event = {
+	id = dom_pre_ftl.3
+	hide_window = yes
+
+	is_triggered_only = yes
+
+  immediate = {
+    random_list = {
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_inadequate_housing
+        }
+        modifier = {
+          factor = 1.5
+          target.owner = {
+            OR = {
+              has_country_flag = renaissance_age
+              has_country_flag = steam_age
+              has_country_flag = industrial_age
+              has_country_flag = machine_age
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.4 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_feralist_ideology
+        }
+        modifier = {
+          factor = 1.5
+          target = {
+            any_owned_pop = {
+              pop_has_ethic = ethic_xenophobe
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.5 }
+      }
+      10 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_popular_support
+        }
+        modifier = {
+          factor = 0
+          # happens early or not at all
+          situation_progress > 70
+        }
+        modifier = {
+          factor = 0
+          target = {
+            OR = {
+              NOT = {
+                any_owned_pop = {
+                  pop_has_ethic = ethic_xenophile
+                }
+              }
+              any_owned_pop = {
+                pop_has_ethic = ethic_xenophobe
+              }
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.14 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_retribution
+        }
+        modifier = {
+          factor = 1.5
+          target = {
+            any_owned_pop = {
+              pop_has_ethic = ethic_militarist
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.15 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_harvest_goddess
+        }
+        modifier = {
+          factor = 0.5
+          target.owner = {
+            OR = {
+              has_country_flag = stone_age
+              has_country_flag = early_space_age
+            }
+          }
+        }
+        modifier = {
+          factor = 1.5
+          target = {
+            any_owned_pop = {
+              pop_has_ethic = ethic_spiritualist
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.23 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_benefits
+        }
+        situation_event = { id = dom_pre_ftl.31 }
+      }
+      5 = {
+        modifier = {
+          factor = 0.75
+          target.owner = {
+            OR = {
+              has_ethic = ethic_xenophobe
+              has_ethic = ethic_fanatic_xenophobe
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.39 }
+      }
+      5 = {
+        modifier = {
+          factor = 0.75
+          target.owner = {
+            OR = {
+              has_ethic = ethic_xenophile
+              has_ethic = ethic_fanatic_xenophile
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.40 }
+      }
+      5 = {
+        modifier = {
+          factor = 0
+          has_situation_flag = dom_pre_ftl_many_volunteers
+        }
+        modifier = {
+          factor = 0
+          target.owner = { pre_ftl_ancient_era = yes }
+        }
+        situation_event = { id = dom_pre_ftl.43 }
+      }
+      0 = {
+        # Should only fire when the project is nearly done, but there are still too many xenophobes
+        modifier = {
+          add = 5
+          situation_progress > 90
+            target.owner = {
+              OR = {
+                has_ethic = ethic_xenophobe
+                has_ethic = ethic_fanatic_xenophobe
+              }
+            }
+        }
+        modifier = {
+          add = 75
+          situation_progress > 90
+          target = {
+            count_owned_pop = {
+              limit = {
+                OR = {
+                  pop_has_ethic = ethic_xenophobe
+                  pop_has_ethic = ethic_fanatic_xenophobe
+                }
+              }
+              count > 6
+            }
+          }
+        }
+        situation_event = { id = dom_pre_ftl.41 }
+      }
+    }
+  }
+}
+
+situation_event = {
+  id = dom_pre_ftl.4
+  title = "dom_pre_ftl.4.name"
+  desc = "dom_pre_ftl.4.desc"
+  picture = GFX_evt_medieval_alien_civilization
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = dom_pre_ftl_inadequate_housing
+	}
+
+	option = {
+		name = dom_pre_ftl.4.a
+    #custom_tooltip = dom_pre_ftl.4.a.tooltip
+
+    allow = {
+      target.observation_outpost_owner = {
+        resource_stockpile_compare = {
+          resource = minerals
+          value >= 500
+        }
+      }
+    }
+
+    target.observation_outpost_owner = {
+      add_resource = {
+        minerals = -500
+      }
+    }
+    target = {
+      add_district = district_city
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+
+
+	}
+  option = {
+		name = dom_pre_ftl.4.b
+    #custom_tooltip = dom_pre_ftl.4.b.tooltip
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.5
+  title = "dom_pre_ftl.5.name"
+  desc = "dom_pre_ftl.5.desc"
+  picture = GFX_evt_smugglers_in_bar
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = dom_pre_ftl_feralist_ideology
+	}
+
+	option = {
+		name = dom_pre_ftl.5.a
+    custom_tooltip = dom_pre_ftl.questionable
+
+    allow = {
+      target.observation_outpost_owner = {
+        resource_stockpile_compare = {
+          resource = consumer_goods
+          value >= 100
+        }
+      }
+    }
+
+    target.observation_outpost_owner = {
+      add_resource = {
+        consumer_goods = -100
+      }
+    }
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_conservational
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.6
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          target.owner_species = {
+            OR = {
+              has_trait = trait_wasteful
+              has_trait = trait_decadent
+              has_trait = trait_thrifty
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.7
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.8
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.5.b
+    custom_tooltip = dom_pre_ftl.questionable
+
+    allow = {
+      target.observation_outpost_owner = {
+        resource_stockpile_compare = {
+          resource = unity
+          value >= 150
+        }
+      }
+    }
+
+    target.observation_outpost_owner = {
+      add_resource = {
+        unity = -150
+      }
+    }
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_repugnant
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.9
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          target.owner_species = {
+            OR = {
+              has_trait = trait_talented
+              has_trait = trait_charismatic
+              has_trait = trait_conformists
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.10
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.8
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.5.c
+    custom_tooltip = dom_pre_ftl.questionable
+
+    allow = {
+      NOT = { current_situation_approach = approach_pre_ftl_domestication_conservative }
+    }
+
+    set_situation_approach = approach_pre_ftl_domestication_conservative
+    set_timed_situation_flag = {
+      flag = conservative_locked
+      months = 6
+    }
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_unruly
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.13
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          target.owner_species = {
+            OR = {
+              has_trait = trait_slow_learners
+              has_trait = trait_traditional
+              has_trait = trait_enduring
+              has_trait = trait_venerable
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.14
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.8
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.5.d
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      situation_event = {
+        id = dom_pre_ftl.15
+        days = 10
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.6
+  title = "dom_pre_ftl.6.name"
+	desc = "dom_pre_ftl.6.desc"
+  picture = GFX_evt_bribery
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.6.a
+    while = {
+      count = 3
+      target = {
+        shift_planet_ethics = { ETHIC = xenophobe }
+      }
+    }
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+    add_situation_progress = -5
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.7
+  title = "dom_pre_ftl.7.name"
+	desc = "dom_pre_ftl.7.desc"
+  picture = GFX_evt_treasure_pile
+	location = target
+  show_sound = event_finding_loot
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.7.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.8
+  title = "dom_pre_ftl.8.name"
+	desc = "dom_pre_ftl.8.desc"
+  picture = GFX_evt_friendly_enlightenment
+	location = target
+  show_sound = event_default
+
+  is_triggered_only = yes
+
+	option = {
+    add_situation_progress = -5
+	}
+}
+
+
+situation_event = {
+  id = dom_pre_ftl.9
+  title = "dom_pre_ftl.9.name"
+	desc = "dom_pre_ftl.9.desc"
+  picture = GFX_evt_alien_propaganda
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.9.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.10
+  title = "dom_pre_ftl.10.name"
+	desc = "dom_pre_ftl.10.desc"
+  picture = GFX_evt_friendly_infiltration
+	location = target
+  show_sound = event_celebration
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.10.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.11
+  title = "dom_pre_ftl.11.name"
+	desc = "dom_pre_ftl.11.desc"
+  picture = GFX_evt_civil_action
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.11.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.12
+  title = "dom_pre_ftl.12.name"
+	desc = "dom_pre_ftl.12.desc"
+  picture = GFX_evt_grand_speech
+	location = target
+  show_sound = event_celebration
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.12.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.13
+  title = "dom_pre_ftl.13.name"
+	desc = "dom_pre_ftl.13.desc"
+  picture = GFX_evt_open_revolt
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.13.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -10
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.14
+  title = "dom_pre_ftl.14.name"
+	desc = "dom_pre_ftl.14.desc"
+  picture = GFX_evt_friendly_enlightenment
+	location = target
+  show_sound = event_handshake
+
+  is_triggered_only = yes
+
+  immediate = {
+    set_situation_flag = dom_pre_ftl_popular_support
+	}
+
+	option = {
+		name = dom_pre_ftl.14.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 10
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.15
+  title = "dom_pre_ftl.15.name"
+  desc = "dom_pre_ftl.15.desc"
+  picture = GFX_evt_gunrunning
+	#show_sound = event_pre_ftl_civilization
+  location = target
+  show_sound = event_factions
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = dom_pre_ftl_retribution
+	}
+
+	option = {
+		name = dom_pre_ftl.15.a
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_unruly
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.18
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_authoritarian
+                has_ethic = ethic_fanatic_authoritarian
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_slow_learners
+                has_trait = trait_conformists
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.17
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.16
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.15.b
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_quarrelsome
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.20
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_pacifist
+                has_ethic = ethic_fanatic_pacifist
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_docile
+                has_trait = trait_weak
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.19
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.16
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.15.c
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_solitary
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.22
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_egalitarian
+                has_ethic = ethic_fanatic_egalitarian
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_communal
+                has_trait = trait_resilient
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.21
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.16
+          days = 10
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.16
+  title = "dom_pre_ftl.16.name"
+	desc = "dom_pre_ftl.16.desc"
+  picture = GFX_evt_salute
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+    add_situation_progress = -5
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.17
+  title = "dom_pre_ftl.17.name"
+	desc = "dom_pre_ftl.17.desc"
+  picture = GFX_evt_cover_blown
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.17.a
+    target = {
+      shift_planet_ethics = { ETHIC = pacifist }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.18
+  title = "dom_pre_ftl.18.name"
+	desc = "dom_pre_ftl.18.desc"
+  picture = GFX_evt_open_revolt
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.18.a
+    target = {
+      shift_planet_ethics = { ETHIC = militarist }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.19
+  title = "dom_pre_ftl.19.name"
+	desc = "dom_pre_ftl.19.desc"
+  picture = GFX_evt_happy_reunion
+	location = target
+  show_sound = event_celebration
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.19.a
+    target = {
+      shift_planet_ethics = { ETHIC = pacifist }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.20
+  title = "dom_pre_ftl.20.name"
+	desc = "dom_pre_ftl.20.desc"
+  picture = GFX_evt_smear_campaign
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.20.a
+    target = {
+      shift_planet_ethics = { ETHIC = militarist }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.21
+  title = "dom_pre_ftl.21.name"
+	desc = "dom_pre_ftl.21.desc"
+  picture = GFX_evt_grand_speech
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.21.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.22
+  title = "dom_pre_ftl.22.name"
+	desc = "dom_pre_ftl.22.desc"
+  picture = GFX_evt_alien_segregation
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+  immediate = {
+
+	}
+
+	option = {
+		name = dom_pre_ftl.22.a
+    target = {
+      shift_planet_ethics = { ETHIC = militarist }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.23
+  title = "dom_pre_ftl.23.name"
+  desc = "dom_pre_ftl.23.desc"
+  picture = GFX_evt_alien_hieroglyphics
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = dom_pre_ftl_harvest_goddess
+	}
+
+	option = {
+		name = dom_pre_ftl.23.a
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_quick_learners
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.25
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_spiritualist
+                has_ethic = ethic_fanatic_spiritualist
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_industrious
+                has_trait = trait_agrarian
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.24
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.30
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.23.b
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_charismatic
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.27
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_egalitarian
+                has_ethic = ethic_fanatic_egalitarian
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_talented
+                has_trait = trait_natural_sociologists
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.26
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.30
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.23.c
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_traditional
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.29
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_materialist
+                has_ethic = ethic_fanatic_materialist
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_intelligent
+                has_trait = trait_deviants
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.28
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.30
+          days = 10
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.24
+  title = "dom_pre_ftl.24.name"
+	desc = "dom_pre_ftl.24.desc"
+  picture = GFX_evt_enlightenment_failure
+	location = target
+  show_sound = event_coronation
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.24.a
+    target = {
+      shift_planet_ethics = { ETHIC = spiritualist }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 10
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.25
+  title = "dom_pre_ftl.25.name"
+	desc = "dom_pre_ftl.25.desc"
+  picture = GFX_evt_cover_blown
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.25.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -10
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.26
+  title = "dom_pre_ftl.26.name"
+	desc = "dom_pre_ftl.26.desc"
+  picture = GFX_evt_friendly_enlightenment
+	location = target
+  show_sound = event_mystic_reveal
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.26.a
+    target = {
+      shift_planet_ethics = { ETHIC = materialist }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.27
+  title = "dom_pre_ftl.27.name"
+	desc = "dom_pre_ftl.27.desc"
+  picture = GFX_evt_cover_blown
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.27.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.28
+  title = "dom_pre_ftl.28.name"
+	desc = "dom_pre_ftl.28.desc"
+  picture = GFX_evt_friendly_enlightenment
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.28.a
+    target = {
+      shift_planet_ethics = { ETHIC = materialist }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.29
+  title = "dom_pre_ftl.29.name"
+	desc = "dom_pre_ftl.29.desc"
+  picture = GFX_evt_conclave
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.29.a
+    target = {
+      shift_planet_ethics = { ETHIC = spiritualist }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.30
+  title = "dom_pre_ftl.30.name"
+	desc = "dom_pre_ftl.30.desc"
+  picture = GFX_evt_ancient_records
+	location = target
+  show_sound = event_default
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.30.a
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.31
+  title = "dom_pre_ftl.31.name"
+  desc = "dom_pre_ftl.31.desc"
+  picture = GFX_evt_friendly_enlightenment
+	show_sound = event_pre_ftl_civilization
+  location = target
+
+  is_triggered_only = yes
+
+  immediate = {
+		set_situation_flag = dom_pre_ftl_benefits
+	}
+
+	option = {
+		name = dom_pre_ftl.31.a
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_sedentary
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.33
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_materialist
+                has_ethic = ethic_fanatic_materialist
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_nomadic
+                has_trait = trait_natural_physicists
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.32
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.38
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.31.b
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_industrious
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.35
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_pacifist
+                has_ethic = ethic_fanatic_pacifist
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_rapid_breeders
+                has_trait = trait_wasteful
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.34
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.38
+          days = 10
+        }
+      }
+    }
+	}
+  option = {
+		name = dom_pre_ftl.31.c
+    custom_tooltip = dom_pre_ftl.questionable
+
+    hidden_effect = {
+      if = {
+        limit = {
+          target.owner_species = {
+            has_trait = trait_decadent
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.37
+          days = 10
+        }
+      }
+      else_if = {
+        limit = {
+          OR = {
+            target.owner = {
+              OR = {
+                has_ethic = ethic_authoritarian
+                has_ethic = ethic_fanatic_authoritarian
+              }
+            }
+            target.owner_species = {
+              OR = {
+                has_trait = trait_communal
+                has_trait = trait_docile
+              }
+            }
+          }
+        }
+        situation_event = {
+          id = dom_pre_ftl.36
+          days = 10
+        }
+      }
+      else = {
+        situation_event = {
+          id = dom_pre_ftl.38
+          days = 10
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.32
+  title = "dom_pre_ftl.32.name"
+	desc = "dom_pre_ftl.32.desc"
+  picture = GFX_evt_towel
+	location = target
+  show_sound = event_celebration
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.32.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.33
+  title = "dom_pre_ftl.33.name"
+	desc = "dom_pre_ftl.33.desc"
+  picture = GFX_evt_clocks
+	location = target
+  show_sound = event_bad_omen
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.33.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.34
+  title = "dom_pre_ftl.34.name"
+	desc = "dom_pre_ftl.34.desc"
+  picture = GFX_evt_resource_cache
+	location = target
+  show_sound = event_finding_loot
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.34.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.35
+  title = "dom_pre_ftl.35.name"
+	desc = "dom_pre_ftl.35.desc"
+  picture = GFX_evt_deficit
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.35.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.36
+  title = "dom_pre_ftl.36.name"
+	desc = "dom_pre_ftl.36.desc"
+  picture = GFX_evt_resource_cache
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+    name = dom_pre_ftl.36.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+    add_situation_progress = 10
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_good_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.37
+  title = "dom_pre_ftl.37.name"
+	desc = "dom_pre_ftl.37.desc"
+  picture = GFX_evt_slaver_empire
+	location = target
+  show_sound = event_planetary_riot
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.37.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    add_situation_progress = -5
+    hidden_effect = {
+      target.owner = {
+        add_opinion_modifier = {
+          modifier = opinion_pre_ftl_bad_choice
+          who = root.target.observation_outpost_owner
+        }
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.38
+  title = "dom_pre_ftl.38.name"
+	desc = "dom_pre_ftl.38.desc"
+  picture = GFX_evt_alien_segregation
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.38.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+    #add_situation_progress = -5
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.39
+  title = "dom_pre_ftl.39.name"
+	desc = "dom_pre_ftl.39.desc"
+  picture = GFX_evt_friendly_enlightenment
+	location = target
+  show_sound = event_default
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.39.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophile }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.40
+  title = "dom_pre_ftl.40.name"
+	desc = "dom_pre_ftl.40.desc"
+  picture = GFX_evt_alien_segregation
+	location = target
+  show_sound = event_factions
+
+  is_triggered_only = yes
+
+	option = {
+		name = dom_pre_ftl.40.a
+    target = {
+      shift_planet_ethics = { ETHIC = xenophobe }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.41
+  title = "dom_pre_ftl.41.name"
+	desc = "dom_pre_ftl.41.desc"
+  picture = GFX_evt_smugglers_in_bar
+	location = target
+  show_sound = event_factions
+
+  is_triggered_only = yes
+
+  immediate = {
+    hidden_effect = {
+      set_situation_flag = dom_pre_ftl_inevitable_rebellion
+
+      situation_event = {
+        id = dom_pre_ftl.42
+        days = 30
+      }
+    }
+	}
+
+	option = {
+		name = dom_pre_ftl.41.a
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.42
+  title = "dom_pre_ftl.42.name"
+	desc = "dom_pre_ftl.42.desc"
+  picture = GFX_evt_open_revolt
+	location = target
+  show_sound = event_ground_battle
+
+  is_triggered_only = yes
+
+  immediate = {
+    target = {
+      save_event_target_as = pre_ftl_planet
+    }
+    target.owner_species = {
+      save_event_target_as = pre_ftl_species
+    }
+    target.observation_outpost_owner = {
+      save_event_target_as = affini_compact
+    }
+    destroy_situation = this
+	}
+
+	option = {
+		name = dom_pre_ftl.42.a
+    event_target:pre_ftl_planet = {
+      enable_special_project = {
+        name = "SUPPRESS_PRE_FTL_REBELLION"
+        owner = event_target:affini_compact
+        location = this
+      }
+    }
+	}
+}
+
+situation_event = {
+  id = dom_pre_ftl.43
+  title = "dom_pre_ftl.43.name"
+	desc = "dom_pre_ftl.43.desc"
+  picture = GFX_evt_civil_action
+	location = target
+  show_sound = event_announcement
+
+  is_triggered_only = yes
+
+  immediate = {
+    set_situation_flag = dom_pre_ftl_many_volunteers
+
+    hidden_effect = {
+      target.owner_species = {
+        save_event_target_as = pre_ftl_species
+      }
+      target.observation_outpost_owner = {
+        save_event_target_as = affini_compact
+      }
+      target = {
+        random_owned_pop = {
+          limit = {
+            is_same_species = event_target:pre_ftl_species
+          }
+          save_event_target_as = pre_ftl_resettle_pop
+        }
+      }
+      event_target:affini_compact = {
+        random_owned_planet = {
+          limit = {
+            is_colony = yes
+            is_under_colonization = no
+            event_target:pre_ftl_resettle_pop = {
+              can_live_on_planet = prev
+            }
+          }
+          weights = {
+            base = 1
+            modifier = {
+              factor = 2
+              # good habitability
+              habitability = { who = event_target:pre_ftl_resettle_pop value >= 0.75 }
+            }
+            modifier = {
+              factor = 0.25
+              # low habitability
+              habitability = { who = event_target:pre_ftl_resettle_pop value <= 0.45 }
+            }
+            modifier = {
+              factor = 1.25
+              # available jobs
+              free_jobs > 2
+            }
+            modifier = {
+              factor = 0.5
+              # available jobs
+              free_jobs <= 0
+            }
+            modifier = {
+              factor = 1.5
+              # available housing
+              free_housing > 0
+            }
+          }
+          save_event_target_as = pre_ftl_resettle_newworld
+        }
+      }
+    }
+  }
+
+	option = {
+		name = dom_pre_ftl.43.a
+    allow = {
+			target.observation_outpost_owner = {
+        resource_stockpile_compare = {
+          resource = energy
+          value >= 250
+        }
+        resource_stockpile_compare = {
+          resource = unity
+          value >= 50
+        }
+      }
+		}
+    target.observation_outpost_owner = {
+      add_resource = {
+        energy = -250
+        unity = -50
+      }
+    }
+    event_target:pre_ftl_resettle_pop = {
+      resettle_pop = {
+        pop = event_target:pre_ftl_resettle_pop
+        planet = event_target:pre_ftl_resettle_newworld
+      }
+    }
+	}
+
+  option = {
+		name = dom_pre_ftl.43.b
+    add_situation_progress = -10
+	}
+}
+
+planet_event = {
+  id = dom_pre_ftl.45
+  title = "dom_pre_ftl.45.name"
+  desc = "dom_pre_ftl.45.desc"
+  picture = GFX_evt_undertaker
+  location = target
+  show_sound = event_wind_ruins
+
+  is_triggered_only = yes
+
+  trigger = {
+    has_planet_flag = zoonotic_plague_dead_world
+    owner = {
+      is_domesticator_or_full_protectorate = yes
+    }
+  }
+
+  immediate = {
+    random_galaxy_species = {
+      limit = {
+        has_species_flag = zoonotic_plague_species
+        home_planet = {
+          is_same_value = root
+        }
+      }
+      save_event_target_as = revived_species
+    }
+  }
+
+  option = {
+    name = dom_pre_ftl.45.a
+
+    enable_special_project = {
+      name = "REVIVE_PLAGUE_SPECIES"
+      owner = root.owner
+      location = root
+    }
+  }
+
+  option = {
+    name = dom_pre_ftl.45.b
+  }
+}
+
+planet_event = {
+  id = dom_pre_ftl.46
+  title = "dom_pre_ftl.46.name"
+  desc = "dom_pre_ftl.46.desc"
+  picture = GFX_evt_scientific_experiments
+  location = target
+  show_sound = event_celebration
+
+  is_triggered_only = yes
+
+  immediate = {
+    remove_planet_flag = zoonotic_plague_dead_world
+    while = {
+      count = 3
+      create_pop = {
+        species = event_target:revived_species
+        ethos = {
+					ethic = "ethic_xenophile"
+				}
+      }
+    }
+    add_deposit = d_zoonotic_plague_memorial
+  }
+
+  option = {
+    name = dom_pre_ftl.46.a
+  }
+}

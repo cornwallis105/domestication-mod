@@ -79,11 +79,11 @@ honorbound_warriors = {
 		liberator = no
 		opportunist = no
 		slaver = no
-		uplifter = no
+		uplifter = yes
 		purger = no
 		displacer = no
 		infiltrator = no
-		dominator = yes
+		dominator = no
 		robot_exploiter = no
 		robot_liberator = no
 		propagator = no
@@ -119,21 +119,21 @@ honorbound_warriors = {
 	}
 }
 
-fanatic_befrienders = {
-	aggressiveness = 2.0
+cared_for_pets = {
+	aggressiveness = 0.25
 	trade_willingness = 1.0
-	bravery = 1.5
+	bravery = 1.0
 	combat_bravery = 1.0
 
-	military_spending = 1.2
-	colony_spending = 1.0
+	military_spending = 0.5
+	colony_spending = 1.25
 
 	federation_acceptance = 0 #50
 	nap_acceptance = 50
 	commercial_pact_acceptance = 50
 	research_agreement_acceptance = 50
 	defensive_pact_acceptance = 50
-	migration_pact_acceptance = 50
+	migration_pact_acceptance = -25
 
 	advanced_start_chance = 25
 
@@ -148,9 +148,9 @@ fanatic_befrienders = {
 	claims_modifier = 0.25
 
 	behaviour = {
-		conqueror = yes
-		subjugator = yes
-		liberator = no
+		conqueror = no
+		subjugator = no
+		liberator = yes
 		opportunist = yes
 		slaver = no
 		uplifter = yes
@@ -159,7 +159,7 @@ fanatic_befrienders = {
 		dominator = no
 		infiltrator = yes
 		robot_exploiter = no
-		robot_liberator = no
+		robot_liberator = yes
 		propagator = no
 		multispecies = yes
 		crisis_fighter = yes
@@ -168,20 +168,12 @@ fanatic_befrienders = {
 	allow = {
 		is_country_type = default
 		OR = {
-			AND = {
-				has_ethic = "ethic_militarist"
-				has_ethic = "ethic_fanatic_xenophile"
-				has_trait = "trait_repugnant"
-				has_trait = "trait_solitary"
-				has_trait = "trait_venerable"
-			}
-			is_domesticator_or_protectorate = yes
+			is_full_protectorate = yes
 		}
-		
+
 	}
 
 	weight_modifier = {
 		weight = 100
 	}
 }
-

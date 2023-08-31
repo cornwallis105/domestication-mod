@@ -1,0 +1,114 @@
+namespace = colony_mod
+
+planet_event = {
+	id = colony_mod.5
+	title = "colony_mod.5.name"
+	desc = "colony_mod.5.desc"
+	picture = GFX_evt_in_the_dark
+	show_sound = event_air_raid_siren
+	location = ROOT
+	trackable = yes
+
+	pre_triggers = {
+		has_owner = yes
+		is_homeworld = no
+		original_owner = yes
+		is_ai = no
+		has_ground_combat = no
+		is_capital = no
+	}
+
+	trigger = {
+		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		has_modifier = "atmospheric_hallucinogen"
+		NOT = { has_planet_flag = atmospheric_hallucinogen_colony_flag }
+		num_pops > 0
+	}
+
+	immediate = {
+		set_planet_flag = atmospheric_hallucinogen_colony_flag
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = colony_mod.5.a
+		enable_special_project = {
+			name = "hallucinogen_removal"
+			location = this
+			owner = root
+		}
+	}
+
+	option = {
+		name = colony_mod.5.b
+		owner = {
+			add_resource = { unity = -200 }
+		}
+	}
+
+  option = {
+    trigger = {
+      owner = { is_domesticator_or_full_protectorate = yes }
+    }
+		name = colony_mod.5.domestication
+    icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+    enable_special_project = {
+			name = "hallucinogen_xenodrug_research"
+			location = this
+			owner = root
+		}
+	}
+
+}
+
+planet_event = {
+	id = colony_mod.101
+	title = "colony_mod.101.name"
+	desc = "colony_mod.101.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_air_raid_siren
+	location = ROOT
+
+	is_triggered_only = yes
+
+	option = {
+		name = EXCELLENT
+		trigger = {
+			NOT = {
+				has_planet_flag = nice_titan_study
+			}
+		}
+		hidden_effect = {
+			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
+			set_planet_flag = titanic_life_can_build
+		}
+		custom_tooltip = titanic_recruit_tooltip
+	}
+
+	option = {
+		name = EXCELLENT
+		trigger = {
+			has_planet_flag = nice_titan_study
+		}
+		hidden_effect = {
+			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
+			set_planet_flag = titanic_life_can_build
+			every_deposit = {
+				limit = { is_deposit_type = d_titanic_life_blocker }
+				clear_blocker = yes
+			}
+			if = {
+				limit = {
+					owner = { is_domesticator_or_full_protectorate = yes }
+				}
+				add_deposit = d_domesticated_titans
+			}
+		}
+		custom_tooltip = titanic_recruit_phile_tooltip
+	}
+
+}

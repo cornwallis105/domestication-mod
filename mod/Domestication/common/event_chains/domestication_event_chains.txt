@@ -1,0 +1,9 @@
+domesticating_the_sentinels = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_huge_monument
+}
+
+domesticating_the_nanite_swarm = {
+	icon = "gfx/interface/icons/situation_log/situation_log_main_quest.dds"
+	picture = GFX_evt_gray_goo
+}

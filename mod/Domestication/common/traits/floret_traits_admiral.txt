@@ -1,28 +1,116 @@
 leader_trait_floret_immortal = {
-	cost = 0
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = "GFX_leader_trait_psionic_chosen_one"
+		RARITY = common
+		COUNCIL = no
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_psionic_chosen_one.dds"
 	immortal_leaders = yes
-	leader_trait = { admiral scientist general governor }
 	leader_class = { admiral scientist general governor }
 	opposites = {  }
 }
 
-leader_trait_cutie_adm = {
-	cost = 1
+leader_trait_cutie_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_cutie"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_cutie.dds"
-	modifier = {
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cutie.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
 		ship_fire_rate_mult = 0.025
 		ship_speed_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = general
+		}
+		army_morale = 0.05
+		army_collateral_damage_mult = -0.10
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = governor
+		}
+		planet_jobs_unity_produces_mult = 0.05
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = scientist
+		}
+		ship_speed_mult = 0.2
+		science_ship_survey_speed = 0.05
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_ruler_influence_produces_add = 0.2
+		country_unity_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
+	leader_class = { admiral scientist general governor }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_warp_eng_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_warp_engineer"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_warp_engineer.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_emergency_ftl_mult = -0.1
+		ship_disengage_chance_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		ship_windup_mult = -0.05
+		ship_winddown_mult = -0.05
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
 	leader_class = { admiral }
 	opposites = {  }
 
@@ -33,20 +121,319 @@ leader_trait_cutie_adm = {
 	}
 }
 
-leader_trait_warp_eng_adm = {
-	cost = 1
+leader_trait_pirate_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_pirate"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_warp_engineer.dds"
-	modifier = {
-		ship_emergency_ftl_mult = -0.1
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_pirate.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_piracy_suppression_add = 2
+		ships_upkeep_mult = -0.05
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		local_trade_protection_add = 2
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_admiral_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_admiral"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_admiral.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		shipsize_cruiser_evasion_mult = 0.25
+		shipsize_battleship_evasion_mult = 0.25
+		shipsize_titan_evasion_mult = 0.25
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_naval_cap_mult = 0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_officer_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_officer"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_officer.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_fire_rate_mult = 0.05
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		ship_corvette_cost_mult = -0.075
+		ship_destroyer_cost_mult = -0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_marauder_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_marauder"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_marauder.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_evasion_mult = 0.05
+		ship_fire_rate_mult = 0.05
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		ship_evasion_mult = 0.025
+		ship_fire_rate_mult = 0.025
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_warform_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_warform"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_warform.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_fire_rate_mult = 0.1
+		ship_weapon_range_mult = 0.15
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		ship_weapon_damage = 0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	leader_class = { admiral }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_brainslug_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_brainslug"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_brainslug_floret.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_fire_rate_mult = 0.05
+		ship_evasion_mult = 0.05
+		ships_upkeep_mult = -0.075
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = general
+		}
+		armies_upkeep_mult = -0.2
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = governor
+		}
+		planet_building_build_speed_mult = 0.075
+		planet_jobs_engineering_research_produces_mult = 0.1
+		planet_jobs_physics_research_produces_mult = 0.1
+		planet_jobs_society_research_produces_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = scientist
+		}
+		all_technology_research_speed = 0.075
+		science_ship_survey_speed = 0.1
+		ship_anomaly_research_speed_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_naval_cap_mult = 0.075
+		country_physics_research_produces_mult = 0.075
+		country_society_research_produces_mult = 0.075
+		country_engineering_research_produces_mult = 0.075
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
+	}
+	initial = no
+	randomized = no
+
+	leader_class = { admiral general governor scientist }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_ahab_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_ahab"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_ahab.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_fire_rate_mult = 0.075
+		ship_weapon_damage = 0.075
+		ship_speed_mult = 0.075
+		ship_evasion_mult = 0.05
+		ship_disengage_chance_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		ship_evasion_mult = 0.05
 		ship_disengage_chance_mult = 0.1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = {  }
 
@@ -57,20 +444,38 @@ leader_trait_warp_eng_adm = {
 	}
 }
 
-leader_trait_pirate_adm = {
-	cost = 1
+leader_trait_musician_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_musician"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_pirate.dds"
-	modifier = {
-		ship_piracy_suppression_add = 2
-		ships_upkeep_mult = -0.05
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_musician.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_windup_mult = -0.25
+		ship_tracking_add = 10
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_physics_research_produces_mult = 0.075
+		country_unity_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = {  }
 
@@ -81,21 +486,46 @@ leader_trait_pirate_adm = {
 	}
 }
 
-leader_trait_admiral_adm = {
-	cost = 1
+leader_trait_great_khan_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_great_khan"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_admiral.dds"
-	modifier = {
-		shipsize_cruiser_evasion_mult = 0.25
-		shipsize_battleship_evasion_mult = 0.25
-		shipsize_titan_evasion_mult = 0.25
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_great_khan_floret.dds"
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_fire_rate_mult = 0.1
+		ship_speed_mult = 0.1
+		ship_weapon_damage = 0.1
+		ship_evasion_mult = 0.15
+		ship_hull_mult = 0.1
+		ship_hull_regen_add_perc = 0.05
+		ship_armor_regen_add_perc = 0.05
+		ship_weapon_range_mult = 0.1
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		army_morale = 0.1
+		ship_weapon_damage = 0.05
+		country_war_exhaustion_mult = -0.1
+		country_hostile_claim_influence_cost_mult = 0.1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = {  }
 
@@ -106,19 +536,41 @@ leader_trait_admiral_adm = {
 	}
 }
 
-leader_trait_officer_adm = {
-	cost = 1
+leader_trait_militarist_1_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_supreme_admiral"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_admiral.dds"
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_officer.dds"
-	modifier = {
+	triggered_modifier = {
+		potential = {
+			is_ruler = no
+			leader_class = admiral
+		}
+		command_limit_mult = 0.5
+		ship_fire_rate_mult = 0.1
+		ship_speed_mult = -0.15
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_naval_cap_mult = 0.05
 		ship_fire_rate_mult = 0.05
+		ship_speed_mult = 0.075
 	}
+	#icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
 	leader_class = { admiral }
 	opposites = {  }
 
@@ -127,28 +579,60 @@ leader_trait_officer_adm = {
 			is_domesticator_or_protectorate = yes
 		}
 	}
+	#custom_tooltip = leader_trait_militarist_1_floret_effect
+	destiny_background_icon = "GFX_leader_background_destiny_1"
 }
 
-leader_trait_marauder_adm = {
-	cost = 1
+leader_trait_xenophile_1_floret = {
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_guerilla_tactics"
+		RARITY = floret
+		COUNCIL = triggered
+		TIER = none
+	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_traits/leader_trait_marauder.dds"
-	modifier = {
-		ship_evasion_mult = 0.05
-		ship_fire_rate_mult = 0.05
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_pirate.dds"
+	triggered_modifier = {
+		potential = {
+			has_first_contact_dlc = no
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_disengage_chance_mult = 0.5
+		ship_evasion_add = 5
+		fleet_mia_time_mult = -0.25
+	}
+	triggered_modifier = {
+		potential = {
+			has_first_contact_dlc = yes
+			is_ruler = no
+			leader_class = admiral
+		}
+		ship_cloaking_strength_add = 2
+		ship_evasion_add = 5
+		fleet_mia_time_mult = -0.25
+	}
+	triggered_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_ruler_unity_produces_add = 10
+		trade_value_mult = 0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_trait = { admiral }
-	leader_class = { admiral }
-	opposites = {  }
-
 	leader_potential_add = {
 		from = {
 			is_domesticator_or_protectorate = yes
 		}
 	}
+	leader_class = { admiral }
+	destiny_background_icon = "GFX_leader_background_destiny_1"
+	#ustom_tooltip = leader_trait_xenophile_1_floret_effect
 }

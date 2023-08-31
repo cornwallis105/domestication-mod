@@ -50,7 +50,7 @@ leader_event = {
 					portrait = fun12
 					gender = male
 					traits = {
-						ideal_planet_class = capital_scope
+						ideal_planet_class = this.capital_scope
 						trait = "trait_repugnant"
 						trait = "trait_solitary"
 						trait = "trait_venerable"
@@ -106,21 +106,22 @@ leader_event = {
             save_event_target_as = new_owner
           }
         }
-				create_species = {
-	        name = "PRESCRIPTED_species_name_blorg"
-	        plural = "PRESCRIPTED_species_plural_blorg"
-	        adjective = "PRESCRIPTED_species_adjective_blorg"
-	        class = FUN
-	        portrait = fun12
-	        gender = male
-	        traits = {
-	          ideal_planet_class = capital_scope
-	          trait = "trait_repugnant"
-	          trait = "trait_solitary"
-	          trait = "trait_venerable"
-	          trait = "trait_nomadic"
-	        }
-	      }
+		
+      }
+      create_species = {
+        name = "PRESCRIPTED_species_name_blorg"
+        plural = "PRESCRIPTED_species_plural_blorg"
+        adjective = "PRESCRIPTED_species_adjective_blorg"
+        class = FUN
+        portrait = fun12
+        gender = male
+        traits = {
+          ideal_planet_class = this.capital_scope
+          trait = "trait_repugnant"
+          trait = "trait_solitary"
+          trait = "trait_venerable"
+          trait = "trait_nomadic"
+        }
       }
       event_target:floret_country = {
         create_leader = {
@@ -136,6 +137,7 @@ leader_event = {
           save_event_target_as = new_floret
           add_trait = leader_trait_blorgfriend_floret
           add_trait = leader_trait_floret_immortal
+		  add_age = 42
         }
       }
       owner = { country_event = { id = dom_paragon.2 } }
@@ -213,13 +215,13 @@ leader_event = {
         species = event_target:ethic_leader
         gender = male
         class = general
-        set_age = 45
         skill = 1
       }
       last_created_leader = {
         save_event_target_as = new_floret
         add_trait = leader_trait_floret_immortal
         add_trait = leader_trait_militarist_2_floret
+	  	add_age = 45
       }
 
     }
@@ -407,13 +409,13 @@ country_event = {
   				species = event_target:ethic_leader
   				gender = indeterminable
   				class = governor
-  				set_age = 709
   				skill = 4
   			}
 				last_created_leader = {
 					save_event_target_as = new_floret
           add_trait = leader_trait_floret_immortal
           add_trait = leader_trait_caretaker_floret
+		  add_age = 709
 				}
 			}
 
@@ -447,6 +449,7 @@ country_event = {
 				}
 			}
 			country_event = { id = dom_paragon.247 }
+		}
 	}
 
 	option = {	#Examine the leader
@@ -829,7 +832,7 @@ leader_event = {
 					portrait = fun12
 					gender = male
 					traits = {
-						ideal_planet_class = capital_scope
+						ideal_planet_class = this.capital_scope
 						trait = "trait_repugnant"
 						trait = "trait_solitary"
 						trait = "trait_venerable"
@@ -1022,13 +1025,13 @@ country_event = { # militarist 2
   				species = event_target:ethic_leader
   				gender = female
   				class = general
-  				set_age = 28
   				skill = 1
   			}
 				last_created_leader = {
 					save_event_target_as = new_floret
-          add_trait = leader_trait_floret_immortal
-          add_trait = leader_trait_militarist_2_floret
+				    add_trait = leader_trait_floret_immortal
+				    add_trait = leader_trait_militarist_2_floret
+					add_age = 28
 				}
 			}
 

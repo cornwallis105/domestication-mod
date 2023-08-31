@@ -781,7 +781,7 @@ situation_event = {
 	desc = "dom_pre_ftl.14.desc"
   picture = GFX_evt_friendly_enlightenment
 	location = target
-  show_sound = event_handshake
+  show_sound = event_hand_shake
 
   is_triggered_only = yes
 

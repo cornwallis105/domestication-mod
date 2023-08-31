@@ -118,9 +118,9 @@ empire_name_format = {
 war_name_parts_list = {
 	key = "domestication_war_names"
 	parts = {
-		"Domestication Campaign" = 1
-		"Pacification Campaign" = 1
-		"Pacification Program" = 2
+		"Domestication_Campaign" = 1
+		"Pacification_Campaign" = 1
+		"Pacification_Program" = 2
 	}
 }
 
@@ -264,7 +264,7 @@ war_name_format = {
 pop_faction_name_parts_list = {
 	key = "domesticator_names"
 	parts = {
-		Domestication = 1
+		"Domestication" = 1
 	}
 }
 

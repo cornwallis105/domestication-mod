@@ -538,6 +538,7 @@ leader_trait_great_khan_floret = {
 
 leader_trait_militarist_1_floret = {
 	is_councilor_trait_for_ruler = yes
+	destiny_trait = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -585,6 +586,7 @@ leader_trait_militarist_1_floret = {
 
 leader_trait_xenophile_1_floret = {
 	is_councilor_trait_for_ruler = yes
+	destiny_trait = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader

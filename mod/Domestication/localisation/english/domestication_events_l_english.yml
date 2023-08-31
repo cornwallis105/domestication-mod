@@ -51,7 +51,6 @@
 
  # Admiral
  domestication_leader.5.name:0 "Admiral Captures New Floret"
- domestication_leader.5.desc:0 "In a stunning display of military skill in the [system.GetName] system, Admiral §Y[new_owner.GetName]§!"
  domestication_leader.5.desc:0 "During the recent battle in [system.GetName], Admiral §Y[new_owner.GetName]§! personally subdued an enemy commander. The [new_floret.Species.GetAdj] admiral was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Admiral eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.5.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Admiral"
 
@@ -211,7 +210,7 @@
  # Ahab
  distar.215.domestication:0 "You're clearly a danger to yourself, and possibly others."
  domestication_leader.25.name:0 "The Reckless Captain"
- domestication_leader.25.desc:0 "Having been rescued from the belly of the Tiyanki Matriarch, §YCaptain [captain_reth.GetName]$§! has been deem an extreme danger to [new_floret.GetHimselfHerself], although whether [new_floret.GetHeShe] is a danger to others is still up for deabte. Needless to to say, [new_floret.GetHeShe] is a clear candidate for mandatory domestication, and  §Admiral [new_owner.GetName]§! has enthusiastically volunteered to be §Y[new_floret.GetName]§!'s new owner."
+ domestication_leader.25.desc:0 "Having been rescued from the belly of the Tiyanki Matriarch, §YCaptain [captain_reth.GetName]$§! has been deemed an extreme danger to [new_floret.GetHimselfHerself], although whether [new_floret.GetHeShe] is a danger to others is still up for debate. Needless to to say, [new_floret.GetHeShe] is a clear candidate for mandatory domestication, and  §YAdmiral [new_owner.GetName]§! has enthusiastically volunteered to be §Y[new_floret.GetName]§!'s new owner."
 
  # The Great Khan
  dom_marauder.1.name:0 "The Death of the Great Khan"
@@ -235,6 +234,11 @@
  dom_marauder.9.name:0 "The Great Khan Lives... In Chains"
  dom_marauder.9.desc:0 "Propaganda broadcasts featuring brainwashed slaves are an unfortunate fact of life for anyone in proximity to [khan_destroyer.GetAdj] space, but today's is a bit unusual. Indeed, the victim in today's program is none other than §YGreat Khan [great_khan_backup.GetName]§!! In a message to the galaxy, [great_khan_floret.GetHeShe] intoduces [great_khan_floret.GetHimselfHerself] as §Y[great_khan_floret.GetName]§! and tells everyone how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] new life in the [khan_destroyer.GetName], how much [great_khan_floret.GetHeShe] loves being a "floret," and how much [great_khan_floret.GetHeShe] loves [great_khan_floret.GetHisHer] §Rowner§!, §Y[khans_owner.GetName]§!.\n\nBetween learning that the Great Khan is still alive and seeing the effects of [khan_destroyer.GetAdj] torture, our populace is more than a little shaken. If the [khan_destroyer.GetSpeciesNamePlural] can turn such a commanding warlord into this... \"pet,\" there's one question one every [this.GetSpeciesName]'s mind:"
  dom_marauder.9.a:0 "Do we really stand a chance?"
+ dom_marauder.12.name:0 "REPLACE ME"
+ dom_marauder.12.desc:0 "REPLACE ME"
+ dom_marauder.12.a:0 "REPLACE ME"
+
+
 
  sub_dom_project:0 "[target.Owner.GetSubMantleUpper] Domestication Project"
  dom_underground.1.name:0 "The [this.owner.GetSubMantleUpper] Domestication Project"
@@ -314,6 +318,8 @@
  xenodrug_event.5.desc:0 "Industrial facilities have been built over the outlets for the fungus-infested cave systems. Apart from filtering and regulating the spread of spores, these plants can also convert any excess spore clouds into useful §Hexotic gases§!.\n\nAdditionally, our xenoveterinarians have refined the spores into a Class-L Xenodrug. Florets and independents alike have taken to using this new xenodrug to engage in animalistic mating."
  UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION:0 "Utilize the Cave Mushrooms"
  UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION_DESC:0 "Our scientists will try to find ways to use the primal effects of the Cave Mushrooms to our benefit."
+ EXTERMINATE_CAVE_SHROOM_PROJECT_DOMESTICATION:0 "Exterminate the Cave Mushrooms"
+ EXTERMINATE_CAVE_SHROOM_PROJECT_DOMESTICATION_DESC:0 "Our scientists will try to find ways to exterminate the Cave Mushrooms."
  colony_mod.5.domestication:0 "Could it have recreational uses?"
  POLLEN_1_PROJECT_XENODRUG: "Pollen Study"
  POLLEN_1_PROJECT_XENODRUG_DESC:0 "Some of the planet's native flora have very interesting pollen with potential xenodrug applications."
@@ -334,6 +340,11 @@
  dom_pre_ftl.1.name:0 "The [target.owner.GetAdj] Domestication Treaty"
  dom_pre_ftl.1.desc:0 "After years of tense negotiations, zealous xeno-outreach, and loving head-pats, [affini_compact.GetAdj] and [pre_ftl_country.GetAdj] diplomats met today to sign the [pre_ftl_country.GetAdj] Domestication Treaty.\n\nIn a mere blip of geologic time, we have completely reshaped [pre_ftl_country.GetAdj] society, leaving it unrecognizable from its previous state. Every [pre_ftl_country.GetSpeciesName] now has access to safe housing, nutritious food, abudant leisure activities, and the best healthcare the [affini_compact.GetName] can offer. While the [pre_ftl_country.GetName] will remain a nominally independent nation, its day-to-day operations will be guided by our benevolent [affini_compact.owner_species.GetHandNamePlural].\n\nBest of all, [pre_ftl_country.GetSpeciesNamePlural] will now have the freedom to find loving owners who will cherish them forever. Hopefully our Domestication Centers will be able to keep up with demand!"
  dom_pre_ftl.1.a:0 "A great day for [affini_compact.GetSpeciesNamePlural] and [pre_ftl_country.GetSpeciesNamePlural] alike!"
+
+ # FAILURE
+ dom_pre_ftl.2.name:0 "Domestication Negotiations Fail"
+ dom_pre_ftl.2.desc:0 "Despite our best efforts, the [pre_ftl_country.GetAdj] Domestication Project has failed to reach a successful conclusion. We will instead peacefully coexist with the [pre_ftl_country.GetAdj] people, and hope that they will eventually come to see the benefits of domestication."
+ dom_pre_ftl.2.a:0 "A disappointing outcome"
 
  dom_pre_ftl.4.name:0 "Substandard Housing"
  dom_pre_ftl.4.desc:0 "The living situation amongst the sophonts on [target.GetName] is, quite frankly, utterly unacceptable. Our urban architectural specialists want to construct several new cities to house the [target.owner.GetSpeciesAdj] population, and all they ask for is the materials to build them with."
@@ -542,10 +553,6 @@
  dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more that a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
  dom_paragon.40401.a:0 "Adorable!"
 
- dom_paragon.40401.name:0 "A Worthy Foe"
- dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more that a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
- dom_paragon.40401.a:0 "Adorable!"
-
  dom_paragon.4.name:0 "Burdens Lifted"
  dom_paragon.4.desc:0 "After years of loyal service in the [root.owner.GetAdj] Navy, §Y[ethic_leader.GetName]§! has come to a difficult realization: [ethic_leader.GetHisHerCap] trauma cannot be alleviated by military victories. Even the small happiness [ethic_leader.GetHeShe] feels when liberating sophonts from oppression is tempered by the heavy burden of [ethic_leader.GetHisHer] rank. If not [ethic_leader.GetHimHer], who would lead the [root.owner.GetAdj] war effort?\n\nFortunately, [ethic_leader.GetHeShe]'s been sharing [ethic_leader.GetHisHer] woes with §YAdmiral [new_owner.GetName]§!, who has finally convinced [dom_militarist_2.GetHimHer] that the burden of liberating the galaxy need not rest on [ethic_leader.GetHisHer] shoulders alone. To that end, [ethic_leader.GetName], now §Y[new_floret.GetName]§!, has formally relinquished both [new_floret.GetHisHer] commission and [new_floret.GetHisHer] independence. [new_floret.GetHeSheCap] will continue to serve in the navy alongside [new_floret.GetHisHer] owner, safe in the assurance that [new_floret.GetHeShe] will never again have to bear any burden alone."
  dom_paragon.4.a:0 "Thank you for your service!"
@@ -574,7 +581,7 @@
 
  dom_paragon.40101.name:0 "O Captain, My Captain"
  dom_paragon.40101.desc:0 "§LReady the fleet! We're going raiding!§!\n\nThe [root.GetSpeciesAdj] crew on deck cast uncertain looks at the speaker, then look questioningly at the [new_owner.species.GetName] standing over [ethic_leader.GetHimHer]. At a reassuring nod from the [new_owner.species.GetName], the crew begin carrying out the command.\n\nThe [new_owner.species.GetName] rubs a [new_owner.owner.GetSpeciesHandName] against the speaker's cheek.\n\n§LYes, little one, let's show those cuties what you're made of.§!\n\nThe crew aren't really sure what to make of the situation. Is §Y[new_floret.GetName]§! really aware of what's going on, or does [new_floret.GetHisHer] owner, §Y[new_owner.GetName]§! have [new_floret.GetHimHer] on so many Class-Hs that [new_floret.GetHeShe] truly thinks [new_floret.GetHeShe]'[new_floret.GetSRe] in charge? It doesn't really matter, of course. Either way, the fleet will be carrying out its intended mission - hunting down feralist ships and rescuing the poor little cuties trapped on them. That will mean more friends for §Y[new_floret.GetName]§! to play with, and isn't that the greatest treasure of all?"
- dom_paragon.40401.a:0 "Adorable!"
+ dom_paragon.40101.a:0 "Adorable!"
 
  leader_trait_xenophile_1_floret_effect:2 "$FLEET_EFFECTS_TXT$:\n$t$Every Enemy Empire Ship Destroyed:\n$tt$$r_unity$: §G+$@trait_corsair_amt$§!"
 
@@ -587,3 +594,9 @@
  dom_paragon.247.name:0 "A Very Useful Beeper"
  dom_paragon.247.desc:0 "§Y[ethic_leader.GetName]§! "
  dom_paragon.247.a:0 "An extremely good beeper!"
+
+ dom_horizon.1.name:0 "REPLACE_ME"
+ dom_horizon.1.desc:0 "REPLACE_ME"
+ dom_horizon.1.a:0 "REPLACE_ME"
+ dom_horizon.1.b:0 "REPLACE_ME"
+ dom_horizon.1.c:0 "REPLACE_ME"

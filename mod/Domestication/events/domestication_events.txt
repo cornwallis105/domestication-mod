@@ -1550,7 +1550,7 @@ country_event = {
 	desc =  domestication.29.desc
 	picture = GFX_evt_space_station
 	fire_only_once = yes
-	show_sound = event_handshake
+	show_sound = event_hand_shake
 
 	is_triggered_only = yes
 	hide_window = no

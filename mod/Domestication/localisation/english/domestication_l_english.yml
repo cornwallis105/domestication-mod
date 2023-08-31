@@ -187,7 +187,7 @@
  job_floret_effect_desc:0 "£job_floret£ $job_floret_plural$ produce £mod_planet_amenities_add£ §Y$PLANET_AMENITIES_TITLE$§! and decrease £crime£ §Y$PLANET_CRIME_TITLE$§!"
  mod_job_floret_add:0 "$job_floret$ Jobs"
  mod_job_floret_per_pop:0 "§G+1§! $job_floret$ Job per $VALUE$ Planet Pops"
- mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop"
+ mod_job_floret_per_pop_short:0 "\n§G+1§! £mod_job_floret_add£ per $VALUE$ £pop£"
  protectorate_floret_jobs:0 "Floret Jobs"
  planet_florets:0 "Planet $job_floret_plural$"
  xenodrugs_modifier:0 "Exotic Xenodrugs"
@@ -221,7 +221,7 @@
  job_domesticator_underground_desc:0 "These domestication specialists handle the wide range of tasks associated with caring for sophonts deep underground."
  mod_job_domesticator_underground_add:0 "$job_domesticator_underground$ Jobs"
  mod_job_domesticator_underground_per_pop:0 "§G+1§! $job_domesticator_underground$ Job per $VALUE$ Planet Pops"
- mod_job_domesticator_underground_per_pop_short:0 "\n§G+1§! £mod_job_domesticator_underground_add£ per $VALUE$ £pop"
+ mod_job_domesticator_underground_per_pop_short:0 "\n§G+1§! £mod_job_domesticator_underground_add£ per $VALUE$ £pop£"
  planet_domesticators:0 "Planet Domesticators"
  domesticators_category:0 "Domesticators"
  mod_planet_domesticators_produces_mult:1 "$job_domesticator_with_icon$ Output"
@@ -462,3 +462,7 @@
 
  bombardment_floretrescue:0 "Sophont Protection"
  bombardment_floretrescue_desc:4 "$floretrescue_raiding$ Bombardment targets feralist population centers with specialized craft that scoop up the poor cuties and bring them back to our worlds to receive love and snuggles.\n- §YModerate§! damage to §YArmies§!\n- §ELight§! damage to §YPlanet§!\n- Will §Yabduct§! Pops when possible instead of killing them\n- Will §RNOT§! abduct or kill the last 10 Pops"
+
+ YOU_CANT_ENSLAVE_AFFINI:0 "$TRIGGER_FAIL$§YDomesticators§! cannot enslave species."
+ NAME_Terran_Accord: "Terran Accord"
+ NAME_Affini_Compact: "Affini Compact"

@@ -1324,11 +1324,12 @@ action_demand_protectorate = {
 			}
 		}
 		# Corporate
-		CORP_DEMAND_PROT_PROPOSE_01 = {
-			trigger = {
-				FROM = { has_authority = auth_corporate }
-			}
-		}
+		# Corporates don't propose protectorates and this doesn't exist in the game
+		#CORP_DEMAND_PROT_PROPOSE_01 = {
+		#	trigger = {
+		#		FROM = { has_authority = auth_corporate }
+		#	}
+		#}
 	}
 	accept = {
 		# Accept

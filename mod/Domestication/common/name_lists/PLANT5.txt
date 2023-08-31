@@ -112,7 +112,7 @@ PLANT5 = {
 		}
 
 		battleship = {
-			AFFINI_SHIP_Aa AFFINI_SHIP_Abdominea AFFINI_SHIP_Acampe AFFINI_SHIP_Acanthophippium AFFINI_SHIP_Aceratorchis AFFINI_SHIP_Acianthus AFFINI_SHIP_Acineta AFFINI_SHIP_Acrorchis AFFINI_SHIP_Ada AFFINI_SHIP_Aerangis AFFINI_SHIP_Aeranthes AFFINI_SHIP_Aerides AFFINI_SHIP_Aganisia AFFINI_SHIP_Agrostophyllum AFFINI_SHIP_Anacamptis AFFINI_SHIP_Ancistrochilus AFFINI_SHIP_Angraecum AFFINI_SHIP_Anguloa	Ansellia AFFINI_SHIP_Aorchis AFFINI_SHIP_Aplectrum AFFINI_SHIP_Arachnis
+			AFFINI_SHIP_Aa AFFINI_SHIP_Abdominea AFFINI_SHIP_Acampe AFFINI_SHIP_Acanthophippium AFFINI_SHIP_Aceratorchis AFFINI_SHIP_Acianthus AFFINI_SHIP_Acineta AFFINI_SHIP_Acrorchis AFFINI_SHIP_Ada AFFINI_SHIP_Aerangis AFFINI_SHIP_Aeranthes AFFINI_SHIP_Aerides AFFINI_SHIP_Aganisia AFFINI_SHIP_Agrostophyllum AFFINI_SHIP_Anacamptis AFFINI_SHIP_Ancistrochilus AFFINI_SHIP_Angraecum AFFINI_SHIP_Anguloa	AFFINI_SHIP_Ansellia AFFINI_SHIP_Aorchis AFFINI_SHIP_Aplectrum AFFINI_SHIP_Arachnis
 			AFFINI_SHIP_Arethusa AFFINI_SHIP_Armodorum AFFINI_SHIP_Ascocenda AFFINI_SHIP_Ascocentrum AFFINI_SHIP_Ascoglossum AFFINI_SHIP_Australorchis AFFINI_SHIP_Auxopus AFFINI_SHIP_Baptistonia AFFINI_SHIP_Barkeria AFFINI_SHIP_Barlia AFFINI_SHIP_Bartholina AFFINI_SHIP_Beloglottis AFFINI_SHIP_Biermannia AFFINI_SHIP_Bletilla AFFINI_SHIP_Brassavola AFFINI_SHIP_Brassia AFFINI_SHIP_Bulbophyllum AFFINI_SHIP_Calanthe AFFINI_SHIP_Calypso AFFINI_SHIP_Catasetum AFFINI_SHIP_Cattleya
 			AFFINI_SHIP_Chiloschista AFFINI_SHIP_Cirrhopetalum AFFINI_SHIP_Cleisostoma AFFINI_SHIP_Clowesia AFFINI_SHIP_Coelogyne AFFINI_SHIP_Coryanthes AFFINI_SHIP_Cycnoches AFFINI_SHIP_Cymbidium AFFINI_SHIP_Cyrtopodium AFFINI_SHIP_Cypripedium AFFINI_SHIP_Dactylorhiza AFFINI_SHIP_Dendrobium AFFINI_SHIP_Disa AFFINI_SHIP_Dracula AFFINI_SHIP_Encyclia AFFINI_SHIP_Epidendrum AFFINI_SHIP_Epipactis AFFINI_SHIP_Eria AFFINI_SHIP_Eulophia AFFINI_SHIP_Gastrochilus AFFINI_SHIP_Gongora
 			AFFINI_SHIP_Goodyera AFFINI_SHIP_Grammatophyllum AFFINI_SHIP_Gymnadenia AFFINI_SHIP_Habenaria AFFINI_SHIP_Herschelia AFFINI_SHIP_Ionopsis AFFINI_SHIP_Laelia AFFINI_SHIP_Lepanthes AFFINI_SHIP_Liparis AFFINI_SHIP_Ludisia AFFINI_SHIP_Lycaste AFFINI_SHIP_Masdevallia AFFINI_SHIP_Maxillaria AFFINI_SHIP_Meliorchis AFFINI_SHIP_Mexipedium AFFINI_SHIP_Miltonia AFFINI_SHIP_Mormodes AFFINI_SHIP_Odontoglossum AFFINI_SHIP_Oeceoclades AFFINI_SHIP_Oncidium AFFINI_SHIP_Ophrys
@@ -169,13 +169,13 @@ PLANT5 = {
 
 		### For Fallen Empires
 		small_ship_fallen_empire = {
-			"Jaahne" "Merok" "Vornak" "Vea" "Varex" "Rax" "Verek" "Milo" "Kaado" "Morek" "Trylek" "Peo" "Maach" "Keto" "Vol" "Luma" "Rekiel" "Dramus" "Licus" "Marex" "Ilio" "Zenet" "Domes" "Vivea" "Ferna" "Magnoli" "Gneto" "Bryo" "Rophyte" "Stirpis" "Vitanix" "Aarboro" "Radix" "Zarbor" "Rotex" "Anoma" "Sallor" "Mexus"
+			# "Jaahne" "Merok" "Vornak" "Vea" "Varex" "Rax" "Verek" "Milo" "Kaado" "Morek" "Trylek" "Peo" "Maach" "Keto" "Vol" "Luma" "Rekiel" "Dramus" "Licus" "Marex" "Ilio" "Zenet" "Domes" "Vivea" "Ferna" "Magnoli" "Gneto" "Bryo" "Rophyte" "Stirpis" "Vitanix" "Aarboro" "Radix" "Zarbor" "Rotex" "Anoma" "Sallor" "Mexus"
 		}
 		large_ship_fallen_empire = {
-			"Jaane" "Merok" "Vornak" "Rax" "Verek" "Milo" "Caado" "Morek" "Trylek" "Peo" "Maach" "Keto"
+			# "Jaane" "Merok" "Vornak" "Rax" "Verek" "Milo" "Caado" "Morek" "Trylek" "Peo" "Maach" "Keto"
 		}
 		massive_ship_fallen_empire = {
-			"Ulus" "Incanon" "Ovus" "Vector" "Eovoles" "Yacto" "Volea"
+			# "Ulus" "Incanon" "Ovus" "Vector" "Eovoles" "Yacto" "Volea"
 		}
 	}
 

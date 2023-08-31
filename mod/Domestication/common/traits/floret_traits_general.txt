@@ -133,6 +133,7 @@ leader_trait_underground_floret = {
 }
 
 leader_trait_militarist_2_floret = {
+	destiny_trait = yes
 	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon

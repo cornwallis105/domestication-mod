@@ -210,7 +210,7 @@ l_english:
  # Ahab
  distar.215.domestication:0 "You're clearly a danger to yourself, and possibly others."
  domestication_leader.25.name:0 "The Reckless Captain"
- domestication_leader.25.desc:0 "Having been rescued from the belly of the Tiyanki Matriarch, §YCaptain [captain_reth.GetName]$§! has been deem an extreme danger to [new_floret.GetHimselfHerself], although whether [new_floret.GetHeShe] is a danger to others is still up for deabte. Needless to to say, [new_floret.GetHeShe] is a clear candidate for mandatory domestication, and  §Admiral [new_owner.GetName]§! has enthusiastically volunteered to be §Y[new_floret.GetName]§!'s new owner."
+ domestication_leader.25.desc:0 "Having been rescued from the belly of the Tiyanki Matriarch, §YCaptain [captain_reth.GetName]$§! has been deemed an extreme danger to [new_floret.GetHimselfHerself], although whether [new_floret.GetHeShe] is a danger to others is still up for debate. Needless to to say, [new_floret.GetHeShe] is a clear candidate for mandatory domestication, and  §YAdmiral [new_owner.GetName]§! has enthusiastically volunteered to be §Y[new_floret.GetName]§!'s new owner."
 
  # The Great Khan
  dom_marauder.1.name:0 "The Death of the Great Khan"

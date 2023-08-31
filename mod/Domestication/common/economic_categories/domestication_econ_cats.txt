@@ -5,9 +5,9 @@ planet_florets = {
 		produces
 		#upkeep
 	}
-	generate_add_modifiers = {
-		#produces
-	}
+	# generate_add_modifiers = {
+	# 	produces
+	# }
 	modifier_category = pop
 }
 
@@ -18,8 +18,8 @@ planet_domesticators = {
 		produces
 		upkeep
 	}
-	generate_add_modifiers = {
-		#produces
-	}
+	# generate_add_modifiers = {
+	# 	produces
+	# }
 	modifier_category = pop
 }

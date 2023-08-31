@@ -620,9 +620,9 @@ situation_event = {
   show_sound = event_default
 
   is_triggered_only = yes
-
 	option = {
-    add_situation_progress = -5
+      name = "dom_pre_ftl.8.a"
+      add_situation_progress = -5
 	}
 }
 
@@ -972,7 +972,8 @@ situation_event = {
   is_triggered_only = yes
 
 	option = {
-    add_situation_progress = -5
+        name = dom_pre_ftl.16.a
+        add_situation_progress = -5
 	}
 }
 

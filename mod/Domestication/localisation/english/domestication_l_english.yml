@@ -466,3 +466,6 @@
  YOU_CANT_ENSLAVE_AFFINI:0 "$TRIGGER_FAIL$§YDomesticators§! cannot enslave species."
  NAME_Terran_Accord: "Terran Accord"
  NAME_Affini_Compact: "Affini Compact"
+
+ affini_retirement: "Retired Bloom"
+ affini_retirement_desc: "A rebloomed leader has decided to retire, leaving room for blooms to step in."

@@ -1,0 +1,404 @@
+# Observation Situation - New World Order
+
+situation_pre_ftl_nwo_2 = {
+	picture = GFX_evt_open_revolt
+	complete_icon_frame = GFX_situation_outcome_frame_blue
+	complete_icon = GFX_situation_outcome_unknown
+
+	on_start = {
+		set_situation_locked = yes
+		target = {
+			set_planet_flag = has_on_going_observation_situation
+		}
+	}
+	on_abort = {
+		target = {
+			save_event_target_as = singularity_planet
+			remove_planet_flag = has_on_going_observation_situation
+		}
+		situation_event = { id = preftl.2165 } # they are no longer alive or pre-FTL
+	}
+
+	on_progress_complete = {
+		hidden_effect = {
+			target = {
+				remove_planet_flag = has_on_going_observation_situation
+			}
+			switch = {
+				trigger = current_situation_approach
+				approach_watch_nwo = {
+					random_list = {
+						50 = {
+							situation_event = { id = preftl.2200 }
+						}
+						50 = {
+							situation_event = { id = preftl.2205 }
+						}
+					}
+				}
+				approach_aid_leader = {
+					random_list = {
+						75 = {
+							modifier = {
+								add = 15
+								OR = {
+									has_situation_flag = aid_leader_05
+									has_situation_flag = aid_leader_06
+								}
+							}
+							situation_event = { id = preftl.2200 }
+						}
+						25 = {
+							modifier = {
+								add = -15
+								OR = {
+									has_situation_flag = aid_leader_05
+									has_situation_flag = aid_leader_06
+								}
+							}
+							situation_event = { id = preftl.2205 }
+						}
+					}
+				}
+				approach_aid_rebels = {
+					random_list = {
+						75 = {
+							modifier = {
+								add = 15
+								OR = {
+									has_situation_flag = aid_rebels_05
+									has_situation_flag = aid_rebels_06
+								}
+							}
+							situation_event = { id = preftl.2205 }
+						}
+						25 = {
+							modifier = {
+								add = -15
+								OR = {
+									has_situation_flag = aid_rebels_05
+									has_situation_flag = aid_rebels_06
+								}
+							}
+							situation_event = { id = preftl.2200 }
+						}
+					}
+				}
+        approach_stop_conflict = {
+					random_list = {
+						60 = {
+							modifier = {
+								add = 15
+								OR = {
+									has_situation_flag = stop_conflict_05
+									has_situation_flag = stop_conflict_06
+								}
+							}
+							situation_event = { id = preftl.2205 }
+						}
+            30 = {
+							situation_event = { id = preftl.2200 }
+						}
+						30 = {
+							situation_event = { id = preftl.2205 }
+						}
+					}
+				}
+			}
+		}
+		set_situation_locked = yes
+	}
+
+	target_modifier = {
+		planet_stability_add = -15
+		pop_happiness = -0.10
+	}
+
+	start_value = 0
+	stages = {
+		situation_nwo_stage_one = {
+			icon = GFX_situation_stage_1
+			icon_background = GFX_situation_stage_frame_red
+			end = 25
+			target_modifier = {
+				planet_stability_add = -5
+				pop_happiness = -0.05
+			}
+		}
+		situation_nwo_stage_two = {
+			icon = GFX_situation_stage_2
+			icon_background = GFX_situation_stage_frame_red
+			end = 50
+			target_modifier = {
+				planet_stability_add = -10
+				pop_happiness = -0.10
+			}
+			on_first_enter = {
+				switch = {
+					trigger = current_situation_approach
+					approach_watch_nwo = {
+						random_list = {
+							50 = {
+								situation_event = { id = preftl.2170 }
+							}
+							50 = {
+								situation_event = { id = preftl.2175 }
+							}
+						}
+					}
+					approach_aid_leader = {
+						random_list = {
+							60 = {
+								situation_event = { id = preftl.2170 }
+							}
+							40 = {
+								situation_event = { id = preftl.2175 }
+							}
+						}
+					}
+					approach_aid_rebels = {
+						random_list = {
+							60 = {
+								situation_event = { id = preftl.2170 }
+							}
+							40 = {
+								situation_event = { id = preftl.2175 }
+							}
+						}
+					}
+				}
+			}
+		}
+		situation_nwo_stage_three = {
+			icon = GFX_situation_stage_3
+			icon_background = GFX_situation_stage_frame_red
+			end = 75
+			target_modifier = {
+				planet_stability_add = -15
+				pop_happiness = -0.25
+			}
+			on_first_enter = {
+				switch = {
+					trigger = current_situation_approach
+					approach_watch_nwo = {
+						random_list = {
+							50 = {
+								situation_event = { id = preftl.2180 }
+							}
+							50 = {
+								situation_event = { id = preftl.2185 }
+							}
+						}
+					}
+					approach_aid_leader = {
+						random_list = {
+							60 = {
+								modifier = {
+									add = 10
+									OR = {
+										has_situation_flag = aid_leader_01
+										has_situation_flag = aid_leader_02
+									}
+								}
+								situation_event = { id = preftl.2180 }
+							}
+							40 = {
+								modifier = {
+									add = -10
+									OR = {
+										has_situation_flag = aid_leader_01
+										has_situation_flag = aid_leader_02
+									}
+								}
+								situation_event = { id = preftl.2185 }
+							}
+						}
+					}
+					approach_aid_rebels = {
+						random_list = {
+							60 = {
+								modifier = {
+									add = 10
+									OR = {
+										has_situation_flag = aid_rebels_01
+										has_situation_flag = aid_rebels_02
+									}
+								}
+								situation_event = { id = preftl.2185 }
+							}
+							40 = {
+								modifier = {
+									add = -10
+									OR = {
+										has_situation_flag = aid_rebels_01
+										has_situation_flag = aid_rebels_02
+									}
+								}
+								situation_event = { id = preftl.2180 }
+							}
+						}
+					}
+				}
+			}
+		}
+		situation_nwo_stage_four = {
+			icon = GFX_situation_stage_4
+			icon_background = GFX_situation_stage_frame_red
+			end = 100
+			target_modifier = {
+				planet_stability_add = -20
+				pop_happiness = -0.30
+			}
+			on_first_enter = {
+				switch = {
+					trigger = current_situation_approach
+					approach_watch_nwo = {
+						random_list = {
+							50 = {
+								situation_event = { id = preftl.2190 }
+							}
+							50 = {
+								situation_event = { id = preftl.2195 }
+							}
+						}
+					}
+					approach_aid_leader = {
+						random_list = {
+							60 = {
+								modifier = {
+									add = 10
+									OR = {
+										has_situation_flag = aid_leader_03
+										has_situation_flag = aid_leader_04
+									}
+								}
+								situation_event = { id = preftl.2190 }
+							}
+							40 = {
+								modifier = {
+									add = -10
+									OR = {
+										has_situation_flag = aid_leader_03
+										has_situation_flag = aid_leader_04
+									}
+								}
+								situation_event = { id = preftl.2195 }
+							}
+						}
+					}
+					approach_aid_rebels = {
+						random_list = {
+							60 = {
+								modifier = {
+									add = 10
+									OR = {
+										has_situation_flag = aid_rebels_03
+										has_situation_flag = aid_rebels_04
+									}
+								}
+								situation_event = { id = preftl.2195 }
+							}
+							40 = {
+								modifier = {
+									add = -10
+									OR = {
+										has_situation_flag = aid_rebels_03
+										has_situation_flag = aid_rebels_04
+									}
+								}
+								situation_event = { id = preftl.2190 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	monthly_progress = {
+		base = 2
+	}
+
+	approach = {
+		name = approach_watch_nwo
+		icon = GFX_situation_approach_research
+		icon_background = GFX_situation_approach_bg_yellow
+		on_select = {
+			custom_tooltip = approach_watch_nwo_tooltip
+			set_situation_flag = watch_nwo
+		}
+	}
+
+	approach = {
+		name = approach_aid_leader
+		icon = GFX_situation_approach_influence
+		icon_background = GFX_situation_approach_bg_yellow
+		on_select = {
+			if = {
+				limit = {
+					owner = {
+						has_policy_flag = interference_not_allowed
+					}
+				}
+				owner = {
+					set_policy = {
+						policy = interference
+						option = interference_active
+						cooldown = yes
+					}
+				}
+			}
+			custom_tooltip = approach_aid_leader_tooltip
+			set_situation_flag = aid_leader
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				unity = 25
+				energy = 50
+				minerals = 50
+				alloys = 25
+			}
+		}
+	}
+
+	approach = {
+		name = approach_aid_rebels
+		icon = GFX_situation_approach_suspicious
+		icon_background = GFX_situation_approach_bg_yellow
+		on_select = {
+			if = {
+				limit = {
+					owner = {
+						has_policy_flag = interference_not_allowed
+					}
+				}
+				owner = {
+					set_policy = {
+						policy = interference
+						option = interference_active
+						cooldown = yes
+					}
+				}
+			}
+			custom_tooltip = approach_aid_rebels_tooltip
+			set_situation_flag = aid_rebels
+		}
+		resources = {
+			category = situations
+			upkeep = {
+				unity = 25
+				energy = 100
+				minerals = 100
+				alloys = 50
+			}
+		}
+	}
+
+	abort_trigger = {
+		OR = {
+			NOT = { exists = target.owner }
+			target.owner = { is_primitive = no }
+		}
+	}
+}

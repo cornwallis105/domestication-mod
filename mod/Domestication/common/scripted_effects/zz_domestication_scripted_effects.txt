@@ -754,6 +754,9 @@ affini_portrait_swap = {
 			change_leader_portrait = pla14
 		}
 		1 = {
+			change_leader_portrait = pla17
+		}
+		1 = {
 			change_leader_portrait = fun1
 		}
 	}

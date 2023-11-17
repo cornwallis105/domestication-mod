@@ -4,7 +4,6 @@
 # SUBCLASSES #
 ##############
 
-
 subclass_governor_pioneer = {
 	custom_subtitle = governor_subclass
 	subclass_trait = yes
@@ -43,7 +42,7 @@ subclass_governor_pioneer = {
 		planet_pop_assembly_organic_add = 0.2
 	}
 
-	ai_weight = {
+	ai_weight = {	
 		modifier = {
 			is_councilor = yes
 			factor = 0
@@ -96,7 +95,7 @@ subclass_governor_economist = {
 			is_councilor = yes
 			factor = 0
 		}
-
+		
 		modifier = {
 			is_councilor = no
 			factor = 2
@@ -203,12 +202,7 @@ leader_trait_bureaucrat = { # Unifier
 	}
 	on_gained_effect = {
 		add_age = value:tenth_of_leader_lifespan
-		random_list = {
-			1 = { change_background_job = bureaucrat }
-			1 = { change_background_job = politician }
-			1 = { change_background_job = government_employee }
-			1 = { change_background_job = clerk }
-		}
+		set_random_governor_background_effect = yes
 	}
 	leader_potential_add = {
 		is_pool_leader = yes # Starting trait only.
@@ -236,12 +230,13 @@ leader_trait_bureaucrat_2 = { # Unifier
 
 ###################
 leader_trait_army_veteran = {
+	councilor_trait = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_army_veteran"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 1
 	}
 	modifier = {
@@ -255,31 +250,26 @@ leader_trait_army_veteran = {
 	}
 	on_gained_effect = {
 		add_age = value:tenth_of_leader_lifespan
-		random_list = {
-			1 = { change_background_job = special_operations_commander }
-			1 = { change_background_job = commanding_officer }
-			1 = { change_background_job = chief_supply_officer }
-			1 = { change_background_job = intelligence_officer }
-			1 = { change_background_job = chief_security_officer }
-		}
+		set_random_general_background_effect = yes
 	}
 	leader_class = { governor }
 	opposites = { "leader_trait_retired_fleet_officer" }
 }
 
 leader_trait_army_veteran_2 = {
+	councilor_trait = yes
 	replace_traits = { "leader_trait_army_veteran" }
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_army_veteran"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 2
 	}
 	modifier = {
 		planet_army_build_speed_mult = 0.25
-		armies_cost_mult = -0.25
+		armies_cost_mult = -0.10
 		army_defense_damage_mult = 0.25
 	}
 	leader_class = { governor }
@@ -288,17 +278,18 @@ leader_trait_army_veteran_2 = {
 
 ###################
 leader_trait_retired_fleet_officer = {
+	councilor_trait = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_retired_fleet_officer"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 1
 	}
 	modifier = {
-		starbase_shipyard_build_speed_mult = 0.20
-		starbase_shipyard_build_cost_mult = -0.10
+		starbase_shipyard_build_speed_mult = 0.10
+		ship_starting_experience_add = 100
 	}
 	leader_potential_add = {
 		is_pool_leader = yes # Starting trait only.
@@ -306,31 +297,26 @@ leader_trait_retired_fleet_officer = {
 	}
 	on_gained_effect = {
 		add_age = value:tenth_of_leader_lifespan
-		random_list = {
-			1 = { change_background_job = captain }
-			1 = { change_background_job = chief_navigator }
-			1 = { change_background_job = principal_pilot }
-			1 = { change_background_job = ship_weapons_officer }
-			1 = { change_background_job = ship_logistics_officer }
-		}
+		set_random_admiral_background_effect = yes
 	}
 	leader_class = { governor }
 	opposites = { "leader_trait_army_veteran" }
 }
 
 leader_trait_retired_fleet_officer_2 = {
+	councilor_trait = yes
 	replace_traits = { "leader_trait_retired_fleet_officer" }
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_retired_fleet_officer"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 2
 	}
 	modifier = {
-		starbase_shipyard_build_speed_mult = 0.25
-		starbase_shipyard_build_cost_mult = -0.15
+		starbase_shipyard_build_speed_mult = 0.20
+		ship_starting_experience_add = 200
 	}
 	leader_class = { governor }
 	opposites = { "leader_trait_army_veteran" }
@@ -350,8 +336,8 @@ leader_trait_agrarian_upbringing = {
 		planet_jobs_food_produces_mult = 0.1
 	}
 	leader_potential_add = {
-		owner = { is_machine_empire = no }
-		is_lithoid = no
+		has_global_flag = game_started
+		owner = { country_uses_food = yes }
 		is_pool_leader = yes # Starting trait only.
 		is_ruler = no
 	}
@@ -647,17 +633,18 @@ leader_trait_enlister_2 = {
 
 ###################
 leader_trait_shipwright = {
+	councilor_trait = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_shipwright"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 1
 	}
 	modifier = {
-		starbase_shipyard_build_speed_mult = 0.1
-		starbase_shipyard_build_cost_mult = -0.1
+		starbase_shipyard_build_speed_mult = 0.05
+		starbase_shipyard_build_cost_mult = -0.05
 	}
 	leader_potential_add = {
 		is_ruler = no
@@ -678,18 +665,19 @@ leader_trait_shipwright = {
 }
 
 leader_trait_shipwright_2 = {
+	councilor_trait = yes
 	replace_traits = { "leader_trait_shipwright" }
 	inline_script = {
 		script = trait/icon
 		CLASS = governor
 		ICON = "GFX_leader_trait_shipwright"
 		RARITY = common
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 2
 	}
 	modifier = {
-		starbase_shipyard_build_speed_mult = 0.15
-		starbase_shipyard_build_cost_mult = -0.15
+		starbase_shipyard_build_speed_mult = 0.10
+		starbase_shipyard_build_cost_mult = -0.10
 	}
 	leader_class = { governor }
 	opposites = {
@@ -709,8 +697,7 @@ leader_trait_architectural_interest = {
 		TIER = 1
 	}
 	modifier = {
-		planet_buildings_cost_mult = -0.1
-		planet_districts_cost_mult = -0.1
+		planet_structures_upkeep_mult = -0.1
 		planet_building_build_speed_mult = 0.1
 	}
 	leader_potential_add = {
@@ -741,8 +728,7 @@ leader_trait_architectural_interest_2 = {
 		TIER = 2
 	}
 	modifier = {
-		planet_buildings_cost_mult = -0.2
-		planet_districts_cost_mult = -0.2
+		planet_structures_upkeep_mult = -0.2
 		planet_building_build_speed_mult = 0.2
 	}
 	leader_class = { governor }
@@ -775,7 +761,7 @@ leader_trait_trade_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			add = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_trade_designation = yes
 			}
@@ -815,7 +801,7 @@ leader_trait_frontier_spirit = {
 		TIER = 1
 	}
 	modifier = {
-		ship_colonizer_cost_mult = -0.25
+		ship_colonizer_cost_mult = -0.05
 		planet_colony_development_speed_mult = 0.15
 	}
 	leader_potential_add = {
@@ -839,8 +825,8 @@ leader_trait_frontier_spirit_2 = {
 		TIER = 2
 	}
 	modifier = {
-		ship_colonizer_cost_mult = -0.35
-		planet_colony_development_speed_mult = 0.25
+		ship_colonizer_cost_mult = -0.10
+		planet_colony_development_speed_mult = 0.33
 	}
 	leader_class = { governor }
 }
@@ -858,8 +844,9 @@ leader_trait_frontier_spirit_3 = {
 		TIER = 3
 	}
 	modifier = {
-		ship_colonizer_cost_mult = -0.5
-		planet_colony_development_speed_mult = 0.45
+		ship_colonizer_cost_mult = -0.10
+		planet_colony_development_speed_mult = 0.50
+		colony_start_num_pops_add = 1
 	}
 	leader_class = { governor }
 }
@@ -1032,14 +1019,14 @@ trait_ruler_architectural_sense = {
 		TIER = 1
 	}
 	modifier = {
-		planet_buildings_cost_mult = -0.1
-		planet_districts_cost_mult = -0.1
-		planet_building_build_speed_mult = 0.1
+		planet_buildings_cost_mult = -0.05
+		planet_districts_cost_mult = -0.05
+		planet_building_build_speed_mult = 0.10
 	}
 	leader_potential_add = {
 		OR = {
 			has_paragon_dlc = no
-			has_trait = subclass_governor_visionary
+			has_trait = subclass_governor_visionary			
 		}
 	}
 	veteran_class_locked_trait = yes
@@ -1061,8 +1048,8 @@ trait_ruler_architectural_sense_2 = {
 		TIER = 2
 	}
 	modifier = {
-		planet_buildings_cost_mult = -0.15
-		planet_districts_cost_mult = -0.15
+		planet_buildings_cost_mult = -0.10
+		planet_districts_cost_mult = -0.10
 		planet_building_build_speed_mult = 0.15
 	}
 	veteran_class_locked_trait = yes
@@ -1081,8 +1068,10 @@ trait_ruler_architectural_sense_3 = {
 		TIER = 3
 	}
 	modifier = {
-		planet_buildings_cost_mult = -0.25
-		planet_districts_cost_mult = -0.25
+		planet_buildings_cost_mult = -0.1
+		planet_districts_cost_mult = -0.1
+		planet_buildings_upkeep_mult = -0.05
+		planet_districts_upkeep_mult = -0.05
 		planet_building_build_speed_mult = 0.25
 	}
 	veteran_class_locked_trait = yes
@@ -1337,7 +1326,7 @@ leader_trait_mining_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			factor = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_mining_designation = yes
 			}
@@ -1406,7 +1395,7 @@ leader_trait_generator_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			factor = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_generator_designation = yes
 			}
@@ -1476,7 +1465,7 @@ leader_trait_farming_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			factor = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_farming_designation = yes
 			}
@@ -1706,6 +1695,11 @@ leader_trait_geologist = {
 	leader_potential_add = {
 		has_paragon_dlc = yes
 		has_trait = subclass_governor_pioneer
+		owner = {
+			NOT = {
+				has_valid_civic = civic_environmentalist
+			}
+		}
 	}
 	opposites = { leader_trait_naturalist }
 	veteran_class_locked_trait = yes
@@ -1889,7 +1883,7 @@ leader_trait_forge_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			add = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_foundry_designation = yes
 			}
@@ -1959,7 +1953,7 @@ leader_trait_industrial_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			add = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_industrial_designation = yes
 			}
@@ -2030,7 +2024,7 @@ leader_trait_refinement_focus = {
 		weight = @subclass_trait_weight
 		modifier = {
 			add = @designation_bonus
-			exists = planet
+			exists = planet 
 			planet = {
 				has_refinery_designation = yes
 			}
@@ -2462,7 +2456,7 @@ leader_trait_arbiter = {
 		pop_happiness = -0.1
 		pop_growth_speed_reduction = 0.05
 	}
-
+	
 	leader_class = { governor }
 	selectable_weight = {
 		weight = @subclass_trait_weight
@@ -2664,7 +2658,7 @@ leader_trait_supreme_organizer = {
 		TIER = none
 	}
 	modifier = {
-		empire_size_mult = -0.2
+		empire_size_penalty_mult = -0.1
 		pop_government_ethic_attraction = 0.50
 		pop_happiness = -0.05
 	}
@@ -2743,7 +2737,7 @@ leader_trait_corrupt = {
 	opposites = {
 		leader_trait_righteous
 		leader_trait_righteous_2
-	}
+	}		
 	selectable_weight = {
 		weight = @class_negative_trait_weight
 		modifier = {
@@ -2780,8 +2774,8 @@ leader_trait_corrupt_2 = {
 	opposites = {
 		leader_trait_righteous
 		leader_trait_righteous_2
-	}
-	selectable_weight = @tier2_negative_trait_weight
+	}		
+	selectable_weight = @tier2_negative_trait_weight	
 }
 
 ###################
@@ -2806,10 +2800,10 @@ leader_trait_polluter = {
 			has_ethic = ethic_materialist
 			factor = @ethic_weight_mult
 		}
-    modifier = {
-      owner = { is_domesticator_or_protectorate = yes }
-      factor = 0
-    }
+		modifier = {
+		  owner = { is_domesticator_or_protectorate = yes }
+		  factor = 0
+		}
 	}
 }
 
@@ -2852,10 +2846,10 @@ leader_trait_sadistic = {
 			has_ethic = ethic_militarist
 			factor = @ethic_weight_mult
 		}
-    modifier = {
-      owner = { is_domesticator_or_protectorate = yes }
-      factor = 0
-    }
+		modifier = {
+		  owner = { is_domesticator_or_protectorate = yes }
+		  factor = 0
+		}
 	}
 }
 
@@ -2956,7 +2950,7 @@ leader_trait_procrastinator = {
 
 leader_trait_procrastinator_2 = {
 	negative = yes
-	replace_traits = { "leader_trait_procrastinator" }
+	replace_traits = { "leader_trait_procrastinator" }	
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_procrastinator"
@@ -3000,9 +2994,9 @@ leader_trait_insider_trading = {
   selectable_weight = {
 		weight = @class_negative_trait_weight
 		modifier = {
-      owner = { is_domesticator_or_protectorate = yes }
-      factor = 0
-    }
+			owner = { is_domesticator_or_protectorate = yes }
+			factor = 0
+		}
 	}
 }
 
@@ -3035,10 +3029,11 @@ leader_trait_insider_trading_2 = {
 ###################
 leader_trait_irenic = {
 	negative = yes
+	councilor_trait = yes
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_irenic"
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 1
 	}
 	modifier = {
@@ -3064,11 +3059,12 @@ leader_trait_irenic = {
 
 leader_trait_irenic_2 = {
 	negative = yes
+	councilor_trait = yes
 	replace_traits = { "leader_trait_irenic" }
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_irenic"
-		COUNCIL = no
+		COUNCIL = yes
 		TIER = 2
 	}
 	modifier = {

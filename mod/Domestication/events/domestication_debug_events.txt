@@ -24,3 +24,22 @@ country_event = {
     }
   }
 }
+
+country_event = {
+	id = domestication_debug.2
+	hide_window = yes
+
+	is_triggered_only = yes
+
+  immediate = {
+		random_situation = {
+			limit = {
+				is_situation_type = pre_ftl_tech_progress_situation
+			}
+			remove_situation_flag = has_ongoing_observation_event_chain
+		}
+		capital_scope.observation_outpost = {
+			set_event_locked = no
+		}
+	}
+}

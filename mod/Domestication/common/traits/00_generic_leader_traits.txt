@@ -89,6 +89,7 @@ leader_trait_eager = {
 	leader_potential_add = {
 		is_pool_leader = yes # Starting trait only.
 	}
+	custom_tooltip_with_modifiers = "leader_trait_opportunity_custom_effect"
 	leader_class = { admiral scientist general governor }
 	selectable_weight = @shared_trait_weight
 }
@@ -105,9 +106,10 @@ leader_trait_eager_2 = {
 	}
 	self_modifier = {
 		leaders_cost_mult = -0.5
-		leaders_upkeep_mult = -0.15
+		leaders_upkeep_mult = -0.2
 		species_leader_exp_gain = 0.1
 	}
+	custom_tooltip_with_modifiers = "leader_trait_opportunity_custom_effect"
 	leader_class = { admiral scientist general governor }
 }
 
@@ -123,16 +125,30 @@ leader_trait_resilient = {
 	}
 	triggered_self_modifier = {
 		potential = {
-			is_gestalt = yes
-			is_hive_species = no
+			exists = owner
+			OR = {
+				AND = {
+					owner = {
+						is_synthetic_empire = yes
+					}
+					is_hive_species = no
+				}
+				is_immortal = yes
+			}
 		}
-		leaders_upkeep_mult = -0.075
+		leaders_upkeep_mult = -0.1
 	}
 	triggered_self_modifier = {
 		potential = {
+			exists = owner
 			OR = {
-				is_gestalt = no
-				is_hive_species = yes
+				AND = {
+					owner = {
+						is_synthetic_empire = no
+					}
+					is_hive_species = yes
+				}
+				is_immortal = no
 			}
 		}
 		leader_age = 10
@@ -157,16 +173,30 @@ leader_trait_resilient_2 = {
 	}
 	triggered_self_modifier = {
 		potential = {
-			is_gestalt = yes
-			is_hive_species = no
+			exists = owner
+			OR = {
+				AND = {
+					owner = {
+						is_synthetic_empire = yes
+					}
+					is_hive_species = no
+				}
+				is_immortal = yes
+			}
 		}
-		leaders_upkeep_mult = -0.15
+		leaders_upkeep_mult = -0.2
 	}
 	triggered_self_modifier = {
 		potential = {
+			exists = owner
 			OR = {
-				is_gestalt = no
-				is_hive_species = yes
+				AND = {
+					owner = {
+						is_synthetic_empire = no
+					}
+					is_hive_species = yes
+				}
+				is_immortal = no
 			}
 		}
 		leader_age = 20
@@ -304,10 +334,11 @@ leader_trait_capitalist = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = energy
-		AMOUNT = 4
+		AMOUNT = 8
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	opposites = {
@@ -325,7 +356,7 @@ leader_trait_capitalist = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_capitalist
 		}
-    modifier = {
+		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
 			factor = 0
 		}
@@ -345,7 +376,7 @@ leader_trait_capitalist_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = energy
-		AMOUNT = 8
+		AMOUNT = 32
 	}
 	leader_class = { admiral scientist general governor }
 	opposites = {
@@ -367,10 +398,11 @@ leader_trait_private_mines = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = minerals
-		AMOUNT = 4
+		AMOUNT = 8
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	selectable_weight = {
@@ -400,7 +432,7 @@ leader_trait_private_mines_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = minerals
-		AMOUNT = 8
+		AMOUNT = 32
 	}
 	leader_class = { admiral scientist general governor }
 }
@@ -418,11 +450,12 @@ leader_trait_homesteader = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = food
-		AMOUNT = 4
+		AMOUNT = 8
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
 		owner = { country_uses_food = yes }
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	selectable_weight = {
@@ -452,7 +485,7 @@ leader_trait_homesteader_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = food
-		AMOUNT = 8
+		AMOUNT = 32
 	}
 	leader_class = { admiral scientist general governor }
 }
@@ -577,22 +610,16 @@ leader_trait_gifted_2 = {
 
 ###################
 trait_imperial_heir = {
-	icon = {
-		layer = {
-			icon = "GFX_trait_bg"
-			color = "trait_bg_default"
-		}
-		layer = {
-			icon = "GFX_leader_trait_imperial_heir"
-			color = "trait_icon_default"
-		}
-		layer = {
-			icon = "GFX_trait_disabled"
-			visible = {
-				always = no
-			}
-		}
+	is_councilor_trait_for_ruler = yes
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		ICON = "GFX_leader_trait_imperial_heir"
+		RARITY = common
+		COUNCIL = triggered
+		TIER = none
 	}
+	custom_tooltip_with_modifiers = "trait_imperial_heir_effects"
 	triggered_self_modifier = {
 		potential = {
 			has_paragon_dlc = yes
@@ -619,10 +646,11 @@ leader_trait_scrapper = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = alloys
-		AMOUNT = 3
+		AMOUNT = 2
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	selectable_weight = {
@@ -652,7 +680,7 @@ leader_trait_scrapper_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = alloys
-		AMOUNT = 6
+		AMOUNT = 8
 	}
 	leader_class = { admiral scientist general governor }
 }
@@ -670,11 +698,12 @@ leader_trait_entrepreneur = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = consumer_goods
-		AMOUNT = 3
+		AMOUNT = 4
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
 		is_gestalt = no
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	opposites = {
@@ -708,7 +737,7 @@ leader_trait_entrepreneur_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = consumer_goods
-		AMOUNT = 6
+		AMOUNT = 16
 	}
 	leader_class = { admiral scientist general governor }
 	opposites = {
@@ -730,11 +759,12 @@ leader_trait_venerated = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = unity
-		AMOUNT = 3
+		AMOUNT = 2
 	}
 	leader_potential_add = {
 		has_global_flag = game_started
 		NOT = { has_ethic = ethic_materialist }
+		has_skill >= 2
 	}
 	leader_class = { admiral scientist general governor }
 	selectable_weight = {
@@ -764,7 +794,7 @@ leader_trait_venerated_2 = {
 	inline_script = {
 		script = paragon/leader_resource_produces
 		RESOURCE = unity
-		AMOUNT = 6
+		AMOUNT = 8
 	}
 	leader_class = { admiral scientist general governor }
 }
@@ -774,7 +804,7 @@ leader_trait_emotional_support_pet = {
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
-		ICON = "GFX_leader_trait_emotional_support_pet"
+		ICON = "GFX_leader_trait_emotional_support_pet" 
 		RARITY = common
 		COUNCIL = no
 		TIER = none
@@ -789,7 +819,7 @@ leader_trait_emotional_support_pet = {
 		owner = { is_machine_empire = no }
 	}
 	leader_class = { admiral scientist general governor }
-  selectable_weight = {
+	selectable_weight = {
 		weight = @shared_trait_weight
 		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -859,13 +889,33 @@ leader_trait_selfcare_expert = {
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
-		ICON = "GFX_leader_trait_selfcare_expert"
+		ICON = "GFX_leader_trait_selfcare_expert" 
 		RARITY = paragon
 		COUNCIL = no
 		TIER = none
 	}
-	self_modifier = {
+	triggered_self_modifier = {
+		potential = {
+			OR = {
+				owner = {
+					is_synthetic_empire = no
+				}
+				is_immortal = no
+			}
+		}
 		leader_age = 40
+		species_leader_exp_gain = 0.4
+	}
+	triggered_self_modifier = {
+		potential = {
+			OR = {
+				owner = {
+					is_synthetic_empire = yes
+				}
+				is_immortal = yes
+			}
+		}
+		leaders_upkeep_mult = -0.8
 		species_leader_exp_gain = 0.4
 	}
 	leader_potential_add = {
@@ -1285,13 +1335,17 @@ leader_trait_embezzler = {
 			has_ethic = ethic_materialist
 			factor = @ethic_weight_mult
 		}
+		modifier = {
+			owner = { is_domesticator_or_protectorate = yes }
+			factor = 0
+		}
 	}
 }
 
 leader_trait_embezzler_2 = {
 	negative = yes
 	councilor_trait = yes
-	replace_traits = { "leader_trait_embezzler" }
+	replace_traits = { "leader_trait_embezzler" }	
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_embezzler"
@@ -1302,7 +1356,7 @@ leader_trait_embezzler_2 = {
 		country_energy_produces_mult = -0.1
 	}
 	leader_class = { governor scientist admiral general }
-	selectable_weight = @tier2_negative_trait_weight
+	selectable_weight = @tier2_negative_trait_weight	
 }
 
 ###################
@@ -1333,13 +1387,17 @@ leader_trait_intolerant = {
 			has_ethic = ethic_xenophobe
 			factor = @ethic_weight_mult
 		}
+		modifier = {
+			owner = { is_domesticator_or_protectorate = yes }
+			factor = 0
+		}
 	}
 }
 
 leader_trait_intolerant_2 = {
 	negative = yes
 	councilor_trait = yes
-	replace_traits = { "leader_trait_intolerant" }
+	replace_traits = { "leader_trait_intolerant" }	
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_intolerant"
@@ -1430,7 +1488,7 @@ leader_trait_volatile = {
 leader_trait_volatile_2 = {
 	negative = yes
 	councilor_trait = yes
-	replace_traits = { "leader_trait_volatile" }
+	replace_traits = { "leader_trait_volatile" }	
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_volatile"
@@ -1470,7 +1528,7 @@ leader_trait_passive = {
 leader_trait_passive_2 = {
 	negative = yes
 	councilor_trait = yes
-	replace_traits = { "leader_trait_passive" }
+	replace_traits = { "leader_trait_passive" }	
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_passive"
@@ -1481,7 +1539,7 @@ leader_trait_passive_2 = {
 		council_agenda_progress_speed = -0.2
 	}
 	leader_class = { governor scientist admiral general }
-	selectable_weight = @tier2_negative_trait_weight
+	selectable_weight = @tier2_negative_trait_weight	
 }
 
 ###################
@@ -1510,7 +1568,7 @@ leader_trait_tyrannical = {
 		trait_ruler_champion_of_the_people
 		trait_ruler_champion_of_the_people_2
 		trait_ruler_feedback_loop
-		trait_ruler_feedback_loop_2
+		trait_ruler_feedback_loop_2				
 	}
 	selectable_weight = {
 		weight = @shared_negative_trait_weight
@@ -1548,7 +1606,7 @@ leader_trait_tyrannical_2 = {
 		trait_ruler_champion_of_the_people
 		trait_ruler_champion_of_the_people_2
 		trait_ruler_feedback_loop
-		trait_ruler_feedback_loop_2
+		trait_ruler_feedback_loop_2				
 	}
 	selectable_weight = @tier2_negative_trait_weight
 }

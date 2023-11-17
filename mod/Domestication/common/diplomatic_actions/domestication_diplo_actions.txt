@@ -13,7 +13,7 @@ action_form_migration_pact = {
 			fail_text = "requires_actor_not_fanatic_purifiers"
 			OR = {
 				is_same_species = from
-				NOT = { has_valid_civic = civic_fanatic_purifiers	}
+				NOT = { has_valid_civic = civic_fanatic_purifiers }
 			}
 		}
 		custom_tooltip = {
@@ -55,6 +55,39 @@ action_form_migration_pact = {
 		custom_tooltip = {
 			fail_text = "requires_actor_not_inward_perfection"
 			NOT = { has_valid_civic = civic_inwards_perfection }
+		}
+		if = {
+			limit = { 
+				from = { 
+					has_valid_civic = civic_selective_kinship
+					NOT = { is_same_species_class = ROOT }
+				}
+			}
+			if = {
+				limit = {
+					has_intel = {
+						who = from
+						intel = civics
+					}
+				}
+				custom_tooltip = {
+					fail_text = requires_recipient_not_selective_kinship
+					always = no
+				}
+			}
+			else = {
+				custom_tooltip = {
+					fail_text = diplo_action_no_low_intel
+					always = no
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_actor_not_selective_kinship"
+			NAND = {
+				has_valid_civic = civic_selective_kinship
+				NOT = { from = { is_same_species_class = root } }
+			}
 		}
 		if = {
 			limit = { from = { has_valid_civic = civic_barbaric_despoilers } }
@@ -183,7 +216,7 @@ action_societal_enlightenment = {
 			is_domesticator_or_full_protectorate = no
 			from = {
 				is_country_type = primitive
-				NOR = {
+				NOR = { 
 					is_under_societal_enlightenment = root
 					has_country_flag = solarpunk_country
 				}
@@ -283,13 +316,13 @@ action_societal_enlightenment = {
 		}
 		custom_tooltip = {
 			fail_text = "ACTION_CANNOT_INTERFERE_POLICY"
-			OR = {
+			OR = { 
 				has_policy_flag = interference_subtle
 				has_policy_flag = interference_active
 			}
 		}
 	}
-
+	
 	on_accept = {
 		hidden_effect = {
 			from = {
@@ -301,7 +334,7 @@ action_societal_enlightenment = {
 			}
 		}
 	}
-
+	
 
 	should_ai_propose = {
 		weight = 0
@@ -457,7 +490,7 @@ action_open_technological_enlightenment = {
 		}
 		custom_tooltip = {
 			fail_text = "ACTION_CANNOT_INTERFERE_POLICY"
-			OR = {
+			OR = { 
 				has_policy_flag = interference_subtle
 				has_policy_flag = interference_active
 			}
@@ -467,7 +500,7 @@ action_open_technological_enlightenment = {
 			has_policy_flag = enlightenment_allowed
 		}
 	}
-
+	
 	on_accept = {
 		hidden_effect = {
 			if = {
@@ -530,7 +563,7 @@ action_open_technological_enlightenment = {
 			}
 		}
 	}
-
+	
 	should_ai_propose = {
 		weight = 0
 

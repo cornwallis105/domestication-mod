@@ -44,6 +44,10 @@ military_service_full = {
 			NOT = { has_citizenship_type = { country = from type = citizenship_slavery } }
 		}
 		custom_tooltip = {
+			fail_text = is_serviles_tooltip
+			NOT = { has_trait = trait_syncretic_proles }
+		}
+		custom_tooltip = {
 			fail_text = is_servitude_tooltip
 			NOT = { has_citizenship_type = { country = from type = citizenship_robot_servitude } }
 		}
@@ -51,6 +55,12 @@ military_service_full = {
 			fail_text = too_alien
 			OR = {
 				is_same_species = from
+				from = {
+					AND = {
+						has_valid_civic = civic_selective_kinship
+						is_same_species_class = root
+					}
+				}
 				from = {
 					NOR = {
 						has_ethic = ethic_xenophobe

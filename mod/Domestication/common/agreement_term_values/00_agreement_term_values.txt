@@ -1383,6 +1383,7 @@ subject_loyalty_effects = {
 			refresh_subject_count_loyalty_penalty = yes
 			every_spynetwork = {
 				limit = {
+					exists = target
 					target = { is_same_value = event_target:new_subject }
 					NOT = { has_modifier = domestic_intelligence }
 				}

@@ -1,4 +1,4 @@
-action_demand_vassalization = {
+action_demand_subjugation = {
 	consider = {
 		02_CONSIDER = {
 			trigger = {
@@ -148,12 +148,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -169,12 +166,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -191,12 +185,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -212,12 +203,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -235,10 +223,7 @@ action_demand_vassalization = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -254,10 +239,7 @@ action_demand_vassalization = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -274,10 +256,7 @@ action_demand_vassalization = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -299,10 +278,7 @@ action_demand_vassalization = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -489,12 +465,9 @@ action_demand_vassalization = {
 		01_DEMAND_VASS_ACCEPT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				FROM = {
 					is_domesticator = no
@@ -504,12 +477,9 @@ action_demand_vassalization = {
 		01_DEMAND_DOMEST_ACCEPT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				FROM = {
 					is_domesticator = yes
@@ -523,10 +493,7 @@ action_demand_vassalization = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_domesticator = no
 				}
@@ -538,10 +505,7 @@ action_demand_vassalization = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_domesticator = yes
 				}
@@ -627,12 +591,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -648,12 +609,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -670,12 +628,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -691,12 +646,9 @@ action_demand_vassalization = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -719,10 +671,7 @@ action_demand_vassalization = {
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -743,10 +692,7 @@ action_demand_vassalization = {
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -768,10 +714,7 @@ action_demand_vassalization = {
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -792,10 +735,7 @@ action_demand_vassalization = {
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOT = { has_authority = auth_corporate }
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1020,12 +960,9 @@ action_demand_protectorate = {
 		01_DEMAND_PROT_SELECT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1040,12 +977,9 @@ action_demand_protectorate = {
 		01_DEMAND_DOMEST_SELECT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1061,12 +995,9 @@ action_demand_protectorate = {
 		02_DEMAND_PROT_SELECT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1081,12 +1012,9 @@ action_demand_protectorate = {
 		02_DEMAND_DOMEST_SELECT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1105,10 +1033,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1125,10 +1050,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1146,10 +1068,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1166,10 +1085,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1336,12 +1252,9 @@ action_demand_protectorate = {
 		01_DEMAND_PROT_ACCEPT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				FROM = {
 					is_domesticator = no
@@ -1351,12 +1264,9 @@ action_demand_protectorate = {
 		01_DEMAND_DOMEST_ACCEPT = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				FROM = {
 					is_domesticator = yes
@@ -1370,10 +1280,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_domesticator = no
 				}
@@ -1385,10 +1292,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				FROM = {
 					is_domesticator = yes
 				}
@@ -1459,12 +1363,9 @@ action_demand_protectorate = {
 		01_DEMAND_PROT_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1479,12 +1380,9 @@ action_demand_protectorate = {
 		01_DEMAND_DOMEST_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1500,12 +1398,9 @@ action_demand_protectorate = {
 		02_DEMAND_PROT_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1520,12 +1415,9 @@ action_demand_protectorate = {
 		02_DEMAND_DOMEST_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
-				NOT = {
-					OR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-						has_authority = auth_corporate
-					}
+				NOR = {
+					is_xenophobe = yes
+					has_authority = auth_corporate
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1544,10 +1436,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1564,10 +1453,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1585,10 +1471,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM
@@ -1605,10 +1488,7 @@ action_demand_protectorate = {
 					has_ethic = ethic_gestalt_consciousness
 					has_authority = auth_corporate
 				}
-				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-				}
+				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
 					is_cordial_to = FROM

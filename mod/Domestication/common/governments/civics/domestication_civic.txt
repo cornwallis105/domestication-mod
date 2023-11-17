@@ -185,6 +185,7 @@ civic_warrior_culture = {
 		}
 		civics = {
 			NOR = {
+				value = civic_dystopian_society
 				value = civic_pleasure_seekers
 				value = civic_cosmic_harmony
 			}

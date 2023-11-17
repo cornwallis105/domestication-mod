@@ -436,7 +436,7 @@
  dom_pre_ftl.23.c:0 "Attempt to dissuade them of religion in general"
 
  dom_pre_ftl.24.name:0 "Your Goddess, Your Owner"
- dom_pre_ftl.24.desc:0 "\"Any sufficiently powerful and benevolent being is indistinguishable from a diety.\" That's what one of our negotiators says, at least. And the [target.owner.GetSpeciesNamePlural] seem to believe it.\n\nMany prominent [target.owner.GetSpeciesAdj] theologians are now actively supporting the [target.GetName], and the people are eager to receive their salvation."
+ dom_pre_ftl.24.desc:0 "\"Any sufficiently powerful and benevolent being is indistinguishable from a diety.\" That's what one of our negotiators says, at least. And the [target.owner.GetSpeciesNamePlural] seem to believe it.\n\nMany prominent [target.owner.GetSpeciesAdj] theologians are now actively supporting the [root.GetName], and the people are eager to receive their salvation."
  dom_pre_ftl.24.a:0 "Such adorable worshippers!"
 
  dom_pre_ftl.25.name:0 "It's Hard to be a God"
@@ -550,7 +550,7 @@
  dom_paragon.40400.hire_custom_tooltip:0 "§Y$NAME_militarist2$§! will be domesticated by one of our generals."
 
  dom_paragon.40401.name:0 "A Worthy Foe"
- dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more that a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
+ dom_paragon.40401.desc:0 "§Y[ethic_leader.GetName]§! was more than a little surprised when we started venting Class-Z xenodrugs into the negotiating room. While her slaves were immediately taken to the veterinary ward for evaluation, §Y[new_owner.GetName]§! came by to collect [new_owner.GetHisHer] new Floret personally.\n\nAfter days of intense hand-to-[root.GetSpeciesHandName] combat in which she never managed to land even a single punch, §Y[new_floret.GetName]§! finally admitted defeat and promised to serve her new owner in whatever way she could."
  dom_paragon.40401.a:0 "Adorable!"
 
  dom_paragon.4.name:0 "Burdens Lifted"
@@ -594,9 +594,3 @@
  dom_paragon.247.name:0 "A Very Useful Beeper"
  dom_paragon.247.desc:0 "§Y[ethic_leader.GetName]§! "
  dom_paragon.247.a:0 "An extremely good beeper!"
-
- dom_horizon.1.name:0 "REPLACE_ME"
- dom_horizon.1.desc:0 "REPLACE_ME"
- dom_horizon.1.a:0 "REPLACE_ME"
- dom_horizon.1.b:0 "REPLACE_ME"
- dom_horizon.1.c:0 "REPLACE_ME"

@@ -1,0 +1,74 @@
+set_starting_governor_effect = {
+	capital_scope = {
+		if = {
+			limit = {
+				exists = leader
+				leader = {
+					leader_class = $GOVERNOR$
+					is_councilor = yes
+				}
+			}
+			# Do nothing, leader matches chosen class.
+		}
+		else = {
+			if = {
+				limit = {
+					exists = leader
+				}
+				kill_leader = {
+					show_notification = no
+				}
+			}
+			root = {
+				if = {
+					limit = {
+						is_gestalt = no
+						any_owned_leader = {
+							leader_class =  $GOVERNOR$
+							is_councilor = yes
+							is_idle = yes
+							is_ruler = no
+						}
+					}
+					random_owned_leader = {
+						limit = {
+							leader_class =  $GOVERNOR$
+							is_councilor = yes
+							is_idle = yes
+							is_ruler = no
+						}
+						save_event_target_as = governor_leader
+					}
+				}
+				else = {
+          set_global_flag = no_bloom_naming
+					create_leader = {
+						class = $GOVERNOR$
+						name = random
+						species = owner_main_species
+					}
+					last_created_leader = {
+						save_event_target_as = governor_leader
+						if = {
+							limit = {
+								has_skill > 1
+								num_traits = 0
+							}
+							add_trait_no_notify = random_common
+						}
+            save_event_target_as = new_governor
+					}
+          remove_global_flag = no_bloom_naming
+      		country_event = {
+      			id = domestication_leader.7
+      			scopes = {
+      				from = event_target:new_governor
+      			}
+      		}
+				}
+
+			}
+			assign_leader = event_target:governor_leader
+		}
+	}
+}

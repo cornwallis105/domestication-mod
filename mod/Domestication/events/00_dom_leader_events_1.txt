@@ -9,7 +9,7 @@ country_event = {
 	trigger = {
 		is_country_type = default
 		any_owned_leader = {
-			leader_class = admiral
+			leader_class = commander
 		}
 	}
 

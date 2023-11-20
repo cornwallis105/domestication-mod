@@ -327,6 +327,9 @@ civic_technocracy = {
 				value = civic_cosmic_harmony
 			}
 		}
+		origin = {
+			NOT = { value = origin_domesticators }
+		}
 	}
 	modifier = {
 		num_tech_alternatives_add = 1

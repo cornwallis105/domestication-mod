@@ -22,7 +22,7 @@ Scientist:
   AI: + research speed, + survey speed. Gained form certain events.
  -X Easily Distracted: + anomaly detection chance. Gained from level up.
   Scientist: 3 types, one for each research type, gives bonus in that type. Gained from espionage asset.
- -X Academic: General research spped bonus. Gained from espionage asset.
+ -X Academic: General research speed bonus. Gained from espionage asset.
   Hive Drone: Research bonus from "comms line" with other parts of hive
 
 Admiral:

@@ -137,7 +137,7 @@ country_event = {
 							}
 						}
 						create_leader = {
-							class = governor
+							class = official
 							species = event_target:larion_species
 						}
 						add_modifier = {

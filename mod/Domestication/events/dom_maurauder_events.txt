@@ -26,7 +26,7 @@ country_event = {
     if = {
 			limit = {
 				any_owned_leader = {
-					leader_class = admiral
+					leader_class = commander
 					can_obtain_new_floret = yes
 				}
 			}
@@ -69,14 +69,14 @@ country_event = {
     if = {
       limit = {
         any_owned_leader = {
-          leader_class = admiral
+          leader_class = commander
           can_obtain_new_floret = yes
           this.solar_system = { is_same_value = event_target:khan_death_system }
         }
       }
       random_owned_leader = {
         limit = {
-          leader_class = admiral
+          leader_class = commander
           can_obtain_new_floret = yes
           this.solar_system = { is_same_value = event_target:khan_death_system }
         }
@@ -86,7 +86,7 @@ country_event = {
     else = {
       random_owned_leader = {
         limit = {
-          leader_class = admiral
+          leader_class = commander
           can_obtain_new_floret = yes
         }
         save_event_target_as = new_owner
@@ -103,7 +103,7 @@ country_event = {
 				create_leader = {
 					name = random
 					species = event_target:raider_khanate.owner_main_species
-					class = governor
+					class = official
 					leader_age_min = 20
 					leader_age_max = 40
 					skill = 1
@@ -120,7 +120,7 @@ country_event = {
 				create_leader = {
 					name = random
 					species = event_target:raider_khanate.owner_main_species
-					class = governor
+					class = official
 					leader_age_min = 20
 					leader_age_max = 40
 					skill = 1

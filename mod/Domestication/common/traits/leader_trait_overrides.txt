@@ -7,27 +7,56 @@ leader_trait_capitalist = {
 		COUNCIL = no
 		TIER = 1
 	}
-	inline_script = {
-		script = paragon/leader_resource_produces
-		RESOURCE = energy
-		AMOUNT = 4
-	}
 	leader_potential_add = {
 		has_global_flag = game_started
-    #owner = { is_domesticator_or_protectorate = no }
 	}
-	leader_class = { admiral scientist general governor }
+	triggered_background_planet_modifier = {
+		potential = {
+			exists = FROM
+			FROM = {
+				exists = owner
+				owner = {
+					is_same_value = root.owner
+				}
+			}
+			trait_is_gestalt_check = no
+		}
+		job_technician_add = 2
+	}
+	triggered_background_planet_modifier = {
+		potential = {
+			exists = FROM
+			FROM = {
+				exists = owner
+				owner = {
+					is_same_value = root.owner
+				}
+			}
+			trait_is_gestalt_check = yes
+		}
+		job_technician_drone_add = 2
+	}
+	planet_modifier = {
+		planet_technician_energy_produces_mult = 0.05
+	}
+	sector_modifier = {
+		planet_technician_energy_produces_mult = 0.025
+	}
+	leader_class = { commander scientist official }
 	opposites = {
-		leader_trait_lavish_lifestyle
-		leader_trait_lavish_lifestyle_2
+		leader_trait_private_mines
+		leader_trait_private_mines_2
+		leader_trait_homesteader
+		leader_trait_homesteader_2
+		leader_trait_scrapper
+		leader_trait_scrapper_2
+		leader_trait_entrepreneur
+		leader_trait_entrepreneur_2
+		leader_trait_venerated
+		leader_trait_venerated_2
 	}
 	selectable_weight = {
 		weight = @shared_trait_weight
-		inline_script = {
-			script = "paragon/ethic_weight_mult"
-			IS = materialist
-			NOT = spiritualist
-		}
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_capitalist
@@ -49,17 +78,16 @@ leader_trait_emotional_support_pet = {
 		TIER = none
 	}
 	self_modifier = {
-		leader_age = 10
+		leader_lifespan_add = 10
 		negative_traits_leader = -1
 	}
 	leader_potential_add = {
 		is_pool_leader = yes
 		has_paragon_dlc = yes
 		owner = { is_machine_empire = no }
-    #owner = { is_domesticator_or_protectorate = no }
 	}
-	leader_class = { admiral scientist general governor }
-	selectable_weight = {
+	leader_class = { commander scientist official }
+	selectable_weight = { 
 		weight = @shared_trait_weight
 		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -70,26 +98,21 @@ leader_trait_emotional_support_pet = {
 
 leader_trait_tyrannical = {
 	negative = yes
-	councilor_trait = yes
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_tyrannical"
 		COUNCIL = yes
 		TIER = 1
 	}
-	triggered_modifier = {
+	triggered_councilor_modifier = {
 		potential = { trait_is_gestalt_check = no }
 		pop_happiness = -0.05
 	}
-	triggered_modifier = {
+	triggered_councilor_modifier = {
 		potential = { trait_is_gestalt_check = yes }
 		planet_amenities_no_happiness_mult = -0.05
 	}
-	leader_potential_add = {
-		NOT = { has_ethic = ethic_egalitarian }
-    #owner = { is_domesticator_or_protectorate = no }
-	}
-	leader_class = { governor scientist admiral general }
+	leader_class = { official scientist commander }
 	opposites = {
 		trait_ruler_champion_of_the_people
 		trait_ruler_champion_of_the_people_2
@@ -98,10 +121,7 @@ leader_trait_tyrannical = {
 	}
 	selectable_weight = {
 		weight = @shared_negative_trait_weight
-		modifier = {
-			has_ethic = ethic_authoritarian
-			factor = @ethic_weight_mult
-		}
+		inline_script = paragon/council_weight_mult
 		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
 			factor = 0
@@ -111,23 +131,19 @@ leader_trait_tyrannical = {
 
 leader_trait_embezzler = {
 	negative = yes
-	councilor_trait = yes
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_embezzler"
 		COUNCIL = yes
 		TIER = 1
 	}
-	modifier = {
+	councilor_modifier = {
 		country_energy_produces_mult = -0.05
 	}
-	leader_class = { governor scientist admiral general }
+	leader_class = { official scientist commander }
 	selectable_weight = {
 		weight = @shared_negative_trait_weight
-		modifier = {
-			has_ethic = ethic_materialist
-			factor = @ethic_weight_mult
-		}
+		inline_script = paragon/council_weight_mult
 		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
 			factor = 0

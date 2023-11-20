@@ -1,11 +1,10 @@
 councilor_cosmic_harmony = {
-	leader_class = { admiral general scientist governor }
+	leader_class = { commander scientist official }
 	is_leader_possible = {
 		OR = {
-			leader_class = admiral
-			leader_class = general
+			leader_class = commander
 			leader_class = scientist
-			leader_class = governor
+			leader_class = official
 		}
 	}
 	civic = civic_cosmic_harmony

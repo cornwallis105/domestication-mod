@@ -24,7 +24,7 @@ country_event = {
 		trigger = {
 			is_domesticator_or_protectorate = yes
       any_owned_leader = {
-        leader_class = admiral
+        leader_class = commander
         NOT = { has_trait = leader_trait_warform_floret }
         can_obtain_new_floret = yes
       }
@@ -54,7 +54,7 @@ country_event = {
 		hidden_effect = {
 			clone_leader = {
 				target = event_target:warform_leader
-				class = admiral
+				class = commander
 				effect = {
 					save_event_target_as = warform_leader
 				}
@@ -84,7 +84,7 @@ country_event = {
 		hidden_effect = {
 			clone_leader = {
 				target = event_target:warform_leader
-				class = admiral
+				class = commander
 				effect = {
 					save_event_target_as = warform_leader
 				}
@@ -112,7 +112,7 @@ country_event = {
 		hidden_effect = {
 			clone_leader = {
 				target = event_target:warform_leader
-				class = admiral
+				class = commander
 				effect = {
 					save_event_target_as = warform_leader
 				}
@@ -321,7 +321,7 @@ ship_event = {
 				}
 				random_owned_leader = {
 					LIMIT = {
-						leader_class = governor
+						leader_class = official
 						species = {
 							NOR = {
 								has_trait = trait_cybernetic
@@ -562,7 +562,7 @@ country_event = {
 		hidden_effect = {
 			clone_leader = {
 				target = event_target:captain_reth
-				class = admiral
+				class = commander
 			}
 		}
 		event_target:ahab_fleet = {
@@ -591,7 +591,7 @@ country_event = {
 			is_domesticator_or_protectorate = yes
 			# scientist has < 2 florets
 			any_owned_leader = {
-				leader_class = admiral
+				leader_class = commander
 				NOT = { has_trait = leader_trait_ahab_floret }
 				can_obtain_new_floret = yes
 			}
@@ -660,7 +660,7 @@ ship_event = {
 		ethic_leader_creator = {
 			SPECIES_CLASS = AI
 			LEADER_PORTRAIT = cpl_04
-			CLASS = governor
+			CLASS = official
 			NAME = NAME_Caretaker
 			LEVEL = 4
 			GENDER = indeterminable
@@ -670,7 +670,7 @@ ship_event = {
 			CATCH_PHRASE = caretaker_leader_catch_phrase
 		}
 		last_created_leader = {
-			add_trait = subclass_governor_pioneer
+			add_trait = subclass_official_governor
 			add_trait = leader_trait_govenor_caretaker
 			add_trait = leader_trait_intellectual
 			add_trait = leader_trait_settler

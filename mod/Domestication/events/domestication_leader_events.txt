@@ -44,7 +44,7 @@ country_event = {
 	immediate = {
 		#random_owned_leader = {
 		#	limit = {
-		#		leader_class = governor
+		#		leader_class = official
 		#	}
 		#	save_event_target_as = guvna
 		#}
@@ -78,7 +78,7 @@ country_event = {
 			}
 			if = {
 				limit = {
-					leader_class = admiral
+					leader_class = commander
 					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
@@ -103,34 +103,9 @@ country_event = {
 			}
 			if = {
 				limit = {
-					leader_class = governor
+					leader_class = official
 					NOT = { has_leader_flag = has_gained_level_floret }
 					#exists = planet
-				}
-				random_list = {
-					80 = { }
-					20 = {
-						modifier = {
-							factor = 1.5
-							has_level = 3
-						}
-						modifier = {
-							factor = 2.5
-							has_level = 4
-						}
-						modifier = {
-							factor = 5
-							has_level > 4
-						}
-						add_random_leader_floret_trait = yes
-						set_leader_flag = has_gained_level_floret
-					}
-				}
-			}
-			if = {
-				limit = {
-					leader_class = general
-					NOT = { has_leader_flag = has_gained_level_floret }
 				}
 				random_list = {
 					80 = { }
@@ -218,7 +193,7 @@ country_event = {
 					create_leader = {
 						name = random
 						species = event_target:defeated_country.owner_species
-						class = admiral
+						class = commander
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
@@ -346,7 +321,7 @@ country_event = {
 					create_leader = {
 						name = random
 						species = event_target:floret_species
-						class = governor
+						class = official
 						leader_age_min = 20
 						leader_age_max = 40
 						skill = 1
@@ -502,7 +477,7 @@ country_event = {
 				create_leader = {
 					name = random
 					species = event_target:defeated_country.owner_species
-					class = governor
+					class = official
 					leader_age_min = 20
 					leader_age_max = 40
 					skill = 1
@@ -599,7 +574,7 @@ country_event = {
 			#	create_leader = {
 			#		name = random
 			#		species = event_target:defeated_country.owner_species
-			#		class = governor
+			#		class = official
 			#		leader_age_min = 20
 			#		leader_age_max = 40
 			#		skill = 1
@@ -978,13 +953,13 @@ leader_event = {
 		}
 		else_if = {
 	    limit = {
-	      leader_class = governor
+	      leader_class = official
 	    }
 	    event_target:bloom_country = {
 	      create_leader = {
 	        name = random
 	        species = root
-	        class = governor
+	        class = official
 	        set_age = 0
 	        skill = 1
 					effect = {
@@ -996,31 +971,13 @@ leader_event = {
 	  }
 	  else_if = {
 	    limit = {
-	      leader_class = admiral
+	      leader_class = commander
 	    }
 	    event_target:bloom_country = {
 	      create_leader = {
 	        name = random
 	        species = root
-	        class = admiral
-	        set_age = 0
-	        skill = 1
-					effect = {
-						save_event_target_as = clone_bloom
-					}
-					event_leader = yes
-	      }
-	    }
-	  }
-	  else_if = {
-	    limit = {
-	      leader_class = general
-	    }
-	    event_target:bloom_country = {
-	      create_leader = {
-	        name = random
-	        species = root
-	        class = general
+	        class = commander
 	        set_age = 0
 	        skill = 1
 					effect = {
@@ -1056,7 +1013,7 @@ leader_event = {
 #	      create_leader = {
 #	        name = random
 #	        species = root
-#	        class = governor
+#	        class = official
 #	        set_age = 0
 #	        skill = 1
 #					effect = {
@@ -1256,7 +1213,7 @@ country_event = {
 				if = {
 					limit = {
 						any_owned_leader = {
-							leader_class = general
+							leader_class = commander
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_attache_floret }
 						}
@@ -1264,7 +1221,7 @@ country_event = {
 					}
 					random_owned_leader = {
 						limit = {
-							leader_class = general
+							leader_class = commander
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_attache_floret }
 						}
@@ -1277,14 +1234,14 @@ country_event = {
 				if = {
 					limit = {
 						any_owned_leader = {
-							leader_class = governor
+							leader_class = official
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_economist_floret }
 						}
 					}
 					random_owned_leader = {
 						limit = {
-							leader_class = governor
+							leader_class = official
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_economist_floret }
 						}
@@ -1297,14 +1254,14 @@ country_event = {
 				if = {
 					limit = {
 						any_owned_leader = {
-							leader_class = admiral
+							leader_class = commander
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_officer_floret }
 						}
 					}
 					random_owned_leader = {
 						limit = {
-							leader_class = admiral
+							leader_class = commander
 							can_obtain_new_floret = yes
 							NOT = { has_trait = leader_trait_officer_floret }
 						}
@@ -1536,7 +1493,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						leader_class = governor
+						leader_class = official
 					}
 				}
 				root = {
@@ -1544,7 +1501,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = male
-						class = governor
+						class = official
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1557,7 +1514,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = male
-						leader_class = admiral
+						leader_class = commander
 					}
 				}
 				root = {
@@ -1565,28 +1522,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = male
-						class = admiral
-						skill = 1
-						set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					event_target:old_bloom = {
-						gender = male
-						leader_class = general
-					}
-				}
-				root = {
-					create_leader = {
-						name = random
-						species = event_target:clone_bloom
-						gender = male
-						class = general
+						class = commander
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1620,7 +1556,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						leader_class = governor
+						leader_class = official
 					}
 				}
 				root = {
@@ -1628,7 +1564,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = female
-						class = governor
+						class = official
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1641,7 +1577,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = female
-						leader_class = admiral
+						leader_class = commander
 					}
 				}
 				root = {
@@ -1649,28 +1585,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = female
-						class = admiral
-						skill = 1
-						set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					event_target:old_bloom = {
-						gender = female
-						leader_class = general
-					}
-				}
-				root = {
-					create_leader = {
-						name = random
-						species = event_target:clone_bloom
-						gender = female
-						class = general
+						class = commander
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1704,7 +1619,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						leader_class = governor
+						leader_class = official
 					}
 				}
 				root = {
@@ -1712,7 +1627,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = indeterminable
-						class = governor
+						class = official
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1725,7 +1640,7 @@ country_event = {
 				limit = {
 					event_target:old_bloom = {
 						gender = indeterminable
-						leader_class = admiral
+						leader_class = commander
 					}
 				}
 				root = {
@@ -1733,28 +1648,7 @@ country_event = {
 						name = random
 						species = event_target:clone_bloom
 						gender = indeterminable
-						class = admiral
-						skill = 1
-						set_age = 0
-						effect = {
-							save_event_target_as = new_bloom
-						}
-					}
-				}
-			}
-			else_if = {
-				limit = {
-					event_target:old_bloom = {
-						gender = indeterminable
-						leader_class = general
-					}
-				}
-				root = {
-					create_leader = {
-						name = random
-						species = event_target:clone_bloom
-						gender = indeterminable
-						class = general
+						class = commander
 						skill = 1
 						set_age = 0
 						effect = {
@@ -1912,7 +1806,7 @@ country_event = {
 		is_domesticator_or_protectorate = yes
 		# admiral has < 2 florets
 		any_owned_leader = {
-			leader_class = admiral
+			leader_class = commander
 			NOT = { has_trait = leader_trait_warform_floret }
 			can_obtain_new_floret = yes
 		}
@@ -1922,7 +1816,7 @@ country_event = {
 	immediate = {
 		random_owned_leader = {
 			limit = {
-				leader_class = admiral
+				leader_class = commander
 				NOT = { has_trait = leader_trait_warform_floret }
 				can_obtain_new_floret = yes
 			}
@@ -1983,7 +1877,7 @@ country_event = {
 			event_target:floret_country = {
 				clone_leader = {
 					target = event_target:warform_leader
-					class = admiral
+					class = commander
 					effect = {
 						add_trait = leader_trait_floret_immortal
 						add_trait = leader_trait_warform_floret
@@ -2264,7 +2158,7 @@ country_event = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
-			leader_class = governor
+			leader_class = official
 			NOT = { has_trait = leader_trait_racket_floret }
 			can_obtain_new_floret = yes
 		}
@@ -2274,7 +2168,7 @@ country_event = {
 	immediate = {
 		random_owned_leader = {
 			limit = {
-				leader_class = governor
+				leader_class = official
 				NOT = { has_trait = leader_trait_racket_floret }
 				can_obtain_new_floret = yes
 			}
@@ -2331,7 +2225,7 @@ country_event = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
-			leader_class = governor
+			leader_class = official
 			NOT = { has_trait = leader_trait_cryopod_floret }
 			can_obtain_new_floret = yes
 		}
@@ -2341,12 +2235,11 @@ country_event = {
 	immediate = {
 		event_target:floret_country = {
 			create_leader = {
-				class = governor
+				class = official
 				species = event_target:AlienWarriorSpecies
 				name = "NAME_Majula_the_Bearer"
 				traits = {
-					trait = leader_trait_glory_seeker
-					trait = leader_trait_inspiring
+					trait = leader_trait_butcher
 				}
 				event_leader = yes
 			}
@@ -2360,7 +2253,7 @@ country_event = {
 
 		random_owned_leader = {
 			limit = {
-				leader_class = governor
+				leader_class = official
 				NOT = { has_trait = leader_trait_cryopod_floret }
 				can_obtain_new_floret = yes
 			}
@@ -2442,7 +2335,7 @@ country_event = {
 		is_domesticator_or_protectorate = yes
 		# scientist has < 2 florets
 		any_owned_leader = {
-			leader_class = admiral
+			leader_class = commander
 			NOT = { has_trait = leader_trait_ahab_floret }
 			can_obtain_new_floret = yes
 		}
@@ -2456,7 +2349,7 @@ country_event = {
 				name = NAME_Reth_Unddol_first_name
 				species = event_target:captain_species
 				gender = male
-				class = governor
+				class = official
 				leader_age_min = 20
 				leader_age_max = 40
 				skill = 1
@@ -2470,7 +2363,7 @@ country_event = {
 
 		random_owned_leader = {
 			limit = {
-				leader_class = admiral
+				leader_class = commander
 				NOT = { has_trait = leader_trait_ahab_floret }
 				can_obtain_new_floret = yes
 			}

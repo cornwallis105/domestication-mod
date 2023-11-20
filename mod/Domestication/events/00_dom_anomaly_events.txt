@@ -93,7 +93,7 @@ country_event = {
 		trigger = {
 			is_domesticator_or_full_protectorate = yes
 			any_owned_leader = {
-				leader_class = governor
+				leader_class = official
 				NOT = { has_trait = leader_trait_cryopod_floret }
 				can_obtain_new_floret = yes
 			}

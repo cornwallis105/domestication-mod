@@ -1,5 +1,4 @@
 leader_trait_distracted_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -11,18 +10,11 @@ leader_trait_distracted_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_distracted.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = scientist
-		}
+	modifier = {
 		ship_anomaly_generation_chance_mult = 0.1
 		science_ship_survey_speed = -0.05
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		planet_amenities_add = 4
 		country_ruler_consumer_goods_produces_add = 10
 	}
@@ -32,9 +24,9 @@ leader_trait_distracted_floret = {
 	}
 	leader_class = { scientist }
 
-	ai_categories = {
-		survey
-	}
+	#ai_categories = {
+		#survey
+	#}
 
 	opposites = {  }
 
@@ -46,7 +38,6 @@ leader_trait_distracted_floret = {
 }
 
 leader_trait_academic_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -58,23 +49,25 @@ leader_trait_academic_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_academic.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = scientist
-		}
-		leader_scientists_physics_research_produces_add = 2
-		leader_scientists_society_research_produces_add = 2
-		leader_scientists_engineering_research_produces_add = 2
-		mult = trigger:has_skill
+	modifier = {
+		leader_scientists_physics_research_produces_add = 3
+		leader_scientists_society_research_produces_add = 3
+		leader_scientists_engineering_research_produces_add = 3
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
-		country_engineering_research_produces_mult = 0.05
-		country_physics_research_produces_mult = 0.05
-		country_society_research_produces_mult = 0.05
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.05
+		planet_jobs_society_research_produces_mult = 0.05
+		planet_jobs_engineering_research_produces_mult = 0.05
+	}
+	sector_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.025
+		planet_jobs_society_research_produces_mult = 0.025
+		planet_jobs_engineering_research_produces_mult = 0.025
+	}
+	councilor_modifier = {
+		country_engineering_research_produces_mult = 0.025
+		country_physics_research_produces_mult = 0.025
+		country_society_research_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -82,11 +75,11 @@ leader_trait_academic_floret = {
 	}
 	leader_class = { scientist }
 
-	ai_categories = {
-		physics
-		society
-		engineering
-	}
+	#ai_categories = {
+		#physics
+		#society
+		#engineering
+	#}
 
 	opposites = {  }
 
@@ -98,7 +91,6 @@ leader_trait_academic_floret = {
 }
 
 leader_trait_stranded_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -111,18 +103,16 @@ leader_trait_stranded_floret = {
 	initial = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_academic.dds"
 	randomized = no
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = scientist
-		}
-		leader_scientists_physics_research_produces_add = 4
-		mult = trigger:has_skill
+	modifier = {
+		leader_scientists_physics_research_produces_add = 10
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	planet_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.10
+	}
+	sector_modifier = {
+		planet_jobs_physics_research_produces_mult = 0.05
+	}
+	councilor_modifier = {
 		country_engineering_tech_research_speed = 0.03
 		country_physics_tech_research_speed = 0.06
 		country_society_tech_research_speed = 0.03
@@ -133,9 +123,9 @@ leader_trait_stranded_floret = {
 	}
 	leader_class = { scientist }
 
-	ai_categories = {
-		physics
-	}
+	#ai_categories = {
+		#physics
+	#}
 
 	opposites = {  }
 
@@ -147,7 +137,6 @@ leader_trait_stranded_floret = {
 }
 
 leader_trait_historian_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -159,19 +148,12 @@ leader_trait_historian_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_historian.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = scientist
-		}
+	modifier = {
 		ship_archaeological_site_excavation_speed_mult = 0.1
 		ship_archaeological_site_clues_add = 1
 		#category_statecraft_research_speed_mult = 0.075
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		category_archaeostudies_research_speed_mult = 0.1
 		country_society_tech_research_speed = 0.03
 		country_unity_produces_mult = 0.025
@@ -182,10 +164,10 @@ leader_trait_historian_floret = {
 	}
 	leader_class = { scientist }
 
-	ai_categories = {
-		survey
-		society
-	}
+	#ai_categories = {
+		#survey
+		#society
+	#}
 
 	opposites = {  }
 

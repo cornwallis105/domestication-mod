@@ -25,7 +25,7 @@ leader_event = {
     trigger = {
       owner = {
         any_owned_leader = {
-          leader_class = governor
+          leader_class = official
           can_obtain_new_floret = yes
         }
       }
@@ -35,7 +35,7 @@ leader_event = {
       owner = {
         random_owned_leader = {
           limit = {
-            leader_class = governor
+            leader_class = official
             can_obtain_new_floret = yes
           }
           save_event_target_as = new_owner
@@ -58,7 +58,7 @@ leader_event = {
 					}
 				}
         create_leader = {
-          class = governor
+          class = official
           species = last_created_species
           name = "NONA_BLORG_EX_HUSBAND_NAME"
           custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
@@ -85,7 +85,7 @@ leader_event = {
 	      owner = {
 	        NOT = {
 	        any_owned_leader = {
-	          leader_class = governor
+	          leader_class = official
 	          can_obtain_new_floret = yes
 	        }
 		    }
@@ -97,7 +97,7 @@ leader_event = {
         create_leader = {
           species = this
           name = random
-          class = governor
+          class = official
           set_age = 42
           skill = 3
           randomize_traits = yes
@@ -106,7 +106,7 @@ leader_event = {
             save_event_target_as = new_owner
           }
         }
-		
+
       }
       create_species = {
         name = "PRESCRIPTED_species_name_blorg"
@@ -125,7 +125,7 @@ leader_event = {
       }
       event_target:floret_country = {
         create_leader = {
-          class = governor
+          class = official
           species = last_created_species
           name = "NONA_BLORG_EX_HUSBAND_NAME"
           custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
@@ -214,7 +214,7 @@ leader_event = {
         name = NAME_militarist1_first_name
         species = event_target:ethic_leader
         gender = male
-        class = general
+        class = commander
         skill = 1
 	    set_age = 45
 	  }
@@ -230,7 +230,7 @@ leader_event = {
       limit = {
         event_target:affini_compact = {
           any_owned_leader = {
-            leader_class = admiral
+            leader_class = commander
             can_obtain_new_floret = yes
           }
         }
@@ -238,7 +238,7 @@ leader_event = {
       event_target:affini_compact = {
         random_owned_leader = {
           limit = {
-            leader_class = admiral
+            leader_class = commander
             can_obtain_new_floret = yes
           }
           save_event_target_as = new_owner
@@ -251,7 +251,7 @@ leader_event = {
         create_leader = {
           species = this
           name = random
-          class = admiral
+          class = commander
           set_age = 30
           skill = 4
           randomize_traits = yes
@@ -408,7 +408,7 @@ country_event = {
   				name = NAME_Caretaker_first
   				species = event_target:ethic_leader
   				gender = indeterminable
-  				class = governor
+  				class = official
   				skill = 4
 				set_age = 709
   			}
@@ -422,13 +422,13 @@ country_event = {
 			if = {
 				limit = {
 					any_owned_leader = {
-						leader_class = governor
+						leader_class = official
 						can_obtain_new_floret = yes
 					}
 				}
 				random_owned_leader = {
 					limit = {
-						leader_class = governor
+						leader_class = official
 						can_obtain_new_floret = yes
 					}
 					save_event_target_as = new_owner
@@ -438,7 +438,7 @@ country_event = {
 				create_leader = {
 					species = this
 					name = random
-					class = governor
+					class = official
 					set_age = 30
 					skill = 4
 					randomize_traits = yes
@@ -632,7 +632,7 @@ country_event = { # xenophile 1
 		ethic_leader_creator = {
 			SPECIES_CLASS = random_non_machine # Species class, for animation purposes, example: MAM4
 			LEADER_PORTRAIT = par_renown_12 # xenophile_leader_gen # Leader portrait
-			CLASS = admiral
+			CLASS = commander
 			NAME = NAME_xenophile1
 			LEVEL = 4
 			GENDER = male
@@ -642,7 +642,7 @@ country_event = { # xenophile 1
 			CATCH_PHRASE = xenophile1_catch_phrase
 		}
 		last_created_leader = {
-			add_trait = subclass_admiral_tactician
+			add_trait = subclass_commander_admiral
 			add_trait = leader_trait_guerilla_tactics
 			add_trait = leader_trait_slipshod
 			add_trait = leader_trait_trickster
@@ -700,7 +700,7 @@ country_event = { # xenophile 1
   				name = NAME_xenophile1_first
   				species = event_target:ethic_leader
   				gender = male
-  				class = admiral
+  				class = commander
   				set_age = 33
   				skill = 1
   			}
@@ -716,13 +716,13 @@ country_event = { # xenophile 1
 			if = {
 				limit = {
 					any_owned_leader = {
-						leader_class = admiral
+						leader_class = commander
 						can_obtain_new_floret = yes
 					}
 				}
 				random_owned_leader = {
 					limit = {
-						leader_class = admiral
+						leader_class = commander
 						can_obtain_new_floret = yes
 					}
 					save_event_target_as = new_owner
@@ -732,7 +732,7 @@ country_event = { # xenophile 1
 				create_leader = {
 					species = this
 					name = random
-					class = admiral
+					class = commander
 					set_age = 30
 					skill = 4
 					randomize_traits = yes
@@ -843,7 +843,7 @@ leader_event = {
 					species = last_created_species
 					name = "NONA_BLORG_EX_HUSBAND_NAME"
 					custom_description = "NONA_BLORG_EX_HUSBAND_DESC"
-					class = governor
+					class = official
 					set_age = 42
 					skill = 3
 					randomize_traits = yes
@@ -948,7 +948,7 @@ country_event = { # militarist 2
 		ethic_leader_creator = {
 			SPECIES_CLASS = random_non_machine
 			LEADER_PORTRAIT = par_renown_02 #militarist_leader_gen
-			CLASS = general
+			CLASS = commander
 			NAME = NAME_militarist2
 			LEVEL = 4
 			GENDER = female
@@ -958,11 +958,11 @@ country_event = { # militarist 2
 			CATCH_PHRASE = militarist2_catch_phrase
 		}
 		last_created_leader = {
-			add_trait = subclass_general_invader
-			add_trait = leader_trait_pilferer
+			add_trait = subclass_commander_general
+			add_trait = leader_trait_tzrynn_tithe
 			add_trait = leader_trait_disorganized
 			add_trait = leader_trait_butcher_2
-			add_trait = leader_trait_kidnapper
+			add_trait = leader_trait_interrogator
 			set_age = 28
 		}
 	}
@@ -1024,7 +1024,7 @@ country_event = { # militarist 2
   				name = NAME_militarist2
   				species = event_target:ethic_leader
   				gender = female
-  				class = general
+  				class = commander
   				skill = 1
 				set_age = 28
 			}
@@ -1040,13 +1040,13 @@ country_event = { # militarist 2
 			if = {
 				limit = {
 					any_owned_leader = {
-						leader_class = general
+						leader_class = commander
 						can_obtain_new_floret = yes
 					}
 				}
 				random_owned_leader = {
 					limit = {
-						leader_class = general
+						leader_class = commander
 						can_obtain_new_floret = yes
 					}
 					save_event_target_as = new_owner
@@ -1056,7 +1056,7 @@ country_event = { # militarist 2
 				create_leader = {
 					species = this
 					name = random
-					class = general
+					class = commander
 					set_age = 30
 					skill = 4
 					randomize_traits = yes

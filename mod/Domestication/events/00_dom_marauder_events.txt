@@ -202,7 +202,7 @@ country_event = {
 			}
 		}
 		create_leader = {
-			class = admiral
+			class = commander
 			species = event_target:marauder_neighbor_species
 			name = random
 			skill = 4
@@ -219,7 +219,7 @@ country_event = {
 		trigger = {
 			is_domesticator_or_protectorate = yes
 			any_owned_leader = {
-				leader_class = admiral
+				leader_class = commander
 				can_obtain_new_floret = yes
 				NOT = { has_trait = leader_trait_marauder_floret }
 			}
@@ -227,7 +227,7 @@ country_event = {
 		hidden_effect = {
 			random_owned_leader = {
 				limit = {
-					leader_class = admiral
+					leader_class = commander
 					can_obtain_new_floret = yes
 					NOT = { has_trait = leader_trait_marauder_floret }
 				}
@@ -241,7 +241,7 @@ country_event = {
 
 			event_target:floret_country = {
 				create_leader = {
-					class = admiral
+					class = commander
 					species = event_target:marauder_neighbor_species
 					name = random
 					skill = 4

@@ -15,7 +15,7 @@
  leader_trait_cutie_floret:0 "Floret - Cutie"
  leader_trait_cutie_floret_desc:0 "While all florets are cute, this floret is just exceptionally cute. Just having such an adorable floret around makes everyone work just a littler harder to make sure it's happy."
  leader_trait_cutie_gov:0 "Floret - Cutie"
- leader_trait_cutie_gov_desc:0 "While all florets are cute, this floret is just exceptionally cute. The people of this governors sector are uplifted every time it appears in an announcement broadcast."
+ leader_trait_cutie_gov_desc:0 "While all florets are cute, this floret is just exceptionally cute. The people of this official's sector are uplifted every time it appears in an announcement broadcast."
  leader_trait_cutie_sci:0 "$leader_trait_cutie_gov$"
  leader_trait_cutie_sci_desc:0 "While all florets are cute, this floret is just exceptionally cute. Its presence in the research lab encourages everyone to do their best to make our civilization a better place."
  leader_trait_cutie_adm:0 "$leader_trait_cutie_gov$"

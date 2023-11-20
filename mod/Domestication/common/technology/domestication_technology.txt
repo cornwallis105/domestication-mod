@@ -30,17 +30,9 @@ tech_subdermal_stimulation = {
 				has_ethic = ethic_fanatic_egalitarian
 			}
 		}
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = @federation_perk_factor
-			has_federation = yes
-			federation = {
-				has_federation_perk = rare_tech_boost
-				any_member = { has_technology = tech_subdermal_stimulation }
-			}
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = tech_subdermal_stimulation
 		}
 		modifier = {
 			factor = 2
@@ -89,17 +81,9 @@ tech_tracking_implants = {
 			is_materialist = yes
 			is_authoritarian = yes
 		}
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = @federation_perk_factor
-			has_federation = yes
-			federation = {
-				has_federation_perk = rare_tech_boost
-				any_member = { has_technology = tech_tracking_implants }
-			}
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = tech_tracking_implants
 		}
 	}
 
@@ -144,17 +128,9 @@ tech_haustoric_implant = {
 			factor = 1.25
 			is_domesticator_or_protectorate = yes
 		}
-		modifier = {
-			factor = @ap_technological_ascendancy_rare_tech
-			has_ascension_perk = ap_technological_ascendancy
-		}
-		modifier = {
-			factor = @federation_perk_factor
-			has_federation = yes
-			federation = {
-				has_federation_perk = rare_tech_boost
-				any_member = { has_technology = tech_haustoric_implant }
-			}
+		inline_script = {
+			script = technologies/rare_technologies_weight_modifiers
+			TECHNOLOGY = tech_haustoric_implant
 		}
 	}
 

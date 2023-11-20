@@ -1,5 +1,4 @@
 leader_trait_beeple_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -11,19 +10,17 @@ leader_trait_beeple_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_beeple.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_jobs_food_produces_mult = 0.05
 		pop_growth_speed = 0.025
 		planet_pop_assembly_organic_mult = 0.025
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	sector_modifier = {
+		planet_jobs_food_produces_mult = 0.025
+		pop_growth_speed = 0.015
+		planet_pop_assembly_organic_mult = 0.015
+	}
+	councilor_modifier = {
 		planet_jobs_food_produces_mult = 0.05
 		pop_growth_speed = 0.025
 		planet_pop_assembly_organic_mult = 0.025
@@ -32,7 +29,7 @@ leader_trait_beeple_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -46,7 +43,6 @@ leader_trait_beeple_floret = {
 }
 
 leader_trait_liaison_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -58,19 +54,17 @@ leader_trait_liaison_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_liaison.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		pop_happiness = 0.1
 		pop_citizen_happiness = -0.1
 		planet_amenities_add = 5
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	sector_modifier = {
+		pop_happiness = 0.05
+		pop_citizen_happiness = -0.05
+		planet_amenities_add = 3
+	}
+	councilor_modifier = {
 		pop_happiness = 0.025
 		pop_citizen_happiness = -0.025
 		planet_amenities_add = 2
@@ -79,7 +73,7 @@ leader_trait_liaison_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -90,7 +84,6 @@ leader_trait_liaison_floret = {
 }
 
 leader_trait_economist_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -102,18 +95,15 @@ leader_trait_economist_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_economist.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		trade_value_mult = 0.05
 		planet_pops_consumer_goods_upkeep_mult = -0.05
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	sector_modifier = {
+		trade_value_mult = 0.025
+		planet_pops_consumer_goods_upkeep_mult = -0.025
+	}
+	councilor_modifier = {
 		trade_value_mult = 0.025
 		planet_pops_consumer_goods_upkeep_mult = -0.025
 	}
@@ -121,7 +111,7 @@ leader_trait_economist_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -132,7 +122,6 @@ leader_trait_economist_floret = {
 }
 
 leader_trait_dathnak_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -144,27 +133,23 @@ leader_trait_dathnak_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_economist.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_jobs_society_research_produces_mult = 0.1
 		planet_jobs_exotic_gases_produces_mult = 0.5
 	}
+	sector_modifier = {
+		planet_jobs_society_research_produces_mult = 0.05
+		planet_jobs_exotic_gases_produces_mult = 0.25
+	}
 	triggered_modifier = {
 		potential = {
-			is_ruler = no
 			leader_class = scientist
 		}
 		leader_scientists_society_research_produces_add = 5
 		leader_scientists_exotic_gases_produces_add = 1
 		mult = trigger:has_skill
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		category_new_worlds_research_speed_mult = 0.1
 		country_society_tech_research_speed = 0.1
 		station_gatherers_produces_mult = 0.10
@@ -173,7 +158,7 @@ leader_trait_dathnak_floret = {
 		species_leader_exp_gain = -0.1
 		leaders_upkeep_mult = 0.2
 	}
-	leader_class = { governor scientist }
+	leader_class = { official scientist }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -184,7 +169,6 @@ leader_trait_dathnak_floret = {
 }
 
 leader_trait_racket_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -196,19 +180,17 @@ leader_trait_racket_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_racket.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_stability_add = 5
 		planet_jobs_unity_produces_mult = 0.05
 		planet_buildings_upkeep_mult = -0.05
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
+		planet_stability_add = 3
+		planet_jobs_unity_produces_mult = 0.025
+		planet_buildings_upkeep_mult = -0.025
+	}
+	councilor_modifier = {
 		pop_government_ethic_attraction = 0.10
 		country_ruler_influence_produces_add = 0.25
 		planet_buildings_upkeep_mult = -0.05
@@ -217,7 +199,7 @@ leader_trait_racket_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -228,7 +210,6 @@ leader_trait_racket_floret = {
 }
 
 leader_trait_cryopod_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -240,20 +221,19 @@ leader_trait_cryopod_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cryopod.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_stability_add = 10
 		planet_jobs_unity_produces_mult = 0.1
 		planet_army_build_speed_mult = -0.2
 		pop_ethic_pacifist_attraction_mult = 0.25
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	sector_modifier = {
+		planet_stability_add = 5
+		planet_jobs_unity_produces_mult = 0.05
+		planet_army_build_speed_mult = -0.1
+		pop_ethic_pacifist_attraction_mult = 0.15
+	}
+	councilor_modifier = {
 		country_unity_produces_mult = 0.075
 		planet_army_build_speed_mult = -0.1
 		pop_ethic_pacifist_attraction_mult = 0.1
@@ -262,7 +242,7 @@ leader_trait_cryopod_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -273,7 +253,6 @@ leader_trait_cryopod_floret = {
 }
 
 leader_trait_blorgfriend_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -285,24 +264,20 @@ leader_trait_blorgfriend_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cutie.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_jobs_minerals_produces_mult = 0.15
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	sector_modifier = {
+		planet_jobs_minerals_produces_mult = 0.075
+	}
+	councilor_modifier = {
 		planet_jobs_minerals_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.1
 		leaders_upkeep_mult = 0.2
 	}
-	leader_class = { governor }
+	leader_class = { official }
 	opposites = {  }
 
 	leader_potential_add = {

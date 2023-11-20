@@ -1,5 +1,4 @@
 leader_trait_attache_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -11,26 +10,19 @@ leader_trait_attache_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = general
-		}
+	army_modifier = {
 		armies_upkeep_mult = -0.1
 		army_morale = 0.05
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		country_ruler_influence_produces_add = 0.2
-		diplo_weight_envoys_mult = 0.25
+		diplo_weight_mult = 0.25
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { general }
+	leader_class = { commander }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -41,7 +33,6 @@ leader_trait_attache_floret = {
 }
 
 leader_trait_class_o_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -53,17 +44,10 @@ leader_trait_class_o_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_class_o.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = general
-		}
+	army_modifier = {
 		army_collateral_damage_mult = -0.50
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		army_starting_experience_add = 50
 		army_collateral_damage_mult = -0.25
 	}
@@ -71,7 +55,7 @@ leader_trait_class_o_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { general }
+	leader_class = { commander }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -82,7 +66,6 @@ leader_trait_class_o_floret = {
 }
 
 leader_trait_underground_floret = {
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -94,26 +77,15 @@ leader_trait_underground_floret = {
 	initial = no
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_underground.dds"
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = general
-		}
+	army_modifier = {
 		army_health = 0.1
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = no
-			leader_class = governor
-		}
+	planet_modifier = {
 		planet_buildings_energy_upkeep_mult = -0.1
 		planet_districts_energy_upkeep_mult = -0.1
 		planet_jobs_minerals_produces_mult = 0.1
 	}
-	triggered_modifier = {
-		potential = {
-			is_ruler = yes
-		}
+	councilor_modifier = {
 		planet_buildings_energy_upkeep_mult = -0.05
 		planet_districts_energy_upkeep_mult = -0.05
 		planet_jobs_minerals_produces_mult = 0.05
@@ -122,7 +94,7 @@ leader_trait_underground_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { general governor }
+	leader_class = { commander official }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -134,7 +106,6 @@ leader_trait_underground_floret = {
 
 leader_trait_militarist_2_floret = {
 	destiny_trait = yes
-	is_councilor_trait_for_ruler = yes
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -156,7 +127,7 @@ leader_trait_militarist_2_floret = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
 	}
-	leader_class = { general }
+	leader_class = { commander }
 	opposites = {  }
 
 	leader_potential_add = {
@@ -165,5 +136,5 @@ leader_trait_militarist_2_floret = {
 		}
 	}
 	custom_tooltip = leader_trait_militarist_2_floret_effect
-	destiny_background_icon = "GFX_leader_background_destiny_1"
+	background_icon = "GFX_leader_background_destiny_1"
 }

@@ -14,6 +14,7 @@ leader_trait_beeple_floret = {
 		planet_jobs_food_produces_mult = 0.05
 		pop_growth_speed = 0.025
 		planet_pop_assembly_organic_mult = 0.025
+		job_floret_add = 1
 	}
 	sector_modifier = {
 		planet_jobs_food_produces_mult = 0.025
@@ -21,9 +22,9 @@ leader_trait_beeple_floret = {
 		planet_pop_assembly_organic_mult = 0.015
 	}
 	councilor_modifier = {
-		planet_jobs_food_produces_mult = 0.05
-		pop_growth_speed = 0.025
-		planet_pop_assembly_organic_mult = 0.025
+		planet_jobs_food_produces_mult = 0.025
+		pop_growth_speed = 0.01
+		planet_pop_assembly_organic_mult = 0.01
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -58,6 +59,8 @@ leader_trait_liaison_floret = {
 		pop_happiness = 0.1
 		pop_citizen_happiness = -0.1
 		planet_amenities_add = 5
+		job_floret_add = 1
+		job_bureaucrat_add = 1
 	}
 	sector_modifier = {
 		pop_happiness = 0.05
@@ -98,6 +101,7 @@ leader_trait_economist_floret = {
 	planet_modifier = {
 		trade_value_mult = 0.05
 		planet_pops_consumer_goods_upkeep_mult = -0.05
+		job_trader_add = 1
 	}
 	sector_modifier = {
 		trade_value_mult = 0.025
@@ -136,6 +140,7 @@ leader_trait_dathnak_floret = {
 	planet_modifier = {
 		planet_jobs_society_research_produces_mult = 0.1
 		planet_jobs_exotic_gases_produces_mult = 0.5
+		job_gas_refiner_add = 1
 	}
 	sector_modifier = {
 		planet_jobs_society_research_produces_mult = 0.05
@@ -150,9 +155,9 @@ leader_trait_dathnak_floret = {
 		mult = trigger:has_skill
 	}
 	councilor_modifier = {
-		category_new_worlds_research_speed_mult = 0.1
-		country_society_tech_research_speed = 0.1
-		station_gatherers_produces_mult = 0.10
+		category_new_worlds_research_speed_mult = 0.05
+		country_society_tech_research_speed = 0.05
+		station_gatherers_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.1
@@ -184,15 +189,21 @@ leader_trait_racket_floret = {
 		planet_stability_add = 5
 		planet_jobs_unity_produces_mult = 0.05
 		planet_buildings_upkeep_mult = -0.05
+		job_scrap_miner_add = 1
 	}
 	councilor_modifier = {
 		planet_stability_add = 3
 		planet_jobs_unity_produces_mult = 0.025
 		planet_buildings_upkeep_mult = -0.025
 	}
-	councilor_modifier = {
-		pop_government_ethic_attraction = 0.10
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+		}
 		country_ruler_influence_produces_add = 0.25
+	}
+	councilor_modifier = {
+		pop_government_ethic_attraction = 0.05
 		planet_buildings_upkeep_mult = -0.05
 	}
 	self_modifier = {
@@ -226,6 +237,7 @@ leader_trait_cryopod_floret = {
 		planet_jobs_unity_produces_mult = 0.1
 		planet_army_build_speed_mult = -0.2
 		pop_ethic_pacifist_attraction_mult = 0.25
+		job_healthcare_add = 1
 	}
 	sector_modifier = {
 		planet_stability_add = 5
@@ -266,6 +278,7 @@ leader_trait_blorgfriend_floret = {
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cutie.dds"
 	planet_modifier = {
 		planet_jobs_minerals_produces_mult = 0.15
+		job_miner_add = 2
 	}
 	sector_modifier = {
 		planet_jobs_minerals_produces_mult = 0.075

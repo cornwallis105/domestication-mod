@@ -248,9 +248,11 @@ situation_pre_ftl_domestication = {
 		resources = {
 			category = situations
 			upkeep = {
-				influence = 0.3
+				influence = 3
 				minerals = 30
 				energy = 30
+				food = 30
+				unity = 30
 			}
 		}
 
@@ -273,9 +275,11 @@ situation_pre_ftl_domestication = {
 		resources = {
 			category = situations
 			upkeep = {
-				influence = 0.2
+				influence = 2
 				minerals = 20
 				energy = 20
+				food = 20
+				unity = 20
 			}
 		}
 	}
@@ -297,9 +301,11 @@ situation_pre_ftl_domestication = {
 		resources = {
 			category = situations
 			upkeep = {
-				influence = 0.1
+				influence = 1
 				minerals = 10
 				energy = 10
+				food = 10
+				unity = 10
 			}
 		}
 	}

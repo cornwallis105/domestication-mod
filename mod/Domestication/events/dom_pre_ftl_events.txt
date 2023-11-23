@@ -277,6 +277,10 @@ situation_event = {
         }
         modifier = {
           factor = 0
+          target = { num_pops < 5 }
+        }
+        modifier = {
+          factor = 0
           target.owner = { pre_ftl_ancient_era = yes }
         }
         situation_event = { id = dom_pre_ftl.43 }
@@ -296,6 +300,7 @@ situation_event = {
         modifier = {
           add = 75
           situation_progress > 90
+          situation_progress < 130
           target = {
             count_owned_pop = {
               limit = {
@@ -309,6 +314,14 @@ situation_event = {
           }
         }
         situation_event = { id = dom_pre_ftl.41 }
+      }
+      0 = {
+        # Should only fire when the project is nearly done, but there are still too many xenophobes
+        modifier = {
+          add = 1000
+          has_situation_flag = dom_pre_ftl_inevitable_rebellion
+        }
+        situation_event = { id = dom_pre_ftl.42 }
       }
     }
   }
@@ -1875,10 +1888,10 @@ situation_event = {
     hidden_effect = {
       set_situation_flag = dom_pre_ftl_inevitable_rebellion
 
-      situation_event = {
-        id = dom_pre_ftl.42
-        days = 30
-      }
+      #situation_event = {
+      #  id = dom_pre_ftl.42
+      #  days = 30
+      #}
     }
 	}
 

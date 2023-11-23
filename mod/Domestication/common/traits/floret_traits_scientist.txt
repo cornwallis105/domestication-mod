@@ -14,9 +14,21 @@ leader_trait_distracted_floret = {
 		ship_anomaly_generation_chance_mult = 0.1
 		science_ship_survey_speed = -0.05
 	}
+	triggered_councilor_modifier = {
+		potential = {
+			is_ruler = yes
+		}
+		country_ruler_consumer_goods_produces_add = 10
+	}
 	councilor_modifier = {
 		planet_amenities_add = 4
-		country_ruler_consumer_goods_produces_add = 10
+	}
+	planet_modifier = {
+		planet_jobs_consumer_goods_produces_mult = 0.05
+		job_artificer_add = 1
+	}
+	sector_modifier = {
+		planet_jobs_consumer_goods_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -58,6 +70,7 @@ leader_trait_academic_floret = {
 		planet_jobs_physics_research_produces_mult = 0.05
 		planet_jobs_society_research_produces_mult = 0.05
 		planet_jobs_engineering_research_produces_mult = 0.05
+		job_researcher_add = 1
 	}
 	sector_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.025
@@ -108,6 +121,7 @@ leader_trait_stranded_floret = {
 	}
 	planet_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.10
+		job_researcher_add = 1
 	}
 	sector_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.05
@@ -154,9 +168,12 @@ leader_trait_historian_floret = {
 		#category_statecraft_research_speed_mult = 0.075
 	}
 	councilor_modifier = {
-		category_archaeostudies_research_speed_mult = 0.1
-		country_society_tech_research_speed = 0.03
+		category_archaeostudies_research_speed_mult = 0.05
+		country_society_tech_research_speed = 0.025
 		country_unity_produces_mult = 0.025
+	}
+	planet_modifier = {
+		job_archaeoengineers_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

@@ -15,8 +15,11 @@ leader_trait_attache_floret = {
 		army_morale = 0.05
 	}
 	councilor_modifier = {
-		country_ruler_influence_produces_add = 0.2
-		diplo_weight_mult = 0.25
+		leader_commanders_influence_produces_add = 0.1
+		diplo_weight_mult = 0.05
+	}
+	planet_modifier = {
+		job_bureaucrat_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -48,8 +51,11 @@ leader_trait_class_o_floret = {
 		army_collateral_damage_mult = -0.50
 	}
 	councilor_modifier = {
-		army_starting_experience_add = 50
-		army_collateral_damage_mult = -0.25
+		army_starting_experience_add = 25
+		army_collateral_damage_mult = -0.15
+	}
+	planet_modifier = {
+		jiob_death_chronicler_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -84,6 +90,13 @@ leader_trait_underground_floret = {
 		planet_buildings_energy_upkeep_mult = -0.1
 		planet_districts_energy_upkeep_mult = -0.1
 		planet_jobs_minerals_produces_mult = 0.1
+		job_technician_add = 1
+		job_miner_add = 1
+	}
+	sector_modifier = {
+		planet_buildings_energy_upkeep_mult = -0.05
+		planet_districts_energy_upkeep_mult = -0.05
+		planet_jobs_minerals_produces_mult = 0.05
 	}
 	councilor_modifier = {
 		planet_buildings_energy_upkeep_mult = -0.05
@@ -117,11 +130,17 @@ leader_trait_militarist_2_floret = {
 	initial = no
 	randomized = no
 	#icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
-	triggered_modifier = {
+	triggered_councilor_modifier = {
 		potential = {
 			is_ruler = yes
 		}
 		country_ruler_unity_produces_add = 10
+	}
+	councilor_modifier = {
+		army_starting_experience_add = 50
+	}
+	planet_modifier = {
+		job_duelist_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

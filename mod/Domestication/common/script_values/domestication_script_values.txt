@@ -1,13 +1,13 @@
 pop_growth_councilor_cosmic_harmony_mult = {
 	base = 1
 	mult = value:councilor_level|TYPE|councilor_cosmic_harmony|
-	mult = value:scripted_modifier_mult|MODIFIER|planet_pop_growth_mult|
+	#mult = value:scripted_modifier_mult|MODIFIER|planet_pop_growth_mult|
 }
 
 pop_assembly_organic_councilor_cosmic_harmony_mult = {
 	base = 1
 	mult = value:councilor_level|TYPE|councilor_cosmic_harmony|
-	mult = value:scripted_modifier_mult|MODIFIER|planet_pop_assembly_organic_mult|
+	#mult = value:scripted_modifier_mult|MODIFIER|planet_pop_assembly_organic_mult|
 }
 
 perc_of_planet_pop_liberated = {

@@ -42,6 +42,10 @@ leader_trait_cutie_floret = {
 	}
 	planet_modifier = {
 		planet_jobs_unity_produces_mult = 0.05
+		job_floret_add = 1
+	}
+	sector_modifier = {
+		planet_jobs_unity_produces_mult = 0.025
 	}
 	triggered_modifier = {
 		potential = {
@@ -50,14 +54,9 @@ leader_trait_cutie_floret = {
 		ship_speed_mult = 0.2
 		science_ship_survey_speed = 0.05
 	}
-	triggered_councilor_modifier = {
-		potential = {
-			is_ruler = yes
-		}
-		country_ruler_influence_produces_add = 0.2
-	}
 	councilor_modifier = {
 		country_unity_produces_mult = 0.025
+		leader_commanders_influence_produces_add = 0.1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -93,6 +92,13 @@ leader_trait_warp_eng_floret = {
 		ship_windup_mult = -0.05
 		ship_winddown_mult = -0.05
 	}
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		job_culture_worker_add = 1
+	}
+	sector_modifier = {
+		planet_jobs_unity_produces_mult = 0.025
+	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
@@ -126,6 +132,13 @@ leader_trait_pirate_floret = {
 	councilor_modifier = {
 		local_trade_protection_add = 2
 	}
+	planet_modifier = {
+		trade_value_mult = 0.05
+		job_trader_add = 1
+	}
+	sector_modifier = {
+		trade_value_mult = 0.025
+	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
 		leaders_upkeep_mult = 0.1
@@ -158,7 +171,10 @@ leader_trait_admiral_floret = {
 		shipsize_titan_evasion_mult = 0.25
 	}
 	councilor_modifier = {
-		country_naval_cap_mult = 0.075
+		country_naval_cap_mult = 0.025
+	}
+	planet_modifier = {
+		job_soldier_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -190,8 +206,11 @@ leader_trait_officer_floret = {
 		ship_fire_rate_mult = 0.05
 	}
 	councilor_modifier = {
-		ship_corvette_cost_mult = -0.075
-		ship_destroyer_cost_mult = -0.075
+		ship_corvette_cost_mult = -0.05
+		ship_destroyer_cost_mult = -0.05
+	}
+	planet_modifier = {
+		job_soldier_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -258,7 +277,7 @@ leader_trait_warform_floret = {
 		ship_weapon_range_mult = 0.15
 	}
 	councilor_modifier = {
-		ship_weapon_damage = 0.075
+		ship_weapon_damage = 0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -318,21 +337,16 @@ leader_trait_brainslug_floret = {
 	}
 	triggered_modifier = {
 		potential = {
-			is_ruler = no
 			leader_class = scientist
 		}
-		all_technology_research_speed = 0.075
 		science_ship_survey_speed = 0.1
 		ship_anomaly_research_speed_mult = 0.1
 	}
 	triggered_councilor_modifier = {
-		potential = {
-			is_ruler = yes
-		}
-		country_naval_cap_mult = 0.075
-		country_physics_research_produces_mult = 0.075
-		country_society_research_produces_mult = 0.075
-		country_engineering_research_produces_mult = 0.075
+		country_naval_cap_mult = 0.025
+		country_physics_research_produces_mult = 0.025
+		country_society_research_produces_mult = 0.025
+		country_engineering_research_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -371,7 +385,10 @@ leader_trait_ahab_floret = {
 	}
 	councilor_modifier = {
 		ship_evasion_mult = 0.05
-		ship_disengage_chance_mult = 0.1
+		ship_disengage_chance_mult = 0.05
+	}
+	planet_modifier = {
+		job_angler_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -393,7 +410,7 @@ leader_trait_musician_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_musician"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = yes
 		TIER = none
 	}
 	initial = no
@@ -404,8 +421,15 @@ leader_trait_musician_floret = {
 		ship_tracking_add = 10
 	}
 	councilor_modifier = {
-		country_physics_research_produces_mult = 0.075
-		country_unity_produces_mult = 0.025
+		country_physics_research_produces_mult = 0.025
+		country_unity_produces_mult = 0.01
+	}
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.05
+		job_culture_worker_add = 1
+	}
+	sector_modifier = {
+		planet_jobs_unity_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -446,7 +470,7 @@ leader_trait_great_khan_floret = {
 	councilor_modifier = {
 		army_morale = 0.1
 		ship_weapon_damage = 0.05
-		country_war_exhaustion_mult = -0.1
+		country_war_exhaustion_mult = -0.05
 		country_hostile_claim_influence_cost_mult = 0.1
 	}
 	self_modifier = {
@@ -484,7 +508,7 @@ leader_trait_militarist_1_floret = {
 	councilor_modifier = {
 		country_naval_cap_mult = 0.05
 		ship_fire_rate_mult = 0.05
-		ship_speed_mult = 0.075
+		ship_speed_mult = 0.05
 	}
 	#icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
 	self_modifier = {
@@ -532,8 +556,15 @@ leader_trait_xenophile_1_floret = {
 		ship_evasion_add = 5
 		fleet_mia_time_mult = -0.25
 	}
+	planet_modifier = {
+		trade_value_mult = 0.1
+		job_trader_add = 1
+	}
+	sector_modifier = {
+		trade_value_mult = 0.025
+	}
 	councilor_modifier = {
-		country_ruler_unity_produces_add = 10
+		planet_jobs_unity_produces_mult = 0.025
 		trade_value_mult = 0.05
 	}
 	self_modifier = {

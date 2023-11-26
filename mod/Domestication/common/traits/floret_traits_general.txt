@@ -4,7 +4,7 @@ leader_trait_attache_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_attache"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -14,8 +14,13 @@ leader_trait_attache_floret = {
 		armies_upkeep_mult = -0.1
 		army_morale = 0.05
 	}
+	inline_script = {
+		script = domestication/councilor_resource_produces
+		RESOURCE = influence
+		AMOUNT = 0.1
+	}
 	councilor_modifier = {
-		leader_commanders_influence_produces_add = 0.1
+		#leader_commanders_influence_produces_add = 0.1
 		diplo_weight_mult = 0.05
 	}
 	planet_modifier = {
@@ -41,7 +46,7 @@ leader_trait_class_o_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_class_o"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -55,7 +60,7 @@ leader_trait_class_o_floret = {
 		army_collateral_damage_mult = -0.15
 	}
 	planet_modifier = {
-		jiob_death_chronicler_add = 1
+		job_death_chronicler_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -77,7 +82,7 @@ leader_trait_underground_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_underground"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -122,19 +127,25 @@ leader_trait_militarist_2_floret = {
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
-		ICON = "GFX_leader_trait_pilferer"
+		#ICON = "GFX_leader_trait_pilferer"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
 	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_admiral.dds"
 	#icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_attache.dds"
-	triggered_councilor_modifier = {
-		potential = {
-			is_ruler = yes
-		}
-		country_ruler_unity_produces_add = 10
+	#triggered_councilor_modifier = {
+	#	potential = {
+	#		is_ruler = yes
+	#	}
+	#	country_ruler_unity_produces_add = 10
+	#}
+	inline_script = {
+		script = domestication/councilor_resource_produces
+		RESOURCE = unity
+		AMOUNT = 10
 	}
 	councilor_modifier = {
 		army_starting_experience_add = 50
@@ -154,6 +165,6 @@ leader_trait_militarist_2_floret = {
 			is_domesticator_or_protectorate = yes
 		}
 	}
-	custom_tooltip = leader_trait_militarist_2_floret_effect
+	custom_tooltip_with_modifiers = leader_trait_militarist_2_floret_effect
 	background_icon = "GFX_leader_background_destiny_1"
 }

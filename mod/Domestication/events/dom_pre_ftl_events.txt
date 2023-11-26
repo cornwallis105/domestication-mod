@@ -1932,6 +1932,7 @@ situation_event = {
         location = this
       }
     }
+
 	}
 }
 
@@ -2088,7 +2089,7 @@ planet_event = {
   id = dom_pre_ftl.46
   title = "dom_pre_ftl.46.name"
   desc = "dom_pre_ftl.46.desc"
-  picture = GFX_evt_scientific_experiments
+  picture = GFX_evt_astral_rift_research_lab_specimen
   location = target
   show_sound = event_celebration
 

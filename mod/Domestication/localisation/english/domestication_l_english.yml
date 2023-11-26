@@ -6,6 +6,7 @@
  ordinal_th:0 "th"
 
  # Floret Leader traits
+ floret_trait:0 "Floret Trait"
  leader_trait_beeple_floret:0 "Floret - Syncretic"
  leader_trait_beeple_floret_desc:0 "This leader has a floret from their syncretic species. While this species no longer plays active roles in reproduction or agriculture, knowledge of its former roles can yield surprising insights in both fields. It is also unreasonably adorable."
  leader_trait_beeple_gov:0 "Floret - Syncretic"
@@ -341,6 +342,10 @@
  sm_biorhythm_transmitter_desc_modifier:0 "Has a chance to lure £pops£ §$POPS|Y$§! from planets within §Y4§! jumps.\n\n"
  ap_cosmic_inevitability:0 "Cosmic Inevitability"
  ap_cosmic_inevitability_desc:0 "\"Please don't fight us, we would hate to see harm come to any sophont.\"\n - Oxalis Platena, Seventh Bloom"
+
+ # Edicts
+ edict_edict_cosmic_inevitability:0 "Cosmic Inevitability"
+ edict_edict_cosmic_inevitability_desc:0 "\"Please don't fight us, we would hate to see harm come to any sophont.\"\n - Oxalis Platena, Seventh Bloom"
 
  # Opinion modifiers
  opinion_br_pop_stolen:0 "Lured Pop Away"

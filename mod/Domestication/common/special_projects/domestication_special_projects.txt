@@ -231,3 +231,31 @@ special_project = {
 	  }
 	}
 }
+
+special_project = {
+	key = "domestication_nwo_project"
+	timelimit = 720
+	days_to_research = 90
+	picture = GFX_evt_ground_combat
+
+	event_scope = ship_event
+
+	requirements = {
+		fleet_power >= 1000
+	}
+
+	on_success = {
+		owner = {
+			country_event = {
+				id = dom_nwo.1
+		  }
+		}
+	}
+	on_fail = {
+		owner = {
+			country_event = {
+				id = dom_nwo.2
+			}
+		}
+	}
+}

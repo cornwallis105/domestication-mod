@@ -791,7 +791,7 @@ ship_event = {
 				country_event = { id = distar.3021 days = 60 }
 			}
 			event_target:stranded_scientist_leader = {
-				kill_leader = { type = scientist show_notification = no }
+				kill_leader = { class = scientist show_notification = no }
 			}
 		}
 	}
@@ -828,7 +828,7 @@ ship_event = {
 				}
 			}
 			event_target:stranded_scientist_leader = {
-				kill_leader = { type = scientist show_notification = no }
+				kill_leader = { class = scientist show_notification = no }
 			}
 			event_target:stranded_scientist_leader_clone = {
 	      save_event_target_as = new_floret
@@ -856,7 +856,7 @@ ship_event = {
 
 		hidden_effect = {
 			event_target:stranded_scientist_leader = {
-				kill_leader = { type = scientist show_notification = no }
+				kill_leader = { class = scientist show_notification = no }
 			}
 		}
 	}

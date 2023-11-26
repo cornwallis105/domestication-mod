@@ -1,0 +1,21 @@
+triggered_self_modifier = {
+	potential = {
+    leader_class = commander
+    is_councilor = yes
+  }
+	leader_commanders_$RESOURCE$_produces_add = $AMOUNT$
+}
+triggered_self_modifier = {
+  potential = {
+    leader_class = official
+    is_councilor = yes
+  }
+	leader_officials_$RESOURCE$_produces_add = $AMOUNT$
+}
+triggered_self_modifier = {
+  potential = {
+    leader_class = scientist
+    is_councilor = yes
+  }
+	leader_scientists_$RESOURCE$_produces_add = $AMOUNT$
+}

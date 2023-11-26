@@ -1,0 +1,212 @@
+namespace = dom_nwo
+
+country_event = {
+  id = dom_nwo.1
+  title = dom_nwo.1.name
+  desc = dom_nwo.1.desc
+  picture = GFX_evt_fleet_from_surface
+  #show_sound = event_bad_omen
+	is_triggered_only = yes
+  location = event_target:dom_nwo_country.capital_scope
+
+  immediate = {
+    # set visibility = 100
+    event_target:dom_nwo_country = {
+      set_awareness = 100
+    }
+  }
+
+  option = {
+    name = dom_nwo.1.a
+  }
+}
+
+country_event = {
+  id = dom_nwo.2
+  title = dom_nwo.2.name
+  desc = dom_nwo.2.desc
+  picture = GFX_evt_open_revolt
+  show_sound = event_bad_omen
+  is_triggered_only = yes
+  location = from.owner.capital_scope
+  situation = event_target:nwo_situation
+
+  immediate = {
+    set_country_flag = preftl.2166_fired
+    set_timed_country_flag = {
+      flag = had_observation_situation
+      days = 5400
+    }
+    set_global_flag = ongoing_nwo_situation
+    owner = {
+      start_situation = {
+        type = situation_pre_ftl_nwo
+        target = from.owner.capital_scope
+        effect = {
+          save_event_target_as = nwo_situation
+        }
+      }
+    }
+    from.owner = {
+      create_leader = {
+        class = official
+        species = from.owner.species
+        name = random
+        skill = 4
+        traits = {
+          trait = leader_trait_iron_fist
+        }
+      }
+      last_created_leader = {
+        set_age = 1
+      }
+      set_leader = last_created_leader
+    }
+  }
+
+  option = { # Watch
+    name = preftl.2167.a
+    icon = {
+      icon = GFX_situation_approach_research
+      icon_background = GFX_situation_approach_bg_yellow
+      text = set_situation_approach_icon_text
+    }
+    event_target:nwo_situation = {
+      set_situation_approach = approach_watch_nwo
+    }
+  }
+
+  option = { # Aid Leader
+    name = preftl.2167.b
+    icon = {
+      icon = GFX_situation_approach_influence
+      icon_background = GFX_situation_approach_bg_yellow
+      text = set_situation_approach_icon_text
+    }
+    if = {
+      limit = {
+        has_policy_flag = interference_not_allowed
+      }
+      set_policy = {
+        policy = interference
+        option = interference_active
+        cooldown = yes
+      }
+    }
+    event_target:nwo_situation = {
+      set_situation_approach = approach_aid_leader
+    }
+  }
+
+  option = { # Aid Rebels
+    name = preftl.2167.c
+    icon = {
+      icon = GFX_situation_approach_suspicious
+      icon_background = GFX_situation_approach_bg_yellow
+      text = set_situation_approach_icon_text
+    }
+    if = {
+      limit = {
+        has_policy_flag = interference_not_allowed
+      }
+      set_policy = {
+        policy = interference
+        option = interference_active
+        cooldown = yes
+      }
+    }
+    event_target:nwo_situation = {
+      set_situation_approach = approach_aid_rebels
+    }
+  }
+
+  after = {
+    hidden_effect = {
+      event_target:nwo_situation = {
+        set_situation_locked = no
+      }
+    }
+  }
+}
+
+# Starting event
+country_event = {
+	id = dom_nwo.2167
+	title = preftl.2167.name
+	desc = preftl.2167.desc
+	picture = GFX_evt_open_revolt
+	show_sound = event_bad_omen
+	is_triggered_only = yes
+	location = from.owner.capital_scope
+	#situation = event_target:nwo_situation
+
+	immediate = {
+		set_country_flag = preftl.2166_fired
+		set_timed_country_flag = {
+			flag = had_observation_situation
+			days = 5400
+		}
+		#set_global_flag = ongoing_nwo_situation
+		#owner = {
+		#	start_situation = {
+		#		type = situation_pre_ftl_nwo
+		#		target = from.owner.capital_scope
+		#		effect = {
+		#			save_event_target_as = nwo_situation
+		#		}
+		#	}
+		#}
+		from.owner = {
+			create_leader = {
+				class = official
+				species = from.owner.species
+				name = random
+				skill = 4
+				traits = {
+					trait = leader_trait_iron_fist
+				}
+			}
+			last_created_leader = {
+				set_age = 1
+			}
+			set_leader = last_created_leader
+		}
+	}
+
+	option = { # Reveal presence
+		name = dom_nwo.2167.a
+		#icon = {
+			#icon = GFX_situation_approach_suspicious
+			#icon_background = GFX_situation_approach_bg_yellow
+			#text = set_situation_approach_icon_text
+		#}
+    icon = {
+			icon = GFX_domesticators_icon
+			text = dialog_domesticator
+		}
+		if = {
+			limit = {
+				has_policy_flag = interference_not_allowed
+			}
+			set_policy = {
+				policy = interference
+				option = interference_active
+				cooldown = yes
+			}
+		}
+    enable_special_project = {
+			name = "domestication_nwo_project"
+			location = from.owner.capital_scope
+			owner = root
+		}
+    hidden_effect = {
+      from.owner = {
+       save_global_event_target_as = dom_nwo_country
+      }
+    }
+		#event_target:nwo_situation = {
+		#	set_situation_approach = approach_aid_rebels
+		#}
+	}
+
+}

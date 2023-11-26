@@ -61,3 +61,56 @@ situation_event = {
 		}
 	}
 }
+
+# Trigger event for New World Order
+
+# target = Tech Progress Situation on Pre-FTL Planet
+# target.owner = the Pre-FTL Planet being observed
+
+situation_event = {
+	id = preftl.2166
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_first_contact_dlc = yes
+		NOT = {
+			has_global_flag = ongoing_nwo_situation
+		}
+		owner = {
+			is_gestalt = no
+			has_blocked_random_devastating_pre_ftl_events = no
+			NOT = {
+				has_pre_ftl_age = stone_age
+			}
+			capital_scope = {
+				has_observation_outpost = yes
+				observation_outpost_owner = {
+					NOR = {
+						has_country_flag = preftl.2166_fired
+						has_country_flag = had_observation_situation
+					}
+				}
+			}
+		}
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
+
+		}
+		else = {
+			owner.capital_scope = {
+				observation_outpost_owner = {
+					country_event = { id = preftl.2167 }
+				}
+				observation_outpost = {
+					set_event_locked = yes
+				}
+			}
+		}
+	}
+}

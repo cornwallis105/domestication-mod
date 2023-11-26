@@ -1559,3 +1559,34 @@ action_demand_protectorate = {
 		}
 	}
 }
+
+action_open_technological_enlightenment = {
+	select = {
+		01_SELECT_OPEN_TECHNOLOGICAL_ENLIGHTENMENT = {}
+	}
+	propose = {
+		01_PROPOSE_OPEN_TECHNOLOGICAL_ENLIGHTENMENT = {}
+	}
+	accept = {
+		01_ACCEPT_OPEN_PRE_FTL_DOMESTICATION = {
+			trigger = {
+				FROM = { has_origin = origin_domesticators }
+				#FROM = { is_domesticator_or_full_protectorate = yes }
+				#always = yes
+				NOT = { has_ai_personality = hive_mind }
+			}
+		}
+		01_ACCEPT_OPEN_TECHNOLOGICAL_ENLIGHTENMENT = {
+			trigger = {
+				OR = {
+					NOT = {
+						FROM = { has_origin = origin_domesticators }
+						#FROM = { is_domesticator_or_full_protectorate = no }
+					}
+					#always = no
+					has_ai_personality = hive_mind
+				}
+			}
+		}
+	}
+}

@@ -4,7 +4,7 @@ leader_trait_beeple_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_beeple"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -49,7 +49,7 @@ leader_trait_liaison_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_liaison"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -92,7 +92,7 @@ leader_trait_economist_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_economist"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -131,7 +131,7 @@ leader_trait_dathnak_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_economist"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -146,14 +146,24 @@ leader_trait_dathnak_floret = {
 		planet_jobs_society_research_produces_mult = 0.05
 		planet_jobs_exotic_gases_produces_mult = 0.25
 	}
-	triggered_modifier = {
-		potential = {
-			leader_class = scientist
-		}
-		leader_scientists_society_research_produces_add = 5
-		leader_scientists_exotic_gases_produces_add = 1
-		mult = trigger:has_skill
+	inline_script = {
+		script = paragon/leader_resource_produces
+		RESOURCE = society_research
+		AMOUNT = 5
 	}
+	inline_script = {
+		script = paragon/leader_resource_produces
+		RESOURCE = exotic_gases
+		AMOUNT = 1
+	}
+	#triggered_modifier = {
+		#potential = {
+		#	leader_class = scientist
+		#}
+		#leader_scientists_society_research_produces_add = 5
+		#leader_scientists_exotic_gases_produces_add = 1
+		#mult = trigger:has_skill
+	#}
 	councilor_modifier = {
 		category_new_worlds_research_speed_mult = 0.05
 		country_society_tech_research_speed = 0.05
@@ -179,7 +189,7 @@ leader_trait_racket_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_racket"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -226,7 +236,7 @@ leader_trait_cryopod_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_cryopod"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -270,7 +280,7 @@ leader_trait_blorgfriend_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_economist"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no

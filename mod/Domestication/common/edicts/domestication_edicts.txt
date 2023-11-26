@@ -1,0 +1,52 @@
+@EdictPerpetual = -1
+
+edict_cosmic_inevitability = {
+	length = @EdictPerpetual
+	icon = "GFX_edict_type_policy"
+
+	#resources = {
+	#	category = edicts
+	#	cost = {
+	#		unity = @Edict1Cost
+	#		multiplier = value:edict_size_effect
+	#	}
+	#	upkeep = {
+	#		unity = @Edict1Cost
+	#		multiplier = value:edict_size_effect
+	#	}
+	#}
+
+  modifier = {
+		country_base_energy_produces_add = 500
+		country_base_minerals_produces_add = 250
+		country_base_food_produces_add = 250
+		country_base_consumer_goods_produces_add = 150
+		country_base_alloys_produces_add = 150
+		country_base_unity_produces_add = 100
+		country_base_physics_research_produces_add = 100
+		country_base_society_research_produces_add = 100
+		country_base_engineering_research_produces_add = 100
+		all_technology_research_speed = 0.05
+		country_naval_cap_add = 100
+		country_starbase_capacity_add = 2
+		country_base_influence_produces_add = 1
+	}
+
+	potential = {
+		is_domesticator = yes
+	}
+
+
+  ai_weight = {
+    # in theory, AI should never even get this far since they can't be domesticators in the first place
+		factor = 100
+		modifier = {
+			factor = 5
+			has_origin = origin_domesticators
+		}
+		modifier = {
+			factor = 0
+			NOT = { has_origin = origin_domesticators }
+		}
+	}
+}

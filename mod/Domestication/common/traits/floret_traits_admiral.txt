@@ -20,7 +20,7 @@ leader_trait_cutie_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_cutie"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -56,7 +56,12 @@ leader_trait_cutie_floret = {
 	}
 	councilor_modifier = {
 		country_unity_produces_mult = 0.025
-		leader_commanders_influence_produces_add = 0.1
+		#leader_commanders_influence_produces_add = 0.1
+	}
+	inline_script = {
+		script = domestication/councilor_resource_produces
+		RESOURCE = influence
+		AMOUNT = 0.1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -78,7 +83,7 @@ leader_trait_warp_eng_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_warp_engineer"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -119,7 +124,7 @@ leader_trait_pirate_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_pirate"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -159,7 +164,7 @@ leader_trait_admiral_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_admiral"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -196,7 +201,7 @@ leader_trait_officer_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_officer"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -232,7 +237,7 @@ leader_trait_marauder_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_marauder"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -266,7 +271,7 @@ leader_trait_warform_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_warform"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -299,7 +304,7 @@ leader_trait_brainslug_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_brainslug"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_brainslug_floret.dds"
@@ -370,7 +375,7 @@ leader_trait_ahab_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_ahab"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -410,7 +415,7 @@ leader_trait_musician_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_musician"
 		RARITY = floret
-		COUNCIL = yes
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -451,7 +456,7 @@ leader_trait_great_khan_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_floret_great_khan"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no
@@ -494,7 +499,7 @@ leader_trait_militarist_1_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_supreme_admiral"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_admiral.dds"
@@ -534,7 +539,7 @@ leader_trait_xenophile_1_floret = {
 		CLASS = leader
 		#ICON = "GFX_leader_trait_guerilla_tactics"
 		RARITY = floret
-		COUNCIL = triggered
+		COUNCIL = no
 		TIER = none
 	}
 	initial = no

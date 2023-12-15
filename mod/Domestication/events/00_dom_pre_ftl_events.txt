@@ -98,9 +98,18 @@ situation_event = {
 	immediate = {
 		if = {
 			limit = {
-				owner = { is_domesticator_or_full_protectorate = yes }
+				owner.capital_scope = {
+					observation_outpost_owner = { is_domesticator_or_full_protectorate = yes }
+				}
 			}
-
+			owner.capital_scope = {
+				observation_outpost_owner = {
+					country_event = { id = dom_nwo.2167 }
+				}
+				observation_outpost = {
+					set_event_locked = yes
+				}
+			}
 		}
 		else = {
 			owner.capital_scope = {

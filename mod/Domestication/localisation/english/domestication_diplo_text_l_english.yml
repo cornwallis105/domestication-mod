@@ -25,6 +25,8 @@
  DOM_WAR_GREETING_01:0 "This war is senseless. A better future for the [From.GetSpeciesName] people starts with surrender."
  DOM_WAR_GREETING_02:0 "Are you ready to discuss the terms of the [From.GetSpeciesAdj] Domestication Treaty?"
 
+ 01_SELECT_OPEN_PRE_FTL_DOMESTICATION:0 "A \"Domestication Treaty?\" Is this word translated correctly?"
+ 01_PROPOSE_OPEN_PRE_FTL_DOMESTICATION:0 "We will begin negotiating a domestication treaty with the [Root.GetName]."
  01_ACCEPT_OPEN_PRE_FTL_DOMESTICATION:0 "It is clear that our future lies with the [From.GetName]. Our diplomats are ready to negotiate the [Root.GetSpeciesAdj] Domestication Treaty."
 
  personality_cared_for_pets:0 "Well-Cared-For Pets"

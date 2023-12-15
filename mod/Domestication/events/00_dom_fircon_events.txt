@@ -1,0 +1,66 @@
+# 'Tractable and Fertile'
+country_event = {
+	id = fircon.1256
+	title = "fircon.1256.name"
+	desc = "fircon.1256.desc"
+	picture = GFX_evt_alien_cavemen
+	show_sound = event_pre_ftl_civilization
+	location = event_target:pre_ftl_planet
+	is_triggered_only = yes
+
+	trigger = {
+		exists = event_target:pre_ftl_planet
+		exists = event_target:pre_ftl_species
+		exists = event_target:pre_ftl_country
+		NOT = {
+			has_country_flag = fircon_1255_fired
+		}
+	}
+
+	immediate = {
+		set_timed_country_flag = {
+			flag = fircon_1255_fired
+			days = 1800
+		}
+		set_country_flag = society_insights
+		set_predictive_observation_insight = {
+			VALUE = 10
+		}
+		#set_observation_events_locked = yes
+		save_event_target_as = observation_post_owner
+	}
+
+	option = {
+		name = "fircon.1256.a"
+		add_observation_insight_effect = {
+			VALUE = 10
+			OUTPOST = event_target:pre_ftl_planet.observation_outpost
+		}
+
+		add_monthly_resource_mult = {
+			resource = society_research
+			value = @tier1researchreward
+			min = @tier1researchmin
+			max = @tier1researchmax
+		}
+	}
+
+	option = {
+		name = "fircon.1256.b"
+		add_observation_insight_effect = {
+			VALUE = 10
+			OUTPOST = event_target:pre_ftl_planet.observation_outpost
+		}
+
+		add_resource = {
+			food = 50
+		}
+		hidden_effect = {
+      set_observation_events_locked = yes
+			country_event = { id = fircon.1257 days = 360 }
+		}
+		observation_breach_effect = {
+			RESOLUTION = resolution_pre_ftl_stances_non_interference
+		}
+	}
+}

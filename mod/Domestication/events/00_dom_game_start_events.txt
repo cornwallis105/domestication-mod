@@ -77,6 +77,9 @@ country_event = {
 								sub_type = survey
 								name = random
 								species = owner_main_species
+								effect = {
+	                save_event_target_as = new_explorer
+	              }
 							}
 						}
 						if = {
@@ -86,16 +89,16 @@ country_event = {
 							root = {
 								set_country_flag = created_first_eager_ship
 							}
-							last_created_leader = {
+							event_target:new_explorer = {
 								add_trait = leader_trait_meticulous
 							}
 						}
 						else = {
-							last_created_leader = {
+							event_target:new_explorer = {
 								add_trait = leader_trait_roamer
 							}
 						}
-						set_leader = last_created_leader
+						set_leader = event_target:new_explorer
 					}
 				}
 			}

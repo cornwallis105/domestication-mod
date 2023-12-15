@@ -78,7 +78,7 @@
  gain_marauder_admiral_floret:0 "One of our Commanders will take ownership of the marauder and keep it as their floret."
 
  # Warform
- distar.164.d:0 "We have a different suggestion."
+ distar.164.domestication:0 "We have a different suggestion."
  distar.164.d.tooltip:0 "§Y[this.GetName]§! becomes the new owner of §Y[warform_leader.GetName]§!"
  domestication_leader.17.desc:0 "§LBEEP!§!"
  domestication_leader.17.a:0 "Good beeper. Let's find you a nice owner."
@@ -597,9 +597,9 @@
 
  dom_nwo.2167.a:0 "We must intervene to prevent anyone from coming to harm."
  domestication_nwo_project:0 "Prevent War on [dom_nwo_country.capital_scope.GetName]"
- domestication_nwo_project_desc:0 "The sight of one of our fleets in orbit should shock those poor little cuties into laying down their weapons."
+ domestication_nwo_project_DESC:0 "The sight of one of our fleets in orbit should shock those poor little cuties into laying down their weapons."
  dom_nwo.1.name:0 "Shock and \"Awwww\""
- dom_nwo.1.desc:0 "§L\"Sophonts of [dom_nwo_country.capital_scope], we are the §Y[root.GetName]§!. We come bringing peace. No longer can we sit idly by as your civilization burns in the fires of war...\"§!\n\nAll across [dom_nwo_country.capital_scope], [dom_nwo_country.GetSpeciesNamePlural] look up in awe at our massive warships hanging in the sky. Our landing parties have made contact with both §Y[dom_nwo_country.leader.GetName]§! and the rebel leaders, and we are establishing protocols for [root.GetAdj]-[dom_nwo_country.GetAdj] diplomacy.\n\nThe war for [dom_nwo_country.capital_scope] is over before it could ever truly begin. The future of [dom_nwo_country.GetName] is in our [root.GetSpeciesHandNamePlural]."
+ dom_nwo.1.desc:0 "§L\"Sophonts of [dom_nwo_country.capital_scope.GetName], we are the §Y[root.GetName]§!. We come bringing peace. No longer can we sit idly by as your civilization burns in the fires of war...\"§!\n\nAll across [dom_nwo_country.capital_scope.GetName], [dom_nwo_country.GetSpeciesNamePlural] look up in awe at our massive warships hanging in the sky. Our landing parties have made contact with both §Y[dom_nwo_country.leader.GetName]§! and the rebel leaders, and we are establishing protocols for [root.GetAdj]-[dom_nwo_country.GetAdj] diplomacy.\n\nThe war for [dom_nwo_country.capital_scope.GetName] is over before it could ever truly begin. The future of [dom_nwo_country.GetName] is in our [root.GetSpeciesHandNamePlural]."
  dom_nwo.1.a:0 "Understood"
 
  dom_nwo.2.name:0 "New World Order - The Flames of War"

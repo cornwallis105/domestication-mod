@@ -16,7 +16,7 @@ country_event = {
 	}
 
   option = {
-		name = "distar.164.d"
+		name = "distar.164.domestication"
 		icon = {
 			icon = GFX_domesticators_icon
 			text = dialog_domesticator

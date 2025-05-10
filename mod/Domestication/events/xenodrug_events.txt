@@ -34,6 +34,11 @@ planet_event = {
 				max = @tier1researchmax
 			}
 		}
+		remove_modifier = pheromoned_1
+		add_modifier = {
+			modifier = pheromoned_xenodrugs
+			days = -1
+		}
     hidden_effect = {
       owner = { increment_xenodrugs = yes }
     }

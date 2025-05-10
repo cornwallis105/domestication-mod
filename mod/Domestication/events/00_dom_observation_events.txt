@@ -194,15 +194,15 @@ country_event = {
 		}
 	}
 
-  option = {
-    name = "observation.107.domestication"
-    save_event_target_as = nuclear_war_stoppers
-    event_target:pre_ftl_planet = {
-      enable_special_project = {
-        name = "STOP_ROGUE_SCIENTIST_WAR"
-        owner = ROOT
-        location = event_target:pre_ftl_planet
-      }
-    }
-  }
+	option = {
+		name = "observation.107.domestication"
+		save_event_target_as = nuclear_war_stoppers
+		event_target:pre_ftl_planet = {
+			enable_special_project = {
+				name = "STOP_ROGUE_SCIENTIST_WAR"
+				owner = ROOT
+				location = event_target:pre_ftl_planet
+			}
+		}
+	}
 }

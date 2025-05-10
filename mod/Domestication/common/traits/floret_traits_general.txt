@@ -123,7 +123,7 @@ leader_trait_underground_floret = {
 }
 
 leader_trait_militarist_2_floret = {
-	destiny_trait = yes
+	leader_trait_type = destiny
 	inline_script = {
 		script = trait/icon
 		CLASS = leader

@@ -229,6 +229,7 @@ civic_warrior_culture = {
 	description = "civic_tooltip_warrior_culture_effects"
 	modifier = {
 		army_damage_mult = 0.20
+		country_war_exhaustion_mult = -0.1
 	}
 	swap_type = {
 		description = "civic_tooltip_warrior_culture_effects"

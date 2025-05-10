@@ -129,11 +129,11 @@ country_event = {
 			country_event = { id = espionage.1020 days = 90 }
 		}
 	}
-  option = { #Extract the operative
+	option = { #Extract the operative
 		name = espionage.1005.b
 		trigger = {
-      is_domesticator_or_protectorate = yes
-      NOT = { species = { is_same_species = event_target:disavowed_agent_country.species } }
+			is_domesticator_or_protectorate = yes
+			NOT = { species = { is_same_species = event_target:disavowed_agent_country.species } }
 			event_target:disavowed_agent_country = {
 				has_active_spynetwork = yes
 			}

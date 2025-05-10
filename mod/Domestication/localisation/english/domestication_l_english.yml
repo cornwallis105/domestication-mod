@@ -176,6 +176,8 @@
  leader_trait_militarist_1_floret_desc:0 "This floret is the last survivor of a noble house. Freed from his self-imposed burdens, he now works side-by-side with his owner to bring the joys of domestication to the galaxy."
  leader_trait_xenophile_1_floret:0 "Floret - The Fugitive Pirate"
  leader_trait_xenophile_1_floret_desc:0 "This floret was once a wanted pirate. Now, he helps his owner hunt down naughty sophonts and welcomes them aboard with love and cuddles."
+ leader_trait_oracle_floret:0 "Floret - Oracle"
+ leader_trait_oracle_floret_desc:0 "This floret is ancient surviellance AI discovered by our archaeologists. It has found new purpose in watching over sophonts and making sure that all of their needs are being met."
 
  # Floret leader type - not currently used
  floretleader:0 "Floret"

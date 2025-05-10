@@ -1,0 +1,447 @@
+# Base 1 Politican Job
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = no
+		}
+		NOT = { has_modifier = penal_colony }
+	}
+	modifier = {
+		job_politician_add = $PRIMARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = no
+		}
+		NOT = { has_modifier = penal_colony }
+	}
+	text = job_politician_effect_desc
+}
+
+# Base 1 Warden Job
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = no
+		}
+		has_modifier = penal_colony
+	}
+	modifier = {
+		job_warden_add = $PRIMARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = no
+		}
+		has_modifier = penal_colony
+	}
+	text = job_warden_effect_desc
+}
+
+# +1 Politican Job
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			NOR = {
+				is_megacorp = yes
+				has_civic = civic_exalted_priesthood
+				has_civic = civic_aristocratic_elite
+				has_civic = civic_merchant_guilds
+				has_civic = civic_technocracy
+				has_civic = civic_cosmic_harmony
+			}
+		}
+	}
+	modifier = {
+		job_politician_add = $SECONDARY_JOB$
+	}
+}
+
+
+# Exalted Priesthood Civic
+# +1 High Priest (Normal)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_exalted_priesthood
+			NOT = { has_origin = origin_cybernetic_creed }
+		}
+	}
+	modifier = {
+		job_high_priest_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_exalted_priesthood
+			NOT = { has_origin = origin_cybernetic_creed }
+		}
+	}
+	text = job_high_priest_effect_desc
+}
+
+# +1 Technophant (Cybernetic Creed)
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_exalted_priesthood
+			has_origin = origin_cybernetic_creed
+		}
+	}
+	modifier = {
+		job_technophant_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_exalted_priesthood
+			has_origin = origin_cybernetic_creed
+		}
+	}
+	text = job_technophant_effect_desc
+}
+
+# Aristocratic Elite
+# +1 Noble
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_aristocratic_elite
+		}
+	}
+	modifier = {
+		job_noble_add = $SECONDARY_JOB$
+	}
+}
+
+# Additional Nobles Jobs from Cyber Imperial Governments
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_cyber_imperial = yes
+		}
+	}
+	modifier = {
+		job_noble_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				AND = {
+					is_regular_empire = yes
+					has_civic = civic_aristocratic_elite
+				}
+				is_cyber_imperial = yes
+			}
+		}
+	}
+	text = job_noble_effect_desc
+}
+
+# Technocracy
+# +1 Science Director
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_technocracy
+		}
+	}
+	modifier = {
+		job_head_researcher_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_technocracy
+		}
+	}
+	text = job_head_researcher_effect_desc
+}
+
+# Merchant Guilds
+# +1 Merchant
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_merchant_guilds
+		}
+	}
+	modifier = {
+		job_merchant_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_civic = civic_merchant_guilds
+		}
+	}
+	text = job_merchant_effect_desc
+}
+
+# Corporate Empire
+# +2 Executive Jobs
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = no
+		}
+		NOT = { has_modifier = penal_colony }
+	}
+	modifier = {
+		job_executive_add = $PRIMARY_JOB$
+		job_executive_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = no
+		}
+	}
+	text = job_executive_effect_desc
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = no
+		}
+		has_modifier = penal_colony
+	}
+	modifier = {
+		job_warden_add = $PRIMARY_JOB$
+		job_executive_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = no
+		}
+		has_modifier = penal_colony
+	}
+	text = job_warden_effect_desc
+}
+
+# Worker Coop Empire
+# +3 Executive Jobs
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = yes
+		}
+		NOT = { has_modifier = penal_colony }
+	}
+	modifier = {
+		job_steward_add = $PRIMARY_JOB$
+		job_steward_add = $SECONDARY_JOB$
+		job_steward_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = yes
+		}
+	}
+	text = job_steward_effect_desc
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = yes
+		}
+		has_modifier = penal_colony
+	}
+	modifier = {
+		job_warden_add = $PRIMARY_JOB$
+		job_steward_add = $SECONDARY_JOB$
+		job_steward_add = $SECONDARY_JOB$
+	}
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			is_megacorp = yes
+			is_worker_coop_empire = yes
+		}
+		has_modifier = penal_colony
+	}
+	text = job_warden_effect_desc
+}
+
+# Synthetics Prefabricated Components
+# +1 Roboticist
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_regular_empire = yes
+			has_active_tradition = tr_synthetics_prefabricated_components
+		}
+	}
+	job_roboticist_add = 1
+}
+
+
+# Individualist Machines
+# +1 Roboticist
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_individual_machine = yes
+		}
+	}
+	job_roboticist_add = $PRIMARY_JOB$
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			OR = {
+				is_individual_machine = yes
+				AND = {
+					is_regular_empire = yes
+					has_active_tradition = tr_synthetics_prefabricated_components
+				}
+			}
+
+		}
+	}
+	text = job_roboticist_effect_desc
+}
+
+# Pharma State
+# +1 Medical Worker
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_private_healthcare_corporate }
+	}
+	job_healthcare_add = 1
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = { has_valid_civic = civic_private_healthcare_corporate }
+	}
+	text = job_healthcare_effect_desc
+}
+
+# Pleasure Seeker
+# +1 Entertainer
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = {
+			is_pleasure_seeker = yes
+		}
+	}
+	job_entertainer_add = 1
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = {
+			is_pleasure_seeker = yes
+		}
+	}
+	text = job_entertainer_effect_desc
+}
+
+# Lead Bureaucrat
+# +1 Lead Bureaucrat
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { has_valid_civic = civic_cosmic_harmony }
+	}
+	job_lead_bureaucrat_add = 1
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = { has_valid_civic = civic_cosmic_harmony }
+	}
+	text = job_lead_bureaucrat_effect_desc
+}

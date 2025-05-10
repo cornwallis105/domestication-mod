@@ -57,8 +57,8 @@ action_form_migration_pact = {
 			NOT = { has_valid_civic = civic_inwards_perfection }
 		}
 		if = {
-			limit = { 
-				from = { 
+			limit = {
+				from = {
 					has_valid_civic = civic_selective_kinship
 					NOT = { is_same_species_class = ROOT }
 				}
@@ -189,12 +189,29 @@ action_form_migration_pact = {
 			fail_text = "requires_actor_not_pompous"
 			NOT = { has_valid_civic = civic_pompous_purists	}
 		}
+		# Requirements:
+		# - 20 Trust OR Good Opinion
+		# - An Embassy OR the Diplomatic Networking tradition.
 		custom_tooltip = {
-			fail_text = "requires_good_or_better_opinion"
-
+			fail_text = requires_20_trust_or_good
 			OR = {
-				opinion_level = { who = from level >= good }
-				is_improving_relations_with = from
+				opinion_level = {
+					who = from
+					level >= good
+				}
+				from = {
+					trust = {
+						who = root
+						value >= 20
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = requires_embassy_or_diplomatic_networking
+			OR = {
+				has_embassy = from
+				has_active_tradition = tr_diplomacy_diplomatic_networking
 			}
 		}
 	}
@@ -221,6 +238,7 @@ action_societal_enlightenment = {
 					has_country_flag = solarpunk_country
 				}
 				current_awareness_level = full
+				observation_owner_is_actor = yes
 			}
 		}
 	}
@@ -316,13 +334,13 @@ action_societal_enlightenment = {
 		}
 		custom_tooltip = {
 			fail_text = "ACTION_CANNOT_INTERFERE_POLICY"
-			OR = { 
+			OR = {
 				has_policy_flag = interference_subtle
 				has_policy_flag = interference_active
 			}
 		}
 	}
-	
+
 	on_accept = {
 		hidden_effect = {
 			from = {
@@ -379,6 +397,7 @@ action_open_technological_enlightenment = {
 					is_under_open_technological_enlightenment = root
 					has_country_flag = solarpunk_country
 				}
+				observation_owner_is_actor = yes
 			}
 		}
 	}
@@ -394,7 +413,14 @@ action_open_technological_enlightenment = {
 		}
 		custom_tooltip = {
 			fail_text = "requires_recipient_not_tech_frozen"
-			from = { NOT = { has_country_flag =  tech_frozen } }
+			from = {
+				NOR = {
+					has_country_flag =  tech_frozen
+					capital_scope = {
+						is_planet_class = pc_habitat
+					}
+				}
+			}
 		}
 		custom_tooltip = {
 			fail_text = "requires_actor_not_fanatic_purifiers"
@@ -490,7 +516,7 @@ action_open_technological_enlightenment = {
 		}
 		custom_tooltip = {
 			fail_text = "ACTION_CANNOT_INTERFERE_POLICY"
-			OR = { 
+			OR = {
 				has_policy_flag = interference_subtle
 				has_policy_flag = interference_active
 			}
@@ -563,7 +589,7 @@ action_open_technological_enlightenment = {
 			}
 		}
 	}
-	
+
 	should_ai_propose = {
 		weight = 0
 

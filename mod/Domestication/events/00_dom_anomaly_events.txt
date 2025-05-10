@@ -204,15 +204,15 @@ ship_event = {
 	option = {
 		name = anomaly.5004.a
 		hidden_effect = {
-      if = {
-        limit = {
-          exists = fleet.leader
-        }
+			if = {
+				limit = {
+					exists = fleet.leader
+				}
 				save_event_target_as = science_ship
-        fleet.leader = {
-          save_event_target_as = new_owner
-        }
-      }
+				fleet.leader = {
+					save_event_target_as = new_owner
+				}
+			}
 			owner = {
 				country_event = { id = anomaly.5006 }
 			}
@@ -281,12 +281,12 @@ country_event = {
 	option = {
 		name = anomaly.5006.b
 		response_text = anomaly.5006.b.response
-    hidden_effect = {
-      if = {
-        limit = { is_domesticator_or_full_protectorate = yes }
-        country_event = { id = domestication_leader.18 }
-      }
-    }
+		hidden_effect = {
+			if = {
+				limit = { is_domesticator_or_full_protectorate = yes }
+				country_event = { id = domestication_leader.18 }
+			}
+		}
 	}
 }
 

@@ -13,7 +13,14 @@ domesticator_faction = {
 	resources = {
 		category = pop_factions
 		produces = {
-			unity = 0.625
+			unity = @faction_base_output
+		}
+	}
+	extortion_resource = {
+		category = pop_factions
+		produces = {
+			energy = @faction_base_output
+			mult = @faction_extortion_energy_ratio
 		}
 	}
 
@@ -810,6 +817,51 @@ domesticator_faction = {
 				base = 0
 			}
 		}
+		# Faction Extortion Buttons
+		extort_faction = {
+			title = "EXTORT_FACTION"
+			description = "EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+				}
+				is_faction_extorted = no
+			}
+
+			effect = {
+				set_faction_extorted = yes
+				custom_tooltip = energy_extortion_tt
+				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		cancel_extort_faction = {
+			title = "CANCEL_EXTORT_FACTION"
+			description = "CANCEL_EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+				}
+				is_faction_extorted = yes
+			}
+
+			effect = {
+				set_faction_extorted = no
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
 	}
 }
 
@@ -829,7 +881,14 @@ xenoist = {
 	resources = {
 		category = pop_factions
 		produces = {
-			unity = 0.5
+			unity = @faction_base_output
+		}
+	}
+	extortion_resource = {
+		category = pop_factions
+		produces = {
+			energy = @faction_base_output
+			mult = @faction_extortion_energy_ratio
 		}
 	}
 
@@ -908,7 +967,7 @@ xenoist = {
 		script = pop_faction_types/demand_faction_outraged
 		FLAG = galcom_resolution_passed_anti_xenoist
 	}
-	
+
 	# DEMAND: Faction Pleased (by a GalCom Resolution)
 	inline_script = {
 		script = pop_faction_types/demand_faction_pleased
@@ -1412,8 +1471,8 @@ xenoist = {
 		ETHIC = ethic_xenophile
 		ETHIC_FANATIC = ethic_fanatic_xenophile
 		ETHIC_OPPOSED = ethic_xenophobe
-	} 
-	
+	}
+
 	demand = { # Alien Zoo (for conservation)
 		title = "XENOIST_XENOLOGICAL_CONSERVATION"
 		unfulfilled_title = "XENOIST_NO_XENOLOGICAL_CONSERVATION"
@@ -1634,6 +1693,51 @@ xenoist = {
 				parameter:empire = {
 					remove_modifier = suppressed_xenophile
 				}
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		# Faction Extortion Buttons
+		extort_faction = {
+			title = "EXTORT_FACTION"
+			description = "EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+				}
+				is_faction_extorted = no
+			}
+
+			effect = {
+				set_faction_extorted = yes
+				custom_tooltip = energy_extortion_tt
+				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		cancel_extort_faction = {
+			title = "CANCEL_EXTORT_FACTION"
+			description = "CANCEL_EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+				}
+				is_faction_extorted = yes
+			}
+
+			effect = {
+				set_faction_extorted = no
 			}
 
 			ai_weight = {

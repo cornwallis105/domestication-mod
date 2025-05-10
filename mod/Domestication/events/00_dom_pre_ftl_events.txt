@@ -17,9 +17,9 @@ situation_event = {
 				set_event_locked = no
 			}
 			random_owned_pop = {
-        species = {
-          set_species_flag = zoonotic_plague_species
-        }
+				species = {
+					set_species_flag = zoonotic_plague_species
+				}
 				limit = {
 					is_robotic_species = no
 				}
@@ -54,7 +54,7 @@ situation_event = {
 		destroy_situation = this
 		target = {
 			remove_planet_flag = has_on_going_observation_situation
-      set_planet_flag = zoonotic_plague_dead_world
+			set_planet_flag = zoonotic_plague_dead_world
 			observation_outpost = {
 				dismantle = yes
 			}

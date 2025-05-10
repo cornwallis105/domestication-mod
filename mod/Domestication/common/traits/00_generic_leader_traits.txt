@@ -1,5 +1,5 @@
 leader_trait_adventurous_spirit = {
-	veteran_class_locked_trait = yes
+	leader_trait_type = veteran
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -10,17 +10,16 @@ leader_trait_adventurous_spirit = {
 	}
 	triggered_self_modifier = {
 		potential = { is_councilor = no }
+		show_if_not_potential = yes
+		not_potential_override_text_key = adventurous_spirit_on_council
 		leaders_upkeep_mult = -0.1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_paragon_dlc = yes
 		NOT = { has_trait_tier1or2 = { TRAIT = leader_trait_eager } }
 	}
 	custom_tooltip_with_modifiers = leader_trait_adventurous_spirit_effect
-	triggered_desc = {
-		trigger = { is_councilor = yes }
-		text = leader_trait_adventurous_spirit_1_tt
-	}
 	leader_class = { commander scientist official }
 	selectable_weight = {
 		weight = @shared_trait_weight
@@ -29,7 +28,7 @@ leader_trait_adventurous_spirit = {
 }
 
 leader_trait_adventurous_spirit_2 = {
-	veteran_class_locked_trait = yes
+	leader_trait_type = veteran
 	replace_traits = { "leader_trait_adventurous_spirit" }
 	inline_script = {
 		script = trait/icon
@@ -41,19 +40,17 @@ leader_trait_adventurous_spirit_2 = {
 	}
 	triggered_self_modifier = {
 		potential = { is_councilor = no }
+		show_if_not_potential = yes
+		not_potential_override_text_key = adventurous_spirit_on_council
 		leaders_upkeep_mult = -0.25
 		species_leader_exp_gain = 0.05
 	}
 	custom_tooltip_with_modifiers = leader_trait_adventurous_spirit_effect
-	triggered_desc = {
-		trigger = { is_councilor = yes }
-		text = leader_trait_adventurous_spirit_2_tt
-	}
 	leader_class = { commander scientist official }
 }
 
 leader_trait_adventurous_spirit_3 = {
-	veteran_class_locked_trait = yes
+	leader_trait_type = veteran
 	replace_traits = { "leader_trait_adventurous_spirit_2" }
 	inline_script = {
 		script = trait/icon
@@ -65,14 +62,12 @@ leader_trait_adventurous_spirit_3 = {
 	}
 	triggered_self_modifier = {
 		potential = { is_councilor = no }
+		show_if_not_potential = yes
+		not_potential_override_text_key = adventurous_spirit_on_council
 		leaders_upkeep_mult = -0.25
 		species_leader_exp_gain = 0.1
 	}
 	custom_tooltip_with_modifiers = leader_trait_adventurous_spirit_effect
-	triggered_desc = {
-		trigger = { is_councilor = yes }
-		text = leader_trait_adventurous_spirit_3_tt
-	}
 	leader_class = { commander scientist official }
 }
 
@@ -86,11 +81,13 @@ leader_trait_eager = {
 		COUNCIL = no
 		TIER = 1
 	}
+
 	self_modifier = {
 		leaders_cost_mult = -0.5
 		leaders_upkeep_mult = -0.05
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		is_pool_leader = yes # Starting trait only.
 		NOT = { has_trait_tier1or2or3 = { TRAIT = leader_trait_adventurous_spirit } }
 	}
@@ -129,10 +126,20 @@ leader_trait_resilient = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		is_immortal = no
 	}
-	self_modifier = {
+	triggered_self_modifier = {
+		potential = {
+			is_immortal = no
+		}
 		leader_lifespan_add = 10
+	}
+	triggered_self_modifier = {
+		potential = {
+			is_immortal = yes
+		}
+		leaders_upkeep_mult = -0.05
 	}
 	leader_class = { commander scientist official }
 	opposites = {
@@ -152,8 +159,17 @@ leader_trait_resilient_2 = {
 		COUNCIL = no
 		TIER = 2
 	}
-	self_modifier = {
+	triggered_self_modifier = {
+		potential = {
+			is_immortal = no
+		}
 		leader_lifespan_add = 20
+	}
+	triggered_self_modifier = {
+		potential = {
+			is_immortal = yes
+		}
+		leaders_upkeep_mult = -0.1
 	}
 	leader_class = { commander scientist official }
 	opposites = {
@@ -214,7 +230,7 @@ leader_trait_politician = {
 		TIER = 1
 	}
 	councilor_modifier = {
-		council_agenda_progress_speed = 0.1
+		council_agenda_progress_speed = 0.05
 	}
 	leader_potential_add = {
 		OR = {
@@ -243,7 +259,7 @@ leader_trait_politician_2 = {
 		TIER = 2
 	}
 	councilor_modifier = {
-		council_agenda_progress_speed = 0.20
+		council_agenda_progress_speed = 0.10
 	}
 	leader_class = { commander scientist official }
 }
@@ -259,7 +275,12 @@ leader_trait_capitalist = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		NOT = {
+			has_leader_flag = block_homeworld_traits
+		}
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -307,7 +328,7 @@ leader_trait_capitalist = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_capitalist
@@ -375,7 +396,12 @@ leader_trait_private_mines = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		NOT = {
+			has_leader_flag = block_homeworld_traits
+		}
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -453,7 +479,7 @@ leader_trait_private_mines = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_private_mines
@@ -547,9 +573,15 @@ leader_trait_homesteader = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		exists = owner
 		owner = {
 			country_uses_food = yes
+		}
+		NOT = {
+			has_leader_flag = block_homeworld_traits
 		}
 	}
 	triggered_background_planet_modifier = {
@@ -628,7 +660,7 @@ leader_trait_homesteader = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_homesteader
@@ -798,6 +830,7 @@ leader_trait_gifted = {
 		leader_trait_selection_options_add = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		is_pool_leader = yes
 		has_paragon_dlc = yes
 	}
@@ -847,6 +880,17 @@ trait_imperial_heir = {
 		}
 		leader_trait_selection_options_add = 1
 	}
+	triggered_self_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_relic = r_the_rulerchip
+			}
+			is_ruler = yes
+		}
+		leader_trait_selection_options_add = 1
+	}
+
 	triggered_background_planet_modifier = {
 		potential = {
 			is_ruler = yes
@@ -854,12 +898,29 @@ trait_imperial_heir = {
 			exists = FROM
 			FROM.owner = { is_same_value = root.owner }
 			owner = {
+				NOT = {	has_origin = origin_cybernetic_creed }
 				has_valid_civic = civic_imperial_cult
 			}
 		}
 		job_priest_add = 1
 		mult = trigger:has_skill
 	}
+
+	triggered_background_planet_modifier = {
+		potential = {
+			is_ruler = yes
+			exists = owner
+			exists = FROM
+			FROM.owner = { is_same_value = root.owner }
+			owner = {
+				has_origin = origin_cybernetic_creed
+				has_valid_civic = civic_imperial_cult
+			}
+		}
+		job_haruspex_add = 1
+		mult = trigger:has_skill
+	}
+
 	on_gained_effect = {
 		change_background_job = noble
 	}
@@ -878,7 +939,12 @@ leader_trait_scrapper = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		NOT = {
+			has_leader_flag = block_homeworld_traits
+		}
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -970,7 +1036,7 @@ leader_trait_scrapper = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_scrapper
@@ -1078,9 +1144,15 @@ leader_trait_entrepreneur = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		exists = owner
 		owner = {
 			country_uses_consumer_goods = yes
+		}
+		NOT = {
+			has_leader_flag = block_homeworld_traits
 		}
 	}
 	triggered_background_planet_modifier = {
@@ -1144,7 +1216,7 @@ leader_trait_entrepreneur = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_entrepreneur
@@ -1223,7 +1295,12 @@ leader_trait_venerated = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		NOT = {
+			has_leader_flag = block_homeworld_traits
+		}
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -1271,7 +1348,7 @@ leader_trait_venerated = {
 		leader_trait_entrepreneur_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_venerated
@@ -1358,7 +1435,7 @@ leader_trait_emotional_support_pet = {
 ###################
 
 leader_trait_educator = {
-	destiny_trait = yes
+	leader_trait_type = destiny
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -1383,7 +1460,7 @@ leader_trait_educator = {
 }
 
 leader_trait_master_bureaucrat = {
-	destiny_trait = yes
+	leader_trait_type = destiny
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -1410,7 +1487,7 @@ leader_trait_master_bureaucrat = {
 }
 
 #leader_trait_selfcare_expert = {
-#	destiny_trait = yes
+#	leader_trait_type = destiny
 #	inline_script = {
 #		script = trait/icon
 #		CLASS = leader
@@ -1456,7 +1533,7 @@ leader_trait_master_bureaucrat = {
 ###################
 
 leader_trait_fallible = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_fallible"
@@ -1474,7 +1551,7 @@ leader_trait_fallible = {
 }
 
 leader_trait_fallible_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_fallible" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1491,7 +1568,7 @@ leader_trait_fallible_2 = {
 
 ###################
 leader_trait_substance_abuser = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_substance_abuser"
@@ -1512,7 +1589,12 @@ leader_trait_substance_abuser = {
 	selectable_weight = {
 		weight = @shared_negative_trait_weight
 		modifier = {
-			species = { has_trait = trait_decadent }
+			species = {
+				OR = {
+					has_trait = trait_decadent
+					has_trait = trait_robot_decadent
+				}
+			}
 			factor = @species_trait_weight_mult
 		}
 		modifier = {
@@ -1523,7 +1605,7 @@ leader_trait_substance_abuser = {
 }
 
 leader_trait_substance_abuser_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_substance_abuser" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1542,7 +1624,12 @@ leader_trait_substance_abuser_2 = {
 	selectable_weight = {
 		weight = @tier2_negative_trait_weight
 		modifier = {
-			species = {	has_trait = trait_decadent }
+			species = {
+				OR = {
+					has_trait = trait_decadent
+					has_trait = trait_robot_decadent
+				}
+			}
 			factor = @species_trait_weight_mult
 		}
 	}
@@ -1550,7 +1637,7 @@ leader_trait_substance_abuser_2 = {
 
 ###################
 leader_trait_stubborn = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_stubborn"
@@ -1569,7 +1656,7 @@ leader_trait_stubborn = {
 }
 
 leader_trait_stubborn_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_stubborn" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1591,7 +1678,7 @@ leader_trait_stubborn_2 = {
 
 ###################
 leader_trait_melancholic = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_melancholic"
@@ -1614,7 +1701,7 @@ leader_trait_melancholic = {
 }
 
 leader_trait_melancholic_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_melancholic" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1639,12 +1726,15 @@ leader_trait_melancholic_2 = {
 
 ###################
 leader_trait_lavish_lifestyle = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_lavish_lifestyle"
 		COUNCIL = no
 		TIER = 1
+	}
+	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 	}
 	inline_script = {
 		script = paragon/leader_resource_upkeep
@@ -1658,7 +1748,9 @@ leader_trait_lavish_lifestyle = {
 			species = {
 				OR = {
 					has_trait = trait_decadent
+					has_trait = trait_robot_decadent
 					has_trait = trait_wasteful
+					has_trait = trait_robot_wasteful
 				}
 			}
 			factor = @species_trait_weight_mult
@@ -1667,7 +1759,7 @@ leader_trait_lavish_lifestyle = {
 }
 
 leader_trait_lavish_lifestyle_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_lavish_lifestyle" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1686,7 +1778,7 @@ leader_trait_lavish_lifestyle_2 = {
 
 ###################
 leader_trait_excessive = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_excessive"
@@ -1700,6 +1792,7 @@ leader_trait_excessive = {
 	}
 	leader_potential_add = {
 		is_gestalt = no
+		trait_is_crisis_faction_check = no
 	}
 	leader_class = { official scientist commander }
 	selectable_weight = {
@@ -1708,7 +1801,9 @@ leader_trait_excessive = {
 			species = {
 				OR = {
 					has_trait = trait_decadent
+					has_trait = trait_robot_decadent
 					has_trait = trait_wasteful
+					has_trait = trait_robot_wasteful
 				}
 			}
 			factor = @species_trait_weight_mult
@@ -1717,7 +1812,7 @@ leader_trait_excessive = {
 }
 
 leader_trait_excessive_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_excessive" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1736,7 +1831,7 @@ leader_trait_excessive_2 = {
 
 ###################
 leader_trait_arrested_development = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_arrested_development"
@@ -1751,7 +1846,7 @@ leader_trait_arrested_development = {
 }
 
 leader_trait_arrested_development_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_arrested_development" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1771,7 +1866,7 @@ leader_trait_arrested_development_2 = {
 ###########################
 
 leader_trait_reclusive = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_reclusive"
@@ -1798,7 +1893,7 @@ leader_trait_reclusive = {
 }
 
 leader_trait_reclusive_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_reclusive" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1818,7 +1913,7 @@ leader_trait_reclusive_2 = {
 
 ###################
 leader_trait_embezzler = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_embezzler"
@@ -1840,7 +1935,7 @@ leader_trait_embezzler = {
 }
 
 leader_trait_embezzler_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_embezzler" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1857,7 +1952,7 @@ leader_trait_embezzler_2 = {
 
 ###################
 leader_trait_intolerant = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_intolerant"
@@ -1884,7 +1979,7 @@ leader_trait_intolerant = {
 }
 
 leader_trait_intolerant_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_intolerant" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1906,7 +2001,7 @@ leader_trait_intolerant_2 = {
 
 ###################
 leader_trait_gullible = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_gullible"
@@ -1924,7 +2019,7 @@ leader_trait_gullible = {
 }
 
 leader_trait_gullible_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_gullible" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1941,7 +2036,7 @@ leader_trait_gullible_2 = {
 
 ###################
 leader_trait_volatile = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_volatile"
@@ -1959,7 +2054,7 @@ leader_trait_volatile = {
 }
 
 leader_trait_volatile_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_volatile" }
 	inline_script = {
 		script = trait/icon_negative
@@ -1976,7 +2071,7 @@ leader_trait_volatile_2 = {
 
 ###################
 leader_trait_passive = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_passive"
@@ -1994,7 +2089,7 @@ leader_trait_passive = {
 }
 
 leader_trait_passive_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_passive" }
 	inline_script = {
 		script = trait/icon_negative
@@ -2011,7 +2106,7 @@ leader_trait_passive_2 = {
 
 ###################
 leader_trait_tyrannical = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_tyrannical"
@@ -2044,7 +2139,7 @@ leader_trait_tyrannical = {
 }
 
 leader_trait_tyrannical_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_tyrannical" }
 	inline_script = {
 		script = trait/icon_negative
@@ -2072,7 +2167,7 @@ leader_trait_tyrannical_2 = {
 
 ###################
 leader_trait_bureaucratic = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_bureaucratic"
@@ -2090,7 +2185,7 @@ leader_trait_bureaucratic = {
 }
 
 leader_trait_bureaucratic_2 = {
-	negative = yes
+	leader_trait_type = negative
 	replace_traits = { "leader_trait_bureaucratic" }
 	inline_script = {
 		script = trait/icon_negative

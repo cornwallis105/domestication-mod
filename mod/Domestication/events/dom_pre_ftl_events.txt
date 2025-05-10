@@ -29,7 +29,7 @@ situation_event = {
         random_agreement = {
   				limit = {
   					owner = { is_same_value = event_target:affini_compact }
-  					target = { is_same_value = event_target:new_ftl_country }
+  					target = { is_same_value = event_target:pre_ftl_country }
   				}
   				add_loyalty = 100
   			}
@@ -49,7 +49,7 @@ situation_event = {
             exists = owner
             owner = { is_same_value = event_target:affini_compact }
           }
-          set_owner = event_target:new_ftl_country
+          set_owner = event_target:pre_ftl_country
         }
 				if = {
 					limit = { exists = starbase }

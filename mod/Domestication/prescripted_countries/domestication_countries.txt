@@ -44,14 +44,16 @@ terran_accord = {
 	empire_flag={
 		icon={
 			category="human"
-			file="flag_human_9.dds"
+			file="flag_human_accord.dds"
 		}
-		background={
+		background=
+		{
 			category="backgrounds"
-			file="flag_BG_48.dds"
+			file="00_solid.dds"
 		}
-		colors={
-			"blue"
+		colors=
+		{
+			"burgundy"
 			"white"
 			"null"
 			"null"

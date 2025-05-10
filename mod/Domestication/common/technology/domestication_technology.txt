@@ -17,6 +17,7 @@ tech_subdermal_stimulation = {
 		NOR = {
 			has_ethic = ethic_gestalt_consciousness
 			has_civic = civic_dystopian_society
+			is_individual_machine = yes
 		}
 		is_domesticator_or_protectorate = no
 	}
@@ -88,6 +89,7 @@ tech_tracking_implants = {
 	}
 
 	ai_weight = {
+
 	}
 }
 

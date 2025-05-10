@@ -1,5 +1,57 @@
 namespace = ancrel
 
+# Stage 4
+fleet_event = {
+	id = ancrel.4035
+	title = ancrel.4035.name
+	desc = ancrel.4035.desc
+	picture = GFX_evt_sapient_AI
+	show_sound = event_bad_omen
+	location = from
+
+	archaeology = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		from = { set_site_progress_locked = yes }
+	}
+
+	after = {
+		from = { set_site_progress_locked = no }
+	}
+
+	option = {
+		name = ancrel.4035.a
+		if = {
+			limit = {
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
+			owner = {
+				country_event = { id = dom_ancrel.4036 days = 1 }
+			}
+		}
+		else = {
+			owner = {
+				country_event = { id = ancrel.4036 days = 1 }
+			}
+		}
+		event_target:oracle_digsite_planet = { remove_deposit = d_archaeological_site }
+	}
+
+	option = {
+		name = ancrel.4035.b
+		event_target:oracle_digsite_planet = { remove_deposit = d_archaeological_site }
+		owner = {
+			add_resource = {
+				alloys = 1000
+				engineering_research = 3500
+				influence = 500
+			}
+		}
+	}
+}
+
 # Sentinels Archaeology site ending
 planet_event = {
 	id = ancrel.4059

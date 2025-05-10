@@ -323,6 +323,8 @@
  colony_mod.5.domestication:0 "Could it have recreational uses?"
  POLLEN_1_PROJECT_XENODRUG: "Pollen Study"
  POLLEN_1_PROJECT_XENODRUG_DESC:0 "Some of the planet's native flora have very interesting pollen with potential xenodrug applications."
+ pheromoned_xenodrugs:0 "Pheromonic Xenodrugs"
+ pheromoned_xenodrugs_desc:0 "The refined versions of Mharin Kharin have been known to provoke wonderful bouts of creativity. Sophonts engaging in manual labor while using these xenodrugs are advised to work slower to prevent injury."
 
  observation.107.domestication:0 "We have to do something."
  STOP_ROGUE_SCIENTIST_WAR:0 "Stop the war on [This.GetName]"
@@ -396,7 +398,7 @@
  dom_pre_ftl.14.a:0 "Bureaucracy first, play later!"
 
  dom_pre_ftl.15.name:0 "Truth and Retribution"
- dom_pre_ftl.15.desc:0 "One of our teams, sent to confiscate [target.owner.GetSpeciesAdj] weaponry on [target.GetName], has made a troubling discovery. A militant [target.owner.GetSpeciesAdj] faction has been stockpiling weapons in preparation for an attack on another rival faction. Our xeno-archaeo-bureaucrats suggest that the roots of this conflict stretch back centuries, with each act of retaliation fueling another reprisal.\n\nIt's clear that we need to stop the cycle of bloodshed, and the way we do so will affect the course of the [root.getName]."
+ dom_pre_ftl.15.desc:0 "One of our teams, sent to confiscate [target.owner.GetSpeciesAdj] weaponry on [target.GetName], has made a troubling discovery. A militant [target.owner.GetSpeciesAdj] faction has been stockpiling weapons in preparation for an attack on another rival faction. Our xeno-archaeo-bureaucrats suggest that the roots of this conflict stretch back centuries, with each act of retaliation fueling another reprisal.\n\nIt's clear that we need to stop the cycle of bloodshed, and the way we do so will affect the course of the [root.GetName]."
  dom_pre_ftl.15.a:0 "Domesticate the faction's leaders"
  dom_pre_ftl.15.b:0 "Encourage nonviolent conflict resolution"
  dom_pre_ftl.15.c:0 "Appeal to their common [target.owner.GetSpeciesName]-ity"
@@ -576,7 +578,7 @@
 
  dom_paragon.40100.e:0 "How much do you know about the [root.GetName]?"
  dom_paragon.40100.e.response:0 "I have heard that your fleets scour the cosmos, plundering helpless vessels for the greatest treasures in the universe. Is that wrong?"
- dom_paragon.40100.hire_custom_tooltip:0 "§Y$NAME_xenophile$§! will be domesticated by one of our commanders."
+ dom_paragon.40100.hire_custom_tooltip:0 "§Y$NAME_xenophile1$§! will be domesticated by one of our commanders."
 
 
  dom_paragon.40101.name:0 "O Captain, My Captain"
@@ -604,3 +606,10 @@
 
  dom_nwo.2.name:0 "New World Order - The Flames of War"
  dom_nwo.2.desc:0 "We were unable to muster a large enough fleet to [dom_nwo_country.capital_scope] to prevent the looming war. We may be able to tip the scales towards one side or the other, but either way, sophonts will die."
+
+ ancrel.4037.dom_a:0 "We have our own Utopia, you know."
+ ancrel.4037.dom_a.response:0 "You always do, and you all inevitably fall apart. My prediction models show that without my aid your civilization is headed for imminent collapse within the next...\n\nHow strange. Perhaps you are different, after all."
+ dom_ancrel.4036.hire_custom_tooltip:0 "§Y$NAME_Oracle$§! will be domesticated by one of our commanders."
+ dom_ancrel.1000.name:0 "Ancient Sophont, New Purpose"
+ dom_ancrel.1000.desc:0 "§L...As you can see, unscheduled wellness checks have decreased by 23%, while voluntary domestications are up 9%. Furthermore, I have noted a 36% reduction in feralist terminology in chat applications.§!\n\n§Y[new_owner.GetName]§! listens patiently while [new_owner.GetHisHer] floret delivers [new_floret.GetHisHer] report on sophont living conditions. While it would have been incredibly irresponsible to put §Y$NAME_Oracle$§! - now §Y[new_floret.GetName]§! - in charge of a whole sector as [new_floret.GetHeShe] requested, [new_floret.GetHisHer] owner has graciously allowed [new_floret.GetHimHer] to make a few improvements to our habitat AI systems - with proper supervision, of course.\n\n§Y[new_floret.GetName]§! has adapted marvelously to [new_floret.GetHisHer] new responsibilities, which include keeping other florets company while their owners are out, making sure that sophonts are getting their proper nutrients, and taking a few minutes every day to verbally acknowledge [new_floret.GetHisHer] cuteness."
+ dom_ancrel.1000.a:0 "Adorable!"

@@ -47,16 +47,16 @@ planet_event = {
 		}
 	}
 
-  option = {
-    trigger = {
-      owner = { is_domesticator_or_full_protectorate = yes }
-    }
+	option = {
+		trigger = {
+			owner = { is_domesticator_or_full_protectorate = yes }
+		}
 		name = colony_mod.5.domestication
-    icon = {
+		icon = {
 			icon = GFX_domesticators_icon
 			text = dialog_domesticator
 		}
-    enable_special_project = {
+		enable_special_project = {
 			name = "hallucinogen_xenodrug_research"
 			location = this
 			owner = root

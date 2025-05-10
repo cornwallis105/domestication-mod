@@ -27,7 +27,10 @@ domprot_1_modifier = {
 			# end previous treaties
 			country_event = {	id = domestication.43 }
 
-			add_modifier = { modifier = protectorate_1_floret_jobs }
+			if = {
+				limit = { is_gestalt = no }
+			 	add_modifier = { modifier = protectorate_1_floret_jobs }
+			}
 		}
 	}
 
@@ -133,7 +136,10 @@ domprot_2_modifier = {
 
 	activate_effect = {
 		target = {
-			add_modifier = { modifier = protectorate_2_floret_jobs }
+			if = {
+				limit = { is_gestalt = no }
+				add_modifier = { modifier = protectorate_2_floret_jobs }
+			}
 			remove_modifier = protectorate_1_floret_jobs
 		}
 	}
@@ -227,7 +233,10 @@ domprot_3_modifier = {
 				government = no
 			}
 			room_name_override = "specialist_domprot_room"
-			add_modifier = { modifier = protectorate_3_floret_jobs }
+			if = {
+				limit = { is_gestalt = no }
+			 	add_modifier = { modifier = protectorate_3_floret_jobs }
+			}
 			remove_modifier = protectorate_2_floret_jobs
 		}
 	}

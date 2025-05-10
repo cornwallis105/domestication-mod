@@ -1,3 +1,5 @@
+namespace = fircon
+
 # 'Tractable and Fertile'
 country_event = {
 	id = fircon.1256
@@ -56,11 +58,75 @@ country_event = {
 			food = 50
 		}
 		hidden_effect = {
-      set_observation_events_locked = yes
+			set_observation_events_locked = yes
 			country_event = { id = fircon.1257 days = 360 }
 		}
 		observation_breach_effect = {
 			RESOLUTION = resolution_pre_ftl_stances_non_interference
 		}
+	}
+}
+
+country_event = {
+	id = fircon.2625
+	title = fircon.2625.name
+	desc = {
+		trigger = {
+			fromfrom.owner = {
+				is_gestalt = no
+			}
+		}
+		text = fircon.2625.desc.regular
+	}
+	desc = {
+		trigger = {
+			fromfrom.owner = {
+				is_gestalt = yes
+			}
+		}
+		text = fircon.2625.desc.hive
+	}
+	picture = GFX_evt_worrying_signal
+	is_triggered_only = yes
+
+	option = { #Keep Them
+		name = fircon.2625.a
+		custom_tooltip = fircon.2625.a.tt
+		hidden_effect = {
+			delete_fleet = fromfrom
+			remove_global_flag = inteplanetary_flight_ongoing
+			fromfrom.owner = {
+				random_situation = {
+					limit = {
+						is_situation_type = pre_ftl_tech_progress_situation
+					}
+					add_situation_progress = -960 #50%
+				}
+			}
+		}
+		if = {
+			limit = {
+				values_others = yes
+			}
+			add_modifier =  {
+				modifier = inadvertent_jailer
+				days = 3600
+			}
+		}
+	}
+
+	option = { #Return them to their planet
+		name = fircon.2625.b
+		fromfrom.owner = {
+			add_awareness = 50
+		}
+		hidden_effect = {
+			delete_fleet = fromfrom
+			remove_global_flag = inteplanetary_flight_ongoing
+		}
+	}
+
+	after = {
+		set_observation_events_unlocked = yes
 	}
 }

@@ -1,7 +1,7 @@
-version="3.10.*"
+version="4.0.0"
 tags={
 	"Gameplay"
 }
 name="HDG - Domestication"
-supported_version="3.10.*"
+supported_version="v4.0.*"
 path="C:/Users/{username}/Documents/Paradox Interactive/Stellaris/mod/Domestication"

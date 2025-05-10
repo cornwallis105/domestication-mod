@@ -8,7 +8,12 @@ leader_trait_capitalist = {
 		TIER = 1
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		has_global_flag = game_started
+		has_skill > 1
+		NOT = {
+			has_leader_flag = block_homeworld_traits
+		}
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -56,7 +61,7 @@ leader_trait_capitalist = {
 		leader_trait_venerated_2
 	}
 	selectable_weight = {
-		weight = @shared_trait_weight
+		weight = @job_provider_trait_weight
 		inline_script = {
 			script = "paragon/existing_trait_weight_mult"
 			TRAIT = leader_trait_capitalist
@@ -87,7 +92,7 @@ leader_trait_emotional_support_pet = {
 		owner = { is_machine_empire = no }
 	}
 	leader_class = { commander scientist official }
-	selectable_weight = { 
+	selectable_weight = {
 		weight = @shared_trait_weight
 		modifier = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -97,7 +102,7 @@ leader_trait_emotional_support_pet = {
 }
 
 leader_trait_tyrannical = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_tyrannical"
@@ -130,7 +135,7 @@ leader_trait_tyrannical = {
 }
 
 leader_trait_embezzler = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_embezzler"

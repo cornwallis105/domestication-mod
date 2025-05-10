@@ -7,6 +7,9 @@ leader_trait_butcher = {
 		COUNCIL = no
 		TIER = 1
 	}
+	leader_potential_add = {
+		trait_is_crisis_faction_check = no
+	}
 	army_modifier = {
 		army_damage_mult = 0.1
 		army_collateral_damage_mult = 0.33

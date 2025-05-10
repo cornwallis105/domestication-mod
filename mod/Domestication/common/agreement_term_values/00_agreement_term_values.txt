@@ -1360,7 +1360,7 @@ subject_holdings_limit_4 = {
 				owner = { is_galactic_community_member = no }
 				NOR = {
 					is_active_resolution = resolution_bureaucraticsurveillance_borderless_authority
-					is_active_resolution = resolution_bureaucraticsurveillance_personal_oversight 
+					is_active_resolution = resolution_bureaucraticsurveillance_personal_oversight
 				}
 			}
 		}

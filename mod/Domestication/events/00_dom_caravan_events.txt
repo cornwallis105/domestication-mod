@@ -12,7 +12,7 @@ country_event = {
 		trigger = { has_country_flag = fleet3deal2 }
 		text = fleet3dealdesc2 #Selling Racket leader
 	}
-  desc = {
+	desc = {
 		trigger = { has_country_flag = fleet3deal_domestication1 }
 		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
 	}
@@ -130,7 +130,7 @@ country_event = {
 		trigger = { has_country_flag = fleet3deal2 }
 		text = fleet3dealdesc2 #Selling Racket leader
 	}
-  desc = {
+	desc = {
 		trigger = { has_country_flag = fleet3deal_domestication1 }
 		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
 	}

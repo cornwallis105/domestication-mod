@@ -544,6 +544,9 @@ copy_leader_traits = {
 		if = { limit = { has_trait = leader_trait_militarist_1_floret }
 			event_target:new_bloom = { add_trait_no_notify = leader_trait_militarist_1_floret }
 		}
+		if = { limit = { has_trait = leader_trait_oracle_floret }
+			event_target:new_bloom = { add_trait_no_notify = leader_trait_oracle_floret }
+		}
 
 	}
 }
@@ -655,7 +658,7 @@ shift_planet_ethics = {
 	}
 	if = {
 		limit = {
-			pre_ftl_modern_era = yes
+			owner = { pre_ftl_modern_era = yes }
 		}
 		random_owned_pop = {
 			limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }

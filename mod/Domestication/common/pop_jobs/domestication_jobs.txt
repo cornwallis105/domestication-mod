@@ -20,6 +20,13 @@ floret = {
 		owner = { is_domesticator_or_protectorate = yes }
 		owner = { is_gestalt = no }
 		NAND = {
+			owner = { is_domesticator = yes }
+			OR = {
+					is_same_species = owner.owner_species
+					is_subspecies = owner.owner_species
+			}
+		}
+		NAND = {
 			owner = { is_specialist_subject_type = { TYPE = domprot } }
 			OR = {
 					is_same_species = owner.overlord.owner_species
@@ -110,23 +117,27 @@ floret = {
 			has_pop_flag = br_resettled
 		}
 		modifier = {
-			factor = 0.1
+			# This should discourage pops from becoming florets if there are fewer than
+			# 4 non-floret sophonts on the planet.
+			factor = 0.01
 			has_haustorics = no
-			owner = { has_technology = tech_haustoric_implant }
+			#owner = { has_technology = tech_haustoric_implant }
 			planet = {
 				count_owned_pop = {
 					limit = {
 						has_haustorics = no
-						OR = {
+						NOR = {
 							is_same_species = owner.species
 							is_subspecies = owner.species
 						}
 					}
-					count < 3
+					count < 4
 				}
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_amenities"
 }
 
 lead_bureaucrat = {
@@ -194,6 +205,8 @@ lead_bureaucrat = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 overlord_floret = {
@@ -299,6 +312,8 @@ overlord_floret = {
 	weight = {
 		weight = @overlord_job_weight
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 overlord_floret_drone = {
@@ -397,6 +412,8 @@ overlord_floret_drone = {
 	weight = {
 		weight = @overlord_job_weight
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 domesticator_sentinel = {
@@ -456,6 +473,8 @@ domesticator_sentinel = {
 			has_job = domesticator_sentinel
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 domesticator_nanite = {
@@ -508,7 +527,10 @@ domesticator_nanite = {
 			has_job = domesticator_nanite
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
+
 
 domesticator_nemma = {
 	category = specialist
@@ -558,6 +580,8 @@ domesticator_nemma = {
 			has_job = domesticator_nemma
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 domesticator_underground = {
@@ -634,7 +658,10 @@ domesticator_underground = {
 			has_job = domesticator_underground
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
+
 
 domesticator_titanic = {
 	category = specialist
@@ -690,4 +717,6 @@ domesticator_titanic = {
 			has_job = domesticator_titanic
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }

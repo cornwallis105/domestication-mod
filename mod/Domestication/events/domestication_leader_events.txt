@@ -1829,10 +1829,11 @@ country_event = {
 
 			add_trait = leader_trait_warform_floret
 
-			event_target:new_floret = {
-				set_name = "NAME_S8751"
-				set_owner = event_target:floret_country
-			}
+			#event_target:new_floret = {
+			#	set_name = "NAME_S8751"
+			#	add_trait = leader_trait_floret_immortal
+			#	set_owner = event_target:floret_country
+			#}
 
 			owner = {
 				floret_rename_single = yes
@@ -1884,12 +1885,31 @@ country_event = {
 						save_event_target_as = new_floret
 					}
 				}
+				create_leader = {
+					name = NAME_S8751
+					species = event_target:warform_species
+					class = commander
+					gender = indeterminable
+					immortal = yes
+					skill = 1
+					effect = {
+						save_event_target_as = new_floret
+						add_trait = leader_trait_warform_floret
+						add_trait = leader_trait_floret_immortal
+						set_age = 1578
+					}
+				}
+				#last_created_leader = {
+				#	save_event_target_as = new_floret
+				#	add_trait = leader_trait_ahab_floret
+				#	add_trait = leader_trait_floret_immortal
+				#}
 			}
 		}
 		delete_fleet = event_target:repaired_warform
-    event_target:warform_leader = {
-      save_event_target_as = new_floret
-    }
+    #event_target:warform_leader = {
+    #  save_event_target_as = new_floret
+    #}
     hidden_effect = { country_event = { id = domestication_leader.16 } }
 	}
 }

@@ -23,9 +23,14 @@ can_fill_ruler_job = {
 			is_enslaved = no
 			is_being_purged = no
 			is_being_assimilated = no
+			# Only Affini can rule the Compact
 			domesticator_privilege = yes
-			NOT = { has_trait = trait_syncretic_proles }
-			can_think = yes
+			# Rule out Traits for servitude & lack of free will
+			NOR = {
+				has_trait = trait_syncretic_proles
+				can_think = no
+			}
+			# Rule out Machine Pops, unless they're rendered sapient
 			OR = {
 				NOT = { has_trait = trait_mechanical }
 				AND = {
@@ -33,7 +38,14 @@ can_fill_ruler_job = {
 					owner = { has_policy_flag = ai_full_rights }
 				}
 			}
-			NOT = { has_citizenship_type = { type = citizenship_organic_trophy country = owner } }
+			# Rule out Organic Trophies
+			NOT = {
+				has_citizenship_type = {
+					type = citizenship_organic_trophy
+					country = owner
+				}
+			}
+			# Rule out violations of the 'Right to Work' Resolution (prioritises organic workers)
 			if = {
 				limit = {
 					divinity_right_to_work_job_check_trigger_exempt = no
@@ -49,7 +61,11 @@ can_fill_ruler_job = {
 # This = Species
 species_has_happiness = {
 	NOR = {
-		has_trait = trait_machine_unit
+		AND = {
+			has_trait = trait_machine_unit
+			exists = from
+			from = { is_machine_empire = yes }
+		}
 		has_trait = trait_hive_mind
 		can_think = no
 		AND = {
@@ -62,7 +78,7 @@ species_has_happiness = {
 			}
 			OR = {
 				NOT = { exists = from }
-				from = { has_authority = auth_machine_intelligence }
+				from = { is_machine_empire = yes }
 				from = { NOT = { has_technology = tech_synthetic_workers } }
 				from = { has_policy_flag = ai_outlawed }
 			}
@@ -71,8 +87,16 @@ species_has_happiness = {
 			has_trait = trait_cybernetic
 			exists = from
 			from = {
-				has_authority = auth_machine_intelligence
-				has_civic = civic_machine_assimilator # Assimilator empire
+				OR = {
+					AND = {
+						is_machine_empire = yes
+						has_civic = civic_machine_assimilator # Assimilator empire
+					}
+					AND = {
+						is_democratic_authority = yes
+						has_country_flag = cyber_collectivist
+					}
+				}
 			}
 		}
 	}

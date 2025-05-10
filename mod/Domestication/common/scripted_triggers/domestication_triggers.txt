@@ -31,6 +31,22 @@ is_domesticator_or_protectorate = {
 	}
 }
 
+empire_can_have_floret_jobs = {
+	if = {
+		limit = {
+			exists = owner
+		}
+		owner = {
+			is_domesticator_or_protectorate = yes
+			is_gestalt = no
+		}
+	}
+	else = {
+		is_domesticator_or_protectorate = yes
+		is_gestalt = no
+	}
+}
+
 is_domesticator_or_full_protectorate = {
 	if = {
 		limit = {
@@ -42,6 +58,7 @@ is_domesticator_or_full_protectorate = {
 				#has_country_flag = flag_domesticated_protectorate
 				AND = {
 					is_subject = yes
+					is_gestalt = no
 					any_agreement = { has_active_specialization = specialist_domprot }
 					any_agreement = { specialist_tier = 3}
 				}
@@ -54,6 +71,7 @@ is_domesticator_or_full_protectorate = {
 			#has_country_flag = flag_domesticated_protectorate
 			AND = {
 				is_subject = yes
+				is_gestalt = no
 				any_agreement = { has_active_specialization = specialist_domprot }
 				any_agreement = { specialist_tier = 3}
 			}

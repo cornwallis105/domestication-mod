@@ -2,7 +2,7 @@ military_service_full = {
 	potential = {
 		if = {
 			limit = {
-				from = { has_authority = auth_machine_intelligence }
+				from = { is_machine_empire = yes }
 			}
 			OR = {
 				has_trait = trait_machine_unit
@@ -18,7 +18,7 @@ military_service_full = {
 			fail_text = MACHINE_NO_PURE_ORGANIC_SOLDIERS
 			if = {
 				limit = {
-					from = { has_authority = auth_machine_intelligence }
+					from = { is_machine_empire = yes }
 				}
 				OR = {
 					has_trait = trait_mechanical
@@ -51,20 +51,28 @@ military_service_full = {
 			fail_text = is_servitude_tooltip
 			NOT = { has_citizenship_type = { country = from type = citizenship_robot_servitude } }
 		}
-		custom_tooltip = {
-			fail_text = too_alien
-			OR = {
-				is_same_species = from
+		if = {
+			limit = {
 				from = {
-					AND = {
-						has_valid_civic = civic_selective_kinship
-						is_same_species_class = root
-					}
+					NOT = { has_origin = origin_synthetic_fertility }
 				}
-				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
+				has_trait = trait_mechanical
+			}
+			custom_tooltip = {
+				fail_text = too_alien
+				OR = {
+					is_same_species = from
+					from = {
+						AND = {
+							has_valid_civic = civic_selective_kinship
+							is_same_species_class = root
+						}
+					}
+					from = {
+						NOR = {
+							has_ethic = ethic_xenophobe
+							has_ethic = ethic_fanatic_xenophobe
+						}
 					}
 				}
 			}
@@ -72,7 +80,7 @@ military_service_full = {
 		custom_tooltip = {
 			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
 			OR = {
-				NOT = { from = { has_authority = auth_hive_mind } }
+				NOT = { from = { is_hive_empire = yes } }
 				has_trait = trait_hive_mind
 			}
 		}
@@ -87,7 +95,8 @@ military_service_full = {
 				}
 				from = {
 					OR = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
+						is_individual_machine = yes
 						has_technology = tech_droid_workers
 					}
 				}
@@ -95,7 +104,7 @@ military_service_full = {
 		}
 		custom_tooltip = {
 			fail_text = nerve_stapled_cannot_lead_armies
-			NOT = { has_trait = trait_nerve_stapled }
+			can_think = yes
 		}
 		custom_tooltip = {
 			fail_text = SPECIES_MILITARY_HAUSTORIC_IMPLANT
@@ -149,7 +158,8 @@ military_service_limited = {
 				}
 				from = {
 					OR = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
+						is_individual_machine = yes
 						has_technology = tech_droid_workers
 					}
 				}
@@ -168,7 +178,7 @@ military_service_limited = {
 military_service_none = {
 	potential = {
 		OR = {
-			from = { NOT = { has_authority = auth_hive_mind } }
+			from = { is_hive_empire = no }
 			NOT = { has_trait = trait_hive_mind }
 		}
 	}
@@ -189,11 +199,14 @@ military_service_none = {
 			fail_text = MACHINE_SPECIES_NOT_MACHINE
 			if = {
 				limit = {
-					from = { has_authority = auth_machine_intelligence }
+					from = { is_machine_empire = yes }
 				}
-				NOR = {
-					has_trait = trait_mechanical
-					has_trait = trait_machine_unit
+				OR = {
+					NOR = {
+						has_trait = trait_mechanical
+						has_trait = trait_machine_unit
+					}
+					has_trait = trait_robot_suppressed
 				}
 			}
 		}

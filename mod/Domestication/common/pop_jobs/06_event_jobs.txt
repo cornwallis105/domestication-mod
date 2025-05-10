@@ -66,6 +66,8 @@ ratling_scavenger = {
 		weight = @worker_job_weight
 		mult = value:job_weights_multiple_resources_modifier|JOB|ratling_scavenger|RESOURCE1|food|WEIGHT1|0.5|RESOURCE2|minerals|WEIGHT2|0.5|
 	}
+
+	inline_script = "jobs/automodding_priority_food"
 }
 
 odd_factory_worker = {
@@ -82,7 +84,7 @@ odd_factory_worker = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -168,7 +170,7 @@ underground_trade_worker = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -215,6 +217,8 @@ underground_trade_worker = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_trade"
 }
 
 underground_contact_drone = {
@@ -275,6 +279,8 @@ underground_contact_drone = {
 		mult = value:job_weights_multiple_resources_modifier|JOB|underground_contact_drone|RESOURCE1|energy|WEIGHT1|0.5|RESOURCE2|food|WEIGHT2|0.5|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 	}
+
+	inline_script = "jobs/automodding_priority_energy"
 }
 
 dimensional_portal_researcher = {
@@ -486,7 +492,13 @@ dimensional_portal_researcher = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
+		modifier = {
+			factor = 5
+			has_trait = trait_cyborg_creed_of_research
+		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 dimensional_portal_researcher_gestalt = {
@@ -725,6 +737,8 @@ dimensional_portal_researcher_gestalt = {
 			can_take_servant_job = yes
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 space_time_anomaly_researcher = {
@@ -790,6 +804,8 @@ space_time_anomaly_researcher = {
 			can_take_servant_job = yes
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 space_time_anomaly_researcher_gestalt = {
@@ -858,7 +874,13 @@ space_time_anomaly_researcher_gestalt = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
+		modifier = {
+			factor = 5
+			has_trait = trait_cyborg_creed_of_research
+		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 ### Feral Overload Jobs
@@ -882,7 +904,7 @@ gas_plant_engineer = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -980,7 +1002,7 @@ cave_cleaner = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -1013,6 +1035,8 @@ cave_cleaner = {
 		weight = @worker_prio_job_weight
 		mult = value:job_weights_modifier|JOB|cave_cleaner|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 # Gestalt Species
@@ -1058,6 +1082,8 @@ cave_cleaner_gestalt = {
 		weight = @simple_drone_job_weight
 		mult = value:job_weights_modifier|JOB|cave_cleaner_gestalt|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 #Dinosaur Hunters
@@ -1076,7 +1102,7 @@ titan_hunter = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -1122,6 +1148,7 @@ titan_hunter = {
 
 			owner = {
 				is_lithoid_empire = yes
+				country_uses_food = no
 				has_monthly_income = {
 					resource = food
 					value >= 0
@@ -1129,6 +1156,8 @@ titan_hunter = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_food"
 }
 
 # Robot Caretaker for Lonely Bot
@@ -1175,7 +1204,10 @@ robot_caretaker = {
 		}
 		modifier = {
 			factor = 0.5
-			has_trait = trait_wasteful
+			OR = {
+				has_trait = trait_wasteful
+				has_trait = trait_robot_wasteful
+			}
 		}
 		# Positive
 		modifier = {
@@ -1187,6 +1219,8 @@ robot_caretaker = {
 			has_trait = trait_conservational
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 #Turtle Miner Regular
@@ -1205,7 +1239,7 @@ turtle_miner = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -1268,6 +1302,7 @@ turtle_miner = {
 
 			owner = {
 				is_lithoid_empire = yes
+				country_uses_food = no
 				has_monthly_income = {
 					resource = food
 					value >= 0
@@ -1275,6 +1310,8 @@ turtle_miner = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 #Turtle Miner Gestalt
@@ -1334,6 +1371,7 @@ turtle_miner_gestalt = {
 
 			owner = {
 				is_lithoid_empire = yes
+				country_uses_food = no
 				has_monthly_income = {
 					resource = food
 					value >= 0
@@ -1341,6 +1379,8 @@ turtle_miner_gestalt = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 # Bio-assistants
@@ -1399,6 +1439,8 @@ machine_nurse = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 # Ancient Manufactorium Complex event job
@@ -1757,7 +1799,7 @@ manufactorium_scraper = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -1778,6 +1820,8 @@ manufactorium_scraper = {
 		weight = @worker_job_weight
 		mult = value:job_weights_modifier|JOB|manufactorium_scraper|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 manufactorium_scraper_drone = {
@@ -1809,6 +1853,8 @@ manufactorium_scraper_drone = {
 		weight = @simple_drone_job_weight
 		mult = value:job_weights_modifier|JOB|manufactorium_scraper_drone|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 # Ancient Manufactorium Complex event job
@@ -1859,9 +1905,9 @@ archivist = {
 					has_planet_flag = has_science_ministry
 				}
 			}
-			physics_research = 2
-			engineering_research = 2
-			society_research = 2
+			physics_research = 1
+			engineering_research = 1
+			society_research = 1
 		}
 	}
 
@@ -1898,6 +1944,8 @@ archivist = {
 			has_slavery_type = { type = slavery_indentured }
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 puddle_technician = {
@@ -1982,7 +2030,7 @@ puddle_technician = {
 			factor = 10
 			is_enslaved = yes
 			can_take_servant_job = no
-			NOT = { 
+			NOT = {
 				has_slavery_type = { type = slavery_indentured }
 			}
 		}
@@ -2037,6 +2085,7 @@ puddle_technician = {
 
 			owner = {
 				is_lithoid_empire = yes
+				country_uses_food = no
 				has_monthly_income = {
 					resource = food
 					value >= 0
@@ -2044,11 +2093,13 @@ puddle_technician = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_food"
 }
 
 puddle_technician_drone = {
-	category = worker
-	condition_string = WORKER_JOB_TRIGGER
+	category = simple_drone
+	condition_string = DRONE_JOB_TRIGGER
 	building_icon = building_food_processing_facility
 	clothes_texture_index = 2
 
@@ -2059,7 +2110,7 @@ puddle_technician_drone = {
 		is_sapient = yes
 	}
 
-	possible_precalc = can_fill_worker_job
+	possible_precalc = can_fill_drone_job
 	possible = {
 		hidden_trigger = { exists = owner }
 		owner = {
@@ -2179,6 +2230,7 @@ puddle_technician_drone = {
 
 			owner = {
 				is_lithoid_empire = yes
+				country_uses_food = no
 				has_monthly_income = {
 					resource = food
 					value >= 0
@@ -2186,6 +2238,8 @@ puddle_technician_drone = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_food"
 }
 
 #Stasis Prison Colony Chain Jobs
@@ -2410,7 +2464,7 @@ astrogarbage_collector = {
 	}
 
 	possible_precalc = can_fill_worker_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -2539,7 +2593,7 @@ myrmeku_power_farmer = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -2561,6 +2615,8 @@ myrmeku_power_farmer = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|myrmeku_power_farmer|RESOURCE|energy|
 	}
+
+	inline_script = "jobs/automodding_priority_energy"
 }
 
 myrmeku_power_farmer_gestalt = {
@@ -2595,6 +2651,8 @@ myrmeku_power_farmer_gestalt = {
 		weight = @complex_drone_job_weight
 		mult = value:job_weights_modifier|JOB|myrmeku_power_farmer_gestalt|RESOURCE|energy|
 	}
+
+	inline_script = "jobs/automodding_priority_energy"
 }
 
 #Stratovent colony event chain jobs
@@ -2603,7 +2661,7 @@ stratovent_researcher = {
 	category = specialist
 	is_capped_by_modifier = yes
 	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_biolab_4
+	building_icon = building_nanolab_1
 	icon = xeno_zoo_keeper
 
 	possible_pre_triggers = {
@@ -2614,7 +2672,7 @@ stratovent_researcher = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -2663,6 +2721,8 @@ stratovent_researcher = {
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
 	}
+
+	inline_script = "jobs/automodding_priority_research"
 }
 
 stratovent_refiner = {
@@ -2680,7 +2740,7 @@ stratovent_refiner = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -2745,7 +2805,7 @@ stratovent_refiner_minerals = {
 	}
 
 	possible_precalc = can_fill_specialist_job
-	
+
 	possible = {
 		NAND = {
 			owner = { is_domesticator_or_protectorate = yes }
@@ -2809,6 +2869,8 @@ mineral_diver = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|mineral_diver|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 mineral_diver_drone = {
@@ -2847,6 +2909,8 @@ mineral_diver_drone = {
 		weight = @complex_drone_job_weight
 		mult = value:job_weights_modifier|JOB|mineral_diver_drone|RESOURCE|minerals|
 	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 #Rapid Desertification event chain jobs
@@ -2917,4 +2981,6 @@ alien_hunter = {
 			can_take_servant_job = yes
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_food"
 }

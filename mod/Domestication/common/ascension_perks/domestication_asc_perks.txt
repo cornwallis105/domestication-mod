@@ -26,10 +26,11 @@ ap_benefic_acquisition = {
 
 ap_cosmic_inevitability = {
 	potential = {
-		NOT = {
-			has_ascension_perk = ap_cosmic_inevitability
-		}
-		is_domesticator = yes
+		always = no
+		#NOT = {
+		#	has_ascension_perk = ap_cosmic_inevitability
+		#}
+		#is_domesticator = yes
 	}
 
 	modifier = {
@@ -49,7 +50,8 @@ ap_cosmic_inevitability = {
 	}
 
 	possible = {
-		is_domesticator = yes
+		always = no
+		#is_domesticator = yes
 	}
 
 	ai_weight = {

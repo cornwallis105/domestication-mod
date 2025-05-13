@@ -1,10 +1,14 @@
 leader_trait_corrupt = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_corrupt"
 		COUNCIL = no
 		TIER = 1
+	}
+	leader_potential_add = {
+		trait_is_crisis_faction_check = no
+		NOT = { has_trait_tier1or2 = { TRAIT = leader_trait_lawless } }
 	}
 	triggered_planet_modifier = {
 		potential = { trait_is_gestalt_check = no }
@@ -26,13 +30,18 @@ leader_trait_corrupt = {
 	opposites = {
 		leader_trait_righteous
 		leader_trait_righteous_2
+		leader_trait_martinet
+		leader_trait_martinet_2
 	}
 	selectable_weight = {
 		weight = @class_negative_trait_weight
 		inline_script = paragon/governor_weight_mult
 		modifier = {
 			species = {
-				has_trait = trait_decadent
+				OR = {
+					has_trait = trait_decadent
+					has_trait = trait_robot_decadent
+				}
 			}
 			factor = @species_trait_weight_mult
 		}
@@ -44,21 +53,42 @@ leader_trait_corrupt = {
 }
 
 leader_trait_polluter = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_polluter"
 		COUNCIL = no
 		TIER = 1
 	}
-	planet_modifier = {
-		pop_growth_speed = -0.05
-	}
-	sector_modifier = {
-		pop_growth_speed = -0.025
-	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
+		trait_is_wilderness_check = no
+		exists = owner
 		owner = { is_machine_empire = no }
+	}
+	triggered_planet_modifier = {
+		potential = {
+			trait_is_individual_machine_check = no
+		}
+		logistic_growth_mult = -0.05
+	}
+	triggered_sector_modifier = {
+		potential = {
+			trait_is_individual_machine_check = no
+		}
+		logistic_growth_mult = -0.025
+	}
+	triggered_planet_modifier = {
+		potential = {
+			trait_is_individual_machine_check = yes
+		}
+		planet_pop_assembly_mult = -0.05
+	}
+	triggered_sector_modifier = {
+		potential = {
+			trait_is_individual_machine_check = yes
+		}
+		planet_pop_assembly_mult = -0.025
 	}
 	leader_class = { commander official scientist }
 	selectable_weight = {
@@ -76,7 +106,7 @@ leader_trait_polluter = {
 }
 
 leader_trait_sadistic = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_sadistic"
@@ -90,10 +120,14 @@ leader_trait_sadistic = {
 		planet_stability_add = -2.5
 	}
 	leader_potential_add = {
+		trait_is_crisis_faction_check = no
 		NOT = { has_ethic = ethic_pacifist }
 	}
 	leader_class = { commander official scientist }
-	opposites = { "leader_trait_righteous" }
+	opposites = {
+		leader_trait_righteous
+		leader_trait_righteous_2
+	}
 	selectable_weight = {
 		weight = @class_negative_trait_weight
 		inline_script = paragon/governor_weight_mult
@@ -109,16 +143,19 @@ leader_trait_sadistic = {
 }
 
 leader_trait_insider_trading = {
-	negative = yes
+	leader_trait_type = negative
 	inline_script = {
 		script = trait/icon_negative
 		ICON = "GFX_leader_trait_insider_trading"
 		COUNCIL = no
 		TIER = 1
 	}
+	leader_potential_add = {
+		trait_is_crisis_faction_check = no
+	}
 	triggered_planet_modifier = {
 		potential = { trait_is_gestalt_check = no }
-		trade_value_mult = -0.10
+		planet_jobs_trade_produces_mult = -0.10
 	}
 	triggered_planet_modifier = {
 		potential = { trait_is_gestalt_check = yes }
@@ -126,7 +163,7 @@ leader_trait_insider_trading = {
 	}
 	triggered_sector_modifier = {
 		potential = { trait_is_gestalt_check = no }
-		trade_value_mult = -0.05
+		planet_jobs_trade_produces_mult = -0.05
 	}
 	triggered_sector_modifier = {
 		potential = { trait_is_gestalt_check = yes }
@@ -137,6 +174,8 @@ leader_trait_insider_trading = {
 		trait_ruler_investor
 		trait_ruler_investor_2
 		trait_ruler_investor_3
+		leader_trait_trade_focus
+		leader_trait_trade_focus_2
 	}
 	selectable_weight = {
 		weight = @class_negative_trait_weight

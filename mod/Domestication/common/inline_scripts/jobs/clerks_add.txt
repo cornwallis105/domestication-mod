@@ -1,0 +1,62 @@
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { 
+			is_gestalt = no
+			is_domesticator_or_protectorate = no
+		}
+	}
+	job_clerk_add = $AMOUNT$
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { 
+			is_gestalt = no
+			is_domesticator_or_protectorate = yes
+		}
+	}
+	job_clerk_add = $AMOUNT$
+	mult = 0.75
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { 
+			is_gestalt = no
+			is_domesticator_or_protectorate = yes
+		}
+	}
+	job_floret_add = $AMOUNT$
+	mult = 0.25
+}
+
+triggered_desc = {
+	text = job_clerk_effect_desc
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { is_gestalt = yes }
+	}
+	job_logistics_drone_add = $AMOUNT$
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = { is_gestalt = yes }
+	}
+	text = job_logistics_drone_effect_desc
+}
+
+triggered_desc = {
+	trigger = {
+		exists = owner
+		owner = { is_domesticator_or_protectorate = yes }
+	}
+	text = job_floret_effect_desc
+}

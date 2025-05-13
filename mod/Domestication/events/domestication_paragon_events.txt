@@ -595,7 +595,7 @@ country_event = {
 			}
 			while = {
 				count = value:perc_of_planet_pop_liberated
-				random_owned_pop = { # Pick a pop
+				weighted_random_owned_pop_group = { # Pick a pop
 					limit = {
 						planet = { is_same_value = ROOT.FROMFROM }
 					}
@@ -607,9 +607,10 @@ country_event = {
 						save_event_target_as = target_planet
 					}
 				}
-				resettle_pop = { # Kidnap pop
-					pop = event_target:kidnapped_pop
-					planet = event_target:target_planet
+				resettle_pop_group = { # Kidnap pop
+					POP_GROUP = event_target:kidnapped_pop
+					PLANET = event_target:target_planet
+					AMOUNT = 100
 				}
 			}
 		}
@@ -961,7 +962,7 @@ country_event = { # militarist 2
 			add_trait = subclass_commander_general
 			add_trait = leader_trait_tzrynn_tithe
 			add_trait = leader_trait_disorganized
-			add_trait = leader_trait_butcher_2
+			add_trait = leader_trait_butcher
 			add_trait = leader_trait_interrogator
 			set_age = 28
 		}

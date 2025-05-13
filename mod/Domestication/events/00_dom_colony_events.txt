@@ -132,7 +132,7 @@ planet_event = {
 		}
 		has_planet_flag = pheromone_planet
 		has_planet_flag = colony_event
-		num_pops > 0
+		pop_amount > 0
 	}
 
 	option = {
@@ -143,8 +143,8 @@ planet_event = {
 		}
 
 		trigger = {
-      owner = { is_domesticator_or_protectorate = no }
-    }
+			owner = { is_domesticator_or_protectorate = no }
+		}
 
 		hidden_effect = { planet_event = { id = colony.1522 days = 400 } }
 	}
@@ -157,8 +157,8 @@ planet_event = {
 		}
 
 		trigger = {
-      owner = { is_domesticator_or_protectorate = yes }
-    }
+			owner = { is_domesticator_or_protectorate = yes }
+		}
 
 		add_modifier = {
 			modifier = "pheromoned_1"
@@ -412,7 +412,7 @@ planet_event = {
 			is_planet_class = pc_tropical
 
 		}
-		num_pops > 0
+		pop_amount > 0
 	}
 
 	immediate = {
@@ -527,7 +527,7 @@ planet_event = {
 	}
 
 	trigger = {
-		num_pops > 0
+		pop_amount > 0
 		OR = {
 			is_planet_class = pc_continental
 			is_planet_class = pc_ocean
@@ -571,25 +571,25 @@ planet_event = {
 			}
 		}
 	}
-  option = {
-    trigger = {
-      owner = { is_domesticator_or_protectorate = yes }
-    }
+	option = {
+		trigger = {
+			owner = { is_domesticator_or_protectorate = yes }
+		}
 		icon = {
 			icon = GFX_domesticators_icon
 			text = dialog_domesticator
 		}
-    name = colony.9000.dom
-    add_modifier = {
+		name = colony.9000.dom
+		add_modifier = {
 			modifier = "turtle_world_domesticator_modifier"
 			days = -1
 		}
-    hidden_effect = {
+		hidden_effect = {
 			planet_event = {
 				id = domestication.35 days = 700 random = 30
 			}
 		}
-  }
+	}
 }
 
 # Insidious Ophidians

@@ -99,7 +99,7 @@ leader_trait_warp_eng_floret = {
 	}
 	planet_modifier = {
 		planet_jobs_unity_produces_mult = 0.05
-		job_culture_worker_add = 1
+		job_entertainer_add = 100
 	}
 	sector_modifier = {
 		planet_jobs_unity_produces_mult = 0.025
@@ -131,18 +131,19 @@ leader_trait_pirate_floret = {
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_pirate.dds"
 	fleet_modifier = {
-		ship_piracy_suppression_add = 2
-		ships_upkeep_mult = -0.05
+		#ship_piracy_suppression_add = 2
+		ships_upkeep_mult = -0.1
 	}
 	councilor_modifier = {
-		local_trade_protection_add = 2
+		#local_trade_protection_add = 2
+		planet_jobs_trade_produces_mult = 0.05
 	}
 	planet_modifier = {
-		trade_value_mult = 0.05
-		job_trader_add = 1
+		planet_jobs_trade_produces_mult = 0.05
+		job_trader_add = 100
 	}
 	sector_modifier = {
-		trade_value_mult = 0.025
+		planet_jobs_trade_produces_mult = 0.025
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -179,7 +180,7 @@ leader_trait_admiral_floret = {
 		country_naval_cap_mult = 0.025
 	}
 	planet_modifier = {
-		job_soldier_add = 1
+		job_soldier_add = 100
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -215,7 +216,7 @@ leader_trait_officer_floret = {
 		ship_destroyer_cost_mult = -0.05
 	}
 	planet_modifier = {
-		job_soldier_add = 1
+		job_soldier_add = 100
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -431,7 +432,7 @@ leader_trait_musician_floret = {
 	}
 	planet_modifier = {
 		planet_jobs_unity_produces_mult = 0.05
-		job_culture_worker_add = 1
+		job_entertainer_add = 100
 	}
 	sector_modifier = {
 		planet_jobs_unity_produces_mult = 0.025
@@ -493,7 +494,7 @@ leader_trait_great_khan_floret = {
 }
 
 leader_trait_militarist_1_floret = {
-	destiny_trait = yes
+	leader_trait_type = destiny
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -533,7 +534,7 @@ leader_trait_militarist_1_floret = {
 }
 
 leader_trait_xenophile_1_floret = {
-	destiny_trait = yes
+	leader_trait_type = destiny
 	inline_script = {
 		script = trait/icon
 		CLASS = leader
@@ -562,15 +563,15 @@ leader_trait_xenophile_1_floret = {
 		fleet_mia_time_mult = -0.25
 	}
 	planet_modifier = {
-		trade_value_mult = 0.1
-		job_trader_add = 1
+		planet_jobs_trade_produces_mult = 0.1
+		job_trader_add = 100
 	}
 	sector_modifier = {
-		trade_value_mult = 0.025
+		planet_jobs_trade_produces_mult = 0.025
 	}
 	councilor_modifier = {
 		planet_jobs_unity_produces_mult = 0.025
-		trade_value_mult = 0.05
+		planet_jobs_trade_produces_mult = 0.05
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

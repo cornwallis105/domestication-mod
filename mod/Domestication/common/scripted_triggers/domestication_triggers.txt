@@ -31,6 +31,22 @@ is_domesticator_or_protectorate = {
 	}
 }
 
+empire_can_have_floret_jobs = {
+	if = {
+		limit = {
+			exists = owner
+		}
+		owner = {
+			is_domesticator_or_protectorate = yes
+			is_gestalt = no
+		}
+	}
+	else = {
+		is_domesticator_or_protectorate = yes
+		is_gestalt = no
+	}
+}
+
 is_domesticator_or_full_protectorate = {
 	if = {
 		limit = {
@@ -42,6 +58,7 @@ is_domesticator_or_full_protectorate = {
 				#has_country_flag = flag_domesticated_protectorate
 				AND = {
 					is_subject = yes
+					is_gestalt = no
 					any_agreement = { has_active_specialization = specialist_domprot }
 					any_agreement = { specialist_tier = 3}
 				}
@@ -54,6 +71,7 @@ is_domesticator_or_full_protectorate = {
 			#has_country_flag = flag_domesticated_protectorate
 			AND = {
 				is_subject = yes
+				is_gestalt = no
 				any_agreement = { has_active_specialization = specialist_domprot }
 				any_agreement = { specialist_tier = 3}
 			}
@@ -160,7 +178,7 @@ has_very_high_living_standard_type = {
 			has_living_standard = { type = living_standard_chemical_bliss }
 			NAND = {
 				owner = { is_domesticator_or_protectorate = yes }
-				has_job = floret
+				is_pop_category = floret_strata
 				has_trait = trait_haustoric_implant
 			}
 		}
@@ -173,7 +191,7 @@ has_high_living_standard_type = {
 		AND = {
 			has_living_standard = { type = living_standard_chemical_bliss }
 			owner = { is_domesticator_or_protectorate = yes }
-			has_job = floret
+			is_pop_category = floret_strata
 			has_trait = trait_haustoric_implant
 		}
 	}
@@ -205,9 +223,17 @@ soldier_job_check_trigger = {
 			}
 		}
 		has_haustorics = no
-		NOT = { has_citizenship_type = { type = citizenship_organic_trophy } }
+		NOT = {
+			has_citizenship_type = {
+				type = citizenship_organic_trophy
+				country = owner
+			}
+		}
 		NAND = {
-			has_citizenship_type = { type = citizenship_slavery }
+			has_citizenship_type = {
+				type = citizenship_slavery
+				country = owner
+			}
 			OR = {
 				has_slavery_type = { type = slavery_livestock }
 				has_slavery_type = { type = slavery_matrix }
@@ -233,7 +259,8 @@ can_set_ai_policy = {
 			OR = {
 				has_technology = tech_synthetic_workers
 				has_technology = tech_sapient_ai
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
+				is_individual_machine = yes
 			}
 			OR = {
 				is_country_type = default
@@ -280,4 +307,9 @@ leader_is_affini = {
 	#species = {
 	#	has_species_flag = affini_species
 	#}
+}
+
+politician_is_lead_bureaucrat = {
+	exists = owner
+	owner = { has_valid_civic = civic_cosmic_harmony }
 }

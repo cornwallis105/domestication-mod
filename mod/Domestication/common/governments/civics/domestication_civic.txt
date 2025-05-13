@@ -229,6 +229,7 @@ civic_warrior_culture = {
 	description = "civic_tooltip_warrior_culture_effects"
 	modifier = {
 		army_damage_mult = 0.20
+		country_war_exhaustion_mult = -0.1
 	}
 	swap_type = {
 		description = "civic_tooltip_warrior_culture_effects"
@@ -270,7 +271,7 @@ civic_shared_burden = {
 	}
 	modifier = {
 		planet_stability_add = 5
-		pop_demotion_time_mult = -0.45
+		pop_unemployment_demotion_time_mult = -0.45
 	}
 	random_weight = {
 		base = @civic_rare_random_weight # Should be fairly rare

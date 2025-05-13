@@ -128,7 +128,7 @@ asteroid_postfix = {
 	193
 	141
 	717
-  RKDJ
+	RKDJ
 }
 
 star_names = {
@@ -318,6 +318,7 @@ star_names = {
 	Thuban
 	Tureis
 	Tyl
+	  
 	Unuk
 	Ushakaron
 	Wasat
@@ -1647,7 +1648,6 @@ star_names = {
 	Stribor
 	Taiyangshou
 	Taiyi
-	Titawin
 	Tonatiuh
 	Vindemiatrix
 	Dnoces
@@ -1823,11 +1823,11 @@ star_names = {
 	Gutkow
 	Bas
 	Asjak
-	Hoda
+	Hodaris
 	Clochasaigh
 	Wydra
 
-	# 2023 onwards
+	# 2023
 	Valemar
 	Feryj
 	Coundra
@@ -1863,6 +1863,35 @@ star_names = {
 	Marineb
 	Shcher-bak
 
-  # Custom Domestication stars
-  Arkadija
+	#2024
+	Istalonis
+	Kahko
+	Maxdim
+	Karyoshu
+	Ledameth
+	Uray
+	Lyzz-Dyura
+	Chvvash
+	Archmelie
+	Ishin'Can
+	Demivideau
+	Mazon_Del
+	Redinge
+	Zkotti
+	Pieplo
+	Hirani
+	Egladil
+	Dogarslan
+	Areysak
+	Veqer
+	Mewash
+	Ferflor
+	Matilon
+	Versekyia
+
+	#2025
+	Kuhlehm
+
+	# Custom Domestication stars
+	Arkadija
 }

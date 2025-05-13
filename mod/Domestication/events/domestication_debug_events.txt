@@ -7,7 +7,7 @@ country_event = {
 	is_triggered_only = yes
 
   immediate = {
-    random_owned_pop = {
+    random_owned_pop_group = {
       limit = {
         has_trait = trait_haustoric_hive_node
       }
@@ -16,7 +16,7 @@ country_event = {
       }
     }
 
-    every_owned_pop = {
+    every_owned_pop_group = {
       limit = {
         has_trait = trait_haustoric_hive_node
       }
@@ -27,6 +27,25 @@ country_event = {
 
 country_event = {
 	id = domestication_debug.2
+	hide_window = yes
+
+	is_triggered_only = yes
+
+  immediate = {
+		random_situation = {
+			limit = {
+				is_situation_type = pre_ftl_tech_progress_situation
+			}
+			remove_situation_flag = has_ongoing_observation_event_chain
+		}
+		capital_scope.observation_outpost = {
+			set_event_locked = no
+		}
+	}
+}
+
+country_event = {
+	id = domestication_debug.3
 	hide_window = yes
 
 	is_triggered_only = yes

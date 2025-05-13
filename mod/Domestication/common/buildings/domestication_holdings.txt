@@ -45,7 +45,7 @@ holding_domestication_center = {
 				is_gestalt = no
 			}
 		}
-		job_overlord_floret_add = 2
+		job_overlord_floret_add = 200
 	}
 
 	triggered_planet_modifier = {
@@ -55,7 +55,7 @@ holding_domestication_center = {
 				is_gestalt = yes
 			}
 		}
-		job_overlord_floret_drone_add = 2
+		job_overlord_floret_drone_add = 200
 	}
 
 	triggered_desc = {

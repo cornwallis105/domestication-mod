@@ -157,7 +157,7 @@ building_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -267,7 +267,7 @@ building_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -422,7 +422,7 @@ building_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -570,7 +570,7 @@ building_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -731,7 +731,7 @@ building_system_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -880,7 +880,7 @@ building_system_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -1053,7 +1053,7 @@ building_hab_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -1152,7 +1152,7 @@ building_hab_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -1444,7 +1444,7 @@ building_hab_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -1626,7 +1626,7 @@ building_hab_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -1774,7 +1774,7 @@ building_imperial_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -1907,7 +1907,7 @@ building_imperial_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -1980,7 +1980,7 @@ building_commercial_zone = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -1993,7 +1993,7 @@ building_commercial_zone = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
@@ -2075,7 +2075,7 @@ building_commercial_megaplex = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
@@ -2089,7 +2089,7 @@ building_commercial_megaplex = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc

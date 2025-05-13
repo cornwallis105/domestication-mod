@@ -1,10 +1,16 @@
 
 floret = {
-	category = worker
+	category = floret_strata
 	exempt_from_ai_amenity_prioritization = yes
-	condition_string = WORKER_JOB_TRIGGER
-	building_icon = building_luxury_residence
-	clothes_texture_index = 1
+
+	swappable_data = {
+		default = {
+			condition_string = WORKER_JOB_TRIGGER
+			building_icon = building_luxury_residence
+		}
+	}
+
+	#clothes_texture_index = 1
 	can_set_priority = no
 
 	possible_pre_triggers = {
@@ -19,6 +25,13 @@ floret = {
 		hidden_trigger = { exists = owner }
 		owner = { is_domesticator_or_protectorate = yes }
 		owner = { is_gestalt = no }
+		NAND = {
+			owner = { is_domesticator = yes }
+			OR = {
+					is_same_species = owner.owner_species
+					is_subspecies = owner.owner_species
+			}
+		}
 		NAND = {
 			owner = { is_specialist_subject_type = { TYPE = domprot } }
 			OR = {
@@ -57,13 +70,11 @@ floret = {
 		}
 	}
 
-	pop_modifier = {
-		pop_government_ethic_attraction = 0.5
-	}
-
-	triggered_pop_modifier = {
-		pop_housing_usage_add = -0.5
-	}
+	# invalid syntax post-4.0. putting modifier in worker pop_category
+#	pop_group_modifier = {
+#		pop_government_ethic_attraction = 0.5
+#		pop_housing_usage_add = -0.5
+#	}
 
 	planet_modifier = {
 		planet_crime_add = -2
@@ -76,7 +87,7 @@ floret = {
 		potential = {
 			always = yes
 		}
-		planet_amenities_add = 4
+		planet_amenities_add = 400
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -84,7 +95,6 @@ floret = {
 		potential = {
 			exists = owner
 			owner = { has_technology = tech_biorhythm_amplification }
-			happiness >= 0.5
 		}
 		modifier = {
 			planet_jobs_ruler_produces_mult = 0.01
@@ -107,23 +117,37 @@ floret = {
 		}
 		modifier = {
 			factor = 3
-			has_pop_flag = br_resettled
+			has_pop_group_flag = br_resettled
 		}
 		modifier = {
-			factor = 0.1
+			# This should discourage pops from becoming florets if there are fewer than
+			# 4 non-floret sophonts on the planet.
+			factor = 0.01
 			has_haustorics = no
-			owner = { has_technology = tech_haustoric_implant }
+			#owner = { has_technology = tech_haustoric_implant }
 			planet = {
-				count_owned_pop = {
+				count_owned_pop_amount = {
 					limit = {
 						has_haustorics = no
-						OR = {
+						NOR = {
 							is_same_species = owner.species
 							is_subspecies = owner.species
 						}
 					}
-					count < 3
+					count < 400
 				}
+			}
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_amenities"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = worker
+				AMOUNT = local_pop_amount
 			}
 		}
 	}
@@ -131,23 +155,32 @@ floret = {
 
 lead_bureaucrat = {
 	category = ruler
-	condition_string = RULER_JOB_TRIGGER
-	building_icon = building_capital
-	clothes_texture_index = 1
-	icon = bureaucrat
+	
+	swappable_data = {
+		default = {
+			condition_string = RULER_JOB_TRIGGER
+			building_icon = building_capital
+		}
+	}
+	
+	#clothes_texture_index = 1
 
-	possible_pre_triggers = {
-		has_owner = yes
-		is_enslaved = no
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
+#	possible_pre_triggers = {
+#		has_owner = yes
+#		is_enslaved = no
+#		is_being_purged = no
+#		is_being_assimilated = no
+#		is_sapient = yes
+#	}
+#
+#	possible_precalc = can_fill_ruler_job
+	
+	possible = {
+		always = no
 	}
 
-	possible_precalc = can_fill_ruler_job
-
 	resources = {
-		category = planet_administrators
+		category = planet_politicians
 		produces = {
 			unity = 8
 		}
@@ -177,10 +210,6 @@ lead_bureaucrat = {
 			has_citizenship_rights = no
 			NOT = { has_trait = trait_mechanical }
 		}
-		modifier = {
-			factor = 5
-			has_job = lead_bureaucrat
-		}
 		# crisis purge
 		modifier = {
 			factor = 0.01
@@ -194,15 +223,24 @@ lead_bureaucrat = {
 			}
 		}
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
 }
 
 overlord_floret = {
-	category = worker
+	category = floret_strata
 
 	can_set_priority = no
 	is_capped_by_modifier = yes
-	building_icon = building_executive_retreat
-	clothes_texture_index = 1
+	
+	swappable_data = {
+		default = {
+			condition_string = RULER_JOB_TRIGGER
+			building_icon = building_executive_retreat
+		}
+	}
+	
+	#clothes_texture_index = 1
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -253,14 +291,6 @@ overlord_floret = {
 		}
 	}
 
-	pop_modifier = {
-		pop_ethic_xenophile_attraction_mult = 0.5
-	}
-
-	triggered_pop_modifier = {
-		pop_housing_usage_add = -0.5
-	}
-
 	planet_modifier = {
 		planet_crime_add = -2
 		planet_stability_add = 0.5
@@ -272,7 +302,7 @@ overlord_floret = {
 		potential = {
 			always = yes
 		}
-		planet_amenities_add = 4
+		planet_amenities_add = 400
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -280,7 +310,6 @@ overlord_floret = {
 		potential = {
 			exists = owner
 			owner = { has_technology = tech_biorhythm_amplification }
-			happiness >= 0.5
 		}
 		modifier = {
 			planet_jobs_ruler_produces_mult = 0.01
@@ -299,15 +328,32 @@ overlord_floret = {
 	weight = {
 		weight = @overlord_job_weight
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = worker
+				AMOUNT = local_pop_amount
+			}
+		}
+	}
 }
 
 overlord_floret_drone = {
-	category = simple_drone
+	category = floret_drone_strata
 
 	can_set_priority = no
 	is_capped_by_modifier = yes
-	building_icon = building_executive_retreat
-	clothes_texture_index = 1
+	swappable_data = {
+		default = {
+			condition_string = RULER_JOB_TRIGGER
+			building_icon = building_executive_retreat
+		}
+	}
+	#clothes_texture_index = 1
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -357,10 +403,6 @@ overlord_floret_drone = {
 		}
 	}
 
-	triggered_pop_modifier = {
-		pop_housing_usage_add = -0.5
-	}
-
 	planet_modifier = {
 		planet_crime_add = -2
 		planet_stability_add = 0.5
@@ -379,7 +421,6 @@ overlord_floret_drone = {
 		potential = {
 			exists = owner
 			owner = { has_technology = tech_biorhythm_amplification }
-			happiness >= 0.5
 		}
 		modifier = {
 			planet_jobs_complex_drone_produces_mult = 0.01
@@ -397,13 +438,29 @@ overlord_floret_drone = {
 	weight = {
 		weight = @overlord_job_weight
 	}
+
+	inline_script = "jobs/automodding_priority_unity"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = simple_drone
+				AMOUNT = local_pop_amount
+			}
+		}
+	}
 }
 
 domesticator_sentinel = {
 	category = specialist
-	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_autochthon_monument
-	clothes_texture_index = 3
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_autochthon_monument
+		}
+	}
+	#clothes_texture_index = 3
 
 	resources = {
 		category = planet_domesticators
@@ -416,8 +473,8 @@ domesticator_sentinel = {
 		}
 	}
 
-	pop_modifier = {
-		pop_defense_armies_add = 3
+	triggered_planet_modifier = {
+		planet_defense_armies_add = 3
 	}
 
 	triggered_planet_modifier = {
@@ -451,18 +508,30 @@ domesticator_sentinel = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
-		modifier = {
-			factor = 1.5
-			has_job = domesticator_sentinel
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = specialist
+				AMOUNT = local_pop_amount
+			}
 		}
 	}
 }
 
 domesticator_nanite = {
 	category = specialist
-	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_autochthon_monument
-	clothes_texture_index = 3
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_autochthon_monument
+		}
+	}
+	#clothes_texture_index = 3
 
 	resources = {
 		category = planet_domesticators
@@ -503,18 +572,31 @@ domesticator_nanite = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
-		modifier = {
-			factor = 1.5
-			has_job = domesticator_nanite
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = specialist
+				AMOUNT = local_pop_amount
+			}
 		}
 	}
 }
 
+
 domesticator_nemma = {
 	category = specialist
-	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_autochthon_monument
-	clothes_texture_index = 3
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_autochthon_monument
+		}
+	}
+	#clothes_texture_index = 3
 
 	resources = {
 		category = planet_domesticators
@@ -553,18 +635,30 @@ domesticator_nemma = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
-		modifier = {
-			factor = 1.5
-			has_job = domesticator_nemma
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = specialist
+				AMOUNT = local_pop_amount
+			}
 		}
 	}
 }
 
 domesticator_underground = {
 	category = specialist
-	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_holo_theatres
-	clothes_texture_index = 3
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_holo_theatres
+		}
+	}
+	#clothes_texture_index = 3
 	#icon = domesticator_sentinel
 
 	possible_pre_triggers = {
@@ -589,6 +683,7 @@ domesticator_underground = {
 			society_research = 2
 			engineering_research = 3
 			volatile_motes = 1
+			trade = 2
 		}
 		upkeep = {
 			consumer_goods = 1
@@ -599,21 +694,12 @@ domesticator_underground = {
 		potential = {
 			always = yes
 		}
-		trade_value_add = 2
-		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_amenities_add = 3
+		planet_amenities_add = 300
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.5
@@ -629,18 +715,31 @@ domesticator_underground = {
 				has_ethic = ethic_fanatic_xenophile
 			}
 		}
-		modifier = {
-			factor = 1.5
-			has_job = domesticator_underground
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = specialist
+				AMOUNT = local_pop_amount
+			}
 		}
 	}
 }
 
+
 domesticator_titanic = {
 	category = specialist
-	condition_string = SPECIALIST_JOB_TRIGGER
-	building_icon = building_autochthon_monument
-	clothes_texture_index = 3
+	swappable_data = {
+		default = {
+			condition_string = SPECIALIST_JOB_TRIGGER
+			building_icon = building_autochthon_monument
+		}
+	}
+	#clothes_texture_index = 3
 
 	resources = {
 		category = planet_domesticators
@@ -657,7 +756,7 @@ domesticator_titanic = {
 		potential = {
 			always = yes
 		}
-		planet_amenities_add = 3
+		planet_amenities_add = 300
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -685,9 +784,17 @@ domesticator_titanic = {
 			factor = 0.1
 			can_take_servant_job = yes
 		}
-		modifier = {
-			factor = 1.5
-			has_job = domesticator_titanic
+	}
+
+	inline_script = "jobs/automodding_priority_research"
+
+	promotion = {
+		time = @standard_promotion_time
+		effect = {
+			pop_amount_change_category = {
+				CATEGORY = specialist
+				AMOUNT = local_pop_amount
+			}
 		}
 	}
 }

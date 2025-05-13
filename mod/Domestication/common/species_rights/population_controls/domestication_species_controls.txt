@@ -1,10 +1,10 @@
 population_control_yes = {
 	can_reproduce = no
-	pop_modifier = {
+	pop_group_modifier = {
 		pop_happiness = -0.1
 	}
 
-	triggered_pop_modifier = {
+	triggered_pop_group_modifier = {
 		potential = {
 			has_haustorics = yes
 		}
@@ -33,6 +33,14 @@ population_control_yes = {
 			custom_tooltip = {
 				fail_text = same_species_disallowed
 				NOT = { is_same_species = from }
+			}
+			custom_tooltip = {
+				fail_text = is_broken_shackles_origin
+				NOT = {
+					from = {
+						has_origin = origin_broken_shackles
+					}
+				}
 			}
 			custom_tooltip = {
 				fail_text = empire_xenophile
@@ -84,8 +92,9 @@ population_control_no = {
 			OR = {
 				from = {
 					OR = {
-						NOT = { has_authority = auth_hive_mind }
+						is_hive_empire = no
 						has_origin = origin_necrophage
+						has_civic = civic_hive_bodysnatcher
 					}
 				}
 				has_trait = trait_hive_mind

@@ -19,7 +19,7 @@ cara_generate_deal3 = {
 			1 = {
 				modifier = {
 					factor = 0
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 					NOT = { has_civic = civic_machine_servitor }
 				}
 				set_timed_country_flag = { flag = fleet3deal1 days = @fleet3dealdecay }
@@ -28,7 +28,7 @@ cara_generate_deal3 = {
 				modifier = {
 					factor = 0
 					OR = {
-						has_authority = auth_hive_mind
+						is_hive_empire = yes
 						is_domesticator_or_full_protectorate = yes
 					}
 				}
@@ -37,7 +37,7 @@ cara_generate_deal3 = {
 			1 = {
 				modifier = {
 					factor = 0
-					has_authority = auth_hive_mind
+					is_hive_empire = yes
 				}
 				set_timed_country_flag = { flag = fleet3deal3 days = @fleet3dealdecay }
 			}
@@ -46,6 +46,7 @@ cara_generate_deal3 = {
 				modifier = {
 					add = 3
 					has_ethic = ethic_gestalt_consciousness
+					is_wilderness_empire = no
 				}
 				modifier = {
 					factor = 0
@@ -54,6 +55,7 @@ cara_generate_deal3 = {
 							has_building = building_waste_reprocessing_center
 						}
 						has_country_flag = bought_waste_reprocessing_center
+						is_wilderness_empire = yes
 					}
 				}
 				set_timed_country_flag = { flag = fleet3deal5 days = @fleet3dealdecay }
@@ -92,9 +94,9 @@ cara_generate_deal3 = {
 			2 = {
 				modifier = {
 					factor = 0
-					NOR = {
-						has_authority = auth_machine_intelligence
-						is_synthetic_empire = yes
+					OR = {
+						is_machine_empire = no
+						is_synthetic_empire = no
 					}
 				}
 				modifier = { #Lower chance if you've already gotten this deal once and still have that planet
@@ -132,16 +134,16 @@ cara_generate_deal3 = {
 				}
 				set_timed_country_flag = { flag = fleet3deal9 days = @fleet3dealdecay }
 			}
-      2 = {
+			2 = {
 				modifier = {
 					factor = 0
-          NAND = {
-            is_domesticator_or_full_protectorate = yes
-            any_owned_leader = {
-              leader_class = commander
-              can_obtain_new_floret = yes
-            }
-          }
+					NAND = {
+						is_domesticator_or_full_protectorate = yes
+						any_owned_leader = {
+							leader_class = official
+							can_obtain_new_floret = yes
+						}
+					}
 				}
 				set_timed_country_flag = { flag = fleet3deal_domestication1 days = @fleet3dealdecay }
 			}
@@ -229,12 +231,12 @@ cara_generate_deal3 = {
 		if = {
 			limit = {
 				any_owned_planet = {
-					free_housing > 3
+					free_housing > 300
 				}
 			}
 			random_owned_planet = {
 				limit = {
-					free_housing > 3
+					free_housing > 300
 				}
 				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
@@ -243,12 +245,12 @@ cara_generate_deal3 = {
 		else_if = {
 			limit = {
 				any_owned_planet = {
-					free_housing > 2
+					free_housing > 200
 				}
 			}
 			random_owned_planet = {
 				limit = {
-					free_housing > 2
+					free_housing > 200
 				}
 				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
@@ -257,12 +259,12 @@ cara_generate_deal3 = {
 		else_if = {
 			limit = {
 				any_owned_planet = {
-					free_housing > 1
+					free_housing > 100
 				}
 			}
 			random_owned_planet = {
 				limit = {
-					free_housing > 1
+					free_housing > 100
 				}
 				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
@@ -442,7 +444,7 @@ cara_generate_deal3 = {
 						factor = 100
 						num_assigned_jobs = {
 							job = technician_drone
-							value > 5
+							value > 500
 						}
 					}
 				}
@@ -526,7 +528,7 @@ cara_execute_deal3 = {
 			limit = { has_country_flag = fleet3deal5 }
 			while = {
 				count = 3
-				random_owned_pop = {
+				random_owned_pop_group = {
 					limit = {
 						OR = {
 							is_unemployed = yes
@@ -544,7 +546,7 @@ cara_execute_deal3 = {
 							is_unemployed = yes
 						}
 					}
-					kill_pop = yes
+					kill_single_pop = yes
 				}
 			}
 			if = {
@@ -659,7 +661,7 @@ cara_execute_deal3 = {
 			limit = { has_country_flag = fleet3deal2product1 }
 			custom_tooltip = fleet3deal2product1_tooltip
 			if = { #Biological
-				limit = { NOT = { has_authority = auth_machine_intelligence } }
+				limit = { is_machine_empire = no }
 				create_leader = {
 					class = scientist
 					species = event_target:racket_species
@@ -678,7 +680,7 @@ cara_execute_deal3 = {
 				}
 			}
 			else_if = { #Machine
-				limit = { has_authority = auth_machine_intelligence }
+				limit = { is_machine_empire = yes }
 				create_leader = {
 					class = scientist
 					species = event_target:racket_robot_species
@@ -699,12 +701,12 @@ cara_execute_deal3 = {
 			remove_country_flag = fleet3deal2product1
 			remove_country_flag = fleet3deal2
 		}
-		# Deal 2 Product 2: Governor
+		# Deal 2 Product 2: Official
 		else_if = {
 			limit = { has_country_flag = fleet3deal2product2 }
 			custom_tooltip = fleet3deal2product2_tooltip
 			if = { #Biological
-				limit = { NOT = { has_authority = auth_machine_intelligence } }
+				limit = { is_machine_empire = no }
 				create_leader = {
 					class = official
 					species = event_target:racket_species
@@ -716,7 +718,7 @@ cara_execute_deal3 = {
 				}
 			}
 			else_if = { #Machine
-				limit = { has_authority = auth_machine_intelligence }
+				limit = { is_machine_empire = yes }
 				create_leader = {
 					class = official
 					species = event_target:racket_robot_species
@@ -730,7 +732,7 @@ cara_execute_deal3 = {
 			remove_country_flag = fleet3deal2product2
 			remove_country_flag = fleet3deal2
 		}
-		# Deal Domestication 1 Product: Governor
+		# Deal Domestication 1 Product: Official
 		else_if = {
 			limit = { has_country_flag = fleet3deal_domestication1product1 }
 			custom_tooltip = fleet3deal_domestication1product1_tooltip
@@ -742,12 +744,12 @@ cara_execute_deal3 = {
 					skill = 3
 				}
 				last_created_leader = {
-          save_event_target_as = new_floret
-          add_trait = leader_trait_racket_floret
-          add_trait = leader_trait_floret_immortal
+					save_event_target_as = new_floret
+					add_trait = leader_trait_racket_floret
+					add_trait = leader_trait_floret_immortal
 				}
 			}
-      country_event = { id = domestication_leader.22 }
+			country_event = { id = domestication_leader.22 }
 			remove_country_flag = fleet3deal_domestication1product1
 			remove_country_flag = fleet3deal_domestication1
 		}
@@ -755,7 +757,7 @@ cara_execute_deal3 = {
 		else_if = {
 			limit = { has_country_flag = fleet3deal3 }
 			if = {
-				limit = { owner = { has_authority = auth_machine_intelligence } }
+				limit = { owner = { is_machine_empire = yes } }
 				custom_tooltip = "fleet3deal3product_machi_tooltip"
 			}
 			else = {
@@ -763,20 +765,16 @@ cara_execute_deal3 = {
 			}
 			event_target:fleet3deal3planet = {
 				if = {
-					limit = { owner = { has_authority = auth_machine_intelligence } }
-					while = {
-						count = 3
-						create_pop = {
-							species = event_target:racket_robot_species
-						}
+					limit = { owner = { is_machine_empire = yes } }
+					create_pop_group = {
+						size = 300
+						species = event_target:racket_robot_species
 					}
 				}
 				else = {
-					while = {
-						count = 3
-						create_pop = {
-							species = event_target:racket_species
-						}
+					create_pop_group = {
+						size = 300
+						species = event_target:racket_species
 					}
 				}
 				remove_planet_flag = fleet3deal3planet

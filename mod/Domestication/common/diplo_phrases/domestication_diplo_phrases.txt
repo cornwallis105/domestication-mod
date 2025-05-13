@@ -1563,6 +1563,7 @@ action_demand_protectorate = {
 action_open_technological_enlightenment = {
 	select = {
 		01_SELECT_OPEN_PRE_FTL_DOMESTICATION = {
+			weight = { weight = 100000 }
 			trigger = {
 				FROM = { has_origin = origin_domesticators }
 				NOT = { has_ai_personality = hive_mind }
@@ -1581,6 +1582,7 @@ action_open_technological_enlightenment = {
 	}
 	propose = {
 		01_PROPOSE_OPEN_PRE_FTL_DOMESTICATION = {
+			weight = { weight = 100000 }
 			trigger = {
 				FROM = { has_origin = origin_domesticators }
 				NOT = { has_ai_personality = hive_mind }
@@ -1599,6 +1601,7 @@ action_open_technological_enlightenment = {
 	}
 	accept = {
 		01_ACCEPT_OPEN_PRE_FTL_DOMESTICATION = {
+			weight = { weight = 100000 }
 			trigger = {
 				FROM = { has_origin = origin_domesticators }
 				NOT = { has_ai_personality = hive_mind }

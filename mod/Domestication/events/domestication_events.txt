@@ -17,8 +17,8 @@ country_event = {
 	trigger = {
 		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_implant
-		any_owned_pop = {
-			has_job = floret
+		any_owned_pop_group = {
+			is_pop_category = floret_strata
 			is_robot_pop = no
 			NOT = { has_trait = trait_haustoric_implant }
 		}
@@ -27,53 +27,147 @@ country_event = {
 	immediate = {
 		every_owned_planet = {
 			limit = {
-				any_owned_pop = {
-					has_job = floret
+				any_owned_pop_group = {
+					is_pop_category = floret_strata
 					is_robot_pop = no
 					NOT = {
-						pop_has_trait = trait_haustoric_implant
+						pop_group_has_trait = trait_haustoric_implant
 					}
 				}
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
-					has_job = floret
+					is_pop_category = floret_strata
 					is_robot_pop = no
 					has_haustorics = no
 				}
-				modify_species = {
-					species = this
-					add_trait = trait_haustoric_implant
-					add_traits_at_start_of_list = yes
+				# Stealing this code from assimilation.200
+				# Save the pop group as an event target
+				save_event_target_as = old_pop_group
+				# Save their species as an event target
+				species = {
+					save_event_target_as = old_species
+				}
+				# If a modified species hasn't been created, create one
+				# and save them as an event target
+				if = {
+					limit = {
+						NOT = {
+							any_galaxy_species = {
+								has_species_flag = floret_species_of_species@event_target:old_species
+								has_species_flag = floret_species_of_empire@root.owner
+							}
+						}
+					}
+					create_species = {
+						is_mod = yes
+						name = this
+						plural = this
+						class = this
+						portrait = this
+						traits = this
+						can_be_modified = this
+						homeworld = this
+						namelist = this
+						gender = this
+						effect = {
+							modify_species = {
+								species = this
+								add_trait = trait_haustoric_implant
+								add_traits_at_start_of_list = yes
+								change_scoped_species = no
 
-					effect = {
-						set_citizenship_type = {
-							country = root
-							type = citizenship_limited
-							cooldown = no
+								effect = {
+									set_species_flag = floret_species_of_species@event_target:old_species
+									set_species_flag = floret_species_of_empire@root
+									save_event_target_as = target_species
+									set_citizenship_type = {
+										country = root
+										type = citizenship_limited
+										cooldown = no
+									}
+									set_living_standard = {
+										country = root
+										type = living_standard_chemical_bliss
+										cooldown = no
+									}
+									set_military_service_type = {
+										country = root
+										type = military_service_none
+										cooldown = no
+									}
+									set_population_controls = {
+										country = root
+										type = population_control_yes
+										cooldown = no
+									}
+									set_colonization_controls = {
+										country = root
+										type = colonization_control_yes
+										cooldown = no
 						}
-						set_living_standard = {
-							country = root
-							type = living_standard_chemical_bliss
-							cooldown = no
-						}
-						set_military_service_type = {
-							country = root
-							type = military_service_none
-							cooldown = no
-						}
-						set_population_controls = {
-							country = root
-							type = population_control_yes
-							cooldown = no
-						}
-						set_colonization_controls = {
-							country = root
-							type = colonization_control_yes
-							cooldown = no
+								}
+							}
 						}
 					}
 				}
+				# If a modified species does exist, save them as the event target
+				else = {
+					random_galaxy_species = {
+						limit = {
+							has_species_flag = floret_species_of_species@event_target:old_species
+							has_species_flag = floret_species_of_empire@root
+						}
+						save_event_target_as = target_species
+					}
+				}
+				planet = {
+					create_pop_group = {
+						pop_group = event_target:old_pop_group
+						species = event_target:target_species
+						size = 0
+						effect = {
+							transfer_pop_amount = {
+								source = event_target:old_pop_group
+								target = this
+								amount = 100
+							}
+						}
+					}
+				}
+#				modify_species = {
+#					species = this
+#					add_trait = trait_haustoric_implant
+#					add_traits_at_start_of_list = yes
+#
+#					effect = {
+#						set_citizenship_type = {
+#							country = root
+#							type = citizenship_limited
+#							cooldown = no
+#						}
+#						set_living_standard = {
+#							country = root
+#							type = living_standard_chemical_bliss
+#							cooldown = no
+#						}
+#						set_military_service_type = {
+#							country = root
+#							type = military_service_none
+#							cooldown = no
+#						}
+#						set_population_controls = {
+#							country = root
+#							type = population_control_yes
+#							cooldown = no
+#						}
+#						set_colonization_controls = {
+#							country = root
+#							type = colonization_control_yes
+#							cooldown = no
+#						}
+#					}
+#				}
 			}
 		}
 	}
@@ -289,11 +383,11 @@ planet_event = {
 
 	trigger = {
 		# if less than 2 affini pops on planet
-		count_owned_pop = {
+		count_owned_pop_amount = {
 			limit = {
 				is_same_species = from.owner_species
 			}
-			count < 2
+			count < 200
 		}
 	}
 
@@ -314,57 +408,49 @@ planet_event = {
 		from = {
 			random_owned_planet = {
 				limit = {
-					count_owned_pop = {
+					count_owned_pop_amount = {
 						limit = {
 							is_same_species = event_target:overlord_species
 							can_live_on_planet = root
 							OR = {
 								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
+								is_pop_category = civilian
+								is_pop_category = specialist
 							}
 
 						}
-						count > 2
+						count > 250
 					}
 				}
 				save_event_target_as = overlord_planet
-				while = {
-					count = 2
-					random_owned_pop = {
-						limit = {
-							is_same_species = event_target:overlord_species
-							can_live_on_planet = root
-							OR = {
-								is_pop_category = worker
-								AND = {
-									is_pop_category = specialist
-									NOT = { has_job = colonist }
-								}
-							}
+				weighted_random_owned_pop_group = {
+					limit = {
+						is_same_species = event_target:overlord_species
+						can_live_on_planet = root
+						OR = {
+							is_pop_category = worker
+							is_pop_category = civilian
+							is_pop_category = specialist
 						}
-						resettle_pop = {
-							pop = this
-							planet = root
-						}
+					}
+					resettle_pop_group = {
+						POP_GROUP = this
+						PLANET = root
+						AMOUNT = 200
 					}
 				}
 
 				root = {
-					while = {
-						count = 2
-						random_owned_pop = {
-							limit = {
-								NOT = { is_same_species = event_target:overlord_species }
-								is_sapient = yes
-								can_live_on_planet = event_target:overlord_planet
-							}
-							resettle_pop = {
-								pop = this
-								planet = event_target:overlord_planet
-							}
+					weighted_random_owned_pop_group = {
+						limit = {
+							NOT = { is_same_species = event_target:overlord_species }
+							is_sapient = yes
+							can_live_on_planet = event_target:overlord_planet
+						}
+						resettle_pop_group = {
+							POP_GROUP = this
+							PLANET = event_target:overlord_planet
+							AMOUNT = 200
 						}
 					}
 				}
@@ -428,14 +514,14 @@ country_event = {
 						NOT = { is_country_type = fallen_empire }
 						any_owned_planet = {
 							AND = {
-								num_pops > 10
+								pop_amount > 1000
 								distance = {
 									source = prevprevprev
 									use_bypasses = no
 									min_jumps = 1
 									max_jumps = 4
 								}
-								any_owned_pop = {
+								any_owned_pop_group = {
 								 can_hear_biorhythm = yes
 								}
 							}
@@ -501,8 +587,8 @@ country_event = {
 				NOT = { is_country_type = fallen_empire }
 				any_owned_planet = {
 					AND = {
-						num_pops > 10
-						any_owned_pop = {
+						pop_amount > 1000
+						any_owned_pop_group = {
 						 can_hear_biorhythm = yes
 						}
 						root = {
@@ -520,12 +606,12 @@ country_event = {
 				}
 			}
 			save_event_target_as = br_home_empire
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
 					can_hear_biorhythm = yes
 					planet = {
 						AND = {
-							num_pops > 10
+							pop_amount > 1000
 							root = {
 								any_owned_starbase = {
 									has_starbase_building = biorhythm_transmitter
@@ -544,18 +630,19 @@ country_event = {
 					base = 1
 					modifier = {
 						add = 1
-						has_job_category = worker
+						is_pop_category = worker
 					}
 					modifier = {
 						add = 2
 						OR = {
 							is_pop_category = slave
+							is_pop_category = civilian
 							is_unemployed = yes
 						}
 					}
 					modifier = {
 						factor = 0.25
-						has_job_category = ruler
+						is_pop_category = ruler
 					}
 					modifier = {
 						factor = 1.5
@@ -592,7 +679,7 @@ country_event = {
 				}
 				save_event_target_as = br_resettle_pop
 				planet = { save_event_target_as = br_resettle_homeworld }
-				set_timed_pop_flag = {
+				set_timed_pop_group_flag = {
 					flag = br_resettled
 					years = 2
 				}
@@ -634,9 +721,10 @@ country_event = {
 							}
 						}
 						save_event_target_as = br_resettle_newworld
-						resettle_pop = {
-							pop = event_target:br_resettle_pop
-							planet = this
+						resettle_pop_group = {
+							POP_GROUP = event_target:br_resettle_pop
+							PLANET = this
+							AMOUNT = 100
 						}
 					}
 				}
@@ -703,9 +791,9 @@ country_event = {
 		is_domesticator_or_protectorate = yes
 		has_technology = tech_haustoric_module
 		has_policy_flag = ai_full_rights
-		any_owned_pop = {
-			is_robot_pop = yes
-			has_job = floret
+		any_owned_pop_group = {
+			is_robot_pop_group = yes
+			is_pop_category = floret_strata
 			NOT = { has_trait = trait_robot_haustoric_module }
 		}
 	}
@@ -713,20 +801,20 @@ country_event = {
 	immediate = {
 		every_owned_planet = {
 			limit = {
-				any_owned_pop = {
-					is_robot_pop = yes
-					has_job = floret
+				any_owned_pop_group = {
+					is_robot_pop_group = yes
+					is_pop_category = floret_strata
 					NOT = {
-						pop_has_trait = trait_robot_haustoric_module
+						has_trait = trait_robot_haustoric_module
 					}
 				}
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				limit = {
-					is_robot_pop = yes
-					has_job = floret
+					is_robot_pop_group = yes
+					is_pop_category = floret_strata
 					NOT = {
-						pop_has_trait = trait_robot_haustoric_module
+						has_trait = trait_robot_haustoric_module
 					}
 				}
 				modify_species = {
@@ -1070,7 +1158,7 @@ country_event = {
 	}
 
 	immediate = {
-		every_owned_pop = {
+		every_owned_pop_group = {
 			limit = {
 				is_same_species = root.owner_species
 				has_trait = trait_haustoric_implant
@@ -1113,11 +1201,11 @@ country_event = {
 
 		random_owned_planet = {
 			limit = {
-				count_owned_pop = {
+				count_owned_pop_amount = {
 					limit = {
 						is_same_species = event_target:overlord_species
 					}
-					count < 2
+					count < 150
 				}
 			}
 			planet_event = {
@@ -1654,10 +1742,10 @@ country_event = {
 
 	trigger = {
 		is_specialist_subject_type = { TYPE = domprot }
-		any_owned_pop = {
+		any_owned_pop_group = {
 			OR = {
-				has_job = overlord_floret
-				has_job = overlord_floret_drone
+				is_pop_category = floret_strata
+				is_pop_category = floret_drone_strata
 			}
 		}
 	}
@@ -1726,10 +1814,10 @@ country_event = {
 
 		random_owned_planet = {
 			limit = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					OR = {
-						has_job = overlord_floret
-						has_job = overlord_floret_drone
+						is_pop_category = floret_strata
+						is_pop_category = floret_drone_strata
 					}
 				}
 			}
@@ -1748,10 +1836,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		any_owned_pop = {
+		any_owned_pop_group = {
 			OR = {
-				has_job = overlord_floret
-				has_job = overlord_floret_drone
+				is_pop_category = floret_strata
+				is_pop_category = floret_drone_strata
 			}
 		}
 	}
@@ -1774,95 +1862,99 @@ planet_event = {
 				save_event_target_as = overlord_planet
 
 				root = {
-					random_owned_pop = {
+					random_owned_pop_group = {
 						limit = {
 							NOT = { is_same_species = event_target:overlord_species }
 							OR = {
-								has_job = overlord_floret
-								has_job = overlord_floret_drone
+								is_pop_category = floret_strata
+								is_pop_category = floret_drone_strata
 							}
 						}
 
-						resettle_pop = {
-							pop = this
-							planet = event_target:overlord_planet
+						resettle_pop_group = {
+							POP_GROUP = this
+							PLANET = event_target:overlord_planet
+							AMOUNT = 100
 						}
-						if = {
-							limit = {
-								pop_has_trait = trait_hive_mind
-							}
-							modify_species = {
-								species = this
-								remove_trait = trait_hive_mind
-								add_trait = trait_haustoric_hive_node
-								add_traits_at_start_of_list = yes
+					}
+				}
+				
+				# replace hive mind trait with haustoric hive node
+				every_owned_pop_group = {
+					limit = {
+						has_trait = trait_hive_mind
+					}
+					modify_species = {
+						species = this
+						remove_trait = trait_hive_mind
+						add_trait = trait_haustoric_hive_node
+						add_traits_at_start_of_list = yes
 
-								effect = {
-									set_citizenship_type = {
-										country = root
-										type = citizenship_limited
-										cooldown = no
-									}
-									set_living_standard = {
-										country = root
-										type = living_standard_chemical_bliss
-										cooldown = no
-									}
-									set_military_service_type = {
-										country = root
-										type = military_service_none
-										cooldown = no
-									}
-									set_population_controls = {
-										country = root
-										type = population_control_yes
-										cooldown = no
-									}
-									set_colonization_controls = {
-										country = root
-										type = colonization_control_yes
-										cooldown = no
-									}
-								}
+						effect = {
+							set_citizenship_type = {
+								country = root
+								type = citizenship_limited
+								cooldown = no
+							}
+							set_living_standard = {
+								country = root
+								type = living_standard_chemical_bliss
+								cooldown = no
+							}
+							set_military_service_type = {
+								country = root
+								type = military_service_none
+								cooldown = no
+							}
+							set_population_controls = {
+								country = root
+								type = population_control_yes
+								cooldown = no
+							}
+							set_colonization_controls = {
+								country = root
+								type = colonization_control_yes
+								cooldown = no
 							}
 						}
-						else_if = {
-							limit = {
-								pop_has_trait = trait_machine_unit
-							}
-							modify_species = {
-								species = this
-								remove_trait = trait_machine_unit
-								add_trait = trait_haustoric_terminal_node
-								add_traits_at_start_of_list = yes
+					}
+				}
+				# replace machine unit trait with haustoric terminal node
+				every_owned_pop_group = {
+					limit = {
+						has_trait = trait_machine_unit
+					}
+					modify_species = {
+						species = this
+						remove_trait = trait_machine_unit
+						add_trait = trait_haustoric_terminal_node
+						add_traits_at_start_of_list = yes
 
-								effect = {
-									set_citizenship_type = {
-										country = root
-										type = citizenship_limited
-										cooldown = no
-									}
-									set_living_standard = {
-										country = root
-										type = living_standard_chemical_bliss
-										cooldown = no
-									}
-									set_military_service_type = {
-										country = root
-										type = military_service_none
-										cooldown = no
-									}
-									set_population_controls = {
-										country = root
-										type = population_control_yes
-										cooldown = no
-									}
-									set_colonization_controls = {
-										country = root
-										type = colonization_control_yes
-										cooldown = no
-									}
-								}
+						effect = {
+							set_citizenship_type = {
+								country = root
+								type = citizenship_limited
+								cooldown = no
+							}
+							set_living_standard = {
+								country = root
+								type = living_standard_chemical_bliss
+								cooldown = no
+							}
+							set_military_service_type = {
+								country = root
+								type = military_service_none
+								cooldown = no
+							}
+							set_population_controls = {
+								country = root
+								type = population_control_yes
+								cooldown = no
+							}
+							set_colonization_controls = {
+								country = root
+								type = colonization_control_yes
+								cooldown = no
 							}
 						}
 					}
@@ -2152,11 +2244,9 @@ planet_event = {
 			traits = { trait = random_presapient_trait }
 			effect = { save_event_target_as = latest_presapient }
 		}
-		while = {
-			count = 5
-			create_pop = {
-				species = event_target:latest_presapient
-			}
+		create_pop_group = {
+			species = event_target:latest_presapient
+			size = 500
 		}
 	}
 }
@@ -2369,9 +2459,10 @@ country_event = {
 				}
 			}
 			save_event_target_as = resettle_newworld
-			create_pop = {
+			create_pop_group = {
 				species = event_target:rescued_species
 				ethos = root.From
+				size = 100
 			}
 		}
 	}

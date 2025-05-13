@@ -176,6 +176,8 @@
  leader_trait_militarist_1_floret_desc:0 "This floret is the last survivor of a noble house. Freed from his self-imposed burdens, he now works side-by-side with his owner to bring the joys of domestication to the galaxy."
  leader_trait_xenophile_1_floret:0 "Floret - The Fugitive Pirate"
  leader_trait_xenophile_1_floret_desc:0 "This floret was once a wanted pirate. Now, he helps his owner hunt down naughty sophonts and welcomes them aboard with love and cuddles."
+ leader_trait_oracle_floret:0 "Floret - Oracle"
+ leader_trait_oracle_floret_desc:0 "This floret is ancient surviellance AI discovered by our archaeologists. It has found new purpose in watching over sophonts and making sure that all of their needs are being met."
 
  # Floret leader type - not currently used
  floretleader:0 "Floret"
@@ -474,3 +476,13 @@
 
  affini_retirement: "Retired Bloom"
  affini_retirement_desc: "A rebloomed leader has decided to retire, leaving room for blooms to step in."
+
+ pop_cat_floret_strata: "$pop_cat_worker$"
+ pop_cat_floret_strata_plural: "$pop_cat_worker_plural$"
+ pop_cat_floret_strata_desc: "$pop_cat_worker_desc$"
+ pop_cat_floret_drone_strata: "$pop_cat_simple_drone$"
+ pop_cat_floret_drone_strata_plural: "$pop_cat_simple_drone_plural$"
+ pop_cat_floret_drone_strata_desc: "$pop_cat_simple_drone_desc$"
+
+ mod_pop_floret_bonus_workforce_mult: "Job Efficiency for [floret.GetNamePlural]"
+ mod_pop_clerk_bonus_workforce_mult: "Job Efficiency for [clerk.GetNamePlural]"

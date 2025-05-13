@@ -12,19 +12,16 @@ leader_trait_beeple_floret = {
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_beeple.dds"
 	planet_modifier = {
 		planet_jobs_food_produces_mult = 0.05
-		pop_growth_speed = 0.025
-		planet_pop_assembly_organic_mult = 0.025
+		logistic_growth_mult = 0.025
 		job_floret_add = 1
 	}
 	sector_modifier = {
 		planet_jobs_food_produces_mult = 0.025
-		pop_growth_speed = 0.015
-		planet_pop_assembly_organic_mult = 0.015
+		logistic_growth_mult = 0.015
 	}
 	councilor_modifier = {
 		planet_jobs_food_produces_mult = 0.025
-		pop_growth_speed = 0.01
-		planet_pop_assembly_organic_mult = 0.01
+		logistic_growth_mult = 0.01
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -59,18 +56,18 @@ leader_trait_liaison_floret = {
 		pop_happiness = 0.1
 		pop_citizen_happiness = -0.1
 		planet_amenities_add = 5
-		job_floret_add = 1
-		job_bureaucrat_add = 1
+		job_floret_add = 75
+		job_bureaucrat_add = 75
 	}
 	sector_modifier = {
 		pop_happiness = 0.05
 		pop_citizen_happiness = -0.05
-		planet_amenities_add = 3
+		planet_amenities_add = 300
 	}
 	councilor_modifier = {
 		pop_happiness = 0.025
 		pop_citizen_happiness = -0.025
-		planet_amenities_add = 2
+		planet_amenities_add = 200
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -99,16 +96,16 @@ leader_trait_economist_floret = {
 	randomized = no
 	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_economist.dds"
 	planet_modifier = {
-		trade_value_mult = 0.05
+		planet_jobs_trade_produces_mult = 0.05
 		planet_pops_consumer_goods_upkeep_mult = -0.05
-		job_trader_add = 1
+		job_trader_add = 100
 	}
 	sector_modifier = {
-		trade_value_mult = 0.025
+		planet_jobs_trade_produces_mult = 0.025
 		planet_pops_consumer_goods_upkeep_mult = -0.025
 	}
 	councilor_modifier = {
-		trade_value_mult = 0.025
+		planet_jobs_trade_produces_mult = 0.025
 		planet_pops_consumer_goods_upkeep_mult = -0.025
 	}
 	self_modifier = {
@@ -140,7 +137,7 @@ leader_trait_dathnak_floret = {
 	planet_modifier = {
 		planet_jobs_society_research_produces_mult = 0.1
 		planet_jobs_exotic_gases_produces_mult = 0.5
-		job_gas_refiner_add = 1
+		job_gas_refiner_add = 100
 	}
 	sector_modifier = {
 		planet_jobs_society_research_produces_mult = 0.05
@@ -199,7 +196,7 @@ leader_trait_racket_floret = {
 		planet_stability_add = 5
 		planet_jobs_unity_produces_mult = 0.05
 		planet_buildings_upkeep_mult = -0.05
-		job_scrap_miner_add = 1
+		job_miner_add = 100
 	}
 	councilor_modifier = {
 		planet_stability_add = 3
@@ -247,7 +244,7 @@ leader_trait_cryopod_floret = {
 		planet_jobs_unity_produces_mult = 0.1
 		planet_army_build_speed_mult = -0.2
 		pop_ethic_pacifist_attraction_mult = 0.25
-		job_healthcare_add = 1
+		job_healthcare_add = 100
 	}
 	sector_modifier = {
 		planet_stability_add = 5
@@ -285,10 +282,10 @@ leader_trait_blorgfriend_floret = {
 	}
 	initial = no
 	randomized = no
-	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_cutie.dds"
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_blorgfriend.dds"
 	planet_modifier = {
 		planet_jobs_minerals_produces_mult = 0.15
-		job_miner_add = 2
+		job_miner_add = 200
 	}
 	sector_modifier = {
 		planet_jobs_minerals_produces_mult = 0.075
@@ -299,6 +296,48 @@ leader_trait_blorgfriend_floret = {
 	self_modifier = {
 		species_leader_exp_gain = -0.1
 		leaders_upkeep_mult = 0.2
+	}
+	leader_class = { official }
+	opposites = {  }
+
+	leader_potential_add = {
+		from = {
+			is_domesticator_or_protectorate = yes
+		}
+	}
+}
+
+leader_trait_oracle_floret = {
+	inline_script = {
+		script = trait/icon
+		CLASS = leader
+		#ICON = "GFX_leader_trait_floret_economist"
+		RARITY = floret
+		COUNCIL = no
+		TIER = none
+	}
+	initial = no
+	randomized = no
+	icon = "gfx/interface/icons/traits/leader_trait_icons/leader_trait_oracle_floret.dds"
+	planet_modifier = {
+		planet_stability_add = 5
+		planet_crime_add = -10
+		planet_pops_upkeep_mult = -0.05
+		job_floret_add = 100
+	}
+	sector_modifier = {
+		planet_stability_add = 3
+		planet_crime_add = -5
+		planet_pops_upkeep_mult = -0.025
+	}
+	councilor_modifier = {
+		planet_stability_add = 2
+		planet_crime_add = -4
+		planet_pops_upkeep_mult = -0.01
+	}
+	self_modifier = {
+		species_leader_exp_gain = -0.05
+		leaders_upkeep_mult = 0.1
 	}
 	leader_class = { official }
 	opposites = {  }

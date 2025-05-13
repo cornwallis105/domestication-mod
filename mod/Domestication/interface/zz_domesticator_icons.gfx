@@ -147,6 +147,12 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_ap_benefic_acquisition"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_benefic_acquisition.dds"
+		alwaystransparent = yes
+	}
+
+	spriteType = {
 		name = "GFX_wg_domestication"
 		texturefile = "gfx/interface/icons/diplomacy/diplomacy_isvassal.dds"
 	}

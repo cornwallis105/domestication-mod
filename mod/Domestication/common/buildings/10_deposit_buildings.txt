@@ -5,86 +5,29 @@
 building_mote_harvesters = {
 	base_buildtime = @b1_time
 	icon = building_mote_harvesting_traps
-
-	is_capped_by_modifier = yes
+	base_cap_amount = 1
 
 	category = resource
 
+	building_sets = {
+		generator
+	}
+
 	potential = {
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = crucible_colony
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_mote_harvester_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_mote_harvesting_drone_add = 1
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		upkeep = {
-			energy = 1
+		owner = { is_wilderness_empire = no }
+		OR = {
+			has_deposit = d_dust_caverns
+			has_deposit = d_dust_desert
+			has_deposit = d_industrial_sector
 		}
 	}
 
 	prerequisites = {
 		"tech_mine_volatile_motes"
 	}
-}
 
-building_gas_extractors = {
-	base_buildtime = @b1_time
-	icon = building_gas_extractors
-
-	is_capped_by_modifier = yes
-
-	category = resource
-
-	potential = {
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = crucible_colony
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_gas_extractor_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_gas_extraction_drone_add = 1
-		}
+	planet_modifier = {
+		planet_technician_volatile_motes_produces_add = 0.5
 	}
 
 	resources = {
@@ -94,46 +37,76 @@ building_gas_extractors = {
 		}
 		upkeep = {
 			energy = 1
+		}
+	}
+}
+
+building_gas_extractors = {
+	base_buildtime = @b1_time
+	icon = building_gas_extractors
+	base_cap_amount = 1
+
+	category = resource
+
+	building_sets = {
+		farming
+	}
+
+	potential = {
+		owner = { is_wilderness_empire = no }
+		OR = {
+			has_deposit = d_bubbling_swamp
+			has_deposit = d_fuming_bog
+			has_deposit = d_industrial_sector
+			has_deposit = d_exotic_mountain
 		}
 	}
 
 	prerequisites = {
 		"tech_mine_exotic_gases"
 	}
+
+	planet_modifier = {
+		planet_farmers_exotic_gases_produces_add = 0.5
+	}
+
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 200
+		}
+		upkeep = {
+			energy = 1
+		}
+	}
 }
 
 building_crystal_mines = {
 	base_buildtime = @b1_time
-
-	is_capped_by_modifier = yes
+	base_cap_amount = 1
 
 	category = resource
 
+	building_sets = {
+		mining
+	}
+
 	potential = {
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = crucible_colony
+		owner = { is_wilderness_empire = no }
+		OR = {
+			has_deposit = d_crystalline_caverns
+			has_deposit = d_crystal_forest
+			has_deposit = d_crystal_reef
+			has_deposit = d_industrial_sector
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		modifier = {
-			job_crystal_miner_add = 1
-		}
+	prerequisites = {
+		"tech_mine_rare_crystals"
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		modifier = {
-			job_crystal_mining_drone_add = 1
-		}
+	planet_modifier = {
+		planet_miners_rare_crystals_produces_add = 0.5
 	}
 
 	resources = {
@@ -146,29 +119,32 @@ building_crystal_mines = {
 		}
 	}
 
-	prerequisites = {
-		"tech_mine_rare_crystals"
-	}
 }
 
 building_betharian_power_plant = {
 	base_buildtime = @b1_time
-
-	is_capped_by_modifier = yes
+	base_cap_amount = 1
 
 	category = resource
 
+	building_sets = {
+		betharian
+	}
+
 	potential = {
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = crucible_colony
-		}
+		NOT = { has_modifier = resort_colony }
 	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
 			minerals = 200
+		}
+		cost = {
+			trigger = {
+				owner = { is_wilderness_empire = yes }
+			}
+			biomass = @b2_biomass
 		}
 		produces = {
 			energy = 10
@@ -176,8 +152,16 @@ building_betharian_power_plant = {
 	}
 
 	inline_script = {
-		script = jobs/technicians_add
-		AMOUNT = 4
+		script = buildings/on_all_wilderness_buildings_districts
+	}
+
+	planet_modifier = {
+		planet_miners_energy_produces_add = 2
+	}
+
+	inline_script = {
+		script = jobs/miners_add
+		AMOUNT = 400
 	}
 
 	prerequisites = {
@@ -188,25 +172,52 @@ building_betharian_power_plant = {
 building_xeno_zoo = {
 	base_buildtime = @b1_time
 	base_cap_amount = 1
-	category = amenity
+	category = research
+
+	building_sets = {
+		urban
+		research
+		society
+		zoo
+	}
 
 	potential = {
 		exists = owner
 		owner = {
 			is_regular_empire = yes
+			is_guided_sapience_empire = no
 		}
 		planet = {
 			OR = {
-				has_deposit = d_alien_pets_deposit
-				AND = {
-					exists = owner
-					owner = { has_policy_flag = pre_sapients_protect }
-					any_owned_pop = {
-						is_sapient = no
+				has_modifier = resort_colony
+				OR = {
+					has_deposit = d_alien_pets_deposit
+					has_deposit = d_avian_reserve
+					AND = {
+						exists = owner
+						owner = { has_policy_flag = pre_sapients_protect }
+						any_owned_pop_group = {
+							is_sapient = no
+						}
 					}
-				}
-				any_owned_pop = {
-					is_livestock = yes
+					AND = {
+						exists = owner
+						any_owned_pop_group = {
+							has_citizenship_type = {
+								type = citizenship_protected_drone
+								country = owner
+							}
+						}
+					}
+					any_owned_pop_group = {
+						is_livestock = yes
+					}
+					AND = {
+						exists = owner
+						any_owned_pop_group = {
+							has_trait = trait_nascent_stage
+						}
+					}
 				}
 			}
 		}
@@ -217,21 +228,41 @@ building_xeno_zoo = {
 			AND = {
 				exists = owner
 				owner = {
-					is_regular_empire = no
+					OR = {
+						is_regular_empire = no
+						is_guided_sapience_empire = yes
+					}
 				}
 			}
 			planet = {
 				NOR = {
+					has_modifier = resort_colony
 					has_deposit = d_alien_pets_deposit
+					has_deposit = d_avian_reserve
 					AND = {
 						exists = owner
 						owner = { has_policy_flag = pre_sapients_protect }
-						any_owned_pop = {
+						any_owned_pop_group = {
 							is_sapient = no
 						}
 					}
-					any_owned_pop = {
+					AND = {
+						exists = owner
+						any_owned_pop_group = {
+							has_citizenship_type = {
+								type = citizenship_protected_drone
+								country = owner
+							}
+						}
+					}
+					any_owned_pop_group = {
 						is_livestock = yes
+					}
+					AND = {
+						exists = owner
+						any_owned_pop_group = {
+							has_trait = trait_nascent_stage
+						}
 					}
 				}
 			}
@@ -251,26 +282,43 @@ building_xeno_zoo = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = {
-				has_valid_civic = civic_warrior_culture
-			}
+			has_modifier = resort_colony
 		}
 		modifier = {
-			job_duelist_add = 1
-			job_entertainer_add = -1
+			job_biologist_add = 200
 		}
 	}
 
-	planet_modifier = {
-		job_entertainer_add = 1
-		job_xeno_zoo_keeper_add = 1
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			OR = {
+				any_owned_pop_group = {
+					is_livestock = yes
+					is_lithoid = no
+				}
+				any_owned_pop_group = {
+					has_citizenship_type = {
+						type = citizenship_protected_drone
+						country = owner
+					}
+				}
+			}
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		modifier = {
+			job_livestock_zoo_animal_add = 300
+		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_livestock = yes
+					is_lithoid = yes
 				}
 			}
 			exists = owner
@@ -279,15 +327,40 @@ building_xeno_zoo = {
 			}
 		}
 		modifier = {
-			job_livestock_zoo_animal_add = 3
+			job_livestock_zoo_animal_lithoid_add = 300
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			OR = {
+				any_owned_pop_group = {
+					is_livestock = yes
+					is_lithoid = no
+				}
+				any_owned_pop_group = {
+					has_citizenship_type = {
+						type = citizenship_protected_drone
+						country = owner
+					}
+				}
+			}
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		modifier = {
+			job_livestock_zoo_beast_add = 300
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_livestock = no
+					is_lithoid = yes
 				}
 			}
 			exists = owner
@@ -296,7 +369,7 @@ building_xeno_zoo = {
 			}
 		}
 		modifier = {
-			job_livestock_zoo_beast_add = 3
+			job_livestock_zoo_beast_lithoid_add = 300
 		}
 	}
 
@@ -304,11 +377,11 @@ building_xeno_zoo = {
 		potential = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		modifier = {
-			job_floret_add = 3
+			job_floret_add = 300
 		}
 	}
 
@@ -322,24 +395,8 @@ building_xeno_zoo = {
 
 	triggered_desc = {
 		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
-		}
-		text = job_entertainer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
-		}
-		text = job_duelist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_sapient = no
 				}
 			}
@@ -352,7 +409,7 @@ building_xeno_zoo = {
 	triggered_desc = {
 		trigger = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_livestock = yes
 				}
 			}
@@ -365,7 +422,7 @@ building_xeno_zoo = {
 	triggered_desc = {
 		trigger = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_sapient = no
 				}
 			}
@@ -378,7 +435,7 @@ building_xeno_zoo = {
 	triggered_desc = {
 		trigger = {
 			planet = {
-				any_owned_pop = {
+				any_owned_pop_group = {
 					is_livestock = yes
 				}
 			}
@@ -392,7 +449,7 @@ building_xeno_zoo = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_domesticator_or_protectorate = yes
+				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc

@@ -44,14 +44,16 @@ terran_accord = {
 	empire_flag={
 		icon={
 			category="human"
-			file="flag_human_9.dds"
+			file="flag_human_accord.dds"
 		}
-		background={
+		background=
+		{
 			category="backgrounds"
-			file="flag_BG_48.dds"
+			file="00_solid.dds"
 		}
-		colors={
-			"blue"
+		colors=
+		{
+			"burgundy"
 			"white"
 			"null"
 			"null"
@@ -98,10 +100,7 @@ affini_compact = {
 		name_list="ART1"
 		gender=not_set
 		trait="trait_syncretic_proles"
-		trait="trait_charismatic"
 		trait="trait_communal"
-		trait="trait_fleeting"
-		trait="trait_slow_learners"
 	}
 
 	room = "specialist_domprot_room"

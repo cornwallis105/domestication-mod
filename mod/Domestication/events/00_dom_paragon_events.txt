@@ -21,7 +21,7 @@ country_event = {
 			}
 			leader_is_affini = no
 			or = {
-				has_skill >= 4
+				has_base_skill >= 4
 				is_ruler = yes
 				has_leader_flag = renowned_leader
 				has_leader_flag = legendary_leader
@@ -67,19 +67,19 @@ country_event = {
 				# Increase chance for leaders of higher level
 				modifier = {
 					add = 10
-					from = { has_skill >= 4 }
+					from = { has_base_skill >= 4 }
 				}
 				modifier = {
 					add = 20
-					from = { has_skill >= 6 }
+					from = { has_base_skill >= 6 }
 				}
 				modifier = {
 					add = 30
-					from = { has_skill >= 8 }
+					from = { has_base_skill >= 8 }
 				}
 				modifier = {
 					add = 40
-					from = { has_skill >= 10 }
+					from = { has_base_skill >= 10 }
 				}
 
 				# Increase chance for leaders that have served the country for a long time
@@ -215,7 +215,7 @@ country_event = { # ethic leader lottery machine
 				}
 				ethic_leader_hire_event = { LEADER_ID = militarist_leader_2 EVENT_ID = paragon.40400 }
 			}
-      0 = { # militarist 2 domestication
+			0 = { # militarist 2 domestication
 				modifier = {
 					add = value:ethic_leader_randomizer|ETHIC|militarist|LEADER_ID|militarist_leader_2|
 					is_domesticator_or_full_protectorate = yes
@@ -305,19 +305,19 @@ leader_event = {
 
 	is_triggered_only = yes
 	fire_only_once = yes
-  hide_window = yes
+	hide_window = yes
 
-  immediate = {
-    if = {
-      limit = {
-        owner = { is_domesticator_or_full_protectorate = yes }
-      }
-      leader_event = { id = dom_paragon.1 }
-    }
-    else = {
-      leader_event = { id = dom_paragon.40220 }
-    }
-  }
+	immediate = {
+		if = {
+			limit = {
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
+			leader_event = { id = dom_paragon.1 }
+		}
+		else = {
+			leader_event = { id = dom_paragon.40220 }
+		}
+	}
 }
 
 # Baron Vyctor Jariden / militarist1
@@ -327,20 +327,20 @@ leader_event = {
 
 	is_triggered_only = yes
 	fire_only_once = yes
-  hide_window = yes
+	hide_window = yes
 
-  immediate = {
-    if = {
-      limit = {
-        owner = { is_domesticator_or_full_protectorate = yes }
-      }
+	immediate = {
+		if = {
+			limit = {
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
 			save_event_target_as = ethic_leader
-      leader_event = { id = dom_paragon.3 }
-    }
-    else = {
-      leader_event = { id = dom_paragon.40310 }
-    }
-  }
+			leader_event = { id = dom_paragon.3 }
+		}
+		else = {
+			leader_event = { id = dom_paragon.40310 }
+		}
+	}
 }
 
 # Baron Vyctor Jariden / militarist1
@@ -350,18 +350,18 @@ leader_event = {
 
 	is_triggered_only = yes
 	fire_only_once = yes
-  hide_window = yes
+	hide_window = yes
 
-  immediate = {
-    if = {
-      limit = {
-        owner = { is_domesticator_or_full_protectorate = yes }
-      }
-      save_event_target_as = ethic_leader
-      leader_event = { id = dom_paragon.3 }
-    }
-    else = {
-      leader_event = { id = dom_paragon.40320 }
-    }
-  }
+	immediate = {
+		if = {
+			limit = {
+				owner = { is_domesticator_or_full_protectorate = yes }
+			}
+			save_event_target_as = ethic_leader
+			leader_event = { id = dom_paragon.3 }
+		}
+		else = {
+			leader_event = { id = dom_paragon.40320 }
+		}
+	}
 }

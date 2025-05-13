@@ -11,10 +11,15 @@ pop_assembly_organic_councilor_cosmic_harmony_mult = {
 }
 
 perc_of_planet_pop_liberated = {
-	add = trigger:num_pops
+	add = trigger:pop_amount
 	modifier = {
 		event_target:attacking_general = { has_trait = leader_trait_militarist_2_floret }
 		factor = 0.1
+	}
+	# trigger event once per 1000 pops, give or take
+	modifier = {
+		always = yes
+		factor = 0.01
 	}
 }
 

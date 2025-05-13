@@ -2,7 +2,7 @@ colonization_control_yes = {
 	can_colonize = no
 	potential = {
 		NAND = {
-			from = { has_authority = auth_machine_intelligence }
+			from = { is_machine_empire = yes }
 			OR = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
@@ -52,6 +52,10 @@ colonization_control_yes = {
 			factor = 0
 			has_slavery_type = { country = from type = slavery_indentured }
 		}
+		modifier = {
+			factor = 0
+			from = { has_valid_civic = civic_hive_bodysnatcher }
+		}
 	}
 }
 
@@ -59,7 +63,7 @@ colonization_control_no = {
 	potential = {
 		exists = from
 		NAND = {
-			from = { has_authority = auth_machine_intelligence }
+			from = { is_machine_empire = yes }
 			NOR = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
@@ -70,6 +74,7 @@ colonization_control_no = {
 				from = { has_valid_civic = civic_machine_servitor }
 			}
 		}
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {
@@ -84,7 +89,7 @@ colonization_control_no = {
 		custom_tooltip = {
 			fail_text = "HIVE_MIND_SPECIES_CITIZENS_ONLY"
 			OR = {
-				NOT = { from = { has_authority = auth_hive_mind } }
+				NOT = { from = { is_hive_empire = yes } }
 				has_trait = trait_hive_mind
 			}
 		}
@@ -93,11 +98,12 @@ colonization_control_no = {
 			OR = {
 				NOT = { has_trait = trait_mechanical }
 				from = { has_technology = tech_droid_workers }
-				from = { has_authority = auth_machine_intelligence }
+				from = { is_machine_empire = yes }
 			}
 		}
 		custom_tooltip = {
 			fail_text = "SPECIES_CANNOT_COLONIZE"
+			# Rule out Traits for servitude & lack of free will
 			NOR = {
 				has_trait = trait_syncretic_proles
 				can_think = no

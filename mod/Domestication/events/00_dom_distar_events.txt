@@ -23,13 +23,13 @@ country_event = {
 		}
 		trigger = {
 			is_domesticator_or_protectorate = yes
-      any_owned_leader = {
-        leader_class = commander
-        NOT = { has_trait = leader_trait_warform_floret }
-        can_obtain_new_floret = yes
-      }
+			any_owned_leader = {
+				leader_class = commander
+				NOT = { has_trait = leader_trait_warform_floret }
+				can_obtain_new_floret = yes
+			}
 		}
-    custom_tooltip = distar.164.d.tooltip
+		custom_tooltip = distar.164.d.tooltip
 
 		hidden_effect = { country_event = { id = domestication_leader.17 } }
 	}
@@ -162,8 +162,8 @@ ship_event = {
 				owner = { is_domesticator_or_full_protectorate = yes }
 			}
 			owner = {
-				random_owned_pop = {
-					limit = { has_job = floret }
+				random_owned_pop_group = {
+					limit = {is_pop_category = floret_strata }
 					save_event_target_as = brain_slug_floret
 				}
 			}
@@ -275,7 +275,7 @@ ship_event = {
 		owner = {
 			while = {
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					limit = {
 						is_sapient = yes
 						species = {
@@ -362,7 +362,7 @@ ship_event = {
 		owner = {
 			while = {
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					limit = {
 						is_sapient = yes
 						species = {
@@ -428,7 +428,7 @@ ship_event = {
 						has_ethic = ethic_xenophobe
 						has_ethic = ethic_fanatic_xenophobe
 					}
-					any_owned_pop = {
+					any_owned_pop_group = {
 						NOR = {
 							has_ethic = ethic_xenophobe
 							has_ethic = ethic_fanatic_xenophobe
@@ -441,7 +441,7 @@ ship_event = {
 		owner = {
 			while = { # slug *up to* three non-phobe pops
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					LIMIT = {
 						NOR = {
 							has_ethic = ethic_xenophobe
@@ -521,6 +521,14 @@ country_event = { #New leaders get Brainslug Trait
 						#Nothing
 					}
 					20 = {
+						modifier = {
+							factor = 0.5
+							has_ethic = ethic_xenophobe
+						}
+						modifier = {
+							factor = 2
+							has_ethic = ethic_xenophile
+						}
 						add_trait = leader_trait_brainslug
 					}
 				}
@@ -536,9 +544,9 @@ country_event = {
 	title = "distar.215.name"
 	desc = "distar.215.desc"
 	location = event_target:ahab_fleet
-
-	diplomatic = yes
-
+	show_sound = event_custodian_greeting
+	picture = GFX_leader_recruitment_bg_renowned
+	event_window_type = leader_recruit
 	is_triggered_only = yes
 
 	picture_event_data = {
@@ -547,37 +555,78 @@ country_event = {
 	}
 
 	option = {
-		name = distar.215.a
-		trigger = {
-			NOT = { has_ethic = ethic_gestalt_consciousness }
+		allow = {
+			is_homicidal = no
+		}
+		tag = hire_leader
+		name = {
+			trigger = {
+				NOT = { has_ethic = ethic_gestalt_consciousness }
+			}
+			text = distar.215.a
+		}
+		name = {
+			trigger = {
+				has_ethic = ethic_gestalt_consciousness
+			}
+			text = distar.215.a.gesta
 		}
 		event_target:ahab_fleet = {
 			set_owner = root
 			hidden_effect = { set_leader = event_target:captain_reth }
 		}
-	}
-
-	option = {
-		name = distar.215.b
 		hidden_effect = {
-			clone_leader = {
-				target = event_target:captain_reth
-				class = commander
+			hire_event_leader_message = {
+				LEADER = captain_reth
 			}
 		}
-		event_target:ahab_fleet = {
-			destroy_fleet = this
-		}
-		add_resource = { minerals = 1500 }
 	}
 
-	option = {
-		name = distar.215.c
-		event_target:ahab_fleet = {
-			set_owner = root
+option = {
+		allow = {
+			values_others = no
+		}
+		name = distar.215.dismiss
+		if = {
+			limit = {
+				is_homicidal = no
+			}
+			custom_tooltip = distar.215.c
+		}
+		else_if = {
+			limit = {
+				has_civic = civic_machine_terminator
+			}
+			custom_tooltip = distar.215.a.exter
+		}
+		else_if = {
+			limit = {
+				has_civic = civic_hive_devouring_swarm
+			}
+			custom_tooltip = distar.215.a.swarm
+		}
+		else = {
+			custom_tooltip = distar.215.a.fp
+		}
+		tag = dismiss_leader
+		if = {
+			limit = {
+				is_homicidal = no
+			}
+			event_target:ahab_fleet = {
+				set_owner = root
+			}
 		}
 		hidden_effect = {
-			country_event = { id = distar.217 }
+			if = {
+				limit = {
+					is_homicidal = no
+				}
+				country_event = { id = distar.217 }
+			}
+			else = {
+				country_event = { id = distar.216 }
+			}
 		}
 	}
 
@@ -601,47 +650,6 @@ country_event = {
 		}
 		hidden_effect = {
 			country_event = { id = domestication_leader.25 }
-		}
-	}
-
-	option = {
-		name = distar.215.a.gesta
-		trigger = {
-			has_ethic = ethic_gestalt_consciousness
-		}
-		event_target:ahab_fleet = {
-			set_owner = root
-			hidden_effect = { set_leader = event_target:captain_reth }
-		}
-	}
-
-	option = {
-		name = distar.215.a.exter
-		exclusive_trigger = {
-			has_civic = civic_machine_terminator
-		}
-		hidden_effect = {
-			country_event = { id = distar.216 }
-		}
-	}
-
-	option = {
-		name = distar.215.a.swarm
-		exclusive_trigger = {
-			has_civic = civic_hive_devouring_swarm
-		}
-		hidden_effect = {
-			country_event = { id = distar.216 }
-		}
-	}
-
-	option = {
-		name = distar.215.a.fp
-		exclusive_trigger = {
-			has_civic = civic_fanatic_purifiers
-		}
-		hidden_effect = {
-			country_event = { id = distar.216 }
 		}
 	}
 }
@@ -769,6 +777,10 @@ ship_event = {
 			}
 		}
 		last_created_leader = {
+			add_trait = trait_ruler_eye_for_talent
+			add_trait = leader_trait_spark_of_genius_2
+			add_trait = subclass_scientist_councilor
+			add_trait = leader_trait_expertise_computing_2
 			set_gender = female
 			save_global_event_target_as = stranded_scientist_leader
 			exile_leader_as = stranded_scientist_leader

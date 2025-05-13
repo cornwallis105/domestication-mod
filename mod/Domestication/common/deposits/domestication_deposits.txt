@@ -6,7 +6,7 @@ d_hive_domestication_lab = {
 
 	planet_modifier = {
     planet_jobs_physics_research_produces_mult = 0.1
-		planet_jobs_society_research_produces_mult = 0.15
+	planet_jobs_society_research_produces_mult = 0.15
     planet_jobs_engineering_research_produces_mult = 0.1
 	}
 
@@ -16,8 +16,8 @@ d_hive_domestication_lab = {
 			owner = { is_hive_empire = yes }
 		}
 		modifier = {
-			job_brain_drone_add = 2
-      planet_amenities_add = 10
+			job_calculator_biologist_add = 200
+			planet_amenities_add = 1000
 		}
 	}
 
@@ -34,7 +34,7 @@ d_machine_domestication_lab = {
 
 	planet_modifier = {
     planet_jobs_physics_research_produces_mult = 0.1
-		planet_jobs_society_research_produces_mult = 0.1
+	planet_jobs_society_research_produces_mult = 0.1
     planet_jobs_engineering_research_produces_mult = 0.15
 	}
 
@@ -44,8 +44,8 @@ d_machine_domestication_lab = {
 			owner = { is_machine_empire = yes }
 		}
 		modifier = {
-			job_calculator_add = 2
-      planet_amenities_add = 10
+			job_calculator_biologist_add = 2
+			planet_amenities_add = 1000
 		}
 	}
 
@@ -71,9 +71,9 @@ d_domesticated_sentinels = {
 			owner = { is_domesticator_or_protectorate = yes }
 		}
 		modifier = {
-			job_domesticator_sentinel_add = 2
-			job_soldier_add = 1
-      planet_amenities_add = 10
+			job_domesticator_sentinel_add = 200
+			job_soldier_add = 100
+			planet_amenities_add = 1000
 		}
 	}
 
@@ -94,7 +94,7 @@ d_domesticated_nanites = {
 			owner = { is_domesticator_or_protectorate = yes }
 		}
 		modifier = {
-			job_domesticator_nanite_add = 2
+			job_domesticator_nanite_add = 200
 		}
 	}
 
@@ -117,8 +117,8 @@ d_domesticated_nemmas = {
 		modifier = {
 			planet_max_districts_add = -1
 			planet_jobs_society_research_produces_mult = 0.15
-			job_domesticator_nemma_add = 2
-      planet_amenities_add = 10
+			job_domesticator_nemma_add = 200
+			planet_amenities_add = 1000
 		}
 	}
 
@@ -141,6 +141,14 @@ d_underground_contact_zone = {
 
 	triggered_planet_modifier = {
 		potential = {
+			always = yes
+		}
+		district_generator_max = 2
+		mult = value:natural_desposit_district_amount_multiplier
+	}
+
+	triggered_planet_modifier = {
+		potential = {
 			exists = owner
 			owner = { is_regular_empire = yes }
 			NAND = {
@@ -149,7 +157,7 @@ d_underground_contact_zone = {
 			}
 		}
 		modifier = {
-			job_underground_trade_worker_add = 1
+			job_underground_trade_worker_add = 100
 			job_underground_trade_worker_per_pop = 0.05 # 1 per 20
 		}
 	}
@@ -162,7 +170,7 @@ d_underground_contact_zone = {
 			owner = { is_domesticator_or_full_protectorate = yes }
 		}
 		modifier = {
-			job_domesticator_underground_add = 2
+			job_domesticator_underground_add = 200
 			job_domesticator_underground_per_pop = 0.04 # 1 per 25
 			job_floret_add = 1
 		}
@@ -174,7 +182,7 @@ d_underground_contact_zone = {
 			owner = { is_gestalt = yes }
 		}
 		modifier = {
-			job_underground_contact_drone_add = 1
+			job_underground_contact_drone_add = 100
 			job_underground_contact_drone_per_pop = 0.05 # 1 per 20
 		}
 	}
@@ -220,7 +228,7 @@ d_domesticated_titans = {
 			}
 		}
 		modifier = {
-			job_domesticator_titanic_add = 2
+			job_domesticator_titanic_add = 200
 		}
 	}
 

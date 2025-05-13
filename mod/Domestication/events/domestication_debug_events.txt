@@ -7,7 +7,7 @@ country_event = {
 	is_triggered_only = yes
 
   immediate = {
-    random_owned_pop = {
+    random_owned_pop_group = {
       limit = {
         has_trait = trait_haustoric_hive_node
       }
@@ -16,7 +16,7 @@ country_event = {
       }
     }
 
-    every_owned_pop = {
+    every_owned_pop_group = {
       limit = {
         has_trait = trait_haustoric_hive_node
       }

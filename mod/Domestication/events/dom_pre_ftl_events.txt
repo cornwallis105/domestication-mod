@@ -166,7 +166,7 @@ situation_event = {
         modifier = {
           factor = 1.5
           target = {
-            any_owned_pop = {
+            any_owned_pop_group = {
               pop_has_ethic = ethic_xenophobe
             }
           }
@@ -188,11 +188,11 @@ situation_event = {
           target = {
             OR = {
               NOT = {
-                any_owned_pop = {
+                any_owned_pop_group = {
                   pop_has_ethic = ethic_xenophile
                 }
               }
-              any_owned_pop = {
+              any_owned_pop_group = {
                 pop_has_ethic = ethic_xenophobe
               }
             }
@@ -208,7 +208,7 @@ situation_event = {
         modifier = {
           factor = 1.5
           target = {
-            any_owned_pop = {
+            any_owned_pop_group = {
               pop_has_ethic = ethic_militarist
             }
           }
@@ -232,7 +232,7 @@ situation_event = {
         modifier = {
           factor = 1.5
           target = {
-            any_owned_pop = {
+            any_owned_pop_group = {
               pop_has_ethic = ethic_spiritualist
             }
           }
@@ -277,7 +277,7 @@ situation_event = {
         }
         modifier = {
           factor = 0
-          target = { num_pops < 5 }
+          target = { pop_amount < 500 }
         }
         modifier = {
           factor = 0
@@ -302,14 +302,14 @@ situation_event = {
           situation_progress > 90
           situation_progress < 130
           target = {
-            count_owned_pop = {
+            count_owned_pop_amount = {
               limit = {
                 OR = {
                   pop_has_ethic = ethic_xenophobe
                   pop_has_ethic = ethic_fanatic_xenophobe
                 }
               }
-              count > 6
+              count > 600
             }
           }
         }
@@ -1957,7 +1957,7 @@ situation_event = {
         save_event_target_as = affini_compact
       }
       target = {
-        random_owned_pop = {
+        weighted_random_owned_pop_group = {
           limit = {
             is_same_species = event_target:pre_ftl_species
           }
@@ -2028,9 +2028,10 @@ situation_event = {
       }
     }
     event_target:pre_ftl_resettle_pop = {
-      resettle_pop = {
-        pop = event_target:pre_ftl_resettle_pop
-        planet = event_target:pre_ftl_resettle_newworld
+      resettle_pop_group = {
+        POP_GROUP = event_target:pre_ftl_resettle_pop
+        PLANET = event_target:pre_ftl_resettle_newworld
+		AMOUNT = 100
       }
     }
 	}
@@ -2097,15 +2098,13 @@ planet_event = {
 
   immediate = {
     remove_planet_flag = zoonotic_plague_dead_world
-    while = {
-      count = 3
-      create_pop = {
-        species = event_target:revived_species
-        ethos = {
-					ethic = "ethic_xenophile"
-				}
-      }
-    }
+    create_pop_group = {
+		species = event_target:revived_species
+		ethos = {
+			ethic = "ethic_xenophile"
+		}
+		size = 300
+	}
     add_deposit = d_zoonotic_plague_memorial
   }
 

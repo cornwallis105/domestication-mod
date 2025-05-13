@@ -21,11 +21,11 @@ leader_trait_distracted_floret = {
 		country_ruler_consumer_goods_produces_add = 10
 	}
 	councilor_modifier = {
-		planet_amenities_add = 4
+		planet_amenities_add = 400
 	}
 	planet_modifier = {
 		planet_jobs_consumer_goods_produces_mult = 0.05
-		job_artificer_add = 1
+		job_artificer_add = 100
 	}
 	sector_modifier = {
 		planet_jobs_consumer_goods_produces_mult = 0.025
@@ -85,7 +85,9 @@ leader_trait_academic_floret = {
 		planet_jobs_physics_research_produces_mult = 0.05
 		planet_jobs_society_research_produces_mult = 0.05
 		planet_jobs_engineering_research_produces_mult = 0.05
-		job_researcher_add = 1
+		job_physicist_add = 30
+		job_biologist_add = 30
+		job_engineer_add = 30
 	}
 	sector_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.025
@@ -143,7 +145,9 @@ leader_trait_stranded_floret = {
 	}
 	planet_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.10
-		job_researcher_add = 1
+		job_physicist_add = 50
+		job_biologist_add = 25
+		job_engineer_add = 25
 	}
 	sector_modifier = {
 		planet_jobs_physics_research_produces_mult = 0.05
@@ -195,7 +199,9 @@ leader_trait_historian_floret = {
 		country_unity_produces_mult = 0.025
 	}
 	planet_modifier = {
-		job_archaeoengineers_add = 1
+		job_physicist_add = 25
+		job_biologist_add = 50
+		job_engineer_add = 25
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

@@ -9,8 +9,9 @@ leader_trait_capitalist = {
 	}
 	leader_potential_add = {
 		trait_is_crisis_faction_check = no
+		trait_is_wilderness_check = no
 		has_global_flag = game_started
-		has_skill > 1
+		has_base_skill > 1
 		NOT = {
 			has_leader_flag = block_homeworld_traits
 		}
@@ -26,7 +27,7 @@ leader_trait_capitalist = {
 			}
 			trait_is_gestalt_check = no
 		}
-		job_technician_add = 2
+		job_technician_add = 200
 	}
 	triggered_background_planet_modifier = {
 		potential = {
@@ -39,7 +40,7 @@ leader_trait_capitalist = {
 			}
 			trait_is_gestalt_check = yes
 		}
-		job_technician_drone_add = 2
+		job_technician_drone_add = 200
 	}
 	planet_modifier = {
 		planet_technician_energy_produces_mult = 0.05

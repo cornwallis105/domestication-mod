@@ -12,9 +12,10 @@ floretrescue = {
 	army_damage = 1.0
 
 	kill_pop_chance = {
-		base = 0.33
+		base = 0.2
 	}
-	min_pops_to_kill_pop = 11
+	min_pops_to_kill_pop = 1100
+	kill_pop_amount = { min = 0 max = 200 }
 
 	# root = fleet
 	# from = planet
@@ -25,7 +26,7 @@ floretrescue = {
 			exists = from
 			from = {
 				OR = {
-					num_pops < 11
+					pop_amount < 1100
 					owner = { NOT = { is_hostile = root.owner } }
 				}
 			}

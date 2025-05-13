@@ -476,3 +476,13 @@
 
  affini_retirement: "Retired Bloom"
  affini_retirement_desc: "A rebloomed leader has decided to retire, leaving room for blooms to step in."
+
+ pop_cat_floret_strata: "$pop_cat_worker$"
+ pop_cat_floret_strata_plural: "$pop_cat_worker_plural$"
+ pop_cat_floret_strata_desc: "$pop_cat_worker_desc$"
+ pop_cat_floret_drone_strata: "$pop_cat_simple_drone$"
+ pop_cat_floret_drone_strata_plural: "$pop_cat_simple_drone_plural$"
+ pop_cat_floret_drone_strata_desc: "$pop_cat_simple_drone_desc$"
+
+ mod_pop_floret_bonus_workforce_mult: "Job Efficiency for [floret.GetNamePlural]"
+ mod_pop_clerk_bonus_workforce_mult: "Job Efficiency for [clerk.GetNamePlural]"

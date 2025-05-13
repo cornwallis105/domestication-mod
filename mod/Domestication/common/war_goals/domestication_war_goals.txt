@@ -25,13 +25,7 @@ wg_independence = {
 			}
 		}
 	}
-
-	allowed_peace_offers = {
-		status_quo
-		surrender
-		demand_surrender
-	}
-
+	
 	on_status_quo = {
 		custom_tooltip = wg_independence_status_quo
 		hidden_effect = {
@@ -108,12 +102,6 @@ wg_domestication = {
 
 	hide_if_no_cb = no
 	release_occupied_systems_on_status_quo = yes
-
-	allowed_peace_offers = {
-		status_quo
-		surrender
-		demand_surrender
-	}
 
 	surrender_acceptance = -100
 

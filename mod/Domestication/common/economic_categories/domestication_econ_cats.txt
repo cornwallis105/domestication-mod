@@ -8,7 +8,7 @@ planet_florets = {
 	# generate_add_modifiers = {
 	# 	produces
 	# }
-	modifier_category = pop
+	modifier_category = pop_job
 }
 
 planet_domesticators = {
@@ -21,5 +21,5 @@ planet_domesticators = {
 	# generate_add_modifiers = {
 	# 	produces
 	# }
-	modifier_category = pop
+	modifier_category = pop_job
 }

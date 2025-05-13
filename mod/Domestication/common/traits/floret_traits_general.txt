@@ -24,7 +24,7 @@ leader_trait_attache_floret = {
 		diplo_weight_mult = 0.05
 	}
 	planet_modifier = {
-		job_bureaucrat_add = 1
+		job_bureaucrat_add = 100
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -60,7 +60,7 @@ leader_trait_class_o_floret = {
 		army_collateral_damage_mult = -0.15
 	}
 	planet_modifier = {
-		job_death_chronicler_add = 1
+		job_bureaucrat_add = 1
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05
@@ -95,8 +95,8 @@ leader_trait_underground_floret = {
 		planet_buildings_energy_upkeep_mult = -0.1
 		planet_districts_energy_upkeep_mult = -0.1
 		planet_jobs_minerals_produces_mult = 0.1
-		job_technician_add = 1
-		job_miner_add = 1
+		job_technician_add = 75
+		job_miner_add = 75
 	}
 	sector_modifier = {
 		planet_buildings_energy_upkeep_mult = -0.05
@@ -151,7 +151,8 @@ leader_trait_militarist_2_floret = {
 		army_starting_experience_add = 50
 	}
 	planet_modifier = {
-		job_duelist_add = 1
+		job_soldier_add = 50
+		job_entertainer_add = 50
 	}
 	self_modifier = {
 		species_leader_exp_gain = -0.05

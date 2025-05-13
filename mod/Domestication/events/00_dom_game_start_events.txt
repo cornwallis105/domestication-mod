@@ -35,6 +35,15 @@ country_event = {
 							}
 						}
 					}
+					event_target:new_sci = {
+						if = {
+							limit = {
+								has_base_skill > 1
+								num_traits = 0
+							}
+							add_trait_no_notify = random_common
+						}
+					}
 					set_leader = event_target:new_sci
 				}
 			}
@@ -51,7 +60,7 @@ country_event = {
 			last_created_leader = {
 				if = {
 					limit = {
-						has_skill > 1
+						has_base_skill > 1
 						num_traits = 0
 					}
 					add_trait_no_notify = random_common
@@ -87,6 +96,15 @@ country_event = {
 									save_event_target_as = new_explorer
 								}
 							}
+							event_target:new_explorer = {
+								if = {
+									limit = {
+										has_base_skill > 1
+										num_traits = 0
+									}
+									add_trait_no_notify = random_common
+								}
+							}
 						}
 						if = {
 							limit = {
@@ -96,12 +114,12 @@ country_event = {
 								set_country_flag = created_first_eager_ship
 							}
 							event_target:new_explorer = {
-								add_trait = leader_trait_meticulous
+								add_trait_no_notify = leader_trait_meticulous
 							}
 						}
 						else = {
 							event_target:new_explorer = {
-								add_trait = leader_trait_roamer
+								add_trait_no_notify = leader_trait_roamer
 							}
 						}
 						set_leader = event_target:new_explorer
@@ -203,7 +221,7 @@ country_event = {
 					last_created_leader = {
 						if = {
 							limit = {
-								has_skill > 1
+								has_base_skill > 1
 								num_traits = 0
 							}
 							add_trait_no_notify = random_common
@@ -213,7 +231,7 @@ country_event = {
 					save_event_target_as = beastmasters_starting_fleet
 				}
 			}
-		
+
 			if = {
 				limit = { has_origin = origin_fruitful }
 				event_target:beastmasters_starting_fleet = {
@@ -228,7 +246,7 @@ country_event = {
 			}
 		}
 
-		if = {
+		else_if = {
 			limit = {
 				is_low_tech_start = no
 			}
@@ -237,6 +255,38 @@ country_event = {
 				effect = {
 					set_owner = prev
 					if = {
+						limit = {
+							root = {
+								country_uses_bio_ships = yes
+								NOT = {
+									has_valid_civic = civic_hive_cordyceptic_drones
+								}
+							}
+						}
+						while = {
+							count = 2
+							create_ship = {
+								name = random
+								random_existing_design = mauler_stage_1
+							}
+						}
+						if = {
+							limit = {
+								root = { has_origin = origin_progenitor_hive }
+							}
+							create_ship = {
+								name = random
+								random_existing_design = offspring_weaver_stage_1
+							}
+						}
+						else = {
+							create_ship = {
+								name = random
+								random_existing_design = weaver_stage_1
+							}
+						}
+					}
+					else_if = {
 						limit = {
 							root = {
 								NOT = {
@@ -279,11 +329,26 @@ country_event = {
 						}
 						if = {
 							limit = {
-								root = { has_origin = origin_progenitor_hive }
+								root = {
+									country_uses_bio_ships = no
+									has_origin = origin_progenitor_hive
+								}
 							}
 							create_ship = {
 								name = random
 								random_existing_design = offspring_corvette
+							}
+						}
+						else_if = {
+							limit = {
+								root = {
+									country_uses_bio_ships = yes
+									has_origin = origin_progenitor_hive
+								}
+							}
+							create_ship = {
+								name = random
+								random_existing_design = offspring_weaver_stage_1
 							}
 						}
 						else = {
@@ -305,11 +370,19 @@ country_event = {
 							}
 						}
 					}
+					event_target:new_adm = {
+						if = {
+							limit = {
+								has_base_skill > 1
+								num_traits = 0
+							}
+							add_trait_no_notify = random_common
+						}
+					}
 					set_leader = event_target:new_adm
 				}
 			}
 		}
-
 
 		else_if = {
 			limit = {
@@ -339,7 +412,7 @@ country_event = {
 					last_created_leader = {
 						if = {
 							limit = {
-								has_skill > 1
+								has_base_skill > 1
 								num_traits = 0
 							}
 							add_trait_no_notify = random_common
@@ -365,7 +438,7 @@ country_event = {
 			last_created_leader = {
 				if = {
 					limit = {
-						has_skill > 1
+						has_base_skill > 1
 						num_traits = 0
 					}
 					add_trait_no_notify = random_common
@@ -381,7 +454,6 @@ country_event = {
 	hide_window = yes
 	trigger = {
 		is_gestalt = no
-		has_paragon_dlc = yes
 		OR = {
 			is_country_type = default
 			is_country_type = fallen_empire
@@ -436,7 +508,7 @@ country_event = {
 				last_created_leader = {
 					if = {
 						limit = {
-							has_skill > 1
+							has_base_skill > 1
 							num_traits = 0
 						}
 						add_trait_no_notify = random_common
@@ -497,7 +569,7 @@ country_event = {
 				last_created_leader = {
 					if = {
 						limit = {
-							has_skill > 1
+							has_base_skill > 1
 							num_traits = 0
 						}
 						add_trait_no_notify = random_common
@@ -562,7 +634,7 @@ country_event = {
 					last_created_leader = {
 						if = {
 							limit = {
-								has_skill > 1
+								has_base_skill > 1
 								num_traits = 0
 							}
 							add_trait_no_notify = random_common
@@ -621,7 +693,7 @@ country_event = {
 				last_created_leader = {
 					if = {
 						limit = {
-							has_skill > 1
+							has_base_skill > 1
 							num_traits = 0
 						}
 						add_trait_no_notify = random_common
@@ -679,7 +751,7 @@ country_event = {
 				last_created_leader = {
 					if = {
 						limit = {
-							has_skill > 1
+							has_base_skill > 1
 							num_traits = 0
 						}
 						add_trait_no_notify = random_common

@@ -22,7 +22,7 @@ planet_event = {
 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 		has_modifier = "atmospheric_hallucinogen"
 		NOT = { has_planet_flag = atmospheric_hallucinogen_colony_flag }
-		num_pops > 0
+		pop_amount > 0
 	}
 
 	immediate = {

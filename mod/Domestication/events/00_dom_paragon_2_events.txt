@@ -31,7 +31,6 @@ country_event = {
 							OR = {
 								has_trait = leader_trait_corsair
 								has_trait = leader_trait_corsair_2
-								has_trait = leader_trait_corsair_3
 							}
 							ROOT.FROM = { # Owner of losing ship.
 								is_default_or_fallen = yes
@@ -59,7 +58,7 @@ country_event = {
 					# Crusader / Crusader II
 					if = {
 						limit = {
-							has_trait_tier1or2or3 = {
+							has_trait_tier1or2 = {
 								TRAIT = leader_trait_crusader
 							}
 							ROOT.FROM = { # Owner of losing ship.
@@ -88,7 +87,6 @@ country_event = {
 							OR = {
 								has_trait = leader_trait_shipbreaker
 								has_trait = leader_trait_shipbreaker_2
-								has_trait = leader_trait_shipbreaker_3
 							}
 							ROOT.FROM = { # Owner of losing fleet.
 								is_default_or_fallen = yes
@@ -119,7 +117,6 @@ country_event = {
 							OR = {
 								has_trait = leader_trait_juryrigger
 								has_trait = leader_trait_juryrigger_2
-								has_trait = leader_trait_juryrigger_3
 							}
 						}
 						ROOT.FROMFROM = {
@@ -165,7 +162,7 @@ country_event = {
 							ROOT = {
 								add_intel = {
 									who = root.from
-									amount = 10
+									amount = 15
 								}
 							}
 						}
@@ -173,18 +170,6 @@ country_event = {
 							limit = {
 								exists = from
 								has_trait = leader_trait_interrogator_2
-							}
-							ROOT = {
-								add_intel = {
-									who = root.from
-									amount = 20
-								}
-							}
-						}
-						if = {
-							limit = {
-								exists = from
-								has_trait = leader_trait_interrogator_3
 							}
 							ROOT = {
 								add_intel = {

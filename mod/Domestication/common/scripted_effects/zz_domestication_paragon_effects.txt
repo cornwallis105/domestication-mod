@@ -55,7 +55,7 @@ set_starting_governor_effect = {
 							save_event_target_as = governor_leader
 							if = {
 								limit = {
-									has_skill > 1
+									has_base_skill > 1
 									num_traits = 0
 								}
 								add_trait_no_notify = random_common

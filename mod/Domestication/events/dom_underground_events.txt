@@ -21,7 +21,7 @@ planet_event = {
 	}
 
 	trigger = {
-		num_pops > 0
+		pop_amount > 0
     owner = {
       is_domesticator_or_full_protectorate = yes
     }
@@ -81,12 +81,10 @@ situation_event = {
     name = "dom_underground.2.a"
 
     target = {
-      while = {
-        count = 8
-        create_pop = {
-          species = event_target:subterranean_species_3
-        }
-      }
+		create_pop_group = {
+		  species = event_target:subterranean_species_3
+		  size = 800
+		}
       remove_deposit = d_underground_farm_blocked
       remove_deposit = d_underground_mine_blocked
       remove_deposit = d_underground_generator_blocked

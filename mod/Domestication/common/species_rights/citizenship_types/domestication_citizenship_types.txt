@@ -3,7 +3,8 @@ citizenship_full = {
 
 	potential = {
 		exists = from
-		NOT = { from = { is_machine_empire = yes } }
+		from = { is_machine_empire = no }
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {
@@ -26,6 +27,20 @@ citizenship_full = {
 			OR = {
 				NOT = { from = { is_hive_empire = yes } }
 				has_trait = trait_hive_mind
+			}
+		}
+		custom_tooltip = {
+			fail_text = "WILDERNESS_SPECIES_CITIZENS_ONLY"
+			if = {
+				limit = { from = { is_wilderness_empire = yes } }
+				has_trait = trait_wilderness
+			}
+		}
+		custom_tooltip = {
+			fail_text = "WILDERNESS_DEAD_WORLD"
+			if = {
+				limit = { from = { is_wilderness_empire = no } }
+				NOT = { has_trait = trait_wilderness }
 			}
 		}
 		custom_tooltip = {
@@ -127,15 +142,15 @@ citizenship_full = {
 citizenship_limited = {
 	new_pop_weight = 0.75
 
-	pop_modifier = {
+	pop_group_modifier = {
 		pop_happiness = -0.1
 		pop_amenities_usage_mult = -0.25
 		pop_political_power = -0.5
 	}
 
-	triggered_pop_modifier = {
+	triggered_pop_group_modifier = {
 		potential = {
-			has_pop_flag = br_resettled
+			has_pop_group_flag = br_resettled
 			exists = owner
 			owner = { is_domesticator_or_protectorate = yes }
 		}
@@ -162,6 +177,7 @@ citizenship_limited = {
 			}
 			is_shackled_robot_species_rights = yes
 		}
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {
@@ -169,11 +185,13 @@ citizenship_limited = {
 			fail_text = "presapients_not_accepted_citizenship"
 			OR = {
 				is_sapient = yes
+				has_trait = trait_nascent_stage
 				from = {
 					NOT = {
 						has_policy_flag = pre_sapients_eat
 						has_policy_flag = pre_sapients_purge
 					}
+					is_wilderness_empire = yes
 				}
 			}
 		}
@@ -185,6 +203,12 @@ citizenship_limited = {
 					from = { has_valid_civic = civic_hive_guided_sapience }
 				}
 				has_trait = trait_hive_mind
+				AND = {
+					is_sapient = no
+					from = {
+						is_wilderness_empire = yes
+					}
+				}
 			}
 		}
 		custom_tooltip = {
@@ -192,6 +216,13 @@ citizenship_limited = {
 			NAND = {
 				from = { is_hive_empire = yes }
 				has_trait = trait_hive_mind
+			}
+		}
+		custom_tooltip = {
+			fail_text = "WILDERNESS_DEAD_WORLD"
+			if = {
+				limit = { from = { is_wilderness_empire = no } }
+				NOT = { has_trait = trait_wilderness }
 			}
 		}
 		custom_tooltip = {
@@ -267,9 +298,13 @@ citizenship_slavery = {
 	}
 
 	potential = {
+		exists = from
 		NAND = {
 			exists = this
 			OR = {
+				from = {
+					is_wilderness_empire = yes
+				}
 				AND = {
 					from = { is_individual_machine = yes }
 					OR = {
@@ -281,6 +316,7 @@ citizenship_slavery = {
 				has_trait = trait_mechanical
 			}
 		}
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {
@@ -313,6 +349,13 @@ citizenship_slavery = {
 			NAND = {
 				from = { is_hive_empire = yes }
 				has_trait = trait_hive_mind
+			}
+		}
+		custom_tooltip = {
+			fail_text = "WILDERNESS_DEAD_WORLD"
+			if = {
+				limit = { from = { is_wilderness_empire = no } }
+				NOT = { has_trait = trait_wilderness }
 			}
 		}
 		custom_tooltip = {
@@ -470,6 +513,14 @@ citizenship_purge = {
 				}
 			}
 			hidden_trigger = { always = yes }
+		}
+		else_if = {
+			limit = {
+				is_disconnected_drone_pop = yes
+			}
+			from = {
+				has_policy_flag = disconnected_drones_purge
+			}
 		}
 		else = {
 			custom_tooltip = {

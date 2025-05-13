@@ -132,7 +132,7 @@ planet_event = {
 		}
 		has_planet_flag = pheromone_planet
 		has_planet_flag = colony_event
-		num_pops > 0
+		pop_amount > 0
 	}
 
 	option = {
@@ -412,7 +412,7 @@ planet_event = {
 			is_planet_class = pc_tropical
 
 		}
-		num_pops > 0
+		pop_amount > 0
 	}
 
 	immediate = {
@@ -527,7 +527,7 @@ planet_event = {
 	}
 
 	trigger = {
-		num_pops > 0
+		pop_amount > 0
 		OR = {
 			is_planet_class = pc_continental
 			is_planet_class = pc_ocean

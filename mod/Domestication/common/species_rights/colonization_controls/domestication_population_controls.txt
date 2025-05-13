@@ -52,6 +52,10 @@ colonization_control_yes = {
 			factor = 0
 			has_slavery_type = { country = from type = slavery_indentured }
 		}
+		modifier = {
+			factor = 0
+			from = { has_valid_civic = civic_hive_bodysnatcher }
+		}
 	}
 }
 
@@ -70,6 +74,7 @@ colonization_control_no = {
 				from = { has_valid_civic = civic_machine_servitor }
 			}
 		}
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {

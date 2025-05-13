@@ -21,6 +21,10 @@ building_colony_shelter = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -42,18 +46,22 @@ building_colony_shelter = {
 		building_slave_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_colony_shelter_nanotech
+		building_colony_shelter_wilderness
 	}
 
 	planet_modifier = {
-		planet_housing_add = 3
-		planet_amenities_add = 7
-		planet_max_buildings_add = @buildings_t1
-		job_colonist_add = 2
+		planet_housing_add = 300
+		planet_amenities_add = 300
+		job_colonist_add = 200
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 1
 	}
 
 	triggered_planet_modifier = {
@@ -61,8 +69,8 @@ building_colony_shelter = {
 			exists = owner
 			owner = { has_valid_civic = civic_dystopian_society }
 		}
-		job_enforcer_add = 1
-		job_colonist_add = -1
+		job_enforcer_add = 100
+		job_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -71,8 +79,7 @@ building_colony_shelter = {
 			owner = { is_regular_empire = yes }
 			has_modifier = penal_colony
 		}
-		job_warden_add = 1
-		job_colonist_add = -1
+		job_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -82,8 +89,8 @@ building_colony_shelter = {
 				is_individual_machine = yes
 			}
 		}
-		job_roboticist_add = 1
-		job_colonist_add = -1
+		job_roboticist_add = 100
+		job_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -91,8 +98,8 @@ building_colony_shelter = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
-		job_colonist_add = -1
+		job_roboticist_add = 100
+		job_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -103,7 +110,7 @@ building_colony_shelter = {
 			}
 		}
 		modifier = {
-			job_floret_add = 1
+			job_floret_add = 100
 		}
 	}
 
@@ -183,6 +190,10 @@ building_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -204,11 +215,11 @@ building_capital = {
 		building_slave_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_capital_nanotech
+		building_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 10
+		sapient_pop_amount >= 1000
 	}
 
 	upgrades = {
@@ -224,10 +235,9 @@ building_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 1
-		planet_housing_add = 5
-		planet_amenities_add = 5
-		planet_max_buildings_add = @buildings_t2
+		job_enforcer_add = 100
+		planet_housing_add = 1000
+		planet_amenities_add = 1000
 		planet_max_branch_office_buildings_add = 1
 		defense_armies_add = @tier_2_capital_defense_armies
 	}
@@ -237,18 +247,15 @@ building_capital = {
 	}
 
 	inline_script = {
-		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 1
-		SECONDARY_JOB = 1
-		TERTIARY_JOB = 2
+		script = buildings/genetic_ascension_effects
+		TIER = 2
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 1
+	inline_script = {
+		script = buildings/regular_empire_capital_jobs
+		PRIMARY_JOB = 100
+		SECONDARY_JOB = 100
+		TERTIARY_JOB = 200
 	}
 
 	triggered_planet_modifier = {
@@ -259,7 +266,7 @@ building_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -271,7 +278,7 @@ building_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 2
+			job_floret_add = 200
 		}
 	}
 
@@ -281,8 +288,7 @@ building_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -297,15 +303,19 @@ building_capital = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_civil_education } }
+		}
 		text = job_enforcer_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
+			exists = owner
+			owner = { has_valid_civic = civic_civil_education }
 		}
-		text = job_culture_worker_effect_desc
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -347,6 +357,10 @@ building_major_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -360,7 +374,7 @@ building_major_capital = {
 	}
 
 	allow = {
-		num_sapient_pops >= 25
+		sapient_pop_amount >= 2500
 	}
 
 	convert_to = {
@@ -370,7 +384,7 @@ building_major_capital = {
 		building_slave_major_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_major_capital_nanotech
+		building_major_capital_wilderness
 	}
 
 	prerequisites = {
@@ -382,10 +396,9 @@ building_major_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 2
-		planet_housing_add = 8
-		planet_amenities_add = 8
-		planet_max_buildings_add = @buildings_t3
+		job_enforcer_add = 200
+		planet_housing_add = 1500
+		planet_amenities_add = 1500
 		planet_max_branch_office_buildings_add = 2
 		defense_armies_add = @tier_3_capital_defense_armies
 	}
@@ -395,10 +408,15 @@ building_major_capital = {
 	}
 
 	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 3
+	}
+
+	inline_script = {
 		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 2
-		SECONDARY_JOB = 1
-		TERTIARY_JOB = 2
+		PRIMARY_JOB = 200
+		SECONDARY_JOB = 100
+		TERTIARY_JOB = 200
 	}
 
 	triggered_planet_modifier = {
@@ -409,7 +427,7 @@ building_major_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -421,7 +439,7 @@ building_major_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 3
+			job_floret_add = 300
 		}
 	}
 
@@ -431,8 +449,7 @@ building_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -442,17 +459,8 @@ building_major_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 1
 	}
 
 	resources = {
@@ -466,7 +474,19 @@ building_major_capital = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_civil_education } }
+		}
 		text = job_enforcer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_civil_education }
+		}
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -475,14 +495,6 @@ building_major_capital = {
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
 		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		text = job_culture_worker_effect_desc
 	}
 
 	triggered_desc = {
@@ -518,6 +530,10 @@ building_system_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -538,11 +554,11 @@ building_system_capital = {
 		building_slave_major_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_system_capital_nanotech
+		building_major_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 50
+		sapient_pop_amount >= 5000
 	}
 
 	prerequisites = {
@@ -554,10 +570,9 @@ building_system_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 3
-		planet_housing_add = 12
-		planet_amenities_add = 12
-		planet_max_buildings_add = @buildings_t4
+		job_enforcer_add = 300
+		planet_housing_add = 2000
+		planet_amenities_add = 2000
 		planet_max_branch_office_buildings_add = 4
 		defense_armies_add = @tier_4_capital_defense_armies
 	}
@@ -567,10 +582,15 @@ building_system_capital = {
 	}
 
 	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
+	}
+
+	inline_script = {
 		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 2
-		SECONDARY_JOB = 2
-		TERTIARY_JOB = 2
+		PRIMARY_JOB = 200
+		SECONDARY_JOB = 200
+		TERTIARY_JOB = 200
 	}
 
 	triggered_planet_modifier = {
@@ -581,7 +601,7 @@ building_system_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -593,7 +613,7 @@ building_system_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -605,7 +625,7 @@ building_system_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 4
+			job_floret_add = 400
 		}
 	}
 
@@ -615,8 +635,7 @@ building_system_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -626,8 +645,7 @@ building_system_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -637,17 +655,8 @@ building_system_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 2
 	}
 
 	resources = {
@@ -661,15 +670,19 @@ building_system_capital = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_civil_education } }
+		}
 		text = job_enforcer_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
+			exists = owner
+			owner = { has_valid_civic = civic_civil_education }
 		}
-		text = job_culture_worker_effect_desc
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -709,6 +722,10 @@ building_deployment_post = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -727,20 +744,24 @@ building_deployment_post = {
 		building_colony_shelter
 		building_ancient_control_center
 		building_ancient_palace
-		building_deployment_post_nanotech
+		building_colony_shelter_wilderness
 	}
 
 	planet_modifier = {
-		planet_housing_add = 3
-		planet_amenities_add = 8
-		job_replicator_add = 2
-		job_patrol_drone_add = 1
-		job_maintenance_drone_add = 2
-		planet_max_buildings_add = @buildings_t1
+		planet_housing_add = 300
+		planet_amenities_add = 300
+		job_replicator_add = 200
+		job_patrol_drone_add = 100
+		job_logistics_drone_add = 200
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 1
 	}
 
 	triggered_planet_modifier = {
@@ -749,7 +770,7 @@ building_deployment_post = {
 			owner = { has_civic = civic_machine_assimilator }
 		}
 		modifier = {
-			job_replicator_add = -1
+			job_replicator_add = -100
 		}
 	}
 
@@ -758,8 +779,8 @@ building_deployment_post = {
 			has_modifier = gestation_colony
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
+			job_replicator_add = -100
+			job_gestation_drone_add = 200
 		}
 	}
 
@@ -789,7 +810,7 @@ building_deployment_post = {
 	}
 
 	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -808,6 +829,10 @@ building_machine_capital = {
 	position_priority = 0
 
 	category = government
+
+	building_sets = {
+		government
+	}
 
 	potential = {
 		exists = owner
@@ -836,11 +861,11 @@ building_machine_capital = {
 		building_colony_shelter
 		building_ancient_control_center
 		building_ancient_palace
-		building_machine_capital_nanotech
+		building_colony_shelter_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 10
+		sapient_pop_amount >= 1000
 	}
 
 	prerequisites = {
@@ -852,17 +877,21 @@ building_machine_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 10
-		job_replicator_add = 2
-		job_patrol_drone_add = 1
-		job_maintenance_drone_add = 3
-		planet_max_buildings_add = @buildings_t2
+		planet_housing_add = 1000
+		planet_amenities_add = 1000
+		job_replicator_add = 200
+		job_patrol_drone_add = 100
+		job_logistics_drone_add = 300
 		defense_armies_add = @tier_2_capital_defense_armies
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 2
 	}
 
 	triggered_planet_modifier = {
@@ -871,8 +900,8 @@ building_machine_capital = {
 			owner = { has_civic = civic_machine_assimilator }
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
+			job_replicator_add = -100
+			job_logistics_drone_add = 100
 		}
 	}
 
@@ -881,8 +910,8 @@ building_machine_capital = {
 			has_modifier = gestation_colony
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
+			job_replicator_add = -100
+			job_gestation_drone_add = 200
 		}
 	}
 
@@ -892,8 +921,7 @@ building_machine_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -930,7 +958,7 @@ building_machine_capital = {
 	}
 
 	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 }
 
@@ -945,6 +973,10 @@ building_machine_major_capital = {
 	position_priority = 0
 
 	category = government
+
+	building_sets = {
+		government
+	}
 
 	potential = {
 		exists = owner
@@ -962,11 +994,11 @@ building_machine_major_capital = {
 		building_major_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_machine_major_capital_nanotech
+		building_major_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 25
+		sapient_pop_amount >= 2500
 	}
 
 	prerequisites = {
@@ -978,17 +1010,21 @@ building_machine_major_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 8
-		planet_amenities_add = 12
-		job_replicator_add = 2
-		job_patrol_drone_add = 2
-		job_maintenance_drone_add = 4
-		planet_max_buildings_add = @buildings_t3
+		planet_housing_add = 1500
+		planet_amenities_add = 1500
+		job_replicator_add = 200
+		job_patrol_drone_add = 200
+		job_logistics_drone_add = 400
 		defense_armies_add = @tier_3_capital_defense_armies
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 3
 	}
 
 	triggered_planet_modifier = {
@@ -997,8 +1033,8 @@ building_machine_major_capital = {
 			owner = { has_civic = civic_machine_assimilator }
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
+			job_replicator_add = -100
+			job_logistics_drone_add = 100
 		}
 	}
 
@@ -1007,8 +1043,8 @@ building_machine_major_capital = {
 			has_modifier = gestation_colony
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
+			job_replicator_add = -100
+			job_gestation_drone_add = 200
 		}
 	}
 
@@ -1018,8 +1054,7 @@ building_machine_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1029,8 +1064,7 @@ building_machine_major_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1079,6 +1113,10 @@ building_machine_system_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -1096,11 +1134,11 @@ building_machine_system_capital = {
 		building_machine_major_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_machine_system_capital_nanotech
+		building_major_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 50
+		sapient_pop_amount >= 5000
 	}
 
 	prerequisites = {
@@ -1112,12 +1150,11 @@ building_machine_system_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 12
-		planet_amenities_add = 18
-		job_replicator_add = 2
-		job_patrol_drone_add = 3
-		job_maintenance_drone_add = 5
-		planet_max_buildings_add = @buildings_t4
+		planet_housing_add = 2000
+		planet_amenities_add = 2000
+		job_replicator_add = 200
+		job_patrol_drone_add = 300
+		job_logistics_drone_add = 500
 		defense_armies_add = @tier_4_capital_defense_armies
 	}
 
@@ -1125,20 +1162,25 @@ building_machine_system_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
+	}
+
 	triggered_planet_modifier = {
 		potential = {
-			num_sapient_pops >= 10
+			sapient_pop_amount >= 1000
 		}
 		modifier = {
-			job_replicator_add = 1
+			job_replicator_add = 100
 		}
 	}
 	triggered_planet_modifier = {
 		potential = {
-			num_sapient_pops >= 40
+			sapient_pop_amount >= 4000
 		}
 		modifier = {
-			job_replicator_add = 1
+			job_replicator_add = 100
 		}
 	}
 	triggered_planet_modifier = {
@@ -1147,8 +1189,8 @@ building_machine_system_capital = {
 			owner = { has_civic = civic_machine_assimilator }
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
+			job_replicator_add = -100
+			job_logistics_drone_add = 100
 		}
 	}
 
@@ -1157,8 +1199,8 @@ building_machine_system_capital = {
 			has_modifier = gestation_colony
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
+			job_replicator_add = -100
+			job_gestation_drone_add = 200
 		}
 	}
 
@@ -1168,8 +1210,7 @@ building_machine_system_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1179,8 +1220,7 @@ building_machine_system_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1190,8 +1230,7 @@ building_machine_system_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1241,6 +1280,10 @@ building_hive_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -1249,6 +1292,7 @@ building_hive_capital = {
 				is_country_type = swarm
 			}
 			is_fallen_empire = no
+			is_wilderness_empire = no
 		}
 		uses_habitat_capitals = no
 		NOT = { is_planet_class = pc_cosmogenesis_world }
@@ -1256,7 +1300,12 @@ building_hive_capital = {
 
 	destroy_trigger = { # destroys and/or triggers conversion if true
 		exists = owner
-		owner = { is_hive_empire = no }
+		owner = {
+			OR = {
+				is_hive_empire = no
+				is_wilderness_empire = yes
+			}
+		}
 	}
 
 	convert_to = {
@@ -1264,7 +1313,7 @@ building_hive_capital = {
 		building_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_capital_nanotech
+		building_capital_wilderness
 	}
 
 	upgrades = {
@@ -1277,15 +1326,15 @@ building_hive_capital = {
 
 	show_tech_unlock_if = {
 		is_hive_empire = yes
+		is_wilderness_empire = no
 	}
 
 	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 8
-		job_synapse_drone_add = 2
-		job_maintenance_drone_add = 2
-		job_patrol_drone_add = 1
-		planet_max_buildings_add = @buildings_t2
+		planet_housing_add = 1000
+		planet_amenities_add = 800
+		job_logistics_drone_add = 200
+		job_coordinator_add = 200
+		job_patrol_drone_add = 100
 		defense_armies_add = @tier_2_capital_defense_armies
 	}
 
@@ -1293,14 +1342,9 @@ building_hive_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_origin = origin_progenitor_hive }
-			is_planet_class = pc_hive
-		}
-		job_spawning_drone_add = -1
-		job_offspring_drone_add = 1
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 2
 	}
 
 	triggered_planet_modifier = {
@@ -1309,8 +1353,7 @@ building_hive_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1329,7 +1372,7 @@ building_hive_capital = {
 	}
 
 	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -1349,6 +1392,10 @@ building_hive_major_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -1357,6 +1404,7 @@ building_hive_major_capital = {
 				is_country_type = swarm
 			}
 			is_fallen_empire = no
+			is_wilderness_empire = no
 		}
 	}
 
@@ -1365,8 +1413,7 @@ building_hive_major_capital = {
 		building_major_capital
 		building_ancient_control_center
 		building_ancient_palace
-		building_machine_major_capital_nanotech
-		building_major_capital_nanotech
+		building_major_capital_wilderness
 	}
 
 	upgrades = {
@@ -1374,7 +1421,7 @@ building_hive_major_capital = {
 	}
 
 	allow = {
-		num_sapient_pops >= 25
+		sapient_pop_amount >= 2500
 	}
 
 	prerequisites = {
@@ -1383,15 +1430,15 @@ building_hive_major_capital = {
 
 	show_tech_unlock_if = {
 		is_hive_empire = yes
+		is_wilderness_empire = no
 	}
 
 	planet_modifier = {
-		planet_housing_add = 10
-		planet_amenities_add = 12
-		job_synapse_drone_add = 3
-		job_maintenance_drone_add = 5
-		job_patrol_drone_add = 2
-		planet_max_buildings_add = @buildings_t4
+		planet_housing_add = 2000
+		planet_amenities_add = 2000
+		job_coordinator_add = 300
+		job_logistics_drone_add = 500
+		job_patrol_drone_add = 200
 		defense_armies_add = @tier_3_capital_defense_armies
 	}
 
@@ -1399,14 +1446,9 @@ building_hive_major_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_origin = origin_progenitor_hive }
-			is_planet_class = pc_hive
-		}
-		job_spawning_drone_add = -1
-		job_offspring_drone_add = 1
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
 	}
 
 	triggered_planet_modifier = {
@@ -1415,8 +1457,7 @@ building_hive_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1426,8 +1467,7 @@ building_hive_major_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1437,8 +1477,7 @@ building_hive_major_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -1457,7 +1496,7 @@ building_hive_major_capital = {
 	}
 
 	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -1482,10 +1521,17 @@ building_hab_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		uses_habitat_capitals = yes
 		exists = owner
-		owner = { is_fallen_empire = no }
+		owner = {
+			is_fallen_empire = no
+			is_wilderness_empire = no
+		}
 	}
 
 	convert_to = {
@@ -1509,9 +1555,9 @@ building_hab_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 3
-		planet_amenities_add = 3
-		planet_max_buildings_add = @buildings_t1
+		planet_housing_add = 500
+		planet_amenities_add = 500
+		planet_max_branch_office_buildings_add = 1
 		defense_armies_add = @tier_2_capital_defense_armies
 	}
 
@@ -1520,7 +1566,16 @@ building_hab_capital = {
 	}
 
 	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 2
+	}
+
+	inline_script = {
 		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	triggered_desc = {
+		text = building_hab_capital_tooltip
 	}
 
 	triggered_planet_modifier = {
@@ -1536,8 +1591,28 @@ building_hab_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_coordinator_add = 200
+		planet_amenities_add = 300
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_evaluator_add = 100
+		job_replicator_add = 100
+		job_logistics_drone_add = 200
+		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -1545,7 +1620,7 @@ building_hab_capital = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1553,7 +1628,7 @@ building_hab_capital = {
 			exists = owner
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
-		job_healthcare_add = 1
+		job_healthcare_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1563,7 +1638,7 @@ building_hab_capital = {
 				is_individual_machine = yes
 			}
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1573,46 +1648,12 @@ building_hab_capital = {
 				is_pleasure_seeker = yes
 			}
 		}
-		job_entertainer_add = 1
+		job_entertainer_add = 100
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				NOT = {
-					is_megacorp = yes
-				}
-				is_regular_empire = yes
-			}
-		}
-		job_politician_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 2
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -1621,28 +1662,34 @@ building_hab_capital = {
 			owner = { has_civic = civic_dystopian_society }
 		}
 		modifier = {
-			job_enforcer_add = 1
+			job_enforcer_add = 100
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = { has_technology = tech_capital_productivity_1 }
 		}
-		job_synapse_drone_add = 2
-		planet_amenities_add = 3
+		modifier = {
+			pop_bonus_workforce_mult = 0.1
+		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
+	triggered_desc = {
+		trigger = {
 			exists = owner
-			owner = { is_machine_empire = yes }
+			owner = {
+				has_origin = origin_toxic_knights
+				NOR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
+				}
+			}
+			has_planet_flag = toxic_knights_habitat
 		}
-		job_evaluator_add = 1
-		job_replicator_add = 1
-		job_maintenance_drone_add = 2
-		planet_amenities_add = 3
+		text = job_knight_commander_effect_desc
 	}
 
 	triggered_planet_modifier = {
@@ -1653,7 +1700,7 @@ building_hab_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 1
+			job_floret_add = 100
 		}
 	}
 
@@ -1661,24 +1708,27 @@ building_hab_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_regular_empire = yes
-				has_valid_civic = civic_dystopian_society
-			}
-		}
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				NOT = {
-					is_megacorp = yes
+				has_origin = origin_toxic_knights
+				OR = {
+					has_country_flag = toxoids_7011_b
+					has_country_flag = toxoids_7040_b
+					has_country_flag = toxoids_7130_b
 				}
-				is_regular_empire = yes
 			}
+			has_planet_flag = toxic_knights_habitat
 		}
-		text = job_politician_effect_desc
+		text = job_knight_commander_research_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				has_origin = origin_toxic_knights
+			}
+			has_planet_flag = toxic_knights_habitat
+		}
+		text = job_knight_effect_desc
 	}
 
 	triggered_desc = {
@@ -1701,22 +1751,19 @@ building_hab_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
+				is_regular_empire = yes
+				NOT = { has_valid_civic = civic_civil_education }
 			}
 		}
-		text = job_executive_effect_desc
+		text = job_enforcer_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
+			owner = { has_valid_civic = civic_civil_education }
 		}
-		text = job_steward_effect_desc
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -1758,7 +1805,7 @@ building_hab_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -1798,10 +1845,17 @@ building_hab_major_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		uses_habitat_capitals = yes
 		exists = owner
-		owner = { is_fallen_empire = no }
+		owner = {
+			is_fallen_empire = no
+			is_wilderness_empire = no
+		}
 	}
 
 	convert_to = {
@@ -1813,7 +1867,7 @@ building_hab_major_capital = {
 	}
 
 	allow = {
-		num_sapient_pops >= 10
+		sapient_pop_amount >= 1000
 	}
 
 	resources = {
@@ -1832,9 +1886,8 @@ building_hab_major_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 5
-		planet_max_buildings_add = @buildings_t2
+		planet_housing_add = 750
+		planet_amenities_add = 750
 		planet_max_branch_office_buildings_add = 2
 		defense_armies_add = @tier_3_capital_defense_armies
 		pop_environment_tolerance = 0.10
@@ -1845,7 +1898,16 @@ building_hab_major_capital = {
 	}
 
 	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 3
+	}
+
+	inline_script = {
 		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	triggered_desc = {
+		text = building_hab_major_capital_tooltip
 	}
 
 	triggered_planet_modifier = {
@@ -1861,7 +1923,7 @@ building_hab_major_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -1870,8 +1932,8 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { is_hive_empire = yes }
 		}
-		job_synapse_drone_add = 3
-		planet_amenities_add = 3
+		job_coordinator_add = 300
+		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -1879,14 +1941,10 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		job_evaluator_add = 2
-		job_replicator_add = 1
-		job_maintenance_drone_add = 3
-		planet_amenities_add = 3
-	}
-
-	triggered_desc = {
-		text = building_hab_major_capital_tooltip
+		job_evaluator_add = 200
+		job_replicator_add = 100
+		job_logistics_drone_add = 300
+		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -1894,7 +1952,7 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1902,7 +1960,7 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
-		job_healthcare_add = 1
+		job_healthcare_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1912,7 +1970,7 @@ building_hab_major_capital = {
 				is_individual_machine = yes
 			}
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1922,31 +1980,12 @@ building_hab_major_capital = {
 				is_pleasure_seeker = yes
 			}
 		}
-		job_entertainer_add = 1
+		job_entertainer_add = 100
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				NOR = {
-					is_megacorp = yes
-					has_civic = civic_exalted_priesthood
-					has_civic = civic_aristocratic_elite
-					has_civic = civic_merchant_guilds
-					has_civic = civic_technocracy
-					has_civic = civic_cosmic_harmony
-				}
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 2
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -1959,124 +1998,7 @@ building_hab_major_capital = {
 		}
 		modifier = {
 			job_knight_commander_add = 1
-			job_knight_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 3
-		}
-	}
-
-	# Exalted Priesthood Civic
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			owner = {
-				has_civic = civic_exalted_priesthood
-				NOR = {
-					has_origin = origin_toxic_knights
-					has_origin = origin_cybernetic_creed
-				}
-			}
-		}
-		modifier = {
-			job_politician_add = 1
-			job_high_priest_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			owner = {
-				has_civic = civic_exalted_priesthood
-				has_origin = origin_cybernetic_creed # therefore not 'origin_toxic_knights'
-			}
-		}
-		modifier = {
-			job_politician_add = 1
-			job_technophant_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_aristocratic_elite }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 1
-			job_noble_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_technocracy }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_head_researcher_add = 1
-			job_politician_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_merchant_guilds }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 1
-			job_merchant_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_cosmic_harmony }
-		}
-		modifier = {
-			job_lead_bureaucrat_add = 1
-			job_politician_add = 1
+			job_knight_add = 100
 		}
 	}
 
@@ -2085,7 +2007,7 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { is_regular_empire = yes }
 		}
-		job_enforcer_add = 1
+		job_enforcer_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -2094,35 +2016,18 @@ building_hab_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner.federation
-			owner = {
-				is_regular_empire = yes
-				federation = { has_federation_perk = culture_workers_1 }
-			}
-		}
-		job_culture_worker_add = 1
-	}
-
-	triggered_desc = {
-		trigger = {
 			exists = owner
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			owner = {
-				has_civic = civic_exalted_priesthood
-				NOR = {
-					has_origin = origin_toxic_knights
-					has_origin = origin_cybernetic_creed
-				}
-			}
+			owner = { has_technology = tech_capital_productivity_2 }
 		}
-		text = job_high_priest_effect_desc
+		modifier = {
+			pop_bonus_workforce_mult = 0.1
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -2133,61 +2038,8 @@ building_hab_major_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 2
+			job_floret_add = 200
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			owner = {
-				has_civic = civic_exalted_priesthood
-				has_origin = origin_cybernetic_creed # therefore not 'origin_toxic_knights'
-			}
-		}
-		text = job_technophant_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_aristocratic_elite
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_noble_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_merchant_guilds
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_merchant_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-				is_regular_empire = yes
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_politician_effect_desc
 	}
 
 	triggered_desc = {
@@ -2253,38 +2105,19 @@ building_hab_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
+					is_regular_empire = yes
+					NOT = { has_valid_civic = civic_civil_education }
 			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
+			text = job_enforcer_effect_desc
 		}
-		text = job_executive_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
+			owner = { has_valid_civic = civic_civil_education }
 		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_enforcer_effect_desc
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -2326,7 +2159,7 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -2335,27 +2168,6 @@ building_hab_major_capital = {
 			owner = { is_hive_empire = yes }
 		}
 		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner = {
-				is_regular_empire = yes
-				federation = { has_federation_perk = culture_workers_1 }
-			}
-		}
-		text = job_culture_worker_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_cosmic_harmony
-			}
-		}
-		text = job_lead_bureaucrat_effect_desc
 	}
 
 	triggered_desc = {
@@ -2387,10 +2199,17 @@ building_hab_system_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		uses_habitat_capitals = yes
 		exists = owner
-		owner = { is_fallen_empire = no }
+		owner = {
+			is_fallen_empire = no
+			is_wilderness_empire = no
+		}
 	}
 
 	convert_to = {
@@ -2402,7 +2221,7 @@ building_hab_system_capital = {
 	}
 
 	allow = {
-		num_sapient_pops >= 25
+		sapient_pop_amount >= 2500
 	}
 
 	resources = {
@@ -2421,10 +2240,9 @@ building_hab_system_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 8
-		planet_amenities_add = 8
-		planet_max_buildings_add = @buildings_t3
-		planet_max_branch_office_buildings_add = 3
+		planet_housing_add = 1000
+		planet_amenities_add = 1000
+		planet_max_branch_office_buildings_add = 4
 		defense_armies_add = @tier_4_capital_defense_armies
 		pop_environment_tolerance = 0.20
 	}
@@ -2434,7 +2252,16 @@ building_hab_system_capital = {
 	}
 
 	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
+	}
+
+	inline_script = {
 		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	triggered_desc = {
+		text = building_hab_system_capital_tooltip
 	}
 
 	triggered_planet_modifier = {
@@ -2450,7 +2277,7 @@ building_hab_system_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -2459,8 +2286,8 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { is_hive_empire = yes }
 		}
-		job_synapse_drone_add = 4
-		planet_amenities_add = 3
+		job_coordinator_add = 400
+		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -2468,14 +2295,10 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		job_evaluator_add = 3
-		job_replicator_add = 1
-		job_maintenance_drone_add = 3
-		planet_amenities_add = 3
-	}
-
-	triggered_desc = {
-		text = building_hab_system_capital_tooltip
+		job_evaluator_add = 300
+		job_replicator_add = 100
+		job_logistics_drone_add = 300
+		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -2483,7 +2306,7 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -2491,7 +2314,17 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
-		job_healthcare_add = 1
+		job_healthcare_add = 100
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_individual_machine = yes
+			}
+		}
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -2501,42 +2334,12 @@ building_hab_system_capital = {
 				is_pleasure_seeker = yes
 			}
 		}
-		job_entertainer_add = 1
+		job_entertainer_add = 100
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				NOR = {
-					is_megacorp = yes
-					has_civic = civic_exalted_priesthood
-					has_civic = civic_aristocratic_elite
-					has_civic = civic_merchant_guilds
-					has_civic = civic_technocracy
-					has_civic = civic_cosmic_harmony
-				}
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 3
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_cosmic_harmony }
-		}
-		modifier = {
-			job_lead_bureaucrat_add = 1
-			job_politician_add = 2
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -2549,95 +2352,7 @@ building_hab_system_capital = {
 		}
 		modifier = {
 			job_knight_commander_add = 1
-			job_knight_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 3
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			NOT = { has_planet_flag = toxic_knights_habitat }
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 4
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_exalted_priesthood }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 2
-			job_high_priest_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_aristocratic_elite }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 2
-			job_noble_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_technocracy }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_head_researcher_add = 1
-			job_politician_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_merchant_guilds }
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		modifier = {
-			job_politician_add = 2
-			job_merchant_add = 1
+			job_knight_add = 200
 		}
 	}
 
@@ -2646,7 +2361,7 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { is_regular_empire = yes }
 		}
-		job_enforcer_add = 2
+		job_enforcer_add = 200
 	}
 
 	triggered_planet_modifier = {
@@ -2655,20 +2370,28 @@ building_hab_system_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.2
-			planet_jobs_productive_produces_mult = 0.2
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner.federation
-			owner = {
-				is_regular_empire = yes
-				federation = { has_federation_perk = culture_workers_1 }
-			}
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_2 }
 		}
-		job_culture_worker_add = 1
+		modifier = {
+			pop_bonus_workforce_mult = 0.1
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_technology = tech_capital_productivity_3 }
+		}
+		modifier = {
+			pop_bonus_workforce_mult = 0.1
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -2679,62 +2402,8 @@ building_hab_system_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 3
+			job_floret_add = 300
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_exalted_priesthood
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_high_priest_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_aristocratic_elite
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_noble_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_merchant_guilds
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_merchant_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-				is_regular_empire = yes
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
-		}
-		text = job_politician_effect_desc
 	}
 
 	triggered_desc = {
@@ -2783,7 +2452,15 @@ building_hab_system_capital = {
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
+			owner = {
+				OR = {
+					is_individual_machine = yes
+					AND = {
+						is_regular_empire = yes
+						has_active_tradition = tr_synthetics_prefabricated_components
+					}
+				}
+			}
 		}
 		text = job_roboticist_effect_desc
 	}
@@ -2792,38 +2469,19 @@ building_hab_system_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
+					is_regular_empire = yes
+					NOT = { has_valid_civic = civic_civil_education }
 			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
+			text = job_enforcer_effect_desc
 		}
-		text = job_executive_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
 			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-			OR = {
-				NOT = { has_planet_flag = toxic_knights_habitat }
-				NOT = { owner = { has_origin = origin_toxic_knights } }
-			}
+			owner = { has_valid_civic = civic_civil_education }
 		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_enforcer_effect_desc
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -2865,7 +2523,7 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -2874,27 +2532,6 @@ building_hab_system_capital = {
 			owner = { is_hive_empire = yes }
 		}
 		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner = {
-				is_regular_empire = yes
-				federation = { has_federation_perk = culture_workers_1 }
-			}
-		}
-		text = job_culture_worker_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_civic = civic_cosmic_harmony
-			}
-		}
-		text = job_lead_bureaucrat_effect_desc
 	}
 
 	triggered_desc = {
@@ -2929,8 +2566,12 @@ building_resort_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
-		has_modifier = resort_colony
+		has_modifier = resort_colony # not available to gestalts
 	}
 
 	convert_to = {
@@ -2949,10 +2590,9 @@ building_resort_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 5
-		job_resort_worker_add = 1
-		planet_max_buildings_add = @buildings_t2
+		planet_housing_add = 1000
+		planet_amenities_add = 500
+		job_resort_worker_add = 100
 		planet_max_branch_office_buildings_add = 1
 	}
 
@@ -2960,12 +2600,17 @@ building_resort_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 2
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -2973,43 +2618,12 @@ building_resort_capital = {
 			exists = owner
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
-		job_healthcare_add = 1
+		job_healthcare_add = 100
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		job_politician_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 2
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -3020,7 +2634,7 @@ building_resort_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 1
+			job_floret_add = 100
 		}
 	}
 
@@ -3105,6 +2719,10 @@ building_resort_major_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		has_modifier = resort_colony
 	}
@@ -3115,10 +2733,11 @@ building_resort_major_capital = {
 		building_major_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_major_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 20
+		sapient_pop_amount >= 2000
 	}
 
 	resources = {
@@ -3132,10 +2751,9 @@ building_resort_major_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 10
-		planet_amenities_add = 10
-		job_resort_worker_add = 2
-		planet_max_buildings_add = @buildings_t3
+		planet_housing_add = 1000
+		planet_amenities_add = 1000
+		job_resort_worker_add = 200
 		planet_max_branch_office_buildings_add = 2
 	}
 
@@ -3143,12 +2761,17 @@ building_resort_major_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
 		}
-		job_roboticist_add = 1
+		job_roboticist_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -3156,43 +2779,12 @@ building_resort_major_capital = {
 			exists = owner
 			owner = { has_valid_civic = civic_private_healthcare_corporate }
 		}
-		job_healthcare_add = 1
+		job_healthcare_add = 100
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		job_politician_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 2
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -3201,8 +2793,7 @@ building_resort_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3215,7 +2806,7 @@ building_resort_major_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 2
+			job_floret_add = 200
 		}
 	}
 
@@ -3295,8 +2886,12 @@ building_slave_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
-		has_modifier = slave_colony
+		has_modifier = slave_colony # not available to gestalts
 	}
 
 	convert_to = {
@@ -3305,6 +2900,7 @@ building_slave_capital = {
 		building_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_capital_wilderness
 	}
 
 	resources = {
@@ -3315,11 +2911,10 @@ building_slave_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 5
-		job_slave_overseer_add = 2
+		planet_housing_add = 1000
+		planet_amenities_add = 500
+		job_slave_overseer_add = 200
 		planet_stability_add = 5
-		planet_max_buildings_add = 5
 		planet_max_branch_office_buildings_add = 1
 	}
 
@@ -3327,47 +2922,21 @@ building_slave_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		job_politician_add = 2
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 2
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 3
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_desc = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_megacorp = yes
+				is_megacorp = no
 			}
 		}
 		text = job_politician_effect_desc
@@ -3418,12 +2987,16 @@ building_slave_major_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		has_modifier = slave_colony
 	}
 
 	allow = {
-		num_sapient_pops >= 20
+		sapient_pop_amount >= 2000
 	}
 
 	convert_to = {
@@ -3432,6 +3005,7 @@ building_slave_major_capital = {
 		building_major_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_major_capital_wilderness
 	}
 
 	resources = {
@@ -3445,11 +3019,10 @@ building_slave_major_capital = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 10
-		planet_amenities_add = 10
-		job_slave_overseer_add = 4
+		planet_housing_add = 1000
+		planet_amenities_add = 1000
+		job_slave_overseer_add = 400
 		planet_stability_add = 10
-		planet_max_buildings_add = 11
 		planet_max_branch_office_buildings_add = 2
 	}
 
@@ -3457,40 +3030,14 @@ building_slave_major_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		job_politician_add = 2
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 4
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		modifier = {
-			job_executive_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		modifier = {
-			job_steward_add = 3
-		}
+	inline_script = {
+		script = "jobs/politician_add"
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -3499,8 +3046,7 @@ building_slave_major_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3541,7 +3087,6 @@ building_slave_major_capital = {
 	}
 }
 
-
 # Imperial Capital
 
 building_imperial_capital = {
@@ -3554,6 +3099,10 @@ building_imperial_capital = {
 	position_priority = 0
 
 	category = government
+
+	building_sets = {
+		government
+	}
 
 	potential = {
 		exists = owner
@@ -3571,20 +3120,20 @@ building_imperial_capital = {
 		building_hab_system_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_system_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 50
+		sapient_pop_amount >= 5000
 	}
 
 	prerequisites = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 5
-		planet_housing_add = 18
-		planet_amenities_add = 18
-		planet_max_buildings_add = 11
+		job_enforcer_add = 500
+		planet_housing_add = 3000
+		planet_amenities_add = 3000
 		planet_max_branch_office_buildings_add = 4
 		defense_armies_add = @tier_4_capital_defense_armies
 	}
@@ -3594,9 +3143,18 @@ building_imperial_capital = {
 	}
 
 	inline_script = {
+		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 5
+	}
+
+	inline_script = {
 		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 3
-		SECONDARY_JOB = 3
+		PRIMARY_JOB = 300
+		SECONDARY_JOB = 300
 	}
 
 	triggered_desc = {
@@ -3614,7 +3172,7 @@ building_imperial_capital = {
 			}
 		}
 		modifier = {
-			planet_housing_add = 1
+			planet_housing_add = 100
 		}
 	}
 
@@ -3626,7 +3184,7 @@ building_imperial_capital = {
 			}
 		}
 		modifier = {
-			job_floret_add = 5
+			job_floret_add = 500
 		}
 	}
 
@@ -3636,8 +3194,7 @@ building_imperial_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3647,8 +3204,7 @@ building_imperial_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3658,8 +3214,7 @@ building_imperial_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3674,7 +3229,19 @@ building_imperial_capital = {
 	}
 
 	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { NOT = { has_valid_civic = civic_civil_education } }
+		}
 		text = job_enforcer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { has_valid_civic = civic_civil_education }
+		}
+		text = job_educator_effect_desc
 	}
 
 	triggered_desc = {
@@ -3718,6 +3285,10 @@ building_imperial_machine_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -3737,28 +3308,37 @@ building_imperial_machine_capital = {
 		building_hab_major_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_system_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 50
+		sapient_pop_amount >= 5000
 	}
 
 	prerequisites = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 18
-		planet_amenities_add = 20
-		job_replicator_add = 4
-		job_patrol_drone_add = 5
-		job_maintenance_drone_add = 6
-		planet_max_buildings_add = 11
+		planet_housing_add = 3000
+		planet_amenities_add = 3000
+		job_replicator_add = 400
+		job_patrol_drone_add = 500
+		job_logistics_drone_add = 600
 		planet_max_branch_office_buildings_add = 3
 		defense_armies_add = @tier_4_capital_defense_armies
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 5
 	}
 
 	triggered_desc = {
@@ -3770,18 +3350,18 @@ building_imperial_machine_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			num_sapient_pops >= 10
+			sapient_pop_amount >= 1000
 		}
 		modifier = {
-			job_replicator_add = 1
+			job_replicator_add = 100
 		}
 	}
 	triggered_planet_modifier = {
 		potential = {
-			num_sapient_pops >= 40
+			sapient_pop_amount >= 4000
 		}
 		modifier = {
-			job_replicator_add = 1
+			job_replicator_add = 100
 		}
 	}
 	triggered_planet_modifier = {
@@ -3790,8 +3370,8 @@ building_imperial_machine_capital = {
 			owner = { has_civic = civic_machine_assimilator }
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
+			job_replicator_add = -100
+			job_logistics_drone_add = 100
 		}
 	}
 
@@ -3800,8 +3380,8 @@ building_imperial_machine_capital = {
 			has_modifier = gestation_colony
 		}
 		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
+			job_replicator_add = -100
+			job_gestation_drone_add = 200
 		}
 	}
 
@@ -3811,8 +3391,7 @@ building_imperial_machine_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3822,8 +3401,7 @@ building_imperial_machine_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3833,8 +3411,7 @@ building_imperial_machine_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3876,6 +3453,10 @@ building_imperial_hive_capital = {
 
 	category = government
 
+	building_sets = {
+		government
+	}
+
 	potential = {
 		exists = owner
 		owner = {
@@ -3884,6 +3465,7 @@ building_imperial_hive_capital = {
 				is_country_type = swarm
 			}
 			is_galactic_emperor = yes
+			is_wilderness_empire = no
 		}
 		planet = { is_capital = yes }
 	}
@@ -3895,28 +3477,36 @@ building_imperial_hive_capital = {
 		building_hab_major_capital
 		building_ancient_control_center
 		building_ancient_palace
+		building_system_capital_wilderness
 	}
 
 	allow = {
-		num_sapient_pops >= 50
+		sapient_pop_amount >= 5000
 	}
 
 	prerequisites = {
 	}
 
 	planet_modifier = {
-		planet_housing_add = 20
-		planet_amenities_add = 20
-		job_synapse_drone_add = 5
-		job_maintenance_drone_add = 7
-		job_patrol_drone_add = 4
-		planet_max_buildings_add = 11
+		planet_housing_add = 3000
+		planet_amenities_add = 3000
+		job_logistics_drone_add = 700
+		job_patrol_drone_add = 400
 		planet_max_branch_office_buildings_add = 3
 		defense_armies_add = @tier_4_capital_defense_armies
 	}
 
 	inline_script = {
 		script = buildings/on_all_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/on_all_habitat_capital_buildings
+	}
+
+	inline_script = {
+		script = buildings/genetic_ascension_effects
+		TIER = 5
 	}
 
 	triggered_desc = {
@@ -3928,11 +3518,9 @@ building_imperial_hive_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			owner = { has_origin = origin_progenitor_hive }
-			is_planet_class = pc_hive
+			exists = owner
 		}
-		job_spawning_drone_add = -1
-		job_offspring_drone_add = 1
+		job_coordinator_add = 500
 	}
 
 	triggered_planet_modifier = {
@@ -3941,8 +3529,7 @@ building_imperial_hive_capital = {
 			owner = { has_technology = tech_capital_productivity_1 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3952,8 +3539,7 @@ building_imperial_hive_capital = {
 			owner = { has_technology = tech_capital_productivity_2 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3963,8 +3549,7 @@ building_imperial_hive_capital = {
 			owner = { has_technology = tech_capital_productivity_3 }
 		}
 		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
+			pop_bonus_workforce_mult = 0.1
 		}
 	}
 
@@ -3983,1102 +3568,10 @@ building_imperial_hive_capital = {
 	}
 
 	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
+		text = job_logistics_drone_effect_desc
 	}
 
 	triggered_desc = {
 		text = job_patrol_drone_effect_desc
-	}
-}
-
-#### Nanotech Capital
-# Colony
-building_colony_shelter_nanotech = {
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			is_regular_empire = yes
-			is_fallen_empire = no
-		}
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			uses_habitat_capitals = yes
-			uses_district_set = cosmogenesis_world
-		}
-	}
-
-	convert_to = {
-		building_hive_capital
-		building_deployment_post
-		building_resort_capital
-		building_slave_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	planet_modifier = {
-		planet_housing_add = 3
-		planet_amenities_add = 7
-		planet_max_buildings_add = @buildings_t1
-		job_colonist_add = 2
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_valid_civic = civic_dystopian_society }
-		}
-		job_enforcer_add = 1
-		job_colonist_add = -1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_individual_machine = yes
-			}
-		}
-		job_roboticist_add = 2
-		job_colonist_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
-		}
-		job_roboticist_add = 1
-		job_colonist_add = -1
-	}
-
-	resources = {
-		category = planet_buildings
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	upgrades = {
-		building_capital
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				NAND = {
-					has_valid_civic = civic_dystopian_society
-					has_active_tradition = tr_synthetics_prefabricated_components
-				}
-			}
-		}
-		text = job_colonist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				OR = {
-					has_active_tradition = tr_synthetics_prefabricated_components
-					is_individual_machine = yes
-				}
-			}
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
-}
-
-# Planetary Administration
-building_capital_nanotech = {
-	base_buildtime = @b2_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			is_regular_empire = yes
-			is_fallen_empire = no
-		}
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-			uses_habitat_capitals = yes
-			is_planet_class = pc_cosmogenesis_world
-		}
-	}
-
-	convert_to = {
-		building_hive_capital
-		building_machine_capital
-		building_resort_capital
-		building_slave_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	allow = {
-		num_sapient_pops >= 10
-	}
-
-	upgrades = {
-		"building_major_capital"
-	}
-
-	prerequisites = {
-		"tech_planetary_government"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		job_enforcer_add = 1
-		planet_housing_add = 5
-		planet_amenities_add = 5
-		planet_max_buildings_add = @buildings_t2
-		planet_max_branch_office_buildings_add = 1
-		defense_armies_add = @tier_2_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	inline_script = {
-		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 1
-		SECONDARY_JOB = 1
-		TERTIARY_JOB = 2
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			energy = @b2_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		text = job_culture_worker_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
-}
-
-# Major Capital
-building_major_capital_nanotech = {
-	base_buildtime = @b3_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			is_regular_empire = yes
-			is_fallen_empire = no
-		}
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-		}
-	}
-
-	allow = {
-		num_sapient_pops >= 25
-	}
-
-	convert_to = {
-		building_hive_major_capital
-		building_machine_major_capital
-		building_resort_major_capital
-		building_slave_major_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	prerequisites = {
-		"tech_colonial_centralization"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		job_enforcer_add = 2
-		planet_housing_add = 8
-		planet_amenities_add = 8
-		planet_max_buildings_add = @buildings_t3
-		planet_max_branch_office_buildings_add = 2
-		defense_armies_add = @tier_3_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	inline_script = {
-		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 2
-		SECONDARY_JOB = 1
-		TERTIARY_JOB = 2
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 1
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		text = job_culture_worker_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
-
-	upgrades = {
-		"building_system_capital"
-	}
-}
-
-building_system_capital_nanotech = {
-	base_buildtime = @b4_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			is_regular_empire = yes
-			is_fallen_empire = no
-		}
-		NOR = {
-			has_modifier = resort_colony
-			has_modifier = slave_colony
-		}
-	}
-
-	convert_to = {
-		building_hive_major_capital
-		building_machine_major_capital
-		building_major_capital
-		building_resort_major_capital
-		building_slave_major_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	allow = {
-		num_sapient_pops >= 50
-	}
-
-	prerequisites = {
-		"tech_galactic_administration"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		job_enforcer_add = 3
-		planet_housing_add = 12
-		planet_amenities_add = 12
-		planet_max_buildings_add = @buildings_t4
-		planet_max_branch_office_buildings_add = 4
-		defense_armies_add = @tier_4_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	inline_script = {
-		script = buildings/regular_empire_capital_jobs
-		PRIMARY_JOB = 2
-		SECONDARY_JOB = 2
-		TERTIARY_JOB = 2
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		job_culture_worker_add = 2
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			energy = @b4_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner.federation
-			owner.federation = { has_federation_perk = culture_workers_1 }
-		}
-		text = job_culture_worker_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
-
-	upgrades = {
-		building_imperial_capital
-	}
-}
-
-#############
-# Machine buildings
-#############
-
-# Colony
-building_deployment_post_nanotech = {
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			OR = {
-				is_machine_empire = yes
-				is_country_type = ai_empire
-			}
-			is_fallen_empire = no
-		}
-		uses_habitat_capitals = no
-		NOT = { is_planet_class = pc_cosmogenesis_world }
-	}
-
-	convert_to = {
-		building_hive_capital
-		building_colony_shelter
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	planet_modifier = {
-		planet_housing_add = 3
-		planet_amenities_add = 8
-		job_replicator_add = 2
-		job_patrol_drone_add = 1
-		job_maintenance_drone_add = 2
-		planet_max_buildings_add = @buildings_t1
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		upkeep = {
-			energy = 1
-		}
-	}
-
-	upgrades = {
-		building_machine_capital
-	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-}
-
-# Administrative Array
-building_machine_capital_nanotech = {
-	base_buildtime = @b2_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			OR = {
-				is_machine_empire = yes
-				is_country_type = ai_empire
-				AND = {
-					exists = event_target:mechanocalibrator_country
-					is_same_value = event_target:mechanocalibrator_country
-				}
-			}
-			is_fallen_empire = no
-		}
-		uses_habitat_capitals = no
-		NOT = { is_planet_class = pc_cosmogenesis_world }
-	}
-
-	destroy_trigger = {
-		exists = owner
-		owner = { is_machine_empire = no }
-	}
-
-	convert_to = {
-		building_hive_capital
-		building_colony_shelter
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	allow = {
-		num_sapient_pops >= 10
-	}
-
-	prerequisites = {
-		"tech_planetary_government"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		planet_housing_add = 5
-		planet_amenities_add = 10
-		job_replicator_add = 2
-		job_patrol_drone_add = 1
-		job_maintenance_drone_add = 3
-		planet_max_buildings_add = @buildings_t2
-		defense_armies_add = @tier_2_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
-		}
-		upkeep = {
-			energy = @b2_upkeep
-		}
-	}
-
-	upgrades = {
-		building_machine_major_capital
-	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_maintenance_drone_effect_desc
-	}
-}
-
-# Planetary Processor
-building_machine_major_capital_nanotech = {
-	base_buildtime = @b3_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			OR = {
-				is_machine_empire = yes
-				is_country_type = ai_empire
-			}
-			is_fallen_empire = no
-		}
-	}
-
-	convert_to = {
-		building_hive_major_capital
-		building_major_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	allow = {
-		num_sapient_pops >= 25
-	}
-
-	prerequisites = {
-		"tech_colonial_centralization"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		planet_housing_add = 8
-		planet_amenities_add = 12
-		job_replicator_add = 2
-		job_patrol_drone_add = 2
-		job_maintenance_drone_add = 4
-		planet_max_buildings_add = @buildings_t3
-		defense_armies_add = @tier_3_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
-		}
-		upkeep = {
-			energy = @b3_upkeep
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
-	upgrades = {
-		"building_machine_system_capital"
-	}
-}
-
-# Primary Nexus
-building_machine_system_capital_nanotech = {
-	base_buildtime = @b4_time
-	capital = yes
-	can_build = no
-	can_demolish = no
-	can_be_ruined = no
-	can_be_disabled = no
-	position_priority = 0
-
-	category = government
-	building_sets = { nanotech_world }
-
-	potential = {
-		exists = owner
-		owner = {
-			OR = {
-				is_machine_empire = yes
-				is_country_type = ai_empire
-			}
-			is_fallen_empire = no
-		}
-	}
-
-	convert_to = {
-		building_hive_major_capital
-		building_major_capital
-		building_machine_major_capital
-		building_ancient_control_center
-		building_ancient_palace
-	}
-
-	allow = {
-		num_sapient_pops >= 50
-	}
-
-	prerequisites = {
-		"tech_galactic_administration"
-	}
-
-	show_tech_unlock_if = {
-		always = no
-	}
-
-	planet_modifier = {
-		planet_housing_add = 12
-		planet_amenities_add = 18
-		job_replicator_add = 2
-		job_patrol_drone_add = 3
-		job_maintenance_drone_add = 5
-		planet_max_buildings_add = @buildings_t4
-		defense_armies_add = @tier_4_capital_defense_armies
-	}
-
-	inline_script = {
-		script = buildings/on_all_capital_buildings
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			num_sapient_pops >= 10
-		}
-		modifier = {
-			job_replicator_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			num_sapient_pops >= 40
-		}
-		modifier = {
-			job_replicator_add = 1
-		}
-	}
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_civic = civic_machine_assimilator }
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_maintenance_drone_add = 1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -1
-			job_gestation_drone_add = 2
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			planet_jobs_productive_upkeep_mult = 0.1
-			planet_jobs_productive_produces_mult = 0.1
-		}
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
-		}
-		upkeep = {
-			energy = @b4_upkeep
-		}
-	}
-
-	triggered_desc = {
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
-	upgrades = {
-		"building_imperial_machine_capital"
 	}
 }

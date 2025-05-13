@@ -205,6 +205,15 @@ action_form_migration_pact = {
 						value >= 20
 					}
 				}
+				AND = {
+					has_valid_civic = civic_hive_familiar_face
+					from = {
+						trust = {
+							who = root
+							value >= 10
+						}
+					}
+				}
 			}
 		}
 		custom_tooltip = {
@@ -233,7 +242,7 @@ action_societal_enlightenment = {
 			is_domesticator_or_full_protectorate = no
 			from = {
 				is_country_type = primitive
-				NOR = { 
+				NOR = {
 					is_under_societal_enlightenment = root
 					has_country_flag = solarpunk_country
 				}
@@ -311,7 +320,8 @@ action_societal_enlightenment = {
 					from = {
 						OR = {
 							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
+							is_machine_empire = yes
+							is_individual_machine = yes
 						}
 					}
 				}
@@ -327,7 +337,8 @@ action_societal_enlightenment = {
 					from = { has_civic = civic_machine_terminator }
 					OR = {
 						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
+						is_individual_machine = yes
 					}
 				}
 			}
@@ -352,7 +363,7 @@ action_societal_enlightenment = {
 			}
 		}
 	}
-	
+
 
 	should_ai_propose = {
 		weight = 0
@@ -479,7 +490,8 @@ action_open_technological_enlightenment = {
 					from = {
 						OR = {
 							has_country_flag = synthetic_empire
-							has_authority = auth_machine_intelligence
+							is_machine_empire = yes
+							is_individual_machine = yes
 						}
 					}
 				}
@@ -495,7 +507,8 @@ action_open_technological_enlightenment = {
 					from = { has_civic = civic_machine_terminator }
 					OR = {
 						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
+						is_individual_machine = yes
 					}
 				}
 			}
@@ -509,7 +522,8 @@ action_open_technological_enlightenment = {
 					from = { has_civic = civic_machine_terminator }
 					OR = {
 						has_country_flag = synthetic_empire
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
+						is_individual_machine = yes
 					}
 				}
 			}

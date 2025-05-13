@@ -38,7 +38,27 @@ mammalians = {
 			"mam17"
 		}
 	}
-
+	conditional_portraits = {
+		randomizable = {
+			has_mammalians_micro_dlc = yes
+		}
+		playable = {
+			has_mammalians_micro_dlc = yes
+		}
+		portraits = {
+			"mammalian_ar_01"
+			"mammalian_ar_02"
+			"mammalian_ar_03"
+			"mammalian_ar_04"
+			"mammalian_ar_05"
+			"mammalian_ar_06"
+			"mammalian_ar_07"
+			"mammalian_ar_08"
+			"mammalian_ar_09"
+			"mammalian_ar_10"
+		}
+	}
+	
 	# These should not be used for randomly generated species
 	non_randomized_portraits = {
 		"mam_rat"
@@ -987,18 +1007,18 @@ machines = {
 
 	conditional_portraits = {
 		randomizable = {
+			has_rick_the_cube_dlc = yes
 			OR = {
 				has_synthetic_dawn = yes
 				has_machine_age_dlc = yes
 			}
-			has_rick_the_cube_dlc = yes
 		}
 		playable = {
+			has_rick_the_cube_dlc = yes
 			OR = {
 				has_synthetic_dawn = yes
 				has_machine_age_dlc = yes
 			}
-			has_rick_the_cube_dlc = yes
 		}
 		portraits = {
 			"cyb_machine"
@@ -1256,6 +1276,154 @@ synthetic_aquatics = {
 		}
 		portraits = {
 			"synth06"
+		}
+	}
+}
+
+ep9_exclusive_molluscoid = {
+	species_class = MOL
+
+	conditional_portraits = {
+		randomizable = {
+			has_stargazer_dlc = yes
+		}
+		playable = {
+			has_stargazer_dlc = yes
+		}
+		portraits = {
+			"stargazer_01"
+		}
+	}
+}
+
+biogenesis_molluscoids = {
+	species_class = MOL
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"ant1"
+			"bio6"
+			"bio11"
+		}
+	}
+}
+
+biogenesis_aquatic = {
+	species_class = AQUATIC
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"pro1"
+			"bio8"
+		}
+	}
+}
+
+biogenesis_avians = {
+	species_class = AVI
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"bio4"
+		}
+	}
+}
+
+biogenesis_reptilians = {
+	species_class = REP
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"pro2"
+			"bio9"
+		}
+	}
+}
+
+biogenesis_plantoids = {
+	species_class = PLANT
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"bio5"
+		}
+	}
+}
+
+biogenesis_arthropoids = {
+	species_class = ART
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"bio7"
+		}
+	}
+}
+
+biogenesis_mammalians = {
+	species_class = MAM
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"bio10"
+		}
+	}
+}
+
+biogenesis_machines = {
+	species_class = MACHINE
+
+	conditional_portraits = {
+		randomizable = {
+			has_biogenesis_dlc = yes
+		}
+		playable = {
+			has_biogenesis_dlc = yes
+		}
+		portraits = {
+			"bio12"
 		}
 	}
 }

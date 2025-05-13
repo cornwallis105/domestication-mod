@@ -6,9 +6,9 @@ domprot_1_modifier = {
 	main_perk = yes
 	subject_modifier = {
 		planet_structures_cost_mult = -0.10
-    planet_buildings_upkeep_mult = -0.10
+		planet_buildings_upkeep_mult = -0.10
 		planet_districts_upkeep_mult = -0.10
-    job_floret_per_pop = 0.0625
+		job_floret_per_pop = 0.0625
 
 		#description = domprot_1_modifier_desc
 	}
@@ -39,7 +39,7 @@ domprot_1_modifier = {
 		target = {
 			restore_country_backup_data = yes
 
-      remove_modifier = protectorate_1_floret_jobs
+			remove_modifier = protectorate_1_floret_jobs
 		}
 	}
 }
@@ -77,7 +77,7 @@ domprot_1_neighbor_bonuses = {
 
 domprot_1_pop_transfer = {
 	icon = "GFX_specialist_perk_domprot_1_pop_transfer"
-  activate_effect = {
+	activate_effect = {
 		target = {
 			set_country_flag = flag_domprot_transfer_1
 		}
@@ -126,10 +126,10 @@ domprot_1_protectorate_tech = {
 domprot_2_modifier = {
 	main_perk = yes
 	subject_modifier = {
-    planet_structures_cost_mult = -0.20
-    planet_buildings_upkeep_mult = -0.20
-    planet_districts_upkeep_mult = -0.20
-    job_floret_per_pop = 0.1
+		planet_structures_cost_mult = -0.20
+		planet_buildings_upkeep_mult = -0.20
+		planet_districts_upkeep_mult = -0.20
+		job_floret_per_pop = 0.1
 		#num_tech_alternatives_add = 1
 		#description = domprot_2_modifier_desc
 	}
@@ -145,7 +145,7 @@ domprot_2_modifier = {
 	}
 	deactivate_effect = {
 		target = {
-      remove_modifier = protectorate_2_floret_jobs
+			remove_modifier = protectorate_2_floret_jobs
 		}
 	}
 }
@@ -197,7 +197,7 @@ domprot_2_traits = {
 
 domprot_2_pop_transfer = {
 	icon = "GFX_specialist_perk_domprot_2_pop_transfer"
-  activate_effect = {
+	activate_effect = {
 		target = {
 			set_country_flag = flag_domprot_transfer_2
 		}
@@ -216,10 +216,10 @@ domprot_2_pop_transfer = {
 domprot_3_modifier = {
 	main_perk = yes
 	subject_modifier = {
-    planet_structures_cost_mult = -0.40
-    planet_buildings_upkeep_mult = -0.40
-    planet_districts_upkeep_mult = -0.40
-    job_floret_per_pop = 0.125
+		planet_structures_cost_mult = -0.40
+		planet_buildings_upkeep_mult = -0.40
+		planet_districts_upkeep_mult = -0.40
+		job_floret_per_pop = 0.125
 		#description = domprot_3_modifier_desc
 	}
 

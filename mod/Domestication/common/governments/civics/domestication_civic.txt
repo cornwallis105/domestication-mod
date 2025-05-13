@@ -271,7 +271,7 @@ civic_shared_burden = {
 	}
 	modifier = {
 		planet_stability_add = 5
-		pop_demotion_time_mult = -0.45
+		pop_unemployment_demotion_time_mult = -0.45
 	}
 	random_weight = {
 		base = @civic_rare_random_weight # Should be fairly rare

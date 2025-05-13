@@ -21,8 +21,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -39,8 +39,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -57,8 +57,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -73,8 +73,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_brainslug
 							}
 						}
@@ -85,8 +85,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_brainslug
 									}
 								}
@@ -120,8 +120,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -138,8 +138,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -154,8 +154,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								NOT = { has_trait = trait_syncretic_proles }
 							}
 						}
@@ -166,8 +166,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										NOT = { has_trait = trait_syncretic_proles }
 									}
 								}
@@ -183,8 +183,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_cave_dweller
 							}
 						}
@@ -195,8 +195,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_cave_dweller
 									}
 								}
@@ -212,8 +212,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_brainslug
 							}
 						}
@@ -224,8 +224,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_brainslug
 									}
 								}
@@ -259,8 +259,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -279,8 +279,8 @@ add_random_leader_floret_trait = {
 								has_origin = origin_syncretic_evolution
 								has_origin = origin_domesticators
 							}
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_syncretic_proles
 							}
 						}
@@ -295,8 +295,8 @@ add_random_leader_floret_trait = {
 										has_origin = origin_syncretic_evolution
 										has_origin = origin_domesticators
 									}
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_syncretic_proles
 									}
 								}
@@ -314,8 +314,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 									}
 								}
 							}
@@ -330,8 +330,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_brainslug
 							}
 						}
@@ -342,8 +342,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_brainslug
 									}
 								}
@@ -359,8 +359,8 @@ add_random_leader_floret_trait = {
 						add = 5
 						owner = {
 							is_domesticator_or_protectorate = yes
-							any_owned_pop = {
-								has_job = floret
+							any_owned_pop_group = {
+								is_pop_category = floret_strata
 								has_trait = trait_cave_dweller
 							}
 						}
@@ -371,8 +371,8 @@ add_random_leader_floret_trait = {
 							owner = {
 								AND = {
 									is_domesticator_or_protectorate = yes
-									any_owned_pop = {
-										has_job = floret
+									any_owned_pop_group = {
+										is_pop_category = floret_strata
 										has_trait = trait_cave_dweller
 									}
 								}
@@ -404,7 +404,7 @@ get_pirate_species = {
 				}
 			}
 		}
-		random_owned_pop = {
+		weighted_random_owned_pop_group = {
 			limit = {
 				species = {
 					NOR = {
@@ -426,7 +426,7 @@ get_pirate_species = {
 				}
 				modifier = {
 					factor = 0.1
-					has_job = floret
+					is_pop_category = floret_strata
 				}
 			}
 			species = { save_event_target_as = owner_species }
@@ -638,9 +638,13 @@ increment_xenodrugs = {
 }
 
 shift_planet_ethics = {
-	random_owned_pop = {
-		limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
-		pop_change_ethic = ethic_$ETHIC$
+	weighted_random_owned_pop_group = {
+		limit = { NOT = { pop_group_has_ethic = ethic_$ETHIC$ } }
+		pop_group_transfer_ethic = {
+			POP_GROUP = this
+			ETHOS = ethic_$ETHIC$
+			PERCENTAGE = 0.3 # 100%
+		}
 	}
 	if = {
 		limit = {
@@ -651,18 +655,26 @@ shift_planet_ethics = {
 				}
 			}
 		}
-		random_owned_pop = {
-			limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
-			pop_change_ethic = ethic_$ETHIC$
+		weighted_random_owned_pop_group = {
+			limit = { NOT = { pop_group_has_ethic = ethic_$ETHIC$ } }
+			pop_group_transfer_ethic = {
+				POP_GROUP = this
+				ETHOS = ethic_$ETHIC$
+				PERCENTAGE = 0.3 # 100%
+			}
 		}
 	}
 	if = {
 		limit = {
 			owner = { pre_ftl_modern_era = yes }
 		}
-		random_owned_pop = {
-			limit = { NOT = { pop_has_ethic = ethic_$ETHIC$ } }
-			pop_change_ethic = ethic_$ETHIC$
+		weighted_random_owned_pop_group = {
+			limit = { NOT = { pop_group_has_ethic = ethic_$ETHIC$ } }
+			pop_group_transfer_ethic = {
+				POP_GROUP = this
+				ETHOS = ethic_$ETHIC$
+				PERCENTAGE = 0.3 # 100%
+			}
 		}
 	}
 }

@@ -16,14 +16,14 @@ situation_event = {
 			observation_outpost = {
 				set_event_locked = no
 			}
-			random_owned_pop = {
+			random_owned_pop_group = {
 				species = {
 					set_species_flag = zoonotic_plague_species
 				}
 				limit = {
 					is_robotic_species = no
 				}
-				kill_pop = yes
+				kill_single_pop = yes
 			}
 		}
 		owner = {

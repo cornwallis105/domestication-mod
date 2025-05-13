@@ -64,7 +64,7 @@ cara_allow_deal3 = {
 	}
 	else_if = {
 		limit = { has_country_flag = fleet3deal5 }
-		count_owned_pop = {
+		count_owned_pop_amount = {
 			limit = {
 				OR = {
 					is_unemployed = yes
@@ -74,7 +74,7 @@ cara_allow_deal3 = {
 					is_pop_category = criminal
 				}
 			}
-			count >= 6
+			count >= 600
 		}
 	}
 	else_if = {

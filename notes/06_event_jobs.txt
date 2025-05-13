@@ -7,22 +7,10 @@ event_purge = {
 	is_capped_by_modifier = no
 	category = purge
 
-	tags = { }
-
 	purge = purge_normal
 
-	demotion = {
-		time = 0
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = purge
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
-
 	possible = {
-		has_pop_group_flag = event_purge
+		has_pop_flag = event_purge
 	}
 
 	resources = {
@@ -53,14 +41,7 @@ ratling_scavenger = {
 
 	can_set_priority = no
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			building_icon = building_junkheap
-		}
-	}
-
-	tags = { food minerals consumer_goods }
+	building_icon = building_junkheap
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -87,30 +68,13 @@ ratling_scavenger = {
 	}
 
 	inline_script = "jobs/automodding_priority_food"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 odd_factory_worker = {
 	category = worker
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_primitive_factory
-		}
-	}
-
-	tags = { alloys }
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_primitive_factory
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -151,27 +115,7 @@ odd_factory_worker = {
 			factor = 0
 			OR = {
 				owner = { has_country_flag = odd_factory_pause }
-				planet = { pop_amount < 200 } # Odd Factory should not risk completely depopulating a colony
-			}
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
+				planet = { num_pops < 2 } # Odd Factory should not risk completely depopulating a colony
 			}
 		}
 	}
@@ -180,15 +124,8 @@ odd_factory_worker = {
 odd_factory_drone = {
 	category = simple_drone
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_primitive_factory
-		}
-	}
-
-	tags = { alloys }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_primitive_factory
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -212,34 +149,17 @@ odd_factory_drone = {
 		mult = value:job_weights_modifier|JOB|odd_factory_drone|RESOURCE|alloys|
 		modifier = {
 			factor = 0
-			planet = { pop_amount < 200 } # Odd Factory should not risk completely depopulating a colony
-		}
-	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
+			planet = { num_pops < 2 } # Odd Factory should not risk completely depopulating a colony
 		}
 	}
 }
 
 underground_trade_worker = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_holo_theatres
-			icon = clerk
-		}
-	}
-
-	tags = { trade amenities }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_holo_theatres
+	clothes_texture_index = 3
+	icon = clerk
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -258,24 +178,29 @@ underground_trade_worker = {
 		}
 	}
 
-	resources = {
-		category = planet_traders
-		produces = {
-			trade = 6
-		}
+	pop_modifier = {
+		pop_housing_usage_add = -1
 	}
 
 	triggered_planet_modifier = {
 		potential = {
 			always = yes
 		}
-		planet_amenities_add = 300
+		trade_value_add = 6
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		planet_amenities_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_modifier|JOB|trader|RESOURCE|trade|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.5
@@ -291,42 +216,17 @@ underground_trade_worker = {
 				has_ethic = ethic_fanatic_xenophile
 			}
 		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
 	}
 
 	inline_script = "jobs/automodding_priority_trade"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 underground_contact_drone = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_holo_theatres
-			icon = spawning_drone
-		}
-	}
-
-	tags = { amenities energy }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_holo_theatres
+	clothes_texture_index = 3
+	icon = spawning_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -342,14 +242,34 @@ underground_contact_drone = {
 		potential = {
 			always = yes
 		}
-		planet_amenities_add = 300
+		planet_amenities_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
+	pop_modifier = {
+		pop_housing_usage_add = -1
+	}
+
 	resources = {
-		category = planet_traders
+		category = planet_jobs
 		produces = {
-			trade = 6
+			trigger = {
+				exists = owner
+				owner = {
+					is_hive_empire = yes
+				}
+			}
+			energy = 3
+			food = 2
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = {
+					is_machine_empire = yes
+				}
+			}
+			energy = 6
 		}
 	}
 
@@ -361,29 +281,14 @@ underground_contact_drone = {
 	}
 
 	inline_script = "jobs/automodding_priority_energy"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 dimensional_portal_researcher = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_research_lab_1
-			icon = researcher
-		}
-	}
-	tags = { research }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_research_lab_1
+	clothes_texture_index = 3
+	icon = researcher
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -404,7 +309,44 @@ dimensional_portal_researcher = {
 				has_modifier = dportal_trade_normal
 			}
 		}
-		planet_amenities_add = 600
+		trade_value_add = 6
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_high
+			}
+		}
+		trade_value_add = 12
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_low
+			}
+		}
+		trade_value_add = 3
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_crisis
+			}
+		}
+		trade_value_add = 2
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_modifier = dportal_trade_normal
+			}
+		}
+		planet_amenities_add = 6
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -413,7 +355,7 @@ dimensional_portal_researcher = {
 				has_modifier = dportal_trade_high
 			}
 		}
-		planet_amenities_add = 1200
+		planet_amenities_add = 12
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -422,7 +364,7 @@ dimensional_portal_researcher = {
 				has_modifier = dportal_trade_low
 			}
 		}
-		planet_amenities_add = 300
+		planet_amenities_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -431,7 +373,7 @@ dimensional_portal_researcher = {
 				has_modifier = dportal_trade_crisis
 			}
 		}
-		planet_amenities_add = 200
+		planet_amenities_add = 2
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -472,38 +414,6 @@ dimensional_portal_researcher = {
 			}
 			sr_dark_matter = 1
 		}
-		produces = {
-			trigger = {
-				planet = {
-					has_planet_flag = dportal_trade_normal
-				}
-			}
-			trade = 6
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_planet_flag = dportal_trade_high
-				}
-			}
-			trade = 12
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_planet_flag = dportal_trade_low
-				}
-			}
-			trade = 3
-		}
-		produces = {
-			trigger = {
-				planet = {
-					has_planet_flag = dportal_trade_crisis
-				}
-			}
-			trade = 2
-		}
 		upkeep = {
 			consumer_goods = 3
 		}
@@ -518,12 +428,9 @@ dimensional_portal_researcher = {
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -534,7 +441,7 @@ dimensional_portal_researcher = {
 			planet = { has_planet_flag = dportal_energy }
 		}
 		modifier = {
-			mult = value:job_weights_multiple_resources_modifier|JOB|dimensional_portal_researcher|RESOURCE1|physics_research|WEIGHT1|0.6|RESOURCE2|trade|WEIGHT2|0.4|
+			mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
 			planet = { has_planet_flag = dportal_trader }
 		}
 		modifier = {
@@ -592,30 +499,14 @@ dimensional_portal_researcher = {
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-		promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 dimensional_portal_researcher_gestalt = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_research_lab_1
-			icon = researcher
-		}
-	}
-
-	tags = { research }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_research_lab_1
+	clothes_texture_index = 3
+	icon = researcher
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -635,7 +526,7 @@ dimensional_portal_researcher_gestalt = {
 				has_modifier = dportal_trade_normal
 			}
 		}
-		planet_amenities_no_happiness_add = 600
+		planet_amenities_no_happiness_add = 6
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -644,7 +535,7 @@ dimensional_portal_researcher_gestalt = {
 				has_modifier = dportal_trade_high
 			}
 		}
-		planet_amenities_no_happiness_add = 1200
+		planet_amenities_no_happiness_add = 12
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -653,7 +544,7 @@ dimensional_portal_researcher_gestalt = {
 				has_modifier = dportal_trade_low
 			}
 		}
-		planet_amenities_no_happiness_add = 300
+		planet_amenities_no_happiness_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 	triggered_planet_modifier = {
@@ -662,7 +553,7 @@ dimensional_portal_researcher_gestalt = {
 				has_modifier = dportal_trade_crisis
 			}
 		}
-		planet_amenities_no_happiness_add = 200
+		planet_amenities_no_happiness_add = 2
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -789,12 +680,9 @@ dimensional_portal_researcher_gestalt = {
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -851,30 +739,14 @@ dimensional_portal_researcher_gestalt = {
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 space_time_anomaly_researcher = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_research_lab_1
-			icon = researcher
-		}
-	}
-
-	tags = { research }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_research_lab_1
+	clothes_texture_index = 3
+	icon = researcher
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -899,15 +771,19 @@ space_time_anomaly_researcher = {
 		upkeep = {
 			consumer_goods = 2
 		}
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { has_valid_civic = civic_technocracy }
+			}
+			consumer_goods = 1
+		}
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -930,29 +806,14 @@ space_time_anomaly_researcher = {
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 space_time_anomaly_researcher_gestalt = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_research_lab_1
-			icon = researcher
-		}
-	}
-	tags = { research }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_research_lab_1
+	clothes_texture_index = 3
+	icon = researcher
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -995,12 +856,9 @@ space_time_anomaly_researcher_gestalt = {
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -1023,16 +881,6 @@ space_time_anomaly_researcher_gestalt = {
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 ### Feral Overload Jobs
@@ -1042,16 +890,10 @@ space_time_anomaly_researcher_gestalt = {
 # Ordinary Species
 gas_plant_engineer = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_refinery
-			icon = gas_extractor
-		}
-	}
-
-	tags = { strategic_resource exotic_gases }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_refinery
+	clothes_texture_index = 3
+	icon = gas_extractor
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1062,6 +904,13 @@ gas_plant_engineer = {
 	}
 
 	possible_precalc = can_fill_specialist_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
 
 	triggered_planet_modifier = {
 		potential = {
@@ -1088,30 +937,15 @@ gas_plant_engineer = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|gas_plant_engineer|RESOURCE|exotic_gases|
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 # Gestalt Species
 gas_plant_engineer_gestalt = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_refinery
-			icon = gas_refiner_drone
-		}
-	}
-	tags = { strategic_resource exotic_gases }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_refinery
+	clothes_texture_index = 3
+	icon = gas_refiner_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1150,44 +984,68 @@ gas_plant_engineer_gestalt = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|gas_plant_engineer_gestalt|RESOURCE|exotic_gases|
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 # Feral Overload - Exterminate Option - Cave Cleaners
 
 # Ordinary Species
 cave_cleaner = {
-	possible = { always = no }
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_mineral_purification_plant
-			icon = miner
+	category = worker
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_mineral_purification_plant
+	clothes_texture_index = 3
+	icon = miner
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
 		}
 	}
+
+	triggered_planet_modifier = {
+		potential = {
+			planet = {
+				has_deposit = d_cave_shroom_veins
+			}
+		}
+		modifier = {
+			planet_jobs_minerals_produces_mult = 0.1
+		}
+	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 5
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	weight = {
+		weight = @worker_prio_job_weight
+		mult = value:job_weights_modifier|JOB|cave_cleaner|RESOURCE|minerals|
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 # Gestalt Species
 cave_cleaner_gestalt = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_mineral_purification_plant
-			icon = mining_drone
-		}
-	}
-	tags = { minerals }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_mineral_purification_plant
+	clothes_texture_index = 3
+	icon = mining_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1226,31 +1084,80 @@ cave_cleaner_gestalt = {
 	}
 
 	inline_script = "jobs/automodding_priority_minerals"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Dinosaur Hunters
 titan_hunter = {
 	category = worker
 
-	swappable_data = {
-		default = {
-			icon = hunter_gatherer
+	is_capped_by_modifier = yes
+	clothes_texture_index = 2
+	icon = hunter_gatherer
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
 		}
 	}
 
-	possible = {
-		always = no
+	triggered_planet_modifier = {
+		potential = {
+			always = yes
+		}
+		trade_value_add = 8
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
 	}
+
+	resources = {
+		category = planet_farmers
+		produces = {
+			food = 8
+		}
+	}
+
+	weight = {
+		weight = @specialist_job_weight
+		mult = value:job_weights_modifier|JOB|titan_hunter|RESOURCE|food|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
+		modifier = {
+			factor = 1.1
+			owner = { has_valid_civic = civic_agrarian_idyll }
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			can_take_servant_job = no
+		}
+		modifier = {
+			factor = 0.25
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_trait = trait_lithoid
+
+			owner = {
+				is_lithoid_empire = yes
+				country_uses_food = no
+				has_monthly_income = {
+					resource = food
+					value >= 0
+				}
+			}
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_food"
 }
 
 # Robot Caretaker for Lonely Bot
@@ -1258,14 +1165,9 @@ robot_caretaker = {
 	category = specialist
 
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_autochthon_monument
-		}
-	}
-	tags = { research unity }
+	clothes_texture_index = 3
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_autochthon_monument
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1280,7 +1182,7 @@ robot_caretaker = {
 	}
 
 	resources = {
-		category = planet_bureaucrats
+		category = planet_administrators
 		produces = {
 			unity = 5
 			engineering_research = 5
@@ -1310,48 +1212,114 @@ robot_caretaker = {
 		# Positive
 		modifier = {
 			factor = 3
+			has_job = robot_caretaker
+		}
+		modifier = {
+			factor = 3
 			has_trait = trait_conservational
 		}
 	}
 
 	inline_script = "jobs/automodding_priority_unity"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Turtle Miner Regular
 turtle_miner = {
 	category = worker
 
-	possible = { always = no }
+	is_capped_by_modifier = yes
+	clothes_texture_index = 2
+	icon = miner
 
-	swappable_data = {
-		default = {
-			icon = miner
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
 		}
 	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 3
+			food = 2
+		}
+		produces = {
+			trigger = {
+				planet = { has_active_building = building_food_processing_facility }
+			}
+			food = 1
+		}
+		produces = {
+			trigger = {
+				planet = { has_active_building = building_food_processing_center }
+			}
+			food = 2
+		}
+		upkeep = {
+			energy = 2
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+		mult = value:job_weights_multiple_resources_modifier|JOB|turtle_miner|RESOURCE1|minerals|WEIGHT1|0.5|RESOURCE2|food|WEIGHT2|0.5|
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = trait_robot_harvesters
+				has_trait = trait_agrarian
+				has_trait = trait_robot_power_drills
+				has_trait = trait_industrious
+			}
+		}
+		modifier = {
+			factor = 1.1
+			owner = { has_valid_civic = civic_agrarian_idyll }
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			can_take_servant_job = no
+		}
+		modifier = {
+			factor = 0.25
+			can_take_servant_job = yes
+		}
+
+		modifier = {
+			factor = 0.5
+			has_trait = trait_lithoid
+
+			owner = {
+				is_lithoid_empire = yes
+				country_uses_food = no
+				has_monthly_income = {
+					resource = food
+					value >= 0
+				}
+			}
+		}
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 #Turtle Miner Gestalt
 turtle_miner_gestalt = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			icon = mining_drone
-		}
-	}
-
-	tags = { minerals food }
+	condition_string = DRONE_JOB_TRIGGER
+	clothes_texture_index = 3
+	icon = mining_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1413,30 +1381,14 @@ turtle_miner_gestalt = {
 	}
 
 	inline_script = "jobs/automodding_priority_minerals"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 # Bio-assistants
 machine_nurse = {
 	category = bio_trophy
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			building_icon = building_medical_2
-		}
-	}
-
-	tags = { unity }
+	clothes_texture_index = 4
+	building_icon = building_clinic
 
 	possible_pre_triggers = {
 		is_sapient = yes
@@ -1449,6 +1401,9 @@ machine_nurse = {
 	resources = {
 		category = planet_bio_trophies
 		produces = {
+			trigger = {
+				happiness >= 0.5
+			}
 			unity = 3
 		}
 		upkeep = {
@@ -1456,14 +1411,16 @@ machine_nurse = {
 		}
 	}
 
-
 	triggered_planet_modifier = {
 		potential = {
-			always = yes
+			happiness >= 0.5
 		}
 		modifier = {
 			planet_jobs_complex_and_simple_drone_produces_mult = 0.05
 		}
+	}
+	triggered_pop_modifier = {
+		pop_housing_usage_add = -1
 	}
 
 	weight = {
@@ -1490,15 +1447,9 @@ machine_nurse = {
 
 manufactorium_specialist = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_ancient_cryo_chamber
-			icon = foundry
-		}
-	}
-	tags = { alloys }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_ancient_cryo_chamber
+	icon = foundry
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1675,34 +1626,24 @@ manufactorium_specialist = {
 		}
 	}
 
+	triggered_pop_modifier = {
+		potential = {
+			planet = { has_planet_flag = manufactorium_work_happiness }
+		}
+		pop_happiness = -0.2
+	}
+
 	weight = {
 		weight = @special_job_weight
 		mult = value:job_weights_modifier|JOB|manufactorium_specialist|RESOURCE|alloys|
-	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
 	}
 }
 
 manufactorium_complex_drone = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_ancient_cryo_chamber
-			icon = foundry
-		}
-	}
-	tags = { alloys }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_ancient_cryo_chamber
+	icon = foundry
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1831,45 +1772,63 @@ manufactorium_complex_drone = {
 		}
 	}
 
+	triggered_pop_modifier = {
+		potential = {
+			planet = { has_planet_flag = manufactorium_work_gestalt }
+		}
+		pop_amenities_usage_mult = 0.2
+	}
+
 	weight = {
 		weight = @complex_drone_job_weight
 		mult = value:job_weights_modifier|JOB|manufactorium_complex_drone|RESOURCE|alloys|
 	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 manufactorium_scraper = {
-	possible = { always = no }
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_mineral_purification_plant
-			icon = miner
+	category = worker
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_ancient_cryo_chamber
+	icon = miner
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_worker_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
 		}
 	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 1
+			alloys = 1
+			engineering_research = 0.5
+		}
+	}
+
+	weight = {
+		weight = @worker_job_weight
+		mult = value:job_weights_modifier|JOB|manufactorium_scraper|RESOURCE|minerals|
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
 }
 
 manufactorium_scraper_drone = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_ancient_cryo_chamber
-			icon = miner
-		}
-	}
-	tags = { minerals alloys research }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_ancient_cryo_chamber
+	icon = miner
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1896,30 +1855,15 @@ manufactorium_scraper_drone = {
 	}
 
 	inline_script = "jobs/automodding_priority_minerals"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 # Ancient Manufactorium Complex event job
 archivist = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_master_archive
-			icon = fe_archivist
-		}
-	}
-	tags = { research }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_master_archive
+	clothes_texture_index = 2
+	icon = fe_archivist
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -1968,12 +1912,9 @@ archivist = {
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -1994,6 +1935,10 @@ archivist = {
 			can_take_servant_job = yes
 		}
 		modifier = {
+			factor = 1.5
+			has_job = archivist
+		}
+		modifier = {
 			factor = 0.8
 			is_enslaved = yes
 			has_slavery_type = { type = slavery_indentured }
@@ -2001,29 +1946,13 @@ archivist = {
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 puddle_technician = {
 	category = worker
-
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_food_processing_facility
-		}
-	}
-
-	tags = { food alloys }
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_food_processing_facility
+	clothes_texture_index = 2
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2086,7 +2015,7 @@ puddle_technician = {
 			exists = owner
 			owner = { has_valid_civic = civic_agrarian_idyll }
 		}
-		planet_amenities_add = 200
+		planet_amenities_add = 2
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -2163,41 +2092,16 @@ puddle_technician = {
 				}
 			}
 		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
 	}
 
 	inline_script = "jobs/automodding_priority_food"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 puddle_technician_drone = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_food_processing_facility
-		}
-	}
-
-	tags = { food alloys }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_food_processing_facility
+	clothes_texture_index = 2
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2256,7 +2160,7 @@ puddle_technician_drone = {
 			exists = owner
 			owner = { has_valid_civic = civic_agrarian_idyll }
 		}
-		planet_amenities_add = 200
+		planet_amenities_add = 2
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
@@ -2336,31 +2240,15 @@ puddle_technician_drone = {
 	}
 
 	inline_script = "jobs/automodding_priority_food"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Stasis Prison Colony Chain Jobs
 stasis_warden = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = BATTLE_THRALL_JOB_TRIGGER
-			building_icon = building_precinct_house
-			icon = enforcer
-		}
-	}
-
-	tags = { research enforcer crime }
+	condition_string = BATTLE_THRALL_JOB_TRIGGER
+	building_icon = building_precinct_house
+	clothes_texture_index = 5
+	icon = enforcer
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2371,13 +2259,30 @@ stasis_warden = {
 
 	possible = {
 		battle_thrall_job_check_trigger = yes
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
 	}
 
 	resources = {
 		category = planet_enforcers
-		inline_script = "jobs/job_enforcer_triggered_resources"
 		produces = {
 			physics_research = 4
+		}
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_active_tradition = tr_domination_judgment_corps }
+			}
+			unity = 1
+		}
+		upkeep = {
+			trigger = {
+				exists = planet
+				planet = { has_modifier = anticrime_campaign }
+			}
+			energy = 2
 		}
 	}
 
@@ -2386,7 +2291,15 @@ stasis_warden = {
 		planet_stability_add = 1
 	}
 
-	inline_script = "jobs/job_enforcer_additional_modifiers"
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet
+			planet = { has_modifier = anticrime_campaign }
+		}
+		modifier = {
+			planet_crime_add = -10
+		}
+	}
 
 	weight = {
 		weight = @specialist_job_weight
@@ -2397,8 +2310,18 @@ stasis_warden = {
 		}
 
 		modifier = {
-			factor = 15
+			factor = 10
+			has_job = enforcer
+		}
+		modifier = {
+			factor = 10
 			planet = { planet_crime > 15}
+			NOT = { has_job = enforcer }
+		}
+		modifier = {
+			factor = 0.01
+			planet = { planet_crime <= 15}
+			NOT = { has_job = enforcer }
 		}
 
 		modifier = {
@@ -2453,30 +2376,13 @@ stasis_warden = {
 			has_trait = trait_lithoid
 		}
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 stasis_warden_drone = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_stronghold
-			icon = patrol_drone
-		}
-	}
-
-	tags = { research enforcer crime }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_stronghold
+	icon = patrol_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2541,31 +2447,14 @@ stasis_warden_drone = {
 			has_trait = trait_cybernetic
 		}
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 astrogarbage_collector = {
 	category = worker
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_junkheap
-			icon = low_tech_laborer
-		}
-	}
-
-	tags = { alloys }
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_junkheap
+	icon = low_tech_laborer
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2575,6 +2464,13 @@ astrogarbage_collector = {
 	}
 
 	possible_precalc = can_fill_worker_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
 
 	resources = {
 		category = planet_miners
@@ -2618,16 +2514,14 @@ astrogarbage_collector = {
 			factor = 0.25
 			can_take_servant_job = yes
 		}
-	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
+		modifier = {
+			factor = 0.4
+			is_pop_domesticable = yes
+		}
+		modifier = {
+			factor = 1.5
+			owner = { is_domesticator_or_protectorate = yes }
+			has_citizenship_type = { type = citizenship_full }
 		}
 	}
 }
@@ -2635,15 +2529,10 @@ astrogarbage_collector = {
 # Gestalt Species
 astrogarbage_collector_gestalt = {
 	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_refinery
-			icon = gas_refiner_drone
-		}
-	}
-	tags = { alloys }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_refinery
+	clothes_texture_index = 3
+	icon = gas_refiner_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2677,16 +2566,9 @@ astrogarbage_collector_gestalt = {
 			owner = { has_valid_civic = civic_machine_assimilator }
 			has_trait = trait_cybernetic
 		}
-	}
-	inline_script = "jobs/automodding_priority_alloys"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
+		modifier = {
+			factor = 1.2
+			has_job = astrogarbage_collector_gestalt
 		}
 	}
 }
@@ -2697,15 +2579,10 @@ astrogarbage_collector_gestalt = {
 
 myrmeku_power_farmer = {
 	category = specialist
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_primitive_farm
-			icon = technician
-		}
-	}
-	tags = { energy }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_primitive_farm
+	clothes_texture_index = 3
+	icon = technician
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2716,6 +2593,13 @@ myrmeku_power_farmer = {
 	}
 
 	possible_precalc = can_fill_specialist_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
 
 	resources = {
 		category = planet_technician
@@ -2733,29 +2617,14 @@ myrmeku_power_farmer = {
 	}
 
 	inline_script = "jobs/automodding_priority_energy"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 myrmeku_power_farmer_gestalt = {
 	category = complex_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon = building_primitive_farm
-			icon = technician_drone
-		}
-	}
-	tags = { energy }
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon = building_primitive_farm
+	clothes_texture_index = 3
+	icon = technician_drone
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2784,16 +2653,6 @@ myrmeku_power_farmer_gestalt = {
 	}
 
 	inline_script = "jobs/automodding_priority_energy"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = complex_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Stratovent colony event chain jobs
@@ -2801,16 +2660,9 @@ myrmeku_power_farmer_gestalt = {
 stratovent_researcher = {
 	category = specialist
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_nanolab_1
-			icon = xeno_zoo_keeper
-		}
-	}
-
-	tags = { research trade amenities }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_nanolab_1
+	icon = xeno_zoo_keeper
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2821,11 +2673,17 @@ stratovent_researcher = {
 
 	possible_precalc = can_fill_specialist_job
 
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
+
 	resources = {
 		category = planet_researchers
 		produces = {
 			society_research = 3
-			trade = 3
 		}
 		upkeep = {
 			consumer_goods = 3
@@ -2834,19 +2692,26 @@ stratovent_researcher = {
 
 	triggered_planet_modifier = {
 		potential = {
+			exists = owner
 			always = yes
 		}
-		planet_amenities_add = 300
+		trade_value_add = 5
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			always = yes
+		}
+		planet_amenities_add = 3
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult||
 	}
 
 	triggered_country_modifier = {
-		potential = {
-			local_or_sector_governor_has_trait = {
-				TRAIT = leader_trait_academia_recruiter
-			}
+		modifier = {
+			country_naval_cap_add = 1
 		}
-		country_naval_cap_add = 1
 		mult = planet.modifier:job_researcher_naval_cap_add
 	}
 
@@ -2854,35 +2719,18 @@ stratovent_researcher = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|stratovent_researcher|RESOURCE|society_research|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
-		mult = value:job_weights_modifier|JOB|stratovent_researcher|RESOURCE|trade|
+		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_trade_mult|
 	}
 
 	inline_script = "jobs/automodding_priority_research"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 stratovent_refiner = {
 	category = specialist
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_bio_reprocessing_facilities
-			icon = gas_extractor
-		}
-	}
-
-	tags = { strategic_resource exotic_gases }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_bio_reprocessing_facilities
+	icon = gas_extractor
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2892,6 +2740,13 @@ stratovent_refiner = {
 	}
 
 	possible_precalc = can_fill_specialist_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
 
 	resources = {
 		category = planet_sr_miners
@@ -2904,30 +2759,14 @@ stratovent_refiner = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|stratovent_refiner|RESOURCE|exotic_gases|
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 stratovent_refiner_upg = {
 	category = specialist
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_bio_reprocessing_facilities
-			icon = gas_extractor
-		}
-	}
-	tags = { strategic_resource exotic_gases }
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_bio_reprocessing_facilities
+	icon = gas_extractor
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2949,31 +2788,14 @@ stratovent_refiner_upg = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_modifier|JOB|stratovent_refiner_upg|RESOURCE|exotic_gases|
 	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 stratovent_refiner_minerals = {
 	category = specialist
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = SPECIALIST_JOB_TRIGGER
-			building_icon = building_bio_reprocessing_facilities
-			icon = gas_extractor
-		}
-	}
-
-	tags = { strategic_resource exotic_gases minerals}
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon = building_bio_reprocessing_facilities
+	icon = gas_extractor
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -2983,6 +2805,13 @@ stratovent_refiner_minerals = {
 	}
 
 	possible_precalc = can_fill_specialist_job
+
+	possible = {
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
 
 	resources = {
 		category = planet_miners
@@ -2996,48 +2825,63 @@ stratovent_refiner_minerals = {
 		weight = @specialist_job_weight
 		mult = value:job_weights_multiple_resources_modifier|JOB|stratovent_refiner_minerals|RESOURCE1|exotic_gases|WEIGHT1|0.7|RESOURCE2|minerals|WEIGHT2|0.3|
 	}
-	inline_script = "jobs/automodding_priority_minerals"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Glacial Crisis event chain jobs
 
 mineral_diver = {
-	possible = { always = no }
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_mineral_purification_plant
-			icon = miner
-		}
-	}
-}
-
-mineral_diver_drone = {
-	category = simple_drone
-
-	swappable_data = {
-		default = {
-			condition_string = DRONE_JOB_TRIGGER
-			building_icon =  building_mineral_purification_plant
-			icon = mining_drone
-		}
-	}
-
-	tags = { minerals alloys }
+	category = specialist
+	condition_string = SPECIALIST_JOB_TRIGGER
+	building_icon =  building_mineral_purification_plant
+	clothes_texture_index = 2
+	icon = miner
 
 	possible_pre_triggers = {
 		has_owner = yes
-		is_enslaved = no
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible_precalc = can_fill_specialist_job
+	possible = {
+		hidden_trigger = { exists = owner }
+		owner = {
+			is_gestalt = no
+		}
+		NAND = {
+			owner = { is_domesticator_or_protectorate = yes }
+			has_haustorics = yes
+		}
+	}
+
+	resources = {
+		category = planet_miners
+		produces = {
+			minerals = 3
+			alloys = 1
+		}
+		upkeep = {
+			food = 3
+		}
+	}
+	weight = {
+		weight = @specialist_job_weight
+		mult = value:job_weights_modifier|JOB|mineral_diver|RESOURCE|minerals|
+	}
+
+	inline_script = "jobs/automodding_priority_minerals"
+}
+
+mineral_diver_drone = {
+	category = complex_drone
+	condition_string = DRONE_JOB_TRIGGER
+	building_icon =  building_mineral_purification_plant
+	clothes_texture_index = 2
+	icon = mining_drone
+
+	possible_pre_triggers = {
+		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
 		is_sapient = yes
@@ -3057,23 +2901,16 @@ mineral_diver_drone = {
 			minerals = 3
 			alloys = 1
 		}
+		upkeep = {
+			energy = 2
+		}
 	}
 	weight = {
-		weight = @simple_drone_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|mineral_diver_drone|RESOURCE1|minerals|WEIGHT1|0.5|RESOURCE2|alloys|WEIGHT2|0.5|
+		weight = @complex_drone_job_weight
+		mult = value:job_weights_modifier|JOB|mineral_diver_drone|RESOURCE|minerals|
 	}
 
 	inline_script = "jobs/automodding_priority_minerals"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 #Rapid Desertification event chain jobs
@@ -3081,15 +2918,9 @@ mineral_diver_drone = {
 alien_hunter = {
 	category = worker
 	is_capped_by_modifier = yes
-
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_crude_huts
-			icon = hunter_gatherer
-		}
-	}
-	tags = { food }
+	condition_string = WORKER_JOB_TRIGGER
+	building_icon = building_crude_huts
+	icon = hunter_gatherer
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -3149,26 +2980,7 @@ alien_hunter = {
 			factor = 0.25
 			can_take_servant_job = yes
 		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
 	}
 
 	inline_script = "jobs/automodding_priority_food"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }

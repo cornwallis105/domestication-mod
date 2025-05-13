@@ -21,7 +21,7 @@ country_event = {
 			}
 			leader_is_affini = no
 			or = {
-				has_skill >= 4
+				has_base_skill >= 4
 				is_ruler = yes
 				has_leader_flag = renowned_leader
 				has_leader_flag = legendary_leader
@@ -67,19 +67,19 @@ country_event = {
 				# Increase chance for leaders of higher level
 				modifier = {
 					add = 10
-					from = { has_skill >= 4 }
+					from = { has_base_skill >= 4 }
 				}
 				modifier = {
 					add = 20
-					from = { has_skill >= 6 }
+					from = { has_base_skill >= 6 }
 				}
 				modifier = {
 					add = 30
-					from = { has_skill >= 8 }
+					from = { has_base_skill >= 8 }
 				}
 				modifier = {
 					add = 40
-					from = { has_skill >= 10 }
+					from = { has_base_skill >= 10 }
 				}
 
 				# Increase chance for leaders that have served the country for a long time

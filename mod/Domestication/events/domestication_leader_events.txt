@@ -16,13 +16,13 @@ country_event = {
 
 	trigger = {
 		is_domesticator_or_full_protectorate = yes
-		any_owned_pop = {
-			has_job = floret
+		any_owned_pop_group = {
+			is_pop_category = floret_strata
 		}
 		# Do not add floret if leader already has 2
 		from = {
 			# not new leaders
-			has_level > 1
+			has_base_skill > 1
 			# not pool leaders
 			owner = {
 				any_owned_leader = {
@@ -61,15 +61,15 @@ country_event = {
 					10 = {
 						modifier = {
 							factor = 1.5
-							has_level = 3
+							has_base_skill = 3
 						}
 						modifier = {
 							factor = 2.5
-							has_level = 4
+							has_base_skill = 4
 						}
 						modifier = {
 							factor = 5
-							has_level > 4
+							has_base_skill > 4
 						}
 						add_random_leader_floret_trait = yes
 						set_leader_flag = has_gained_level_floret
@@ -86,15 +86,15 @@ country_event = {
 					10 = {
 						modifier = {
 							factor = 1.5
-							has_level = 3
+							has_base_skill = 3
 						}
 						modifier = {
 							factor = 2.5
-							has_level = 4
+							has_base_skill = 4
 						}
 						modifier = {
 							factor = 5
-							has_level > 4
+							has_base_skill > 4
 						}
 						add_random_leader_floret_trait = yes
 						set_leader_flag = has_gained_level_floret
@@ -112,15 +112,15 @@ country_event = {
 					20 = {
 						modifier = {
 							factor = 1.5
-							has_level = 3
+							has_base_skill = 3
 						}
 						modifier = {
 							factor = 2.5
-							has_level = 4
+							has_base_skill = 4
 						}
 						modifier = {
 							factor = 5
-							has_level > 4
+							has_base_skill > 4
 						}
 						add_random_leader_floret_trait = yes
 						set_leader_flag = has_gained_level_floret
@@ -265,9 +265,9 @@ country_event = {
 
 			## generate new leader of species matching biological pop in empire
 			owner = {
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					limit = {
-						has_job = floret
+						is_pop_category = floret_strata
 						OR = {
 							AND = {
 								event_target:new_owner = {
@@ -642,15 +642,15 @@ country_event = {
 				150 = {
 					modifier = {
 						factor = 0.67
-						has_level = 3
+						has_base_skill = 3
 					}
 					modifier = {
 						factor = 0.2
-						has_level = 4
+						has_base_skill = 4
 					}
 					modifier = {
 						factor = 0.1
-						has_level > 4
+						has_base_skill > 4
 					}
 				}
 				3 = {
@@ -1741,7 +1741,7 @@ country_event = {
 
 					event_target:old_bloom = {
 						switch = {
-							trigger = has_skill
+							trigger = has_base_skill
 							10 > { event_target:new_bloom = { set_skill = 9 } }
 							9 > { event_target:new_bloom = { set_skill = 8 } }
 							8 > { event_target:new_bloom = { set_skill = 7 } }

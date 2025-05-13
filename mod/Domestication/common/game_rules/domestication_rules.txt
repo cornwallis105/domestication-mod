@@ -26,10 +26,9 @@ can_fill_ruler_job = {
 			# Only Affini can rule the Compact
 			domesticator_privilege = yes
 			# Rule out Traits for servitude & lack of free will
-			NOR = {
-				has_trait = trait_syncretic_proles
-				can_think = no
-			}
+			can_think = yes
+			# Rule out Disconnected Drones
+			has_disconnected_drone_citizenship_type = no
 			# Rule out Machine Pops, unless they're rendered sapient
 			OR = {
 				NOT = { has_trait = trait_mechanical }

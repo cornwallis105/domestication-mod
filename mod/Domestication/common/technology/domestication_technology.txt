@@ -1,98 +1,3 @@
-tech_subdermal_stimulation = {
-	cost = @tier2cost2
-	area = society
-	tier = 2
-	category = { biology }
-	prerequisites = { "tech_genome_mapping" }
-	weight = @tier2weight2
-	is_rare = yes
-
-	# unlocks Chemical Bliss living standard
-
-	feature_flags = {
-		bliss_standard
-	}
-
-	potential = {
-		NOR = {
-			has_ethic = ethic_gestalt_consciousness
-			has_civic = civic_dystopian_society
-			is_individual_machine = yes
-		}
-		is_domesticator_or_protectorate = no
-	}
-
-	weight_modifier = {
-		factor = 0.5
-		modifier = {
-			factor = 1.25
-			NOR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-		}
-		inline_script = {
-			script = technologies/rare_technologies_weight_modifiers
-			TECHNOLOGY = tech_subdermal_stimulation
-		}
-		modifier = {
-			factor = 2
-			has_relic = r_pox_sample
-		}
-	}
-
-	ai_weight = {
-		modifier = {
-			factor = 3
-			NOR = {
-				has_ethic = ethic_egalitarian
-				has_ethic = ethic_fanatic_egalitarian
-			}
-		}
-	}
-}
-
-tech_tracking_implants = {
-	area = society
-	cost = @tier4cost2
-	tier = 4
-	category = { statecraft }
-	prerequisites = { "tech_subdermal_stimulation" "tech_galactic_bureaucracy" }
-	is_rare = yes
-	weight = @tier4weight2
-
-	# Unlocks tracking implants edict
-	
-	potential = {
-		is_domesticator_or_protectorate = no
-	}
-
-	weight_modifier = {
-		factor = 0.5
-		modifier = {
-			factor = 0.20
-			NOR = {
-				has_modifier = "curator_insight"
-				has_trait_in_council = { TRAIT = leader_trait_curator }
-				has_trait_in_council = { TRAIT = leader_trait_expertise_statecraft }
-			}
-		}
-		modifier = {
-			factor = 2
-			is_materialist = yes
-			is_authoritarian = yes
-		}
-		inline_script = {
-			script = technologies/rare_technologies_weight_modifiers
-			TECHNOLOGY = tech_tracking_implants
-		}
-	}
-
-	ai_weight = {
-
-	}
-}
-
 tech_haustoric_implant = {
 	cost = @tier2cost2
 	area = society
@@ -283,7 +188,7 @@ tech_haustoric_module = {
 		}
 		modifier = {
 			factor = 1.25
-			any_owned_pop = {
+			any_owned_pop_group = {
 				is_robot_pop = yes
 			}
 		}

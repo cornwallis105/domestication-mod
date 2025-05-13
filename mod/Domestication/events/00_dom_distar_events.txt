@@ -162,8 +162,8 @@ ship_event = {
 				owner = { is_domesticator_or_full_protectorate = yes }
 			}
 			owner = {
-				random_owned_pop = {
-					limit = { has_job = floret }
+				random_owned_pop_group = {
+					limit = {is_pop_category = floret_strata }
 					save_event_target_as = brain_slug_floret
 				}
 			}
@@ -275,7 +275,7 @@ ship_event = {
 		owner = {
 			while = {
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					limit = {
 						is_sapient = yes
 						species = {
@@ -362,7 +362,7 @@ ship_event = {
 		owner = {
 			while = {
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					limit = {
 						is_sapient = yes
 						species = {
@@ -428,7 +428,7 @@ ship_event = {
 						has_ethic = ethic_xenophobe
 						has_ethic = ethic_fanatic_xenophobe
 					}
-					any_owned_pop = {
+					any_owned_pop_group = {
 						NOR = {
 							has_ethic = ethic_xenophobe
 							has_ethic = ethic_fanatic_xenophobe
@@ -441,7 +441,7 @@ ship_event = {
 		owner = {
 			while = { # slug *up to* three non-phobe pops
 				count = 3
-				random_owned_pop = {
+				weighted_random_owned_pop_group = {
 					LIMIT = {
 						NOR = {
 							has_ethic = ethic_xenophobe

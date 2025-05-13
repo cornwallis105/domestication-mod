@@ -10,6 +10,7 @@ military_service_full = {
 				has_trait = trait_cybernetic
 			}
 		}
+		is_disconnected_drone_pop = no
 	}
 
 	allow = {
@@ -163,6 +164,15 @@ military_service_limited = {
 						has_technology = tech_droid_workers
 					}
 				}
+			}
+		}
+		if = {
+			limit = {
+				is_disconnected_drone_pop = yes
+			}
+			has_citizenship_type = {
+				type = citizenship_exploited_drone
+				country = from
 			}
 		}
 		custom_tooltip = {

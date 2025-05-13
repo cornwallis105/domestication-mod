@@ -13,14 +13,56 @@ domesticator_faction = {
 	resources = {
 		category = pop_factions
 		produces = {
+			trigger = {
+				owner = {
+					NOR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
 			unity = @faction_base_output
+		}
+		produces = {
+			trigger = {
+				owner = {
+					OR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
+			society_research = @faction_major_output
+			physics_research = @faction_minor_output
+			mult = @crowdsourcing_multiplier
 		}
 	}
 	extortion_resource = {
 		category = pop_factions
 		produces = {
+			trigger = {
+				owner = {
+					NOR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
 			energy = @faction_base_output
 			mult = @faction_extortion_energy_ratio
+		}
+		produces = {
+			trigger = {
+				owner = {
+					OR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
+			society_research = @faction_major_output
+			physics_research = @faction_minor_output
+			mult = @faction_extortion_crowdsourcing_ratio
 		}
 	}
 
@@ -31,7 +73,7 @@ domesticator_faction = {
 
 		#years_passed > 10
 		#has_encountered_other_species = yes
-    #is_domesticator_or_protectorate = yes
+		#is_domesticator_or_protectorate = yes
 		#NOT = { has_ethic = ethic_gestalt_consciousness }
 		#NOT = { has_country_flag = suppress_vanilla_factions }
 	}
@@ -74,17 +116,22 @@ domesticator_faction = {
 				NOT = { exists = leader }
 			}
 		}
+		
+		modifier = {
+			factor = 1.4
+			NOT = { is_same_species = owner_species }
+		}
 
 		modifier = {
 			factor = 2.0
 			NOT = { is_same_species = owner_species }
-      has_job = floret
+			is_pop_category = floret_strata
 		}
 
-    modifier = {
+		modifier = {
 			factor = 0.8
 			NOT = { is_same_species = owner_species }
-      NOT = { has_job = floret }
+			NOT = { is_pop_category = floret_strata }
 		}
 	}
 
@@ -328,8 +375,9 @@ domesticator_faction = {
 				OR = {
 					has_country_flag = found_presapients
 					any_planet_within_border = {
-						any_owned_pop = {
+						any_owned_pop_group = {
 							is_sapient = no
+							NOT = { has_trait = trait_nascent_stage }
 						}
 					}
 				}
@@ -555,6 +603,46 @@ domesticator_faction = {
 		trigger = {
 			owner = {
 				has_policy_flag = benevolent_terms
+			}
+		}
+	}
+
+	demand = { # Unplugged: De-Cyberize
+		title = XENOIST_UNPLUGGED_DECYBERIZE
+		unfulfilled_title = XENOIST_UNPLUGGED_NOT_DECYBERIZE
+		desc = XENOIST_UNPLUGGED_DECYBERIZE_DESC
+
+		unfulfilled_effect = -10
+		fulfilled_effect = 5
+
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_unplugged
+				any_situation = {
+					is_situation_type = situation_unplugged_identity
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_situation = {
+					is_situation_type = situation_unplugged_identity
+					OR = {
+						AND = { # safely in the De-Cyberize stage
+							current_stage = unplugged_identity_stage_1
+							situation_monthly_progress < 0
+						}
+						AND = { # trending towards De-Cyberization and our Approach is aligned
+							situation_monthly_progress < 0.05
+							OR = {
+								current_situation_approach = situation_unplugged_identity_discourage_change
+								current_situation_approach = situation_unplugged_identity_embrace_opinion
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -881,14 +969,57 @@ xenoist = {
 	resources = {
 		category = pop_factions
 		produces = {
+			trigger = {
+				owner = {
+					NOR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
 			unity = @faction_base_output
 		}
+		produces = {
+			trigger = {
+				owner = {
+					OR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
+			society_research = @faction_major_output
+			physics_research = @faction_minor_output
+			mult = @crowdsourcing_multiplier
+		}
 	}
+
 	extortion_resource = {
 		category = pop_factions
 		produces = {
+			trigger = {
+				owner = {
+					NOR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
 			energy = @faction_base_output
 			mult = @faction_extortion_energy_ratio
+		}
+		produces = {
+			trigger = {
+				owner = {
+					OR = {
+						has_civic = civic_crowdsourcing
+						has_civic = civic_corporate_crowdsourcing
+					}
+				}
+			}
+			society_research = @faction_major_output
+			physics_research = @faction_minor_output
+			mult = @faction_extortion_crowdsourcing_ratio
 		}
 	}
 
@@ -1016,7 +1147,10 @@ xenoist = {
 					NOR = {
 						is_same_species = prev
 						is_robotic = yes
-						is_sapient = no
+						AND = {
+							is_sapient = no
+							NOT = { has_trait = trait_nascent_stage }
+						}
 					}
 				}
 			}
@@ -1208,8 +1342,9 @@ xenoist = {
 				OR = {
 					has_country_flag = found_presapients
 					any_planet_within_border = {
-						any_owned_pop = {
+						any_owned_pop_group = {
 							is_sapient = no
+							NOT = { has_trait = trait_nascent_stage }
 						}
 					}
 				}
@@ -1286,6 +1421,8 @@ xenoist = {
 						is_country_type = fallen_empire
 						is_country_type = awakened_fallen_empire
 						is_country_type = primitive
+						is_country_type = marauder_raiders
+						is_country_type = enclave
 					}
 				}
 			}
@@ -1465,6 +1602,46 @@ xenoist = {
 		}
 	}
 
+	demand = { # Unplugged: De-Cyberize
+		title = XENOIST_UNPLUGGED_DECYBERIZE
+		unfulfilled_title = XENOIST_UNPLUGGED_NOT_DECYBERIZE
+		desc = XENOIST_UNPLUGGED_DECYBERIZE_DESC
+
+		unfulfilled_effect = -10
+		fulfilled_effect = 5
+
+		potential = {
+			exists = owner
+			owner = {
+				has_origin = origin_unplugged
+				any_situation = {
+					is_situation_type = situation_unplugged_identity
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_situation = {
+					is_situation_type = situation_unplugged_identity
+					OR = {
+						AND = { # safely in the De-Cyberize stage
+							current_stage = unplugged_identity_stage_1
+							situation_monthly_progress < 0
+						}
+						AND = { # trending towards De-Cyberization and our Approach is aligned
+							situation_monthly_progress < 0.05
+							OR = {
+								current_situation_approach = situation_unplugged_identity_discourage_change
+								current_situation_approach = situation_unplugged_identity_embrace_opinion
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	# Global Faction Demands.
 	inline_script = {
 		script = "paragon/global_faction_demands"
@@ -1502,7 +1679,7 @@ xenoist = {
 	}
 
 	on_create = {
-		pop_faction_event = { id = factions.1 }
+		pop_faction_event = { id = factions.0 }
 	}
 
 	on_destroy = {
@@ -1554,6 +1731,7 @@ xenoist = {
 
 			effect = {
 				add_modifier = { modifier = embraced_faction days = 3600 }
+				owner = { set_country_flag = has_embraced_faction }
 				parameter:empire = {
 					shift_ethic = ethic_xenophile
 					hidden_effect = {
@@ -1622,6 +1800,7 @@ xenoist = {
 			}
 
 			effect = {
+				owner = { set_country_flag = has_promoted_faction }
 				parameter:empire = {
 					add_modifier = { modifier = promoted_xenophile days = -1 }
 				}
@@ -1709,6 +1888,10 @@ xenoist = {
 				owner = {
 					is_oligarchic_authority = yes
 					has_country_flag = cyber_collectivist
+					NOR = {
+						has_valid_civic = civic_crowdsourcing
+						has_valid_civic = civic_corporate_crowdsourcing
+					}
 				}
 				is_faction_extorted = no
 			}
@@ -1716,6 +1899,33 @@ xenoist = {
 			effect = {
 				set_faction_extorted = yes
 				custom_tooltip = energy_extortion_tt
+				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		extort_faction_crowdsourcing = { #Crowdsourcing version
+			title = "EXTORT_FACTION"
+			description = "EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+					OR = {
+						has_valid_civic = civic_crowdsourcing
+						has_valid_civic = civic_corporate_crowdsourcing
+					}
+				}
+				is_faction_extorted = no
+			}
+
+			effect = {
+				set_faction_extorted = yes
+				custom_tooltip = crowdsourced_extortion_tt
 				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
 			}
 

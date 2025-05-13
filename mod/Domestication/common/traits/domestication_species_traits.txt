@@ -11,29 +11,37 @@ trait_haustoric_implant = {
 	species_possible_merge_add = {
 		always = no
 	}
+	
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_domesticator_or_protectorate = no }
+			}
+			unity = 0.1
+		}
+	}
 
 	sorting_priority = 5
 
 	cost = 1
-	potential_crossbreeding_chance = 0.0
 	allowed_archetypes = { BIOLOGICAL LITHOID }
 	custom_tooltip = TRAIT_HAUSTORIC_IMPLANT_EFFECT
 	modifier = {
-		planet_jobs_consumer_goods_produces_mult = 0.5
-		planet_jobs_unity_produces_mult = 0.1
-		pop_job_amenities_mult = 0.20
+		pop_floret_bonus_workforce_mult = 0.1
+		pop_clerk_bonus_workforce_mult = 0.1
+		pop_entertainer_bonus_workforce_mult = 0.1
 		species_empire_size_mult = -0.4
 		pop_ethic_xenophile_attraction_mult = 0.5
 	}
 	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_IMPLANT_LONELY_TOOLTIP
-	triggered_pop_modifier = {
+	triggered_pop_group_modifier = {
 		potential = {
 			exists = owner
 			owner = { is_domesticator_or_protectorate = no }
 		}
 		pop_happiness = -0.6
-		planet_jobs_unity_produces_mult = -0.6
-		pop_job_amenities_mult = -0.20
 	}
 }
 
@@ -52,26 +60,35 @@ trait_robot_haustoric_module = {
 	}
 
 	sorting_priority = 5
+	
+	resources = {
+		category = planet_pops
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = { is_domesticator_or_protectorate = no }
+			}
+			unity = 0.1
+		}
+	}
 
 	cost = 1
 	allowed_archetypes = { ROBOT }
 	custom_tooltip = TRAIT_HAUSTORIC_MODULE_EFFECT
 	modifier = {
-		planet_jobs_unity_produces_mult = 0.05
-		pop_job_amenities_mult = 0.20
+		pop_floret_bonus_workforce_mult = 0.1
+		pop_clerk_bonus_workforce_mult = 0.1
+		pop_entertainer_bonus_workforce_mult = 0.1
 		species_empire_size_mult = -0.4
 		pop_ethic_xenophile_attraction_mult = 0.5
-		pop_happiness = 0.2
 	}
 	custom_tooltip_with_modifiers = TRAIT_HAUSTORIC_MODULE_LONELY_TOOLTIP
-	triggered_pop_modifier = {
+	triggered_pop_group_modifier = {
 		potential = {
 			exists = owner
 			owner = { is_domesticator_or_protectorate = no }
 		}
 		pop_happiness = -0.6
-		planet_jobs_unity_produces_mult = -0.6
-		pop_job_amenities_mult = -0.20
 	}
 }
 
@@ -93,9 +110,9 @@ trait_haustoric_hive_node = {
 	}
 
 	modifier = {
-		planet_jobs_consumer_goods_produces_mult = 0.5
-		planet_jobs_unity_produces_mult = 0.1
-		pop_job_amenities_mult = 0.20
+		pop_floret_bonus_workforce_mult = 0.1
+		pop_clerk_bonus_workforce_mult = 0.1
+		pop_entertainer_bonus_workforce_mult = 0.1
 		species_empire_size_mult = -0.4
 		pop_ethic_xenophile_attraction_mult = 0.5
 	}
@@ -131,9 +148,9 @@ trait_haustoric_terminal_node = {
 
 	forced_happiness = yes
 	modifier = {
-		planet_jobs_consumer_goods_produces_mult = 0.5
-		planet_jobs_unity_produces_mult = 0.1
-		pop_job_amenities_mult = 0.20
+		pop_floret_bonus_workforce_mult = 0.1
+		pop_clerk_bonus_workforce_mult = 0.1
+		pop_entertainer_bonus_workforce_mult = 0.1
 		species_empire_size_mult = -0.4
 		pop_ethic_xenophile_attraction_mult = 0.5
 		pop_environment_tolerance = 2.0

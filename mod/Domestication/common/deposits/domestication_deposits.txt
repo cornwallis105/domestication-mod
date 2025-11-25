@@ -135,7 +135,7 @@ d_underground_contact_zone = {
 	icon = d_quarantine_zone
 
 	planet_modifier = {
-		district_generator_max = 2
+		district_generator_max_add = 2
 		planet_max_districts_add = 2
 	}
 
@@ -143,7 +143,7 @@ d_underground_contact_zone = {
 		potential = {
 			always = yes
 		}
-		district_generator_max = 2
+		district_generator_max_add = 2
 		mult = value:natural_desposit_district_amount_multiplier
 	}
 

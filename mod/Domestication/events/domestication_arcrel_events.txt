@@ -17,6 +17,7 @@ country_event = {
 			SPECIES_CLASS = ART
 			LEADER_PORTRAIT = cpl_01
 			CLASS = official
+			TIER = leader_tier_renowned
 			NAME = NAME_Oracle
 			LEVEL = 5
 			GENDER = female

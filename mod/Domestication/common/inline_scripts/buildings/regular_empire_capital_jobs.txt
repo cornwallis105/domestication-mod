@@ -42,7 +42,7 @@ triggered_planet_modifier = {
 triggered_planet_modifier = {
 	potential = {
 		exists = owner
-		is_domesticator_or_protectorate = yes
+		owner = { is_domesticator_or_protectorate = yes }
 	}
 	job_floret_add = $AMOUNT$
 }

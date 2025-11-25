@@ -140,7 +140,7 @@ floret = {
 		}
 	}
 
-	inline_script = "jobs/automodding_priority_amenities"
+	inline_script = "jobs/automodding_priority_charisma"
 
 	promotion = {
 		time = @standard_promotion_time

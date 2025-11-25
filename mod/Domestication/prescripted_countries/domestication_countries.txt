@@ -17,6 +17,7 @@ terran_accord = {
 		trait="trait_adaptive"
 		trait="trait_nomadic"
 		trait="trait_wasteful"
+		trait="trait_organic"
 	}
 
 	room = "personality_metalheads_room"
@@ -87,9 +88,10 @@ affini_compact = {
 		adjective = "PRESCRIPTED_species_adjective_affini"
 		name_list = "PLANT5"
     gender=indeterminable
-    trait="trait_plantoid_phototrophic"
+    	trait="trait_plantoid_phototrophic"
 		trait="trait_plantoid_budding"
 		trait="trait_solitary"
+		trait="trait_organic"
 	}
   secondary_species={
 		class="ART"
@@ -101,6 +103,7 @@ affini_compact = {
 		gender=not_set
 		trait="trait_syncretic_proles"
 		trait="trait_communal"
+		trait="trait_organic"
 	}
 
 	room = "specialist_domprot_room"

@@ -1,0 +1,136 @@
+arthropoids = {
+	species_class = ART
+
+	portraits = {
+		"art14"
+		"art7"
+		"art12"
+		"art6"
+		"art1"
+		"art13"
+		"art8"
+		"art3"
+		"art5"
+		"art9"
+		"art10"
+		"art11"
+		"art15"
+		"art19"
+	}
+
+	conditional_portraits = {
+		randomizable = {
+			host_has_dlc = "Leviathans Story Pack"
+		}
+		playable = {
+			local_has_dlc = "Leviathans Story Pack"
+		}
+		portraits = {
+			"art18"
+		}
+	}
+
+	conditional_portraits = {
+		randomizable = {
+			host_has_dlc = "Arachnoid Portrait Pack"
+		}
+		playable = {
+			local_has_dlc = "Arachnoid Portrait Pack"
+		}
+		portraits = {
+			"art16"
+		}
+	}
+
+	# Conditional portraits without actual conditions are used here to keep portrait list on UI in particular order
+	conditional_portraits = {
+		portraits = {
+			"art20"
+			"art17"
+		}
+	}
+	
+	conditional_portraits = {#add additional portraits when customizing species
+		playable = { always = yes }
+		portraits = {
+			"bee"
+		}
+	}
+}
+
+fungoids = {
+	species_class = FUN
+
+	portraits = {
+		"fun2"
+		"fun4"
+		"fun3"
+		"fun13"
+		"fun12"
+		"fun6"
+		"fun15"
+		"fun7"
+		"fun9"
+		"fun11"
+		"fun8"
+		"fun14"
+		"fun10"
+		"fun16"
+	}
+
+	conditional_portraits = {
+		randomizable = {
+			host_has_dlc = "Leviathans Story Pack"
+		}
+		playable = {
+			local_has_dlc = "Leviathans Story Pack"
+		}
+		portraits = {
+			"fun17"
+		}
+	}
+}
+
+plantoids = {
+	species_class = PLANT
+
+	conditional_portraits = {
+		randomizable = {
+			host_has_dlc = "Plantoids Species Pack"
+		}
+		playable = {
+			host_has_dlc = "Plantoids Species Pack"
+		}
+		portraits = {
+			"pla17"
+			"pla2"
+			"pla6"
+			"pla1"
+			"pla11"
+			"pla3"
+			"pla13"
+			"pla7"
+			"pla15"
+			"pla10"
+			"pla5"
+			"pla9"
+			"pla14"
+			"pla4"
+			"pla8"
+			"pla12"
+			"fun1"
+		}
+	}
+
+	conditional_portraits = {
+		randomizable = {
+			host_has_dlc = "Ancient Relics Story Pack"
+		}
+		playable = {
+			local_has_dlc = "Ancient Relics Story Pack"
+		}
+		portraits = {
+			"pla16_baol"
+		}
+	}
+}

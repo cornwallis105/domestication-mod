@@ -3,6 +3,7 @@ triggered_planet_modifier = {
 		exists = owner
 		owner = { 
 			is_gestalt = no
+			is_tankbound_empire = no
 			is_domesticator_or_protectorate = no
 		}
 	}
@@ -14,6 +15,7 @@ triggered_planet_modifier = {
 		exists = owner
 		owner = { 
 			is_gestalt = no
+			is_tankbound_empire = no
 			is_domesticator_or_protectorate = yes
 		}
 	}
@@ -26,6 +28,7 @@ triggered_planet_modifier = {
 		exists = owner
 		owner = { 
 			is_gestalt = no
+			is_tankbound_empire = no
 			is_domesticator_or_protectorate = yes
 		}
 	}
@@ -35,6 +38,14 @@ triggered_planet_modifier = {
 
 triggered_desc = {
 	text = job_clerk_effect_desc
+}
+
+triggered_planet_modifier = {
+	potential = {
+		exists = owner
+		owner = { is_tankbound_empire = yes }
+	}
+	job_production_overseer_add = $AMOUNT$
 }
 
 triggered_planet_modifier = {

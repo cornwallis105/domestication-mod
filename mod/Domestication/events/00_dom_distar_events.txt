@@ -670,6 +670,7 @@ ship_event = {
 			LEADER_PORTRAIT = cpl_04
 			CLASS = official
 			NAME = NAME_Caretaker
+			TIER = leader_tier_renowned
 			LEVEL = 4
 			GENDER = indeterminable
 			IMMORTAL = no

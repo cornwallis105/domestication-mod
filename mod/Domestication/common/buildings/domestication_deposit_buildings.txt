@@ -1,174 +1,3 @@
-#########################
-## Limited by deposits ##
-#########################
-
-building_mote_harvesters = {
-	base_buildtime = @b1_time
-	icon = building_mote_harvesting_traps
-	planet_limit = 1
-
-	category = resource
-
-	building_sets = {
-		generator
-	}
-
-	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_dust_caverns
-			has_deposit = d_dust_desert
-			has_deposit = d_industrial_sector
-		}
-	}
-
-	prerequisites = {
-		"tech_mine_volatile_motes"
-	}
-
-	planet_modifier = {
-		planet_technician_volatile_motes_produces_add = 0.5
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-}
-
-building_gas_extractors = {
-	base_buildtime = @b1_time
-	icon = building_gas_extractors
-	planet_limit = 1
-
-	category = resource
-
-	building_sets = {
-		farming
-	}
-
-	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_bubbling_swamp
-			has_deposit = d_fuming_bog
-			has_deposit = d_industrial_sector
-			has_deposit = d_exotic_mountain
-		}
-	}
-
-	prerequisites = {
-		"tech_mine_exotic_gases"
-	}
-
-	planet_modifier = {
-		planet_farmers_exotic_gases_produces_add = 0.5
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-}
-
-building_crystal_mines = {
-	base_buildtime = @b1_time
-	planet_limit = 1
-
-	category = resource
-
-	building_sets = {
-		mining
-	}
-
-	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_crystalline_caverns
-			has_deposit = d_crystal_forest
-			has_deposit = d_crystal_reef
-			has_deposit = d_industrial_sector
-		}
-	}
-
-	prerequisites = {
-		"tech_mine_rare_crystals"
-	}
-
-	planet_modifier = {
-		planet_miners_rare_crystals_produces_add = 0.5
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		upkeep = {
-			energy = 1
-		}
-	}
-
-}
-
-building_betharian_power_plant = {
-	base_buildtime = @b1_time
-	planet_limit = 1
-
-	category = resource
-
-	building_sets = {
-		betharian
-	}
-
-	potential = {
-		NOT = { has_modifier = resort_colony }
-	}
-
-	resources = {
-		category = planet_buildings
-		cost = {
-			minerals = 200
-		}
-		cost = {
-			trigger = {
-				owner = { is_wilderness_empire = yes }
-			}
-			biomass = @b2_biomass
-		}
-		produces = {
-			energy = 10
-		}
-	}
-
-	inline_script = {
-		script = buildings/on_all_wilderness_buildings_districts
-	}
-
-	planet_modifier = {
-		planet_miners_energy_produces_add = 2
-	}
-
-	inline_script = {
-		script = jobs/miners_add
-		AMOUNT = 400
-	}
-
-	prerequisites = {
-		"tech_mine_betharian"
-	}
-}
-
 building_xeno_zoo = {
 	base_buildtime = @b1_time
 	planet_limit = 1
@@ -279,13 +108,18 @@ building_xeno_zoo = {
 		}
 	}
 
+	inline_script = {
+		script = jobs/biologists_add
+		AMOUNT = @building_static_jobs
+	}
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			has_modifier = resort_colony
 		}
 		modifier = {
-			job_biologist_add = 200
+			job_biologist_add = @building_static_jobs
 		}
 	}
 
@@ -385,64 +219,52 @@ building_xeno_zoo = {
 		}
 	}
 
-	prerequisites = {
-		"tech_alien_life_studies"
-	}
-
 	triggered_desc = {
-		text = job_xeno_zoo_keeper_effect_desc
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		text = pre_sapient_job_xeno_zoo_animal_tt
 	}
 
 	triggered_desc = {
 		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_sapient = no
-				}
-			}
 			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = pre_sapient_job_xeno_zoo_beast_tt
+	}
+
+	triggered_desc = {
+		text = biologist_is_xeno_zoo_keeper_tt
+	}
+
+	triggered_desc = {
+		text = NEW_LINE
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
 		}
 		text = job_xeno_zoo_animal_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_livestock = yes
-				}
-			}
 			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
-		}
-		text = job_livestock_zoo_animal_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_sapient = no
-				}
+			owner = {
+				has_valid_civic = civic_warrior_culture
 			}
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
 		}
 		text = job_xeno_zoo_beast_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_livestock = yes
-				}
-			}
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
-		}
-		text = job_livestock_zoo_beast_effect_desc
 	}
 
 	triggered_desc = {
@@ -453,5 +275,9 @@ building_xeno_zoo = {
 			}
 		}
 		text = job_floret_effect_desc
+	}
+
+	prerequisites = {
+		"tech_alien_life_studies"
 	}
 }

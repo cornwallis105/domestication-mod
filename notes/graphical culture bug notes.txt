@@ -1,0 +1,7 @@
+It looks like each ship type (artifical vs bioship once again) has a list of allowed graphical cultures, bioships can use biogenesis_01 and biogenesis_02
+So, the bug causes the ships not to be able to be made anymore when swapped to a different graphical culture as they wouldn't have a model.
+
+solution is likely something to either do a check to make sure the graphical culture list matches the other 
+or give the subject country the ship technology for the new graphical culture.
+
+Current hopefully temporary fix is simply commenting out the graphical culture change in event domestication.23 

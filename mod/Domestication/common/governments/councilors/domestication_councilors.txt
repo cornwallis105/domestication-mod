@@ -9,9 +9,9 @@ councilor_cosmic_harmony = {
 	}
 	civic = civic_cosmic_harmony
 	modifier = {
-  	planet_domesticators_produces_mult = 0.025
+  		planet_domesticators_produces_mult = 0.025
 		pop_environment_tolerance = 0.01
 	}
 
-	custom_tooltip = "councilor_cosmic_harmony_custom_modifier_desc"
+	#custom_tooltip = "councilor_cosmic_harmony_custom_modifier_desc"
 }

@@ -165,7 +165,7 @@ civic_slaver_guilds = {
 		}
 	}
 	modifier = {
-		planet_jobs_slave_produces_mult = 0.10
+		pop_slave_bonus_workforce_mult = 0.10
 		country_pop_enslaved_mult = 0.35
 	}
 }

@@ -1,15 +1,17 @@
 @rw_cost = 1000
 @rw_cost_sr = 50
+@rw_cost_automated = 1500
+@rw_cost_sr_automated = 100
 @rw_maintenance = 5
 @rw_maintenance_sr = 2
 @rw_district_buildtime = 360
 
 district_rw_city = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
-	exempt_from_ai_planet_specialization = yes
 
-	# TODO_CD: change to real slots
+	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_government
+
 	zone_slots = {
 		slot_city_government
 		slot_city_01
@@ -18,13 +20,13 @@ district_rw_city = {
 
 	show_on_uncolonized = {
 		exists = from
-		from = { is_regular_empire = yes }
+		from = { is_gestalt = no }
 		uses_district_set = ring_world
 	}
 
 	potential = {
 		exists = owner
-		owner = { is_regular_empire = yes }
+		owner = { is_gestalt = no }
 		uses_district_set = ring_world
 		NAND = {
 			is_capital = yes
@@ -74,6 +76,7 @@ district_rw_city = {
 			owner = {
 				is_regular_empire = yes
 				is_fallen_empire = no
+				is_tankbound_empire = no
 			}
 		}
 		modifier = {
@@ -87,11 +90,41 @@ district_rw_city = {
 			owner = {
 				is_regular_empire = yes
 				is_fallen_empire = no
+				is_tankbound_empire = yes
+			}
+		}
+		modifier = {
+			job_production_overseer_add = 300
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = no
 				has_active_tradition = tr_virtuality_4
+				is_tankbound_empire = no
 			}
 		}
 		modifier = {
 			job_clerk_add = 600
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_fallen_empire = no
+				has_active_tradition = tr_virtuality_4
+				is_tankbound_empire = yes
+			}
+		}
+		modifier = {
+			job_production_overseer_add = 600
 		}
 	}
 
@@ -139,22 +172,14 @@ district_rw_city = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_clerk_effect_desc
-	}
 }
 
 district_rw_hive = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
-	exempt_from_ai_planet_specialization = yes
 
-	# TODO_CD: change to real slots
+	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_government
+
 	zone_slots = {
 		slot_city_government
 		slot_city_01
@@ -239,6 +264,16 @@ district_rw_hive = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_tankbound_empire = yes }
+		}
+		modifier = {
+			job_production_overseer_add = 100
+		}
+	}
+
 	triggered_desc = {
 		trigger = {
 			planet = {
@@ -252,10 +287,10 @@ district_rw_hive = {
 
 district_rw_nexus = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
-	exempt_from_ai_planet_specialization = yes
 
-	# TODO_CD: change to real slots
+	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_government
+
 	zone_slots = {
 		slot_city_government
 		slot_city_01
@@ -332,6 +367,16 @@ district_rw_nexus = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_tankbound_empire = yes }
+		}
+		modifier = {
+			job_production_overseer_add = 100
+		}
+	}
+
 	triggered_desc = {
 		trigger = {
 			planet = {
@@ -345,9 +390,8 @@ district_rw_nexus = {
 
 district_rw_generator = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
 
-	# TODO_CD: change to real slots
+
 	zone_slots = {
 		slot_energy
 	}
@@ -358,7 +402,6 @@ district_rw_generator = {
 
 	potential = {
 		always = no
-#		uses_district_set = ring_world
 	}
 
 	convert_to = {
@@ -388,7 +431,6 @@ district_rw_generator = {
 		}
 		job_technician_drone_add = 1000
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -397,7 +439,6 @@ district_rw_generator = {
 		planet_housing_add = 500
 		job_technician_drone_add = 1500
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -410,7 +451,6 @@ district_rw_generator = {
 			job_technician_add = 1000
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -418,6 +458,16 @@ district_rw_generator = {
 		}
 		modifier = {
 			job_fe_acolyte_generator_add = 1000
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_tankbound_empire = yes }
+		}
+		modifier = {
+			job_technician_automated_workforce_mult = 1.0
 		}
 	}
 
@@ -430,38 +480,12 @@ district_rw_generator = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_technician_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_technician_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_generator_effect_desc
-	}
 }
 
 district_rw_commercial = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
 
-	# TODO_CD: change to real slots
+
 	zone_slots = {
 		slot_city_04
 	}
@@ -472,7 +496,6 @@ district_rw_commercial = {
 
 	potential = {
 		always = no
-#		uses_district_set = ring_world
 	}
 
 	convert_to = {
@@ -494,7 +517,30 @@ district_rw_commercial = {
 	triggered_planet_modifier = {
 		planet_housing_add = 1000
 		job_trader_add = @base_district_jobs
-		job_clerk_add = 600
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_tankbound_empire = no
+			}
+		}
+		modifier = {
+			job_clerk_add = 600
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_tankbound_empire = yes
+			}
+		}
+		modifier = {
+			job_production_overseer_add = 600
+		}
 	}
 
 	triggered_planet_modifier = {
@@ -512,10 +558,26 @@ district_rw_commercial = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_active_tradition = tr_virtuality_4 }
+			owner = {
+				has_active_tradition = tr_virtuality_4
+				is_tankbound_empire = no
+			}
 		}
 		modifier = {
 			job_clerk_add = 600
+		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_virtuality_4
+				is_tankbound_empire = yes
+			}
+		}
+		modifier = {
+			job_production_overseer_add = 600
 		}
 	}
 
@@ -552,31 +614,12 @@ district_rw_commercial = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		text = job_trader_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_clerk_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				empire_can_have_floret_jobs = yes
-			}
-		}
-		text = job_floret_effect_desc
-	}
 }
 
 district_rw_science = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
 
-	# TODO_CD: change to real slots
+
 	zone_slots = {
 		slot_city_01
 	}
@@ -587,7 +630,6 @@ district_rw_science = {
 
 	potential = {
 		always = no
-#		uses_district_set = ring_world
 	}
 
 	prerequisites = {
@@ -694,37 +736,12 @@ district_rw_science = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_researcher_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		text = job_brain_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_calculator_effect_desc
-	}
 }
 
 district_rw_farming = {
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
 
-	# TODO_CD: change to real slots
+
 	zone_slots = {
 		slot_food
 	}
@@ -735,7 +752,6 @@ district_rw_farming = {
 
 	potential = {
 		always = no
-#		uses_district_set = ring_world
 	}
 
 	resources = {
@@ -767,7 +783,6 @@ district_rw_farming = {
 			job_agri_drone_add = 1500
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -777,7 +792,6 @@ district_rw_farming = {
 			job_agri_drone_add = 1000
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -790,7 +804,6 @@ district_rw_farming = {
 			job_farmer_add = 1000
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -812,7 +825,6 @@ district_rw_farming = {
 			planet_housing_add = 500
 		}
 	}
-
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -826,91 +838,23 @@ district_rw_farming = {
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_gestalt = yes }
-		}
-		text = job_agri_drone_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_gestalt = no
-				is_fallen_empire_spiritualist = no
-			}
-		}
-		text = job_farmer_effect_desc
-	}
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_fallen_empire_spiritualist = yes }
-		}
-		text = job_fe_acolyte_farm_effect_desc
-	}
-}
-
-district_rw_industrial = {
-	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
-
-	# TODO_CD: change to real slots
-	zone_slots = {
-		slot_city_01
-	}
-
-	show_on_uncolonized = {
-		always = no
-	}
-
-	potential = {
-		always = no
-#		uses_district_set = ring_world
-	}
-
-	resources = {
-		category = planet_districts
-		cost = {
-			minerals = @rw_cost
-			volatile_motes = @rw_cost_sr
-		}
-		upkeep = {
-			energy = @rw_maintenance
-			volatile_motes = @rw_maintenance_sr
-		}
-		upkeep = {
-			trigger = {
-				exists = owner
-				owner = {
-					has_edict = industrial_maintenance
-				}
-			}
-			energy = 4
-		}
-	}
-
 	triggered_planet_modifier = {
-		planet_housing_add = 1000
-	}
-
-	inline_script = {
-		script = jobs/industrial_districts_factory_add
-		AMOUNT = 500
-	}
-
-	inline_script = {
-		script = jobs/industrial_districts_foundry_add
-		AMOUNT = 500
+		potential = {
+			exists = owner
+			owner = { is_tankbound_empire = yes }
+		}
+		modifier = {
+			job_farmer_automated_workforce_mult = 1.0
+		}
 	}
 }
 
 district_rw_urban_1 = {
 	icon = district_rw_city_secondary
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
+
 	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_housing
 
 	zone_slots = {
 		slot_rw_urban_01
@@ -926,12 +870,6 @@ district_rw_urban_1 = {
 		uses_district_set = ring_world
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_rw_nexus
-		district_rw_hive
-	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -944,7 +882,6 @@ district_rw_urban_1 = {
 
 	planet_modifier = {
 		planet_housing_add = 2500
-		job_enforcer_add = @base_district_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -956,33 +893,6 @@ district_rw_urban_1 = {
 		}
 		modifier = {
 			planet_housing_add = -500
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-			}
-		}
-		modifier = {
-			job_clerk_add = 300
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_active_tradition = tr_virtuality_4
-			}
-		}
-		modifier = {
-			job_clerk_add = 600
 		}
 	}
 
@@ -1021,6 +931,17 @@ district_rw_urban_1 = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_tankbound_empire = yes
+			}
+		}
+		job_technician_automated_workforce_mult = 1.0
+		job_farmer_automated_workforce_mult = 1.0
+	}
+
 	triggered_desc = {
 		trigger = {
 			planet = {
@@ -1030,20 +951,14 @@ district_rw_urban_1 = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_clerk_effect_desc
-	}
 }
+
 district_rw_urban_2 = {
 	icon = district_rw_city_secondary
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
+
 	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_housing
 
 	zone_slots = {
 		slot_rw_urban_02
@@ -1059,12 +974,6 @@ district_rw_urban_2 = {
 		uses_district_set = ring_world
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_rw_nexus
-		district_rw_hive
-	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -1077,7 +986,6 @@ district_rw_urban_2 = {
 
 	planet_modifier = {
 		planet_housing_add = 2500
-		job_enforcer_add = @base_district_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -1089,33 +997,6 @@ district_rw_urban_2 = {
 		}
 		modifier = {
 			planet_housing_add = -500
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-			}
-		}
-		modifier = {
-			job_clerk_add = 300
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_active_tradition = tr_virtuality_4
-			}
-		}
-		modifier = {
-			job_clerk_add = 600
 		}
 	}
 
@@ -1154,6 +1035,17 @@ district_rw_urban_2 = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_tankbound_empire = yes
+			}
+		}
+		job_technician_automated_workforce_mult = 1.0
+		job_farmer_automated_workforce_mult = 1.0
+	}
+
 	triggered_desc = {
 		trigger = {
 			planet = {
@@ -1163,21 +1055,14 @@ district_rw_urban_2 = {
 		}
 		text = arcane_generator_upkeep_desc
 	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_clerk_effect_desc
-	}
 }
 
 district_rw_urban_3 = {
 	icon = district_rw_city_secondary
 	base_buildtime = @rw_district_buildtime
-	is_capped_by_modifier = no
+
 	exempt_from_ai_planet_specialization = yes
+	overlay_icon = GFX_district_housing
 
 	zone_slots = {
 		slot_rw_urban_03
@@ -1193,12 +1078,6 @@ district_rw_urban_3 = {
 		uses_district_set = ring_world
 	}
 
-	conversion_ratio = 0.5
-	convert_to = {
-		district_rw_nexus
-		district_rw_hive
-	}
-
 	resources = {
 		category = planet_districts
 		cost = {
@@ -1211,7 +1090,6 @@ district_rw_urban_3 = {
 
 	planet_modifier = {
 		planet_housing_add = 2500
-		job_enforcer_add = @base_district_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -1223,33 +1101,6 @@ district_rw_urban_3 = {
 		}
 		modifier = {
 			planet_housing_add = -500
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-			}
-		}
-		modifier = {
-			job_clerk_add = 300
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				is_regular_empire = yes
-				is_fallen_empire = no
-				has_active_tradition = tr_virtuality_4
-			}
-		}
-		modifier = {
-			job_clerk_add = 600
 		}
 	}
 
@@ -1288,6 +1139,17 @@ district_rw_urban_3 = {
 		}
 	}
 
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_tankbound_empire = yes
+			}
+		}
+		job_technician_automated_workforce_mult = 1.0
+		job_farmer_automated_workforce_mult = 1.0
+	}
+
 	triggered_desc = {
 		trigger = {
 			planet = {
@@ -1296,13 +1158,5 @@ district_rw_urban_3 = {
 			}
 		}
 		text = arcane_generator_upkeep_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		text = job_clerk_effect_desc
 	}
 }

@@ -199,6 +199,7 @@ odd_factory_drone = {
 	}
 
 	possible_precalc = can_fill_drone_job
+	possible = { simple_drone_trigger = yes }
 
 	resources = {
 		category = planet_metallurgists
@@ -337,6 +338,7 @@ underground_contact_drone = {
 	}
 
 	possible_precalc = can_fill_drone_job
+	possible = { simple_drone_trigger = yes }
 
 	triggered_planet_modifier = {
 		potential = {
@@ -1198,6 +1200,7 @@ cave_cleaner_gestalt = {
 	}
 
 	possible_precalc = can_fill_drone_job
+	possible = { simple_drone_trigger = yes }
 
 	triggered_planet_modifier = {
 		potential = {
@@ -1362,6 +1365,7 @@ turtle_miner_gestalt = {
 	}
 
 	possible_precalc = can_fill_drone_job
+	possible = { simple_drone_trigger = yes }
 
 	resources = {
 		category = planet_miners
@@ -2350,7 +2354,7 @@ puddle_technician_drone = {
 
 #Stasis Prison Colony Chain Jobs
 stasis_warden = {
-	category = specialist
+	category = dystopian_specialist
 
 	swappable_data = {
 		default = {

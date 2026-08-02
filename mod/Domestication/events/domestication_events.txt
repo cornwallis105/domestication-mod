@@ -1405,7 +1405,8 @@ country_event = {
 
 		change_dominant_species = { species = event_target:overlord_species }
 
-		set_graphical_culture = event_target:domesticator_overlord
+		#commented due to bug when subject doesn't have the same ship type (specifically bioships vs artificial)
+		#set_graphical_culture = event_target:domesticator_overlord
 		set_city_graphical_culture = event_target:domesticator_overlord
 
 		change_country_flag = random
@@ -2448,6 +2449,7 @@ country_event = {
 		}
 		From = {
 			is_gestalt = no
+			is_crisis_faction = no
 		}
 		any_owned_planet = {
 			is_colony = yes

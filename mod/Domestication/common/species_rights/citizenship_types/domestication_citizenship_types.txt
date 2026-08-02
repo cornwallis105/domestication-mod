@@ -5,6 +5,12 @@ citizenship_full = {
 		exists = from
 		from = { is_machine_empire = no }
 		is_disconnected_drone_pop = no
+		NOT = {
+			from = {
+				has_origin = origin_forever_cruise
+				NOT = { has_country_flag = forever_cruise_over }
+			}
+		}
 	}
 
 	allow = {
@@ -51,6 +57,13 @@ citizenship_full = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "SCORCHED_HERALDS_ONLY_INF"
+			if = {
+				limit = { from = { is_genocidal_infernal = yes } }
+				has_trait = trait_infernal
+			}
+		}
+		custom_tooltip = {
 			fail_text = too_alien
 			OR = {
 				is_same_species = from
@@ -61,10 +74,7 @@ citizenship_full = {
 					}
 				}
 				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_xenophobe = no
 				}
 				from = {
 					has_origin = origin_synthetic_fertility
@@ -175,6 +185,13 @@ citizenship_limited = {
 			is_shackled_robot_species_rights = yes
 		}
 		is_disconnected_drone_pop = no
+		NOT = {
+			from = {
+				has_origin = origin_forever_cruise
+				NOT = { has_country_flag = forever_cruise_over }
+			}
+		}
+		NOT = { from = { has_origin = origin_nomadic_purger } }
 	}
 
 	allow = {
@@ -242,6 +259,13 @@ citizenship_limited = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "SCORCHED_HERALDS_ONLY_INF"
+			if = {
+				limit = { from = { is_genocidal_infernal = yes } }
+				has_trait = trait_infernal
+			}
+		}
+		custom_tooltip = {
 			fail_text = yes_service_yes_citizenship
 			if = {
 				limit = {
@@ -273,10 +297,7 @@ citizenship_limited = {
 			factor = 0
 			from = {
 				has_valid_ai_personality = no
-				OR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = yes
 			}
 		}
 	}
@@ -292,6 +313,10 @@ citizenship_slavery = {
 		{
 			key = resolution_greatergood_universal_prosperity_mandate
 		}
+	}
+
+	pop_group_modifier = {
+		planet_pops_enslaved_consumer_goods_upkeep_mult = -0.50
 	}
 
 	potential = {
@@ -314,6 +339,17 @@ citizenship_slavery = {
 			}
 		}
 		is_disconnected_drone_pop = no
+		NAND = {
+			from = {
+				has_origin = origin_forever_cruise
+				NOT = { has_country_flag = forever_cruise_over }
+			}
+			OR = {
+				is_founding_cruise_crew = yes
+				is_founding_cruise_passenger = yes
+			}
+		}
+		NOT = { from = { has_origin = origin_nomadic_purger } }
 	}
 
 	allow = {
@@ -394,10 +430,7 @@ citizenship_slavery = {
 		custom_tooltip = {
 			fail_text = empire_xenophile
 			from = {
-				NOR = {
-					has_ethic = ethic_xenophile
-					has_ethic = ethic_fanatic_xenophile
-				}
+				is_xenophile = no
 			}
 		}
 		custom_tooltip = {
@@ -412,10 +445,8 @@ citizenship_slavery = {
 			from = {
 				allows_slavery = yes
 				OR = {
-					has_ethic = ethic_xenophobe
-					has_ethic = ethic_fanatic_xenophobe
-					has_ethic = ethic_authoritarian
-					has_ethic = ethic_fanatic_authoritarian
+					is_xenophobe = yes
+					is_authoritarian = yes
 					has_ethic = ethic_gestalt_consciousness
 				}
 			}
@@ -496,6 +527,16 @@ citizenship_purge = {
 			AND = {
 				from = { is_hive_empire = yes }
 				is_robotic = yes
+			}
+		}
+		NAND = {
+			from = {
+				has_origin = origin_forever_cruise
+				NOT = { has_country_flag = forever_cruise_over }
+			}
+			OR = {
+				is_founding_cruise_crew = yes
+				is_founding_cruise_passenger = yes
 			}
 		}
 	}
@@ -680,6 +721,12 @@ citizenship_purge = {
 			from = {
 				has_origin = origin_necrophage
 				is_xenophobe = yes
+			}
+		}
+		modifier = {
+			add = 1000
+			from = {
+				has_origin = origin_nomadic_purger
 			}
 		}
 	}

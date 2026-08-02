@@ -4,11 +4,11 @@ action_demand_subjugation = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_dictatorial
-					has_authority = auth_imperial
+					is_dictatorial_authority = yes
+					is_imperial_authority = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -26,10 +26,10 @@ action_demand_subjugation = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_oligarchic
+					is_oligarchic_authority = yes
 					#has_government = military_junta
 					#has_government = ordered_stratocracy
 					#has_government = theocratic_oligarchy
@@ -47,10 +47,10 @@ action_demand_subjugation = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_democratic
+					is_democratic_authority = yes
 					#has_government = military_republic
 					#has_government = martial_demarchy
 					#has_government = theocratic_republic
@@ -112,16 +112,16 @@ action_demand_subjugation = {
 		}
 		MECH_CONSIDER_01 = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		ORG_TO_MECH_CONSIDER_01 = {
 			weight = { weight = 50 }
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
 					OR = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
@@ -138,7 +138,7 @@ action_demand_subjugation = {
 		# Corporate
 		CORP_CONSIDER_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -150,7 +150,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -168,7 +168,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -187,7 +187,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -205,7 +205,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -222,7 +222,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -238,7 +238,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -255,7 +255,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -264,7 +264,7 @@ action_demand_subjugation = {
 				}
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
@@ -277,7 +277,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -286,7 +286,7 @@ action_demand_subjugation = {
 				}
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
@@ -329,16 +329,16 @@ action_demand_subjugation = {
 		# Gen Machine Empire
 		MECH_DEMAND_VASS_SELECT = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_VASS_SELECT_01 = {
 			weight = { weight = 50 }
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 		}
@@ -353,7 +353,7 @@ action_demand_subjugation = {
 		# Corporate
 		CORP_DEMAND_VASS_SELECT_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -371,7 +371,7 @@ action_demand_subjugation = {
 				from = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
-					NOT = { has_authority = auth_corporate }
+					is_megacorp = no
 					OR = {
 						is_friendly_to = ROOT
 						is_cordial_to = ROOT
@@ -386,7 +386,7 @@ action_demand_subjugation = {
 				from = {
 					NOT = { has_ethic = ethic_gestalt_consciousness }
 					NOT = { has_ai_personality = fanatic_purifiers }
-					NOT = { has_authority = auth_corporate }
+					is_megacorp = no
 					NOR = {
 						is_friendly_to = ROOT
 						is_cordial_to = ROOT
@@ -433,16 +433,16 @@ action_demand_subjugation = {
 		MECH_DEMAND_VASS_PROPOSE = {
 			trigger = {
 				from = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_VASS_PROPOSE_01 = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				FROM = {
-					NOT = { has_authority = auth_machine_intelligence }
+					is_machine_empire = no
 				}
 			}
 			weight = {
@@ -467,7 +467,7 @@ action_demand_subjugation = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				FROM = {
 					is_domesticator = no
@@ -479,7 +479,7 @@ action_demand_subjugation = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				FROM = {
 					is_domesticator = yes
@@ -491,7 +491,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				FROM = {
@@ -503,7 +503,7 @@ action_demand_subjugation = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				FROM = {
@@ -530,7 +530,7 @@ action_demand_subjugation = {
 			trigger = {
 				has_ai_personality = assimilators
 				from = {
-					NOT = { has_authority = auth_machine_intelligence }
+					is_machine_empire = no
 				}
 			}
 		}
@@ -555,15 +555,15 @@ action_demand_subjugation = {
 		# Gen Machine Empire
 		MECH_DEMAND_VASS_ACCEPT = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_VASS_ACCEPT_01 = {
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 			weight = {
@@ -581,7 +581,7 @@ action_demand_subjugation = {
 		# Corporate
 		CORP_DEMAND_VASS_ACCEPT_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -593,7 +593,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -611,7 +611,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -630,7 +630,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -648,7 +648,7 @@ action_demand_subjugation = {
 				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -665,12 +665,12 @@ action_demand_subjugation = {
 			trigger = {
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -686,12 +686,12 @@ action_demand_subjugation = {
 			trigger = {
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -708,12 +708,12 @@ action_demand_subjugation = {
 			trigger = {
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -729,12 +729,12 @@ action_demand_subjugation = {
 			trigger = {
 				FROM = {
 					NOT = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
 				NOT = { has_ai_personality = fanatic_purifiers }
-				NOT = { has_authority = auth_corporate }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -780,15 +780,15 @@ action_demand_subjugation = {
 		# Gen Machine Empire
 		MECH_DEMAND_VASS_REFUSE = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_VASS_REFUSE_01 = {
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 			weight = {
@@ -806,7 +806,7 @@ action_demand_subjugation = {
 		# Corporate
 		CORP_DEMAND_VASS_REFUSE_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -818,11 +818,11 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_dictatorial
-					has_authority = auth_imperial
+					is_dictatorial_authority = yes
+					is_imperial_authority = yes
 					#has_government = military_dictatorship
 					#has_government = martial_empire
 					#has_government = divine_mandate
@@ -840,10 +840,10 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_oligarchic
+					is_oligarchic_authority = yes
 					#has_government = military_junta
 					#has_government = ordered_stratocracy
 					#has_government = theocratic_oligarchy
@@ -861,10 +861,10 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
-					has_authority = auth_democratic
+					is_democratic_authority = yes
 					#has_government = military_republic
 					#has_government = martial_demarchy
 					#has_government = theocratic_republic
@@ -925,16 +925,16 @@ action_demand_protectorate = {
 		}
 		MECH_CONSIDER_01 = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		ORG_TO_MECH_CONSIDER_01 = {
 			weight = { weight = 50 }
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
 					OR = {
-						has_authority = auth_machine_intelligence
+						is_machine_empire = yes
 						is_species_class = ROBOT
 					}
 				}
@@ -951,7 +951,7 @@ action_demand_protectorate = {
 		# Corporate
 		CORP_CONSIDER_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -962,7 +962,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -979,7 +979,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -997,7 +997,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1014,7 +1014,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1031,7 +1031,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				OR = {
@@ -1048,7 +1048,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				OR = {
@@ -1066,7 +1066,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				NOT = {
@@ -1083,7 +1083,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				NOT = {
@@ -1102,6 +1102,17 @@ action_demand_protectorate = {
 					has_ai_personality = hive_mind
 					has_ai_personality = devouring_swarm
 				}
+			}
+		}
+		FP_DEMAND_PROT_SELECT = {
+			trigger = {
+				has_ai_personality = fanatic_purifiers
+			}
+		}
+		E_DEMAND_PROT_SELECT = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
 			}
 		}
 		S_DEMAND_PROT_SELECT = {
@@ -1125,22 +1136,17 @@ action_demand_protectorate = {
 		# Gen Machine Empire
 		MECH_DEMAND_PROT_SELECT = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_PROT_SELECT_01 = {
+			weight = { weight = 50 }
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					OR = {
-						has_authority = auth_machine_intelligence
-						is_species_class = ROBOT
-					}
+					is_machine_empire = yes
 				}
-			}
-			weight = {
-				weight = 20
 			}
 		}
 		# Ketlings
@@ -1154,7 +1160,7 @@ action_demand_protectorate = {
 		# Corporate
 		CORP_DEMAND_PROT_SELECT_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -1162,10 +1168,9 @@ action_demand_protectorate = {
 		01_DEMAND_PROT_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_authority = auth_corporate
-					}
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					is_megacorp = no
 					is_domesticator = no
 				}
 			}
@@ -1173,10 +1178,9 @@ action_demand_protectorate = {
 		01_DEMAND_DOMEST_PROPOSE = {
 			trigger = {
 				from = {
-					NOR = {
-						has_ethic = ethic_gestalt_consciousness
-						has_authority = auth_corporate
-					}
+					NOT = { has_ethic = ethic_gestalt_consciousness }
+					NOT = { has_ai_personality = fanatic_purifiers }
+					is_megacorp = no
 					is_domesticator = yes
 				}
 			}
@@ -1189,6 +1193,17 @@ action_demand_protectorate = {
 						has_ai_personality = devouring_swarm
 					}
 				}
+			}
+		}
+		FP_DEMAND_PROT_PROPOSE = {
+			trigger = {
+				from = { has_ai_personality = fanatic_purifiers }
+			}
+		}
+		E_DEMAND_PROT_PROPOSE = {
+			weight = { weight = 50 }
+			trigger = {
+				from = { has_ai_personality = exterminators }
 			}
 		}
 		S_DEMAND_PROT_PROPOSE = {
@@ -1213,16 +1228,16 @@ action_demand_protectorate = {
 		MECH_DEMAND_PROT_PROPOSE = {
 			trigger = {
 				from = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_PROT_PROPOSE_01 = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 				FROM = {
-					NOT = { has_authority = auth_machine_intelligence }
+					is_machine_empire = no
 				}
 			}
 			weight = {
@@ -1239,13 +1254,6 @@ action_demand_protectorate = {
 				}
 			}
 		}
-		# Corporate
-		# Corporates don't propose protectorates and this doesn't exist in the game
-		#CORP_DEMAND_PROT_PROPOSE_01 = {
-		#	trigger = {
-		#		FROM = { has_authority = auth_corporate }
-		#	}
-		#}
 	}
 	accept = {
 		# Accept
@@ -1254,7 +1262,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				FROM = {
 					is_domesticator = no
@@ -1266,7 +1274,7 @@ action_demand_protectorate = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				FROM = {
 					is_domesticator = yes
@@ -1278,7 +1286,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				FROM = {
@@ -1290,7 +1298,7 @@ action_demand_protectorate = {
 			trigger = {
 				NOR = {
 					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				is_xenophobe = yes
 				FROM = {
@@ -1316,6 +1324,9 @@ action_demand_protectorate = {
 			weight = { weight = 50 }
 			trigger = {
 				has_ai_personality = assimilators
+				from = {
+					is_machine_empire = no
+				}
 			}
 		}
 		E_DEMAND_PROT_ACCEPT = {
@@ -1327,16 +1338,15 @@ action_demand_protectorate = {
 		# Gen Machine Empire
 		MECH_DEMAND_PROT_ACCEPT = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_PROT_ACCEPT_01 = {
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					has_authority = auth_machine_intelligence
-					is_species_class = ROBOT
+					is_machine_empire = yes
 				}
 			}
 			weight = {
@@ -1354,7 +1364,7 @@ action_demand_protectorate = {
 		# Corporate
 		CORP_DEMAND_PROT_ACCEPT_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}
@@ -1363,9 +1373,10 @@ action_demand_protectorate = {
 		01_DEMAND_PROT_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1380,9 +1391,10 @@ action_demand_protectorate = {
 		01_DEMAND_DOMEST_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				OR = {
 					is_friendly_to = FROM
@@ -1398,9 +1410,10 @@ action_demand_protectorate = {
 		02_DEMAND_PROT_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1415,9 +1428,10 @@ action_demand_protectorate = {
 		02_DEMAND_DOMEST_REFUSE = {
 			trigger = {
 				NOT = { has_ethic = ethic_gestalt_consciousness }
+				NOT = { has_ai_personality = fanatic_purifiers }
 				NOR = {
 					is_xenophobe = yes
-					has_authority = auth_corporate
+					is_megacorp = yes
 				}
 				NOT = {
 					is_friendly_to = FROM
@@ -1432,10 +1446,14 @@ action_demand_protectorate = {
 		# Refuse Xenophobe
 		03_DEMAND_PROT_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+				FROM = {
+					NOT = {
+						is_machine_empire = yes
+						is_species_class = ROBOT
+					}
 				}
+				NOT = { has_ai_personality = fanatic_purifiers }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -1449,10 +1467,14 @@ action_demand_protectorate = {
 		}
 		03_DEMAND_DOMEST_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+				FROM = {
+					NOT = {
+						is_machine_empire = yes
+						is_species_class = ROBOT
+					}
 				}
+				NOT = { has_ai_personality = fanatic_purifiers }
+				is_megacorp = no
 				is_xenophobe = yes
 				OR = {
 					is_friendly_to = FROM
@@ -1467,10 +1489,14 @@ action_demand_protectorate = {
 		# Refuse Xenophobe Hostile
 		04_DEMAND_PROT_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+				FROM = {
+					NOT = {
+						is_machine_empire = yes
+						is_species_class = ROBOT
+					}
 				}
+				NOT = { has_ai_personality = fanatic_purifiers }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -1484,10 +1510,14 @@ action_demand_protectorate = {
 		}
 		04_DEMAND_DOMEST_REFUSE = {
 			trigger = {
-				NOR = {
-					has_ethic = ethic_gestalt_consciousness
-					has_authority = auth_corporate
+				FROM = {
+					NOT = {
+						is_machine_empire = yes
+						is_species_class = ROBOT
+					}
 				}
+				NOT = { has_ai_personality = fanatic_purifiers }
+				is_megacorp = no
 				is_xenophobe = yes
 				NOT = {
 					is_friendly_to = FROM
@@ -1505,6 +1535,17 @@ action_demand_protectorate = {
 					has_ai_personality = hive_mind
 					has_ai_personality = devouring_swarm
 				}
+			}
+		}
+		FP_DEMAND_PROT_REFUSE = {
+			trigger = {
+				has_ai_personality = hive_mind
+			}
+		}
+		E_DEMAND_PROT_REFUSE = {
+			weight = { weight = 50 }
+			trigger = {
+				has_ai_personality = exterminators
 			}
 		}
 		S_DEMAND_PROT_REFUSE = {
@@ -1528,15 +1569,15 @@ action_demand_protectorate = {
 		# Gen Machine Empire
 		MECH_DEMAND_PROT_REFUSE = {
 			trigger = {
-				has_authority = auth_machine_intelligence
+				is_machine_empire = yes
 			}
 		}
 		# Organics to Machines
 		ORG_TO_MECH_DEMAND_PROT_REFUSE_01 = {
 			trigger = {
-				NOT = { has_authority = auth_machine_intelligence }
+				is_machine_empire = no
 				FROM = {
-					has_authority = auth_machine_intelligence
+					is_machine_empire = yes
 				}
 			}
 			weight = {
@@ -1554,7 +1595,7 @@ action_demand_protectorate = {
 		# Corporate
 		CORP_DEMAND_PROT_REFUSE_01 = {
 			trigger = {
-				has_authority = auth_corporate
+				is_megacorp = yes
 			}
 		}
 	}

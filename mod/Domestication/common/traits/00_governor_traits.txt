@@ -13,9 +13,19 @@ trait_ruler_frontier_spirit = {
 		COUNCIL = yes
 		TIER = none
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = no
+		}
 		ship_colonizer_cost_mult = -0.25
 		planet_colony_development_speed_mult = 0.15
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = yes
+		}
+		megastructures_waystations_cost_mult = -0.25
+		megastructure_waystation_megastructure_build_speed_mult = 0.15
 	}
 	leader_potential_add = {
 		has_paragon_dlc = no
@@ -70,27 +80,13 @@ leader_trait_bureaucrat = { # Unifier
 	leader_potential_add = {
 		trait_is_crisis_faction_check = no
 	}
-	triggered_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_jobs_unity_produces_mult = 0.05
-		mult = trigger:has_total_skill
+	planet_modifier = {
+		planet_jobs_unity_produces_mult = 0.15
 	}
-	triggered_sector_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_jobs_unity_produces_mult = 0.025
-		mult = trigger:has_total_skill
+	sector_modifier = {
+		planet_jobs_unity_produces_mult = 0.075
 	}
 	leader_class = { official commander scientist }
-	triggered_desc = {
-		exclusive_trigger = {
-			always = yes
-		}
-		text = leader_trait_bureaucrat_2_tt
-	}
 	selectable_weight = {
 		weight = @shared_trait_weight
 		inline_script = paragon/governor_weight_mult
@@ -114,7 +110,7 @@ leader_trait_army_veteran = {
 	councilor_modifier = {
 		planet_army_build_speed_mult = 0.25
 		armies_cost_mult = -0.10
-		army_defense_damage_mult = 0.25
+		army_damage_mult = 0.10
 	}
 	leader_potential_add = {
 		is_pool_leader = yes # Starting trait only.
@@ -351,10 +347,10 @@ leader_trait_iron_fist = {
 		TIER = 1
 	}
 	planet_modifier = {
-		planet_jobs_slave_produces_mult = 0.2
+		pop_slave_bonus_workforce_mult = 0.2
 	}
 	sector_modifier = {
-		planet_jobs_slave_produces_mult = 0.1
+		pop_slave_bonus_workforce_mult = 0.1
 	}
 	leader_potential_add = {
 		trait_is_crisis_faction_check = no
@@ -382,10 +378,10 @@ leader_trait_iron_fist_2 = {
 		TIER = 2
 	}
 	planet_modifier = {
-		planet_jobs_slave_produces_mult = 0.35
+		pop_slave_bonus_workforce_mult = 0.35
 	}
 	sector_modifier = {
-		planet_jobs_slave_produces_mult = 0.15
+		pop_slave_bonus_workforce_mult = 0.15
 	}
 	leader_class = { commander }
 }
@@ -402,6 +398,7 @@ leader_trait_environmental_engineer = {
 	}
 	leader_potential_add = {
 		trait_is_crisis_faction_check = no
+		trait_is_nomad_check = no
 		exists = owner
 		owner = {
 			has_blocker_removal_tech = yes
@@ -626,10 +623,21 @@ leader_trait_frontier_spirit = {
 		COUNCIL = yes
 		TIER = 1
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = no
+		}
 		ship_colonizer_cost_mult = -0.10
 		planet_colony_development_speed_mult = 0.33
 		planet_resettlement_unemployed_mult = 0.25
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = yes
+		}
+		megastructures_waystations_cost_mult = -0.10
+		megastructure_waystation_megastructure_build_speed_mult = 0.15
+		ship_speed_mult = 0.15
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -654,10 +662,21 @@ leader_trait_frontier_spirit_2 = {
 		COUNCIL = yes
 		TIER = 2
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = no
+		}
 		ship_colonizer_cost_mult = -0.10
 		planet_colony_development_speed_mult = 0.50
 		planet_resettlement_unemployed_mult = 0.50
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			trait_is_nomad_check = yes
+		}
+		megastructures_waystations_cost_mult = -0.10
+		megastructure_waystation_megastructure_build_speed_mult = 0.25
+		ship_speed_mult = 0.25
 	}
 	leader_class = { official }
 }
@@ -823,8 +842,7 @@ trait_ruler_architectural_sense = {
 		TIER = 1
 	}
 	councilor_modifier = {
-		planet_buildings_cost_mult = -0.10
-		planet_districts_cost_mult = -0.10
+		planet_structures_cost_mult = -0.10
 		planet_building_build_speed_mult = 0.15
 	}
 	leader_potential_add = {
@@ -852,10 +870,8 @@ trait_ruler_architectural_sense_2 = {
 		TIER = 2
 	}
 	councilor_modifier = {
-		planet_buildings_cost_mult = -0.1
-		planet_districts_cost_mult = -0.1
-		planet_buildings_upkeep_mult = -0.05
-		planet_districts_upkeep_mult = -0.05
+		planet_structures_cost_mult = -0.1
+		planet_structures_upkeep_mult = -0.05
 		planet_building_build_speed_mult = 0.25
 	}
 	leader_trait_type = veteran
@@ -873,10 +889,8 @@ trait_ruler_architectural_sense_3 = {
 		TIER = 3
 	}
 	councilor_modifier = {
-		planet_buildings_cost_mult = -0.15
-		planet_districts_cost_mult = -0.15
-		planet_buildings_upkeep_mult = -0.1
-		planet_districts_upkeep_mult = -0.1
+		planet_structures_cost_mult = -0.15
+		planet_structures_upkeep_mult = -0.1
 		planet_building_build_speed_mult = 0.33
 	}
 	leader_trait_type = veteran
@@ -1105,11 +1119,17 @@ leader_trait_mining_focus = {
 		COUNCIL = no
 		TIER = 1
 	}
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.15
 	}
-	sector_modifier = {
+	triggered_sector_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.075
+	}
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		arkship_harvest_resources_produces_mult = 0.075
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -1142,11 +1162,17 @@ leader_trait_mining_focus_2 = {
 		COUNCIL = no
 		TIER = 2
 	}
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.25
 	}
-	sector_modifier = {
+	triggered_sector_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.125
+	}
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		arkship_harvest_resources_produces_mult = 0.125
 	}
 	leader_trait_type = veteran
 	leader_class = { commander }
@@ -1163,11 +1189,17 @@ leader_trait_mining_focus_3 = {
 		COUNCIL = no
 		TIER = 3
 	}
-	planet_modifier = {
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.45
 	}
-	sector_modifier = {
+	triggered_sector_modifier = {
+		potential = { trait_is_nomad_check = no }
 		planet_jobs_minerals_produces_mult = 0.225
+	}
+	triggered_planet_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		arkship_harvest_resources_produces_mult = 0.225
 	}
 	leader_trait_type = veteran
 	leader_class = { commander }
@@ -1426,9 +1458,15 @@ leader_trait_cartographer = {
 			has_trait = subclass_scientist_councilor
 		}
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = no }
 		terraform_speed_mult = 0.25
 		planet_clear_blocker_speed_mult = 0.10
+	}
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		science_ship_survey_speed = 0.10
+		ship_anomaly_generation_chance_mult = 0.05
 	}
 	leader_trait_type = veteran
 	leader_class = { official scientist }
@@ -1448,9 +1486,15 @@ leader_trait_cartographer_2 = {
 		COUNCIL = yes
 		TIER = 2
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = no }
 		terraform_speed_mult = 0.33
 		planet_clear_blocker_speed_mult = 0.25
+	}
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		science_ship_survey_speed = 0.15
+		ship_anomaly_generation_chance_mult = 0.10
 	}
 	leader_trait_type = veteran
 	leader_class = { official scientist }
@@ -1466,9 +1510,15 @@ leader_trait_cartographer_3 = {
 		COUNCIL = yes
 		TIER = 3
 	}
-	councilor_modifier = {
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = no }
 		terraform_speed_mult = 0.5
 		planet_clear_blocker_speed_mult = 0.33
+	}
+	triggered_councilor_modifier = {
+		potential = { trait_is_nomad_check = yes }
+		science_ship_survey_speed = 0.25
+		ship_anomaly_generation_chance_mult = 0.15
 	}
 	leader_trait_type = veteran
 	leader_class = { official scientist }
@@ -1813,7 +1863,7 @@ leader_trait_urbanist = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1822,14 +1872,12 @@ leader_trait_urbanist = {
 		has_trait = subclass_official_governor
 	}
 	planet_modifier = {
-		empire_size_districts_mult = -0.75
-		planet_buildings_upkeep_mult = -0.5
-		planet_districts_upkeep_mult = -0.5
+		empire_size_districts_mult = -0.5
+		planet_structures_upkeep_mult = -0.5
 	}
 	sector_modifier = {
-		empire_size_districts_mult = -0.375
-		planet_buildings_upkeep_mult = -0.25
-		planet_districts_upkeep_mult = -0.25
+		empire_size_districts_mult = -0.25
+		planet_structures_upkeep_mult = -0.25
 	}
 	leader_class = { official }
 	selectable_weight = {
@@ -2189,7 +2237,7 @@ leader_trait_efficient = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2224,7 +2272,7 @@ leader_trait_arbiter = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2236,8 +2284,8 @@ leader_trait_arbiter = {
 		potential = {
 			trait_is_individual_machine_check = no
 		}
-		planet_jobs_worker_produces_mult = 0.5
-		planet_jobs_slave_produces_mult = 0.5
+		planet_jobs_worker_produces_mult = 0.25
+		pop_slave_bonus_workforce_mult = 0.25
 		planet_pops_upkeep_mult = -0.35
 		pop_happiness = -0.1
 		logistic_growth_mult = -0.05
@@ -2246,8 +2294,8 @@ leader_trait_arbiter = {
 		potential = {
 			trait_is_individual_machine_check = no
 		}
-		planet_jobs_worker_produces_mult = 0.25
-		planet_jobs_slave_produces_mult = 0.25
+		planet_jobs_worker_produces_mult = 0.125
+		pop_slave_bonus_workforce_mult = 0.125
 		planet_pops_upkeep_mult = -0.175
 		pop_happiness = -0.05
 		logistic_growth_mult = -0.025
@@ -2256,8 +2304,8 @@ leader_trait_arbiter = {
 		potential = {
 			trait_is_individual_machine_check = yes
 		}
-		planet_jobs_worker_produces_mult = 0.5
-		planet_jobs_slave_produces_mult = 0.5
+		planet_jobs_worker_produces_mult = 0.25
+		pop_slave_bonus_workforce_mult = 0.25
 		planet_pops_upkeep_mult = -0.35
 		pop_happiness = -0.1
 		planet_pop_assembly_mult = -0.05
@@ -2266,8 +2314,8 @@ leader_trait_arbiter = {
 		potential = {
 			trait_is_individual_machine_check = yes
 		}
-		planet_jobs_worker_produces_mult = 0.25
-		planet_jobs_slave_produces_mult = 0.25
+		planet_jobs_worker_produces_mult = 0.125
+		pop_slave_bonus_workforce_mult = 0.125
 		planet_pops_upkeep_mult = -0.175
 		pop_happiness = -0.05
 		planet_pop_assembly_mult = -0.025
@@ -2291,7 +2339,7 @@ leader_trait_utopian_idealist = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2348,7 +2396,7 @@ leader_trait_mediator = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2361,7 +2409,7 @@ leader_trait_mediator = {
 		potential = {
 			exists = planet
 		}
-		entertainer_jobs_bonus_workforce_mult = 0.02
+		influential_jobs_bonus_workforce_mult = 0.02
 		mult = planet.value:species_on_planet
 	}
 	triggered_planet_modifier = {
@@ -2375,7 +2423,7 @@ leader_trait_mediator = {
 		potential = {
 			exists = planet
 		}
-		entertainer_jobs_bonus_workforce_mult = 0.01
+		influential_jobs_bonus_workforce_mult = 0.01
 		mult = planet.value:species_on_planet
 	}
 	triggered_sector_modifier = {
@@ -2405,7 +2453,7 @@ leader_trait_shroud_preacher = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2417,6 +2465,14 @@ leader_trait_shroud_preacher = {
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
+		from = {
+			NOT = {
+				has_origin = origin_mindwardens
+			}
+		}
+		NOT = {
+			has_leader_flag = mindwarden_commander
+		}
 		OR = {
 			has_trait = subclass_scientist_governor
 			has_trait = subclass_official_governor
@@ -2464,7 +2520,7 @@ leader_trait_master_diplomat = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -2472,6 +2528,12 @@ leader_trait_master_diplomat = {
 		diplo_weight_mult = 0.2
 		country_trust_cap_add = 50
 		envoys_add = 2
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			owner = { is_nomadic = yes }
+		}
+		nomadic_contract_value_mult = 0.1
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -2504,12 +2566,12 @@ leader_trait_supreme_organizer = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
 	councilor_modifier = {
-		empire_size_penalty_mult = -0.1
+		empire_size_penalty_mult = -0.05
 		pop_government_ethic_attraction = 0.50
 		pop_happiness = -0.05
 	}
@@ -2537,7 +2599,7 @@ leader_trait_galvanizer = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -3063,4 +3125,45 @@ leader_trait_irenic_2 = {
 		leader_trait_shipwright
 	}
 	selectable_weight = @tier2_negative_trait_weight
+}
+
+### Special
+leader_trait_shroud_prophet = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_intellectual"
+		RARITY = common
+		COUNCIL = no
+		TIER = none
+	}
+	modifier = {
+		planet_crime_no_happiness_mult = 0.1
+		planet_jobs_unity_produces_mult = 0.1
+		planet_jobs_physics_research_produces_mult = 0.1
+		planet_jobs_society_research_produces_mult = 0.1
+	}
+	leader_class = { official }
+	initial = no
+	randomized = no
+}
+
+leader_trait_zealot = {
+	inline_script = {
+		script = trait/icon
+		CLASS = official
+		ICON = "GFX_leader_trait_righteous"
+		RARITY = common
+		COUNCIL = no
+		TIER = none
+	}
+	modifier = {
+		planet_stability_add = 3
+		planet_crime_add = -10
+		pop_government_ethic_attraction = 0.20
+		planet_bureaucrats_unity_produces_mult = 0.10
+	}
+	leader_class = { official }
+	initial = no
+	randomized = no
 }

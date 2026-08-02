@@ -2,7 +2,6 @@
 # Fancy Jobs
 ###################
 
-
 politician = {
 	category = ruler
 
@@ -68,6 +67,60 @@ politician = {
 		}
 		swap_type = {
 			trigger = {
+				politician_is_fire_oracle = yes
+			}
+			name = fire_oracle
+			icon = fire_oracle
+			desc = job_fire_oracle_desc
+			weight = 25
+		}
+		swap_type = {
+			trigger = {
+				politician_is_blazewright = yes
+			}
+			name = blazewright
+			icon = blazewright
+			desc = job_blazewright_desc
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_radiant_priest = yes
+			}
+			name = radiant_priest
+			icon = radiant_priest
+			desc = job_radiant_priest_desc
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_pyrocrat = yes
+			}
+			name = pyrocrat
+			icon = pyrocrat
+			desc = job_pyrocrat_desc
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_ashbroker = yes
+			}
+			name = ashbroker
+			icon = ashbroker
+			desc = job_ashbroker_desc
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_blazing_harbinger = yes
+			}
+			name = blazing_harbinger
+			icon = pyrocrat
+			desc = job_blazing_harbinger_desc
+			weight = 27
+		}
+		swap_type = {
+			trigger = {
 				politician_is_planetary_warden = yes
 			}
 			name = warden
@@ -106,6 +159,52 @@ politician = {
 		}
 		swap_type = {
 			trigger = {
+				politician_is_superstitious_beliefs_high_priest = yes
+			}
+			name = superstitious_beliefs_high_priest
+			desc = superstitious_beliefs_high_priest
+			icon = superstitious_beliefs_priest
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_superstitious_beliefs_high_priest_corporate = yes
+			}
+			name = superstitious_beliefs_high_priest_corporate
+			desc = superstitious_beliefs_high_priest_corporate
+			icon = superstitious_beliefs_priest
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_visionary = yes
+			}
+			name = visionary
+			desc = visionary
+			icon = executive
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_noble = yes
+				politician_is_merchant = yes
+			}
+			name = noble_merchant
+			icon = noble
+			desc = job_noble_merchant_desc
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_sacred_path_elite = yes
+			}
+			name = sacred_path_elite
+			desc = job_sacred_path_elite_desc
+			icon = sacred_path_elite
+			weight = 50
+		}
+		swap_type = {
+			trigger = {
 				politician_is_lead_bureaucrat = yes
 			}
 			name = lead_bureaucrat
@@ -117,6 +216,24 @@ politician = {
 	}
 
 	tags = { unity amenities }
+	triggered_tags = {
+		trigger = {
+			OR = {
+				politician_is_high_priest = yes
+				politician_is_technophant = yes
+				politician_is_superstitious_beliefs_high_priest = yes
+				politician_is_superstitious_beliefs_high_priest_corporate = yes
+				politician_is_fire_oracle = yes
+				politician_is_blazewright = yes
+				politician_is_radiant_priest = yes
+				politician_is_pyrocrat = yes
+				politician_is_ashbroker = yes
+				politician_is_blazing_harbinger = yes
+				politician_is_sacred_path_elite = yes
+			}
+		}
+		tags = { psionic_aura }
+	}
 
 	possible_pre_triggers = {
 		has_owner = yes
@@ -131,10 +248,10 @@ politician = {
 	resources = {
 		category = planet_politicians
 		produces = {
-			unity = 6
+			unity = 5
 		}
 		upkeep = {
-			consumer_goods = 2
+			consumer_goods = 3
 		}
 		##Executive
 		produces = {
@@ -146,36 +263,46 @@ politician = {
 		##Merchant
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					OR = {
 						politician_is_merchant = yes
 						politician_is_augmentation_merchant = yes
+						politician_is_ashbroker = yes
 					}
 				}
 			}
-			unity = -2
+			unity = -1.5
 			trade = 6
 		}
 		##Science Director
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					politician_is_science_director = yes
 				}
 			}
-			unity = -2
-			physics_research = 2
-			society_research = 2
-			engineering_research = 2
+			unity = -1
+			physics_research = 1
+			society_research = 1
+			engineering_research = 1
 		}
 		##High Priest
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
-					politician_is_high_priest = yes
+				colony? = {
+					OR = {
+						politician_is_high_priest = yes
+						politician_is_fire_oracle = yes
+					}
+				}
+			}
+			unity = 1
+		}
+		# High Pilgrim
+		produces = {
+			trigger = {
+				colony? = {
+					politician_is_sacred_path_elite = yes
 				}
 			}
 			unity = 2
@@ -183,12 +310,47 @@ politician = {
 		##Technophant
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					politician_is_technophant = yes
 				}
 			}
-			engineering_research = 4
+			engineering_research = 2
+		}
+		## Fire Cult swaps
+		produces = {
+			trigger = {
+				colony? = {
+					politician_is_blazewright = yes
+					politician_is_radiant_priest = yes
+				}
+			}
+			unity = 1.5
+		}
+		produces = {
+			trigger = {
+				colony? = {
+					politician_is_blazing_harbinger = yes
+				}
+			}
+		unity = 2
+		}
+		##High Astrologist
+		produces = {
+			trigger = {
+				colony? = {
+					politician_is_superstitious_beliefs_high_priest = yes
+				}
+			}
+			unity = 1
+		}
+		##Fortune Broker
+		produces = {
+			trigger = {
+				colony? = {
+					politician_is_superstitious_beliefs_high_priest_corporate = yes
+				}
+			}
+			trade = 6
 		}
 		##Lead Bureaucrat
 		produces = {
@@ -198,18 +360,8 @@ politician = {
 					politician_is_lead_bureaucrat = yes
 				}
 			}
-			unity = 2
+			unity = 1
 		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = planet
-			planet = {
-				politician_is_lead_bureaucrat = yes
-			}
-		}
-		planet_stability_add = 2
 	}
 
 	triggered_planet_modifier = {
@@ -220,11 +372,83 @@ politician = {
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
-	inline_script = "output/politician_output_modifier"
+	triggered_planet_modifier = {
+		potential = {
+			OR = {
+				politician_is_fire_oracle = yes
+				politician_is_blazewright = yes
+				politician_is_blazing_harbinger = yes
+				politician_is_radiant_priest = yes
+				politician_is_pyrocrat = yes
+				politician_is_ashbroker = yes
+			}
+		}
+		planet_amenities_add = 400
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+	triggered_planet_modifier = {
+		potential = {
+			politician_is_blazing_harbinger = yes
+		}
+		planet_stability_add = @inf_dancer_stability
+	}
+
+	## Noble
+	triggered_planet_modifier = {
+		potential = {
+			politician_is_noble = yes
+		}
+		planet_stability_add = 0.5
+	}
+
+	## Superstitious Beliefs
+	triggered_planet_modifier = {
+		potential = {
+			OR = {
+				politician_is_superstitious_beliefs_high_priest = yes
+				politician_is_superstitious_beliefs_high_priest_corporate = yes
+			}
+		}
+		planet_stability_add = 0.5
+	}
+
+	## Technophant
+	triggered_planet_modifier = {
+		potential = {
+			owner? = { has_origin = origin_cybernetic_creed }
+		}
+		planet_amenities_add = 200
+		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
+	}
+
+	## Planetary Warden
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_penal
+		}
+		planet_stability_add = 1
+	}
+
+	## Sacred Path - First Light Guidance
+	triggered_planet_modifier = {
+		potential = {
+			politician_is_sacred_path_elite = yes
+			owner? = { has_modifier = first_light_guidance }
+		}
+		planet_stability_add = 0.25
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = planet
+			planet = {
+				politician_is_lead_bureaucrat = yes
+			}
+		}
+		planet_stability_add = 2
+	}
 
 	weight = {
 		weight = @ruler_job_weight
-		mult = value:job_weights_modifier|JOB|politician|RESOURCE|unity|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.1
@@ -234,9 +458,7 @@ politician = {
 		# crisis purge
 		modifier = {
 			factor = 0.01
-			exists = planet
-			exists = planet.controller
-			planet.controller = {
+			colony.controller? = {
 				OR = {
 					is_country_type = swarm
 					is_country_type = ai_empire
@@ -245,7 +467,7 @@ politician = {
 		}
 	}
 
-	inline_script = "jobs/automodding_priority_unity"
+	inline_script = "jobs/automodding_priority_charisma"
 
 	promotion = {
 		time = @standard_promotion_time
@@ -290,24 +512,21 @@ knight_commander = {
 		category = planet_knights
 		produces = {
 			trigger = { exists = owner }
-			unity = 4
+			unity = 2
 			mult = value:knight_commander_unity_output_modifier
 		}
 		produces = {
 			trigger = { exists = owner }
-			physics_research = 2
-			engineering_research = 2
-			society_research = 2
+			physics_research = 1
+			engineering_research = 1
+			society_research = 1
 			mult = value:knight_commander_research_output_modifier
 		}
 		produces = {
 			trigger = {
-				exists = owner
-				owner = {
-					has_country_flag = cosmogenesis_knights
-				}
+				owner? = { has_country_flag = cosmogenesis_knights }
 			}
-			advanced_logic = 2
+			advanced_logic = 1
 			mult = value:knight_commander_research_output_modifier
 		}
 		upkeep = {
@@ -329,21 +548,153 @@ knight_commander = {
 
 	weight = {
 		weight = @high_prio_specialist_job_weight
-		mult = value:job_weights_modifier|JOB|knight_commander|RESOURCE|unity|
-		mult = value:job_weights_research_modifier|JOB|knight_commander|
 	}
 
-	inline_script = "jobs/automodding_priority_unity"
+	inline_script = "jobs/automodding_priority_charisma"
+}
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = ruler
-				AMOUNT = local_pop_amount
+dystopian_enforcer = {
+	category = ruler
+
+	swappable_data = {
+		default = {
+			condition_string = BATTLE_THRALL_JOB_TRIGGER
+			building_icon = building_precinct_house
+			icon = enforcer
+		}
+		swap_type = {
+			trigger = {
+				enforcer_is_educator_trigger = yes
 			}
+			name = educator
+			desc = educator
+			icon = educator
+			building_icon = building_state_academy
+			condition_string = BATTLE_THRALL_JOB_TRIGGER
+			weight = 10
 		}
 	}
+
+	tags = { crime enforcer }
+
+	possible_pre_triggers = {
+		has_owner = yes
+		is_being_purged = no
+		is_being_assimilated = no
+		is_sapient = yes
+	}
+
+	possible = {
+		battle_thrall_job_check_trigger = yes
+	}
+
+	inline_script = "jobs/job_enforcer"
+
+	weight = {
+		weight = @specialist_job_weight
+
+		modifier = {
+			owner = { has_active_tradition = tr_domination_judgment_corps }
+		}
+		modifier = {
+			factor = 50
+		}
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+			NOT = { has_trait = trait_mechanical }
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_resilient
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_very_strong
+		}
+		modifier = {
+			factor = 1.5
+			has_trait = trait_strong
+		}
+		modifier = {
+			factor = 10
+			is_enslaved = yes
+			has_slavery_type = { type = slavery_military }
+		}
+		modifier = {
+			factor = 0.50
+			has_trait = trait_weak
+		}
+		modifier = {
+			factor = 0.1
+			can_take_servant_job = yes
+		}
+		modifier = {
+			factor = 1.1
+			has_trait = trait_cybernetic
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_presapient_earthbound
+		}
+		modifier = {
+			factor = 1.1
+			has_trait = trait_limited_regeneration
+		}
+		modifier = {
+			factor = 0.8
+			is_enslaved = yes
+			has_slavery_type = { type = slavery_indentured }
+		}
+		modifier = {
+			factor = 2
+			has_trait = trait_lithoid
+		}
+	}
+
+}
+
+dystopian_telepath = {
+	category = ruler
+	can_be_automated = no
+
+	swappable_data = {
+		default = {
+			condition_string = RULER_JOB_TRIGGER
+			building_icon = building_psi_corps
+			icon = telepath
+		}
+		swap_type = {
+			trigger = {
+				enforcer_is_educator_trigger = yes
+			}
+			name = educator_telepath
+			desc = educator_telepath
+			icon = telepath
+			building_icon = building_psi_corps
+			condition_string = RULER_JOB_TRIGGER
+			weight = 10
+		}
+	}
+
+	inline_script = "jobs/job_telepath"
+
+	possible_precalc = can_fill_ruler_job
+
+	weight = {
+		weight = @specialist_job_weight
+		mult = 2
+		modifier = {
+			factor = 0.2
+			has_citizenship_rights = no
+		}
+		modifier = {
+			factor = 0.1
+			is_enslaved = yes
+			has_slavery_type = { type = slavery_indentured }
+		}
+	}
+
 }
 
 # Fake jobs for leader backgrounds

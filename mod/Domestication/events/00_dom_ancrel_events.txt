@@ -53,7 +53,7 @@ fleet_event = {
 }
 
 # Sentinels Archaeology site ending
-planet_event = {
+carrier_event = {
 	id = ancrel.4059
 	title = ancrel.4059.name
 	desc = ancrel.4059.desc
@@ -79,7 +79,7 @@ planet_event = {
 	}
 	option = {
 		name = ancrel.4059.b # Accept protection
-		hidden_effect = { planet_event = { id = ancrel.4062 } }
+		hidden_effect = { carrier_event = { id = ancrel.4062 } }
 		remove_deposit = d_archaeological_site
 		add_deposit = d_sentinels
 	}
@@ -100,7 +100,7 @@ planet_event = {
         fleet_power < 20000
       }
     }
-    hidden_effect = { planet_event = { id = domestication.24 } }
+    hidden_effect = { carrier_event = { id = domestication.24 } }
 	}
   # if you are a domesticator, have Megafauna Domestication,
   # AND have a 20k starbase in system
@@ -119,10 +119,10 @@ planet_event = {
         fleet_power >= 20000
       }
     }
-    hidden_effect = { planet_event = { id = domestication.25 } }
+    hidden_effect = { carrier_event = { id = domestication.25 } }
 	}
 	option = {
 		name = ancrel.4059.d # claim land
-		hidden_effect = { planet_event = { id = ancrel.4060 } }
+		hidden_effect = { carrier_event = { id = ancrel.4060 } }
 	}
 }

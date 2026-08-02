@@ -267,7 +267,7 @@ country_event = {
 
 		every_owned_planet = {
 			limit = { always = yes }
-			planet_event = {
+			carrier_event = {
 				id = domestication.5
 				scopes = { from = event_target:domesticator_overlord }
 			}
@@ -410,7 +410,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = domestication.5
 	hide_window = yes
 
@@ -996,7 +996,7 @@ country_event = {
 
 ## Relocation of Hive Facility - Capital Changed
 # I think this is the only event needed - no need for seconday event for conquest?
-planet_event = {
+carrier_event = {
 	id = domestication.14
 	title = domestication.14.name
 	desc =  domestication.14.desc
@@ -1113,7 +1113,7 @@ country_event = {
 
 ## Relocation of Machine Facility - Capital Changed
 # I think this is the only event needed - no need for seconday event for conquest?
-planet_event = {
+carrier_event = {
 	id = domestication.16
 	title = domestication.16.name
 	desc =  domestication.16.desc
@@ -1243,7 +1243,7 @@ country_event = {
 					count < 150
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = domestication.5
 				scopes = { from = event_target:domesticator_overlord }
 			}
@@ -1509,7 +1509,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = domestication.24
 	title = ancrel.4059.name
 	desc = domestication.24.desc
@@ -1524,14 +1524,14 @@ planet_event = {
 
 	option = {
 		name = domestication.24.a # Accept protection
-		hidden_effect = { planet_event = { id = ancrel.4062 } }
+		hidden_effect = { carrier_event = { id = ancrel.4062 } }
 		owner = { hidden_effect = { country_event = { id = domestication.27 } } }
 		remove_deposit = d_archaeological_site
 		add_deposit = d_sentinels
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = domestication.25
 	title = ancrel.4059.name
 	desc = domestication.25.desc
@@ -1585,11 +1585,11 @@ country_event = {
 		# Nemma
 		if = {
 			limit = {
-				any_owned_planet = { has_planet_flag = turtle_world_cotyledons }
+				any_owned_planet = { has_carrier_flag = turtle_world_cotyledons }
 			}
 			random_owned_planet = {
-				limit = { has_planet_flag = turtle_world_cotyledons }
-				planet_event = {
+				limit = { has_carrier_flag = turtle_world_cotyledons }
+				carrier_event = {
 					id = domestication.38
 					days = 30
 					random = 90
@@ -1856,7 +1856,7 @@ country_event = {
 					}
 				}
 			}
-			planet_event = {
+			carrier_event = {
 				id = domestication.33
 				scopes = { from = event_target:domesticator_overlord }
 			}
@@ -1864,7 +1864,7 @@ country_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = domestication.33
 	hide_window = yes
 
@@ -2060,9 +2060,14 @@ ship_event = {
 			}
 		}
 	}
+	after = {
+		owner = {
+			end_event_chain = parvus_III_chain
+		}
+	}
 }
 
-planet_event = {
+carrier_event = {
 	id = domestication.35
 	title = "domestication.35.name"
 	desc = domestication.35.desc
@@ -2092,7 +2097,7 @@ planet_event = {
 }
 
 # domesticating the Nemma - Project complete
-planet_event = {
+carrier_event = {
 	id = domestication.36
 	title = "domestication.36.name"
 	desc = {
@@ -2132,7 +2137,7 @@ planet_event = {
 			}
 		}
 		hidden_effect = {
-			set_planet_flag = turtle_world_cotyledons
+			set_carrier_flag = turtle_world_cotyledons
 		}
 		if = {
 			limit = {
@@ -2171,7 +2176,7 @@ planet_event = {
 }
 
 # Nemma Domestication Complete!
-planet_event = {
+carrier_event = {
 	id = domestication.37
 	title = "domestication.37.name"
 	desc = "domestication.37.desc"
@@ -2189,7 +2194,7 @@ planet_event = {
 }
 
 # domesticating the Nemma - Project complete
-planet_event = {
+carrier_event = {
 	id = domestication.38
 	title = "domestication.38.name"
 	desc = "domestication.38.desc"
@@ -2216,7 +2221,7 @@ planet_event = {
 }
 
 # domesticating the Sneks - Gatekeeper
-planet_event = {
+carrier_event = {
 	id = domestication.39
 	location = ROOT
 	trackable = yes
@@ -2227,17 +2232,17 @@ planet_event = {
 	immediate = {
 		random_list = {
 			5 = {
-				planet_event = {
+				carrier_event = {
 					id = domestication.40
 				}
 			}
 			10 = {
-				planet_event = {
+				carrier_event = {
 					id = domestication.41
 				}
 			}
 			5 = {
-				planet_event = {
+				carrier_event = {
 					id = domestication.42
 				}
 			}
@@ -2246,7 +2251,7 @@ planet_event = {
 }
 
 # domesticating the Sneks - Good ending
-planet_event = {
+carrier_event = {
 	id = domestication.40
 	title = "domestication.40.name"
 	desc = {
@@ -2287,7 +2292,7 @@ planet_event = {
 }
 
 # domesticating the Sneks - Medium ending
-planet_event = {
+carrier_event = {
 	id = domestication.41
 	title = "domestication.41.name"
 	desc = "domestication.41.desc"
@@ -2327,7 +2332,7 @@ planet_event = {
 }
 
 # domesticating the Sneks - Bad ending
-planet_event = {
+carrier_event = {
 	id = domestication.42
 	title = "domestication.42.name"
 	desc = "domestication.42.desc"

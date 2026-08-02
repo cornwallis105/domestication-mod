@@ -34,9 +34,18 @@ country_event = {
 
 	option = {
 		name = "fircon.1256.a"
-		add_observation_insight_effect = {
-			VALUE = 10
-			OUTPOST = event_target:pre_ftl_planet.observation_outpost
+		if = {
+			limit = { exists = event_target:nomad_waystation_observer }
+			add_observation_insight_effect = {
+				VALUE = 10
+				OUTPOST = event_target:nomad_waystation_observer
+			}
+		}
+		else = {
+			add_observation_insight_effect = {
+				VALUE = 10
+				OUTPOST = event_target:pre_ftl_planet.observation_outpost
+			}
 		}
 
 		add_monthly_resource_mult = {
@@ -49,9 +58,18 @@ country_event = {
 
 	option = {
 		name = "fircon.1256.b"
-		add_observation_insight_effect = {
-			VALUE = 10
-			OUTPOST = event_target:pre_ftl_planet.observation_outpost
+		if = {
+			limit = { exists = event_target:nomad_waystation_observer }
+			add_observation_insight_effect = {
+				VALUE = 10
+				OUTPOST = event_target:nomad_waystation_observer
+			}
+		}
+		else = {
+			add_observation_insight_effect = {
+				VALUE = 10
+				OUTPOST = event_target:pre_ftl_planet.observation_outpost
+			}
 		}
 
 		add_resource = {
@@ -112,6 +130,12 @@ country_event = {
 				modifier = inadvertent_jailer
 				days = 3600
 			}
+		}
+		if = {
+			limit = {
+				has_origin = origin_evolutionary_predators
+			}
+			give_evolutionary_predator_situation_progress_and_dna = { AMOUNT = small }
 		}
 	}
 

@@ -1,6 +1,6 @@
 namespace = observation
 
-# Missing Scientist (Gatekeeper)
+# Missing Scientist
 # Missing Scientist (Gatekeeper)
 situation_event = {
 	id = observation.100
@@ -36,7 +36,7 @@ situation_event = {
 
 			capital_scope = {
 				save_event_target_as = pre_ftl_planet
-				set_planet_flag = missing_scientist_planet
+				set_carrier_flag = missing_scientist_planet
 				observation_outpost_owner = {
 					country_event = { id = observation.101 }
 				}
@@ -53,7 +53,12 @@ country_event = {
 	id = observation.101
 	title = "observation.101.name"
 	desc = "observation.101.desc"
-	picture = GFX_evt_landing_ship
+	inline_script = {
+		script = events/biogenesis_event_art
+		OWNER = owner
+		REGULAR_PICTURE = GFX_evt_landing_ship
+		BIOSHIP_PICTURE = GFX_evt_bioship_landing
+	}
 	show_sound = event_ship_thrusters
 	location = event_target:pre_ftl_planet
 
@@ -117,7 +122,7 @@ country_event = {
 
 	trigger = {
 		event_target:pre_ftl_planet = {
-			has_planet_flag = extraction_civil_war
+			has_carrier_flag = extraction_civil_war
 			owner = {
 				is_regular_pre_ftl = yes
 			}
@@ -130,7 +135,7 @@ country_event = {
 
 	immediate = {
 		event_target:pre_ftl_planet = {
-			remove_planet_flag = extraction_civil_war
+			remove_carrier_flag = extraction_civil_war
 		}
 		event_target:pre_ftl_country = {
 			random_situation = {
@@ -155,7 +160,7 @@ country_event = {
 				random_list = {
 					33 = {
 						# Planet Depopulated
-						planet_event = {
+						carrier_event = {
 							id = observation.1401
 							days = 360
 							random = 360
@@ -169,7 +174,7 @@ country_event = {
 					}
 					33 = {
 						# Planet Uninhabitable
-						planet_event = {
+						carrier_event = {
 							id = observation.1403
 							days = 360
 							random = 360
@@ -183,7 +188,7 @@ country_event = {
 					}
 					33 = {
 						# Pre-FTLs regress to Stone Age
-						planet_event = {
+						carrier_event = {
 							id = observation.1405
 							days = 360
 							random = 360

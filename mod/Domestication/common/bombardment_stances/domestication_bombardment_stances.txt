@@ -12,7 +12,7 @@ floretrescue = {
 	army_damage = 1.0
 
 	kill_pop_chance = {
-		base = 0.2
+		base = 0.15
 	}
 	min_pops_to_kill_pop = 1100
 	kill_pop_amount = { min = 0 max = 200 }

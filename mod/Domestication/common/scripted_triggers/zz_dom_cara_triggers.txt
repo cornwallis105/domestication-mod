@@ -70,7 +70,7 @@ cara_allow_deal3 = {
 					is_unemployed = yes
 					is_pop_category = worker
 					is_pop_category = simple_drone
-					is_pop_category = slave
+					is_enslaved = yes
 					is_pop_category = criminal
 				}
 			}

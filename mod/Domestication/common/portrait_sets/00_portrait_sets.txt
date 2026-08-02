@@ -31,34 +31,19 @@ mammalians = {
 		"mam1"
 		"mam16"
 		"mam_rat"
+		"mam17"
+		"mammalian_ar_01"
+		"mammalian_ar_02"
+		"mammalian_ar_03"
+		"mammalian_ar_04"
+		"mammalian_ar_05"
+		"mammalian_ar_06"
+		"mammalian_ar_07"
+		"mammalian_ar_08"
+		"mammalian_ar_09"
+		"mammalian_ar_10"
 	}
 
-	conditional_portraits = {
-		portraits = {
-			"mam17"
-		}
-	}
-	conditional_portraits = {
-		randomizable = {
-			has_mammalians_micro_dlc = yes
-		}
-		playable = {
-			has_mammalians_micro_dlc = yes
-		}
-		portraits = {
-			"mammalian_ar_01"
-			"mammalian_ar_02"
-			"mammalian_ar_03"
-			"mammalian_ar_04"
-			"mammalian_ar_05"
-			"mammalian_ar_06"
-			"mammalian_ar_07"
-			"mammalian_ar_08"
-			"mammalian_ar_09"
-			"mammalian_ar_10"
-		}
-	}
-	
 	# These should not be used for randomly generated species
 	non_randomized_portraits = {
 		"mam_rat"
@@ -181,21 +166,10 @@ arthropoids = {
 		}
 	}
 
-	conditional_portraits = {
-		randomizable = {
-			host_has_dlc = "Arachnoid Portrait Pack"
-		}
-		playable = {
-			local_has_dlc = "Arachnoid Portrait Pack"
-		}
-		portraits = {
-			"art16"
-		}
-	}
-
 	# Conditional portraits without actual conditions are used here to keep portrait list on UI in particular order
 	conditional_portraits = {
 		portraits = {
+			"art16"
 			"art20"
 			"art17"
 		}
@@ -380,6 +354,18 @@ necroids = {
 		}
 	}
 
+	conditional_portraits = {
+		randomizable = {
+			always = no
+		}
+		playable = {
+			has_vipra_the_vapor_dlc = yes
+		}
+		portraits = {
+			"season_10_portrait"
+		}
+	}
+
 	non_pre_ftl_portraits = {
 		"nec2"
 		"nec4"
@@ -489,12 +475,6 @@ humanoids = {
 	}
 
 	conditional_portraits = {
-		randomizable = {
-			host_has_dlc = "Humanoids Species Pack"
-		}
-		playable = {
-			local_has_dlc = "Humanoids Species Pack"
-		}
 		portraits = {
 			"humanoid_hp_01"
 			"humanoid_hp_02"
@@ -520,6 +500,59 @@ humanoids = {
 		}
 		portraits = {
 			"humanoid_hp_16"
+		}
+	}
+}
+
+infernals = {
+	species_class = INF
+
+	conditional_portraits = {
+		randomizable = {
+			has_infernals = yes
+		}
+		playable = {
+			has_infernals = yes
+		}
+		portraits = {
+			"inf1"
+			"inf2"
+			"inf3"
+			"inf4"
+			"inf5"
+			"inf6"
+			"inf7"
+			"inf8"
+			"inf9"
+			"inf10"
+		}
+	}
+
+	non_pre_ftl_portraits = {
+		"inf2"
+		"inf3"
+		"inf4"
+		"inf6"
+		"inf7"
+		"inf8"
+	}
+}
+
+lithoid_infernals = {
+	species_class = INF
+
+	conditional_portraits = {
+		randomizable = {
+			has_infernals = yes
+			has_lithoids = yes
+		}
+		playable = {
+			has_infernals = yes
+			has_lithoids = yes
+		}
+		portraits = {
+			"lith_human_inf"
+			"lith2_inf"
 		}
 	}
 }
@@ -684,6 +717,24 @@ pre_toxoids = {
 	}
 }
 
+pre_infernals = {
+	species_class = PRE_INF
+
+	portraits = {
+		"pre_inf1"
+		"pre_inf5"
+		"pre_inf9"
+		"pre_inf10"
+	}
+
+	uplifted_portraits = {
+		"inf1"
+		"inf5"
+		"inf9"
+		"inf10"
+	}
+}
+
 artificial_intelligences = {
 	species_class = AI
 
@@ -714,40 +765,15 @@ extradimensionals = {
 robots = {
 	species_class = ROBOT
 
-	conditional_portraits = {
-		randomizable = {
-			has_synthetic_dawn = yes
-		}
-		playable = {
-			has_synthetic_dawn = yes
-		}
-		portraits = {
-			"sd_hum_robot"
-			"sd_mam_robot"
-			"sd_rep_robot"
-			"sd_avi_robot"
-			"sd_art_robot"
-			"sd_mol_robot"
-			"sd_fun_robot"
-		}
-	}
-
-	conditional_portraits = {
-		randomizable = {
-			OR = {
-				has_synthetic_dawn = yes
-				has_plantoids = yes
-			}
-		}
-		playable = {
-			OR = {
-				has_synthetic_dawn = yes
-				has_plantoids = yes
-			}
-		}
-		portraits = {
-			"sd_pla_robot"
-		}
+	portraits = {
+		"sd_hum_robot"
+		"sd_mam_robot"
+		"sd_rep_robot"
+		"sd_avi_robot"
+		"sd_art_robot"
+		"sd_mol_robot"
+		"sd_fun_robot"
+		"sd_pla_robot"
 	}
 
 	conditional_portraits = {
@@ -837,76 +863,23 @@ robots = {
 machines = {
 	species_class = MACHINE
 
-	conditional_portraits = {
-		randomizable = {
-			has_synthetic_dawn = yes
-			# The create_species effect can't properly take the possible trigger below into account.
-			# Work around this by disabling this class for species randomization after game start.
-			NOT = {
-				has_global_flag = game_started
-			}
-		}
-		playable = {
-			has_synthetic_dawn = yes
-		}
-		portraits = {
-			"sd_hum_robot"
-			"sd_mam_robot"
-			"sd_rep_robot"
-			"sd_avi_robot"
-			"sd_art_robot"
-			"sd_mol_robot"
-			"sd_fun_robot"
-		}
+	portraits = {
+		"sd_hum_robot"
+		"sd_mam_robot"
+		"sd_rep_robot"
+		"sd_avi_robot"
+		"sd_art_robot"
+		"sd_mol_robot"
+		"sd_fun_robot"
+		"sd_pla_robot"
 	}
 
 	conditional_portraits = {
 		randomizable = {
-			OR = {
-				has_synthetic_dawn = yes
-				AND = {
-					has_machine_age_dlc = yes
-					has_plantoids = yes
-				}
-			}
-			# The create_species effect can't properly take the possible trigger below into account.
-			# Work around this by disabling this class for species randomization after game start.
-			NOT = {
-				has_global_flag = game_started
-			}
+			has_lithoids = yes
 		}
 		playable = {
-			OR = {
-				has_synthetic_dawn = yes
-				AND = {
-					has_machine_age_dlc = yes
-					has_plantoids = yes
-				}
-			}
-		}
-		portraits = {
-			"sd_pla_robot"
-		}
-	}
-
-	conditional_portraits = {
-		randomizable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_lithoids = yes
-			}
-		}
-		playable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_lithoids = yes
-			}
+			has_lithoids = yes
 		}
 		portraits = {
 			"lith_machine"
@@ -915,22 +888,10 @@ machines = {
 
 	conditional_portraits = {
 		randomizable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_necroids = yes
-			}
+			has_necroids = yes
 		}
 		playable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_necroids = yes
-			}
+			has_necroids = yes
 		}
 		portraits = {
 			"nec_machine"
@@ -939,22 +900,10 @@ machines = {
 
 	conditional_portraits = {
 		randomizable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_aquatics = yes
-			}
+			has_aquatics = yes
 		}
 		playable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_aquatics = yes
-			}
+			has_aquatics = yes
 		}
 		portraits = {
 			"aqu_machine"
@@ -963,22 +912,10 @@ machines = {
 
 	conditional_portraits = {
 		randomizable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_toxoids = yes
-			}
+			has_toxoids = yes
 		}
 		playable = {
-			AND = {
-				OR = {
-					has_synthetic_dawn = yes
-					has_machine_age_dlc = yes
-				}
-				has_toxoids = yes
-			}
+			has_toxoids = yes
 		}
 		portraits = {
 			"tox_machine"
@@ -1008,17 +945,9 @@ machines = {
 	conditional_portraits = {
 		randomizable = {
 			has_rick_the_cube_dlc = yes
-			OR = {
-				has_synthetic_dawn = yes
-				has_machine_age_dlc = yes
-			}
 		}
 		playable = {
 			has_rick_the_cube_dlc = yes
-			OR = {
-				has_synthetic_dawn = yes
-				has_machine_age_dlc = yes
-			}
 		}
 		portraits = {
 			"cyb_machine"
@@ -1050,6 +979,14 @@ shroudwalkers = {
 		"shroudwalker01"
 		"shroudwalker02"
 		"shroudwalker03"
+	}
+}
+
+mindwarden_enclave = {
+	species_class = MINDWARDEN_ENCLAVE
+
+	portraits = {
+		"mindwarden_01"
 	}
 }
 
@@ -1424,6 +1361,170 @@ biogenesis_machines = {
 		}
 		portraits = {
 			"bio12"
+		}
+	}
+}
+
+psionic_fungoids = {
+	species_class = FUN
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_02"
+		}
+	}
+}
+
+psionic_humanoids = {
+	species_class = HUM
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_03"
+			"psionic_06"
+			"psionic_09"
+			"psionic_10"
+		}
+	}
+}
+
+psionic_aquatics = {
+	species_class = AQUATIC
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_04"
+			"psionic_07"
+		}
+	}
+}
+
+psionic_molluscoids = {
+	species_class = MOL
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_01"
+		}
+	}
+}
+
+psionic_avians = {
+	species_class = AVI
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_08"
+		}
+	}
+}
+
+psionic_arthropoids = {
+	species_class = ART
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_05"
+		}
+	}
+}
+
+psionic_mammalians = {
+	species_class = MAM
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_12"
+		}
+	}
+}
+
+psionic_machines = {
+	species_class = MACHINE
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"psionic_11"
+		}
+	}
+}
+
+mindwarden = {
+	species_class = MINDWARDEN
+
+	conditional_portraits = {
+		randomizable = {
+			has_shroud_dlc = yes
+		}
+		playable = {
+			has_shroud_dlc = yes
+		}
+		portraits = {
+			"mindwarden_01"
+		}
+	}
+}
+
+pdx_signup_reptilian = {
+	species_class = REP
+
+	conditional_portraits = {
+		randomizable = {
+			always = no
+		}
+		playable = {
+			logged_in_to_pdx_account = yes
+		}
+		portraits = {
+			"pdx_signup_portrait_01"
 		}
 	}
 }

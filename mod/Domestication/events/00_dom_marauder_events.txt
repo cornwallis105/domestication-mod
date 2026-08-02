@@ -179,7 +179,12 @@ country_event = {
 	id = marauder.703
 	title = "marauder.703.name"
 	desc = "marauder.703.desc"
-	picture = GFX_evt_hangar_bay
+	inline_script = {
+		script = events/biogenesis_event_art
+		OWNER = owner
+		REGULAR_PICTURE = GFX_evt_hangar_bay
+		BIOSHIP_PICTURE = GFX_evt_bioship_hangar
+	}
 	show_sound = event_radio_chatter
 
 	is_triggered_only = yes
@@ -199,6 +204,7 @@ country_event = {
 				has_valid_civic = civic_machine_terminator
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_fanatic_purifiers
+				is_genocidal_infernal = yes
 			}
 		}
 		create_leader = {
@@ -215,7 +221,7 @@ country_event = {
 		custom_tooltip = gain_marauder_admiral
 	}
 	option = {
-		name = marauder.703.f
+		name = marauder.703.dom
 		trigger = {
 			is_domesticator_or_protectorate = yes
 			any_owned_leader = {
@@ -237,6 +243,7 @@ country_event = {
 				has_valid_civic = civic_machine_terminator
 				has_valid_civic = civic_hive_devouring_swarm
 				has_valid_civic = civic_fanatic_purifiers
+				is_genocidal_infernal = yes
 			}
 		}
 	}
@@ -263,5 +270,13 @@ country_event = {
 			has_valid_civic = civic_fanatic_purifiers
 		}
 		add_resource = { influence = 50 }
+	}
+	option = {
+		name = marauder.703.f
+		trigger = {
+			is_genocidal_infernal = yes
+		}
+		add_resource = { influence = 50 }
+		add_resource = { alloys = 1 }
 	}
 }

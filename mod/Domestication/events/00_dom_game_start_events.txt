@@ -30,18 +30,13 @@ country_event = {
 							sub_type = survey
 							name = random
 							species = owner_main_species
+							randomize_traits = no
+							traits = {
+								1 = random_common
+							}
 							effect = {
 								save_event_target_as = new_sci
 							}
-						}
-					}
-					event_target:new_sci = {
-						if = {
-							limit = {
-								has_base_skill > 1
-								num_traits = 0
-							}
-							add_trait = { trait = random_common show_message = no }
 						}
 					}
 					set_leader = event_target:new_sci
@@ -56,14 +51,9 @@ country_event = {
 				class = scientist
 				name = random
 				species = owner_main_species
-			}
-			last_created_leader = {
-				if = {
-					limit = {
-						has_base_skill > 1
-						num_traits = 0
-					}
-					add_trait = { trait = random_common show_message = no }
+				randomize_traits = no
+				traits = {
+					1 = random_common
 				}
 			}
 		}
@@ -92,17 +82,12 @@ country_event = {
 								sub_type = survey
 								name = random
 								species = owner_main_species
+								randomize_traits = no
+								traits = {
+									1 = random_common
+								}
 								effect = {
 									save_event_target_as = new_explorer
-								}
-							}
-							event_target:new_explorer = {
-								if = {
-									limit = {
-										has_base_skill > 1
-										num_traits = 0
-									}
-									add_trait = { trait = random_common show_message = no }
 								}
 							}
 						}
@@ -114,12 +99,18 @@ country_event = {
 								set_country_flag = created_first_eager_ship
 							}
 							event_target:new_explorer = {
-								add_trait = { trait = leader_trait_meticulous show_message = no }
+								add_trait = {
+									trait = leader_trait_meticulous
+									show_message = no
+								}
 							}
 						}
 						else = {
 							event_target:new_explorer = {
-								add_trait = { trait = leader_trait_roamer show_message = no }
+								add_trait = {
+									trait = leader_trait_roamer
+									show_message = no
+								}
 							}
 						}
 						set_leader = event_target:new_explorer
@@ -153,9 +144,33 @@ country_event = {
 			}
 		}
 
+		if = {
+			limit = {
+				has_origin = origin_mindwardens
+			}
+			random_owned_starbase = {
+				set_starbase_size = starbase_starhold
+				set_starbase_module = {
+					slot = 3
+					module = gun_battery
+				}
+				set_starbase_module = {
+					slot = 4
+					module = gun_battery
+				}
+				set_starbase_building = {
+					slot = 2
+					building = resource_silo
+				}
+			}
+		}
+
 		#constructor
 		if = {
-			limit = { is_low_tech_start = no }
+			limit = {
+				is_low_tech_start = no
+				is_nomadic = no
+			}
 
 			create_fleet = {
 				effect = {
@@ -174,7 +189,47 @@ country_event = {
 
 		if = {
 			limit = {
+				is_low_tech_start = no
+				is_nomadic = yes
+			}
+
+			create_fleet = {
+				effect = {
+					set_owner = prev
+
+					create_ship = {
+						name = random
+						random_existing_design = nomads_constructor
+					}
+
+					set_fleet_stance = evasive
+					set_location = prev.capital_star
+				}
+			}
+			if = {
+				limit = {
+					has_origin = origin_default_nomads
+				}
+				create_fleet = {
+					effect = {
+						set_owner = prev
+
+						create_ship = {
+							name = random
+							random_existing_design = nomads_constructor
+						}
+
+						set_fleet_stance = evasive
+						set_location = prev.capital_star
+					}
+				}
+			}
+		}
+
+		if = {
+			limit = {
 				is_eager_explorer_empire = yes
+				is_nomadic = no
 			}
 			create_fleet = {
 				effect = {
@@ -192,43 +247,84 @@ country_event = {
 		}
 
 		if = {
-			limit = { is_beastmasters_empire = yes }
+			limit = {
+				is_eager_explorer_empire = yes
+				is_nomadic = yes
+			}
+			create_fleet = {
+				effect = {
+					set_owner = prev
+
+					create_ship = {
+						name = random
+						random_existing_design = nomads_engineer_vessel
+					}
+
+					set_fleet_stance = evasive
+					set_location = prev.capital_star
+				}
+			}
+			if = {
+				limit = {
+					has_origin = origin_default_nomads
+				}
+				create_fleet = {
+					effect = {
+						set_owner = prev
+
+						create_ship = {
+							name = random
+							random_existing_design = nomads_engineer_vessel
+						}
+
+						set_fleet_stance = evasive
+						set_location = prev.capital_star
+					}
+				}
+			}
+		}
+
+		# Beastmaster Amboebas
+		if = {
+			limit = {
+				is_beastmasters_empire = yes
+			}
 			# required before trying to give space fauna
 			give_dna = {
 				ship_category = space_amoeba
 				rarity = common
 			}
-			create_fleet = {
-				effect = {
-					set_owner = prev
-					while = {
-						count = 3
-						create_ship = {
-							name = random
-							random_existing_design = space_amoeba
-							rarity = common
-							age = 0
-						}
-					}
-					set_location = prev.capital_star
-					owner = {
-						create_leader = {
-							class = commander
-							name = random
-							species = owner_main_species
-						}
-					}
-					last_created_leader = {
-						if = {
-							limit = {
-								has_base_skill > 1
-								num_traits = 0
+			if = {
+				limit = {
+					is_nomadic = no
+				}
+				create_fleet = {
+					effect = {
+						set_owner = prev
+						while = {
+							count = 3
+							create_ship = {
+								name = random
+								random_existing_design = space_amoeba
+								rarity = common
+								age = 0
 							}
-							add_trait = { trait = random_common show_message = no }
 						}
+						set_location = prev.capital_star
+						owner = {
+							create_leader = {
+								class = commander
+								name = random
+								species = owner_main_species
+								randomize_traits = no
+								traits = {
+									1 = random_common
+								}
+							}
+						}
+						set_leader = last_created_leader
+						save_event_target_as = beastmasters_starting_fleet
 					}
-					set_leader = last_created_leader
-					save_event_target_as = beastmasters_starting_fleet
 				}
 			}
 
@@ -246,14 +342,17 @@ country_event = {
 			}
 		}
 
+		# Regular corvettes/maulers
 		else_if = {
 			limit = {
+				is_nomadic = no
 				is_low_tech_start = no
 			}
 
 			create_fleet = {
 				effect = {
 					set_owner = prev
+					set_location = prev.capital_star
 					if = {
 						limit = {
 							root = {
@@ -316,7 +415,6 @@ country_event = {
 								random_existing_design = corvette
 							}
 						}
-						set_location = prev.capital_star
 					}
 					else = {
 						while = {
@@ -358,25 +456,19 @@ country_event = {
 								prefix = yes
 							}
 						}
-						set_location = prev.capital_star
 					}
 					owner = {
 						create_leader = {
 							class = commander
 							name = random
 							species = owner_main_species
+							randomize_traits = no
+							traits = {
+								1 = random_common
+							}
 							effect = {
 								save_event_target_as = new_adm
 							}
-						}
-					}
-					event_target:new_adm = {
-						if = {
-							limit = {
-								has_base_skill > 1
-								num_traits = 0
-							}
-							add_trait = { trait = random_common show_message = no }
 						}
 					}
 					set_leader = event_target:new_adm
@@ -384,8 +476,10 @@ country_event = {
 			}
 		}
 
+		# Reanimated Amboebas
 		else_if = {
 			limit = {
+				is_nomadic = no
 				has_civic = civic_hive_cordyceptic_drones
 				has_civic = civic_hive_stargazers
 			}
@@ -407,15 +501,10 @@ country_event = {
 							class = commander
 							name = random
 							species = owner_main_species
-						}
-					}
-					last_created_leader = {
-						if = {
-							limit = {
-								has_base_skill > 1
-								num_traits = 0
+							randomize_traits = no
+							traits = {
+								1 = random_common
 							}
-							add_trait = { trait = random_common show_message = no }
 						}
 					}
 					set_leader = last_created_leader
@@ -425,6 +514,7 @@ country_event = {
 
 		else_if = {
 			limit = {
+				is_nomadic = no
 				NOT = {
 					has_origin = origin_broken_shackles
 					# Assigned in origin.110 instead
@@ -434,14 +524,9 @@ country_event = {
 				class = commander
 				name = random
 				species = owner_main_species
-			}
-			last_created_leader = {
-				if = {
-					limit = {
-						has_base_skill > 1
-						num_traits = 0
-					}
-					add_trait = { trait = random_common show_message = no }
+				randomize_traits = no
+				traits = {
+					1 = random_common
 				}
 			}
 		}
@@ -470,16 +555,25 @@ country_event = {
 		# Add Minister of Defense Position
 		if = {
 			limit = {
-				NOT = {
-					has_councilor = {
-						COUNCILOR = councilor_defense
-					}
+				NOR = {
+					has_councilor = { COUNCILOR = councilor_defense }
+					has_councilor = { COUNCILOR = councilor_defense_nomadic }
 				}
 			}
 			if = {
-				limit = { has_paragon_dlc = yes	}
+				limit = {
+					has_paragon_dlc = yes
+				}
 				unlock_council_slots = 1
-				set_council_position_to_council = councilor_defense
+				if = {
+					limit = {
+						is_nomadic = no
+					}
+					set_council_position_to_council = councilor_defense
+				}
+				else = {
+					set_council_position_to_council = councilor_defense_nomadic
+				}
 			}
 			if = {
 				limit = {
@@ -495,7 +589,17 @@ country_event = {
 						is_councilor = no
 						is_ruler = no
 					}
-					set_council_position = councilor_defense
+					if = {
+						limit = {
+							prev = {
+								is_nomadic = no
+							}
+						}
+						set_council_position = councilor_defense
+					}
+					else = {
+						set_council_position = councilor_defense_nomadic
+					}
 				}
 			}
 			else = {
@@ -515,8 +619,19 @@ country_event = {
 					}
 				}
 				last_created_leader = {
-					set_council_position = councilor_defense
-					save_event_target_as = new_counsilor
+					if = {
+						limit = {
+							prev = {
+								is_nomadic = no
+							}
+						}
+						set_council_position = councilor_defense
+						save_event_target_as = new_counsilor
+					}
+					else = {
+						set_council_position = councilor_defense_nomadic
+						save_event_target_as = new_counsilor
+					}
 				}
 				remove_global_flag = no_bloom_naming
 				country_event = {
@@ -531,16 +646,25 @@ country_event = {
 		# Add Head of Research Position
 		if = {
 			limit = {
-				NOT = {
-					has_councilor = {
-						COUNCILOR = councilor_research
-					}
+				NOR = {
+					has_councilor = { COUNCILOR = councilor_research }
+					has_councilor = { COUNCILOR = councilor_research_nomadic }
 				}
 			}
 			if = {
-				limit = { has_paragon_dlc = yes	}
+				limit = {
+					has_paragon_dlc = yes
+				}
 				unlock_council_slots = 1
-				set_council_position_to_council = councilor_research
+				if = {
+					limit = {
+						is_nomadic = no
+					}
+					set_council_position_to_council = councilor_research
+				}
+				else = {
+					set_council_position_to_council = councilor_research_nomadic
+				}
 			}
 			if = {
 				limit = {
@@ -556,7 +680,17 @@ country_event = {
 						is_councilor = no
 						is_ruler = no
 					}
-					set_council_position = councilor_research
+					if = {
+						limit = {
+							prev = {
+								is_nomadic = no
+							}
+						}
+						set_council_position = councilor_research
+					}
+					else = {
+						set_council_position = councilor_research_nomadic
+					}
 				}
 			}
 			else = {
@@ -565,19 +699,27 @@ country_event = {
 					class = scientist
 					name = random
 					species = owner_main_species
+					randomize_traits = no
 				}
 				last_created_leader = {
 					if = {
 						limit = {
-							has_base_skill > 1
-							num_traits = 0
+							prev = {
+								is_nomadic = no
+							}
 						}
-						add_trait = { trait = random_common show_message = no }
+						set_council_position = councilor_research
+						save_event_target_as = new_counsilor
 					}
-				}
-				last_created_leader = {
-					set_council_position = councilor_research
-					save_event_target_as = new_counsilor
+					else = {
+						set_council_position = councilor_research_nomadic
+						save_event_target_as = new_counsilor
+					}
+					add_trait = {
+						trait = random_common
+						show_message = no
+						consume_selection = yes
+					}
 				}
 				remove_global_flag = no_bloom_naming
 				country_event = {
@@ -596,16 +738,25 @@ country_event = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						has_councilor = {
-							COUNCILOR = councilor_state
-						}
+					NOR = {
+						has_councilor = { COUNCILOR = councilor_state }
+						has_councilor = { COUNCILOR = councilor_state_nomadic }
 					}
 				}
 				if = {
-					limit = { has_paragon_dlc = yes	}
+					limit = {
+						has_paragon_dlc = yes
+					}
 					unlock_council_slots = 1
-					set_council_position_to_council = councilor_state
+					if = {
+						limit = {
+							is_nomadic = no
+						}
+						set_council_position_to_council = councilor_state
+					}
+					else = {
+						set_council_position_to_council = councilor_state_nomadic
+					}
 				}
 				if = {
 					limit = {
@@ -621,7 +772,17 @@ country_event = {
 							is_councilor = no
 							is_ruler = no
 						}
-						set_council_position = councilor_state
+						if = {
+							limit = {
+								prev = {
+									is_nomadic = no
+								}
+							}
+							set_council_position = councilor_state
+						}
+						else = {
+							set_council_position = councilor_state_nomadic
+						}
 					}
 				}
 				else = {
@@ -630,19 +791,27 @@ country_event = {
 						class = official
 						name = random
 						species = owner_main_species
+						randomize_traits = no
 					}
 					last_created_leader = {
 						if = {
 							limit = {
-								has_base_skill > 1
-								num_traits = 0
+								prev = {
+									is_nomadic = no
+								}
 							}
-							add_trait = { trait = random_common show_message = no }
+							set_council_position = councilor_state
+							save_event_target_as = new_counsilor
 						}
-					}
-					last_created_leader = {
-						set_council_position = councilor_state
-						save_event_target_as = new_counsilor
+						else = {
+							set_council_position = councilor_state_nomadic
+							save_event_target_as = new_counsilor
+						}
+						add_trait = {
+							trait = random_common
+							show_message = no
+							consume_selection = yes
+						}
 					}
 					remove_global_flag = no_bloom_naming
 					country_event = {
@@ -689,14 +858,14 @@ country_event = {
 					class = commander
 					name = random
 					species = owner_main_species
+					randomize_traits = no
 				}
 				last_created_leader = {
-					if = {
-						limit = {
-							has_base_skill > 1
-							num_traits = 0
-						}
-						add_trait = { trait = random_common show_message = no }
+					set_council_position = councilor_inwards_perfection
+					add_trait = {
+						trait = random_common
+						show_message = no
+						consume_selection = yes
 					}
 				}
 				last_created_leader = {
@@ -747,18 +916,73 @@ country_event = {
 					class = commander
 					name = random
 					species = owner_main_species
+					randomize_traits = no
 				}
 				last_created_leader = {
-					if = {
-						limit = {
-							has_base_skill > 1
-							num_traits = 0
-						}
-						add_trait = { trait = random_common show_message = no }
+					set_council_position = councilor_fanatic_purifiers
+					add_trait = {
+						trait = random_common
+						show_message = no
+						consume_selection = yes
 					}
 				}
 				last_created_leader = {
 					set_council_position = councilor_fanatic_purifiers
+					save_event_target_as = new_counsilor
+				}
+				remove_global_flag = no_bloom_naming
+				country_event = {
+					id = domestication_leader.7
+					scopes = {
+						from = event_target:new_counsilor
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				has_valid_civic = civic_scorched_earth
+				has_paragon_dlc = yes
+				NOT = {
+					has_councilor = {
+						COUNCILOR = councilor_infernal_scorcher
+					}
+				}
+			}
+			unlock_council_slots = 1
+			set_council_position_to_council = councilor_infernal_scorcher
+			if = {
+				limit = {
+					any_owned_leader = {
+						leader_class = commander
+						is_councilor = no
+						is_ruler = no
+					}
+				}
+				random_owned_leader = {
+					limit = {
+						leader_class = commander
+						is_councilor = no
+						is_ruler = no
+					}
+					set_council_position = councilor_infernal_scorcher
+				}
+			}
+			else = {
+				set_global_flag = no_bloom_naming
+				create_leader = {
+					class = commander
+					name = random
+					species = owner_main_species
+					randomize_traits = no
+				}
+				last_created_leader = {
+					set_council_position = councilor_infernal_scorcher
+					add_trait = {
+						trait = random_common
+						show_message = no
+						consume_selection = yes
+					}
 					save_event_target_as = new_counsilor
 				}
 				remove_global_flag = no_bloom_naming

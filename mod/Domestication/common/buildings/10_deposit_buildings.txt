@@ -14,26 +14,33 @@ building_mote_harvesters = {
 	}
 
 	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_dust_caverns
-			has_deposit = d_dust_desert
-			has_deposit = d_industrial_sector
+		owner = {
+			is_wilderness_empire = no
+			is_nomadic = no
 		}
+		has_volatile_motes_deposit = yes
 	}
 
 	prerequisites = {
 		"tech_mine_volatile_motes"
 	}
 
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+
 	planet_modifier = {
-		planet_technician_volatile_motes_produces_add = 0.5
+		planet_technician_volatile_motes_produces_add = 0.15
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 200
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = exotic_gases
+			COST = 200
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 1
@@ -53,27 +60,33 @@ building_gas_extractors = {
 	}
 
 	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_bubbling_swamp
-			has_deposit = d_fuming_bog
-			has_deposit = d_industrial_sector
-			has_deposit = d_exotic_mountain
+		owner = {
+			is_wilderness_empire = no
+			is_nomadic = no
 		}
+		has_exotic_gases_deposit = yes
 	}
 
 	prerequisites = {
 		"tech_mine_exotic_gases"
 	}
 
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+
 	planet_modifier = {
-		planet_farmers_exotic_gases_produces_add = 0.5
+		planet_farmers_exotic_gases_produces_add = 0.15
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 200
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = rare_crystals
+			COST = 200
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 1
@@ -92,27 +105,33 @@ building_crystal_mines = {
 	}
 
 	potential = {
-		owner = { is_wilderness_empire = no }
-		OR = {
-			has_deposit = d_crystalline_caverns
-			has_deposit = d_crystal_forest
-			has_deposit = d_crystal_reef
-			has_deposit = d_industrial_sector
+		owner = {
+			is_wilderness_empire = no
+			is_nomadic = no
 		}
+		has_rare_crystals_deposit = yes
 	}
 
 	prerequisites = {
 		"tech_mine_rare_crystals"
 	}
 
+	show_tech_unlock_if = {
+		is_nomadic = no
+	}
+
 	planet_modifier = {
-		planet_miners_rare_crystals_produces_add = 0.5
+		planet_miners_rare_crystals_produces_add = 0.15
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 200
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = volatile_motes
+			COST = 200
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 1
@@ -137,8 +156,12 @@ building_betharian_power_plant = {
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 200
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = rare_crystals
+			COST = 200
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		cost = {
 			trigger = {
@@ -187,7 +210,7 @@ building_xeno_zoo = {
 			is_regular_empire = yes
 			is_guided_sapience_empire = no
 		}
-		planet = {
+		colony = {
 			OR = {
 				has_modifier = resort_colony
 				OR = {
@@ -271,12 +294,21 @@ building_xeno_zoo = {
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b1_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = exotic_gases
+			COST = @b1_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b1_upkeep
 		}
+	}
+
+	inline_script = {
+		script = jobs/biologists_add
+		AMOUNT = @building_static_jobs
 	}
 
 	triggered_planet_modifier = {
@@ -285,7 +317,7 @@ building_xeno_zoo = {
 			has_modifier = resort_colony
 		}
 		modifier = {
-			job_biologist_add = 200
+			job_biologist_add = @building_static_jobs
 		}
 	}
 
@@ -385,64 +417,52 @@ building_xeno_zoo = {
 		}
 	}
 
-	prerequisites = {
-		"tech_alien_life_studies"
-	}
-
 	triggered_desc = {
-		text = job_xeno_zoo_keeper_effect_desc
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
+		}
+		text = pre_sapient_job_xeno_zoo_animal_tt
 	}
 
 	triggered_desc = {
 		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_sapient = no
-				}
-			}
 			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
+			owner = {
+				has_valid_civic = civic_warrior_culture
+			}
+		}
+		text = pre_sapient_job_xeno_zoo_beast_tt
+	}
+
+	triggered_desc = {
+		text = biologist_is_xeno_zoo_keeper_tt
+	}
+
+	triggered_desc = {
+		text = NEW_LINE
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				NOT = { has_valid_civic = civic_warrior_culture }
+			}
 		}
 		text = job_xeno_zoo_animal_effect_desc
 	}
 
 	triggered_desc = {
 		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_livestock = yes
-				}
-			}
 			exists = owner
-			owner = { NOT = { has_valid_civic = civic_warrior_culture } }
-		}
-		text = job_livestock_zoo_animal_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_sapient = no
-				}
+			owner = {
+				has_valid_civic = civic_warrior_culture
 			}
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
 		}
 		text = job_xeno_zoo_beast_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			planet = {
-				any_owned_pop_group = {
-					is_livestock = yes
-				}
-			}
-			exists = owner
-			owner = { has_valid_civic = civic_warrior_culture }
-		}
-		text = job_livestock_zoo_beast_effect_desc
 	}
 
 	triggered_desc = {
@@ -453,5 +473,9 @@ building_xeno_zoo = {
 			}
 		}
 		text = job_floret_effect_desc
+	}
+
+	prerequisites = {
+		"tech_alien_life_studies"
 	}
 }

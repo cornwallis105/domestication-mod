@@ -1,115 +1,18 @@
 ###################
 # Basic Jobs
 ###################
+
 colonist = {
-	category = worker
-	exempt_from_ai_amenity_prioritization = yes
-
-	swappable_data = {
-		default = {
-			condition_string = WORKER_JOB_TRIGGER
-			building_icon = building_colony_shelter
-		}
+	inline_script = {
+		script = shroud/jobs/colonist_job
+		CATEGORY = worker
+		CONDITION_STRING = WORKER_JOB_TRIGGER
+		POSSIBLE_PRECALC = can_fill_worker_job
 	}
-
-	tags = { amenities }
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-	}
-
-	possible_precalc = can_fill_worker_job
 
 	possible = {
-		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
-			has_haustorics = yes
-		}
-	}
-
-	planet_modifier = {
-		planet_building_build_speed_mult = 0.10
-		planet_stability_add = 5
-		pop_happiness = 0.05
-		planet_resettlement_unemployed_destination_mult = 0.10
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		planet_amenities_add = 500
-		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
-	}
-
-	resources = {
-		category = planet_jobs
-		produces = {
-			trigger = {
-				exists = owner
-				owner = {
-					is_lithoid_empire = no
-					is_individual_machine = no
-				}
-			}
-			food = 1
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				owner = {
-					is_lithoid_empire = yes
-				}
-			}
-			minerals = 1
-		}
-		produces = {
-			trigger = {
-				exists = owner
-				owner = {
-					is_individual_machine = yes
-				}
-			}
-			energy = 1
-		}
-	}
-
-	weight = {
-		weight = @colonist_job_weight # Higher prio
-		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 0.8
-			is_enslaved = yes
-			has_slavery_type = { type = slavery_indentured }
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-
-	inline_script = "jobs/automodding_priority_amenities"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
+		hidden_trigger = { exists = owner }
+		owner = { is_tankbound_empire = no }
 	}
 }
 
@@ -136,7 +39,7 @@ clerk = {
 
 	possible = {
 		NAND = {
-			owner = { is_domesticator_or_protectorate = no }
+			owner? = { is_domesticator_or_protectorate = no }
 			has_haustorics = yes
 		}
 	}
@@ -153,14 +56,15 @@ clerk = {
 	}
 
 	triggered_planet_modifier = {
-		potential = { always = yes }
+		potential = {
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
+		}
 		planet_amenities_add = 300
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
 	}
 
 	weight = {
 		weight = @clerk_job_weight
-		mult = value:job_weights_modifier|JOB|clerk|RESOURCE|trade|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.25
@@ -190,13 +94,11 @@ clerk = {
 		}
 		modifier = {
 			factor = 1.1
-			exists = owner
-			owner = { is_megacorp = yes }
+			owner? = { is_megacorp = yes }
 		}
 		modifier = {
 			factor = 0.5
-			exists = owner
-			owner = { is_fallen_empire = yes }
+			owner? = { is_fallen_empire = yes }
 		}
 		modifier = {
 			factor = 1.1
@@ -210,15 +112,6 @@ clerk = {
 
 	inline_script = "jobs/automodding_priority_trade"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 technician = {
@@ -227,6 +120,16 @@ technician = {
 		default = {
 			condition_string = WORKER_JOB_TRIGGER
 			building_icon = building_energy_grid
+		}
+		swap_type = {
+			trigger = {
+				technician_is_mote_harvester_trigger = yes
+			}
+			icon = mote_harvester
+			name = mote_harvester
+			desc = mote_harvester
+			building_icon = building_mote_harvesting_traps
+			weight = 20
 		}
 	}
 
@@ -246,7 +149,7 @@ technician = {
 			is_gestalt = no
 		}
 		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_haustorics = yes
 		}
 	}
@@ -258,29 +161,39 @@ technician = {
 		}
 		produces = {
 			trigger = {
-				exists = owner
-				owner = {
-					is_robot_empire = yes
-				}
+				owner? = { is_robot_empire = yes }
 			}
 			energy = 2
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_energy_requisitorium
-				}
+				has_carrier_flag = has_energy_requisitorium
 			}
 			energy = @requisitorium_energy_reduction
 		}
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			technician_is_fuel_chemist_trigger = yes
+		}
+		ship_speed_mult = 0.05
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			technician_is_shield_tuner_trigger = yes
+		}
+		ship_shield_mult = 0.02 #move ship bonuses on technician jobs, add a custom tooltip here
+		ship_shield_regen_mult = 0.02
 	}
 
 	overlord_resources = {
 		category = planet_requisitioned_energy
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_energy_requisitorium
+				colony = {
+					has_carrier_flag = has_energy_requisitorium
 				}
 			}
 			energy = @requisitorium_energy_overlord
@@ -289,7 +202,6 @@ technician = {
 
 	weight = {
 		weight = @worker_job_weight
-		mult = value:job_weights_modifier|JOB|technician|RESOURCE|energy|
 		modifier = {
 			factor = 100
 			OR = {
@@ -321,21 +233,6 @@ technician = {
 			factor = 0.25
 			can_take_servant_job = yes
 		}
-		# low income modifier
-		modifier = {
-			factor = 3
-			exists = planet
-			planet = {
-				has_available_jobs = technician
-			}
-			exists = owner
-			owner = {
-				has_monthly_income = {
-					resource = energy
-					value < 10
-				}
-			}
-		}
 		modifier = {
 			factor = 5
 			has_trait = trait_cyborg_creed_of_labor
@@ -346,22 +243,13 @@ technician = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
 
 	inline_script = "jobs/automodding_priority_energy"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 miner = {
@@ -390,19 +278,30 @@ miner = {
 		}
 		swap_type = {
 			trigger = {
-				miner_is_mineral_diver_trigger = yes
-			}
-			name = mineral_diver
-			desc = mineral_diver
-			weight = 15
-		}
-		swap_type = {
-			trigger = {
 				miner_is_turtle_miner_trigger = yes
 			}
 			name = turtle_miner
 			desc = turtle_miner
 			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				miner_is_crystal_miner_trigger = yes
+			}
+			icon = crystal_miner
+			name = crystal_miner
+			desc = crystal_miner
+			building_icon = building_crystal_mines
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				miner_is_thermoforger_trigger = yes
+			}
+			icon = miner
+			name = melt_extractor
+			desc = melt_extractor
+			weight = 35
 		}
 	}
 
@@ -422,7 +321,7 @@ miner = {
 			is_gestalt = no
 		}
 		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_haustorics = yes
 		}
 	}
@@ -435,8 +334,7 @@ miner = {
 		# Job Swap - Scrap Miners
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					miner_is_scrap_miner_trigger = yes
 				}
 			}
@@ -446,29 +344,16 @@ miner = {
 		# Job Swap - Cave Cleaners
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					miner_is_cave_cleaner_trigger = yes
 				}
 			}
 			minerals = 2
 		}
-		# Job Swap - Mineral Diver
-		produces = {
-			trigger = {
-				exists = planet
-				planet = {
-					miner_is_mineral_diver_trigger = yes
-				}
-			}
-			minerals = -1
-			alloys = 1
-		}
 		# Job Swap - Turtle
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					miner_is_turtle_miner_trigger = yes
 				}
 			}
@@ -477,11 +362,27 @@ miner = {
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
-				}
+				has_carrier_flag = has_material_requisitorium
 			}
 			minerals = @requisitorium_minerals_reduction
+		}
+		# Job Swap - Thermoforger
+		produces = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			minerals = 1
+			alloys = 0.5
+		}
+		upkeep = {
+			trigger = {
+				colony? = {
+					miner_is_thermoforger_trigger = yes
+				}
+			}
+			energy = 1
 		}
 	}
 
@@ -498,8 +399,8 @@ miner = {
 		category = planet_requisitioned_minerals
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
+				colony = {
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			minerals = @requisitorium_minerals_overlord
@@ -508,7 +409,6 @@ miner = {
 
 	weight = {
 		weight = @worker_job_weight
-		mult = value:job_weights_modifier|JOB|miner|RESOURCE|minerals|
 		modifier = {
 			factor = 10
 			is_enslaved = yes
@@ -538,21 +438,6 @@ miner = {
 			can_take_servant_job = yes
 		}
 
-		# low income modifier
-		modifier = {
-			factor = 3
-			exists = planet
-			planet = {
-				has_available_jobs = miner
-			}
-			exists = owner
-			owner = {
-				has_monthly_income = {
-					resource = minerals
-					value < 10
-				}
-			}
-		}
 		modifier = {
 			factor = 5
 			has_trait = trait_cyborg_creed_of_labor
@@ -563,319 +448,44 @@ miner = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
 
 	inline_script = "jobs/automodding_priority_minerals"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 crystal_miner = {
 	category = worker
+	possible = { always = no }
 	swappable_data = {
 		default = {
 			condition_string = WORKER_JOB_TRIGGER
 			building_icon = building_crystal_mines
 		}
 	}
-
-	tags = { strategic_resource rare_crystals }
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-	}
-
-	possible_precalc = can_fill_worker_job
-	possible = {
-		hidden_trigger = { exists = owner }
-		owner = { is_gestalt = no }
-		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
-			has_haustorics = yes
-		}
-	}
-
-	resources = {
-		category = planet_sr_miners
-		produces = {
-			rare_crystals = 2
-		}
-		upkeep = {
-			trigger = {
-				planet = {
-					any_deposit = {
-						is_deposit_type = d_lava_tubes
-					}
-				}
-			}
-			energy = @lava_tubes_mining_job_upkeep
-		}
-	}
-
-	weight = {
-		weight = @specialist_job_weight # Important job
-		mult = value:job_weights_modifier|JOB|crystal_miner|RESOURCE|rare_crystals|
-		modifier = {
-			factor = 10
-			is_enslaved = yes
-			can_take_servant_job = no
-			NOT = { has_slavery_type = { type = slavery_indentured } }
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { has_technology = tech_droid_workers }
-		}
-		modifier = {
-			factor = 200
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { NOT = { has_technology = tech_droid_workers } }
-		}
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 5
-			has_trait = trait_cyborg_creed_of_labor
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 gas_extractor = {
 	category = worker
+	possible = { always = no }
 	swappable_data = {
 		default = {
 			condition_string = WORKER_JOB_TRIGGER
 			building_icon = building_gas_extractors
 		}
 	}
-
-	tags = { strategic_resource exotic_gases }
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-	}
-
-	possible_precalc = can_fill_worker_job
-
-	possible = {
-		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
-			has_haustorics = yes
-		}
-	}
-
-	resources = {
-		category = planet_sr_miners
-		produces = {
-			exotic_gases = 2
-		}
-	}
-
-	weight = {
-		weight = @specialist_job_weight # Important job
-		mult = value:job_weights_modifier|JOB|gas_extractor|RESOURCE|exotic_gases|
-		modifier = {
-			factor = 10
-			is_enslaved = yes
-			can_take_servant_job = no
-			NOT = { has_slavery_type = { type = slavery_indentured } }
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { has_technology = tech_droid_workers }
-		}
-		modifier = {
-			factor = 200
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { NOT = { has_technology = tech_droid_workers } }
-		}
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 5
-			has_trait = trait_cyborg_creed_of_labor
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 mote_harvester = {
 	category = worker
+	possible = { always = no }
 	swappable_data = {
 		default = {
 			condition_string = WORKER_JOB_TRIGGER
 			building_icon = building_mote_harvesting_traps
-		}
-	}
-
-	tags = { strategic_resource volatile_motes }
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-	}
-
-	possible_precalc = can_fill_worker_job
-
-	possible = {
-		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
-			has_haustorics = yes
-		}
-	}
-
-	resources = {
-		category = planet_sr_miners
-		produces = {
-			volatile_motes = 2
-		}
-
-		produces = {
-			trigger = {
-				planet = {
-					has_deposit = d_explosive_atmosphere
-				}
-			}
-			volatile_motes = 1
-		}
-	}
-
-	weight = {
-		weight = @specialist_job_weight # Important job
-		mult = value:job_weights_modifier|JOB|mote_harvester|RESOURCE|volatile_motes|
-		modifier = {
-			factor = 10
-			is_enslaved = yes
-			can_take_servant_job = no
-			NOT = { has_slavery_type = { type = slavery_indentured } }
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { has_technology = tech_droid_workers }
-		}
-		modifier = {
-			factor = 200
-			OR = {
-				is_non_sapient_robot = yes
-				is_shackled_robot = yes
-			}
-			can_take_servant_job = no
-			owner = { NOT = { has_technology = tech_droid_workers } }
-		}
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 5
-			has_trait = trait_cyborg_creed_of_labor
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-
-	auto_trait_prio = {
-		trait_industrious
-		trait_very_strong
-		trait_strong
-	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
 		}
 	}
 }
@@ -907,6 +517,16 @@ farmer = {
 		}
 		swap_type = {
 			trigger = {
+				farmer_is_gas_extractor_trigger = yes
+			}
+			name = gas_extractor
+			desc = gas_extractor
+			icon = gas_extractor
+			building_icon = building_gas_extractors
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
 				farmer_is_angler_trigger = yes
 			}
 			name = angler
@@ -932,7 +552,7 @@ farmer = {
 			is_gestalt = no
 		}
 		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_haustorics = yes
 		}
 	}
@@ -944,45 +564,18 @@ farmer = {
 		}
 		produces = {
 			trigger = {
-				exists = owner
-				owner = {
-					is_robot_empire = yes
-				}
+				owner? = { is_robot_empire = yes }
 			}
 			food = -1
 		}
 		# Job Swap - Anglers
 		produces = {
 			trigger = {
-				exists = planet
-				planet = {
+				colony? = {
 					farmer_is_angler_trigger = yes
 				}
 			}
-			food = 2
 			trade = 2
-		}
-		produces = {
-			trigger = {
-				exists = planet
-				planet = {
-					farmer_is_angler_trigger = yes
-				}
-				has_councilor = { COUNCILOR = "councilor_anglers" }
-			}
-			food = @councilor_anglers_angler_food_bonus
-			mult = value:councilor_level|TYPE|councilor_anglers|
-		}
-		produces = {
-			trigger = {
-				exists = planet
-				planet = {
-					farmer_is_angler_trigger = yes
-				}
-				has_councilor = { COUNCILOR = "councilor_machine_anglers" }
-			}
-			food = @councilor_machine_anglers_angler_food_bonus
-			mult = value:councilor_level|TYPE|councilor_machine_anglers|
 		}
 		# Job Swap - Titan Hunters
 		produces = {
@@ -1001,9 +594,7 @@ farmer = {
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
-				}
+				has_carrier_flag = has_produce_requisitorium
 			}
 			food = @requisitorium_food_reduction
 		}
@@ -1013,8 +604,8 @@ farmer = {
 		category = planet_requisitioned_food
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
+				colony = {
+					has_carrier_flag = has_produce_requisitorium
 				}
 			}
 			food = @requisitorium_food_overlord
@@ -1023,8 +614,12 @@ farmer = {
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = { has_valid_civic = civic_agrarian_idyll }
+			owner? = {
+				has_valid_civic = civic_agrarian_idyll
+				NOT = {
+					has_valid_civic = civic_dystopian_society
+				}
+			}
 		}
 		planet_amenities_add = 200
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
@@ -1032,7 +627,6 @@ farmer = {
 
 	weight = {
 		weight = @worker_job_weight
-		mult = value:job_weights_modifier|JOB|farmer|RESOURCE|food|
 		modifier = {
 			factor = 1.1
 			owner = { has_valid_civic = civic_agrarian_idyll }
@@ -1069,35 +663,6 @@ farmer = {
 			factor = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 			owner = { has_valid_civic = civic_agrarian_idyll }
 		}
-		# low income modifier
-		modifier = {
-			factor = 3
-			exists = planet
-			planet = {
-				has_available_jobs = farmer
-			}
-			exists = owner
-			owner = {
-				has_monthly_income = {
-					resource = food
-					value < 10
-				}
-			}
-		}
-
-		modifier = {
-			factor = 0.5
-			has_trait = trait_lithoid
-
-			owner = {
-				is_lithoid_empire = yes
-				country_uses_food = no
-				has_monthly_income = {
-					resource = food
-					value >= 0
-				}
-			}
-		}
 		modifier = {
 			factor = 5
 			has_trait = trait_cyborg_creed_of_labor
@@ -1108,290 +673,13 @@ farmer = {
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
 
 	inline_script = "jobs/automodding_priority_food"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
-}
-
-soldier = {
-	category = worker
-	swappable_data = {
-		default = {
-			condition_string = SOLDIER_JOB_TRIGGER
-			building_icon = building_stronghold
-		}
-		swap_type = {
-			trigger = {
-				soldier_is_necromancer = yes
-			}
-			name = necromancer
-			desc = necromancer
-			icon = necromancer
-			building_icon = building_dread_encampment
-			weight = 50
-		}
-	}
-
-	tags = { soldier }
-
-	country_modifier = {
-		country_naval_cap_add = 4
-	}
-
-	resources = {
-		category = planet_soldiers
-		inline_script = "output/soldier_output"
-		produces = {
-			trigger = {
-				soldier_is_necromancer = yes
-			}
-			physics_research = 2
-			society_research = 2
-		}
-		upkeep = {
-			trigger = {
-				soldier_is_necromancer = yes
-			}
-			consumer_goods = 1
-		}
-	}
-
-	inline_script = "output/soldier_triggered_modifiers"
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-	}
-
-	possible = {
-		soldier_job_check_trigger = yes
-		owner = { is_gestalt = no }
-		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
-			has_haustorics = yes
-		}
-	}
-
-	weight = {
-		weight = @soldier_job_weight
-		modifier = {
-			factor = 10
-			exists = planet
-			planet = {
-				exists = leader
-				leader = {
-					leader_class = commander
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_resilient
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_very_strong
-		}
-		modifier = {
-			factor = 1.5
-			has_trait = trait_strong
-		}
-		modifier = {
-			factor = 0.5
-			has_trait = trait_weak
-		}
-		modifier = {
-			factor = 0.1
-			is_enslaved = yes
-			NOT = { has_slavery_type = { type = slavery_military } }
-		}
-		modifier = {
-			factor = 10
-			is_enslaved = yes
-			has_slavery_type = { type = slavery_military }
-		}
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 1.1
-			has_trait = trait_cybernetic
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_presapient_earthbound
-		}
-		modifier = {
-			factor = 1.1
-			has_trait = trait_limited_regeneration
-		}
-		modifier = {
-			factor = 0
-			species = { can_be_soldier = no }
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_lithoid
-		}
-		modifier = {
-			factor = 5
-			has_trait = trait_cyborg_creed_of_war
-		}
-		modifier = {
-			factor = 0.4
-			is_pop_domesticable = yes
-		}
-		modifier = {
-			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
-			has_citizenship_type = { type = citizenship_full }
-		}
-	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
-}
-
-battle_thrall = {
-	category = worker
-	swappable_data = {
-		default = {
-			condition_string = BATTLE_THRALL_JOB_TRIGGER
-			building_icon = building_stronghold
-		}
-	}
-
-	tags = { soldier }
-
-	country_modifier = {
-		country_naval_cap_add = 4
-	}
-
-	resources = {
-		category = planet_soldiers
-		inline_script = "output/soldier_output"
-	}
-
-	inline_script = "output/soldier_triggered_modifiers"
-
-	possible_pre_triggers = {
-		has_owner = yes
-		is_being_purged = no
-		is_being_assimilated = no
-		is_sapient = yes
-		is_enslaved = yes
-	}
-
-	possible = {
-		soldier_job_check_trigger = yes
-		owner = { is_gestalt = no }
-	}
-
-	weight = {
-		weight = @soldier_job_weight
-		modifier = {
-			factor = 10
-			exists = planet
-			planet = {
-				exists = leader
-				leader = {
-					leader_class = commander
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_resilient
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_very_strong
-		}
-		modifier = {
-			factor = 1.5
-			has_trait = trait_strong
-		}
-		modifier = {
-			factor = 0.5
-			has_trait = trait_weak
-		}
-		modifier = {
-			factor = 0.1
-			is_enslaved = yes
-			NOT = { has_slavery_type = { type = slavery_military } }
-		}
-		modifier = {
-			factor = 10
-			is_enslaved = yes
-			has_slavery_type = { type = slavery_military }
-		}
-		modifier = {
-			factor = 0.1
-			can_take_servant_job = yes
-		}
-		modifier = {
-			factor = 1.1
-			has_trait = trait_cybernetic
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_presapient_earthbound
-		}
-		modifier = {
-			factor = 1.1
-			has_trait = trait_limited_regeneration
-		}
-		modifier = {
-			factor = 0
-			species = { can_be_soldier = no }
-		}
-		modifier = {
-			factor = 2
-			has_trait = trait_lithoid
-		}
-		modifier = {
-			factor = 5
-			has_trait = trait_cyborg_creed_of_war
-		}
-		# Florets make bad soldiers...
-		modifier = {
-			factor = 0.1
-			has_haustorics = yes
-		}
-	}
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 mortal_initiate = {
@@ -1427,14 +715,14 @@ mortal_initiate = {
 	resources = {
 		category = planet_bureaucrats
 		produces = {
-			unity = 2
-			society_research = 1
+			unity = 1
+			society_research = 0.5
 		}
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			always = yes
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
 		}
 		planet_amenities_add = 200
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
@@ -1442,7 +730,6 @@ mortal_initiate = {
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|mortal_initiate|RESOURCE1|unity|WEIGHT1|0.5|RESOURCE2|society_research|WEIGHT2|0.3|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.2
@@ -1457,15 +744,6 @@ mortal_initiate = {
 
 	inline_script = "jobs/automodding_priority_unity"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 scrap_miner = {
@@ -1534,27 +812,27 @@ squire = {
 		owner = {
 			is_gestalt = no
 		}
-		exists = planet
-		planet = {
+		colony? = {
 			OR = {
 				has_active_building = building_order_keep
 				has_active_building = building_order_castle
 			}
 		}
 		NAND = {
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_haustorics = yes
 		}
 	}
 
 	triggered_planet_modifier = {
-		planet_defense_armies_add = 1
+		planet_defense_armies_add = 0.5
 		pop_knight_bonus_workforce_mult = 0.025
+		planet_knights_upkeep_mult = 0.005
 		pop_knight_commander_bonus_workforce_mult = 0.0125
 	}
 	triggered_planet_modifier = {
 		potential = {
-			always = yes
+			owner? = { NOT = { has_valid_civic = civic_dystopian_society } }
 		}
 		planet_amenities_add = 200
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
@@ -1562,18 +840,14 @@ squire = {
 
 	triggered_planet_pop_group_modifier_for_all = {
 		potential = {
-			exists = planet
-			planet = {
-				has_modifier = syamelles_curse_habitat
-			}
+			has_modifier = syamelles_curse_habitat
 		}
 		bonus_pop_growth = 0.1
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = planet
-			planet = {
+			colony? = {
 				has_modifier = syamelles_curse_habitat
 			}
 		}
@@ -1587,7 +861,7 @@ squire = {
 		}
 		upkeep = {
 			trigger = {
-				planet = { has_modifier = syamelles_curse_habitat }
+				colony = { has_modifier = syamelles_curse_habitat }
 			}
 			alloys = 0.5
 		}
@@ -1595,21 +869,16 @@ squire = {
 
 	triggered_country_modifier = {
 		potential = {
-			exists = planet
-			planet = {
-				exists = owner
-				owner = { has_technology = "tech_ground_defense_planning" }
-			}
+			owner? = { has_technology = "tech_ground_defense_planning" }
 		}
 		modifier = {
-			country_naval_cap_add = 2
+			country_naval_cap_add = 1
 		}
 	}
 
 	triggered_country_modifier = {
 		potential = {
-			exists = owner
-			owner = {
+			owner? = {
 				any_owned_leader = {
 					is_councilor = yes
 					has_trait = leader_trait_bellicose
@@ -1618,15 +887,14 @@ squire = {
 		}
 
 		modifier = {
-			country_naval_cap_add = 2
+			country_naval_cap_add = 0.5
 		}
 		mult = value:bellicose_naval_cap
 	}
 
 	triggered_planet_modifier = {
 		potential = {
-			exists = owner
-			owner = {
+			owner? = {
 				any_owned_leader = {
 					is_councilor = yes
 					has_trait = leader_trait_bellicose
@@ -1634,7 +902,7 @@ squire = {
 			}
 		}
 		modifier = {
-			planet_defense_armies_add = 1
+			planet_defense_armies_add = 0.5
 		}
 		mult = value:bellicose_naval_cap
 	}
@@ -1642,29 +910,18 @@ squire = {
 	weight = {
 		weight = @worker_job_weight
 		factor = 1.2
-
+  
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
 		}
 		modifier = {
 			factor = 1.5
-			owner = { is_domesticator_or_protectorate = yes }
+			owner? = { is_domesticator_or_protectorate = yes }
 			has_citizenship_type = { type = citizenship_full }
 		}
 	}
 
-	inline_script = "jobs/automodding_priority_amenities"
-
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 foundry_prison_worker = {
@@ -1683,6 +940,7 @@ foundry_prison_worker = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
+		is_sapient = yes
 	}
 
 	possible_precalc = can_fill_worker_job
@@ -1704,17 +962,13 @@ foundry_prison_worker = {
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
-				}
+				has_carrier_flag = has_material_requisitorium
 			}
 			alloys = @requisitorium_alloys_reduction
 		}
 		upkeep = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
-				}
+				has_carrier_flag = has_material_requisitorium
 			}
 			minerals = 2
 		}
@@ -1724,8 +978,8 @@ foundry_prison_worker = {
 		category = planet_requisitioned_alloys
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
+				colony = {
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -1734,7 +988,6 @@ foundry_prison_worker = {
 
 	weight = {
 		weight = @specialist_job_weight # Fairly important job
-		mult = value:job_weights_modifier|JOB|foundry|RESOURCE|alloys|
 		modifier = {
 			factor = 2
 			is_enslaved = yes
@@ -1751,15 +1004,6 @@ foundry_prison_worker = {
 		}
 	}
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 catalytic_technician_prison_worker = {
@@ -1778,6 +1022,7 @@ catalytic_technician_prison_worker = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
+		is_sapient = yes
 	}
 
 	possible_precalc = can_fill_worker_job
@@ -1802,18 +1047,14 @@ catalytic_technician_prison_worker = {
 
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
-				}
+				has_carrier_flag = has_material_requisitorium
 			}
 			alloys = @requisitorium_alloys_reduction
 		}
 
 		upkeep = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
-				}
+				has_carrier_flag = has_material_requisitorium
 			}
 			food = 3
 		}
@@ -1823,8 +1064,8 @@ catalytic_technician_prison_worker = {
 		category = planet_requisitioned_alloys
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_material_requisitorium
+				colony = {
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -1833,7 +1074,6 @@ catalytic_technician_prison_worker = {
 
 	weight = {
 		weight = @specialist_job_weight # Fairly important job
-		mult = value:job_weights_modifier|JOB|catalytic_technician|RESOURCE|alloys|
 		modifier = {
 			factor = 2
 			is_enslaved = yes
@@ -1850,15 +1090,6 @@ catalytic_technician_prison_worker = {
 		}
 	}
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 artisan_prison_worker = {
@@ -1877,6 +1108,7 @@ artisan_prison_worker = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
+		is_sapient = yes
 	}
 
 	possible_precalc = can_fill_worker_job
@@ -1898,21 +1130,17 @@ artisan_prison_worker = {
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
-					exists = owner.overlord
-					owner.overlord = { country_uses_consumer_goods = yes }
-				}
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
 			}
 			consumer_goods = @requisitorium_consumer_goods_reduction
 		}
 		upkeep = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
-					exists = owner.overlord
-					owner.overlord = { country_uses_consumer_goods = yes }
-				}
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
 			}
 			minerals = 1
 		}
@@ -1922,8 +1150,8 @@ artisan_prison_worker = {
 		category = planet_requisitioned_consumer_goods
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
+				colony = {
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -1934,29 +1162,12 @@ artisan_prison_worker = {
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_modifier|JOB|artisan|RESOURCE|consumer_goods|
 		modifier = {
 			factor = 2
 			is_enslaved = yes
 			can_take_servant_job = no
 		}
 
-		# low income modifier
-		modifier = {
-			factor = 1.2
-			exists = planet
-			planet = {
-				has_available_jobs = "artisan"
-			}
-			exists = owner
-			owner = {
-				is_ai = yes
-				has_monthly_income = {
-					resource = consumer_goods
-					value < 5
-				}
-			}
-		}
 		modifier = {
 			factor = 0.4
 			is_pop_domesticable = yes
@@ -1968,15 +1179,6 @@ artisan_prison_worker = {
 		}
 	}
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 artificer_prison_worker = {
@@ -1995,6 +1197,7 @@ artificer_prison_worker = {
 		has_owner = yes
 		is_being_purged = no
 		is_being_assimilated = no
+		is_sapient = yes
 	}
 
 	possible_precalc = can_fill_worker_job
@@ -2015,21 +1218,17 @@ artificer_prison_worker = {
 		}
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
-					exists = owner.overlord
-					owner.overlord = { country_uses_consumer_goods = yes }
-				}
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
 			}
 			consumer_goods = @requisitorium_consumer_goods_reduction
 		}
 		upkeep = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
-					exists = owner.overlord
-					owner.overlord = { country_uses_consumer_goods = yes }
-				}
+				has_carrier_flag = has_produce_requisitorium
+				exists = owner.overlord
+				owner.overlord = { country_uses_consumer_goods = yes }
 			}
 			minerals = 1
 		}
@@ -2039,8 +1238,8 @@ artificer_prison_worker = {
 		category = planet_requisitioned_consumer_goods
 		produces = {
 			trigger = {
-				planet = {
-					has_planet_flag = has_produce_requisitorium
+				colony = {
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2051,7 +1250,6 @@ artificer_prison_worker = {
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|artificer|RESOURCE1|consumer_goods|WEIGHT1|0.8|RESOURCE2|engineering_research|WEIGHT2|0.2|
 		modifier = {
 			factor = 2
 			is_enslaved = yes
@@ -2070,13 +1268,4 @@ artificer_prison_worker = {
 
 	inline_script = "jobs/automodding_priority_trade"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }

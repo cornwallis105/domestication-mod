@@ -238,7 +238,7 @@ cara_generate_deal3 = {
 				limit = {
 					free_housing > 300
 				}
-				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
 			}
 		}
@@ -252,7 +252,7 @@ cara_generate_deal3 = {
 				limit = {
 					free_housing > 200
 				}
-				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
 			}
 		}
@@ -266,13 +266,13 @@ cara_generate_deal3 = {
 				limit = {
 					free_housing > 100
 				}
-				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
 			}
 		}
 		else = {
 			capital_scope = {
-				set_timed_planet_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal3planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal3planet
 			}
 		}
@@ -374,7 +374,7 @@ cara_generate_deal3 = {
 					has_resource = { type = energy amount > 0 }
 					NOT = { has_modifier = racket_energy_extractor }
 				}
-				set_timed_planet_flag = { flag = fleet3deal7planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal7planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal7planet
 			}
 		}
@@ -385,7 +385,7 @@ cara_generate_deal3 = {
 					has_resource = { type = energy amount > 0 }
 					NOT = { has_modifier = racket_energy_extractor }
 				}
-				set_timed_planet_flag = { flag = fleet3deal7planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal7planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal7planet
 			}
 		}
@@ -448,13 +448,13 @@ cara_generate_deal3 = {
 						}
 					}
 				}
-				set_timed_planet_flag = { flag = fleet3deal8planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal8planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal8planet
 			}
 		}
 		else = {
 			capital_scope = {
-				set_timed_planet_flag = { flag = fleet3deal8planet days = @fleet3dealdecay }
+				set_timed_carrier_flag = { flag = fleet3deal8planet days = @fleet3dealdecay }
 				save_event_target_as = fleet3deal8planet
 			}
 		}
@@ -528,13 +528,13 @@ cara_execute_deal3 = {
 			limit = { has_country_flag = fleet3deal5 }
 			while = {
 				count = 3
-				random_owned_pop_group = {
+				weighted_random_owned_pop_group = {
 					limit = {
 						OR = {
 							is_unemployed = yes
 							is_pop_category = worker
 							is_pop_category = simple_drone
-							is_pop_category = slave
+							is_enslaved = yes
 							is_pop_category = criminal
 							is_pop_category = purge
 						}
@@ -843,7 +843,7 @@ cara_execute_deal3 = {
 						species = event_target:racket_species
 					}
 				}
-				remove_planet_flag = fleet3deal3planet
+				remove_carrier_flag = fleet3deal3planet
 			}
 			remove_country_flag = fleet3deal3
 		}
@@ -894,7 +894,7 @@ cara_execute_deal3 = {
 					modifier = "racket_energy_extractor"
 					days = -1
 				}
-				remove_planet_flag = fleet3deal7planet
+				remove_carrier_flag = fleet3deal7planet
 			}
 			tooltip = {
 				event_target:fleet3deal7planet = {
@@ -915,7 +915,7 @@ cara_execute_deal3 = {
 					modifier = "racket_generator_regulator"
 					days = -1
 				}
-				remove_planet_flag = fleet3deal8planet
+				remove_carrier_flag = fleet3deal8planet
 			}
 			tooltip = {
 				event_target:fleet3deal8planet = {

@@ -24,6 +24,7 @@ ap_benefic_acquisition = {
 	}
 }
 
+# Ascension perk has been replaced by a Domesticators specific edict
 ap_cosmic_inevitability = {
 	potential = {
 		always = no

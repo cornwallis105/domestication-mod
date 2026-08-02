@@ -7,6 +7,8 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		# Cache the destroyed ship so trait rewards can scale off its used naval capacity.
+		FROMFROMFROM = { save_event_target_as = paragon_destroyed_ship }
 		FROMFROM = { # Winning ship.
 			if = {
 				limit = { exists = fleet.leader }
@@ -20,7 +22,7 @@ country_event = {
 						ROOT = { # Owner of winning ship.
 							add_resource = {
 								unity = @trait_corsair_amt
-								mult = value:hells_heart_effect
+								mult = value:trait_kill_naval_cap_scaling|MULT|value:hells_heart_effect|
 							}
 						}
 					}
@@ -41,7 +43,7 @@ country_event = {
 							ROOT = { # Owner of winning ship.
 								add_resource = {
 									energy = @trait_corsair_amt
-									mult = value:hells_heart_effect
+									mult = value:trait_kill_naval_cap_scaling|MULT|value:hells_heart_effect|
 								}
 							}
 						}
@@ -49,7 +51,7 @@ country_event = {
 							ROOT = { # Owner of winning ship.
 								add_resource = {
 									energy = @trait_corsair_2_amt
-									mult = value:hells_heart_effect
+									mult = value:trait_kill_naval_cap_scaling|MULT|value:hells_heart_effect|
 								}
 							}
 						}
@@ -71,11 +73,13 @@ country_event = {
 								limit = { PREV = { has_trait = leader_trait_crusader } }
 								add_resource = {
 									unity = @trait_crusader_fleet_amt
+									mult = value:trait_kill_naval_cap_scaling|MULT|1|
 								}
 							}
 							else = {
 								add_resource = {
 									unity = @trait_crusader_2_fleet_amt
+									mult = value:trait_kill_naval_cap_scaling|MULT|1|
 								}
 							}
 						}
@@ -97,7 +101,7 @@ country_event = {
 							ROOT = {
 								add_resource = {
 									alloys = @trait_shipbreaker_amt
-									mult = value:hells_heart_effect
+									mult = value:trait_kill_naval_cap_scaling|MULT|value:hells_heart_effect|
 								}
 							}
 						}
@@ -105,7 +109,7 @@ country_event = {
 							ROOT = {
 								add_resource = {
 									alloys = @trait_shipbreaker_2_amt
-									mult = value:hells_heart_effect
+									mult = value:trait_kill_naval_cap_scaling|MULT|value:hells_heart_effect|
 								}
 							}
 						}
@@ -126,6 +130,55 @@ country_event = {
 							}
 							else = {
 								repair_percentage = @trait_juryrigger_2_amt
+							}
+						}
+					}
+
+					# Plunderer / Plunderer II
+					if = {
+						limit = {
+							OR = {
+								has_trait = leader_trait_plunderer
+								has_trait = leader_trait_plunderer_2
+							}
+						}
+						ROOT.FROMFROM = {
+							if = {
+								limit = { PREV = { has_trait = leader_trait_plunderer } }
+								root = {
+									random_list = {
+										1 = {
+											add_resource = {
+												trade = @trait_plunderer_amt
+												mult = value:trait_kill_naval_cap_scaling|MULT|1|
+											}
+										}
+										1 = {
+											add_resource = {
+												consumer_goods = @trait_plunderer_amt
+												mult = value:trait_kill_naval_cap_scaling|MULT|1|
+											}
+										}
+									}
+								}
+							}
+							else = {
+								root = {
+									random_list = {
+										1 = {
+											add_resource = {
+												trade = @trait_plunderer_2_amt
+												mult = value:trait_kill_naval_cap_scaling|MULT|1|
+											}
+										}
+										1 = {
+											add_resource = {
+												consumer_goods = @trait_plunderer_2_amt
+												mult = value:trait_kill_naval_cap_scaling|MULT|1|
+											}
+										}
+									}
+								}
 							}
 						}
 					}

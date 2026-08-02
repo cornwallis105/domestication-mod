@@ -24,12 +24,34 @@ action_form_migration_pact = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "requires_actor_not_scorched_earth"
+			OR = {
+				is_genocidal_infernal = no
+				from = { is_infernal_empire = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_recipient_not_scorched_earth"
+			OR = {
+				is_infernal_empire = yes
+				from = { is_genocidal_infernal = no }
+			}
+		}
+		custom_tooltip = {
 			fail_text = "requires_actor_not_gestalt_consciousness"
 			NOT = { has_ethic = ethic_gestalt_consciousness	}
 		}
 		custom_tooltip = {
 			fail_text = "requires_recipient_not_gestalt_consciousness"
 			from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+		}
+		custom_tooltip = {
+			fail_text = "requires_actor_not_khan"
+			NOT = { has_country_flag = heir_of_the_khan_khan }
+		}
+		custom_tooltip = {
+			fail_text = "requires_recipient_not_khan"
+			from = { NOT = { has_country_flag = heir_of_the_khan_khan } }
 		}
 		if = {
 			limit = { from = { has_valid_civic = civic_inwards_perfection } }
@@ -110,19 +132,19 @@ action_form_migration_pact = {
 				}
 			}
 		}
-    custom_tooltip = {
-      fail_text = "no_migration_with_feralists"
-      OR = {
-        AND = {
-          is_domesticator_or_protectorate = yes
-          from = { is_domesticator_or_protectorate = yes }
-        }
-        AND = {
-          is_domesticator_or_protectorate = no
-          from = { is_domesticator_or_protectorate = no }
-        }
-      }
-    }
+		custom_tooltip = {
+			fail_text = "no_migration_with_feralists"
+			OR = {
+				AND = {
+					is_domesticator_or_protectorate = yes
+					from = { is_domesticator_or_protectorate = yes }
+				}
+				AND = {
+					is_domesticator_or_protectorate = no
+					from = { is_domesticator_or_protectorate = no }
+				}
+			}
+		}
 		custom_tooltip = {
 			fail_text = "requires_actor_not_barbaric_despoilers"
 			NOT = { has_valid_civic = civic_barbaric_despoilers }
@@ -223,6 +245,14 @@ action_form_migration_pact = {
 				has_active_tradition = tr_diplomacy_diplomatic_networking
 			}
 		}
+#		custom_tooltip = {
+#			fail_text = "requires_actor_not_nomad"
+#			is_nomadic = no
+#		}
+#		custom_tooltip = {
+#			fail_text = "requires_recipient_not_nomad"
+#			FROM = { is_nomadic = no }
+#		}
 	}
 }
 
@@ -234,10 +264,6 @@ action_societal_enlightenment = {
 	action_type = negative
 	potential = {
 		hidden_trigger = {
-			OR = {
-				has_utopia = yes
-				has_first_contact_dlc = yes
-			}
 			is_country_type = default
 			is_domesticator_or_full_protectorate = no
 			from = {
@@ -344,6 +370,20 @@ action_societal_enlightenment = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "requires_actor_not_scorched_earth"
+			OR = {
+				is_genocidal_infernal = no
+				from = { is_infernal_empire = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_recipient_not_scorched_earth"
+			OR = {
+				is_infernal_empire = yes
+				from = { is_genocidal_infernal = no }
+			}
+		}
+		custom_tooltip = {
 			fail_text = "ACTION_CANNOT_INTERFERE_POLICY"
 			OR = {
 				has_policy_flag = interference_subtle
@@ -357,13 +397,21 @@ action_societal_enlightenment = {
 			from = {
 				set_country_flag = preftl_societal_enlightenment_pact
 				set_country_flag = preftl_societal_enlightenment_pact_with@root
-				capital_scope.observation_outpost = {
-					set_event_locked = yes
+				if = {
+					limit = { capital_scope = { has_observation_outpost = yes } }
+					capital_scope.observation_outpost = {
+						set_event_locked = yes
+					}
+				}
+			}
+			country_event = { # Patron Objective Counter: po_establish_diplomatic_pact
+				id = shroud.10430
+				scopes = {
+					from = from
 				}
 			}
 		}
 	}
-
 
 	should_ai_propose = {
 		weight = 0
@@ -514,6 +562,21 @@ action_open_technological_enlightenment = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = "requires_actor_not_scorched_earth"
+			OR = {
+				is_genocidal_infernal = no
+				from = { is_infernal_empire = yes }
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_recipient_not_scorched_earth"
+			OR = {
+				is_infernal_empire = yes
+				from = { is_genocidal_infernal = no }
+			}
+		}
+
+		custom_tooltip = {
 			fail_text = "requires_recipient_not_machine_terminator"
 			OR = {
 				is_same_species = from
@@ -540,65 +603,73 @@ action_open_technological_enlightenment = {
 			has_policy_flag = enlightenment_allowed
 		}
 	}
-	
+
 	on_accept = {
 		hidden_effect = {
-			if = {
-				limit = {
-					OR = {
-						is_domesticator_or_full_protectorate = no
-						AND = {
-							from = { has_authority = auth_hive_mind }
-							NOT = { has_technology = tech_hivemind_domestication }
+			from = {
+				if = {
+					limit = {
+						OR = {
+							is_domesticator_or_full_protectorate = no
+							AND = {
+								from = { has_authority = auth_hive_mind }
+								NOT = { has_technology = tech_hivemind_domestication }
+							}
+						}
+					}
+					from = {
+						set_country_flag = open_technological_enlightenment_pact
+						# set a flag necessary for the Enlightened Times achievement
+						if = {
+							limit = {
+								pre_ftl_ancient_era = yes
+							}
+							set_country_flag = started_enlightening_from_ancient_era
+						}
+						capital_scope.observation_outpost = {
+							set_event_locked = yes
 						}
 					}
 				}
-				from = {
-					set_country_flag = open_technological_enlightenment_pact
-					# set a flag necessary for the Enlightened Times achievement
-					if = {
-						limit = {
-							pre_ftl_ancient_era = yes
-						}
-						set_country_flag = started_enlightening_from_ancient_era
+				else_if = {
+					limit = {
+						from = { has_authority = auth_hive_mind }
+						has_technology = tech_hivemind_domestication
 					}
-					capital_scope.observation_outpost = {
-						set_event_locked = yes
+					# change this to the pre-FTL Hivemind Domestication
+					from = {
+						set_country_flag = open_technological_enlightenment_pact
+						# set a flag necessary for the Enlightened Times achievement
+						if = {
+							limit = {
+								pre_ftl_ancient_era = yes
+							}
+							set_country_flag = started_enlightening_from_ancient_era
+						}
+						capital_scope.observation_outpost = {
+							set_event_locked = yes
+						}
+					}
+				}
+				else = {
+					from = {
+						capital_scope.observation_outpost = {
+							set_event_locked = yes
+						}
+					}
+					start_situation = {
+						type = situation_pre_ftl_domestication
+						target = from.capital_scope
+						effect = {
+							set_situation_approach = approach_pre_ftl_domestication_neutral
+						}
 					}
 				}
 			}
-			else_if = {
-				limit = {
-					from = { has_authority = auth_hive_mind }
-					has_technology = tech_hivemind_domestication
-				}
-				# change this to the pre-FTL Hivemind Domestication
-				from = {
-					set_country_flag = open_technological_enlightenment_pact
-					# set a flag necessary for the Enlightened Times achievement
-					if = {
-						limit = {
-							pre_ftl_ancient_era = yes
-						}
-						set_country_flag = started_enlightening_from_ancient_era
-					}
-					capital_scope.observation_outpost = {
-						set_event_locked = yes
-					}
-				}
-			}
-			else = {
-				from = {
-					capital_scope.observation_outpost = {
-						set_event_locked = yes
-					}
-				}
-				start_situation = {
-					type = situation_pre_ftl_domestication
-					target = from.capital_scope
-					effect = {
-						set_situation_approach = approach_pre_ftl_domestication_neutral
-					}
+			country_event = { # Patron Objective Counter: po_establish_diplomatic_pact
+				id = shroud.10435
+				scopes = {
+					from = from
 				}
 			}
 		}

@@ -7,12 +7,16 @@ country_event = {
 	picture = GFX_evt_pirate_armada
 	show_sound = event_space_battle
 	location = event_target:pirate_system
-	
+
 	desc = {
 		trigger = {
 			if = {
 				limit = { has_origin = origin_storm_chasers }
 				text = pirate.1.desc.storm
+			}
+			else_if = { # Nomadic
+				limit = { is_nomadic = yes }
+				text = pirate.1.desc.nomad
 			}
 			else_if = { # Spiritual
 				limit = { has_spiritualist_government = yes }
@@ -89,12 +93,15 @@ country_event = {
 			has_ethic = ethic_gestalt_consciousness
 		}
 		exists = capital_scope
+		has_monthly_income = {
+			resource = trade
+			value > 300
+		}
 		any_system_within_border = {
-			any_system_planet = {
-				planet_resource_compare = {
-					resource = trade
-					value > 1000
-				}
+			is_on_border = yes
+			any_neighbor_system = {
+				has_owner = no
+				NOT = { has_star_flag = guardian }
 			}
 		}
 	}
@@ -118,6 +125,7 @@ country_event = {
 			random_neighbor_system = {
 				limit = {
 					has_owner = no
+					NOT = { has_star_flag = guardian }
 				}
 			save_event_target_as = pirate_system
 			create_normal_pirate_country = yes
@@ -130,8 +138,7 @@ country_event = {
 		name = pirate.2.a
 		trigger = {
 			has_spiritualist_government = yes
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -149,8 +156,7 @@ country_event = {
 				has_government = gov_successor_khanate
 				has_government = gov_diadochi
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -162,8 +168,7 @@ country_event = {
 		name = pirate.2.c
 		trigger = {
 			has_materialist_government = yes
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -175,8 +180,7 @@ country_event = {
 		name = pirate.2.d
 		trigger = {
 			has_pacifist_government = yes
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -196,8 +200,7 @@ country_event = {
 				has_government = gov_bandit_kingdom
 				has_purifier_government = yes
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -214,8 +217,7 @@ country_event = {
 				has_government = gov_trade_league
 				has_government = gov_worker_coop
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -230,8 +232,7 @@ country_event = {
 				has_government = gov_representative_democracy
 				has_government = gov_communal_parity
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -247,17 +248,10 @@ country_event = {
 				has_government = gov_pirate_haven
 				has_government = gov_subversive_cult
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
-				AND = {
-					has_origin = origin_treasure_hunters
-					has_valid_civic = civic_crusader_spirit_corporate
-				}
-			}
 		}
 	}
 	option = {
-		name = pirate.2.j
+		name = pirate.2.dom
 		trigger = {
 			OR = {
 				has_government = gov_domesticator_empire
@@ -265,8 +259,7 @@ country_event = {
 				has_government = gov_domesticator_oligarchy
 				has_government = gov_domesticator_democracy
 			}
-			NOR = {
-				has_origin = origin_storm_chasers
+			NOT = {
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate
@@ -301,11 +294,11 @@ country_event = {
 				has_government = gov_subversive_cult
 				has_government = gov_successor_khanate
 				has_government = gov_diadochi
+				has_origin = origin_storm_chasers
 				has_government = gov_domesticator_empire
 				has_government = gov_domesticator_dictatorship
 				has_government = gov_domesticator_oligarchy
 				has_government = gov_domesticator_democracy
-				has_origin = origin_storm_chasers
 				AND = {
 					has_origin = origin_treasure_hunters
 					has_valid_civic = civic_crusader_spirit_corporate

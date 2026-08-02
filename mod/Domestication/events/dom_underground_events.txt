@@ -440,11 +440,12 @@ situation_event = {
 
     add_situation_progress = -20
     target = {
-      create_pop = {
+      create_pop_group = {
         species = event_target:subterranean_species_2
         ethos = {
           ethic = "ethic_xenophile"
         }
+				size = 100
       }
     }
 

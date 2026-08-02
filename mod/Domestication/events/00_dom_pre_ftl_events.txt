@@ -53,8 +53,10 @@ situation_event = {
 	after = {
 		destroy_situation = this
 		target = {
-			remove_planet_flag = has_on_going_observation_situation
-			set_planet_flag = zoonotic_plague_dead_world
+			planet = { 
+				remove_carrier_flag = has_on_going_observation_situation 
+				set_carrier_flag = zoonotic_plague_dead_world
+			}
 			observation_outpost = {
 				dismantle = yes
 			}

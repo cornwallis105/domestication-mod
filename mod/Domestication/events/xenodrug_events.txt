@@ -1,6 +1,6 @@
 namespace = xenodrug_event
 
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.1
 	title = "xenodrug_event.1.name"
 	desc = "xenodrug_event.1.desc"
@@ -19,8 +19,8 @@ planet_event = {
 
 	trigger = {
 		has_global_flag = pheromonefrenzy_global
-		has_planet_flag = pheromone_planet
-		has_planet_flag = colony_event
+		has_carrier_flag = pheromone_planet
+		has_carrier_flag = colony_event
 	}
 
 	option = {
@@ -45,7 +45,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.2
 	title = "xenodrug_event.2.name"
 	desc = "xenodrug_event.2.desc"
@@ -64,8 +64,8 @@ planet_event = {
 
 	trigger = {
 		#has_global_flag = pheromonefrenzy_global
-		#has_planet_flag = pheromone_planet
-		#has_planet_flag = colony_event
+		#has_carrier_flag = pheromone_planet
+		#has_carrier_flag = colony_event
 	}
 
 	option = {
@@ -85,7 +85,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.3
 	title = "xenodrug_event.3.name"
 	desc = "xenodrug_event.3.desc"
@@ -110,7 +110,7 @@ planet_event = {
 
 }
 
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.4
 	hide_window = yes
 
@@ -120,18 +120,18 @@ planet_event = {
 		log_error = "xenodrug_event.4"
 		if = {
 			limit = {
-				has_planet_flag = feral_overload_domestication
+				has_carrier_flag = feral_overload_domestication
 			}
-			planet_event = { id = xenodrug_event.5 }
+			carrier_event = { id = xenodrug_event.5 }
 		}
 		else = {
-			planet_event = { id = colony.8005 }
+			carrier_event = { id = colony.8005 }
 		}
 	}
 }
 
 ### Special Project: Utilize Cave Shrooms
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.5
 	title = "xenodrug_event.5.name"
 	desc = "xenodrug_event.5.desc"
@@ -146,8 +146,8 @@ planet_event = {
 	}
 
 	after = {
-		remove_planet_flag = colony_event
-		remove_planet_flag = feral_overload_domestication
+		remove_carrier_flag = colony_event
+		remove_carrier_flag = feral_overload_domestication
 	}
 
 	option = {
@@ -166,7 +166,7 @@ planet_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.6
 	hide_window = yes
 
@@ -175,18 +175,18 @@ planet_event = {
 	immediate = {
 		if = {
 			limit = {
-				has_planet_flag = feral_overload_domestication
+				has_carrier_flag = feral_overload_domestication
 			}
-			planet_event = { id = xenodrug_event.7 }
+			carrier_event = { id = xenodrug_event.7 }
 		}
 		else = {
-			planet_event = { id = colony.8006 }
+			carrier_event = { id = colony.8006 }
 		}
 	}
 }
 
 ### Special Project: Exterminate Cave Shrooms
-planet_event = {
+carrier_event = {
 	id = xenodrug_event.7
 	title = "colony.8006.name"
 	desc = "colony.8006.desc"
@@ -201,8 +201,8 @@ planet_event = {
 	}
 
 	after = {
-		remove_planet_flag = colony_event
-		remove_planet_flag = feral_overload_domestication
+		remove_carrier_flag = colony_event
+		remove_carrier_flag = feral_overload_domestication
 	}
 
 	option = {

@@ -5,44 +5,54 @@ pop_faction_event = {
 	title = factions.1.title
 	desc = {
 		trigger = {
-			text = factions.1.desc.start
+			# Intro
+			success_text = {
+				text = factions.1.desc.start
+				hidden:owner = { NOT = { has_origin = origin_unplugged } }
+			}
+			success_text = {
+				text = factions.1.desc.unplugged_start
+				hidden:owner = { has_origin = origin_unplugged }
+			}
 			text = newline
-			success_text = {
-				text = factions.1.desc.imperialist
-				is_pop_faction_type = imperialist
+			# Body text (standard Factions with variants based on e.g. Origin)
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = imperialist
 			}
-			success_text = {
-				text = factions.1.desc.isolationist
-				is_pop_faction_type = isolationist
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = isolationist
 			}
-			success_text = {
-				text = factions.1.desc.progressive
-				is_pop_faction_type = progressive
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = progressive
 			}
-			success_text = {
-				text = factions.1.desc.prosperity
-				is_pop_faction_type = prosperity
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = prosperity
 			}
-			success_text = {
-				text = factions.1.desc.supremacist
-				is_pop_faction_type = supremacist
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = supremacist
 			}
-			success_text = {
-				text = factions.1.desc.technologist
-				is_pop_faction_type = technologist
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = technologist
 			}
-			success_text = {
-				text = factions.1.desc.totalitarian
-				is_pop_faction_type = totalitarian
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = totalitarian
 			}
-			success_text = {
-				text = factions.1.desc.traditionalist
-				is_pop_faction_type = traditionalist
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = traditionalist
 			}
-			success_text = {
-				text = factions.1.desc.xenoist
-				is_pop_faction_type = xenoist
+			inline_script = {
+				script = pop_faction_types/faction1_desc
+				FACTION = xenoist
 			}
+			# Body text (other, exempt Factions)
 			success_text = {
 				text = factions.1.desc.manifesti
 				is_pop_faction_type = manifesti
@@ -51,25 +61,20 @@ pop_faction_event = {
 				text = factions.1.desc.domesticator_faction
 				is_pop_faction_type = domesticator_faction
 			}
+			# Outro
+			success_text = {
+				text = factions.1.desc.fire_cult
+				is_pop_faction_type = fire_cult
+			}
 			success_text = {
 				hidden:owner = { NOT = { has_country_flag = first_faction } }
 				text = factions.1.desc.firstfinisher
 			}
 		}
 	}
-
 	picture = GFX_evt_galactic_senate
 	show_sound = event_factions
 	is_triggered_only = yes
-
-	trigger = {
-		NOT = {
-			owner = {
-				has_origin = origin_broken_shackles
-				#has_country_flag = first_faction
-			}
-		}
-	}
 
 	option = {
 		name = OK
@@ -80,7 +85,6 @@ pop_faction_event = {
 						force_faction_evaluation = yes
 					}
 				}
-				set_country_flag = first_faction
 			}
 		}
 	}

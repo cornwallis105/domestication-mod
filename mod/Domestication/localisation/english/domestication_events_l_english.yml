@@ -44,7 +44,7 @@
  domestication_leader.2.a:0 "What a brave little floret!"
 
  # Pirates
- pirate.2.j:0 "We will not let them harm a single sophont."
+ pirate.2.dom:0 "We will not let them harm a single sophont."
  domestication_leader.4.name:0 "Commander Captures New Floret"
  domestication_leader.4.desc:0 "During the recent battle in [FromFrom.System.GetName], Commander §Y[new_owner.GetName]§! personally subdued a pirate commander. The [new_floret.Species.GetAdj] pirate was recommended for mandatory domestication due to [new_floret.GetHerHis] history of violence, and our Commander eagarly volunteered to take §Y[new_floret.GetName]§! as [new_owner.GetHerHis] new floret."
  domestication_leader.4.a:0 "[new_floret.GetSheHeCap]'ll be safe with the Commander"
@@ -74,7 +74,7 @@
  domestication_leader.14.fallback:0 "This is fallback text which means this event did not fire correctly."
 
  # Stray Marauder
- marauder.703.f:0 "Place them with a loving owner"
+ marauder.703.dom:0 "Place them with a loving owner"
  gain_marauder_admiral_floret:0 "One of our Commanders will take ownership of the marauder and keep it as their floret."
 
  # Warform

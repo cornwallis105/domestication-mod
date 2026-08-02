@@ -11,6 +11,15 @@ country_event = {
 		any_owned_leader = {
 			leader_class = commander
 		}
+		NOT = {
+			has_country_flag = recent_promising_officer
+		}
+		FROMFROM = { #Civilian Ships should not generate officers
+			OR = {
+				is_ship_class = shipclass_military_station
+				is_ship_class = shipclass_military
+			}
+		}
 	}
 
 	immediate = {

@@ -129,6 +129,7 @@ civic_slaver_guilds = {
 		civics = {
 			NOR = {
 				value = civic_pleasure_seekers
+				value = civic_tankbound
 				value = civic_cosmic_harmony
 			}
 		}
@@ -165,8 +166,8 @@ civic_slaver_guilds = {
 		}
 	}
 	modifier = {
-		planet_jobs_slave_produces_mult = 0.10
-		country_pop_enslaved_mult = 0.35
+		pop_slave_bonus_workforce_mult = 0.15
+		add_attunement_the_instrument_of_desire = @civic_attunement1
 	}
 }
 
@@ -230,6 +231,7 @@ civic_warrior_culture = {
 	modifier = {
 		army_damage_mult = 0.20
 		country_war_exhaustion_mult = -0.1
+		add_attunement_the_eater_of_worlds = @civic_attunement1
 	}
 	swap_type = {
 		description = "civic_tooltip_warrior_culture_effects"
@@ -272,9 +274,10 @@ civic_shared_burden = {
 	modifier = {
 		planet_stability_add = 5
 		pop_unemployment_demotion_time_mult = -0.45
+		add_attunement_the_composer_of_strands = @civic_attunement1
 	}
 	random_weight = {
-		base = @civic_rare_random_weight # Should be fairly rare
+		base = @civic_rare_random_weight
 	}
 	ai_weight = {
 		base = @ai_civic_rare_base_weight
@@ -320,12 +323,8 @@ civic_technocracy = {
 			}
 		}
 		civics = {
-			NOR = {
-				value = civic_merchant_guilds
-				value = civic_exalted_priesthood
-				value = civic_aristocratic_elite
+			NOT = {
 				value = civic_shared_burden
-				value = civic_cosmic_harmony
 			}
 		}
 		origin = {

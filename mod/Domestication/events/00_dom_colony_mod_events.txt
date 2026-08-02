@@ -1,6 +1,6 @@
 namespace = colony_mod
 
-planet_event = {
+carrier_event = {
 	id = colony_mod.5
 	title = "colony_mod.5.name"
 	desc = "colony_mod.5.desc"
@@ -21,12 +21,12 @@ planet_event = {
 	trigger = {
 		owner = { NOT = { has_ethic = ethic_gestalt_consciousness } }
 		has_modifier = "atmospheric_hallucinogen"
-		NOT = { has_planet_flag = atmospheric_hallucinogen_colony_flag }
+		NOT = { has_carrier_flag = atmospheric_hallucinogen_colony_flag }
 		pop_amount > 0
 	}
 
 	immediate = {
-		set_planet_flag = atmospheric_hallucinogen_colony_flag
+		set_carrier_flag = atmospheric_hallucinogen_colony_flag
 	}
 
 	is_triggered_only = yes
@@ -65,7 +65,7 @@ planet_event = {
 
 }
 
-planet_event = {
+carrier_event = {
 	id = colony_mod.101
 	title = "colony_mod.101.name"
 	desc = "colony_mod.101.desc"
@@ -79,12 +79,12 @@ planet_event = {
 		name = EXCELLENT
 		trigger = {
 			NOT = {
-				has_planet_flag = nice_titan_study
+				has_carrier_flag = nice_titan_study
 			}
 		}
 		hidden_effect = {
 			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
-			set_planet_flag = titanic_life_can_build
+			set_carrier_flag = titanic_life_can_build
 		}
 		custom_tooltip = titanic_recruit_tooltip
 	}
@@ -92,11 +92,11 @@ planet_event = {
 	option = {
 		name = EXCELLENT
 		trigger = {
-			has_planet_flag = nice_titan_study
+			has_carrier_flag = nice_titan_study
 		}
 		hidden_effect = {
 			owner = { set_country_flag = titanic_life_soldiers } #Owner flag not actually needed, but could have techs or other things tie into it
-			set_planet_flag = titanic_life_can_build
+			set_carrier_flag = titanic_life_can_build
 			every_deposit = {
 				limit = { is_deposit_type = d_titanic_life_blocker }
 				clear_blocker = yes
@@ -110,5 +110,4 @@ planet_event = {
 		}
 		custom_tooltip = titanic_recruit_phile_tooltip
 	}
-
 }

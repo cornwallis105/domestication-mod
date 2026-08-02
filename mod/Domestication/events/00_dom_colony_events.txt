@@ -6,12 +6,14 @@ country_event = {
 	title = "colony.53.name"
 	desc = {
 		trigger = {
-			NOT = { has_origin = origin_subterranean }
+			is_subterranean_empire = no
 		}
 		text = "colony.53.desc"
 	}
 	desc = {
-		trigger = { has_origin = origin_subterranean }
+		trigger = {
+			is_subterranean_empire = yes
+		}
 		text = "colony.53.desc.subterranean"
 	}
 
@@ -30,7 +32,7 @@ country_event = {
 	}
 	option = {
 		trigger = {
-			NOT = { has_origin = origin_subterranean }
+			is_subterranean_empire = no
 		}
 		name = colony.53.b
 		response_text = "colony.53.b.response"
@@ -38,17 +40,17 @@ country_event = {
 			if = {
 				limit = { is_domesticator_or_full_protectorate = yes }
 				FROM = {
-					planet_event = {
+					carrier_event = {
 						id = dom_underground.1
 						days = 30
 						random = 30
 					}
-					remove_planet_flag = seismic_disturbance_friendly
+					remove_carrier_flag = seismic_disturbance_friendly
 				}
 			}
 			else = {
 				FROM = {
-					set_planet_flag = seismic_disturbance_friendly
+					set_carrier_flag = seismic_disturbance_friendly
 				}
 			}
 			FROM = {
@@ -61,28 +63,30 @@ country_event = {
 				days = -1
 			}
 			add_deposit = d_underground_contact_zone
-			#set_planet_flag = trade_size_increase
+			#set_carrier_flag = trade_size_increase
 		}
 	}
 	option = {
-		trigger = { has_origin = origin_subterranean }
+		trigger = {
+			is_subterranean_empire = yes
+		}
 		name = colony.53.b
 		response_text = "colony.53.b.response.subterranean"
 		hidden_effect = {
 			if = {
 				limit = { is_domesticator_or_full_protectorate = yes }
 				FROM = {
-					planet_event = {
+					carrier_event = {
 						id = dom_underground.1
 						days = 30
 						random = 30
 					}
-					remove_planet_flag = seismic_disturbance_friendly
+					remove_carrier_flag = seismic_disturbance_friendly
 				}
 			}
 			else = {
 				FROM = {
-					set_planet_flag = seismic_disturbance_friendly
+					set_carrier_flag = seismic_disturbance_friendly
 				}
 			}
 			FROM = {
@@ -95,7 +99,7 @@ country_event = {
 				days = -1
 			}
 			add_deposit = d_underground_contact_zone
-			#set_planet_flag = trade_size_increase
+			#set_carrier_flag = trade_size_increase
 		}
 	}
 	option = {
@@ -103,7 +107,7 @@ country_event = {
 		response_text = colony.53.c.response
 		hidden_effect = {
 			FROM = {
-				planet_event = { id = colony.54 days = 35 random = 40 }
+				carrier_event = { id = colony.54 days = 35 random = 40 }
 			}
 		}
 	}
@@ -111,7 +115,7 @@ country_event = {
 
 # POLLEN APHRODISIAC CHAIN #
 # Second event, offers the player the choice to nip the event chain in the bud (if they can afford it). If they do not, the first planet modifier is applied.
-planet_event = {
+carrier_event = {
 	id = colony.1521
 	title = "colony.1521.name"
 	desc = "colony.1521.desc"
@@ -130,8 +134,8 @@ planet_event = {
 		owner = {
 			has_country_flag = pheromone_country
 		}
-		has_planet_flag = pheromone_planet
-		has_planet_flag = colony_event
+		has_carrier_flag = pheromone_planet
+		has_carrier_flag = colony_event
 		pop_amount > 0
 	}
 
@@ -146,7 +150,7 @@ planet_event = {
 			owner = { is_domesticator_or_protectorate = no }
 		}
 
-		hidden_effect = { planet_event = { id = colony.1522 days = 400 } }
+		hidden_effect = { carrier_event = { id = colony.1522 days = 400 } }
 	}
 
 	option = {
@@ -169,7 +173,7 @@ planet_event = {
 			location = root
 			owner = root
 		}
-		#hidden_effect = { planet_event = { id = colony.1522 days = 400 } }
+		#hidden_effect = { carrier_event = { id = colony.1522 days = 400 } }
 	}
 
 	option = {
@@ -195,12 +199,12 @@ planet_event = {
 			modifier = "pheromoned_1"
 			days = -1
 		}
-		hidden_effect = { planet_event = { id = colony.1522 days = 500 } }
+		hidden_effect = { carrier_event = { id = colony.1522 days = 500 } }
 	}
 }
 
 #And Someone is Listening
-planet_event = {
+carrier_event = {
 	id = colony.2070
 	title = "colony.2070.name"
 	desc = "colony.2070.desc"
@@ -223,7 +227,7 @@ planet_event = {
 				limit = {
 					owner = { is_domesticator_or_full_protectorate = yes }
 				}
-				planet_event = {
+				carrier_event = {
 					id = xenodrug_event.2
 					days = 30
 				}
@@ -233,7 +237,7 @@ planet_event = {
 }
 
 #But No One Listens
-planet_event = {
+carrier_event = {
 	id = colony.2075
 	title = "colony.2075.name"
 	desc = "colony.2075.desc"
@@ -254,7 +258,7 @@ planet_event = {
 				limit = {
 					owner = { is_domesticator_or_full_protectorate = yes }
 				}
-				planet_event = {
+				carrier_event = {
 					id = xenodrug_event.2
 					days = 30
 				}
@@ -264,7 +268,7 @@ planet_event = {
 }
 
 #Study the Mycelium Array Further
-planet_event = {
+carrier_event = {
 	id = colony.2080
 	title = "colony.2080.name"
 	desc = "colony.2080.desc"
@@ -281,7 +285,7 @@ planet_event = {
 		}
 		name = colony.2080.a
 		hidden_effect = {
-			planet_event = { id = colony.2095 days = 35 random = 40  }
+			carrier_event = { id = colony.2095 days = 35 random = 40  }
 		}
 	}
 	#Try to tune the network to spy on pops
@@ -302,12 +306,12 @@ planet_event = {
 					}
 					modifier = {
 						factor = 3
-						owner = { has_ethic = ethic_fanatic_egalitarian }
+						owner = { is_fanatic_egalitarian = yes }
 					}
-					planet_event = { id = colony.2085 days = 10 random = 20  }
+					carrier_event = { id = colony.2085 days = 10 random = 20  }
 				}
 				90 = {
-					planet_event = { id = colony.2090 days = 35 random = 40  }
+					carrier_event = { id = colony.2090 days = 35 random = 40  }
 				}
 			}
 		}
@@ -324,7 +328,7 @@ planet_event = {
 				limit = {
 					owner = { is_domesticator_or_full_protectorate = yes }
 				}
-				planet_event = {
+				carrier_event = {
 					id = xenodrug_event.2
 					days = 30
 				}
@@ -334,7 +338,7 @@ planet_event = {
 }
 
 #Trying to grow more spores
-planet_event = {
+carrier_event = {
 	id = colony.2095
 	title = "colony.2095.name"
 	desc = "colony.2095.desc"
@@ -370,7 +374,7 @@ planet_event = {
 		}
 		add_deposit = d_fungal_study_zone
 		hidden_effect = {
-			planet_event = {
+			carrier_event = {
 				id = xenodrug_event.2
 				days = 30
 			}
@@ -379,7 +383,7 @@ planet_event = {
 }
 
 ### FERAL OVERLOAD
-planet_event = {
+carrier_event = {
 	id = colony.8001
 	title = "colony.8001.name"
 	desc = "colony.8001.desc"
@@ -419,7 +423,7 @@ planet_event = {
 		owner = {
 			set_country_flag = feral_overload_flag
 		}
-		set_planet_flag = colony_event
+		set_carrier_flag = colony_event
 	}
 
 	is_triggered_only = yes
@@ -431,7 +435,7 @@ planet_event = {
 			days = -1
 		}
 		hidden_effect = {
-			planet_event = { id = colony.8002 days = 40 random = 20 }
+			carrier_event = { id = colony.8002 days = 40 random = 20 }
 		}
 	}
 
@@ -449,7 +453,7 @@ planet_event = {
 				event_chain = "feral_overload_chain"
 				target = ROOT
 			}
-			set_planet_flag = feral_overload_domestication
+			set_carrier_flag = feral_overload_domestication
 		}
 		add_modifier = {
 			modifier = feral_overload_00
@@ -464,7 +468,7 @@ planet_event = {
 }
 
 ### Choose how to respond to Cave Shrooms
-planet_event = {
+carrier_event = {
 	id = colony.8004
 	title = "colony.8004.name"
 	desc = "colony.8004.desc"
@@ -478,7 +482,7 @@ planet_event = {
 		name = colony.8004.a
 		if = {
 			limit = {
-				has_planet_flag = feral_overload_domestication
+				has_carrier_flag = feral_overload_domestication
 			}
 			enable_special_project = {
 				name = "UTILIZE_CAVE_SHROOM_PROJECT_DOMESTICATION"
@@ -506,7 +510,7 @@ planet_event = {
 }
 
 #Nemma World
-planet_event = {
+carrier_event = {
 	id = colony.9000
 	title = "colony.9000.name"
 	desc = "colony.9000.desc"
@@ -514,6 +518,7 @@ planet_event = {
 	show_sound = event_alien_nature
 	location = ROOT
 	trackable = yes
+	event_chain = nemma_world_chain
 
 	is_triggered_only = yes
 
@@ -534,14 +539,21 @@ planet_event = {
 		}
 		NOR = {
 			any_country = { has_country_flag = turtle_world_spawned }
-			has_planet_flag = colony_event
+			has_carrier_flag = colony_event
+			owner = { is_wilderness_empire = yes }
 		}
 	}
 
 	immediate = {
-		set_planet_flag = turtle_world_colony
-		set_planet_flag = colony_event
-		owner = { set_country_flag = turtle_world_spawned }
+		set_carrier_flag = turtle_world_colony
+		set_carrier_flag = colony_event
+		owner = {
+			set_country_flag = turtle_world_spawned
+			begin_event_chain = {
+				event_chain = nemma_world_chain
+				target = this
+			}
+		}
 	}
 
 	option = {
@@ -560,13 +572,29 @@ planet_event = {
 			}
 			text = "colony.9000.a.turtle"
 		}
-
+		owner = {
+			tooltip = {
+				begin_event_chain = {
+					event_chain = nemma_world_chain
+					target = this
+				}
+			}
+		}
 		add_modifier = {
 			modifier = "turtle_world_modifier"
 			days = -1
 		}
+
+		if = {
+			limit = { owner = { has_origin = origin_evolutionary_predators } }
+			add_modifier = {
+				modifier = "turtle_world_modifier_evopred"
+				days = -1
+			}
+		}
+
 		hidden_effect = {
-			planet_event = {
+			carrier_event = {
 				id = colony.9005 days = 700 random = 30
 			}
 		}
@@ -585,7 +613,7 @@ planet_event = {
 			days = -1
 		}
 		hidden_effect = {
-			planet_event = {
+			carrier_event = {
 				id = domestication.35 days = 700 random = 30
 			}
 		}
@@ -593,7 +621,7 @@ planet_event = {
 }
 
 # Insidious Ophidians
-#planet_event = {
+#carrier_event = {
 #	id = colony.9100
 #	title = colony.9100.name
 #	desc = colony.9100.desc

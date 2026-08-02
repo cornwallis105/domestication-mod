@@ -16,6 +16,9 @@ leader_trait_defence_engineer = {
 		shipclass_military_station_damage_mult = 0.15
 		shipclass_military_station_hull_mult = 0.1
 	}
+	leader_potential_add = {
+		trait_is_nomad_check = no
+	}
 	leader_class = { commander }
 	selectable_weight = {
 		weight = @class_trait_weight
@@ -474,6 +477,12 @@ leader_trait_consul_general = {
 	councilor_modifier = {
 		envoy_improve_relations_mult = 0.5
 	}
+	triggered_councilor_modifier = {
+		potential = {
+			owner = { is_nomadic = yes }
+		}
+		nomadic_contract_value_mult = 0.05
+	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
 		has_trait = subclass_official_diplomacy_councilor
@@ -502,6 +511,12 @@ leader_trait_consul_general_2 = {
 	}
 	councilor_modifier = {
 		envoy_improve_relations_mult = 1
+	}
+	triggered_councilor_modifier = {
+		potential = {
+			owner = { is_nomadic = yes }
+		}
+		nomadic_contract_value_mult = 0.1
 	}
 	leader_class = { official }
 }
@@ -568,6 +583,7 @@ leader_trait_home_guard = {
 		planet_orbital_bombardment_damage = -0.1
 	}
 	leader_potential_add = {
+		trait_is_nomad_check = no
 		has_paragon_dlc = yes
 		has_trait = subclass_commander_councilor
 	}
@@ -753,6 +769,7 @@ leader_trait_warden = {
 	}
 	leader_potential_add = {
 		trait_is_crisis_faction_check = no
+		trait_is_nomad_check = no
 		OR = {
 			has_paragon_dlc = no
 			has_trait = subclass_commander_governor
@@ -862,6 +879,7 @@ leader_trait_guardian = {
 		trait_is_crisis_faction_check = no
 		has_paragon_dlc = yes
 		has_trait = subclass_commander_councilor
+		trait_is_nomad_check = no
 	}
 	leader_class = { commander }
 	selectable_weight = {
@@ -884,6 +902,9 @@ leader_trait_guardian_2 = {
 	councilor_modifier = {
 		shipclass_military_station_damage_mult = 0.20
 		shipclass_military_station_hull_mult = 0.20
+	}
+	leader_potential_add = {
+		trait_is_nomad_check = no
 	}
 	leader_class = { commander }
 }
@@ -958,7 +979,7 @@ leader_trait_taskmaster = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -972,9 +993,9 @@ leader_trait_taskmaster = {
 				country_uses_food = yes
 			}
 		}
-		planet_soldiers_energy_produces_add = 2
-		planet_soldiers_minerals_produces_add = 2
-		planet_soldiers_food_produces_add = 2
+		planet_soldiers_energy_produces_add = 0.5
+		planet_soldiers_minerals_produces_add = 0.5
+		planet_soldiers_food_produces_add = 0.5
 	}
 	triggered_planet_modifier = {
 		potential = {
@@ -983,8 +1004,8 @@ leader_trait_taskmaster = {
 				country_uses_food = no
 			}
 		}
-		planet_soldiers_energy_produces_add = 3
-		planet_soldiers_minerals_produces_add = 3
+		planet_soldiers_energy_produces_add = 0.75
+		planet_soldiers_minerals_produces_add = 0.75
 	}
 	sector_modifier = {
 		army_starting_experience_add = 250
@@ -996,9 +1017,9 @@ leader_trait_taskmaster = {
 				country_uses_food = yes
 			}
 		}
-		planet_soldiers_energy_produces_add = 1
-		planet_soldiers_minerals_produces_add = 1
-		planet_soldiers_food_produces_add = 1
+		planet_soldiers_energy_produces_add = 0.25
+		planet_soldiers_minerals_produces_add = 0.25
+		planet_soldiers_food_produces_add = 0.25
 	}
 	triggered_sector_modifier = {
 		potential = {
@@ -1007,8 +1028,8 @@ leader_trait_taskmaster = {
 				country_uses_food = no
 			}
 		}
-		planet_soldiers_energy_produces_add = 1.5
-		planet_soldiers_minerals_produces_add = 1.5
+		planet_soldiers_energy_produces_add = 0.375
+		planet_soldiers_minerals_produces_add = 0.375
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -1033,7 +1054,7 @@ leader_trait_fortress_cracker = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1074,7 +1095,7 @@ leader_trait_chainbreaker = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1111,15 +1132,17 @@ leader_trait_honored_warmaster = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
 	planet_modifier = {
-		job_soldier_per_pop = 0.10
+		job_soldier_add = 400
+		soldier_jobs_bonus_workforce_mult = 0.20
 	}
 	sector_modifier = {
-		job_soldier_per_pop = 0.05
+		job_soldier_add = 200
+		soldier_jobs_bonus_workforce_mult = 0.10
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -1146,25 +1169,25 @@ leader_trait_academia_recruiter = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
 	planet_modifier = {
-		job_researcher_naval_cap_add = 4
+		job_researcher_naval_cap_add = 0.1
 		planet_jobs_engineering_research_produces_mult = 0.10
-		planet_soldiers_engineering_research_produces_add = 1
-		planet_physicists_alloys_upkeep_add = 1
-		planet_biologists_alloys_upkeep_add = 1
-		planet_engineers_alloys_upkeep_add = 1
+		planet_soldiers_engineering_research_produces_add = 0.2
+		planet_physicists_alloys_upkeep_add = 0.1
+		planet_biologists_alloys_upkeep_add = 0.1
+		planet_engineers_alloys_upkeep_add = 0.1
 	}
 	sector_modifier = {
-		job_researcher_naval_cap_add = 2
+		job_researcher_naval_cap_add = 0.05
 		planet_jobs_engineering_research_produces_mult = 0.05
-		planet_soldiers_engineering_research_produces_add = 0.5
-		planet_physicists_alloys_upkeep_add = 0.5
-		planet_biologists_alloys_upkeep_add = 0.5
-		planet_engineers_alloys_upkeep_add = 0.5
+		planet_soldiers_engineering_research_produces_add = 0.1
+		planet_physicists_alloys_upkeep_add = 0.1
+		planet_biologists_alloys_upkeep_add = 0.1
+		planet_engineers_alloys_upkeep_add = 0.1
 	}
 	leader_potential_add = {
 		has_paragon_dlc = yes
@@ -1190,7 +1213,7 @@ leader_trait_supreme_warrior = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1226,7 +1249,7 @@ leader_trait_spymaster = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1259,7 +1282,7 @@ leader_trait_totalitarian = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1298,7 +1321,7 @@ leader_trait_bellicose = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
@@ -1654,12 +1677,12 @@ leader_trait_aturion_organizer = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}
 	councilor_modifier = {
-		empire_size_penalty_mult = -0.1
+		empire_size_penalty_mult = -0.05
 		pop_government_ethic_attraction = 0.50
 		pop_happiness = -0.05
 	}
@@ -1690,7 +1713,7 @@ leader_trait_tzrynn_tithe = {
 		TIER = none
 	}
 	on_gained_effect = {
-		owner = {
+		owner? = {
 			country_event = { id = timeline.50 } # Timeline First Leader with Destiny Trait
 		}
 	}

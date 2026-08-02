@@ -634,6 +634,7 @@ country_event = { # xenophile 1
 			SPECIES_CLASS = random_non_machine # Species class, for animation purposes, example: MAM4
 			LEADER_PORTRAIT = par_renown_12 # xenophile_leader_gen # Leader portrait
 			CLASS = commander
+			TIER = leader_tier_renowned
 			NAME = NAME_xenophile1
 			LEVEL = 4
 			GENDER = male
@@ -803,7 +804,12 @@ leader_event = {
 	id = dom_paragon.40220
 	title = paragon.40220.name
 	desc = paragon.40220.desc
-	picture = GFX_evt_ship_in_orbit
+	inline_script = {
+		script = events/biogenesis_event_art
+		OWNER = owner
+		REGULAR_PICTURE = GFX_evt_ship_in_orbit
+		BIOSHIP_PICTURE = GFX_evt_bio_ships_orbiting
+	}
 	show_sound = event_default
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -831,9 +837,9 @@ leader_event = {
 					adjective = "PRESCRIPTED_species_adjective_blorg"
 					class = FUN
 					portrait = fun12
-					gender = male
+					gender = indeterminable
 					traits = {
-						ideal_planet_class = this.capital_scope
+						ideal_planet_class = capital_scope
 						trait = "trait_repugnant"
 						trait = "trait_solitary"
 						trait = "trait_venerable"
@@ -854,9 +860,21 @@ leader_event = {
 					}
 				}
 				event_target:keram_the_blorg = {
-					add_trait = { trait = leader_trait_mining_focus show_message = no }
-					add_trait = { trait = leader_trait_substance_abuser show_message = no }
-					add_trait = { trait = leader_trait_melancholic show_message = no }
+					add_trait = {
+						trait = leader_trait_mining_focus
+						show_message = no
+						consume_selection = yes
+					}
+					add_trait = {
+						trait = leader_trait_substance_abuser
+						show_message = no
+						consume_selection = yes
+					}
+					add_trait = {
+						trait = leader_trait_melancholic
+						show_message = no
+						consume_selection = yes
+					}
 					set_owner = prev
 				}
 				hire_event_leader_message = {
@@ -950,6 +968,7 @@ country_event = { # militarist 2
 			SPECIES_CLASS = random_non_machine
 			LEADER_PORTRAIT = par_renown_02 #militarist_leader_gen
 			CLASS = commander
+			TIER = leader_tier_renowned
 			NAME = NAME_militarist2
 			LEVEL = 4
 			GENDER = female

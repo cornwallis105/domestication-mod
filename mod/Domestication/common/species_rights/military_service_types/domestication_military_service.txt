@@ -1,5 +1,6 @@
 military_service_full = {
 	potential = {
+		exists = from
 		if = {
 			limit = {
 				from = { is_machine_empire = yes }
@@ -8,6 +9,14 @@ military_service_full = {
 				has_trait = trait_machine_unit
 				has_trait = trait_mechanical
 				has_trait = trait_cybernetic
+			}
+		}
+		if = {
+			limit = {
+				has_citizenship_type = { country = from type = citizenship_shroud_touched }
+			}
+			from = {
+				has_country_flag = finish_shroud_forged_liberation_flag
 			}
 		}
 		is_disconnected_drone_pop = no
@@ -63,10 +72,7 @@ military_service_full = {
 					}
 				}
 				from = {
-					NOR = {
-						has_ethic = ethic_xenophobe
-						has_ethic = ethic_fanatic_xenophobe
-					}
+					is_xenophobe = no
 				}
 				from = {
 					has_origin = origin_synthetic_fertility
@@ -172,6 +178,14 @@ military_service_limited = {
 			}
 		}
 		custom_tooltip = {
+			fail_text = species_has_no_military_slavery
+			OR = {
+				has_slavery_type = { country = from type = slavery_military }
+				is_shackled_robot_species_rights = yes
+				NOT = { has_citizenship_type = { country = from type = citizenship_slavery } }
+			}	
+		}
+		custom_tooltip = {
 			fail_text = SPECIES_MILITARY_HAUSTORIC_IMPLANT
 			has_haustorics = no
 		}
@@ -202,10 +216,13 @@ military_service_none = {
 			}
 		}
 		custom_tooltip = {
-			fail_text = MACHINE_SPECIES_NOT_MACHINE
+			fail_text = MACHINE_SPECIES_CANNOT_MACHINE
 			if = {
 				limit = {
-					from = { is_machine_empire = yes }
+					from = {
+						is_machine_empire = yes
+						NOT = { has_origin = origin_shroud_forged }
+					}
 				}
 				OR = {
 					NOR = {
@@ -214,6 +231,18 @@ military_service_none = {
 					}
 					has_trait = trait_robot_suppressed
 				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = MECHANICAL_SPECIES_CANNOT_MACHINE
+			if = {
+				limit = {
+					from = {
+						has_authority = auth_machine_intelligence
+						has_origin = origin_shroud_forged
+					}
+				}
+				NOT = { has_trait = trait_machine_unit }
 			}
 		}
 	}

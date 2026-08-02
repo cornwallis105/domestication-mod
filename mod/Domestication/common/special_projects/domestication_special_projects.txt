@@ -31,9 +31,9 @@ special_project = {
 	timelimit = -1
 	picture = GFX_evt_alien_planet
 	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
-	event_scope = planet_event
+	event_scope = carrier_event
 	on_success = {
-		planet_event = { id = domestication.36 }
+		carrier_event = { id = domestication.36 }
 	}
 }
 
@@ -44,9 +44,9 @@ special_project = {
 	timelimit = -1
 	picture = GFX_evt_alien_planet
 	icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
-	event_scope = planet_event
+	event_scope = carrier_event
 	on_success = {
-		planet_event = { id = domestication.37 }
+		carrier_event = { id = domestication.37 }
 	}
 }
 
@@ -57,10 +57,10 @@ special_project = {
 	timelimit = -1
 	picture = GFX_evt_alien_nature
 	icon = "gfx/interface/icons/situation_log/situation_log_tick.dds"
-	event_scope = planet_event
+	event_scope = carrier_event
 
 	on_success = {
-		planet_event = { id = domestication.39 }
+		carrier_event = { id = domestication.39 }
 	}
 }
 
@@ -82,7 +82,7 @@ special_project = {
 	}
 
 	on_success = {
-		from = { planet_event = { id = xenodrug_event.1 } }
+		from = { carrier_event = { id = xenodrug_event.1 } }
 	}
 }
 
@@ -93,10 +93,10 @@ special_project = {
 	picture = GFX_evt_ship_in_orbit
 	icon = "gfx/interface/icons/situation_log/situation_log_debris.dds"
 
-	event_scope = planet_event
+	event_scope = carrier_event
 
 	on_success = {
-		planet_event = { id = xenodrug_event.3 }
+		carrier_event = { id = xenodrug_event.3 }
 	}
 }
 
@@ -108,11 +108,11 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
 	picture = GFX_evt_analyzing_artifacts
 
-	event_scope = planet_event
+	event_scope = carrier_event
 
 	on_success = {
 		log_error = "xenodrug_UTILIZE_CAVE_SHROOM_PROJECT"
-		planet_event = { id = xenodrug_event.4 }
+		carrier_event = { id = xenodrug_event.4 }
 	}
 	on_fail = {
 	}
@@ -126,10 +126,10 @@ special_project = {
 	icon = "gfx/interface/icons/situation_log/situation_log_planet.dds"
 	picture = GFX_evt_nuclear_explosion
 
-	event_scope = planet_event
+	event_scope = carrier_event
 
 	on_success = {
-		planet_event = { id = xenodrug_event.6 }
+		carrier_event = { id = xenodrug_event.6 }
 	}
 
 	on_fail = {
@@ -163,7 +163,7 @@ special_project = {
 			random_list = {
 				33 = {
 					# Planet Depopulated
-					planet_event = {
+					carrier_event = {
 						id = observation.1401
 					}
 					modifier = {
@@ -175,7 +175,7 @@ special_project = {
 				}
 				33 = {
 					# Planet Uninhabitable
-					planet_event = {
+					carrier_event = {
 						id = observation.1403
 					}
 					modifier = {
@@ -187,7 +187,7 @@ special_project = {
 				}
 				33 = {
 					# Pre-FTLs regress to Stone Age
-					planet_event = {
+					carrier_event = {
 						id = observation.1405
 					}
 				}
@@ -223,10 +223,10 @@ special_project = {
 	tech_department = society_technology
 	picture = GFX_evt_society_research
 
-	event_scope = planet_event
+	event_scope = carrier_event
 
 	on_success = {
-		planet_event = {
+		carrier_event = {
 			id = dom_pre_ftl.46
 	  }
 	}

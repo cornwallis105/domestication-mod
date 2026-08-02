@@ -1,7 +1,7 @@
 namespace = dom_underground
 
 # Subterranean Domestication Project
-planet_event = {
+carrier_event = {
 	id = dom_underground.1
 	title = "dom_underground.1.name"
 	desc = "dom_underground.1.desc"
@@ -32,7 +32,7 @@ planet_event = {
 		name = "dom_underground.1.a"
 
 		hidden_effect = {
-      set_planet_flag = subterranean_domestication
+      set_carrier_flag = subterranean_domestication
 		}
     owner = {
       start_situation = {
@@ -48,7 +48,7 @@ planet_event = {
   option = {
     name = "dom_underground.1.c"
     hidden_effect = {
-      set_planet_flag = seismic_disturbance_friendly
+      set_carrier_flag = seismic_disturbance_friendly
     }
   }
 }
@@ -73,7 +73,7 @@ situation_event = {
     }
 
     target = {
-      set_planet_flag = subterranean_domestication_complete
+      set_carrier_flag = subterranean_domestication_complete
     }
   }
 

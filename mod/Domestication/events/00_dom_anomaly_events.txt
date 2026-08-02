@@ -30,12 +30,9 @@ country_event = {
 		is_dialog_only = yes
 		trigger = {
 			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
+				is_spiritualist = yes
+				is_militarist = yes
+				is_xenophobe = yes
 			}
 		}
 	}
@@ -44,15 +41,10 @@ country_event = {
 		response_text = anomaly.4158.b.response
 		is_dialog_only = yes
 		trigger = {
-			OR = {
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_militarist
-			}
+			is_militarist = yes
 			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
+				is_spiritualist = yes
+				is_xenophobe = yes
 			}
 		}
 	}
@@ -62,14 +54,11 @@ country_event = {
 		is_dialog_only = yes
 		trigger = {
 			OR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
+				is_spiritualist = yes
 			}
 			NOR = {
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_militarist
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
+				is_militarist = yes
+				is_xenophobe = yes
 			}
 		}
 	}
@@ -78,10 +67,7 @@ country_event = {
 		response_text = anomaly.4158.c.response
 		is_dialog_only = yes
 		trigger = {
-			NOR = {
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_xenophobe = no
 		}
 	}
 	option = {
@@ -106,11 +92,10 @@ country_event = {
 		name = anomaly.4158.d
 		trigger = {
 			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
+				is_spiritualist = yes
 				has_ethic = ethic_pacifist
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_fanatic_materialist
+				is_fanatic_militarist = yes
+				is_fanatic_materialist = yes
 			}
 		}
 		hidden_effect = {
@@ -127,17 +112,13 @@ country_event = {
 				}
 			}
 			OR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
+				is_spiritualist = yes
 				has_ethic = ethic_pacifist
 			}
-			NOR = {
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_fanatic_materialist
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_fanatic_xenophobe
-				has_ethic = ethic_xenophobe
-			}
+			is_fanatic_militarist = no
+			is_fanatic_materialist = no
+			is_fanatic_pacifist = no
+			is_xenophobe = no
 		}
 		hidden_effect = {
 			country_event = {id = anomaly.4160 }
@@ -153,15 +134,11 @@ country_event = {
 				}
 			}
 			OR = {
-				has_ethic = ethic_fanatic_militarist
-				has_ethic = ethic_fanatic_materialist
+				is_fanatic_militarist = yes
+				is_fanatic_materialist = yes
 			}
-			NOR = {
-				has_ethic = ethic_fanatic_spiritualist
-				has_ethic = ethic_spiritualist
-				has_ethic = ethic_fanatic_pacifist
-				has_ethic = ethic_pacifist
-			}
+			is_spiritualist = no
+			is_pacifist = no
 		}
 		hidden_effect = {
 			country_event = {id = anomaly.4162 }
@@ -171,9 +148,7 @@ country_event = {
 	option = {
 		name = anomaly.4158.f
 		trigger = {
-			NOT = {
-				has_ethic = ethic_fanatic_xenophobe
-			}
+			is_fanatic_xenophobe = no
 		}
 		hidden_effect = {
 			country_event = {id = anomaly.4163 }
@@ -182,7 +157,7 @@ country_event = {
 	option = {
 		name = anomaly.4158.xenophobe.f
 		trigger = {
-			has_ethic = ethic_fanatic_xenophobe
+			is_fanatic_xenophobe = yes
 		}
 		hidden_effect = {
 			country_event = {id = anomaly.4163 }
@@ -217,7 +192,7 @@ ship_event = {
 				country_event = { id = anomaly.5006 }
 			}
 			random_galaxy_planet = {
-				limit = { has_planet_flag = baldarak }
+				limit = { has_carrier_flag = baldarak }
 				set_surveyed = {
 					surveyed = yes
 					surveyor = root.owner
@@ -235,7 +210,7 @@ ship_event = {
 			}
 		}
 		random_galaxy_planet = {
-			limit = { has_planet_flag = baldarak }
+			limit = { has_carrier_flag = baldarak }
 			set_deposit = d_society_5
 		}
 	}
@@ -255,6 +230,8 @@ country_event = {
 	picture_event_data = {
 		room = no_video_feed_room
 	}
+
+	specimen = dathnak_gas
 
 	immediate = {
 		hidden_effect = {
@@ -310,6 +287,7 @@ ship_event = {
 	}
 	picture = GFX_evt_gray_goo
 	show_sound = event_mystic_reveal
+	event_chain = parvus_III_chain
 
 	is_triggered_only = yes
 
@@ -380,6 +358,7 @@ ship_event = {
 				default = { give_technology = { tech = tech_administrative_ai }}
 			}
 			set_country_flag = studied_nanite_swarm
+			end_event_chain = parvus_III_chain
 		}
 	}
 	option =  {
@@ -388,13 +367,13 @@ ship_event = {
 		enable_special_project = {
 			name = "DESTROY_SWARM"
 			location = event_target:nanite_swarm_planet
-			owner = root
+			owner = root.owner
 		}
 	}
+
 	after = {
 		owner = {
-			end_event_chain = parvus_III_chain
-			#country_event = { id = anomaly.6710 days = 80 random = 1000 }
+			country_event = { id = anomaly.6710 days = 80 random = 1000 }
 		}
 	}
 }
@@ -415,11 +394,17 @@ country_event = {
 			}
 			success_text = {
 				text = anomaly.6710.desc.normal
-				owner = { is_gestalt = no is_domesticator_or_protectorate = no }
+				owner = { 
+					is_gestalt = no
+					is_domesticator_or_protectorate = no 
+				}
 			}
 			success_text = {
 				text = anomaly.6710.desc.gestalt
-				owner = { is_gestalt = yes is_domesticator_or_protectorate = no }
+				owner = { 
+					is_gestalt = yes 
+					is_domesticator_or_protectorate = no
+				}
 			}
 		}
 	}
@@ -488,7 +473,7 @@ country_event = {
 				max = @tier5researchmax
 			}
 			add_resource = { influence = 200 }
+			end_event_chain = parvus_III_chain
 		}
-
 	}
 }

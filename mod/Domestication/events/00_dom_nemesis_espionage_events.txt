@@ -20,8 +20,6 @@ country_event = {
 		exists = event_target:disavowed_agent_country
 	}
 
-	immediate = { }
-
 	option = { #Ignore
 		name = espionage.1001.a
 		hidden_effect = {
@@ -93,13 +91,12 @@ country_event = {
 	picture = GFX_evt_decryption
 	show_sound = event_encrypted_comms
 	is_triggered_only = yes
+	event_chain = operative_resurfaces_chain
 
 	trigger = {
 		exists = event_target:disavowed_agent_country
 		has_event_chain = operative_resurfaces_chain
 	}
-
-	immediate = { }
 
 	option = { #Ignore
 		name = espionage.1005.a

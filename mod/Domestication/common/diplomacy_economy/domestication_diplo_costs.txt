@@ -280,7 +280,20 @@ per_relation = {
 			}
 		}
 	}
-	
+
+	waystation_pact = {
+		trigger = {
+			has_waystation_pact = FROM
+			NOT = { has_ascension_perk = ap_universal_transactions }
+		}
+		resources = {
+			category = waystation_pacts
+			upkeep = {
+				influence = 0.25
+			}
+		}
+	}
+
 	pre_ftl_trade = {
 		trigger = {
 			from = {

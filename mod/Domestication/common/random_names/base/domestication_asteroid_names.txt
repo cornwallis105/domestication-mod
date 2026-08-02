@@ -318,7 +318,7 @@ star_names = {
 	Thuban
 	Tureis
 	Tyl
-	  
+	Tylda
 	Unuk
 	Ushakaron
 	Wasat

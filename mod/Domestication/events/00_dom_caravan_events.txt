@@ -17,11 +17,11 @@ country_event = {
 		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
 	}
 	desc = {
-		trigger = { has_country_flag = fleet3deal3 has_authority = auth_machine_intelligence }
+		trigger = { has_country_flag = fleet3deal3 is_machine_empire = yes }
 		text = fleet3dealdesc3machi #Selling pops, MI
 	}
 	desc = {
-		trigger = { has_country_flag = fleet3deal3 NOT = { has_authority = auth_machine_intelligence } }
+		trigger = { has_country_flag = fleet3deal3 is_machine_empire = no }
 		text = fleet3dealdesc3 #Selling pops, regular
 	}
 	desc = {
@@ -90,25 +90,25 @@ country_event = {
 				limit = {
 					any_planet_within_border = {
 						OR = {
-							has_planet_flag = fleet3deal3planet
-							has_planet_flag = fleet3deal7planet
-							has_planet_flag = fleet3deal8planet
+							has_carrier_flag = fleet3deal3planet
+							has_carrier_flag = fleet3deal7planet
+							has_carrier_flag = fleet3deal8planet
 						}
 					}
 				}
 				random_planet_within_border = {
 					limit = {
 						OR = {
-							has_planet_flag = fleet3deal3planet
-							has_planet_flag = fleet3deal7planet
-							has_planet_flag = fleet3deal8planet
+							has_carrier_flag = fleet3deal3planet
+							has_carrier_flag = fleet3deal7planet
+							has_carrier_flag = fleet3deal8planet
 						}
 					}
 					switch = {
-						trigger = has_planet_flag
-						fleet3deal3planet = { remove_planet_flag = fleet3deal3planet }
-						fleet3deal7planet = { remove_planet_flag = fleet3deal7planet }
-						fleet3deal8planet = { remove_planet_flag = fleet3deal8planet }
+						trigger = has_carrier_flag
+						fleet3deal3planet = { remove_carrier_flag = fleet3deal3planet }
+						fleet3deal7planet = { remove_carrier_flag = fleet3deal7planet }
+						fleet3deal8planet = { remove_carrier_flag = fleet3deal8planet }
 					}
 				}
 			}
@@ -135,11 +135,11 @@ country_event = {
 		text = fleet3dealdesc_domestication1 #Adopting Racket Floret
 	}
 	desc = {
-		trigger = { has_country_flag = fleet3deal3 has_authority = auth_machine_intelligence }
+		trigger = { has_country_flag = fleet3deal3 is_machine_empire = yes }
 		text = fleet3dealdesc3machi #Selling pops, MI
 	}
 	desc = {
-		trigger = { has_country_flag = fleet3deal3 NOT = { has_authority = auth_machine_intelligence } }
+		trigger = { has_country_flag = fleet3deal3 is_machine_empire = no }
 		text = fleet3dealdesc3 #Selling pops, regular
 	}
 	desc = {
@@ -170,6 +170,9 @@ country_event = {
 	diplomatic = yes
 	is_triggered_only = yes
 	custom_gui = "enclave_caravaneer_window"
+	auto_opens = no
+	notification_event_icon = "GFX_message_caravaneers_trade"
+	show_sound = advisor_notification_incoming_transmission_01
 
 	picture_event_data = {
 		portrait = event_target:caravaneer_fleet3_country
@@ -186,19 +189,19 @@ country_event = {
 			trigger = has_country_flag
 			fleet3deal3 = {
 				random_owned_planet = {
-					limit = { has_planet_flag = fleet3deal3planet }
+					limit = { has_carrier_flag = fleet3deal3planet }
 					save_event_target_as = fleet3deal3planet
 				}
 			}
 			fleet3deal7 = {
 				random_planet_within_border = { #As it is placed on uninhabitable (unownable) planets
-					limit = { has_planet_flag = fleet3deal7planet }
+					limit = { has_carrier_flag = fleet3deal7planet }
 					save_event_target_as = fleet3deal7planet
 				}
 			}
 			fleet3deal8 = {
 				random_owned_planet = {
-					limit = { has_planet_flag = fleet3deal8planet }
+					limit = { has_carrier_flag = fleet3deal8planet }
 					save_event_target_as = fleet3deal8planet
 				}
 			}
@@ -221,25 +224,25 @@ country_event = {
 				limit = {
 					any_planet_within_border = {
 						OR = {
-							has_planet_flag = fleet3deal3planet
-							has_planet_flag = fleet3deal7planet
-							has_planet_flag = fleet3deal8planet
+							has_carrier_flag = fleet3deal3planet
+							has_carrier_flag = fleet3deal7planet
+							has_carrier_flag = fleet3deal8planet
 						}
 					}
 				}
 				random_planet_within_border = {
 					limit = {
 						OR = {
-							has_planet_flag = fleet3deal3planet
-							has_planet_flag = fleet3deal7planet
-							has_planet_flag = fleet3deal8planet
+							has_carrier_flag = fleet3deal3planet
+							has_carrier_flag = fleet3deal7planet
+							has_carrier_flag = fleet3deal8planet
 						}
 					}
 					switch = {
-						trigger = has_planet_flag
-						fleet3deal3planet = { remove_planet_flag = fleet3deal3planet }
-						fleet3deal7planet = { remove_planet_flag = fleet3deal7planet }
-						fleet3deal8planet = { remove_planet_flag = fleet3deal8planet }
+						trigger = has_carrier_flag
+						fleet3deal3planet = { remove_carrier_flag = fleet3deal3planet }
+						fleet3deal7planet = { remove_carrier_flag = fleet3deal7planet }
+						fleet3deal8planet = { remove_carrier_flag = fleet3deal8planet }
 					}
 				}
 			}

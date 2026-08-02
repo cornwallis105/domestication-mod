@@ -22,18 +22,17 @@ floret = {
 	possible_precalc = can_fill_worker_job
 
 	possible = {
-		hidden_trigger = { exists = owner }
-		owner = { is_domesticator_or_protectorate = yes }
-		owner = { is_gestalt = no }
+		owner? = { is_domesticator_or_protectorate = yes }
+		owner? = { is_gestalt = no }
 		NAND = {
-			owner = { is_domesticator = yes }
+			owner? = { is_domesticator = yes }
 			OR = {
 					is_same_species = owner.owner_species
 					is_subspecies = owner.owner_species
 			}
 		}
 		NAND = {
-			owner = { is_specialist_subject_type = { TYPE = domprot } }
+			owner? = { is_specialist_subject_type = { TYPE = domprot } }
 			OR = {
 					is_same_species = owner.overlord.owner_species
 					is_subspecies = owner.overlord.owner_species
@@ -43,7 +42,7 @@ floret = {
 		OR = {
 			AND = {
 				OR = {
-					owner = {
+					owner? = {
 						is_specialist_subject_type = { TYPE = domprot }
 						NOT = { any_agreement = { specialist_tier = 3} }
 					}
@@ -52,7 +51,7 @@ floret = {
 				is_robot_pop = no
 			}
 			AND = {
-				owner = { has_technology = tech_haustoric_module }
+				owner? = { has_technology = tech_haustoric_module }
 				is_robot_pop = yes
 				NOT = { owner = { has_policy_flag = ai_outlawed } }
 			}
@@ -62,19 +61,13 @@ floret = {
 	resources = {
 		category = planet_florets
 		produces = {
-			unity = 1.25
+			unity = 0.75
 			consumer_goods = 0.25
 		}
 		upkeep = {
 
 		}
 	}
-
-	# invalid syntax post-4.0. putting modifier in worker pop_category
-#	pop_group_modifier = {
-#		pop_government_ethic_attraction = 0.5
-#		pop_housing_usage_add = -0.5
-#	}
 
 	planet_modifier = {
 		planet_crime_add = -2
@@ -104,7 +97,6 @@ floret = {
 
 	weight = {
 		weight = @clerk_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|floret|RESOURCE1|unity|WEIGHT1|0.75|RESOURCE2|consumer_goods|WEIGHT2|0.25|
 		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 
 		modifier = {
@@ -140,17 +132,8 @@ floret = {
 		}
 	}
 
-	inline_script = "jobs/automodding_priority_amenities"
+	inline_script = "jobs/automodding_priority_charisma"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 lead_bureaucrat = {
@@ -252,8 +235,7 @@ overlord_floret = {
 
 	possible_precalc = can_fill_worker_job
 	possible = {
-		hidden_trigger = { exists = owner }
-		owner = {
+		owner? = {
 			hidden_trigger = { exists = overlord }
 			overlord = {
 				is_domesticator_or_protectorate = yes
@@ -273,7 +255,7 @@ overlord_floret = {
 				is_robot_pop = no
 			#}
 			AND = {
-				owner = { has_technology = tech_haustoric_module }
+				owner? = { has_technology = tech_haustoric_module }
 				is_robot_pop = yes
 				NOT = { owner = { has_policy_flag = ai_outlawed } }
 			}
@@ -283,7 +265,7 @@ overlord_floret = {
 	resources = {
 		category = planet_florets
 		produces = {
-			unity = 1.25
+			unity = 0.75
 			consumer_goods = 0.1
 		}
 		upkeep = {
@@ -321,7 +303,7 @@ overlord_floret = {
 		category = planet_florets
 		produces = {
 			influence = 0.05
-			unity = 3
+			unity = 1.5
 		}
 	}
 
@@ -331,15 +313,6 @@ overlord_floret = {
 
 	inline_script = "jobs/automodding_priority_unity"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = worker
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 overlord_floret_drone = {
@@ -366,7 +339,7 @@ overlord_floret_drone = {
 	possible_precalc = can_fill_drone_job
 	possible = {
 		hidden_trigger = { exists = owner }
-		owner = {
+		owner? = {
 			hidden_trigger = { exists = overlord }
 			overlord = {
 				is_domesticator_or_protectorate = yes
@@ -386,7 +359,7 @@ overlord_floret_drone = {
 				is_robot_pop = no
 			#}
 			AND = {
-				owner = { has_technology = tech_haustoric_module }
+				owner? = { has_technology = tech_haustoric_module }
 				is_robot_pop = yes
 				NOT = { owner = { has_policy_flag = ai_outlawed } }
 			}
@@ -396,7 +369,7 @@ overlord_floret_drone = {
 	resources = {
 		category = planet_florets
 		produces = {
-			unity = 1.25
+			unity = 0.75
 		}
 		upkeep = {
 
@@ -431,7 +404,7 @@ overlord_floret_drone = {
 		category = planet_florets
 		produces = {
 			influence = 0.05
-			unity = 3
+			unity = 1.5
 		}
 	}
 
@@ -441,15 +414,6 @@ overlord_floret_drone = {
 
 	inline_script = "jobs/automodding_priority_unity"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = simple_drone
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 domesticator_sentinel = {
@@ -465,8 +429,8 @@ domesticator_sentinel = {
 	resources = {
 		category = planet_domesticators
 		produces = {
-			unity = 5
-			society_research = 5
+			unity = 2.5
+			society_research = 2.5
 		}
 		upkeep = {
 			consumer_goods = 1
@@ -498,7 +462,6 @@ domesticator_sentinel = {
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|domesticator_sentinel|RESOURCE1|unity|WEIGHT1|0.5|RESOURCE2|society_research|WEIGHT2|0.5|
 		modifier = {
 			factor = 0.2
 			has_citizenship_rights = no
@@ -512,15 +475,6 @@ domesticator_sentinel = {
 
 	inline_script = "jobs/automodding_priority_research"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 domesticator_nanite = {
@@ -536,8 +490,8 @@ domesticator_nanite = {
 	resources = {
 		category = planet_domesticators
 		produces = {
-			unity = 5
-			engineering_research = 5
+			unity = 2.5
+			engineering_research = 2.5
 		}
 		upkeep = {
 			consumer_goods = 1
@@ -556,13 +510,12 @@ domesticator_nanite = {
 	}
 
 	possible = {
-		owner = { is_domesticator_or_protectorate = yes }
+		owner? = { is_domesticator_or_protectorate = yes }
 		has_citizenship_type = { type = citizenship_full }
 	}
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|domesticator_sentinel|RESOURCE1|unity|WEIGHT1|0.5|RESOURCE2|engineering_research|WEIGHT2|0.5|
 		modifier = {
 			factor = 0.2
 			has_citizenship_rights = no
@@ -576,15 +529,6 @@ domesticator_nanite = {
 
 	inline_script = "jobs/automodding_priority_research"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 
@@ -601,9 +545,9 @@ domesticator_nemma = {
 	resources = {
 		category = planet_domesticators
 		produces = {
-			unity = 5
-			society_research = 3
-			engineering_research = 2
+			unity = 2.5
+			society_research = 1.5
+			engineering_research = 1
 			rare_crystals = 1
 		}
 		upkeep = {
@@ -619,13 +563,12 @@ domesticator_nemma = {
 	}
 
 	possible = {
-		owner = { is_domesticator_or_protectorate = yes }
+		owner? = { is_domesticator_or_protectorate = yes }
 		has_citizenship_type = { type = citizenship_full }
 	}
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|domesticator_sentinel|RESOURCE1|unity|WEIGHT1|0.5|RESOURCE2|society_research|WEIGHT2|0.5|
 		modifier = {
 			factor = 0.2
 			has_citizenship_rights = no
@@ -639,15 +582,6 @@ domesticator_nemma = {
 
 	inline_script = "jobs/automodding_priority_research"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 domesticator_underground = {
@@ -672,7 +606,7 @@ domesticator_underground = {
 	possible_precalc = can_fill_specialist_job
 
 	possible = {
-		owner = { is_domesticator_or_protectorate = yes }
+		owner? = { is_domesticator_or_protectorate = yes }
 		has_citizenship_type = { type = citizenship_full }
 	}
 
@@ -680,8 +614,8 @@ domesticator_underground = {
 		category = planet_domesticators
 		produces = {
 			minerals = 5
-			society_research = 2
-			engineering_research = 3
+			society_research = 1
+			engineering_research = 1.5
 			volatile_motes = 1
 			trade = 2
 		}
@@ -700,7 +634,6 @@ domesticator_underground = {
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:scripted_modifier_job_weight_mult|MODIFIER|pop_job_amenities_mult|
 		modifier = {
 			factor = 0.5
 			OR = {
@@ -719,15 +652,6 @@ domesticator_underground = {
 
 	inline_script = "jobs/automodding_priority_research"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }
 
 
@@ -744,8 +668,8 @@ domesticator_titanic = {
 	resources = {
 		category = planet_domesticators
 		produces = {
-			unity = 5
-			society_research = 6
+			unity = 2.5
+			society_research = 3
 		}
 		upkeep = {
 			consumer_goods = 1
@@ -768,13 +692,12 @@ domesticator_titanic = {
 	}
 
 	possible = {
-		owner = { is_domesticator_or_protectorate = yes }
+		owner? = { is_domesticator_or_protectorate = yes }
 		has_citizenship_type = { type = citizenship_full }
 	}
 
 	weight = {
 		weight = @specialist_job_weight
-		mult = value:job_weights_multiple_resources_modifier|JOB|domesticator_sentinel|RESOURCE1|society_research|WEIGHT1|0.5|RESOURCE2|unity|WEIGHT2|0.5|
 		modifier = {
 			factor = 0.2
 			has_citizenship_rights = no
@@ -788,13 +711,4 @@ domesticator_titanic = {
 
 	inline_script = "jobs/automodding_priority_research"
 
-	promotion = {
-		time = @standard_promotion_time
-		effect = {
-			pop_amount_change_category = {
-				CATEGORY = specialist
-				AMOUNT = local_pop_amount
-			}
-		}
-	}
 }

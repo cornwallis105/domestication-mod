@@ -135,16 +135,8 @@ d_underground_contact_zone = {
 	icon = d_quarantine_zone
 
 	planet_modifier = {
-		district_generator_max = 2
 		planet_max_districts_add = 2
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			always = yes
-		}
-		district_generator_max = 2
-		mult = value:natural_desposit_district_amount_multiplier
+		district_generator_max_add = 2
 	}
 
 	triggered_planet_modifier = {
@@ -152,7 +144,7 @@ d_underground_contact_zone = {
 			exists = owner
 			owner = { is_regular_empire = yes }
 			NAND = {
-				has_planet_flag = subterranean_domestication_complete
+				has_carrier_flag = subterranean_domestication_complete
 				owner = { is_domesticator_or_full_protectorate = yes }
 			}
 		}
@@ -166,7 +158,7 @@ d_underground_contact_zone = {
 		potential = {
 			exists = owner
 			owner = { is_regular_empire = yes }
-			has_planet_flag = subterranean_domestication_complete
+			has_carrier_flag = subterranean_domestication_complete
 			owner = { is_domesticator_or_full_protectorate = yes }
 		}
 		modifier = {

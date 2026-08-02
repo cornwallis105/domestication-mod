@@ -37,7 +37,7 @@ domesticated_nanite_swarm_modifier = {
 turtle_world_domesticator_modifier = {
 	planet_housing_mult = -0.1
 	planet_jobs_society_research_produces_mult = 0.15
-	district_mining_max = -4
+	district_mining_max_add = -4
 	icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
 	icon_frame = 1
 }

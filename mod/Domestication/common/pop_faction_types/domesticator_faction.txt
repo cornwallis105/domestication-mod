@@ -3,6 +3,10 @@
 ##############################
 
 domesticator_faction = {
+				 
+							  
+
+		   
 	election_header = "GFX_faction_header_yellow"
 	guiding_ethic = ethic_xenophile
 	visual_ethic = "xenoist_visual_ethic"
@@ -12,17 +16,7 @@ domesticator_faction = {
 
 	resources = {
 		category = pop_factions
-		produces = {
-			trigger = {
-				owner = {
-					NOR = {
-						has_civic = civic_crowdsourcing
-						has_civic = civic_corporate_crowdsourcing
-					}
-				}
-			}
-			unity = @faction_base_output
-		}
+		inline_script = pop_faction_types/shared_unity_production
 		produces = {
 			trigger = {
 				owner = {
@@ -37,6 +31,7 @@ domesticator_faction = {
 			mult = @crowdsourcing_multiplier
 		}
 	}
+
 	extortion_resource = {
 		category = pop_factions
 		produces = {
@@ -70,12 +65,6 @@ domesticator_faction = {
 		is_faction_allowed = yes
 
 		is_domesticator_or_protectorate = yes
-
-		#years_passed > 10
-		#has_encountered_other_species = yes
-		#is_domesticator_or_protectorate = yes
-		#NOT = { has_ethic = ethic_gestalt_consciousness }
-		#NOT = { has_country_flag = suppress_vanilla_factions }
 	}
 
 	parameters = {
@@ -95,6 +84,7 @@ domesticator_faction = {
 	can_join_faction = {
 		is_shackled_robot = no
 		can_think = yes
+		is_interlink_cyborg_pop = no
 	}
 
 	attraction = {
@@ -159,7 +149,7 @@ domesticator_faction = {
 		script = pop_faction_types/demand_faction_outraged
 		FLAG = galcom_resolution_passed_anti_xenoist
 	}
-	
+
 	# DEMAND: Faction Pleased (by a GalCom Resolution)
 	inline_script = {
 		script = pop_faction_types/demand_faction_pleased
@@ -167,6 +157,32 @@ domesticator_faction = {
 	}
 	
 
+		   
+								 
+												
+									 
+
+					   
+						 
+
+			   
+				 
+			
+					
+								
+	 
+	
+   
+
+			 
+			
+		  
+											   
+										  
+	 
+	
+   
+  
 
 	demand = { # "XENOIST_NO_SLAVES"
 		title = "XENOIST_NO_SLAVES"
@@ -183,7 +199,10 @@ domesticator_faction = {
 					NOR = {
 						is_same_species = prev
 						is_robotic = yes
-						is_sapient = no
+						AND = {
+							is_sapient = no
+							NOT = { has_trait = trait_nascent_stage }
+						}
 					}
 				}
 			}
@@ -289,8 +308,9 @@ domesticator_faction = {
 		potential = {
 			exists = owner
 			owner = {
+				is_nomadic = no
 				any_country = {
-					is_country_type = enclave
+					is_enclave_country = yes
 					has_communications = root.owner
 				}
 			}
@@ -302,7 +322,42 @@ domesticator_faction = {
 					has_star_flag = enclave
 					any_fleet_in_system = {
 						exists = owner
-						owner = { is_country_type = enclave }
+						owner = { is_enclave_country = yes }
+					}
+				}
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_ENCLAVE_BORDERS_NOMAD"
+		unfulfilled_title = "XENOIST_NO_ENCLAVE_BORDERS"
+		desc = "XENOIST_ENCLAVE_BORDERS_NOMAD_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = yes
+				any_country = {
+					is_enclave_country = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_owned_nonprimary_starbase = {
+					is_waystation_starbase = yes
+					solar_system? = {
+						has_star_flag = enclave
+						any_fleet_in_system = {
+							exists = owner
+							owner = { is_enclave_country = yes }
+						}
 					}
 				}
 			}
@@ -343,8 +398,8 @@ domesticator_faction = {
 			exists = owner
 			owner = {
 				OR = {
+					any_controlled_ship = { is_ship_size = observation_station }
 					has_country_flag = recent_enlightenment_timed
-					any_owned_fleet = { is_ship_size = observation_station }
 					# fixes demand disappearing when fulfilled (station dismantles)
 				}
 			}
@@ -401,7 +456,10 @@ domesticator_faction = {
 
 		potential = {
 			exists = owner
-			owner = { has_country_flag = encountered_first_primitive }
+			owner = {
+				has_country_flag = encountered_first_primitive
+				NOT = { has_origin = origin_necrophage }
+			}
 		}
 
 		trigger = {
@@ -412,6 +470,28 @@ domesticator_faction = {
 	}
 
 	demand = {
+							 
+											 
+								 
+
+					   
+							 
+
+			   
+				 
+			
+						  
+	
+   
+
+			 
+			
+						
+	
+   
+  
+
+		   
 		title = "XENOIST_RECENT_COMMS"
 		unfulfilled_title = "XENOIST_NO_RECENT_COMMS"
 		desc = "XENOIST_RECENT_COMMS_DESC"
@@ -428,6 +508,9 @@ domesticator_faction = {
 						is_country_type = default
 						is_country_type = fallen_empire
 						is_country_type = awakened_fallen_empire
+						is_country_type = primitive
+						is_country_type = marauder_raiders
+						is_enclave_country = yes
 					}
 				}
 			}
@@ -646,15 +729,15 @@ domesticator_faction = {
 			}
 		}
 	}
-	
+
 	# Global Faction Demands.
 	inline_script = {
-		script = "paragon/global_faction_demands"
+		script = "pop_faction_types/global_faction_demands"
 		ETHIC = ethic_xenophile
 		ETHIC_FANATIC = ethic_fanatic_xenophile
 		ETHIC_OPPOSED = ethic_xenophobe
-	} 
-	
+	}
+
 	demand = { # Alien Zoo (for conservation)
 		title = "XENOIST_XENOLOGICAL_CONSERVATION"
 		unfulfilled_title = "XENOIST_NO_XENOLOGICAL_CONSERVATION"
@@ -673,12 +756,64 @@ domesticator_faction = {
 
 		trigger = {
 			owner = {
-				count_owned_planet = {
+				count_owned_colony = {
 					limit = {
-						has_building = building_xeno_zoo
+						has_active_building = building_xeno_zoo
 					}
 					count > 0
 				}
+			}
+		}
+	}
+
+	demand = { # "XENOIST_NO_NOMAD_PURGE"
+		title = "XENOIST_NO_NOMAD_PURGE"
+		unfulfilled_title = "XENOIST_NOMAD_PURGE"
+		desc = "XENOIST_NO_NOMAD_PURGE_DESC"
+
+		fulfilled_effect = 0.001
+		unfulfilled_effect = -30
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = no
+				any_country = {
+					is_nomadic = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT = { has_policy_flag = arkship_raid_purge_pops }
+			}
+		}
+	}
+
+	demand = { # "XENOIST_NO_NOMAD_CONSCRIPTION"
+		title = "XENOIST_NO_NOMAD_CONSCRIPTION"
+		unfulfilled_title = "XENOIST_NOMAD_CONSCRIPTION"
+		desc = "XENOIST_NO_NOMAD_CONSCRIPTION_DESC"
+
+		fulfilled_effect = 0.001
+		unfulfilled_effect = -15
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = no
+				any_country = {
+					is_nomadic = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT = { has_policy_flag = arkship_raid_relocate_pops }
 			}
 		}
 	}
@@ -708,7 +843,7 @@ domesticator_faction = {
 #	}
 
 	on_create = {
-		pop_faction_event = { id = factions.1 }
+		pop_faction_event = { id = factions.0 }
 	}
 
 	on_destroy = {
@@ -760,6 +895,7 @@ domesticator_faction = {
 
 			effect = {
 				add_modifier = { modifier = embraced_faction days = 3600 }
+				owner = { set_country_flag = has_embraced_faction }
 				parameter:empire = {
 					shift_ethic = ethic_xenophile
 					hidden_effect = {
@@ -828,6 +964,7 @@ domesticator_faction = {
 			}
 
 			effect = {
+				owner = { set_country_flag = has_promoted_faction }
 				parameter:empire = {
 					add_modifier = { modifier = promoted_xenophile days = -1 }
 				}
@@ -915,6 +1052,10 @@ domesticator_faction = {
 				owner = {
 					is_oligarchic_authority = yes
 					has_country_flag = cyber_collectivist
+					NOR = {
+						has_valid_civic = civic_crowdsourcing
+						has_valid_civic = civic_corporate_crowdsourcing
+					}
 				}
 				is_faction_extorted = no
 			}
@@ -922,6 +1063,33 @@ domesticator_faction = {
 			effect = {
 				set_faction_extorted = yes
 				custom_tooltip = energy_extortion_tt
+				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
+			}
+
+			ai_weight = {
+				base = 0
+			}
+		}
+		extort_faction_crowdsourcing = { #Crowdsourcing version
+			title = "EXTORT_FACTION"
+			description = "EXTORT_FACTION_DESC"
+
+			potential = {
+				exists = owner
+				owner = {
+					is_oligarchic_authority = yes
+					has_country_flag = cyber_collectivist
+					OR = {
+						has_valid_civic = civic_crowdsourcing
+						has_valid_civic = civic_corporate_crowdsourcing
+					}
+				}
+				is_faction_extorted = no
+			}
+
+			effect = {
+				set_faction_extorted = yes
+				custom_tooltip = crowdsourced_extortion_tt
 				custom_tooltip = ONLY_ONE_EXTORTED_FACTION_TT
 			}
 
@@ -953,7 +1121,6 @@ domesticator_faction = {
 	}
 }
 
-
 ##############################
 # Xenoist Faction
 ##############################
@@ -968,17 +1135,7 @@ xenoist = {
 
 	resources = {
 		category = pop_factions
-		produces = {
-			trigger = {
-				owner = {
-					NOR = {
-						has_civic = civic_crowdsourcing
-						has_civic = civic_corporate_crowdsourcing
-					}
-				}
-			}
-			unity = @faction_base_output
-		}
+		inline_script = pop_faction_types/shared_unity_production
 		produces = {
 			trigger = {
 				owner = {
@@ -1046,6 +1203,7 @@ xenoist = {
 	can_join_faction = {
 		is_shackled_robot = no
 		can_think = yes
+		is_interlink_cyborg_pop = no
 	}
 
 	attraction = {
@@ -1256,8 +1414,9 @@ xenoist = {
 		potential = {
 			exists = owner
 			owner = {
+				is_nomadic = no
 				any_country = {
-					is_country_type = enclave
+					is_enclave_country = yes
 					has_communications = root.owner
 				}
 			}
@@ -1270,6 +1429,41 @@ xenoist = {
 					any_fleet_in_system = {
 						exists = owner
 						owner = { is_country_type = enclave }
+					}
+				}
+			}
+		}
+	}
+
+	demand = {
+		title = "XENOIST_ENCLAVE_BORDERS_NOMAD"
+		unfulfilled_title = "XENOIST_NO_ENCLAVE_BORDERS"
+		desc = "XENOIST_ENCLAVE_BORDERS_NOMAD_DESC"
+
+		fulfilled_effect = 5
+		unfulfilled_effect = -0.001
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = yes
+				any_country = {
+					is_enclave_country = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				any_owned_nonprimary_starbase = {
+					is_waystation_starbase = yes
+					solar_system? = {
+						has_star_flag = enclave
+						any_fleet_in_system = {
+							exists = owner
+							owner = { is_enclave_country = yes }
+						}
 					}
 				}
 			}
@@ -1422,7 +1616,7 @@ xenoist = {
 						is_country_type = awakened_fallen_empire
 						is_country_type = primitive
 						is_country_type = marauder_raiders
-						is_country_type = enclave
+						is_enclave_country = yes
 					}
 				}
 			}
@@ -1644,7 +1838,7 @@ xenoist = {
 
 	# Global Faction Demands.
 	inline_script = {
-		script = "paragon/global_faction_demands"
+		script = "pop_faction_types/global_faction_demands"
 		ETHIC = ethic_xenophile
 		ETHIC_FANATIC = ethic_fanatic_xenophile
 		ETHIC_OPPOSED = ethic_xenophobe
@@ -1668,12 +1862,64 @@ xenoist = {
 
 		trigger = {
 			owner = {
-				count_owned_planet = {
+				count_owned_colony = {
 					limit = {
-						has_building = building_xeno_zoo
+						has_active_building = building_xeno_zoo
 					}
 					count > 0
 				}
+			}
+		}
+	}
+
+	demand = { # "XENOIST_NO_NOMAD_PURGE"
+		title = "XENOIST_NO_NOMAD_PURGE"
+		unfulfilled_title = "XENOIST_NOMAD_PURGE"
+		desc = "XENOIST_NO_NOMAD_PURGE_DESC"
+
+		fulfilled_effect = 0.001
+		unfulfilled_effect = -30
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = no
+				any_country = {
+					is_nomadic = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT = { has_policy_flag = arkship_raid_purge_pops }
+			}
+		}
+	}
+
+	demand = { # "XENOIST_NO_NOMAD_CONSCRIPTION"
+		title = "XENOIST_NO_NOMAD_CONSCRIPTION"
+		unfulfilled_title = "XENOIST_NOMAD_CONSCRIPTION"
+		desc = "XENOIST_NO_NOMAD_CONSCRIPTION_DESC"
+
+		fulfilled_effect = 0.001
+		unfulfilled_effect = -15
+
+		potential = {
+			exists = owner
+			owner = {
+				is_nomadic = no
+				any_country = {
+					is_nomadic = yes
+					has_communications = root.owner
+				}
+			}
+		}
+
+		trigger = {
+			owner = {
+				NOT = { has_policy_flag = arkship_raid_relocate_pops }
 			}
 		}
 	}
@@ -1956,3 +2202,4 @@ xenoist = {
 		}
 	}
 }
+

@@ -39,7 +39,7 @@ researcher = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_science_ministry
+					has_carrier_flag = has_science_ministry
 				}
 			}
 			consumer_goods = 1
@@ -51,7 +51,7 @@ researcher = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_science_ministry
+					has_carrier_flag = has_science_ministry
 				}
 			}
 			physics_research = 1
@@ -1655,7 +1655,7 @@ healthcare = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			has_councilor = { COUNCILOR = "councilor_cosmic_harmony" } 
+			has_councilor = { COUNCILOR = "councilor_cosmic_harmony" }
 		}
 		pop_growth_speed = @councilor_cosmic_harmony_healthcare_pop_growth_bonus
 		mult = value:pop_growth_councilor_cosmic_harmony_mult
@@ -1663,7 +1663,7 @@ healthcare = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			has_councilor = { COUNCILOR = "councilor_cosmic_harmony" } 
+			has_councilor = { COUNCILOR = "councilor_cosmic_harmony" }
 		}
 		planet_pop_assembly_organic_mult = @councilor_cosmic_harmony_healthcare_pop_assembly_organic_bonus
 		mult = value:pop_assembly_organic_councilor_cosmic_harmony_mult
@@ -1697,7 +1697,7 @@ healthcare = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = planet
-			planet = { has_planet_flag = has_private_clinics }
+			planet = { has_carrier_flag = has_private_clinics }
 		}
 		planet_amenities_add = 1
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|
@@ -1705,7 +1705,7 @@ healthcare = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = planet
-			planet = { has_planet_flag = has_private_clinics }
+			planet = { has_carrier_flag = has_private_clinics }
 		}
 		trade_value_add = 2
 		mult = value:scripted_modifier_mult|MODIFIER|pop_job_trade_mult|
@@ -2806,7 +2806,7 @@ foundry = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_reduction
@@ -2814,7 +2814,7 @@ foundry = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			minerals = 2
@@ -2826,7 +2826,7 @@ foundry = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -2885,7 +2885,7 @@ catalytic_technician = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_reduction
@@ -2894,7 +2894,7 @@ catalytic_technician = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			food = 3
@@ -2906,7 +2906,7 @@ catalytic_technician = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -2963,7 +2963,7 @@ artisan = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2973,7 +2973,7 @@ artisan = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2987,7 +2987,7 @@ artisan = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3068,7 +3068,7 @@ artificer = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3078,7 +3078,7 @@ artificer = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3092,7 +3092,7 @@ artificer = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3190,7 +3190,7 @@ pearl_diver = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3200,7 +3200,7 @@ pearl_diver = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3223,7 +3223,7 @@ pearl_diver = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -3593,7 +3593,7 @@ archaeoengineers = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_science_ministry
+					has_carrier_flag = has_science_ministry
 				}
 			}
 			consumer_goods = 1
@@ -3605,7 +3605,7 @@ archaeoengineers = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_science_ministry
+					has_carrier_flag = has_science_ministry
 				}
 			}
 			physics_research = 1

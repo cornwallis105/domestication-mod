@@ -15,7 +15,7 @@ situation_event = {
       save_event_target_as = affini_compact
     }
     target = {
-      set_planet_flag = pre_ftl_domestication_complete
+      set_carrier_flag = pre_ftl_domestication_complete
       owner = {
         save_event_target_as = pre_ftl_country
         establish_communications_no_message = event_target:affini_compact
@@ -2042,7 +2042,7 @@ situation_event = {
 	}
 }
 
-planet_event = {
+carrier_event = {
   id = dom_pre_ftl.45
   title = "dom_pre_ftl.45.name"
   desc = "dom_pre_ftl.45.desc"
@@ -2053,7 +2053,7 @@ planet_event = {
   is_triggered_only = yes
 
   trigger = {
-    has_planet_flag = zoonotic_plague_dead_world
+    has_carrier_flag = zoonotic_plague_dead_world
     owner = {
       is_domesticator_or_full_protectorate = yes
     }
@@ -2086,7 +2086,7 @@ planet_event = {
   }
 }
 
-planet_event = {
+carrier_event = {
   id = dom_pre_ftl.46
   title = "dom_pre_ftl.46.name"
   desc = "dom_pre_ftl.46.desc"
@@ -2097,7 +2097,7 @@ planet_event = {
   is_triggered_only = yes
 
   immediate = {
-    remove_planet_flag = zoonotic_plague_dead_world
+    remove_carrier_flag = zoonotic_plague_dead_world
     create_pop_group = {
 		species = event_target:revived_species
 		ethos = {

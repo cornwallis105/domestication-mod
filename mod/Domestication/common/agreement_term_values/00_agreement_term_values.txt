@@ -522,10 +522,7 @@ joins_overlord_wars_defensive = {
 	triggered_loyalty_change = {
 		trigger = {
 			target = {
-				OR = {
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_fanatic_pacifist
-				}
+				is_pacifist = yes
 			}
 		}
 		loyalty_change = -10
@@ -574,10 +571,7 @@ joins_overlord_wars_offensive = {
 	triggered_loyalty_change = {
 		trigger = {
 			target = {
-				OR = {
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_fanatic_pacifist
-				}
+				is_pacifist = yes
 			}
 		}
 		loyalty_change = -20
@@ -620,10 +614,7 @@ joins_overlord_wars_all = {
 	triggered_loyalty_change = {
 		trigger = {
 			target = {
-				OR = {
-					has_ethic = ethic_pacifist
-					has_ethic = ethic_fanatic_pacifist
-				}
+				is_pacifist = yes
 			}
 		}
 		loyalty_change = -30
@@ -889,6 +880,19 @@ subject_can_be_integrated = {
 			fail_text = not_allowed_for_luminarium
 			NOT = {
 				agreement_preset = preset_luminarium
+			}
+		}
+		custom_tooltip = {
+			fail_text = not_allowed_for_different_empire_types
+			OR = {
+				AND = {
+					owner = { is_nomadic = yes }
+					target = { is_nomadic = yes }
+				}
+				AND = {
+					owner = { is_nomadic = no }
+					target = { is_nomadic = no }
+				}
 			}
 		}
 	}
@@ -1179,6 +1183,18 @@ subject_can_expand_with_tithe = {
 	activate_effect = {
 		set_rule_can_subject_expand = can_expand_with_tithe
 	}
+	triggered_desc = {
+			trigger = {
+            	target = { is_nomadic = no }
+			}
+        	text = "subject_can_expand_with_tithe_desc"
+    	}
+	triggered_desc = {
+        	trigger = {
+            	target = { is_nomadic = yes }
+			}
+			text = "subject_can_expand_with_tithe_nomadic_desc"
+    	}
 	possible = {
 		custom_tooltip = {
 			fail_text = not_allowed_for_tributary
@@ -1560,14 +1576,20 @@ subject_loyalty_effects = {
 		owner = {
 			refresh_subject_count_loyalty_penalty = yes
 			every_spynetwork = {
-				limit = { target = { is_same_value = event_target:leaving_subject } }
+				limit = {
+					exists = target
+					target = { is_same_value = event_target:leaving_subject }
+				}
 				erase_modifier = { MOD = domestic_intelligence }
 			}
 			save_event_target_as = current_overlord
 		}
 		target = {
 			every_spynetwork = {
-				limit = { target = { is_same_value = event_target:current_overlord } }
+				limit = {
+					exists = target
+					target = { is_same_value = event_target:current_overlord }
+				}
 				erase_modifier = { MOD = domestic_intelligence }
 			}
 			erase_modifier = { MOD = commanding_presence }

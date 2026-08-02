@@ -38,6 +38,8 @@ country_event = {
 	desc = unique.20.desc
 	option_clear = yes
 
+	specimen = larionessi_cloning_vat
+
 	immediate = {
 		hidden_effect = {
 			create_species = {
@@ -161,6 +163,10 @@ country_event = {
 					create_pop_group = { species = event_target:larion_species }
 				}
 				set_owner = event_target:larion_country
+				set_timed_carrier_flag = {
+					flag = ignore_ai_building_limitations
+					days = 1
+				}
 				remove_all_buildings = yes
 				add_building = building_hive_capital
 				add_building = building_spawning_pool

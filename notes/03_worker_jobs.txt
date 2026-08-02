@@ -165,7 +165,7 @@ clerk = {
 		potential = {
 			exists = planet
 			planet = {
-				NOT = { has_planet_flag = has_franchise_headquarters }
+				NOT = { has_carrier_flag = has_franchise_headquarters }
 			}
 		}
 		trade_value_add = 3
@@ -176,7 +176,7 @@ clerk = {
 		potential = {
 			exists = planet
 			planet = {
-				has_planet_flag = has_franchise_headquarters
+				has_carrier_flag = has_franchise_headquarters
 			}
 		}
 		trade_value_add = 2
@@ -188,7 +188,7 @@ clerk = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_franchise_headquarters
+					has_carrier_flag = has_franchise_headquarters
 				}
 			}
 			unity = 0.25
@@ -366,7 +366,7 @@ technician = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_energy_requisitorium
+					has_carrier_flag = has_energy_requisitorium
 				}
 			}
 			energy = @requisitorium_energy_reduction
@@ -378,7 +378,7 @@ technician = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_energy_requisitorium
+					has_carrier_flag = has_energy_requisitorium
 				}
 			}
 			energy = @requisitorium_energy_overlord
@@ -486,7 +486,7 @@ miner = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			minerals = @requisitorium_minerals_reduction
@@ -507,7 +507,7 @@ miner = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			minerals = @requisitorium_minerals_overlord
@@ -856,7 +856,7 @@ farmer = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 				}
 			}
 			food = @requisitorium_food_reduction
@@ -868,7 +868,7 @@ farmer = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 				}
 			}
 			food = @requisitorium_food_overlord
@@ -1541,7 +1541,7 @@ angler = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 				}
 			}
 			food = @requisitorium_food_reduction
@@ -1553,7 +1553,7 @@ angler = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 				}
 			}
 			food = @requisitorium_food_overlord
@@ -1801,7 +1801,7 @@ foundry_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_reduction
@@ -1809,7 +1809,7 @@ foundry_prison_worker = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			minerals = 2
@@ -1821,7 +1821,7 @@ foundry_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -1895,7 +1895,7 @@ catalytic_technician_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_reduction
@@ -1904,7 +1904,7 @@ catalytic_technician_prison_worker = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			food = 3
@@ -1916,7 +1916,7 @@ catalytic_technician_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_material_requisitorium
+					has_carrier_flag = has_material_requisitorium
 				}
 			}
 			alloys = @requisitorium_alloys_overlord
@@ -1987,7 +1987,7 @@ artisan_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -1997,7 +1997,7 @@ artisan_prison_worker = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2011,7 +2011,7 @@ artisan_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2109,7 +2109,7 @@ artificer_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2119,7 +2119,7 @@ artificer_prison_worker = {
 		upkeep = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}
@@ -2133,7 +2133,7 @@ artificer_prison_worker = {
 		produces = {
 			trigger = {
 				planet = {
-					has_planet_flag = has_produce_requisitorium
+					has_carrier_flag = has_produce_requisitorium
 					exists = owner.overlord
 					owner.overlord = { country_uses_consumer_goods = yes }
 				}

@@ -1,103 +1,80 @@
 namespace = uplift
 
 ### Uplifting Generic Success
-planet_event = {
+carrier_event = {
 	id = uplift.6010
 	title = uplift.6010.name
 	desc = {
 		text = uplift.6010.continental.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_continental
-			}
+			is_planet_class = pc_continental
+	
 		}
 	}
 	desc = {
 		text = uplift.6010.ocean.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_ocean
-			}
+			is_planet_class = pc_ocean
 		}
 	}
 	desc = {
 		text = uplift.6010.tropical.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_tropical
-			}
+			is_planet_class = pc_tropical
 		}
 	}
 	desc = {
 		text = uplift.6010.arid.desc
 		trigger = {
-			this = {
-				is_planet_class = pc_arid
-			}
+			is_planet_class = pc_arid
 		}
 	}
 	desc = {
 		text = uplift.6010.desert.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_desert
-			}
+			is_planet_class = pc_desert
 		}
 	}
 	desc = {
 		text = uplift.6010.savannah.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_savannah
-			}
+			is_planet_class = pc_savannah
 		}
 	}
 	desc = {
 		text = uplift.6010.tundra.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_tundra
-			}
+			is_planet_class = pc_tundra
 		}
 	}
 	desc = {
 		text = uplift.6010.arctic.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_arctic
-			}
+			is_planet_class = pc_arctic
 		}
 	}
 	desc = {
 		text = uplift.6010.alpine.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_alpine
-			}
+			is_planet_class = pc_alpine
 		}
 	}
 	desc = {
 		text = uplift.6010.nuked.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_nuked
-			}
+			is_planet_class = pc_nuked
 		}
 	}
 	desc = {
 		text = uplift.6010.gaia.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_gaia
-			}
+			is_planet_class = pc_gaia
 		}
 	}
 	desc = {
 		text = uplift.6010.relic.desc
 		exclusive_trigger = {
-			this = {
-				is_planet_class = pc_relic
-			}
+			is_planet_class = pc_relic
 		}
 	}
 	desc = {
@@ -110,7 +87,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	trigger = {
-		has_planet_flag = upl_ongoing_planet
+		has_carrier_flag = upl_ongoing_planet
 	}
 
 	immediate = {
@@ -118,7 +95,7 @@ planet_event = {
 			set_country_flag = found_presapients
 			remove_country_flag = upl_ongoing_generic
 		}
-		remove_planet_flag = upl_ongoing_planet
+		remove_carrier_flag = upl_ongoing_planet
 		# This bit is here because Paradox left a bug in the game and I'm going to try to fix it
 		every_owned_pop_group = {
 			limit = {
@@ -148,7 +125,7 @@ planet_event = {
 		custom_tooltip = uplift.6010.tt
 		hidden_effect = {
 			owner = { country_event = { id = tutorial.58 days = 5 } }
-			planet_event = { id = uplift.7199 }
+			carrier_event = { id = uplift.7199 }
 		}
 	}
 }

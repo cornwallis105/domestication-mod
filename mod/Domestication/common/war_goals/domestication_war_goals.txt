@@ -2,7 +2,7 @@
 wg_independence = {
 	casus_belli = cb_subject
 
-	hide_if_no_cb = yes
+	hide = no_cb
 	set_defender_wargoal = wg_assert_overlordship
 
 	potential = {
@@ -25,7 +25,7 @@ wg_independence = {
 			}
 		}
 	}
-	
+
 	on_status_quo = {
 		custom_tooltip = wg_independence_status_quo
 		hidden_effect = {
@@ -50,7 +50,7 @@ wg_independence = {
 			}
 		}
 	}
-	
+
 	on_accept = {
 		custom_tooltip = wg_independence_accept
 		hidden_effect = {
@@ -94,13 +94,15 @@ wg_independence = {
 	ai_weight = {
 		weight = 100
 	}
+
+	should_ignore_federations = yes
 }
 
 
 wg_domestication = {
 	casus_belli = cb_subjugation
 
-	hide_if_no_cb = no
+	hide = no_cb
 	release_occupied_systems_on_status_quo = yes
 
 	surrender_acceptance = -100

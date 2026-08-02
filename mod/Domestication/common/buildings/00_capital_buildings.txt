@@ -18,6 +18,7 @@ building_colony_shelter = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 1
 
 	category = government
 
@@ -52,7 +53,11 @@ building_colony_shelter = {
 	planet_modifier = {
 		planet_housing_add = 300
 		planet_amenities_add = 300
-		job_colonist_add = 200
+	}
+
+	inline_script = {
+		script = shroud/jobs/colonist_add
+		AMOUNT = 200
 	}
 
 	inline_script = {
@@ -64,8 +69,9 @@ building_colony_shelter = {
 			exists = owner
 			owner = { has_valid_civic = civic_dystopian_society }
 		}
-		job_enforcer_add = 100
 		job_colonist_add = -100
+		job_spe_colonist_add = -100
+		job_dystopian_enforcer_add = 100
 	}
 
 	triggered_planet_modifier = {
@@ -75,6 +81,7 @@ building_colony_shelter = {
 			has_modifier = penal_colony
 		}
 		job_colonist_add = -100
+		job_spe_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -86,6 +93,7 @@ building_colony_shelter = {
 		}
 		job_roboticist_add = 100
 		job_colonist_add = -100
+		job_spe_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -95,6 +103,7 @@ building_colony_shelter = {
 		}
 		job_roboticist_add = 100
 		job_colonist_add = -100
+		job_spe_colonist_add = -100
 	}
 
 	triggered_planet_modifier = {
@@ -124,48 +133,6 @@ building_colony_shelter = {
 		trigger = {
 			exists = owner
 			owner = {
-				NAND = {
-					has_valid_civic = civic_dystopian_society
-					has_active_tradition = tr_synthetics_prefabricated_components
-				}
-			}
-		}
-		text = job_colonist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				OR = {
-					has_active_tradition = tr_synthetics_prefabricated_components
-					is_individual_machine = yes
-				}
-			}
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-			has_modifier = penal_colony
-		}
-		text = job_warden_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
 				empire_can_have_floret_jobs = yes
 			}
 		}
@@ -182,6 +149,7 @@ building_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	category = government
 
@@ -230,7 +198,6 @@ building_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 100
 		planet_housing_add = 1000
 		planet_amenities_add = 1000
 		planet_max_branch_office_buildings_add = 1
@@ -246,17 +213,11 @@ building_capital = {
 		AMOUNT = 200
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 100
 	}
+
 
 	triggered_planet_modifier = {
 		potential = {
@@ -270,48 +231,20 @@ building_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b2_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b2_upkeep
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_civil_education } }
-		}
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
-	}
 	triggered_desc = {
 		trigger = {
 			exists = owner
@@ -334,6 +267,7 @@ building_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	category = government
 
@@ -376,7 +310,6 @@ building_major_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 200
 		planet_housing_add = 1500
 		planet_amenities_add = 1500
 		planet_max_branch_office_buildings_add = 2
@@ -396,18 +329,6 @@ building_major_capital = {
 		potential = {
 			exists = owner
 			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
 				empire_can_have_floret_jobs = yes
 			}
 		}
@@ -416,65 +337,23 @@ building_major_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 200
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b3_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b3_upkeep
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_civil_education } }
-		}
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
 	}
 
 	triggered_desc = {
@@ -490,7 +369,7 @@ building_major_capital = {
 	upgrades = {
 		"building_system_capital"
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -502,6 +381,7 @@ building_system_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 4
 
 	category = government
 
@@ -545,7 +425,6 @@ building_system_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 300
 		planet_housing_add = 2000
 		planet_amenities_add = 2000
 		planet_max_branch_office_buildings_add = 4
@@ -561,28 +440,9 @@ building_system_capital = {
 		AMOUNT = 400
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 300
 	}
 
 	triggered_planet_modifier = {
@@ -597,67 +457,18 @@ building_system_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b4_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b4_upkeep
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_civil_education } }
-		}
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = payback_unified_purpose
-		}
-		text = job_unifier_effect_desc
 	}
 
 	triggered_desc = {
@@ -673,7 +484,7 @@ building_system_capital = {
 	upgrades = {
 		building_imperial_capital
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -689,6 +500,7 @@ building_deployment_post = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 1
 
 	category = government
 
@@ -719,7 +531,7 @@ building_deployment_post = {
 
 	planet_modifier = {
 		planet_housing_add = 300
-		planet_amenities_add = 300
+		planet_amenities_add = 500
 		job_replicator_add = 200
 		job_patrol_drone_add = 100
 		job_logistics_drone_add = 200
@@ -741,11 +553,11 @@ building_deployment_post = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_modifier = gestation_colony
+			exists = owner
+			owner = { has_modifier = shroud_forged_physician_modifier }
 		}
 		modifier = {
-			job_replicator_add = -100
-			job_gestation_drone_add = 200
+			job_physician_drone_add = 100
 		}
 	}
 
@@ -759,28 +571,6 @@ building_deployment_post = {
 	upgrades = {
 		building_machine_capital
 	}
-
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
 }
 
 # Administrative Array
@@ -792,6 +582,7 @@ building_machine_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	category = government
 
@@ -805,10 +596,7 @@ building_machine_capital = {
 			OR = {
 				is_machine_empire = yes
 				is_country_type = ai_empire
-				AND = {
-					exists = event_target:mechanocalibrator_country
-					is_same_value = event_target:mechanocalibrator_country
-				}
+				is_country_type = mechanocalibrator
 			}
 			is_fallen_empire = no
 		}
@@ -818,7 +606,10 @@ building_machine_capital = {
 
 	destroy_trigger = {
 		exists = owner
-		owner = { is_machine_empire = no }
+		owner = { 
+			is_machine_empire = no
+			NOT = { is_country_type = mechanocalibrator }
+		}
 	}
 
 	convert_to = {
@@ -845,6 +636,7 @@ building_machine_capital = {
 		planet_housing_add = 1000
 		planet_amenities_add = 1000
 		job_replicator_add = 200
+		job_coordinator_add = 200
 		job_patrol_drone_add = 100
 		job_logistics_drone_add = 300
 		planet_defense_armies_add = @tier_2_capital_defense_armies
@@ -867,28 +659,22 @@ building_machine_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -100
-			job_gestation_drone_add = 200
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
 			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
+			owner = { has_modifier = shroud_forged_physician_modifier }
 		}
 		modifier = {
-			pop_bonus_workforce_mult = 0.1
+			job_physician_drone_add = 100
 		}
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b2_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b2_upkeep
@@ -899,28 +685,6 @@ building_machine_capital = {
 		building_machine_major_capital
 	}
 
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_logistics_drone_effect_desc
-	}
-	
 	additional_ai_weight = 100
 }
 
@@ -933,6 +697,7 @@ building_machine_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	category = government
 
@@ -975,6 +740,7 @@ building_machine_major_capital = {
 		planet_housing_add = 1500
 		planet_amenities_add = 1500
 		job_replicator_add = 200
+		job_coordinator_add = 300
 		job_patrol_drone_add = 200
 		job_logistics_drone_add = 400
 		planet_defense_armies_add = @tier_3_capital_defense_armies
@@ -997,66 +763,32 @@ building_machine_major_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -100
-			job_gestation_drone_add = 200
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
 			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
+			owner = { has_modifier = shroud_forged_physician_modifier }
 		}
 		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
+			job_physician_drone_add = 100
 		}
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b3_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b3_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b3_upkeep
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
-			NOT = { has_modifier = gestation_colony }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
 	upgrades = {
 		"building_machine_system_capital"
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -1069,6 +801,7 @@ building_machine_system_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 4
 
 	category = government
 
@@ -1112,6 +845,7 @@ building_machine_system_capital = {
 		planet_housing_add = 2000
 		planet_amenities_add = 2000
 		job_replicator_add = 200
+		job_coordinator_add = 400
 		job_patrol_drone_add = 300
 		job_logistics_drone_add = 500
 		planet_defense_armies_add = @tier_4_capital_defense_armies
@@ -1150,73 +884,32 @@ building_machine_system_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -100
-			job_gestation_drone_add = 200
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
 			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
+			owner = { has_modifier = shroud_forged_physician_modifier }
 		}
 		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
+			job_physician_drone_add = 100
 		}
 	}
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b4_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b4_upkeep
 		}
 	}
 
-	triggered_desc = {
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-
 	upgrades = {
 		"building_imperial_machine_capital"
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -1233,6 +926,7 @@ building_hive_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	category = government
 
@@ -1298,36 +992,18 @@ building_hive_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 1000
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = 1000
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 2
 		}
-	}
-
-	triggered_desc = {
-		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
 	}
 }
 
@@ -1340,6 +1016,7 @@ building_hive_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	category = government
 
@@ -1397,58 +1074,20 @@ building_hive_major_capital = {
 		script = buildings/on_all_capital_buildings
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b2_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b2_upkeep
 		}
 	}
 
-	triggered_desc = {
-		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-	
 	additional_ai_weight = 100
 }
 
@@ -1464,6 +1103,7 @@ building_hab_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	icon = building_capital
 
@@ -1497,7 +1137,7 @@ building_hab_capital = {
 			alloys = 5
 		}
 		upkeep = {
-			trigger = { owner = { has_active_tradition = tr_expansion_adopt } }
+			trigger = { owner? = { has_active_tradition = tr_expansion_adopt } }
 			alloys = -1
 		}
 	}
@@ -1529,21 +1169,10 @@ building_hab_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = { is_gestalt = yes }
 		}
 		job_coordinator_add = 200
+		job_patrol_drone_add = 100
 		planet_amenities_add = 300
 	}
 
@@ -1552,10 +1181,8 @@ building_hab_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		job_evaluator_add = 100
+		job_coordinator_add = -100
 		job_replicator_add = 100
-		job_logistics_drone_add = 200
-		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -1595,34 +1222,8 @@ building_hab_capital = {
 			owner = { has_civic = civic_dystopian_society }
 		}
 		modifier = {
-			job_enforcer_add = 100
+			job_dystopian_enforcer_add = 100
 		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-				NOR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_effect_desc
 	}
 
 	triggered_planet_modifier = {
@@ -1635,108 +1236,6 @@ building_hab_capital = {
 		modifier = {
 			job_floret_add = 100
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-				OR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_research_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				OR = {
-					is_individual_machine = yes
-					AND = {
-						is_regular_empire = yes
-						has_active_tradition = tr_synthetics_prefabricated_components
-					}
-				}
-			}
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-					is_regular_empire = yes
-					NOT = { has_valid_civic = civic_civil_education }
-			}
-			text = job_enforcer_effect_desc
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_evaluator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		text = job_synapse_drone_effect_desc
 	}
 
 	triggered_desc = {
@@ -1763,6 +1262,7 @@ building_hab_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	icon = building_major_capital
 
@@ -1795,8 +1295,12 @@ building_hab_major_capital = {
 
 	resources = {
 		category = planet_buildings_hab_capital
-		cost = {
-			minerals = @b2_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b2_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 3
@@ -1836,21 +1340,10 @@ building_hab_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = { is_gestalt = yes }
 		}
 		job_coordinator_add = 300
+		job_patrol_drone_add = 200
 		planet_amenities_add = 300
 	}
 
@@ -1859,10 +1352,8 @@ building_hab_major_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		job_evaluator_add = 200
+		job_coordinator_add = -100
 		job_replicator_add = 100
-		job_logistics_drone_add = 300
-		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -1898,7 +1389,7 @@ building_hab_major_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_planet_flag = toxic_knights_habitat
+			has_carrier_flag = toxic_knights_habitat
 			exists = owner
 			owner = {
 				has_origin = origin_toxic_knights
@@ -1910,32 +1401,9 @@ building_hab_major_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		job_enforcer_add = 100
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 100
 	}
 
 	triggered_planet_modifier = {
@@ -1954,124 +1422,6 @@ building_hab_major_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				has_origin = origin_toxic_knights
-				NOR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-				OR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_research_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				OR = {
-					is_individual_machine = yes
-					AND = {
-						is_regular_empire = yes
-						has_active_tradition = tr_synthetics_prefabricated_components
-					}
-				}
-			}
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-					is_regular_empire = yes
-					NOT = { has_valid_civic = civic_civil_education }
-			}
-			text = job_enforcer_effect_desc
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_evaluator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
 				empire_can_have_floret_jobs = yes
 			}
 		}
@@ -2081,7 +1431,7 @@ building_hab_major_capital = {
 	upgrades = {
 		"building_hab_system_capital"
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -2094,6 +1444,7 @@ building_hab_system_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 4
 
 	icon = building_system_capital
 
@@ -2126,8 +1477,12 @@ building_hab_system_capital = {
 
 	resources = {
 		category = planet_buildings_hab_capital
-		cost = {
-			minerals = @b3_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b3_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = 5
@@ -2167,21 +1522,10 @@ building_hab_system_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
-		}
-		modifier = {
-			planet_housing_add = 100
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_hive_empire = yes }
+			owner = { is_gestalt = yes }
 		}
 		job_coordinator_add = 400
+		job_patrol_drone_add = 300
 		planet_amenities_add = 300
 	}
 
@@ -2190,10 +1534,8 @@ building_hab_system_capital = {
 			exists = owner
 			owner = { is_machine_empire = yes }
 		}
-		job_evaluator_add = 300
+		job_coordinator_add = -100
 		job_replicator_add = 100
-		job_logistics_drone_add = 300
-		planet_amenities_add = 300
 	}
 
 	triggered_planet_modifier = {
@@ -2229,7 +1571,7 @@ building_hab_system_capital = {
 
 	triggered_planet_modifier = {
 		potential = {
-			has_planet_flag = toxic_knights_habitat
+			has_carrier_flag = toxic_knights_habitat
 			exists = owner
 			owner = {
 				has_origin = origin_toxic_knights
@@ -2241,42 +1583,9 @@ building_hab_system_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { is_regular_empire = yes }
-		}
-		job_enforcer_add = 200
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 200
 	}
 
 	triggered_planet_modifier = {
@@ -2291,123 +1600,6 @@ building_hab_system_capital = {
 		}
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-				NOR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-				OR = {
-					has_country_flag = toxoids_7011_b
-					has_country_flag = toxoids_7040_b
-					has_country_flag = toxoids_7130_b
-				}
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_commander_research_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				has_origin = origin_toxic_knights
-			}
-			has_planet_flag = toxic_knights_habitat
-		}
-		text = job_knight_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				OR = {
-					is_individual_machine = yes
-					AND = {
-						is_regular_empire = yes
-						has_active_tradition = tr_synthetics_prefabricated_components
-					}
-				}
-			}
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-					is_regular_empire = yes
-					NOT = { has_valid_civic = civic_civil_education }
-			}
-			text = job_enforcer_effect_desc
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_evaluator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_machine_empire = yes }
-		}
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { is_hive_empire = yes }
-		}
-		text = job_synapse_drone_effect_desc
-	}
 
 	triggered_desc = {
 		trigger = {
@@ -2422,7 +1614,7 @@ building_hab_system_capital = {
 	upgrades = {
 		building_imperial_capital
 	}
-	
+
 	additional_ai_weight = 100
 }
 
@@ -2438,6 +1630,7 @@ building_resort_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	icon = building_capital
 
@@ -2515,62 +1708,10 @@ building_resort_capital = {
 		trigger = {
 			exists = owner
 			owner = {
-				is_megacorp = no
-			}
-		}
-		text = job_politician_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		text = job_executive_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
 				empire_can_have_floret_jobs = yes
 			}
 		}
 		text = job_floret_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_resort_worker_effect_desc
 	}
 
 	upgrades = {
@@ -2587,6 +1728,7 @@ building_resort_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	icon = building_major_capital
 
@@ -2615,8 +1757,12 @@ building_resort_major_capital = {
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b2_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b2_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b2_upkeep
@@ -2658,16 +1804,6 @@ building_resort_major_capital = {
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
 			owner = {
 				empire_can_have_floret_jobs = yes
 
@@ -2676,58 +1812,6 @@ building_resort_major_capital = {
 		modifier = {
 			job_floret_add = 200
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		text = job_politician_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_active_tradition = tr_synthetics_prefabricated_components }
-		}
-		text = job_roboticist_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		text = job_executive_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_resort_worker_effect_desc
 	}
 
 	triggered_desc = {
@@ -2751,6 +1835,7 @@ building_slave_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 2
 
 	icon = building_capital
 
@@ -2797,42 +1882,6 @@ building_slave_capital = {
 		AMOUNT = @building_static_jobs
 	}
 
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		text = job_politician_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		text = job_executive_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_slave_overseer_effect_desc
-	}
-
 	upgrades = {
 		"building_slave_major_capital"
 	}
@@ -2847,6 +1896,7 @@ building_slave_major_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 3
 
 	icon = building_major_capital
 
@@ -2875,8 +1925,12 @@ building_slave_major_capital = {
 
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = 500
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = 500
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b1_upkeep
@@ -2900,52 +1954,6 @@ building_slave_major_capital = {
 		AMOUNT = @building_static_jobs
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = no
-			}
-		}
-		text = job_politician_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = no
-			}
-		}
-		text = job_executive_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = {
-				is_megacorp = yes
-				is_worker_coop_empire = yes
-			}
-		}
-		text = job_steward_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_slave_overseer_effect_desc
-	}
-	
 	additional_ai_weight = 100
 }
 
@@ -2959,6 +1967,7 @@ building_imperial_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 5
 
 	category = government
 
@@ -2993,7 +2002,6 @@ building_imperial_capital = {
 	}
 
 	planet_modifier = {
-		job_enforcer_add = 500
 		planet_housing_add = 3000
 		planet_amenities_add = 3000
 		planet_max_branch_office_buildings_add = 4
@@ -3013,23 +2021,16 @@ building_imperial_capital = {
 		AMOUNT = 600
 	}
 
-	triggered_desc = {
-		trigger = {
-			has_planet_flag = habitat
-		}
-		text = building_hab_system_capital_tooltip
+	inline_script = {
+		script = jobs/enforcers_add
+		AMOUNT = 500
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				has_active_tradition = tr_domination_imperious_architecture
-			}
+	triggered_desc = {
+		trigger = {
+			has_carrier_flag = habitat
 		}
-		modifier = {
-			planet_housing_add = 100
-		}
+		text = building_hab_system_capital_tooltip
 	}
 
 	triggered_planet_modifier = {
@@ -3044,68 +2045,18 @@ building_imperial_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b4_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b4_upkeep
 		}
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { NOT = { has_valid_civic = civic_civil_education } }
-		}
-		text = job_enforcer_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_civil_education }
-		}
-		text = job_educator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			exists = owner
-			owner = { has_valid_civic = civic_private_healthcare_corporate }
-		}
-		text = job_healthcare_effect_desc
 	}
 
 	triggered_desc = {
@@ -3128,6 +2079,7 @@ building_imperial_machine_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 5
 
 	category = government
 
@@ -3168,6 +2120,7 @@ building_imperial_machine_capital = {
 		planet_housing_add = 3000
 		planet_amenities_add = 3000
 		job_replicator_add = 400
+		job_coordinator_add = 500
 		job_patrol_drone_add = 500
 		job_logistics_drone_add = 600
 		planet_max_branch_office_buildings_add = 3
@@ -3184,7 +2137,7 @@ building_imperial_machine_capital = {
 
 	triggered_desc = {
 		trigger = {
-			has_planet_flag = habitat
+			has_carrier_flag = habitat
 		}
 		text = building_hab_system_capital_tooltip
 	}
@@ -3216,71 +2169,20 @@ building_imperial_machine_capital = {
 		}
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			has_modifier = gestation_colony
-		}
-		modifier = {
-			job_replicator_add = -100
-			job_gestation_drone_add = 200
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b4_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b4_upkeep
 		}
 	}
 
-	triggered_desc = {
-		text = job_replicator_effect_desc
-	}
-
-	triggered_desc = {
-		trigger = {
-			has_modifier = gestation_colony
-		}
-		text = job_gestation_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-	
 	additional_ai_weight = 100
 }
 
@@ -3293,6 +2195,7 @@ building_imperial_hive_capital = {
 	can_be_ruined = no
 	can_be_disabled = no
 	position_priority = 0
+	capital_tier = 5
 
 	category = government
 
@@ -3349,7 +2252,7 @@ building_imperial_hive_capital = {
 
 	triggered_desc = {
 		trigger = {
-			has_planet_flag = habitat
+			has_carrier_flag = habitat
 		}
 		text = building_hab_system_capital_tooltip
 	}
@@ -3361,57 +2264,19 @@ building_imperial_hive_capital = {
 		job_coordinator_add = 500
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_1 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_2 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = { has_technology = tech_capital_productivity_3 }
-		}
-		modifier = {
-			pop_bonus_workforce_mult = 0.1
-		}
-	}
-
 	resources = {
 		category = planet_buildings
-		cost = {
-			minerals = @b4_minerals
+		inline_script = {
+			script = buildings/nomadic_cost_switcher
+			REGULAR_RESOURCE = minerals
+			NOMADIC_RESOURCE = alloys
+			COST = @b4_minerals
+			NOMADIC_COST_MULT = @nomadic_minerals_to_strategic_ratio
 		}
 		upkeep = {
 			energy = @b4_upkeep
 		}
 	}
 
-	triggered_desc = {
-		text = job_synapse_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_logistics_drone_effect_desc
-	}
-
-	triggered_desc = {
-		text = job_patrol_drone_effect_desc
-	}
-	
 	additional_ai_weight = 100
 }
